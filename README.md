@@ -9,3 +9,5 @@
 - 支持依赖注入
 
 你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ机器人平台。
+
+[![Newbe.Mahua.Framework](//pub.idqqimg.com/wpa/images/group.png "Newbe.Mahua.Framework")](//shang.qq.com/wpa/qunwpa?idkey=62199995e33f098e64625f54d213a3e00ed0fb01f71d839a11e7186a92b03fa6)
