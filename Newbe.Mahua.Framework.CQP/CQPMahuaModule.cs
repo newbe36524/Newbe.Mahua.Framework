@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Newbe.Mahua.Framework.CQP.CommandHandlers;
+using Newbe.Mahua.Framework.CQP.Commands;
 
 namespace Newbe.Mahua.Framework.CQP
 {
@@ -12,12 +14,32 @@ namespace Newbe.Mahua.Framework.CQP
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] {new CQPModule(),};
+            return new Module[] {new CqpModule(), new CommandModule(), new CommandHandlersModule()};
         }
 
+        private class CommandModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<AppInfoCommand>().As<MahuaCommand>();
+                builder.RegisterType<InitializeCommand>().As<MahuaCommand>();
+                builder.RegisterType<EnabledCommand>().As<MahuaCommand>();
+            }
+        }
 
-        // ReSharper disable once InconsistentNaming
-        class CQPModule : Autofac.Module
+        private class CommandHandlersModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<AppInfoCommandHandler>().As<IResultCommandHandler>();
+                builder.RegisterType<InitializeCommandHandler>().As<IVoidCommandHandler>();
+                builder.RegisterType<EnabledCommandHandler>().As<IVoidCommandHandler>();
+            }
+        }
+
+        private class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {

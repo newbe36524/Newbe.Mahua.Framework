@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.Framework.CQP.CommandResults;
+using Newbe.Mahua.Framework.CQP.Commands;
 
 namespace Newbe.Mahua.Framework.CQP
 {
@@ -15,7 +17,11 @@ namespace Newbe.Mahua.Framework.CQP
         /// </summary>
         /// <returns>返回处理过程是否成功的值。</returns>
         [DllExport("_eventEnable")]
-        public static int Enabled() => throw new NotImplementedException();
+        public static int Enabled()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new EnabledCommand());
+            return 0;
+        }
 
         /// <summary>
         /// 此函数会在插件被禁用时发生。
@@ -29,7 +35,11 @@ namespace Newbe.Mahua.Framework.CQP
         /// </summary>
         /// <returns>一个固定格式字符串。</returns>
         [DllExport("AppInfo")]
-        public static string AppInfo() => throw new NotImplementedException();
+        public static string AppInfo()
+        {
+            var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommandResult>(new AppInfoCommand());
+            return re.AppId;
+        }
 
         /// <summary>
         /// 获取此插件的AuthCode。
@@ -37,7 +47,14 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="authcode">由酷Q提供的AuthCode。</param>
         /// <returns></returns>
         [DllExport("Initialize", System.Runtime.InteropServices.CallingConvention.StdCall)]
-        public static int Initialize(int authcode) => throw new NotImplementedException();
+        public static int Initialize(int authcode)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new InitializeCommand
+            {
+                AuthCode = authcode
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 此函数会在酷Q退出时被调用。

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -9,11 +8,11 @@ using Newbe.Mahua.Framework.Logging;
 
 namespace Newbe.Mahua.Framework
 {
-    public class CrossAppDomainPluginLoader : MarshalByRefObject, IPluginBase, IPluginInfo
+    public class CrossAppDomainPluginLoader : MarshalByRefObject, IPluginLoader
     {
         private static readonly ILog Logger = LogProvider.For<CrossAppDomainPluginLoader>();
         internal static readonly int DefaultInitializeLeaseTimeInSeconds = 0;
-        private IPluginBase _pluginBase;
+        private IContainer _container;
 
         private static void Debug(string msg)
         {
@@ -33,6 +32,8 @@ namespace Newbe.Mahua.Framework
             }
             return lease;
         }
+
+        public string Message { get; private set; }
 
         public bool LoadPlugin(string pluginEntryPointDllFullFilename)
         {
@@ -63,11 +64,7 @@ namespace Newbe.Mahua.Framework
                     }
                 }
                 var container = builder.Build();
-                Debug($"Container构建完毕，尝试获取{nameof(IPluginBase)}实现类");
-                var impls = container.Resolve<IEnumerable<IPluginBase>>().ToArray();
-                Debug($"实现类一共{impls.Length}个");
-                _pluginBase = impls.First(x => !(x is CrossAppDomainPluginLoader));
-                Debug($"获取到了{_pluginBase.GetType().Name}作为{nameof(IPluginBase)}的实现类，插件加载完毕");
+                _container = container;
                 return true;
             }
             catch (Exception ex)
@@ -77,10 +74,22 @@ namespace Newbe.Mahua.Framework
             }
         }
 
-        public string Message { get; private set; }
-        public string Version { get; set; }
-        public string Name { get; set; }
-        public string Id { get; set; }
-        public string Description { get; set; }
+        public void SendCommand(MahuaCommand command)
+        {
+            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            {
+                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                center.Handle(command);
+            }
+        }
+
+        public void SendCommandWithResult(MahuaCommand command, out MahuaCommandResult mahuaCommandResult)
+        {
+            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            {
+                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                center.Handle(command, out mahuaCommandResult);
+            }
+        }
     }
 }
