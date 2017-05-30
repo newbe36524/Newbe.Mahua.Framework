@@ -9,8 +9,8 @@ namespace Newbe.Mahua.Framework
 
         private static TResult ConvertType<TResult>(MahuaCommandResult crossDomainCommandResult)
         {
-            var serialize = JavaScriptSerializer.Serialize(crossDomainCommandResult);
-            var re = JavaScriptSerializer.Deserialize<TResult>(serialize);
+            var json = JavaScriptSerializer.Serialize(crossDomainCommandResult);
+            var re = JavaScriptSerializer.Deserialize<TResult>(json);
             return re;
         }
 
@@ -19,6 +19,7 @@ namespace Newbe.Mahua.Framework
         {
             MahuaCommandResult result;
             pluginLoader.SendCommandWithResult(command, out result);
+            //todo 跨AppDomain时遇到了强制转换失败的问题，因此采用了json序列化的办法
             var re = ConvertType<TResult>(result);
             return re;
         }

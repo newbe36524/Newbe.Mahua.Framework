@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Newbe.Mahua.Framework;
+using Newbe.Mahua.Framework.MahuaEvents;
 
 namespace Newbe.Mahua.Plugins.Parrot
 {
@@ -16,6 +17,7 @@ namespace Newbe.Mahua.Plugins.Parrot
             {
                 base.Load(builder);
                 builder.RegisterType<PluginInfo>().As<IPluginInfo>();
+                builder.RegisterType<PrivateMessageReceivedMahuaEvent>().As<IPrivateMessageReceivedMahuaEvent>();
             }
         }
     }
