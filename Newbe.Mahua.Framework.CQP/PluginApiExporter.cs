@@ -65,7 +65,11 @@ namespace Newbe.Mahua.Framework.CQP
         /// </summary>
         /// <returns></returns>
         [DllExport("_eventExit", System.Runtime.InteropServices.CallingConvention.StdCall)]
-        public static int CoolQExited() => throw new NotImplementedException();
+        public static int CoolQExited()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new CoolQExitedCommand());
+            return 0;
+        }
 
 
         /// <summary>
