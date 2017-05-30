@@ -41,7 +41,11 @@
     <Compile Include="IMahuaEvent.cs" />
     <Compile Include="IMahuaModule.cs" />
     <Compile Include="IPluginInfo.cs" />
+    <Compile Include="MahuaEvents\Enums\GroupAdminChangeType.cs" />
     <Compile Include="MahuaEvents\IDiscussGroupMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupAdminChangedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupAdminDisabledMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupAdminEnabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupUploadedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromDiscussGroupReceivedMahuaEvent.cs" />
