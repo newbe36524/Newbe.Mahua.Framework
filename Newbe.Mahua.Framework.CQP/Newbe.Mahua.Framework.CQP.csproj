@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AddFriendRequestCommand.cs" />
     <Compile Include="Commands\AppInfoCommand.cs" />
     <Compile Include="Commands\CoolQExitedCommand.cs" />
     <Compile Include="Commands\DisabledCommand.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Commands\GroupMemberIncreasedCommand.cs" />
     <Compile Include="Commands\GroupMessageCommand.cs" />
     <Compile Include="Commands\GroupUploadedCommand.cs" />
+    <Compile Include="Commands\JoinGroupRequestCommand.cs" />
     <Compile Include="Commands\PrivateMessageCommand.cs" />
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />

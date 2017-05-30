@@ -45,6 +45,7 @@
     <Compile Include="MahuaEvents\Enums\GroupMemberChangedType.cs" />
     <Compile Include="MahuaEvents\Enums\GroupMemberDecreaseReason.cs" />
     <Compile Include="MahuaEvents\Enums\GroupMemberIncreasedReason.cs" />
+    <Compile Include="MahuaEvents\IAddingFriendRequestMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IDiscussGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IFriendAddedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminChangedMahuaEvent.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="MahuaEvents\IGroupMemberIncreasedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupUploadedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IJoinGroupRequestMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromDiscussGroupReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromGroupReceivedMahuaEvent.cs" />

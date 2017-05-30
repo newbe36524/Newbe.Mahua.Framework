@@ -321,7 +321,15 @@ namespace Newbe.Mahua.Framework.CQP
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventRequest_AddFriend")]
         public static int ProcessAddFriendRequest(int subType, int sendTime, long fromQQ, string msg, int font)
-            => throw new NotImplementedException();
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new AddFriendRequestCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                FromQq = fromQQ,
+                Message = msg
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理加群请求。
@@ -336,7 +344,16 @@ namespace Newbe.Mahua.Framework.CQP
         [DllExport("_eventRequest_AddGroup")]
         public static int ProcessJoinGroupRequest(int subType, int sendTime, long fromGroup, long fromQQ, string msg,
             string responseMark)
-            => throw new NotImplementedException();
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new JoinGroupRequestCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                FromQq = fromQQ,
+                FromGroup = fromGroup,
+                Message = msg
+            });
+            return 0;
+        }
 
         #region 菜单
 
