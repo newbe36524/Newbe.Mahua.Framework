@@ -46,6 +46,7 @@
     <Compile Include="MahuaEvents\Enums\GroupMemberDecreaseReason.cs" />
     <Compile Include="MahuaEvents\Enums\GroupMemberIncreasedReason.cs" />
     <Compile Include="MahuaEvents\IDiscussGroupMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IFriendAddingRequestReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminChangedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminDisabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminEnabledMahuaEvent.cs" />

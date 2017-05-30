@@ -301,7 +301,14 @@ namespace Newbe.Mahua.Framework.CQP
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventFriend_Add")]
         public static int ProcessFriendsAdded(int subType, int sendTime, long fromQQ)
-            => throw new NotImplementedException();
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new FriendsAddedCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                FromQq = fromQQ
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理好友添加请求。
