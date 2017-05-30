@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newbe.Mahua.Framework.Commands;
 using Newbe.Mahua.Framework.MahuaEvents;
 
@@ -19,6 +20,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class CoolQExitedCommand : CqpCommand
     {
     }

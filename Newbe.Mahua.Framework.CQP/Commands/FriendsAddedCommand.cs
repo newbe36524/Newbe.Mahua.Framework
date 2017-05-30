@@ -27,6 +27,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class FriendsAddedCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

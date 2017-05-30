@@ -28,6 +28,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class DiscussGroupMessageCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

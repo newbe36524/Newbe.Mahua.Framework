@@ -56,6 +56,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class GroupAdminChangeCommand : CqpCommand
     {
         public GroupAdminChangeType GroupAdminChangeType { get; set; }

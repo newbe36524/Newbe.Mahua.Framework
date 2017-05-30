@@ -92,6 +92,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class PrivateMessageCommand : CqpCommand
     {
         public PrivateMessageFromType PrivateMessageFromType { get; set; }

@@ -40,6 +40,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         }
     }
 
+    [Serializable]
     internal class GroupMemberIncreasedCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }
