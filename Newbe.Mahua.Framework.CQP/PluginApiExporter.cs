@@ -227,7 +227,33 @@ namespace Newbe.Mahua.Framework.CQP
         [DllExport("_eventSystem_GroupMemberDecrease")]
         public static int ProcessGroupMemberDecrease(int subType, int sendTime, long fromGroup, long fromQQ,
             long target)
-            => throw new NotImplementedException();
+        {
+            GroupMemberDecreasedReason reason;
+            switch (subType)
+            {
+                case 1:
+                    reason = GroupMemberDecreasedReason.Leavebyself;
+                    break;
+                case 2:
+                    reason = GroupMemberDecreasedReason.Kicked;
+                    break;
+                case 3:
+                    reason = GroupMemberDecreasedReason.Kicked;
+                    break;
+                default:
+                    reason = GroupMemberDecreasedReason.Unknow;
+                    break;
+            }
+            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreasedCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                ToQq = target,
+                FromGroup = fromGroup,
+                FromQq = fromQQ,
+                GroupMemberDecreasedReason = reason,
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理群成员添加事件。
@@ -241,7 +267,30 @@ namespace Newbe.Mahua.Framework.CQP
         [DllExport("_eventSystem_GroupMemberIncrease")]
         public static int ProcessGroupMemberIncrease(int subType, int sendTime, long fromGroup, long fromQQ,
             long target)
-            => throw new NotImplementedException();
+        {
+            GroupMemberIncreasedReason reason;
+            switch (subType)
+            {
+                case 1:
+                    reason = GroupMemberIncreasedReason.AdminAllowed;
+                    break;
+                case 2:
+                    reason = GroupMemberIncreasedReason.GroupMemberInvitated;
+                    break;
+                default:
+                    reason = GroupMemberIncreasedReason.Unknow;
+                    break;
+            }
+            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreasedCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                ToQq = target,
+                FromGroup = fromGroup,
+                FromQq = fromQQ,
+                GroupMemberIncreasedReason = reason,
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理好友已添加事件。
