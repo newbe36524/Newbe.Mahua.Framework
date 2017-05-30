@@ -43,8 +43,9 @@ namespace Newbe.Mahua.Framework.CQP
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<CoolQApi>().As<ICoolQApi>().SingleInstance();
+                builder.RegisterType<CoolQApi>().As<ICoolQApi>();
                 builder.RegisterType<MahuaApi>().As<IMahuaApi>().SingleInstance();
+                builder.RegisterType<CqpAuthCodeContainer>().As<ICqpAuthCodeContainer>().SingleInstance();
             }
         }
     }

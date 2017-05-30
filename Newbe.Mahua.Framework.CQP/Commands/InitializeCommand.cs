@@ -6,16 +6,16 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 {
     internal class InitializeCommandHandler : CommandHandlerBase<InitializeCommand>
     {
-        private readonly ICoolQApi _coolQApi;
+        private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
 
-        public InitializeCommandHandler(ICoolQApi coolQApi)
+        public InitializeCommandHandler(ICqpAuthCodeContainer cqpAuthCodeContainer)
         {
-            _coolQApi = coolQApi;
+            _cqpAuthCodeContainer = cqpAuthCodeContainer;
         }
 
         protected override void HandleCore(InitializeCommand command)
         {
-            _coolQApi.SetAuthCode(command.AuthCode);
+            _cqpAuthCodeContainer.AuthCode = command.AuthCode;
         }
     }
 
