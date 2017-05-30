@@ -1,9 +1,8 @@
-﻿using System;
-using Newbe.Mahua.Framework.CQP.Commands;
+﻿using Newbe.Mahua.Framework.Commands;
 
-namespace Newbe.Mahua.Framework.CQP.CommandHandlers
+namespace Newbe.Mahua.Framework.CQP.Commands.CommandHandlers
 {
-    public class InitializeCommandHandler : CommandHandlerBase<InitializeCommand>
+    internal class InitializeCommandHandler : CommandHandlerBase<InitializeCommand>
     {
         private readonly ICoolQApi _coolQApi;
 

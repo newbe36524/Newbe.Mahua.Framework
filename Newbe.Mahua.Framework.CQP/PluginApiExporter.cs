@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using Newbe.Mahua.Framework.CQP.CommandResults;
 using Newbe.Mahua.Framework.CQP.Commands;
+using Newbe.Mahua.Framework.CQP.Commands.CommandResults;
 
 namespace Newbe.Mahua.Framework.CQP
 {
@@ -10,6 +10,7 @@ namespace Newbe.Mahua.Framework.CQP
     /// </summary>
     public sealed class PluginApiExporter : IPluginApiExporter
     {
+        public const string CoolApiVersion = "9";
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.CQP;
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Newbe.Mahua.Framework.CQP
         public static string AppInfo()
         {
             var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommandResult>(new AppInfoCommand());
-            return re.AppId;
+            return $"{CoolApiVersion},{re.AppId}".ToLowerInvariant();
         }
 
         /// <summary>

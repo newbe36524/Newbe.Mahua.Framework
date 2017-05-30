@@ -1,10 +1,10 @@
 ﻿using System;
+using Newbe.Mahua.Framework.Commands;
 
 namespace Newbe.Mahua.Framework.CQP.Commands
 {
     [Serializable]
-    internal class InitializeCommand : CqpCommand
+    internal class CqpCommand : MahuaCommand
     {
-        public int AuthCode { get; set; }
     }
 }

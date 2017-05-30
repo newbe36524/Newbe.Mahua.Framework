@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
-using Newbe.Mahua.Framework.CQP.CommandHandlers;
+using Newbe.Mahua.Framework.Commands;
 using Newbe.Mahua.Framework.CQP.Commands;
+using Newbe.Mahua.Framework.CQP.Commands.CommandHandlers;
 
 namespace Newbe.Mahua.Framework.CQP
 {
-    // ReSharper disable once InconsistentNaming
-    public class CQPMahuaModule : IMahuaModule
+    public class CqpMahuaModule : IMahuaModule
     {
         Module[] IMahuaModule.GetModules()
         {

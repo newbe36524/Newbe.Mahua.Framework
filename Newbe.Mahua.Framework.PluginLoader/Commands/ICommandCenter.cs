@@ -1,4 +1,4 @@
-namespace Newbe.Mahua.Framework
+namespace Newbe.Mahua.Framework.Commands
 {
     public interface ICommandCenter
     {

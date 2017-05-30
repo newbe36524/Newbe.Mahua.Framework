@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Lifetime;
 using Autofac;
+using Newbe.Mahua.Framework.Commands;
 using Newbe.Mahua.Framework.Logging;
 
 namespace Newbe.Mahua.Framework

@@ -1,6 +1,9 @@
-﻿namespace Newbe.Mahua.Framework.CQP.Commands
+﻿using System;
+
+namespace Newbe.Mahua.Framework.CQP.Commands
 {
-    public class AppInfoCommand:CqpCommand
+    [Serializable]
+    internal class AppInfoCommand : CqpCommand
     {
     }
 }

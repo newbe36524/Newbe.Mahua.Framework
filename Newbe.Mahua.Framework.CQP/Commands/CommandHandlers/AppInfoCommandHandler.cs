@@ -1,9 +1,9 @@
-﻿using Newbe.Mahua.Framework.CQP.CommandResults;
-using Newbe.Mahua.Framework.CQP.Commands;
+﻿using Newbe.Mahua.Framework.Commands;
+using Newbe.Mahua.Framework.CQP.Commands.CommandResults;
 
-namespace Newbe.Mahua.Framework.CQP.CommandHandlers
+namespace Newbe.Mahua.Framework.CQP.Commands.CommandHandlers
 {
-    public class AppInfoCommandHandler : CommandHandlerBase<AppInfoCommand, AppInfoCommandResult>
+    internal class AppInfoCommandHandler : CommandHandlerBase<AppInfoCommand, AppInfoCommandResult>
     {
         private readonly IPluginInfo _pluginInfo;
 
@@ -16,7 +16,7 @@ namespace Newbe.Mahua.Framework.CQP.CommandHandlers
         {
             return new AppInfoCommandResult
             {
-                AppId = _pluginInfo.Id.ToLowerInvariant(),
+                AppId = _pluginInfo.Id,
             };
         }
     }

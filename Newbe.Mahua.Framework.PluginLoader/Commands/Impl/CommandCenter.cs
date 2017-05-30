@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Newbe.Mahua.Framework
+namespace Newbe.Mahua.Framework.Commands.Impl
 {
-    public class CommandCenter : ICommandCenter
+    internal class CommandCenter : ICommandCenter
     {
         private readonly IEnumerable<IVoidCommandHandler> _commandHandlers;
         private readonly IEnumerable<IResultCommandHandler> _resultCommandHandlers;

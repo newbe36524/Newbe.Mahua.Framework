@@ -1,4 +1,4 @@
-﻿namespace Newbe.Mahua.Framework
+﻿namespace Newbe.Mahua.Framework.Commands
 {
     public abstract class CommandHandlerBase<TCommand> : IComamndHandler<TCommand> where TCommand : MahuaCommand
     {
@@ -20,7 +20,7 @@
         }
     }
 
-    public abstract class CommandHandlerBase<TCommand, TResult> : ICommandHanlder<TCommand, TResult>
+    public abstract class CommandHandlerBase<TCommand, TResult> : ICommandHandler<TCommand, TResult>
         where TCommand : MahuaCommand
     {
         public TResult Handle(TCommand command)

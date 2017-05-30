@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Newbe.Mahua.Framework.Commands;
+using Newbe.Mahua.Framework.Commands.Impl;
 
 namespace Newbe.Mahua.Framework
 {

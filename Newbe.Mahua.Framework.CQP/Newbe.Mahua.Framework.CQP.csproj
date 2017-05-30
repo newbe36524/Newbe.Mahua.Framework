@@ -54,16 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandHandlers\AppInfoCommandHandler.cs" />
-    <Compile Include="CommandHandlers\EnabledCommandHandler.cs" />
-    <Compile Include="CommandHandlers\InitializeCommandHandler.cs" />
-    <Compile Include="CommandResults\AppInfoCommandResult.cs" />
+    <Compile Include="Commands\CommandHandlers\AppInfoCommandHandler.cs" />
+    <Compile Include="Commands\CommandHandlers\EnabledCommandHandler.cs" />
+    <Compile Include="Commands\CommandHandlers\InitializeCommandHandler.cs" />
+    <Compile Include="Commands\CommandResults\AppInfoCommandResult.cs" />
     <Compile Include="Commands\AppInfoCommand.cs" />
     <Compile Include="Commands\EnabledCommand.cs" />
-    <Compile Include="CqpCommand.cs" />
+    <Compile Include="Commands\CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />
     <Compile Include="CoolQApi.cs" />
-    <Compile Include="CQPMahuaModule.cs" />
+    <Compile Include="CqpMahuaModule.cs" />
     <Compile Include="ICoolQApi.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="PluginApiExporter.cs" />
