@@ -9,23 +9,32 @@ namespace Newbe.Mahua.Framework.CQP.Commands
     internal class PrivateMessageCommandHandler : CommandHandlerBase<PrivateMessageCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
-        private readonly IEnumerable<IFriendMessageReceivedMahuaEvent> _friendMessageReceivedMahuaEvents;
-        private readonly IEnumerable<IOnlineMessageReceivedMahuaEvent> _onlineMessageReceivedMahuaEvents;
-        private readonly IEnumerable<IGroupMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
-        private readonly IEnumerable<IDiscussGroupMessageReceivedMahuaEvent> _discussGroupMessageReceivedMahuaEvents;
+
+        private readonly IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent>
+            _privateMessageFromFriendReceivedMahuaEvents;
+
+        private readonly IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent>
+            _privateMessageFromOnlineReceivedMahuaEvents;
+
+        private readonly IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent>
+            _privateMessageFromGroupReceivedMahuaEvents;
+
+        private readonly IEnumerable<IPrivateMessageFromDiscussGroupReceivedMahuaEvent>
+            _privateMessageFromDiscussGroupReceivedMahuaEvents;
 
         public PrivateMessageCommandHandler(
             IEnumerable<IPrivateMessageReceivedMahuaEvent> privateMessageReceivedMahuaEvents,
-            IEnumerable<IFriendMessageReceivedMahuaEvent> friendMessageReceivedMahuaEvents,
-            IEnumerable<IOnlineMessageReceivedMahuaEvent> onlineMessageReceivedMahuaEvents,
-            IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents,
-            IEnumerable<IDiscussGroupMessageReceivedMahuaEvent> discussGroupMessageReceivedMahuaEvents)
+            IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
+            IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
+            IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
+            IEnumerable<IPrivateMessageFromDiscussGroupReceivedMahuaEvent>
+                privateMessageFromDiscussGroupReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
-            _friendMessageReceivedMahuaEvents = friendMessageReceivedMahuaEvents;
-            _onlineMessageReceivedMahuaEvents = onlineMessageReceivedMahuaEvents;
-            _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
-            _discussGroupMessageReceivedMahuaEvents = discussGroupMessageReceivedMahuaEvents;
+            _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
+            _privateMessageFromOnlineReceivedMahuaEvents = privateMessageFromOnlineReceivedMahuaEvents;
+            _privateMessageFromGroupReceivedMahuaEvents = privateMessageFromGroupReceivedMahuaEvents;
+            _privateMessageFromDiscussGroupReceivedMahuaEvents = privateMessageFromDiscussGroupReceivedMahuaEvents;
         }
 
         protected override void HandleCore(PrivateMessageCommand command)
@@ -37,19 +46,20 @@ namespace Newbe.Mahua.Framework.CQP.Commands
                 case PrivateMessageFromType.Unknown:
                     break;
                 case PrivateMessageFromType.Friend:
-                    _friendMessageReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(command.SendTime,
+                    _privateMessageFromFriendReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(command.SendTime,
                         command.FormNum, command.Message));
                     break;
                 case PrivateMessageFromType.Online:
-                    _onlineMessageReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(command.SendTime,
+                    _privateMessageFromOnlineReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(command.SendTime,
                         command.FormNum, command.Message));
                     break;
                 case PrivateMessageFromType.Group:
-                    _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(command.SendTime,
+                    _privateMessageFromGroupReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(command.SendTime,
                         command.FormNum, command.Message));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
-                    _discussGroupMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(command.SendTime,
+                    _privateMessageFromDiscussGroupReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(
+                        command.SendTime,
                         command.FormNum, command.Message));
                     break;
                 default:

@@ -3,9 +3,9 @@
 namespace Newbe.Mahua.Framework.MahuaEvents
 {
     /// <summary>
-    /// 接受到在线状态消息
+    /// 接受到来自在线状态的私聊消息
     /// </summary>
-    public interface IOnlineMessageReceivedMahuaEvent : IMahuaEvent
+    public interface IPrivateMessageFromOnlineReceivedMahuaEvent : IMahuaEvent
     {
         void ProcessOnlineMessage(DateTime sendTime, long fromQq, string msg);
     }
