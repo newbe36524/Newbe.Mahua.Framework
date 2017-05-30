@@ -46,25 +46,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CommandHandlers\AppInfoCommandHandler.cs" />
-    <Compile Include="Commands\CommandHandlers\EnabledCommandHandler.cs" />
-    <Compile Include="Commands\CommandHandlers\InitializeCommandHandler.cs" />
-    <Compile Include="Commands\CommandResults\AppInfoCommandResult.cs" />
     <Compile Include="Commands\AppInfoCommand.cs" />
     <Compile Include="Commands\EnabledCommand.cs" />
-    <Compile Include="Commands\CqpCommand.cs" />
+    <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />
-    <Compile Include="CoolQApi.cs" />
+    <Compile Include="NativeApi\CoolQApi.cs" />
     <Compile Include="CqpMahuaModule.cs" />
-    <Compile Include="ICoolQApi.cs" />
+    <Compile Include="NativeApi\ICoolQApi.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="PluginApiExporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

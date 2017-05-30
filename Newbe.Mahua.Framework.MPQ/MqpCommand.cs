@@ -1,10 +1,10 @@
 ﻿using System;
 using Newbe.Mahua.Framework.Commands;
 
-namespace Newbe.Mahua.Framework.CQP.Commands
+namespace Newbe.Mahua.Framework.MPQ
 {
     [Serializable]
-    internal class CqpCommand : MahuaCommand
+    internal class MqpCommand : MahuaCommand
     {
     }
 }

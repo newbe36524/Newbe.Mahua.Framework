@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Newbe.Mahua.Framework.CQP
+namespace Newbe.Mahua.Framework.CQP.NativeApi
 {
     internal class CoolQApi : ICoolQApi
     {

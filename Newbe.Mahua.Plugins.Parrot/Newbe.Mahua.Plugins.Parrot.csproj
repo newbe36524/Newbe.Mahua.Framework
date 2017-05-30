@@ -35,12 +35,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MahuaModule.cs" />
@@ -49,10 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.Framework.CQP\Newbe.Mahua.Framework.CQP.csproj">
-      <Project>{0c305f78-179a-43c0-8430-ee34f2e3c827}</Project>
-      <Name>Newbe.Mahua.Framework.CQP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Newbe.Mahua.Framework\Newbe.Mahua.Framework.csproj">
       <Project>{598c5d58-b57a-4552-ac74-938d67b37144}</Project>
       <Name>Newbe.Mahua.Framework</Name>

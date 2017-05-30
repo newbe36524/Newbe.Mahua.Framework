@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using Newbe.Mahua.Framework.CQP.Commands;
-using Newbe.Mahua.Framework.CQP.Commands.CommandResults;
 
 namespace Newbe.Mahua.Framework.CQP
 {
@@ -11,7 +10,7 @@ namespace Newbe.Mahua.Framework.CQP
     public sealed class PluginApiExporter : IPluginApiExporter
     {
         public const string CoolApiVersion = "9";
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.CQP;
+        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
 
         /// <summary>
         /// 此函数会在插件被开启时发生。

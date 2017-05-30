@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Newbe.Mahua.Framework.CQP
+namespace Newbe.Mahua.Framework.CQP.NativeApi
 {
     /// <summary>
     /// 向酷Q.NET插件提供酷Q Api（与易语言170501对应）
