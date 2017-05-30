@@ -21,14 +21,22 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(GroupMemberDecreasedCommand command)
         {
-            _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(command.SendTime,
-                GroupMemberChangedType.Decreased,
-                command.FromGroup, command.ToQq));
+            _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
+            {
+                SendTime = command.SendTime,
+                FromGroup = command.FromGroup,
+                ToQq = command.ToQq,
+                GroupMemberChangedType = GroupMemberChangedType.Decreased
+            }));
             _groupMemberDecreasedMahuaEvents.Handle(
-                x => x.ProcessGroupMemberDecreased(command.SendTime, command.GroupMemberDecreasedReason,
-                    command.FromGroup,
-                    command.FromQq,
-                    command.ToQq));
+                x => x.ProcessGroupMemberDecreased(new GroupMemberDecreasedContext
+                {
+                    SendTime = command.SendTime,
+                    FromGroup = command.FromGroup,
+                    ToQq = command.ToQq,
+                    FromQq = command.FromQq,
+                    GroupMemberDecreasedReason = command.GroupMemberDecreasedReason
+                }));
         }
     }
 

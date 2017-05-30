@@ -16,8 +16,14 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(GroupMessageCommand command)
         {
-            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(command.SendTime, command.GroupNum,
-                command.FromQq, command.FromAnonymous, command.Message));
+            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
+            {
+                SendTime = command.SendTime,
+                FromAnonymous = command.FromAnonymous,
+                FromGroup = command.GroupNum,
+                FromQq = command.FromQq,
+                Message = command.Message,
+            }));
         }
     }
 

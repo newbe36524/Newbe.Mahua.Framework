@@ -7,6 +7,13 @@ namespace Newbe.Mahua.Framework.MahuaEvents
     /// </summary>
     public interface IPrivateMessageFromFriendReceivedMahuaEvent : IMahuaEvent
     {
-        void ProcessFriendMessage(DateTime sendTime, long fromQq, string msg);
+        void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context);
+    }
+
+    public class PrivateMessageFromFriendReceivedContext
+    {
+        public DateTime SendTime { get; set; }
+        public long FromQq { get; set; }
+        public string Message { get; set; }
     }
 }

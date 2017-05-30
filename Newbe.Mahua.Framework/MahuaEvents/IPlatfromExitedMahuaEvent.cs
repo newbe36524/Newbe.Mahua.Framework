@@ -8,6 +8,11 @@
         /// <summary>
         /// 机器人平台退出
         /// </summary>
-        void Exited();
+        /// <param name="context"></param>
+        void Exited(PlatfromExitedContext context);
+    }
+
+    public class PlatfromExitedContext
+    {
     }
 }

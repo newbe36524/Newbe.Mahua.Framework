@@ -23,17 +23,32 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(GroupAdminChangeCommand command)
         {
-            _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(command.GroupAdminChangeType,
-                command.SendTime, command.FromGroup, command.ToQq));
+            _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
+            {
+                SendTime = command.SendTime,
+                ToQq = command.ToQq,
+                FromGroup = command.FromGroup,
+                GroupAdminChangeType = command.GroupAdminChangeType
+            }));
             switch (command.GroupAdminChangeType)
             {
                 case GroupAdminChangeType.Enabled:
                     _groupAdminEnabledMahuaEvents.Handle(
-                        x => x.ProcessGroupAdminEnabled(command.SendTime, command.FromGroup, command.ToQq));
+                        x => x.ProcessGroupAdminEnabled(new GroupAdminEnabledContext
+                        {
+                            SendTime = command.SendTime,
+                            FromGroup = command.FromGroup,
+                            ToQq = command.ToQq
+                        }));
                     break;
                 case GroupAdminChangeType.Disabled:
                     _groupAdminDisabledMahuaEvents.Handle(
-                        x => x.ProcessGroupAdminDisabled(command.SendTime, command.FromGroup, command.ToQq));
+                        x => x.ProcessGroupAdminDisabled(new GroupAdminDisabledContext
+                        {
+                            SendTime = command.SendTime,
+                            FromGroup = command.FromGroup,
+                            ToQq = command.ToQq,
+                        }));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

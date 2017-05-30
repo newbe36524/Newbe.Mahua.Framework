@@ -7,6 +7,13 @@ namespace Newbe.Mahua.Framework.MahuaEvents
     /// </summary>
     public interface IPrivateMessageFromDiscussGroupReceivedMahuaEvent : IMahuaEvent
     {
-        void ProcessDiscussGroupMessage(DateTime sendTime, long discussGroupNum, string msg);
+        void ProcessDiscussGroupMessage(PrivateMessageFromDiscussGroupReceivedContext context);
+    }
+
+    public class PrivateMessageFromDiscussGroupReceivedContext
+    {
+        public DateTime SendTime { get; set; }
+        public long DiscussGroupNum { get; set; }
+        public string Message { get; set; }
     }
 }

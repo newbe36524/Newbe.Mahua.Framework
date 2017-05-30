@@ -15,7 +15,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(DisabledCommand command)
         {
-            _pluginDisabledMahuaEvents.Handle(x => x.Disable());
+            _pluginDisabledMahuaEvents.Handle(x => x.Disable(new PluginDisabledContext()));
         }
     }
 

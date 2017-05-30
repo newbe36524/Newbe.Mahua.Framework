@@ -4,8 +4,7 @@ namespace Newbe.Mahua.Framework.MahuaEvents
 {
     public interface IFriendAddedMahuaEvent : IMahuaEvent
     {
-        void ProcessFriendsAdded(
-            FriendAddedMahuaEventContext friendAddedMahuaEventContext);
+        void ProcessFriendsAdded(FriendAddedMahuaEventContext context);
     }
 
     public class FriendAddedMahuaEventContext

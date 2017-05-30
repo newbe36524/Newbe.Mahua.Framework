@@ -15,7 +15,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(CoolQExitedCommand command)
         {
-            _platfromExitedMahuaEvents.Handle(x => x.Exited());
+            _platfromExitedMahuaEvents.Handle(x => x.Exited(new PlatfromExitedContext()));
         }
     }
 

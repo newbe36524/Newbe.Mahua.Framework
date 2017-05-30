@@ -5,27 +5,14 @@ namespace Newbe.Mahua.Framework.MahuaEvents
 {
     public interface IGroupMemberChangedMahuaEvent : IMahuaEvent
     {
-        void ProcessGroupMemberChanged(DateTime sendTime, GroupMemberChangedType groupMemberChangedType, long fromGroup,
-            long toQq);
+        void ProcessGroupMemberChanged(GroupMemberChangedContext context);
     }
 
-    public interface IGroupMemberIncreasedMahuaEvent : IMahuaEvent
+    public class GroupMemberChangedContext
     {
-        void ProcessGroupMemberIncreased(
-            DateTime sendTime,
-            GroupMemberIncreasedReason groupMemberIncreasedReason,
-            long fromGroup,
-            long fromQq,
-            long toQq);
-    }
-
-    public interface IGroupMemberDecreasedMahuaEvent : IMahuaEvent
-    {
-        void ProcessGroupMemberDecreased(
-            DateTime sendTime,
-            GroupMemberDecreasedReason groupMemberDecreasedReason,
-            long fromGroup,
-            long fromQq,
-            long toQq);
+        public DateTime SendTime { get; set; }
+        public GroupMemberChangedType GroupMemberChangedType { get; set; }
+        public long FromGroup { get; set; }
+        public long ToQq { get; set; }
     }
 }

@@ -8,6 +8,11 @@
         /// <summary>
         /// 插件被禁用
         /// </summary>
-        void Disable();
+        void Disable(PluginDisabledContext context);
+    }
+
+    public class PluginDisabledContext
+    {
+
     }
 }

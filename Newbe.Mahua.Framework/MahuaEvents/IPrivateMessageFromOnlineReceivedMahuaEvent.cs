@@ -7,6 +7,13 @@ namespace Newbe.Mahua.Framework.MahuaEvents
     /// </summary>
     public interface IPrivateMessageFromOnlineReceivedMahuaEvent : IMahuaEvent
     {
-        void ProcessOnlineMessage(DateTime sendTime, long fromQq, string msg);
+        void ProcessOnlineMessage(PrivateMessageFromOnlineReceivedContext context);
+    }
+
+    public class PrivateMessageFromOnlineReceivedContext
+    {
+        public DateTime SendTime { get; set; }
+        public long FromQq { get; set; }
+        public string Message { get; set; }
     }
 }

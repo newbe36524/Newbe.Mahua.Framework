@@ -16,8 +16,13 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(GroupUploadedCommand command)
         {
-            _groupUploadedMahuaEvents.Handle(x => x.ProcessGroupUploaded(command.SendTime, command.GroupNum,
-                command.FromQq, command.File));
+            _groupUploadedMahuaEvents.Handle(x => x.ProcessGroupUploaded(new GroupUploadedContext
+            {
+                File = command.File,
+                FromGroup = command.GroupNum,
+                FromQq = command.FromQq,
+                SendTime = command.SendTime,
+            }));
         }
     }
 

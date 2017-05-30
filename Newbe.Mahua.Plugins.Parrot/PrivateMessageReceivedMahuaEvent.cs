@@ -1,7 +1,6 @@
 ﻿using System;
 using Newbe.Mahua.Framework;
 using Newbe.Mahua.Framework.MahuaEvents;
-using Newbe.Mahua.Framework.MahuaEvents.Enums;
 
 namespace Newbe.Mahua.Plugins.Parrot
 {
@@ -14,8 +13,7 @@ namespace Newbe.Mahua.Plugins.Parrot
             _mahuaApi = mahuaApi;
         }
 
-        void IPrivateMessageReceivedMahuaEvent.ProcessPrivateMessage(PrivateMessageFromType subType, DateTime sendTime,
-            long fromQq, string msg)
+        void IPrivateMessageReceivedMahuaEvent.ProcessPrivateMessage(PrivateMessageReceivedContext context)
         {
             throw new NotImplementedException();
         }

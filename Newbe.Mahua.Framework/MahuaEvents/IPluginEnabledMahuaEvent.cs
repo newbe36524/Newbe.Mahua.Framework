@@ -8,6 +8,11 @@
         /// <summary>
         /// 插件被启用
         /// </summary>
-        void Enabled();
+        /// <param name="context"></param>
+        void Enabled(PluginEnabledContext context);
+    }
+
+    public class PluginEnabledContext
+    {
     }
 }

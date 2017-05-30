@@ -51,6 +51,8 @@
     <Compile Include="MahuaEvents\IGroupAdminDisabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminEnabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMemberChangedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupMemberDecreasedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupMemberIncreasedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupUploadedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromDiscussGroupReceivedMahuaEvent.cs" />

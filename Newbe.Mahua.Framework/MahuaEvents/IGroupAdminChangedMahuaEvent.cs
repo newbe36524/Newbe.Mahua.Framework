@@ -5,7 +5,14 @@ namespace Newbe.Mahua.Framework.MahuaEvents
 {
     public interface IGroupAdminChangedMahuaEvent : IMahuaEvent
     {
-        void ProcessGroupAdminChange(GroupAdminChangeType groupAdminChangeType, DateTime sendTime, long fromGroup,
-            long toQq);
+        void ProcessGroupAdminChange(GroupAdminChangedContext context);
+    }
+
+    public class GroupAdminChangedContext
+    {
+        public GroupAdminChangeType GroupAdminChangeType { get; set; }
+        public DateTime SendTime { get; set; }
+        public long FromGroup { get; set; }
+        public long ToQq { get; set; }
     }
 }

@@ -39,28 +39,52 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 
         protected override void HandleCore(PrivateMessageCommand command)
         {
-            _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(command.PrivateMessageFromType,
-                command.SendTime, command.FormNum, command.Message));
+            _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(new PrivateMessageReceivedContext
+            {
+                SendTime = command.SendTime,
+                FromQq = command.FormNum,
+                Message = command.Message,
+                PrivateMessageFromType = command.PrivateMessageFromType,
+            }));
             switch (command.PrivateMessageFromType)
             {
                 case PrivateMessageFromType.Unknown:
                     break;
                 case PrivateMessageFromType.Friend:
-                    _privateMessageFromFriendReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(command.SendTime,
-                        command.FormNum, command.Message));
+                    _privateMessageFromFriendReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(
+                        new PrivateMessageFromFriendReceivedContext
+                        {
+                            SendTime = command.SendTime,
+                            FromQq = command.FormNum,
+                            Message = command.Message
+                        }));
                     break;
                 case PrivateMessageFromType.Online:
-                    _privateMessageFromOnlineReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(command.SendTime,
-                        command.FormNum, command.Message));
+                    _privateMessageFromOnlineReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(
+                        new PrivateMessageFromOnlineReceivedContext
+                        {
+                            SendTime = command.SendTime,
+                            FromQq = command.FormNum,
+                            Message = command.Message,
+                        }));
                     break;
                 case PrivateMessageFromType.Group:
-                    _privateMessageFromGroupReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(command.SendTime,
-                        command.FormNum, command.Message));
+                    _privateMessageFromGroupReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(
+                        new PrivateMessageFromGroupReceivedContext
+                        {
+                            SendTime = command.SendTime,
+                            Message = command.Message,
+                            GroupNum = command.FormNum,
+                        }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
                     _privateMessageFromDiscussGroupReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(
-                        command.SendTime,
-                        command.FormNum, command.Message));
+                        new PrivateMessageFromDiscussGroupReceivedContext
+                        {
+                            SendTime = command.SendTime,
+                            Message = command.Message,
+                            DiscussGroupNum = command.FormNum,
+                        }));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
