@@ -41,6 +41,8 @@
     <Compile Include="IMahuaEvent.cs" />
     <Compile Include="IMahuaModule.cs" />
     <Compile Include="IPluginInfo.cs" />
+    <Compile Include="MahuaEvents\IPluginDisabledMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IPluginEnabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaPlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

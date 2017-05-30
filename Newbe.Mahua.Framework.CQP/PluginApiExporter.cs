@@ -28,7 +28,11 @@ namespace Newbe.Mahua.Framework.CQP
         /// </summary>
         /// <returns>返回处理过程是否成功的值。</returns>
         [DllExport("_eventDisable")]
-        public static int Disabled() => throw new NotImplementedException();
+        public static int Disabled()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new DisabledCommand());
+            return 0;
+        }
 
         /// <summary>
         /// 向酷Q提供插件信息。

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AppInfoCommand.cs" />
+    <Compile Include="Commands\DisabledCommand.cs" />
     <Compile Include="Commands\EnabledCommand.cs" />
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />
