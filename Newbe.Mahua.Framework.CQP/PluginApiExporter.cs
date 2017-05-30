@@ -135,7 +135,17 @@ namespace Newbe.Mahua.Framework.CQP
         public static int ProcessGroupMessage(int subType, int sendTime, long fromGroup, long fromQQ,
             string fromAnonymous,
             string msg, int font)
-            => throw new NotImplementedException();
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GroupMessageCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                Message = msg,
+                GroupNum = fromGroup,
+                FromAnonymous = fromAnonymous,
+                FromQq = fromQQ,
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理讨论组消息。
