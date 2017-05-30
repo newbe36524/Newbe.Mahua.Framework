@@ -183,7 +183,16 @@ namespace Newbe.Mahua.Framework.CQP
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventGroupUpload")]
         public static int ProcessGroupUpload(int subType, int sendTime, long fromGroup, long fromQQ, string file)
-            => throw new NotImplementedException();
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GroupUploadedCommand
+            {
+                SendTime = ConvertToDatetime(sendTime),
+                GroupNum = fromGroup,
+                FromQq = fromQQ,
+                File = file
+            });
+            return 0;
+        }
 
         /// <summary>
         /// 处理群管理员变动事件。

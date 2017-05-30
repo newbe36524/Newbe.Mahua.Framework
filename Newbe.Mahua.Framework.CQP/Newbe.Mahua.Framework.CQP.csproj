@@ -54,6 +54,7 @@
     <Compile Include="Commands\EnabledCommand.cs" />
     <Compile Include="Commands\DiscussGroupMessageCommand.cs" />
     <Compile Include="Commands\GroupMessageCommand.cs" />
+    <Compile Include="Commands\GroupUploadedCommand.cs" />
     <Compile Include="Commands\PrivateMessageCommand.cs" />
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />

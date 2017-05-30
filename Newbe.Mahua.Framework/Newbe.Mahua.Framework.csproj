@@ -43,6 +43,7 @@
     <Compile Include="IPluginInfo.cs" />
     <Compile Include="MahuaEvents\IDiscussGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupUploadedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromDiscussGroupReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromGroupReceivedMahuaEvent.cs" />
