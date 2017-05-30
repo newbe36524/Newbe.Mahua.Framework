@@ -1,20 +1,21 @@
-﻿using Newbe.Mahua.Framework.Commands;
+﻿using System.Collections.Generic;
+using Newbe.Mahua.Framework.Commands;
 using Newbe.Mahua.Framework.MahuaEvents;
 
 namespace Newbe.Mahua.Framework.CQP.Commands
 {
     internal class CoolQExitedCommandHandler : CommandHandlerBase<CoolQExitedCommand>
     {
-        private readonly IPlatfromExitedMahuaEvent _platfromExitedMahuaEvent;
+        private readonly IEnumerable<IPlatfromExitedMahuaEvent> _platfromExitedMahuaEvents;
 
-        public CoolQExitedCommandHandler(IPlatfromExitedMahuaEvent platfromExitedMahuaEvent)
+        public CoolQExitedCommandHandler(IEnumerable<IPlatfromExitedMahuaEvent> platfromExitedMahuaEvents)
         {
-            _platfromExitedMahuaEvent = platfromExitedMahuaEvent;
+            _platfromExitedMahuaEvents = platfromExitedMahuaEvents;
         }
 
         protected override void HandleCore(CoolQExitedCommand command)
         {
-            _platfromExitedMahuaEvent.Exited();
+            _platfromExitedMahuaEvents.Handle(x => x.Exited());
         }
     }
 

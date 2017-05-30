@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
+    <Compile Include="Commands\CommandHandlerExtensions.cs" />
     <Compile Include="Commands\Impl\CommandCenter.cs" />
     <Compile Include="Commands\CommandHandlerBase.cs" />
     <Compile Include="CrossAppDomainPluginLoader.cs" />

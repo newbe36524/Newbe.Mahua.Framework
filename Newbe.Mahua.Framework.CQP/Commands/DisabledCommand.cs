@@ -1,20 +1,21 @@
-﻿using Newbe.Mahua.Framework.Commands;
+﻿using System.Collections.Generic;
+using Newbe.Mahua.Framework.Commands;
 using Newbe.Mahua.Framework.MahuaEvents;
 
 namespace Newbe.Mahua.Framework.CQP.Commands
 {
     internal class DisabledCommandHandler : CommandHandlerBase<DisabledCommand>
     {
-        private readonly IPluginDisabledMahuaEvent _pluginDisabledMahuaEvent;
+        private readonly IEnumerable<IPluginDisabledMahuaEvent> _pluginDisabledMahuaEvents;
 
-        public DisabledCommandHandler(IPluginDisabledMahuaEvent pluginDisabledMahuaEvent)
+        public DisabledCommandHandler(IEnumerable<IPluginDisabledMahuaEvent> pluginDisabledMahuaEvents)
         {
-            _pluginDisabledMahuaEvent = pluginDisabledMahuaEvent;
+            _pluginDisabledMahuaEvents = pluginDisabledMahuaEvents;
         }
 
         protected override void HandleCore(DisabledCommand command)
         {
-            _pluginDisabledMahuaEvent.Disable();
+            _pluginDisabledMahuaEvents.Handle(x => x.Disable());
         }
     }
 

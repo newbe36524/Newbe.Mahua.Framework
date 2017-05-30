@@ -41,10 +41,15 @@
     <Compile Include="IMahuaEvent.cs" />
     <Compile Include="IMahuaModule.cs" />
     <Compile Include="IPluginInfo.cs" />
+    <Compile Include="MahuaEvents\IDiscussGroupMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IFriendMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IOnlineMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPlatfromExitedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPluginDisabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPluginEnabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\Enums\PrivateMessageFromType.cs" />
     <Compile Include="MahuaPlatform.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
