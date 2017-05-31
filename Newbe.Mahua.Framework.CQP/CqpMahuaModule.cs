@@ -9,7 +9,7 @@ using Newbe.Mahua.Framework.CQP.NativeApi;
 
 namespace Newbe.Mahua.Framework.CQP
 {
-    public class CqpMahua2Module : IMahuaModule
+    public class CqpMahuaModule : IMahuaModule
     {
         Module[] IMahuaModule.GetModules()
         {
