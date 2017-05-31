@@ -65,7 +65,7 @@
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />
     <Compile Include="NativeApi\CoolQApi.cs" />
-    <Compile Include="CqpMahuaModule.cs" />
+    <Compile Include="CqpMahua2Module.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="NativeApi\ICqpAuthCodeContainer.cs" />
     <Compile Include="PluginApiExporter.cs" />
