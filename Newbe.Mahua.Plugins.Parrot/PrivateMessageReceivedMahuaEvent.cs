@@ -15,7 +15,7 @@ namespace Newbe.Mahua.Plugins.Parrot
 
         void IPrivateMessageReceivedMahuaEvent.ProcessPrivateMessage(PrivateMessageReceivedContext context)
         {
-            throw new NotImplementedException();
+            _mahuaApi.SendPrivateMsg(context.FromQq, context.Message);
         }
     }
 }
