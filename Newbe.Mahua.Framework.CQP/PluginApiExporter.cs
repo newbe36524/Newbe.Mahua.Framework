@@ -22,7 +22,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// 此函数会在插件被开启时发生。
         /// </summary>
         /// <returns>返回处理过程是否成功的值。</returns>
-        [DllExport("_eventEnable")]
+        [DllExport("_eventEnable", CallingConvention.StdCall)]
         public static int Enabled()
         {
             PluginInstanceManager.GetInstance().SendCommand(new EnabledCommand());
@@ -33,7 +33,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// 此函数会在插件被禁用时发生。
         /// </summary>
         /// <returns>返回处理过程是否成功的值。</returns>
-        [DllExport("_eventDisable")]
+        [DllExport("_eventDisable", CallingConvention.StdCall)]
         public static int Disabled()
         {
             PluginInstanceManager.GetInstance().SendCommand(new DisabledCommand());
@@ -44,7 +44,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// 向酷Q提供插件信息。
         /// </summary>
         /// <returns>一个固定格式字符串。</returns>
-        [DllExport("AppInfo")]
+        [DllExport("AppInfo", CallingConvention.StdCall)]
         public static string AppInfo()
         {
             var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommandResult>(new AppInfoCommand());
@@ -56,7 +56,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// </summary>
         /// <param name="authcode">由酷Q提供的AuthCode。</param>
         /// <returns></returns>
-        [DllExport("Initialize")]
+        [DllExport("Initialize", CallingConvention.StdCall)]
         public static int Initialize(int authcode)
         {
             PluginInstanceManager.GetInstance().SendCommand(new InitializeCommand
@@ -70,7 +70,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// 此函数会在酷Q退出时被调用。
         /// </summary>
         /// <returns></returns>
-        [DllExport("_eventExit")]
+        [DllExport("_eventExit", CallingConvention.StdCall)]
         public static int CoolQExited()
         {
             PluginInstanceManager.GetInstance().SendCommand(new CoolQExitedCommand());
@@ -87,7 +87,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="msg">消息的内容。</param>
         /// <param name="font">消息所使用的字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventPrivateMsg")]
+        [DllExport("_eventPrivateMsg", CallingConvention.StdCall)]
         public static int ProcessPrivateMessage(int subType, int sendTime, long fromQQ, string msg, int font)
         {
             PrivateMessageFromType privateMessageFromType;
@@ -131,7 +131,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="msg">消息内容。</param>
         /// <param name="font">消息所使用字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventGroupMsg")]
+        [DllExport("_eventGroupMsg", CallingConvention.StdCall)]
         public static int ProcessGroupMessage(int subType, int sendTime, long fromGroup, long fromQQ,
             string fromAnonymous,
             string msg, int font)
@@ -157,7 +157,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="msg">消息内容。</param>
         /// <param name="font">消息所使用字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventDiscussMsg")]
+        [DllExport("_eventDiscussMsg", CallingConvention.StdCall)]
         public static int ProcessDiscussGroupMessage(int subType, int sendTime, long fromDiscuss, long fromQQ,
             string msg,
             int font)
@@ -181,7 +181,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="fromQQ">上传此文件的QQ号码。</param>
         /// <param name="file">上传的文件的信息。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventGroupUpload")]
+        [DllExport("_eventGroupUpload", CallingConvention.StdCall)]
         public static int ProcessGroupUpload(int subType, int sendTime, long fromGroup, long fromQQ, string file)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupUploadedCommand
@@ -202,7 +202,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="fromGroup">事件来源群号。</param>
         /// <param name="target">被操作的QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventSystem_GroupAdmin")]
+        [DllExport("_eventSystem_GroupAdmin", CallingConvention.StdCall)]
         public static int ProcessGroupAdminChange(int subType, int sendTime, long fromGroup, long target)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupAdminChangeCommand
@@ -224,7 +224,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="fromQQ">事件来源QQ。</param>
         /// <param name="target">被操作的QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventSystem_GroupMemberDecrease")]
+        [DllExport("_eventSystem_GroupMemberDecrease", CallingConvention.StdCall)]
         public static int ProcessGroupMemberDecrease(int subType, int sendTime, long fromGroup, long fromQQ,
             long target)
         {
@@ -264,7 +264,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="fromQQ">事件来源QQ。</param>
         /// <param name="target">被操作的QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventSystem_GroupMemberIncrease")]
+        [DllExport("_eventSystem_GroupMemberIncrease", CallingConvention.StdCall)]
         public static int ProcessGroupMemberIncrease(int subType, int sendTime, long fromGroup, long fromQQ,
             long target)
         {
@@ -299,7 +299,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="sendTime">事件发生时间的时间戳。</param>
         /// <param name="fromQQ">事件来源QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventFriend_Add")]
+        [DllExport("_eventFriend_Add", CallingConvention.StdCall)]
         public static int ProcessFriendsAdded(int subType, int sendTime, long fromQQ)
         {
             PluginInstanceManager.GetInstance().SendCommand(new FriendsAddedCommand
@@ -319,7 +319,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="msg">附言内容。</param>
         /// <param name="font">消息所使用字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventRequest_AddFriend")]
+        [DllExport("_eventRequest_AddFriend", CallingConvention.StdCall)]
         public static int ProcessAddFriendRequest(int subType, int sendTime, long fromQQ, string msg, int font)
         {
             PluginInstanceManager.GetInstance().SendCommand(new AddFriendRequestCommand
@@ -341,7 +341,7 @@ namespace Newbe.Mahua.Framework.CQP
         /// <param name="msg">附言内容。</param>
         /// <param name="responseMark">用于处理请求的标识。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
-        [DllExport("_eventRequest_AddGroup")]
+        [DllExport("_eventRequest_AddGroup", CallingConvention.StdCall)]
         public static int ProcessJoinGroupRequest(int subType, int sendTime, long fromGroup, long fromQQ, string msg,
             string responseMark)
         {
