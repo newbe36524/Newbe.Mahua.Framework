@@ -1,6 +1,8 @@
 # Newbe.Mahua.Framework
 
-![build:](https://travis-ci.org/Newbe36524/Newbe.Mahua.Framework.svg?branch=master)
+dev                                                                              | master
+-------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
+![build:](https://travis-ci.org/Newbe36524/Newbe.Mahua.Framework.svg?branch=dev) | ![build:](https://travis-ci.org/Newbe36524/Newbe.Mahua.Framework.svg?branch=master)
 
 你打麻花，谁疼？麻花疼。
 
