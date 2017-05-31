@@ -5,11 +5,11 @@ using Newbe.Mahua.Framework.MahuaEvents;
 
 namespace Newbe.Mahua.Framework.CQP.Commands
 {
-    internal class FriendsAddedCommandHanlder : CommandHandlerBase<FriendsAddedCommand>
+    internal class FriendsAddedCommandHandler : CommandHandlerBase<FriendsAddedCommand>
     {
         private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddingRequestReceivedMahuaEvents;
 
-        public FriendsAddedCommandHanlder(
+        public FriendsAddedCommandHandler(
             IEnumerable<IFriendAddedMahuaEvent> friendAddingRequestReceivedMahuaEvents)
         {
             _friendAddingRequestReceivedMahuaEvents = friendAddingRequestReceivedMahuaEvents;

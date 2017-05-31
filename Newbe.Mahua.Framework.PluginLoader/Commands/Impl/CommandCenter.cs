@@ -18,9 +18,9 @@ namespace Newbe.Mahua.Framework.Commands.Impl
         void ICommandCenter.Handle(MahuaCommand command)
         {
             var commandHandlers = _commandHandlers.Where(x => x.CanHandle(command));
-            foreach (var commandHandler in commandHandlers)
+            foreach (var commandHandler in commandHandlers.Where(x => x.CanHandle(command)))
             {
-                commandHandler.CanHandle(command);
+                commandHandler.Handle(command);
             }
         }
 

@@ -21,9 +21,21 @@ namespace Newbe.Mahua.Framework.CQP
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<AppInfoCommand>().As<MahuaCommand>();
-                builder.RegisterType<InitializeCommand>().As<MahuaCommand>();
-                builder.RegisterType<EnabledCommand>().As<MahuaCommand>();
+                builder.RegisterType<AddFriendRequestCommand>().AsImplementedInterfaces();
+                builder.RegisterType<AppInfoCommand>().AsImplementedInterfaces();
+                builder.RegisterType<CoolQExitedCommand>().AsImplementedInterfaces();
+                builder.RegisterType<DisabledCommand>().AsImplementedInterfaces();
+                builder.RegisterType<DiscussGroupMessageCommand>().AsImplementedInterfaces();
+                builder.RegisterType<EnabledCommand>().AsImplementedInterfaces();
+                builder.RegisterType<FriendsAddedCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupAdminChangeCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMemberDecreasedCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMemberIncreasedCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMessageCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupUploadedCommand>().AsImplementedInterfaces();
+                builder.RegisterType<InitializeCommand>().AsImplementedInterfaces();
+                builder.RegisterType<JoinGroupRequestCommand>().AsImplementedInterfaces();
+                builder.RegisterType<PrivateMessageCommand>().AsImplementedInterfaces();
             }
         }
 
@@ -32,9 +44,21 @@ namespace Newbe.Mahua.Framework.CQP
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<AppInfoCommandHandler>().As<IResultCommandHandler>();
-                builder.RegisterType<InitializeCommandHandler>().As<IVoidCommandHandler>();
-                builder.RegisterType<EnabledCommandHandler>().As<IVoidCommandHandler>();
+                builder.RegisterType<AddFriendRequestCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<AppInfoCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<CoolQExitedCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<DisabledCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<DiscussGroupMessageCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<EnabledCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<FriendsAddedCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupAdminChangeCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMemberDecreasedCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMemberIncreasedCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMessageCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupUploadedCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<InitializeCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<JoinGroupRequestCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PrivateMessageCommandHandler>().AsImplementedInterfaces();
             }
         }
 
