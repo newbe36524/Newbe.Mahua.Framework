@@ -188,26 +188,26 @@ namespace Newbe.Mahua.Framework
         /// <summary>
         /// 管理员同意入群申请
         /// </summary>
-        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestContext.GroupJoiningRequestId"/></param>
+        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestReceivedContext.GroupJoiningRequestId"/></param>
         void AcceptGroupJoiningRequest(string groupJoiningRequestId);
 
         /// <summary>
         /// 管理员拒绝入群申请
         /// </summary>
-        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestContext.GroupJoiningRequestId"/></param>
+        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestReceivedContext.GroupJoiningRequestId"/></param>
         /// <param name="reason">原因</param>
         void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason);
 
         /// <summary>
         /// 接受入群邀请
         /// </summary>
-        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationContext.GroupJoiningInvitationId"/></param>
+        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationReceivedContext.GroupJoiningInvitationId"/></param>
         void AcceptGroupJoiningInvitation(string groupJoiningInvitationId);
 
         /// <summary>
         /// 拒绝入群邀请
         /// </summary>
-        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationContext.GroupJoiningInvitationId"/></param>
+        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationReceivedContext.GroupJoiningInvitationId"/></param>
         /// <param name="reason">原因</param>
         void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason);
     }

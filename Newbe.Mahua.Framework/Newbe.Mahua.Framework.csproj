@@ -51,13 +51,13 @@
     <Compile Include="MahuaEvents\IGroupAdminChangedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminDisabledMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupAdminEnabledMahuaEvent.cs" />
-    <Compile Include="MahuaEvents\IGroupJoiningInvitationMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupJoiningInvitationReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMemberChangedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMemberDecreasedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMemberIncreasedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupMessageReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IGroupUploadedMahuaEvent.cs" />
-    <Compile Include="MahuaEvents\IGroupJoiningRequestMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\IGroupJoiningRequestReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromDiscussReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\IPrivateMessageFromGroupReceivedMahuaEvent.cs" />
