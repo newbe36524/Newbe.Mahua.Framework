@@ -34,7 +34,8 @@ namespace Newbe.Mahua.Framework.CQP
                 builder.RegisterType<GroupMessageCommand>().AsImplementedInterfaces();
                 builder.RegisterType<GroupUploadedCommand>().AsImplementedInterfaces();
                 builder.RegisterType<InitializeCommand>().AsImplementedInterfaces();
-                builder.RegisterType<JoinGroupRequestCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupJoiningInvitationCommand>().AsImplementedInterfaces();
+                builder.RegisterType<GroupJoiningRequestCommand>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageCommand>().AsImplementedInterfaces();
             }
         }
@@ -57,7 +58,8 @@ namespace Newbe.Mahua.Framework.CQP
                 builder.RegisterType<GroupMessageCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GroupUploadedCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<InitializeCommandHandler>().AsImplementedInterfaces();
-                builder.RegisterType<JoinGroupRequestCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupJoiningInvitationCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<GroupJoiningRequestCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageCommandHandler>().AsImplementedInterfaces();
             }
         }

@@ -56,11 +56,12 @@
     <Compile Include="Commands\DiscussGroupMessageCommand.cs" />
     <Compile Include="Commands\FriendsAddedCommand.cs" />
     <Compile Include="Commands\GroupAdminChangeCommand.cs" />
+    <Compile Include="Commands\GroupJoiningInvitationCommand.cs" />
     <Compile Include="Commands\GroupMemberDecreasedCommand.cs" />
     <Compile Include="Commands\GroupMemberIncreasedCommand.cs" />
     <Compile Include="Commands\GroupMessageCommand.cs" />
     <Compile Include="Commands\GroupUploadedCommand.cs" />
-    <Compile Include="Commands\JoinGroupRequestCommand.cs" />
+    <Compile Include="Commands\GroupJoiningRequestCommand.cs" />
     <Compile Include="Commands\PrivateMessageCommand.cs" />
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />

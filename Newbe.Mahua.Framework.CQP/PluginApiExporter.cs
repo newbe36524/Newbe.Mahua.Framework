@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using Newbe.Mahua.Framework.CQP.Commands;
 using Newbe.Mahua.Framework.MahuaEvents.Enums;
@@ -345,13 +346,32 @@ namespace Newbe.Mahua.Framework.CQP
         public static int ProcessJoinGroupRequest(int subType, int sendTime, long fromGroup, long fromQQ, string msg,
             string responseMark)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new JoinGroupRequestCommand
+            switch (subType)
             {
-                SendTime = ConvertToDatetime(sendTime),
-                FromQq = fromQQ,
-                FromGroup = fromGroup,
-                Message = msg
-            });
+                case 1: //管理员收到入群申请
+                    PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningRequestCommand
+                    {
+                        SendTime = ConvertToDatetime(sendTime),
+                        FromQq = fromQQ,
+                        ToGroup = fromGroup,
+                        Message = msg,
+                        GroupJoiningRequestId = responseMark,
+                    });
+                    break;
+
+                case 2: //收到加群邀请
+                    PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningInvitationCommand
+                    {
+                        SendTime = ConvertToDatetime(sendTime),
+                        FromQq = fromQQ,
+                        ToGroup = fromGroup,
+                        Message = msg,
+                        GroupJoiningInvitationId = responseMark,
+                    });
+                    break;
+                default:
+                    break;
+            }
             return 0;
         }
 
