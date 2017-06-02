@@ -18,10 +18,18 @@ dev                                                                             
 
 ## 名词表
 
-中文        | 英文（变量名）   | 说明
---------- | --------- | --------
-机器人QQ     | qq        | 指当前机器人QQ
-触发QQ      | fromQq    |
-toQq      | toQq      |
-fromGroup | fromGroup |
-toGroup   |
+中文    | 英文                     | 说明
+----- | ---------------------- | ------------------
+QQ    | QQ                     |
+群     | Group                  |
+群成员   | GroupMember            |
+讨论组   | Discuss                |
+好友    | Friend                 |
+好友申请  | FriendAddingRequest    |
+入群申请  | GroupJoiningRequest    |
+加群邀请  | GroupJoiningInvitation |
+私聊消息  | PrivateMessage         |
+群消息   | GroupMessage           |
+讨论组消息 | DiscussMessage         |
+机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
+插件    | Plugin                 |
