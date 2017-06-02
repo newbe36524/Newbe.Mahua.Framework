@@ -19,7 +19,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         private readonly IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent>
             _privateMessageFromGroupReceivedMahuaEvents;
 
-        private readonly IEnumerable<IPrivateMessageFromDiscussGroupReceivedMahuaEvent>
+        private readonly IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>
             _privateMessageFromDiscussGroupReceivedMahuaEvents;
 
         public PrivateMessageCommandHandler(
@@ -27,7 +27,7 @@ namespace Newbe.Mahua.Framework.CQP.Commands
             IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
-            IEnumerable<IPrivateMessageFromDiscussGroupReceivedMahuaEvent>
+            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>
                 privateMessageFromDiscussGroupReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
@@ -74,16 +74,16 @@ namespace Newbe.Mahua.Framework.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            GroupNum = command.FormNum,
+                            FromGroup = command.FormNum,
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
                     _privateMessageFromDiscussGroupReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(
-                        new PrivateMessageFromDiscussGroupReceivedContext
+                        new PrivateMessageFromDiscussReceivedContext
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            DiscussGroupNum = command.FormNum,
+                            FromDiscuss = command.FormNum,
                         }));
                     break;
                 default:

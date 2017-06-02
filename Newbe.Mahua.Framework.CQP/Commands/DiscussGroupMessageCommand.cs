@@ -7,10 +7,10 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 {
     internal class DiscussGroupMessageCommandHandler : CommandHandlerBase<DiscussGroupMessageCommand>
     {
-        private readonly IEnumerable<IDiscussGroupMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
+        private readonly IEnumerable<IDiscussMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
 
         public DiscussGroupMessageCommandHandler(
-            IEnumerable<IDiscussGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
+            IEnumerable<IDiscussMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
         {
             _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
         }
@@ -18,12 +18,12 @@ namespace Newbe.Mahua.Framework.CQP.Commands
         protected override void HandleCore(DiscussGroupMessageCommand command)
         {
             _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessageReceived(
-                new DiscussGroupMessageReceivedMahuaEventContext
+                new DiscussMessageReceivedMahuaEventContext
                 {
                     SendTime = command.SendTime,
                     FromQq = command.FromQq,
                     Message = command.Message,
-                    FromDiscussGroup = command.DiscussGroupNum
+                    FromDiscuss = command.DiscussGroupNum
                 }));
         }
     }
