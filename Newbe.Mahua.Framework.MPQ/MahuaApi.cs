@@ -8,7 +8,22 @@ namespace Newbe.Mahua.Framework.MPQ
 {
     class MahuaApi : IMahuaApi
     {
-        public void SendPrivateMsg(long qqId, string content)
+        void IMahuaApi.SendPrivateMessage(long toQq, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMahuaApi.SendGroupMessage(long toGroup, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMahuaApi.SendDiscussMessage(long toDiscuss, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IMahuaApi.SendLike(long toQq)
         {
             throw new NotImplementedException();
         }
@@ -23,7 +38,7 @@ namespace Newbe.Mahua.Framework.MPQ
             throw new NotImplementedException();
         }
 
-        string IMahuaApi.GetGroupMemberInfo(long 群号, long qqid)
+        long IMahuaApi.GetLoginQq()
         {
             throw new NotImplementedException();
         }
@@ -33,92 +48,102 @@ namespace Newbe.Mahua.Framework.MPQ
             throw new NotImplementedException();
         }
 
-        long IMahuaApi.GetLoginQq()
-        {
-            throw new NotImplementedException();
-        }
-
         string IMahuaApi.GetRecord(string file, string outformat)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SendDiscussMsg(long discussGroupNum, string msg)
+        void IMahuaApi.KickGroupMember(long toGroup, long toQq, bool rejectForever)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SendGroupMsg(long groupNum, string msg)
+        void IMahuaApi.BanGroupMember(long toGroup, long toQq, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SendLike(long qqid)
+        void IMahuaApi.RemoveBanGroupMember(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SendPrivateMsg(long qqId, string content)
+        void IMahuaApi.EnableGroupAdmin(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetDiscussLeave(long 讨论组号)
+        void IMahuaApi.DisableGroupAdmin(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetFriendAddRequest(string 请求反馈标识, int 反馈类型, string 备注)
+        void IMahuaApi.SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAddRequest(string 请求反馈标识, int 请求类型, int 反馈类型, string 理由)
+        void IMahuaApi.SetBanAllGroupMembersOption(long toGroup, bool enable)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAdmin(long 群号, long QQID, bool 成为管理员)
+        int IMahuaApi.SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAnonymous(long 群号, bool 开启匿名)
+        int IMahuaApi.SetGroupAnonymousOption(long toGroup, bool enable)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAnonymousBan(long 群号, string 匿名, long 禁言时间)
+        void IMahuaApi.SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupBan(long 群号, long QQID, long 禁言时间)
+        void IMahuaApi.LeaveGroup(long toGroup)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupCard(long 群号, long QQID, string 新名片_昵称)
+        void IMahuaApi.DissolveGroup(long toGroup)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupKick(long 群号, long qqid, bool 拒绝再加群)
+        int IMahuaApi.LeaveDiscuss(long toDiscuss)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupLeave(long 群号, bool 是否解散)
+        void IMahuaApi.AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupSpecialTitle(long 群号, long QQID, string 头衔, long 过期时间)
+        void IMahuaApi.RejectFriendAddingRequest(string addingFriendRequestId)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupWholeBan(long 群号, bool 开启禁言)
+        void IMahuaApi.AcceptGroupJoiningRequest(string groupJoiningRequestId)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMahuaApi.RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMahuaApi.AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMahuaApi.RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
         {
             throw new NotImplementedException();
         }

@@ -7,16 +7,16 @@ namespace Newbe.Mahua.Framework.CQP.Commands
 {
     internal class JoinGroupRequestCommandHandler : CommandHandlerBase<JoinGroupRequestCommand>
     {
-        private readonly IEnumerable<IJoinGroupRequestMahuaEvent> _joinGroupRequestMahuaEvents;
+        private readonly IEnumerable<IGroupJoiningRequestMahuaEvent> _joinGroupRequestMahuaEvents;
 
-        public JoinGroupRequestCommandHandler(IEnumerable<IJoinGroupRequestMahuaEvent> joinGroupRequestMahuaEvents)
+        public JoinGroupRequestCommandHandler(IEnumerable<IGroupJoiningRequestMahuaEvent> joinGroupRequestMahuaEvents)
         {
             _joinGroupRequestMahuaEvents = joinGroupRequestMahuaEvents;
         }
 
         protected override void HandleCore(JoinGroupRequestCommand command)
         {
-            _joinGroupRequestMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(new JoinGroupRequestContext
+            _joinGroupRequestMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(new GroupJoiningRequestContext
             {
                 SendTime = command.SendTime,
                 FromQq = command.FromQq,

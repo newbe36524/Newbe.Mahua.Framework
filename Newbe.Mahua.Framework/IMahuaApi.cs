@@ -1,35 +1,38 @@
-﻿namespace Newbe.Mahua.Framework
+﻿using System;
+using Newbe.Mahua.Framework.MahuaEvents;
+
+namespace Newbe.Mahua.Framework
 {
     public interface IMahuaApi
     {
         /// <summary>
         ///     发送好友消息
         /// </summary>
-        /// <param name="qqId">目标QQ号</param>
-        /// <param name="content">消息内容</param>
-        void SendPrivateMsg(long qqId, string content);
+        /// <param name="toQq">目标QQ号</param>
+        /// <param name="message">消息内容</param>
+        void SendPrivateMessage(long toQq, string message);
 
         /// <summary>
         /// 发送群消息
         /// </summary>
-        /// <param name="groupNum">目标群</param>
-        /// <param name="msg">消息内容</param>
-        void SendGroupMsg(long groupNum, string msg);
+        /// <param name="toGroup">目标群</param>
+        /// <param name="message">消息内容</param>
+        void SendGroupMessage(long toGroup, string message);
 
         /// <summary>
         /// 发送讨论组消息
         /// </summary>
-        /// <param name="discussGroupNum">目标讨论组</param>
-        /// <param name="msg">消息内容</param>
-        void SendDiscussMsg(long discussGroupNum, string msg);
+        /// <param name="toDiscuss">目标讨论组</param>
+        /// <param name="message">消息内容</param>
+        void SendDiscussMessage(long toDiscuss, string message);
 
 
         /// <summary>
         /// 发送赞
         /// </summary>
-        /// <param name="qqid">目标QQ</param>
+        /// <param name="toQq">目标QQ</param>
         /// <returns></returns>
-        int SendLike(long qqid);
+        int SendLike(long toQq);
 
         /// <summary>
         /// 取Cookies
@@ -66,115 +69,146 @@
         /// <summary>
         /// 置群员移除
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="qqid">目标QQ</param>
-        /// <param name="拒绝再加群">如果为真，则“不再接收此人加群申请”，请慎用</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">目标QQ</param>
+        /// <param name="rejectForever">如果为真，则“不再接收此人加群申请”，请慎用</param>
         /// <returns></returns>
-        int SetGroupKick(long 群号, long qqid, bool 拒绝再加群);
+        void KickGroupMember(long toGroup, long toQq, bool rejectForever);
 
         /// <summary>
         /// 置群员禁言
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="qqid">目标QQ</param>
-        /// <param name="禁言时间">禁言的时间，单位为秒。如果要解禁，这里填写0</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">目标QQ</param>
+        /// <param name="duration">禁言的时间</param>
         /// <returns></returns>
-        int SetGroupBan(long 群号, long qqid, long 禁言时间);
+        void BanGroupMember(long toGroup, long toQq, TimeSpan duration);
 
         /// <summary>
-        /// 置群管理员
+        /// 取消群成员禁言
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="QQID">被设置的QQ</param>
-        /// <param name="成为管理员">真/设置管理员 假/取消管理员</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">目标QQ</param>
         /// <returns></returns>
-        int SetGroupAdmin(long 群号, long QQID, bool 成为管理员);
+        void RemoveBanGroupMember(long toGroup, long toQq);
+
+        /// <summary>
+        /// 设置群管理员
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">被设置的QQ</param>
+        /// <returns></returns>
+        void EnableGroupAdmin(long toGroup, long toQq);
+
+        /// <summary>
+        /// 删除群管理员
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">被设置的Q</param>
+        /// <returns></returns>
+        void DisableGroupAdmin(long toGroup, long toQq);
 
         /// <summary>
         /// 置群成员专属头衔
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="QQID">目标QQ</param>
-        /// <param name="头衔">如果要删除，这里填空</param>
-        /// <param name="过期时间">专属头衔有效期，单位为秒。如果永久有效，这里填写-1</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">目标QQ</param>
+        /// <param name="specialTitle">如果要删除，这里填空</param>
+        /// <param name="duration">专属头衔有效期。如果永久有效，则使用<see cref="TimeSpan.MaxValue"/></param>
         /// <returns></returns>
-        int SetGroupSpecialTitle(long 群号, long QQID, string 头衔, long 过期时间);
+        void SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration);
 
         /// <summary>
         /// 置全群禁言
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="开启禁言">真/开启 假/关闭</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="enable">true为启用</param>
         /// <returns></returns>
-        int SetGroupWholeBan(long 群号, bool 开启禁言);
+        void SetBanAllGroupMembersOption(long toGroup, bool enable);
 
         /// <summary>
         /// 置匿名群员禁言
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="匿名">群消息事件收到的“匿名”参数</param>
-        /// <param name="禁言时间">禁言的时间，单位为秒。不支持解禁</param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="anonymous">匿名名称，<see cref="GroupMessageReceivedContext.FromAnonymous"/>参数</param>
+        /// <param name="duration">禁言的时间。不支持解禁</param>
         /// <returns></returns>
-        int SetGroupAnonymousBan(long 群号, string 匿名, long 禁言时间);
+        int SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration);
 
         /// <summary>
         /// 置群匿名设置
         /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="开启匿名"></param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="enable">true为启用</param>
         /// <returns></returns>
-        int SetGroupAnonymous(long 群号, bool 开启匿名);
+        int SetGroupAnonymousOption(long toGroup, bool enable);
 
         /// <summary>
         /// 置群成员名片
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="QQID">被设置的QQ</param>
-        /// <param name="新名片_昵称"></param>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="toQq">被设置的QQ</param>
+        /// <param name="groupMemberCard">群名片</param>
         /// <returns></returns>
-        int SetGroupCard(long 群号, long QQID, string 新名片_昵称);
+        void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard);
 
         /// <summary>
-        /// 置群退出
+        /// 管理、群成员退出群
         /// </summary>
-        /// <param name="群号">目标群</param>
-        /// <param name="是否解散">真/解散本群(群主) 假/退出本群(管理、群成员)</param>
+        /// <param name="toGroup">目标群</param>
         /// <returns></returns>
-        int SetGroupLeave(long 群号, bool 是否解散);
+        void LeaveGroup(long toGroup);
 
         /// <summary>
-        /// 置讨论组退出
+        /// 群主解散群
         /// </summary>
-        /// <param name="讨论组号">目标讨论组</param>
-        /// <returns></returns>
-        int SetDiscussLeave(long 讨论组号);
+        /// <param name="toGroup">目标群</param>
+        void DissolveGroup(long toGroup);
 
         /// <summary>
-        /// 置好友添加请求
+        /// 退出讨论组
         /// </summary>
-        /// <param name="请求反馈标识">请求事件收到的“反馈标识”参数</param>
-        /// <param name="反馈类型">#请求_通过 或 #请求_拒绝</param>
-        /// <param name="备注">添加后的好友备注</param>
+        /// <param name="toDiscuss">目标讨论组</param>
         /// <returns></returns>
-        int SetFriendAddRequest(string 请求反馈标识, int 反馈类型, string 备注);
+        int LeaveDiscuss(long toDiscuss);
 
         /// <summary>
-        /// 置群添加请求
+        /// 同意添加好友请求
         /// </summary>
-        /// <param name="请求反馈标识">请求事件收到的“反馈标识”参数</param>
-        /// <param name="请求类型">根据请求事件的子类型区分 #请求_群添加 或 #请求_群邀请</param>
-        /// <param name="反馈类型">#请求_通过 或 #请求_拒绝</param>
-        /// <param name="理由">操作理由，仅 #请求_群添加 且 #请求_拒绝 时可用</param>
-        /// <returns></returns>
-        int SetGroupAddRequest(string 请求反馈标识, int 请求类型, int 反馈类型, string 理由);
-
+        /// <param name="addingFriendRequestId">好友请求Id，<see cref="FriendAddingRequestContext.SendTime"/></param>
+        /// <param name="friendRemark">添加后的好友备注</param>
+        void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark);
 
         /// <summary>
-        /// 取群成员信息(支持缓存)
+        /// 拒绝添加好友请求
         /// </summary>
-        /// <param name="群号">目标QQ所在群</param>
-        /// <param name="qqid">目标QQ</param>
-        /// <returns></returns>
-        string GetGroupMemberInfo(long 群号, long qqid);
+        /// <param name="addingFriendRequestId">好友请求Id，<see cref="FriendAddingRequestContext.SendTime"/></param>
+        void RejectFriendAddingRequest(string addingFriendRequestId);
+
+        /// <summary>
+        /// 管理员同意入群申请
+        /// </summary>
+        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestContext.GroupJoiningRequestId"/></param>
+        void AcceptGroupJoiningRequest(string groupJoiningRequestId);
+
+        /// <summary>
+        /// 管理员拒绝入群申请
+        /// </summary>
+        /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestContext.GroupJoiningRequestId"/></param>
+        /// <param name="reason">原因</param>
+        void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason);
+
+        /// <summary>
+        /// 接受入群邀请
+        /// </summary>
+        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationContext.GroupJoiningInvitationId"/></param>
+        void AcceptGroupJoiningInvitation(string groupJoiningInvitationId);
+
+        /// <summary>
+        /// 拒绝入群邀请
+        /// </summary>
+        /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationContext.GroupJoiningInvitationId"/></param>
+        /// <param name="reason">原因</param>
+        void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason);
     }
 }

@@ -2,13 +2,14 @@
 
 namespace Newbe.Mahua.Framework.MahuaEvents
 {
-    public interface IJoinGroupRequestMahuaEvent : IMahuaEvent
+    public interface IGroupJoiningRequestMahuaEvent : IMahuaEvent
     {
-        void ProcessJoinGroupRequest(JoinGroupRequestContext context);
+        void ProcessJoinGroupRequest(GroupJoiningRequestContext context);
     }
 
-    public class JoinGroupRequestContext
+    public class GroupJoiningRequestContext
     {
+        public string GroupJoiningRequestId { get; set; }
         public DateTime SendTime { get; set; }
         public long FromGroup { get; set; }
         public long FromQq { get; set; }
