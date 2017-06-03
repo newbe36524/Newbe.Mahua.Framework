@@ -6,7 +6,7 @@ namespace Newbe.Mahua.Framework
     public interface IMahuaApi
     {
         /// <summary>
-        ///     发送好友消息
+        /// 发送好友消息
         /// </summary>
         /// <param name="toQq">目标QQ号</param>
         /// <param name="message">消息内容</param>
