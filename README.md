@@ -33,3 +33,29 @@ QQ    | QQ                     |
 讨论组消息 | DiscussMessage         |
 机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
 插件    | Plugin                 |
+
+## MahuaEvents 支持列表
+
+事件                                                                 | CQP | MPQ
+------------------------------------------------------------------ | --- | ---
+[讨论组消息接受事件]("IDiscussMessageReceivedMahuaEvent")                   | [x] | []
+[已添加新好友事件]("IFriendAddedMahuaEvent")                               | [x] | []
+[好友申请接受事件]("IFriendAddingRequestMahuaEvent")                       | [x] | []
+[群管理员变更事件]("IGroupAdminChangedMahuaEvent")                         | [x] | []
+[解除群管理员事件]("IGroupAdminDisabledMahuaEvent")                        | [x] | []
+[任命新管理员事件]("IGroupAdminEnabledMahuaEvent")                         | [x] | []
+[入群邀请接收事件]("IGroupJoiningInvitationReceivedMahuaEvent")            | [x] | []
+[入群申请接收事件]("IGroupJoiningRequestReceivedMahuaEvent")               | [x] | []
+[群成员变更事件]("IGroupMemberChangedMahuaEvent")                         | [x] | []
+[群成员减少事件]("IGroupMemberDecreasedMahuaEvent")                       | [x] | []
+[群成员增多事件]("IGroupMemberIncreasedMahuaEvent")                       | [x] | []
+[群消息接收事件]("IGroupMessageReceivedMahuaEvent")                       | [x] | []
+[群文件上传事件]("IGroupUploadedMahuaEvent")                              | [x] | []
+[机器人平台退出事件]("IPlatfromExitedMahuaEvent")                           | [x] | []
+[插件被禁用事件]("IPluginDisabledMahuaEvent")                             | [x] | []
+[插件被启用事件]("IPluginEnabledMahuaEvent")                              | [x] | []
+[来自讨论组成员的私聊消息接收事件]("IPrivateMessageFromDiscussReceivedMahuaEvent") | [x] | []
+[来自好友的私聊消息接收事件]("IPrivateMessageFromFriendReceivedMahuaEvent")     | [x] | []
+[来自群成员的私聊消息接收事件]("IPrivateMessageFromGroupReceivedMahuaEvent")     | [x] | []
+[来自群成员的私聊消息接收事件]("IPrivateMessageFromOnlineReceivedMahuaEvent")    | [x] | []
+[来自群成员的私聊消息接收事件]("IPrivateMessageReceivedMahuaEvent")              | [x] | []

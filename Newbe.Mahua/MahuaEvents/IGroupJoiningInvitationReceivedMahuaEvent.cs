@@ -1,7 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Newbe.Mahua.MahuaEvents
 {
+    /// <summary>
+    /// 入群邀请接收事件
+    /// </summary>
+    [Description("入群邀请接收事件")]
     public interface IGroupJoiningInvitationReceivedMahuaEvent : IMahuaEvent
     {
         void ProcessJoinGroupRequest(GroupJoiningRequestReceivedContext receivedContext);

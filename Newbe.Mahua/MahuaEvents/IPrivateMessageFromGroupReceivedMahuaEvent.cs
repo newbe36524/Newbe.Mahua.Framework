@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Newbe.Mahua.MahuaEvents
 {
     /// <summary>
-    /// 接受到来自群成员的私聊消息
+    /// 来自群成员的私聊消息接收事件
     /// </summary>
+    [Description("来自群成员的私聊消息接收事件")]
     public interface IPrivateMessageFromGroupReceivedMahuaEvent : IMahuaEvent
     {
         void ProcessGroupMessage(PrivateMessageFromGroupReceivedContext context);

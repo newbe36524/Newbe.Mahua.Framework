@@ -42,12 +42,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MahuaApiTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MahuaApiTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MahuaApiTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaApiTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj">
+      <Project>{0c305f78-179a-43c0-8430-ee34f2e3c827}</Project>
+      <Name>Newbe.Mahua.CQP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua.MPQ\Newbe.Mahua.MPQ.csproj">
+      <Project>{c008916b-a9d0-4b32-a55e-28f1329992bd}</Project>
+      <Name>Newbe.Mahua.MPQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj">
+      <Project>{30F682F3-BDD4-473C-BFB8-9CC45516FE1A}</Project>
+      <Name>Newbe.Mahua.PluginLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj">
+      <Project>{598C5D58-B57A-4552-AC74-938D67B37144}</Project>
+      <Name>Newbe.Mahua</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

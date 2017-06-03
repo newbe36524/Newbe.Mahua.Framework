@@ -1,8 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using Newbe.Mahua.MahuaEvents.Enums;
 
 namespace Newbe.Mahua.MahuaEvents
 {
+    /// <summary>
+    /// 群成员增多事件
+    /// </summary>
+    [Description("群成员增多事件")]
     public interface IGroupMemberIncreasedMahuaEvent : IMahuaEvent
     {
         void ProcessGroupMemberIncreased(GroupMemberIncreasedContext context);

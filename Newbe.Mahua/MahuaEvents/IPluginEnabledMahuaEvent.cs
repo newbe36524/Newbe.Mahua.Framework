@@ -1,8 +1,11 @@
-﻿namespace Newbe.Mahua.MahuaEvents
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.MahuaEvents
 {
     /// <summary>
-    /// 插件被启用
+    /// 插件被启用事件
     /// </summary>
+    [Description("插件被启用事件")]
     public interface IPluginEnabledMahuaEvent : IMahuaEvent
     {
         /// <summary>

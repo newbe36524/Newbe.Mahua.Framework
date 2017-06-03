@@ -1,8 +1,11 @@
-﻿namespace Newbe.Mahua.MahuaEvents
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.MahuaEvents
 {
     /// <summary>
-    /// 插件被禁用
+    /// 插件被禁用事件
     /// </summary>
+    [Description("插件被禁用事件")]
     public interface IPluginDisabledMahuaEvent : IMahuaEvent
     {
         /// <summary>
@@ -13,6 +16,5 @@
 
     public class PluginDisabledContext
     {
-
     }
 }

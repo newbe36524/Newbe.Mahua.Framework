@@ -1,8 +1,11 @@
-﻿namespace Newbe.Mahua.MahuaEvents
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.MahuaEvents
 {
     /// <summary>
-    /// 机器人平台退出
+    /// 机器人平台退出事件
     /// </summary>
+    [Description("机器人平台退出事件")]
     public interface IPlatfromExitedMahuaEvent : IMahuaEvent
     {
         /// <summary>
