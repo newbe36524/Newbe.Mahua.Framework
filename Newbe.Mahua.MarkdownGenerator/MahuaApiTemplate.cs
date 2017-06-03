@@ -95,7 +95,7 @@ var sb = new StringBuilder();
 }
 public string GetRow(MahuaEventDescption desc,IDictionary<string, bool> supportStatus){
 	var sb = new StringBuilder();
-	sb.AppendFormat("[{0}](#\"{1}\")|",desc.MahuaEventDescription,desc.MahuaEventInterfaceName);
+	sb.AppendFormat("[{0}](# \"{1}\")|",desc.MahuaEventDescription,desc.MahuaEventInterfaceName);
     foreach (var name in table.PlatformNames)
     {
 		var checkd = supportStatus[name] ? "√" : " ";
