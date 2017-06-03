@@ -122,9 +122,9 @@ namespace Newbe.Mahua.Framework
         /// 置全群禁言
         /// </summary>
         /// <param name="toGroup">目标群</param>
-        /// <param name="enable">true为启用</param>
+        /// <param name="enabled">true为启用</param>
         /// <returns></returns>
-        void SetBanAllGroupMembersOption(long toGroup, bool enable);
+        void SetBanAllGroupMembersOption(long toGroup, bool enabled);
 
         /// <summary>
         /// 置匿名群员禁言
@@ -139,9 +139,9 @@ namespace Newbe.Mahua.Framework
         /// 置群匿名设置
         /// </summary>
         /// <param name="toGroup">目标群</param>
-        /// <param name="enable">true为启用</param>
+        /// <param name="enabled">true为启用</param>
         /// <returns></returns>
-        int SetGroupAnonymousOption(long toGroup, bool enable);
+        int SetGroupAnonymousOption(long toGroup, bool enabled);
 
         /// <summary>
         /// 置群成员名片

@@ -89,7 +89,7 @@ namespace Newbe.Mahua.Framework.CQP
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SetBanAllGroupMembersOption(long toGroup, bool enable)
+        void IMahuaApi.SetBanAllGroupMembersOption(long toGroup, bool enabled)
         {
             throw new NotImplementedException();
         }
@@ -99,7 +99,7 @@ namespace Newbe.Mahua.Framework.CQP
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAnonymousOption(long toGroup, bool enable)
+        int IMahuaApi.SetGroupAnonymousOption(long toGroup, bool enabled)
         {
             throw new NotImplementedException();
         }
