@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E32E6F1-44B5-4D6B-936C-2478B5E8A6FF}</ProjectGuid>
+    <ProjectGuid>{30F682F3-BDD4-473C-BFB8-9CC45516FE1A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Newbe.Mahua.Plugins.Parrot</RootNamespace>
-    <AssemblyName>Newbe.Mahua.Plugins.Parrot</AssemblyName>
+    <RootNamespace>Newbe.Mahua</RootNamespace>
+    <AssemblyName>Newbe.Mahua.PluginLoader</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CrossDomainLog</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -33,13 +33,34 @@
     <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Tungsten.Domains, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tungsten.Domains.1.0.0\lib\net45\Tungsten.Domains.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MahuaModule.cs" />
+    <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
+    <Compile Include="Commands\CommandHandlerExtensions.cs" />
+    <Compile Include="Commands\Impl\CommandCenter.cs" />
+    <Compile Include="Commands\CommandHandlerBase.cs" />
+    <Compile Include="CrossAppDomainPluginLoader.cs" />
+    <Compile Include="Commands\IComamndHandler.cs" />
+    <Compile Include="Commands\ICommandCenter.cs" />
+    <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="IPluginApiExporter.cs" />
+    <Compile Include="IPluginLoader.cs" />
+    <Compile Include="Commands\IResultCommandHandler.cs" />
+    <Compile Include="Commands\IVoidCommandHandler.cs" />
+    <Compile Include="Commands\MahuaCommand.cs" />
+    <Compile Include="Commands\MahuaCommandResult.cs" />
     <Compile Include="PluginInfo.cs" />
-    <Compile Include="PrivateMessageReceivedMahuaEvent.cs" />
+    <Compile Include="PluginInstanceManager.cs" />
+    <Compile Include="PluginLoaderExtensions.cs" />
+    <Compile Include="PluginLoaderMahuaModule.cs" />
+    <Compile Include="PluginLoadException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

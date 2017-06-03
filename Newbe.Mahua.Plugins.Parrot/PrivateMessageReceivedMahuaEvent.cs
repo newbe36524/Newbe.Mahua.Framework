@@ -1,6 +1,5 @@
 ﻿using System;
-using Newbe.Mahua.Framework;
-using Newbe.Mahua.Framework.MahuaEvents;
+using Newbe.Mahua.MahuaEvents;
 
 namespace Newbe.Mahua.Plugins.Parrot
 {

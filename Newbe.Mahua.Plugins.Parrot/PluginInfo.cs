@@ -1,6 +1,4 @@
-﻿using Newbe.Mahua.Framework;
-
-namespace Newbe.Mahua.Plugins.Parrot
+﻿namespace Newbe.Mahua.Plugins.Parrot
 {
     public class PluginInfo : IPluginInfo
     {
