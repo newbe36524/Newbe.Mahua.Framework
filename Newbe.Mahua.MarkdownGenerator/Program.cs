@@ -41,7 +41,7 @@ namespace Newbe.Mahua.MarkdownGenerator
             Console.WriteLine(re);
             File.WriteAllText("MahuaEvents.md", re);
 
-            var apis = GetAllMahuaApis().ToArray();
+            var apis = GetAllMahuaApis().OrderBy(x => x.Name).ToArray();
             var cqpApi = GetApiSupportedState(typeof(CqpMahuaModule).Assembly);
             var mpqApi = GetApiSupportedState(typeof(MpqMahuaModule).Assembly);
             var mahuaApiSupportedTable = new MahuaApiSupportedTable
