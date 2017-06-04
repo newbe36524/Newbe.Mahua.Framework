@@ -84,7 +84,7 @@ namespace Newbe.Mahua.MPQ
             throw new NotImplementedException();
         }
 
-        public void SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
+        public void BanGroupAnonymousMember(long toGroup, string anonymous, TimeSpan duration)
         {
             throw new NotImplementedException();
         }

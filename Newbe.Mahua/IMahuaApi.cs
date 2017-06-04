@@ -155,7 +155,7 @@ namespace Newbe.Mahua
         /// <param name="duration">禁言的时间。不支持解禁</param>
         /// <returns></returns>
         [Description("设置禁言某匿名群员")]
-        void SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration);
+        void BanGroupAnonymousMember(long toGroup, string anonymous, TimeSpan duration);
 
         /// <summary>
         /// 设置群匿名设置
