@@ -73,6 +73,7 @@
     <Compile Include="NotOfficialMahuaApiAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NotSupportedMahuaApiAttribute.cs" />
+    <Compile Include="Properties\MahuaGlobal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
