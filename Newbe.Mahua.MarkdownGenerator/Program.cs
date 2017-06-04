@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Newbe.Mahua.Amanda;
 using Newbe.Mahua.Commands;
 using Newbe.Mahua.CQP;
 using Newbe.Mahua.MPQ;
@@ -16,8 +17,9 @@ namespace Newbe.Mahua.MarkdownGenerator
         {
             var cqpMahuaEventsUsedInAssembly = GetMahuaEventsUsedInAssembly(typeof(CqpMahuaModule).Assembly);
             var mpqMahuaEventsUsedInAssembly = GetMahuaEventsUsedInAssembly(typeof(MpqMahuaModule).Assembly);
+            var amdMahuaEventsUsedInAssembly = GetMahuaEventsUsedInAssembly(typeof(AmandaMahuaModule).Assembly);
             var mahuaEventDescptions = GetAllMahuaEvents().OrderBy(x => x.MahuaEventInterfaceName).ToArray();
-            var platformNames = new[] {"CQP", "MPQ"};
+            var platformNames = new[] {"CQP", "MPQ", "Amanda"};
             var mahuaApiTemplate = new MahuaEventTemplate
             {
                 Session = new Dictionary<string, object>
@@ -32,6 +34,7 @@ namespace Newbe.Mahua.MarkdownGenerator
                                 {
                                     ["CQP"] = cqpMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
                                     ["MPQ"] = mpqMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
+                                    ["Amanda"] = amdMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
                                 })
                     }
                 }
@@ -44,6 +47,7 @@ namespace Newbe.Mahua.MarkdownGenerator
             var apis = GetAllMahuaApis().OrderBy(x => x.Name).ToArray();
             var cqpApi = GetApiSupportedState(typeof(CqpMahuaModule).Assembly);
             var mpqApi = GetApiSupportedState(typeof(MpqMahuaModule).Assembly);
+            var amdApi = GetApiSupportedState(typeof(AmandaMahuaModule).Assembly);
             var mahuaApiSupportedTable = new MahuaApiSupportedTable
             {
                 MahuaApiDescriptions = apis,
@@ -54,6 +58,7 @@ namespace Newbe.Mahua.MarkdownGenerator
                     {
                         ["CQP"] = cqpApi[x.Name],
                         ["MPQ"] = mpqApi[x.Name],
+                        ["Amanda"] = amdApi[x.Name],
                     };
                     return r;
                 })

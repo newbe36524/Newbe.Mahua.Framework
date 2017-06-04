@@ -8,7 +8,7 @@ namespace Newbe.Mahua.MPQ
     /// </summary>
     public sealed class PluginApiExporter : IPluginApiExporter
     {
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.MyPcqq;
+        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Mpq;
 
         [DllExport("info")]
         public static string GetInfo() => throw new NotImplementedException();

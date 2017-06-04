@@ -3,7 +3,7 @@
     public enum MahuaPlatform
     {
         Cqp,
-        MyPcqq,
+        Mpq,
         Amanda
     }
 }

@@ -67,6 +67,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua.Amanda\Newbe.Mahua.Amanda.csproj">
+      <Project>{e2d3114f-60a2-4cf7-a851-2a4852ed9bf3}</Project>
+      <Name>Newbe.Mahua.Amanda</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj">
       <Project>{0c305f78-179a-43c0-8430-ee34f2e3c827}</Project>
       <Name>Newbe.Mahua.CQP</Name>

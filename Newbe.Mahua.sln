@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Tools.ELang2CSharp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MarkdownGenerator", "Newbe.Mahua.MarkdownGenerator\Newbe.Mahua.MarkdownGenerator.csproj", "{E3E0827E-A343-41FD-826E-FEEE85BD1771}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Amanda", "Newbe.Mahua.Amanda\Newbe.Mahua.Amanda.csproj", "{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{E3E0827E-A343-41FD-826E-FEEE85BD1771}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3E0827E-A343-41FD-826E-FEEE85BD1771}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3E0827E-A343-41FD-826E-FEEE85BD1771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{C008916B-A9D0-4B32-A55E-28F1329992BD} = {EDA37D50-4D2D-4D8E-8099-69B13E975802}
 		{563EB946-C844-46F4-B61F-3F192244DA83} = {F540FF12-D83E-4536-8288-C459B7572B37}
 		{E3E0827E-A343-41FD-826E-FEEE85BD1771} = {F540FF12-D83E-4536-8288-C459B7572B37}
+		{E2D3114F-60A2-4CF7-A851-2A4852ED9BF3} = {EDA37D50-4D2D-4D8E-8099-69B13E975802}
 	EndGlobalSection
 EndGlobal
