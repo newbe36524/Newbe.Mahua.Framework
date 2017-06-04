@@ -94,14 +94,25 @@ var sb = new StringBuilder();
     }
 	return sb.ToString().TrimEnd('|');
 }
-public string GetRow(MahuaApiDescription desc,IDictionary<string, bool> supportStatus){
+public string GetRow(MahuaApiDescription desc,IDictionary<string, SupportStatus> supportStatus){
 	var sb = new StringBuilder();
 	sb.AppendFormat("{0}|",desc.Name);
 	sb.AppendFormat("{0}|",desc.Description);
     foreach (var name in table.PlatformNames)
     {
-		var checkd = supportStatus[name] ? "√" : " ";
-		sb.Append(checkd + "|");
+		var status = supportStatus[name] ;
+		if(status.IsSupport){
+			sb.Append("√");
+            if (!status.IsOfficial)
+            {
+			sb.Append("(c)");
+		 
+            }
+        }else
+        {
+		sb.Append(" ");
+        }
+		sb.Append("|");
     }
 	return sb.ToString().TrimEnd('|');
 }

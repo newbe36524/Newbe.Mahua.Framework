@@ -214,11 +214,13 @@ namespace Newbe.Mahua.CQP
             throw new NotImplementedException();
         }
 
+        [NotOfficialMahuaApi]
         public void SendDiscussJoiningInvitation(long toQq, long toDiscuss)
         {
             throw new NotImplementedException();
         }
 
+        [NotOfficialMahuaApi]
         public string GetDiscusses()
         {
             throw new NotImplementedException();

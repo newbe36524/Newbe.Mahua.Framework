@@ -50,7 +50,7 @@ namespace Newbe.Mahua.MarkdownGenerator
                 PlatformNames = platformNames,
                 SupportState = apis.ToDictionary(x => x, x =>
                 {
-                    var r = new Dictionary<string, bool>
+                    var r = new Dictionary<string, SupportStatus>
                     {
                         ["CQP"] = cqpApi[x.Name],
                         ["MPQ"] = mpqApi[x.Name],
@@ -71,16 +71,21 @@ namespace Newbe.Mahua.MarkdownGenerator
             File.WriteAllText("MahuaApi.md", apiMd);
         }
 
-        private static Dictionary<string, bool> GetApiSupportedState(Assembly assembly)
+        private static Dictionary<string, SupportStatus> GetApiSupportedState(Assembly assembly)
         {
             var apiImpl = assembly.GetTypes().Single(x => x.IsClass && typeof(IMahuaApi).IsAssignableFrom(x));
             var methods = apiImpl.GetMethods()
                 .Select(x => new
                 {
                     MethodName = x.Name,
-                    Supported = x.GetCustomAttribute<NotSupportedMahuaApiAttribute>() == null
+                    Supported = x.GetCustomAttribute<NotSupportedMahuaApiAttribute>() == null,
+                    Offical = x.GetCustomAttribute<NotOfficialMahuaApiAttribute>() == null,
                 })
-                .ToDictionary(x => x.MethodName, x => x.Supported);
+                .ToDictionary(x => x.MethodName, x => new SupportStatus
+                {
+                    IsOfficial = x.Offical,
+                    IsSupport = x.Supported,
+                });
             return methods;
         }
 
@@ -144,7 +149,13 @@ namespace Newbe.Mahua.MarkdownGenerator
     {
         public string[] PlatformNames { get; set; }
         public MahuaApiDescription[] MahuaApiDescriptions { get; set; }
-        public Dictionary<MahuaApiDescription, Dictionary<string, bool>> SupportState { get; set; }
+        public Dictionary<MahuaApiDescription, Dictionary<string, SupportStatus>> SupportState { get; set; }
+    }
+
+    public class SupportStatus
+    {
+        public bool IsSupport { get; set; }
+        public bool IsOfficial { get; set; }
     }
 
     public class MahuaEventDescption
