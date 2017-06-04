@@ -29,7 +29,7 @@ namespace Newbe.Mahua.CQP
             throw new NotImplementedException();
         }
 
-        public int SendLike(long toQq)
+        public void SendLike(long toQq)
         {
             throw new NotImplementedException();
         }
@@ -94,12 +94,12 @@ namespace Newbe.Mahua.CQP
             throw new NotImplementedException();
         }
 
-        public int SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
+        public void SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        public int SetGroupAnonymousOption(long toGroup, bool enabled)
+        public void SetGroupAnonymousOption(long toGroup, bool enabled)
         {
             throw new NotImplementedException();
         }
@@ -119,7 +119,7 @@ namespace Newbe.Mahua.CQP
             throw new NotImplementedException();
         }
 
-        public int LeaveDiscuss(long toDiscuss)
+        public void LeaveDiscuss(long toDiscuss)
         {
             throw new NotImplementedException();
         }
@@ -150,6 +150,76 @@ namespace Newbe.Mahua.CQP
         }
 
         public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BanFriend(long toQq)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveBanFriend(long toQq)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetNotice(long toGroup, string title, string content)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetNotices(long toGroup)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveFriend(long toQq)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void JoinGroup(long toGroup, string reason)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetGroupMemebers(long toGroup)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetGroups(long toGroup)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetFriends()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendGroupJoiningInvitation(long toQq, long toGroup)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string CreateDiscuss()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void KickDiscussMember(long toDiscuss, long toQq)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendDiscussJoiningInvitation(long toQq, long toDiscuss)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetDiscusses()
         {
             throw new NotImplementedException();
         }

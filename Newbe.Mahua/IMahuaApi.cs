@@ -4,6 +4,9 @@ using Newbe.Mahua.MahuaEvents;
 
 namespace Newbe.Mahua
 {
+    /// <summary>
+    /// MahuaApi
+    /// </summary>
     public interface IMahuaApi
     {
         /// <summary>
@@ -36,8 +39,9 @@ namespace Newbe.Mahua
         /// </summary>
         /// <param name="toQq">目标QQ</param>
         /// <returns></returns>
+        /// <remarks>:QQ名片赞 10赞每Q每日 至多50人</remarks>
         [Description("发送名片赞")]
-        int SendLike(long toQq);
+        void SendLike(long toQq);
 
         /// <summary>
         /// 取Cookies
@@ -151,7 +155,7 @@ namespace Newbe.Mahua
         /// <param name="duration">禁言的时间。不支持解禁</param>
         /// <returns></returns>
         [Description("设置禁言某匿名群员")]
-        int SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration);
+        void SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration);
 
         /// <summary>
         /// 设置群匿名设置
@@ -160,7 +164,7 @@ namespace Newbe.Mahua
         /// <param name="enabled">true为启用</param>
         /// <returns></returns>
         [Description("设置群匿名设置")]
-        int SetGroupAnonymousOption(long toGroup, bool enabled);
+        void SetGroupAnonymousOption(long toGroup, bool enabled);
 
         /// <summary>
         /// 设置群成员名片
@@ -193,7 +197,7 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss">目标讨论组</param>
         /// <returns></returns>
         [Description("退出讨论组")]
-        int LeaveDiscuss(long toDiscuss);
+        void LeaveDiscuss(long toDiscuss);
 
         /// <summary>
         /// 同意添加好友请求
@@ -239,5 +243,119 @@ namespace Newbe.Mahua
         /// <param name="reason">原因</param>
         [Description("拒绝入群邀请")]
         void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason);
+
+
+        /// <summary>
+        /// 将QQ移入黑名单
+        /// </summary>
+        /// <param name="toQq"></param>
+        [Description("将QQ移入黑名单")]
+        void BanFriend(long toQq);
+
+        /// <summary>
+        /// 将QQ移出黑名单
+        /// </summary>
+        /// <param name="toQq"></param>
+        [Description("将QQ移出黑名单")]
+        void RemoveBanFriend(long toQq);
+
+        /// <summary>
+        /// 发布群公告
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        [Description("发布群公告")]
+        void SetNotice(long toGroup, string title, string content);
+
+
+        /// <summary>
+        /// 获取群公告
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <returns></returns>
+        [Description("获取群公告")]
+        string GetNotices(long toGroup);
+
+
+        /// <summary>
+        /// 删除好友
+        /// </summary>
+        /// <param name="toQq"></param>
+        [Description("删除好友")]
+        void RemoveFriend(long toQq);
+
+
+        /// <summary>
+        /// 主动加群
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <param name="reason"></param>
+        [Description("主动加群")]
+        void JoinGroup(long toGroup, string reason);
+
+        /// <summary>
+        /// 获取群成员列表
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <returns></returns>
+        [Description("获取群成员列表")]
+        string GetGroupMemebers(long toGroup);
+
+
+        /// <summary>
+        /// 获取群列表
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <returns></returns>
+        [Description("获取群列表")]
+        string GetGroups(long toGroup);
+
+        /// <summary>
+        /// 获取好友列表
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取好友列表")]
+        string GetFriends();
+
+        /// <summary>
+        /// 发送入群邀请
+        /// </summary>
+        /// <param name="toQq"></param>
+        /// <param name="toGroup"></param>
+        [Description("发送入群邀请")]
+        void SendGroupJoiningInvitation(long toQq, long toGroup);
+
+        /// <summary>
+        /// 创建讨论组
+        /// </summary>
+        /// <returns>讨论组Id，为空则说明创建失败</returns>
+        /// <remarks>每24小时只能创建100个讨论组</remarks>
+        [Description("创建讨论组")]
+        string CreateDiscuss();
+
+
+        /// <summary>
+        /// 踢出讨论组
+        /// </summary>
+        /// <param name="toDiscuss"></param>
+        /// <param name="toQq"></param>
+        [Description("踢出讨论组")]
+        void KickDiscussMember(long toDiscuss, long toQq);
+
+        /// <summary>
+        /// 发送讨论组邀请
+        /// </summary>
+        /// <param name="toQq"></param>
+        /// <param name="toDiscuss"></param>
+        [Description("发送讨论组邀请")]
+        void SendDiscussJoiningInvitation(long toQq, long toDiscuss);
+
+        /// <summary>
+        /// 获取讨论组列表
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取讨论组列表")]
+        string GetDiscusses();
     }
 }
