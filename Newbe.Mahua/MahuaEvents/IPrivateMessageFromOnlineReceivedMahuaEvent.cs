@@ -6,7 +6,7 @@ namespace Newbe.Mahua.MahuaEvents
     /// <summary>
     /// 来自在线状态的私聊消息接收事件
     /// </summary>
-    [Description("来自群成员的私聊消息接收事件")]
+    [Description("来自在线状态的私聊消息接收事件")]
     public interface IPrivateMessageFromOnlineReceivedMahuaEvent : IMahuaEvent
     {
         void ProcessOnlineMessage(PrivateMessageFromOnlineReceivedContext context);

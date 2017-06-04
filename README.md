@@ -57,5 +57,5 @@ IPluginEnabledMahuaEvent                     | 插件被启用事件          | 
 IPrivateMessageFromDiscussReceivedMahuaEvent | 来自讨论组成员的私聊消息接收事件 | √   |
 IPrivateMessageFromFriendReceivedMahuaEvent  | 来自好友的私聊消息接收事件    | √   |
 IPrivateMessageFromGroupReceivedMahuaEvent   | 来自群成员的私聊消息接收事件   | √   |
-IPrivateMessageFromOnlineReceivedMahuaEvent  | 来自群成员的私聊消息接收事件   | √   |
-IPrivateMessageReceivedMahuaEvent            | 来自群成员的私聊消息接收事件   | √   |
+IPrivateMessageFromOnlineReceivedMahuaEvent  | 来自在线状态的私聊消息接收事件  | √   |
+IPrivateMessageReceivedMahuaEvent            | 私聊消息接收事件         | √   |

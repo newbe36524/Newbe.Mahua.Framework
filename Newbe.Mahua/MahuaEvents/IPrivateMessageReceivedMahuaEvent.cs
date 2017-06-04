@@ -7,7 +7,7 @@ namespace Newbe.Mahua.MahuaEvents
     /// <summary>
     /// 私聊消息接收事件
     /// </summary>
-    [Description("来自群成员的私聊消息接收事件")]
+    [Description("私聊消息接收事件")]
     public interface IPrivateMessageReceivedMahuaEvent : IMahuaEvent
     {
         void ProcessPrivateMessage(PrivateMessageReceivedContext context);
