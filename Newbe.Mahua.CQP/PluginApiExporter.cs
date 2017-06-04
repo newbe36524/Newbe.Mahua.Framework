@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using Newbe.Mahua.CQP.Commands;
 using Newbe.Mahua.MahuaEvents.Enums;
+using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.CQP
 {

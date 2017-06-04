@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.MPQ
 {
