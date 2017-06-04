@@ -1,8 +1,8 @@
 # Newbe.Mahua.Framework
 
-dev                                                                              | master
--------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------
-![build:](https://travis-ci.org/Newbe36524/Newbe.Mahua.Framework.svg?branch=dev) | ![build:](https://travis-ci.org/Newbe36524/Newbe.Mahua.Framework.svg?branch=master)
+dev                                                                                                                                                                              | master
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/dev?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/dev) | [![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/master?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/master)
 
 ## 你打麻花，谁疼？麻花疼。
 
