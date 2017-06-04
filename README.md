@@ -31,6 +31,7 @@ QQ    | QQ                     |
 私聊消息  | PrivateMessage         |
 群消息   | GroupMessage           |
 讨论组消息 | DiscussMessage         |
+禁言    | Ban                    |
 机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
 插件    | Plugin                 |
 
