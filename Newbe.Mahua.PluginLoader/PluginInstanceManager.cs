@@ -40,15 +40,20 @@ namespace Newbe.Mahua
             }
             catch (Exception e)
             {
-                Logger.ErrorException(e.Message, e);
-                var inner = e.InnerException;
+                var inner = e;
                 while (inner != null)
                 {
-                    Logger.ErrorException(e.Message, e);
+                    LogException(inner);
                     inner = inner.InnerException;
                 }
                 throw;
             }
+        }
+
+        private static void LogException(Exception e)
+        {
+            Logger.ErrorException(e.Message, e);
+            Logger.Error(e.StackTrace);
         }
 
         private static string GetPluginName()
