@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Newbe.Mahua.Properties
+namespace Newbe.Mahua
 {
     /// <summary>
     /// 全局信息

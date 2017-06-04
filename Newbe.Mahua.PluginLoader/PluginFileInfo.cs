@@ -1,15 +1,12 @@
-﻿using System.IO;
-using Newbe.Mahua.Logging;
+﻿using System;
 
 namespace Newbe.Mahua
 {
     /// <summary>
     /// 插件信息
     /// </summary>
-    public class PluginInfo
+    public class PluginFileInfo
     {
-        private static readonly ILog Logger = LogProvider.For<PluginInfo>();
-
         /// <summary>
         /// 插件名称
         /// </summary>
@@ -37,18 +34,11 @@ namespace Newbe.Mahua
 
         public override string ToString()
         {
-            return
-                $"{nameof(Name)}: {Name}, {nameof(PluginApiExporterRuntimeFullpath)}: {PluginApiExporterRuntimeFullpath}, {nameof(PluginEntryPointDllFullFilename)}: {PluginEntryPointDllFullFilename}, {nameof(PluginEntyPointDirectory)}: {PluginEntyPointDirectory}, {nameof(PluginEntryPointConfigFullFilename)}: {PluginEntryPointConfigFullFilename}";
-        }
-
-        public void ValidateFiles()
-        {
-            Logger.Debug(ToString);
-            if (!File.Exists(PluginEntryPointDllFullFilename))
-            {
-                throw new FileNotFoundException(
-                    $"无法找到{Name}插件的入口Dll，需要将{Name}.dll及其依赖项复制到{PluginEntyPointDirectory}");
-            }
+            return $"{Environment.NewLine} {nameof(Name)}: {Name}," +
+                   $"{Environment.NewLine} {nameof(PluginApiExporterRuntimeFullpath)}: {PluginApiExporterRuntimeFullpath}," +
+                   $"{Environment.NewLine} {nameof(PluginEntryPointDllFullFilename)}: {PluginEntryPointDllFullFilename}," +
+                   $"{Environment.NewLine} {nameof(PluginEntyPointDirectory)}: {PluginEntyPointDirectory}," +
+                   $" {Environment.NewLine} {nameof(PluginEntryPointConfigFullFilename)}: {PluginEntryPointConfigFullFilename}";
         }
     }
 }

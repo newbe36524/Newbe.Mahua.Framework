@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDomainExtensions.cs" />
     <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
     <Compile Include="Commands\CommandHandlerExtensions.cs" />
     <Compile Include="Commands\Impl\CommandCenter.cs" />
@@ -56,7 +57,7 @@
     <Compile Include="Commands\IVoidCommandHandler.cs" />
     <Compile Include="Commands\MahuaCommand.cs" />
     <Compile Include="Commands\MahuaCommandResult.cs" />
-    <Compile Include="PluginInfo.cs" />
+    <Compile Include="PluginFileInfo.cs" />
     <Compile Include="PluginInstanceManager.cs" />
     <Compile Include="PluginLoaderExtensions.cs" />
     <Compile Include="PluginLoaderMahuaModule.cs" />
