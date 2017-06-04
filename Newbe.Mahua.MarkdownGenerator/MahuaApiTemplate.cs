@@ -39,7 +39,7 @@ namespace Newbe.Mahua.MarkdownGenerator
             this.Write("\r\n");
             
             #line 11 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(GetColumnSpliter(table.PlatformNames.Length + 1)));
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetColumnSpliter(table.PlatformNames.Length + 2)));
             
             #line default
             #line hidden
@@ -78,6 +78,7 @@ namespace Newbe.Mahua.MarkdownGenerator
 public string GetHeader(string[] platforms){
 	var sb = new StringBuilder();
 	sb.Append("事件|");
+	sb.Append("说明|");
     foreach (var item in platforms)
     {
 		 sb.Append(item + "|");
@@ -95,7 +96,8 @@ var sb = new StringBuilder();
 }
 public string GetRow(MahuaEventDescption desc,IDictionary<string, bool> supportStatus){
 	var sb = new StringBuilder();
-	sb.AppendFormat("[{0}](# \"{1}\")|",desc.MahuaEventDescription,desc.MahuaEventInterfaceName);
+	sb.AppendFormat("{0}|",desc.MahuaEventInterfaceName);
+	sb.AppendFormat("{0}|",desc.MahuaEventDescription);
     foreach (var name in table.PlatformNames)
     {
 		var checkd = supportStatus[name] ? "√" : " ";

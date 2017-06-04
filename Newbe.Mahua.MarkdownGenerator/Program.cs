@@ -35,6 +35,7 @@ namespace Newbe.Mahua.MarkdownGenerator
             };
             mahuaApiTemplate.Initialize();
             var re = mahuaApiTemplate.TransformText();
+            Console.WriteLine(re);
             File.WriteAllText("MahuaEvents.md", re);
         }
 
