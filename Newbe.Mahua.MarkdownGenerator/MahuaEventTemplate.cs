@@ -19,9 +19,9 @@ namespace Newbe.Mahua.MarkdownGenerator
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+    #line 1 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class MahuaApiTemplate : MahuaApiTemplateBase
+    public partial class MahuaEventTemplate : MahuaEventTemplateBase
     {
 #line hidden
         /// <summary>
@@ -29,23 +29,23 @@ namespace Newbe.Mahua.MarkdownGenerator
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n");
+            this.Write("\r\n\r\n");
             
-            #line 9 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+            #line 10 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetHeader(table.PlatformNames)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 10 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+            #line 11 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetColumnSpliter(table.PlatformNames.Length + 2)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 11 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+            #line 12 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
 
     foreach (var state in table.SupportState)
     {
@@ -54,14 +54,14 @@ namespace Newbe.Mahua.MarkdownGenerator
             #line default
             #line hidden
             
-            #line 14 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+            #line 15 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetRow(state.Key,state.Value)));
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 15 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+            #line 16 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
 
     }
 
@@ -73,11 +73,11 @@ namespace Newbe.Mahua.MarkdownGenerator
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 20 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+        #line 21 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
 
 public string GetHeader(string[] platforms){
 	var sb = new StringBuilder();
-	sb.Append("Api|");
+	sb.Append("事件|");
 	sb.Append("说明|");
     foreach (var item in platforms)
     {
@@ -94,10 +94,10 @@ var sb = new StringBuilder();
     }
 	return sb.ToString().TrimEnd('|');
 }
-public string GetRow(MahuaApiDescription desc,IDictionary<string, bool> supportStatus){
+public string GetRow(MahuaEventDescption desc,IDictionary<string, bool> supportStatus){
 	var sb = new StringBuilder();
-	sb.AppendFormat("{0}|",desc.Name);
-	sb.AppendFormat("{0}|",desc.Description);
+	sb.AppendFormat("{0}|",desc.MahuaEventInterfaceName);
+	sb.AppendFormat("{0}|",desc.MahuaEventDescription);
     foreach (var name in table.PlatformNames)
     {
 		var checkd = supportStatus[name] ? "√" : " ";
@@ -110,14 +110,14 @@ public string GetRow(MahuaApiDescription desc,IDictionary<string, bool> supportS
         #line default
         #line hidden
         
-        #line 1 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaApiTemplate.tt"
+        #line 1 "D:\Codes\Repos\Newbe.Mahua.Framework\Newbe.Mahua.MarkdownGenerator\MahuaEventTemplate.tt"
 
-private global::Newbe.Mahua.MarkdownGenerator.MahuaApiSupportedTable _tableField;
+private global::Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable _tableField;
 
 /// <summary>
 /// Access the table parameter of the template.
 /// </summary>
-private global::Newbe.Mahua.MarkdownGenerator.MahuaApiSupportedTable table
+private global::Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable table
 {
     get
     {
@@ -136,7 +136,7 @@ public virtual void Initialize()
 bool tableValueAcquired = false;
 if (this.Session.ContainsKey("table"))
 {
-    this._tableField = ((global::Newbe.Mahua.MarkdownGenerator.MahuaApiSupportedTable)(this.Session["table"]));
+    this._tableField = ((global::Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable)(this.Session["table"]));
     tableValueAcquired = true;
 }
 if ((tableValueAcquired == false))
@@ -144,7 +144,7 @@ if ((tableValueAcquired == false))
     object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("table");
     if ((data != null))
     {
-        this._tableField = ((global::Newbe.Mahua.MarkdownGenerator.MahuaApiSupportedTable)(data));
+        this._tableField = ((global::Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable)(data));
     }
 }
 
@@ -165,7 +165,7 @@ if ((tableValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class MahuaApiTemplateBase
+    public class MahuaEventTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

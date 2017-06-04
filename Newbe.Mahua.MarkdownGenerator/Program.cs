@@ -16,27 +16,72 @@ namespace Newbe.Mahua.MarkdownGenerator
         {
             var cqpMahuaEventsUsedInAssembly = GetMahuaEventsUsedInAssembly(typeof(CqpMahuaModule).Assembly);
             var mpqMahuaEventsUsedInAssembly = GetMahuaEventsUsedInAssembly(typeof(MpqMahuaModule).Assembly);
-            var mahuaApiTemplate = new MahuaApiTemplate();
             var mahuaEventDescptions = GetAllMahuaEvents().OrderBy(x => x.MahuaEventInterfaceName).ToArray();
-            mahuaApiTemplate.Session = new Dictionary<string, object>
+            var platformNames = new[] {"CQP", "MPQ"};
+            var mahuaApiTemplate = new MahuaEventTemplate
             {
-                ["table"] = new MahuaEventSupportedTable
+                Session = new Dictionary<string, object>
                 {
-                    MahuaEventDescptions = mahuaEventDescptions,
-                    PlatformNames = new[] {"CQP", "MPQ"},
-                    SupportState =
-                        mahuaEventDescptions.ToDictionary(x => x,
-                            x => new Dictionary<string, bool>
-                            {
-                                ["CQP"] = cqpMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
-                                ["MPQ"] = mpqMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
-                            })
+                    ["table"] = new MahuaEventSupportedTable
+                    {
+                        MahuaEventDescptions = mahuaEventDescptions,
+                        PlatformNames = platformNames,
+                        SupportState =
+                            mahuaEventDescptions.ToDictionary(x => x,
+                                x => new Dictionary<string, bool>
+                                {
+                                    ["CQP"] = cqpMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
+                                    ["MPQ"] = mpqMahuaEventsUsedInAssembly.Contains(x.MahuaEventType),
+                                })
+                    }
                 }
             };
             mahuaApiTemplate.Initialize();
             var re = mahuaApiTemplate.TransformText();
             Console.WriteLine(re);
             File.WriteAllText("MahuaEvents.md", re);
+
+            var apis = GetAllMahuaApis().ToArray();
+            var cqpApi = GetApiSupportedState(typeof(CqpMahuaModule).Assembly);
+            var mpqApi = GetApiSupportedState(typeof(MpqMahuaModule).Assembly);
+            var mahuaApiSupportedTable = new MahuaApiSupportedTable
+            {
+                MahuaApiDescriptions = apis,
+                PlatformNames = platformNames,
+                SupportState = apis.ToDictionary(x => x, x =>
+                {
+                    var r = new Dictionary<string, bool>
+                    {
+                        ["CQP"] = cqpApi[x.Name],
+                        ["MPQ"] = mpqApi[x.Name],
+                    };
+                    return r;
+                })
+            };
+            var apiTemplate = new MahuaApiTemplate
+            {
+                Session = new Dictionary<string, object>
+                {
+                    ["table"] = mahuaApiSupportedTable
+                }
+            };
+            apiTemplate.Initialize();
+            var apiMd = apiTemplate.TransformText();
+            Console.WriteLine(apiMd);
+            File.WriteAllText("MahuaApi.md", apiMd);
+        }
+
+        private static Dictionary<string, bool> GetApiSupportedState(Assembly assembly)
+        {
+            var apiImpl = assembly.GetTypes().Single(x => x.IsClass && typeof(IMahuaApi).IsAssignableFrom(x));
+            var methods = apiImpl.GetMethods()
+                .Select(x => new
+                {
+                    MethodName = x.Name,
+                    Supported = x.GetCustomAttribute<NotSupportedMahuaApiAttribute>() == null
+                })
+                .ToDictionary(x => x.MethodName, x => x.Supported);
+            return methods;
         }
 
         /// <summary>
@@ -67,11 +112,18 @@ namespace Newbe.Mahua.MarkdownGenerator
             return arguments;
         }
 
+        private static IEnumerable<MahuaApiDescription> GetAllMahuaApis()
+        {
+            var apiType = typeof(IMahuaApi);
+            var re = apiType.GetMethods().Select(x => new MahuaApiDescription(x)).ToList();
+            return re;
+        }
+
         /// <summary>
         /// 获取所有MahuaEvents
         /// </summary>
         /// <returns></returns>
-        private static List<MahuaEventDescption> GetAllMahuaEvents()
+        private static IEnumerable<MahuaEventDescption> GetAllMahuaEvents()
         {
             var mahuaEventType = typeof(IMahuaEvent);
             var allMahuaEvents = mahuaEventType.Assembly.GetTypes()
@@ -86,6 +138,13 @@ namespace Newbe.Mahua.MarkdownGenerator
         public string[] PlatformNames { get; set; }
         public MahuaEventDescption[] MahuaEventDescptions { get; set; }
         public Dictionary<MahuaEventDescption, Dictionary<string, bool>> SupportState { get; set; }
+    }
+
+    public class MahuaApiSupportedTable
+    {
+        public string[] PlatformNames { get; set; }
+        public MahuaApiDescription[] MahuaApiDescriptions { get; set; }
+        public Dictionary<MahuaApiDescription, Dictionary<string, bool>> SupportState { get; set; }
     }
 
     public class MahuaEventDescption
@@ -112,5 +171,19 @@ namespace Newbe.Mahua.MarkdownGenerator
         /// 事件接口名称
         /// </summary>
         public string MahuaEventInterfaceName { get; set; }
+    }
+
+    public class MahuaApiDescription
+    {
+        public MahuaApiDescription(MethodInfo methodInfo)
+        {
+            MethodInfo = methodInfo;
+            Name = methodInfo.Name;
+            Description = methodInfo.GetCustomAttribute<DescriptionAttribute>().Description;
+        }
+
+        public MethodInfo MethodInfo { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

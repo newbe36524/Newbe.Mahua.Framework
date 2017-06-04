@@ -4,142 +4,142 @@ namespace Newbe.Mahua.MPQ
 {
     class MahuaApi : IMahuaApi
     {
-        void IMahuaApi.SendPrivateMessage(long toQq, string message)
+        public void SendPrivateMessage(long toQq, string message)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SendGroupMessage(long toGroup, string message)
+        public void SendGroupMessage(long toGroup, string message)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SendDiscussMessage(long toDiscuss, string message)
+        public void SendDiscussMessage(long toDiscuss, string message)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SendLike(long toQq)
+        public int SendLike(long toQq)
         {
             throw new NotImplementedException();
         }
 
-        string IMahuaApi.GetCookies()
+        public string GetCookies()
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.GetCsrfToken()
+        public int GetCsrfToken()
         {
             throw new NotImplementedException();
         }
 
-        long IMahuaApi.GetLoginQq()
+        public long GetLoginQq()
         {
             throw new NotImplementedException();
         }
 
-        string IMahuaApi.GetLoginNick()
+        public string GetLoginNick()
         {
             throw new NotImplementedException();
         }
 
-        string IMahuaApi.GetRecord(string file, string outformat)
+        public string GetRecord(string file, string outformat)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.KickGroupMember(long toGroup, long toQq, bool rejectForever)
+        public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.BanGroupMember(long toGroup, long toQq, TimeSpan duration)
+        public void BanGroupMember(long toGroup, long toQq, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.RemoveBanGroupMember(long toGroup, long toQq)
+        public void RemoveBanGroupMember(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.EnableGroupAdmin(long toGroup, long toQq)
+        public void EnableGroupAdmin(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.DisableGroupAdmin(long toGroup, long toQq)
+        public void DisableGroupAdmin(long toGroup, long toQq)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration)
+        public void SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SetBanAllGroupMembersOption(long toGroup, bool enabled)
+        public void SetBanAllGroupMembersOption(long toGroup, bool enabled)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
+        public int SetGroupAnonymousBan(long toGroup, string anonymous, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.SetGroupAnonymousOption(long toGroup, bool enabled)
+        public int SetGroupAnonymousOption(long toGroup, bool enabled)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
+        public void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.LeaveGroup(long toGroup)
+        public void LeaveGroup(long toGroup)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.DissolveGroup(long toGroup)
+        public void DissolveGroup(long toGroup)
         {
             throw new NotImplementedException();
         }
 
-        int IMahuaApi.LeaveDiscuss(long toDiscuss)
+        public int LeaveDiscuss(long toDiscuss)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
+        public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.RejectFriendAddingRequest(string addingFriendRequestId)
+        public void RejectFriendAddingRequest(string addingFriendRequestId)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.AcceptGroupJoiningRequest(string groupJoiningRequestId)
+        public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
+        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
         {
             throw new NotImplementedException();
         }
 
-        void IMahuaApi.RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
+        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
         {
             throw new NotImplementedException();
         }

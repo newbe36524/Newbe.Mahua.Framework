@@ -4,7 +4,8 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="Newbe.Mahua.MarkdownGenerator" #>
-<#@ parameter name="table" type="Newbe.Mahua.MarkdownGenerator.MahuaApiSupportedTable"#>
+<#@ parameter name="table" type="Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable"#>
+
 
 <#=GetHeader(table.PlatformNames)#>
 <#=GetColumnSpliter(table.PlatformNames.Length + 2)#>
@@ -20,7 +21,7 @@
 <#+
 public string GetHeader(string[] platforms){
 	var sb = new StringBuilder();
-	sb.Append("Api|");
+	sb.Append("事件|");
 	sb.Append("说明|");
     foreach (var item in platforms)
     {
@@ -37,10 +38,10 @@ var sb = new StringBuilder();
     }
 	return sb.ToString().TrimEnd('|');
 }
-public string GetRow(MahuaApiDescription desc,IDictionary<string, bool> supportStatus){
+public string GetRow(MahuaEventDescption desc,IDictionary<string, bool> supportStatus){
 	var sb = new StringBuilder();
-	sb.AppendFormat("{0}|",desc.Name);
-	sb.AppendFormat("{0}|",desc.Description);
+	sb.AppendFormat("{0}|",desc.MahuaEventInterfaceName);
+	sb.AppendFormat("{0}|",desc.MahuaEventDescription);
     foreach (var name in table.PlatformNames)
     {
 		var checkd = supportStatus[name] ? "√" : " ";

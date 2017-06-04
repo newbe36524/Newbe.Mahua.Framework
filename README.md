@@ -34,7 +34,7 @@ QQ    | QQ                     |
 机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
 插件    | Plugin                 |
 
-## MahuaEvents 支持列表
+## MahuaEvent支持列表
 
 事件                                           | 说明               | CQP | MPQ
 -------------------------------------------- | ---------------- | --- | ---
@@ -59,3 +59,36 @@ IPrivateMessageFromFriendReceivedMahuaEvent  | 来自好友的私聊消息接收
 IPrivateMessageFromGroupReceivedMahuaEvent   | 来自群成员的私聊消息接收事件   | √   |
 IPrivateMessageFromOnlineReceivedMahuaEvent  | 来自在线状态的私聊消息接收事件  | √   |
 IPrivateMessageReceivedMahuaEvent            | 私聊消息接收事件         | √   |
+
+## MahuaApi支持列表
+
+Api                          | 说明             | CQP | MPQ
+---------------------------- | -------------- | --- | ---
+SendPrivateMessage           | 发送私聊消息         | √   | √
+SendGroupMessage             | 发送群消息          | √   | √
+SendDiscussMessage           | 发送讨论组消息        | √   | √
+SendLike                     | 发送名片赞          | √   | √
+GetCookies                   | 取Cookies       | √   | √
+GetCsrfToken                 | 取CsrfToken，bkn | √   | √
+GetLoginQq                   | 取当前登录QQ        | √   | √
+GetLoginNick                 | 取当前登录QQ昵称      | √   | √
+GetRecord                    | 接收语音           | √   | √
+KickGroupMember              | 移出群成员          | √   | √
+BanGroupMember               | 禁言某群成员         | √   | √
+RemoveBanGroupMember         | 取消禁言某群成员       | √   | √
+EnableGroupAdmin             | 设置群管理员         | √   | √
+DisableGroupAdmin            | 删除群管理员         | √   | √
+SetGroupMemberSpecialTitle   | 设置群成员专属头衔      | √   | √
+SetBanAllGroupMembersOption  | 设置全群禁言         | √   | √
+SetGroupAnonymousBan         | 设置禁言某匿名群员      | √   | √
+SetGroupAnonymousOption      | 设置群匿名设置        | √   | √
+SetGroupMemberCard           | 设置群成员名片        | √   | √
+LeaveGroup                   | 退出群            | √   | √
+DissolveGroup                | 解散群            | √   | √
+LeaveDiscuss                 | 退出讨论组          | √   | √
+AcceptFriendAddingRequest    | 同意添加好友请求       | √   | √
+RejectFriendAddingRequest    | 拒绝添加好友请求       | √   | √
+AcceptGroupJoiningRequest    | 管理员同意入群申请      | √   | √
+RejectGroupJoiningRequest    | 管理员拒绝入群申请      | √   | √
+AcceptGroupJoiningInvitation | 接受入群邀请         | √   | √
+RejectGroupJoiningInvitation | 拒绝入群邀请         | √   | √

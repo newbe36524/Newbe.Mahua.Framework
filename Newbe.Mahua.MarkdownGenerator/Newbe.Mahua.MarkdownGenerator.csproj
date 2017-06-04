@@ -47,6 +47,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaApiTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="MahuaEventTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MahuaEventTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +63,10 @@
     <Content Include="MahuaApiTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MahuaApiTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="MahuaEventTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaEventTemplate.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
