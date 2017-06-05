@@ -28,7 +28,7 @@ namespace Newbe.Mahua.Msbuild
         /// 插件名称
         /// </summary>
         [Required]
-        public string NewbePluginName { get; set; }
+        public string MahuaPluginName { get; set; }
 
         /// <summary>
         /// Package文件夹
@@ -46,7 +46,7 @@ namespace Newbe.Mahua.Msbuild
         {
             var context = new MahuaPluginPackContext
             {
-                NewbePluginName = NewbePluginName,
+                NewbePluginName = MahuaPluginName,
                 PackageDirectory = PackageDirectory,
                 ProjectDirectory = ProjectDirectory,
                 Configuration = Configuration
