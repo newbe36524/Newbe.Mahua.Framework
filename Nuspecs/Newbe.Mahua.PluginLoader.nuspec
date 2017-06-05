@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Newbe.Mahua.PluginLoader</id>
-    <version>1.0.0</version>
+    <version>$version$</version>
     <title>Newbe.Mahua.PluginLoader</title>
     <authors>Newbe</authors>
     <owners>Newbe</owners>

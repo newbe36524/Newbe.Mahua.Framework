@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Newbe.Mahua.CQP</id>
-    <version>1.0.1</version>
+    <version>$version$</version>
     <title>Newbe.Mahua.CQP</title>
     <authors>Newbe</authors>
     <owners>Newbe</owners>
