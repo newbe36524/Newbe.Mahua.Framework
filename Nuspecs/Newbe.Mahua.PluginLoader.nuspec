@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Newbe.Mahua.Msbuild</id>
-    <version>1.0.7</version>
-    <title>Newbe.Mahua.Msbuild</title>
+    <id>Newbe.Mahua.PluginLoader</id>
+    <version>1.0.0</version>
+    <title>Newbe.Mahua.PluginLoader</title>
     <authors>Newbe</authors>
     <owners>Newbe</owners>
     <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
     <projectUrl>http://www.newbe.cf/</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Newbe.Mahua插件打包</description>
-    <releaseNotes>Newbe.Mahua插件打包</releaseNotes>
+    <description>Newbe.Mahua运行时隔离通讯协议实现</description>
+    <releaseNotes>Newbe.Mahua运行时隔离通讯协议实现</releaseNotes>
     <copyright>Copyright Newbe 2017</copyright>
     <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
     <dependencies>
+      <dependency id="Autofac" version="[4.6,5)"/>
       <dependency id="Newbe.Mahua" version="[1,2)"/>
+      <dependency id="Tungsten.Domains" version="[1,2)"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Newbe.Mahua.Msbuild\bin\Release\**" target="tools"/>
-    <file src="..\Newbe.Mahua.Msbuild\build\**" target="build"/>
-    <file src="..\Newbe.Mahua.Msbuild\content\**" target="content"/>
+    <file src="..\Newbe.Mahua.PluginLoader\bin\Release\Newbe.Mahua.PluginLoader.*" target="lib\net452"/>
   </files>
 </package>

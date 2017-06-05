@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -47,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
+    <Compile Include="Packers\CqpMahuaPluginPacker.cs" />
     <Compile Include="Packers\IMahuaPluginPacker.cs" />
     <Compile Include="Packers\IMahuaPluginPackerFactory.cs" />
     <Compile Include="MahuaPackTask.cs" />
@@ -56,22 +60,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="build\Newbe.Mahua.Msbuild.props" />
-    <None Include="build\Newbe.Mahua.Msbuild.targets" />
+    <None Include="build\Newbe.Mahua.Msbuild.targets">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="content\Newbe.Mahua.props" />
     <None Include="ILMerge.props" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj">
-      <Project>{598c5d58-b57a-4552-ac74-938d67b37144}</Project>
-      <Name>Newbe.Mahua</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILMergeOrder.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="tools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj">
+      <Project>{598c5d58-b57a-4552-ac74-938d67b37144}</Project>
+      <Name>Newbe.Mahua</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

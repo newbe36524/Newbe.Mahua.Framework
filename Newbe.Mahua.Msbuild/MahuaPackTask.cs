@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
@@ -40,7 +41,7 @@ namespace Newbe.Mahua.Msbuild
         /// 需要打包的插件列表
         /// </summary>
         [Required]
-        public MahuaPlatform[] MahuaPlatforms { get; set; }
+        public string[] MahuaPlatforms { get; set; }
 
         public override bool Execute()
         {
@@ -52,7 +53,11 @@ namespace Newbe.Mahua.Msbuild
                 Configuration = Configuration
             };
             IMahuaPluginPackerFactory factory = new MahuaPluginPackerFactory();
-            return MahuaPlatforms
+            return MahuaPlatforms.Select(x =>
+                {
+                    Enum.TryParse(x, true, out MahuaPlatform platform);
+                    return platform;
+                })
                 .Select(mahuaPlatform => factory.Create(mahuaPlatform))
                 .Select(mahuaPluginPacker => mahuaPluginPacker.Pack(context))
                 .All(packResult => packResult);

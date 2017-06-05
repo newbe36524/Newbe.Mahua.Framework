@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Newbe.Mahua.CQP</id>
+    <version>1.0.1</version>
+    <title>Newbe.Mahua.CQP</title>
+    <authors>Newbe</authors>
+    <owners>Newbe</owners>
+    <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
+    <projectUrl>http://www.newbe.cf/</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Newbe.Mahua.CQP 对接酷Q实现</description>
+    <releaseNotes>Newbe.Mahua.CQP 对接酷Q实现</releaseNotes>
+    <copyright>Copyright Newbe 2017</copyright>
+    <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
+    <dependencies>
+      <dependency id="Autofac" version="[4.6,5)"/>
+      <dependency id="Newbe.Mahua" version="[1,2)"/>
+      <dependency id="Newbe.Mahua.PluginLoader" version="[1,2)"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Newbe.Mahua.CQP\bin\Release\Newbe.Mahua.CQP.*" target="lib\net452"/>
+    <file src="..\Newbe.Mahua.CQP\bin\Release\*.dll" target="tools\ForMain"/>
+    <file src="..\Newbe.Mahua.CQP\bin\Release\*.xml" target="tools\ForMain"/>
+    <file src="..\Newbe.Mahua.CQP\bin\Release\*.pdb" target="tools\ForMain"/>
+    <file src="..\Newbe.Mahua.CQP\bin\Release\x86\**" target="tools\ForPlugin"/>
+    <file src="..\Newbe.Mahua.CQP\build\**" target="build"/>
+  </files>
+</package>
