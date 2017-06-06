@@ -1,9 +1,21 @@
 ﻿using System;
+using Newbe.Mahua.MPQ.NativeApi;
 
 namespace Newbe.Mahua.MPQ
 {
     class MahuaApi : IMahuaApi
     {
+        private readonly IMyPcqqApi _myPcqqApi;
+        private readonly IQqContainer _qqContainer;
+
+        public MahuaApi(IMyPcqqApi myPcqqApi, IQqContainer qqContainer)
+        {
+            _myPcqqApi = myPcqqApi;
+            _qqContainer = qqContainer;
+        }
+
+        private long Qq => _qqContainer.ReceivedQq;
+
         public void SendPrivateMessage(long toQq, string message)
         {
             throw new NotImplementedException();

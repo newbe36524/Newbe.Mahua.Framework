@@ -1,4 +1,5 @@
 using Autofac;
+using Newbe.Mahua.MPQ.Commands;
 using Newbe.Mahua.MPQ.NativeApi;
 
 namespace Newbe.Mahua.MPQ
@@ -15,6 +16,7 @@ namespace Newbe.Mahua.MPQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
+                builder.RegisterType<InfoCommand>().AsImplementedInterfaces();
             }
         }
 
@@ -23,6 +25,7 @@ namespace Newbe.Mahua.MPQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
+                builder.RegisterType<InfoCommandHandler>().AsImplementedInterfaces();
             }
         }
 
@@ -33,6 +36,7 @@ namespace Newbe.Mahua.MPQ
                 base.Load(builder);
                 builder.RegisterType<MyPcqqApi>().As<IMyPcqqApi>().SingleInstance();
                 builder.RegisterType<MahuaApi>().As<IMahuaApi>().SingleInstance();
+                builder.RegisterType<QqContainer>().As<IQqContainer>().InstancePerLifetimeScope();
             }
         }
     }

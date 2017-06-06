@@ -57,10 +57,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\EventFunCommand.cs" />
     <Compile Include="Commands\InfoCommand.cs" />
     <Compile Include="MqpCommand.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="MpqMahuaModule.cs" />
+    <Compile Include="NativeApi\IQqContainer.cs" />
     <Compile Include="NativeApi\IMyPcqqApi.cs" />
     <Compile Include="NativeApi\MyPcqqApi.cs" />
     <Compile Include="PluginApiExporter.cs" />
@@ -78,6 +80,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="build\Newbe.Mahua.MPQ.targets">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
