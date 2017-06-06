@@ -2,6 +2,7 @@
 
 dev                                                                                                                                                                              | master
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87121d1e6dbf42edac3e356696504b8d)](https://www.codacy.com/app/472158246/Newbe.Mahua.Framework?utm_source=github.com&utm_medium=referral&utm_content=Newbe36524/Newbe.Mahua.Framework&utm_campaign=badger)
 [![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/dev?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/dev) | [![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/master?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/master)
 
 ## 你打麻花，谁疼？麻花疼。
