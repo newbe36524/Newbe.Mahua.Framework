@@ -6,7 +6,7 @@ using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.CQP
 {
-    public static class PluginInstanceManager
+    internal static class PluginInstanceManager
     {
         public static IPluginLoader GetInstance()
         {
@@ -20,7 +20,7 @@ namespace Newbe.Mahua.CQP
     /// </summary>
     public sealed class PluginApiExporter : IPluginApiExporter
     {
-        public const string CoolApiVersion = "9";
+        private const string CoolApiVersion = "9";
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
 
         private static DateTime ConvertToDatetime(int time)
