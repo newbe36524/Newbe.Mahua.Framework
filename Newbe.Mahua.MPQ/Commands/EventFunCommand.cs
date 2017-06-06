@@ -4,7 +4,7 @@ using Newbe.Mahua.MPQ.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
-    class EventFunCommandHandler : CommandHandlerBase<EventFunCommand>
+    internal class EventFunCommandHandler : CommandHandlerBase<EventFunCommand>
     {
         private readonly IQqContainer _qqContainer;
 

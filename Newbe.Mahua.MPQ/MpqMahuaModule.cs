@@ -11,31 +11,31 @@ namespace Newbe.Mahua.MPQ
             return new Module[] {new CqpModule(), new CommandModule(), new CommandHandlersModule()};
         }
 
-        private class CommandModule : Module
+        internal class CommandModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<InfoCommand>().AsImplementedInterfaces();
             }
         }
 
-        private class CommandHandlersModule : Module
+        internal class CommandHandlersModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
                 builder.RegisterType<InfoCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<EventFunCommandHandler>().AsImplementedInterfaces();
             }
         }
 
-        private class CqpModule : Module
+        internal class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
                 builder.RegisterType<MyPcqqApi>().As<IMyPcqqApi>().SingleInstance();
-                builder.RegisterType<MahuaApi>().As<IMahuaApi>().SingleInstance();
+                builder.RegisterType<MahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
                 builder.RegisterType<QqContainer>().As<IQqContainer>().InstancePerLifetimeScope();
             }
         }

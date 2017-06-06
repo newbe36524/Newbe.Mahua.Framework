@@ -3,7 +3,7 @@ using Newbe.Mahua.MPQ.NativeApi;
 
 namespace Newbe.Mahua.MPQ
 {
-    class MahuaApi : IMahuaApi
+    internal class MahuaApi : IMahuaApi
     {
         private readonly IMyPcqqApi _myPcqqApi;
         private readonly IQqContainer _qqContainer;
