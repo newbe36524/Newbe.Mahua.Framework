@@ -1,4 +1,4 @@
-﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices;
 
 namespace Newbe.Mahua.MPQ.NativeApi
 {
@@ -623,7 +623,8 @@ namespace Newbe.Mahua.MPQ.NativeApi
         bool IMyPcqqApi.Api_SendMusic(string 响应的QQ, int 收信对象类型, string 收信对象所属群_讨论组, string 收信对象QQ, string 音乐简介,
             string 音乐播放页面连接, string 音乐封面连接, string 音乐文件直连连接, string 曲名, string 歌手名, string 音乐来源名, string 音乐来源图标连接)
             => NativeMethods.Api_SendMusic(响应的QQ, 收信对象类型, 收信对象所属群_讨论组, 收信对象QQ, 音乐简介, 音乐播放页面连接, 音乐封面连接, 音乐文件直连连接, 曲名,
-                歌手名, 音乐来源名, 音乐来源图标连接);
+                歌手名,
+                音乐来源名, 音乐来源图标连接);
 
         /// <summary>
         /// `
@@ -648,6 +649,16 @@ namespace Newbe.Mahua.MPQ.NativeApi
         bool IMyPcqqApi.Api_IsFriend(string 响应的QQ, string 对象QQ)
             => NativeMethods.Api_IsFriend(响应的QQ, 对象QQ);
 
+
+        /// <summary>
+        /// QQ名片赞 10赞每Q每日 至多50人\日系列 成功返回空
+        /// </summary>
+        /// <param name="响应的QQ"></param>
+        /// <param name="对象QQ"></param>
+        /// <returns></returns>
+        string IMyPcqqApi.Api_Like(string 响应的QQ, string 对象QQ)
+            => NativeMethods.Api_Like(响应的QQ, 对象QQ);
+
         private static class NativeMethods
         {
             /// <summary>
@@ -655,7 +666,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetGtk_Bkn(string 响应的QQ);
 
             /// <summary>
@@ -663,7 +674,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetBkn32(string 响应的QQ);
 
             /// <summary>
@@ -671,28 +682,28 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetLdw(string 响应的QQ);
 
             /// <summary>
             /// 取得框架所在目录.可能鸡肋了。`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetRunPath();
 
             /// <summary>
             /// 取得当前框架内在线可用的QQ列表`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetOnlineQQlist();
 
             /// <summary>
             /// 取得框架内所有QQ列表。包括未登录以及登录失败的QQ`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetQQlist();
 
             /// <summary>
@@ -700,7 +711,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetSessionkey(string 响应的QQ);
 
             /// <summary>
@@ -708,7 +719,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetClientkey(string 响应的QQ);
 
             /// <summary>
@@ -716,7 +727,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetLongClientkey(string 响应的QQ);
 
             /// <summary>
@@ -724,14 +735,14 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetCookies(string 响应的QQ);
 
             /// <summary>
             /// 取得框架内设置的信息发送前缀`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetPrefix();
 
             /// <summary>
@@ -741,7 +752,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="QQ"></param>
             /// <param name="名片"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_Cache_NameCard(string 群号, string QQ, string 名片);
 
             /// <summary>
@@ -750,7 +761,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_DBan(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -759,7 +770,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_Ban(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -770,7 +781,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="QQ">禁言对象.留空为全群禁言</param>
             /// <param name="时长">单位:秒 最大为1个月. 为零解除对象或全群禁言</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_Shutup(string 响应的QQ, string 群号, string QQ, int 时长);
 
             /// <summary>
@@ -781,7 +792,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="标题"></param>
             /// <param name="内容"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_SetNotice(string 响应的QQ, string 群号, string 标题, string 内容);
 
             /// <summary>
@@ -790,7 +801,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetNotice(string 响应的QQ, string 群号);
 
             /// <summary>
@@ -800,7 +811,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="群号"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetNameCard(string 响应的QQ, string 群号, string QQ);
 
             /// <summary>
@@ -811,7 +822,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="QQ"></param>
             /// <param name="名片"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_SetNameCard(string 响应的QQ, string 群号, string QQ, string 名片);
 
             /// <summary>
@@ -820,7 +831,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="讨论组ID"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_QuitDG(string 响应的QQ, string 讨论组ID);
 
             /// <summary>
@@ -829,7 +840,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_DelFriend(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -839,7 +850,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="群号"></param>
             /// <param name="对象"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_Kick(string 响应的QQ, string 群号, string 对象);
 
             /// <summary>
@@ -849,7 +860,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="群号"></param>
             /// <param name="附加理由"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_JoinGroup(string 响应的QQ, string 群号, string 附加理由);
 
             /// <summary>
@@ -858,7 +869,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_QuitGroup(string 响应的QQ, string 群号);
 
             /// <summary>
@@ -869,7 +880,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="参_参考对象">上传该图片所属的群号或QQ</param>
             /// <param name="参_图片数据">址, 图片字节集数据或字节集数据指针()</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_UploadPic(string 响应的QQ, int 参_上传类型, string 参_参考对象, byte[] 参_图片数据);
 
             /// <summary>
@@ -877,7 +888,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="图片GUID">{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpg这样的GUID</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GuidGetPicLink(string 图片GUID);
 
             /// <summary>
@@ -888,7 +899,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="回复对象">接收这条信息的对象</param>
             /// <param name="内容">信息内容</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_Reply(string 响应的QQ, int 信息类型, string 回复对象, string 内容);
 
             /// <summary>
@@ -901,7 +912,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="收信对象">最终接收这条信息的对象QQ</param>
             /// <param name="内容">信息内容</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_SendMsg(string 响应的QQ, int 信息类型, int 参考子类型, string 收信群_讨论组, string 收信对象,
                 string 内容);
 
@@ -910,7 +921,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="封包内容"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_Send(string 封包内容);
 
             /// <summary>
@@ -918,14 +929,14 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="内容">输出的内容</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_OutPut(string 内容);
 
             /// <summary>
             /// 取得本插件启用状态`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_IsEnable();
 
             /// <summary>
@@ -933,7 +944,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="QQ">欲登录的Q</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_Login(string QQ);
 
             /// <summary>
@@ -941,7 +952,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern void Api_Logout(string QQ);
 
             /// <summary>
@@ -950,7 +961,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="加密内容"></param>
             /// <param name="Key"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_Tea加密(string 加密内容, string Key);
 
             /// <summary>
@@ -959,7 +970,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="解密内容"></param>
             /// <param name="Key"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_Tea解密(string 解密内容, string Key);
 
             /// <summary>
@@ -967,7 +978,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetNick(string QQ);
 
             /// <summary>
@@ -975,7 +986,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetQQLevel(string QQ);
 
             /// <summary>
@@ -983,7 +994,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GNGetGid(string 群号);
 
             /// <summary>
@@ -991,35 +1002,35 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="群ID"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GidGetGN(string 群ID);
 
             /// <summary>
             /// 取框架版本号(发布时间戳`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_GetVersion();
 
             /// <summary>
             /// 取框架版本名`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetVersionName();
 
             /// <summary>
             /// 取当前框架内部时间戳_周期性与服务器时间同步`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_GetTimeStamp();
 
             /// <summary>
             /// 取得框架输出列表内所有信息`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetLog();
 
             /// <summary>
@@ -1027,7 +1038,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_IfBlock(string 响应的QQ);
 
             /// <summary>
@@ -1036,7 +1047,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetAdminList(string 响应的QQ, string 群号);
 
             /// <summary>
@@ -1045,7 +1056,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="内容"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_AddTaotao(string 响应的QQ, string 内容);
 
             /// <summary>
@@ -1054,7 +1065,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="对象"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetSign(string 响应的QQ, string 对象);
 
             /// <summary>
@@ -1063,7 +1074,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="内容"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_SetSign(string 响应的QQ, string 内容);
 
             /// <summary>
@@ -1071,7 +1082,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetGroupListA(string 响应的QQ);
 
             /// <summary>
@@ -1079,7 +1090,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetGroupListB(string 响应的QQ);
 
             /// <summary>
@@ -1088,7 +1099,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetGroupMemberA(string 响应的QQ, string 群号);
 
             /// <summary>
@@ -1097,7 +1108,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetGroupMemberB(string 响应的QQ, string 群号);
 
             /// <summary>
@@ -1105,7 +1116,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetFriendList(string 响应的QQ);
 
             /// <summary>
@@ -1114,7 +1125,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_GetQQAge(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1123,7 +1134,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_GetAge(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1132,7 +1143,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ">对象QQ</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetPersonalProfile(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1141,7 +1152,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetEmail(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1150,7 +1161,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_GetGender(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1159,7 +1170,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_SendTyping(string 响应的QQ, string QQ);
 
             /// <summary>
@@ -1168,14 +1179,14 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern int Api_SendShake(string 响应的QQ, string QQ);
 
             /// <summary>
             /// 取得框架内随机一个在线且可以使用的QQ`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetRadomOnlineQQ();
 
             /// <summary>
@@ -1185,7 +1196,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="密码"></param>
             /// <param name="自动登录">运行框架时是否自动登录该Q.若添加后需要登录该Q则需要通过Api_Login操作</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_AddQQ(string QQ, string 密码, bool 自动登录);
 
             /// <summary>
@@ -1195,14 +1206,14 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="在线状态">1~6 分别对应我在线上, Q我吧, 离开, 忙碌, 请勿打扰, 隐身</param>
             /// <param name="状态附加信息">最大255字节</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_SetOLStatus(string 响应的QQ, int 在线状态, string 状态附加信息);
 
             /// <summary>
             /// 取得机器码`
             /// </summary>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetMC();
 
             /// <summary>
@@ -1212,7 +1223,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="好友QQ">多个好友用换行分割</param>
             /// <param name="群号"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GroupInvitation(string 响应的QQ, string 好友QQ, string 群号);
 
             /// <summary>
@@ -1220,7 +1231,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_CreateDG(string 响应的QQ);
 
             /// <summary>
@@ -1230,7 +1241,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="讨论组ID"></param>
             /// <param name="成员"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_KickDG(string 响应的QQ, string 讨论组ID, string 成员);
 
             /// <summary>
@@ -1240,7 +1251,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="讨论组ID"></param>
             /// <param name="成员组">多个成员用换行符分割</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_DGInvitation(string 响应的QQ, string 讨论组ID, string 成员组);
 
             /// <summary>
@@ -1248,7 +1259,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// </summary>
             /// <param name="响应的QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern string Api_GetDGList(string 响应的QQ);
 
             /// <summary>
@@ -1267,7 +1278,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="音乐来源名">可空 为空默认QQ音乐</param>
             /// <param name="音乐来源图标连接">可空 为空默认QQ音乐 http://qzonestyle.gtimg.cn/ac/qzone/applogo/64/308/100497308_64.gif</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_SendMusic(string 响应的QQ, int 收信对象类型, string 收信对象所属群_讨论组, string 收信对象QQ,
                 string 音乐简介, string 音乐播放页面连接, string 音乐封面连接, string 音乐文件直连连接, string 曲名, string 歌手名, string 音乐来源名,
                 string 音乐来源图标连接);
@@ -1282,7 +1293,7 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="ObjectMsg"></param>
             /// <param name="结构子类型">00 基本 02 点歌 其他不明</param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_SendObjectMsg(string 响应的QQ, int 收信对象类型, string 收信对象所属群_讨论组, string 收信对象QQ,
                 string ObjectMsg, int 结构子类型);
 
@@ -1292,8 +1303,18 @@ namespace Newbe.Mahua.MPQ.NativeApi
             /// <param name="响应的QQ"></param>
             /// <param name="对象QQ"></param>
             /// <returns></returns>
-            [DllImport("Message.dll")]
+            [DllImport("message.dll")]
             public static extern bool Api_IsFriend(string 响应的QQ, string 对象QQ);
+
+
+            /// <summary>
+            /// QQ名片赞 10赞每Q每日 至多50人\日系列 成功返回空
+            /// </summary>
+            /// <param name="响应的QQ"></param>
+            /// <param name="对象QQ"></param>
+            /// <returns></returns>
+            [DllImport("message.dll")]
+            public static extern string Api_Like(string 响应的QQ, string 对象QQ);
         }
     }
 }

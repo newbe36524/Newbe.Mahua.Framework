@@ -72,15 +72,6 @@ namespace Newbe.Mahua
         string GetLoginNick();
 
         /// <summary>
-        /// 接收语音
-        /// </summary>
-        /// <param name="file">收到消息中的语音文件名(file)</param>
-        /// <param name="outformat">应用所需的格式</param>
-        /// <returns></returns>
-        [Description("接收语音")]
-        string GetRecord(string file, string outformat);
-
-        /// <summary>
         /// 移出群成员
         /// </summary>
         /// <param name="toGroup">目标群</param>
@@ -270,15 +261,6 @@ namespace Newbe.Mahua
 
 
         /// <summary>
-        /// 获取群公告
-        /// </summary>
-        /// <param name="toGroup"></param>
-        /// <returns></returns>
-        [Description("获取群公告")]
-        string GetNotices(long toGroup);
-
-
-        /// <summary>
         /// 删除好友
         /// </summary>
         /// <param name="toQq"></param>
@@ -306,10 +288,9 @@ namespace Newbe.Mahua
         /// <summary>
         /// 获取群列表
         /// </summary>
-        /// <param name="toGroup"></param>
         /// <returns></returns>
         [Description("获取群列表")]
-        string GetGroups(long toGroup);
+        string GetGroups();
 
         /// <summary>
         /// 获取好友列表

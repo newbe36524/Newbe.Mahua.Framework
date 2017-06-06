@@ -61,11 +61,6 @@ namespace Newbe.Mahua.CQP
             return _coolQApi.CQ_getLoginNick(AuthCode);
         }
 
-        public string GetRecord(string file, string outformat)
-        {
-            return _coolQApi.CQ_getRecord(AuthCode, file, outformat);
-        }
-
         public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
         {
             _coolQApi.CQ_setGroupKick(AuthCode, toGroup, toQq, rejectForever);
@@ -187,12 +182,6 @@ namespace Newbe.Mahua.CQP
         }
 
         [NotSupportedMahuaApi]
-        public string GetNotices(long toGroup)
-        {
-            throw new NotImplementedException();
-        }
-
-        [NotSupportedMahuaApi]
         public void RemoveFriend(long toQq)
         {
             throw new NotImplementedException();
@@ -211,7 +200,7 @@ namespace Newbe.Mahua.CQP
         }
 
         [NotSupportedMahuaApi]
-        public string GetGroups(long toGroup)
+        public string GetGroups()
         {
             throw new NotImplementedException();
         }

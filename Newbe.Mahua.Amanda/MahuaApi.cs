@@ -48,11 +48,6 @@ namespace Newbe.Mahua.Amanda
             throw new NotImplementedException();
         }
 
-        public string GetRecord(string file, string outformat)
-        {
-            throw new NotImplementedException();
-        }
-
         public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
         {
             throw new NotImplementedException();
@@ -163,11 +158,6 @@ namespace Newbe.Mahua.Amanda
             throw new NotImplementedException();
         }
 
-        public string GetNotices(long toGroup)
-        {
-            throw new NotImplementedException();
-        }
-
         public void RemoveFriend(long toQq)
         {
             throw new NotImplementedException();
@@ -183,7 +173,7 @@ namespace Newbe.Mahua.Amanda
             throw new NotImplementedException();
         }
 
-        public string GetGroups(long toGroup)
+        public string GetGroups()
         {
             throw new NotImplementedException();
         }

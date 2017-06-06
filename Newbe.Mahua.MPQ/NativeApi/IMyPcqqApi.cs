@@ -1,579 +1,584 @@
-ï»¿namespace Newbe.Mahua.MPQ.NativeApi
+namespace Newbe.Mahua.MPQ.NativeApi
 {
-    /// <summary>
-    /// IMyPcqqApi
-    /// </summary>
     public interface IMyPcqqApi
     {
         /// <summary>
-        /// æ ¹æ®æäº¤çš„QQå·è®¡ç®—å¾—åˆ°é¡µé¢æ“ä½œç”¨å‚æ•°Bknæˆ–G_tk`
+        /// ¸ù¾İÌá½»µÄQQºÅ¼ÆËãµÃµ½Ò³Ãæ²Ù×÷ÓÃ²ÎÊıBkn»òG_tk`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetGtk_Bkn(string å“åº”çš„QQ);
+        string Api_GetGtk_Bkn(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// æ ¹æ®æäº¤çš„QQå·è®¡ç®—å¾—åˆ°é¡µé¢æ“ä½œç”¨å‚æ•°é•¿Bknæˆ–é•¿G_tk`
+        /// ¸ù¾İÌá½»µÄQQºÅ¼ÆËãµÃµ½Ò³Ãæ²Ù×÷ÓÃ²ÎÊı³¤Bkn»ò³¤G_tk`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetBkn32(string å“åº”çš„QQ);
+        string Api_GetBkn32(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// æ ¹æ®æäº¤çš„QQå·è®¡ç®—å¾—åˆ°é¡µé¢æ“ä½œç”¨å‚æ•°é•¿Ldw`
+        /// ¸ù¾İÌá½»µÄQQºÅ¼ÆËãµÃµ½Ò³Ãæ²Ù×÷ÓÃ²ÎÊı³¤Ldw`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetLdw(string å“åº”çš„QQ);
+        string Api_GetLdw(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–å¾—æ¡†æ¶æ‰€åœ¨ç›®å½•.å¯èƒ½é¸¡è‚‹äº†ã€‚`
+        /// È¡µÃ¿ò¼ÜËùÔÚÄ¿Â¼.¿ÉÄÜ¼¦ÀßÁË¡£`
         /// </summary>
         /// <returns></returns>
         string Api_GetRunPath();
 
         /// <summary>
-        /// å–å¾—å½“å‰æ¡†æ¶å†…åœ¨çº¿å¯ç”¨çš„QQåˆ—è¡¨`
+        /// È¡µÃµ±Ç°¿ò¼ÜÄÚÔÚÏß¿ÉÓÃµÄQQÁĞ±í`
         /// </summary>
         /// <returns></returns>
         string Api_GetOnlineQQlist();
 
         /// <summary>
-        /// å–å¾—æ¡†æ¶å†…æ‰€æœ‰QQåˆ—è¡¨ã€‚åŒ…æ‹¬æœªç™»å½•ä»¥åŠç™»å½•å¤±è´¥çš„QQ`
+        /// È¡µÃ¿ò¼ÜÄÚËùÓĞQQÁĞ±í¡£°üÀ¨Î´µÇÂ¼ÒÔ¼°µÇÂ¼Ê§°ÜµÄQQ`
         /// </summary>
         /// <returns></returns>
         string Api_GetQQlist();
 
         /// <summary>
-        /// æ ¹æ®QQå–å¾—å¯¹åº”çš„ä¼šè¯ç§˜é’¥`
+        /// ¸ù¾İQQÈ¡µÃ¶ÔÓ¦µÄ»á»°ÃØÔ¿`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetSessionkey(string å“åº”çš„QQ);
+        string Api_GetSessionkey(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–å¾—é¡µé¢ç™»å½•ç”¨çš„Clientkey`
+        /// È¡µÃÒ³ÃæµÇÂ¼ÓÃµÄClientkey`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetClientkey(string å“åº”çš„QQ);
+        string Api_GetClientkey(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–å¾—é¡µé¢ç™»å½•ç”¨çš„é•¿Clientkey`
+        /// È¡µÃÒ³ÃæµÇÂ¼ÓÃµÄ³¤Clientkey`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetLongClientkey(string å“åº”çš„QQ);
+        string Api_GetLongClientkey(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–å¾—é¡µé¢æ“ä½œç”¨çš„Cookies`
+        /// È¡µÃÒ³Ãæ²Ù×÷ÓÃµÄCookies`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetCookies(string å“åº”çš„QQ);
+        string Api_GetCookies(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–å¾—æ¡†æ¶å†…è®¾ç½®çš„ä¿¡æ¯å‘é€å‰ç¼€`
+        /// È¡µÃ¿ò¼ÜÄÚÉèÖÃµÄĞÅÏ¢·¢ËÍÇ°×º`
         /// </summary>
         /// <returns></returns>
         string Api_GetPrefix();
 
         /// <summary>
-        /// å°†ç¾¤åç‰‡åŠ å…¥é«˜é€Ÿç¼“å­˜å½“ä½œ.`
+        /// ½«ÈºÃûÆ¬¼ÓÈë¸ßËÙ»º´æµ±×÷.`
         /// </summary>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÈººÅ"></param>
         /// <param name="QQ"></param>
-        /// <param name="åç‰‡"></param>
+        /// <param name="ÃûÆ¬"></param>
         /// <returns></returns>
-        void Api_Cache_NameCard(string ç¾¤å·, string QQ, string åç‰‡);
+        void Api_Cache_NameCard(string ÈººÅ, string QQ, string ÃûÆ¬);
 
         /// <summary>
-        /// å°†æŒ‡å®šQQç§»å‡ºQQé»‘åå•`
+        /// ½«Ö¸¶¨QQÒÆ³öQQºÚÃûµ¥`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="QQ"></param>
-        /// <returns></returns>
-        void Api_DBan(string å“åº”çš„QQ, string QQ);
-
-        /// <summary>
-        /// å°†æŒ‡å®šQQåˆ—å…¥QQé»‘åå•`
-        /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        void Api_Ban(string å“åº”çš„QQ, string QQ);
+        void Api_DBan(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// ç¦è¨€ç¾¤æˆå‘˜`
+        /// ½«Ö¸¶¨QQÁĞÈëQQºÚÃûµ¥`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·">ç¦è¨€å¯¹è±¡æ‰€åœ¨ç¾¤.</param>
-        /// <param name="QQ">ç¦è¨€å¯¹è±¡.ç•™ç©ºä¸ºå…¨ç¾¤ç¦è¨€</param>
-        /// <param name="æ—¶é•¿">å•ä½:ç§’ æœ€å¤§ä¸º1ä¸ªæœˆ. ä¸ºé›¶è§£é™¤å¯¹è±¡æˆ–å…¨ç¾¤ç¦è¨€</param>
-        /// <returns></returns>
-        bool Api_Shutup(string å“åº”çš„QQ, string ç¾¤å·, string QQ, int æ—¶é•¿);
-
-        /// <summary>
-        /// å‘ç¾¤å…¬å‘Š`
-        /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
-        /// <param name="æ ‡é¢˜"></param>
-        /// <param name="å†…å®¹"></param>
-        /// <returns></returns>
-        void Api_SetNotice(string å“åº”çš„QQ, string ç¾¤å·, string æ ‡é¢˜, string å†…å®¹);
-
-        /// <summary>
-        /// å–ç¾¤å…¬å‘Š`
-        /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
-        /// <returns></returns>
-        string Api_GetNotice(string å“åº”çš„QQ, string ç¾¤å·);
-
-        /// <summary>
-        /// å–ç¾¤åç‰‡`
-        /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string Api_GetNameCard(string å“åº”çš„QQ, string ç¾¤å·, string QQ);
+        void Api_Ban(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// è®¾ç½®ç¾¤åç‰‡`
+        /// ½ûÑÔÈº³ÉÔ±`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ">½ûÑÔ¶ÔÏóËùÔÚÈº.</param>
+        /// <param name="QQ">½ûÑÔ¶ÔÏó.Áô¿ÕÎªÈ«Èº½ûÑÔ</param>
+        /// <param name="Ê±³¤">µ¥Î»:Ãë ×î´óÎª1¸öÔÂ. ÎªÁã½â³ı¶ÔÏó»òÈ«Èº½ûÑÔ</param>
+        /// <returns></returns>
+        bool Api_Shutup(string ÏìÓ¦µÄQQ, string ÈººÅ, string QQ, int Ê±³¤);
+
+        /// <summary>
+        /// ·¢Èº¹«¸æ`
+        /// </summary>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
+        /// <param name="±êÌâ"></param>
+        /// <param name="ÄÚÈİ"></param>
+        /// <returns></returns>
+        void Api_SetNotice(string ÏìÓ¦µÄQQ, string ÈººÅ, string ±êÌâ, string ÄÚÈİ);
+
+        /// <summary>
+        /// È¡Èº¹«¸æ`
+        /// </summary>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
+        /// <returns></returns>
+        string Api_GetNotice(string ÏìÓ¦µÄQQ, string ÈººÅ);
+
+        /// <summary>
+        /// È¡ÈºÃûÆ¬`
+        /// </summary>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
         /// <param name="QQ"></param>
-        /// <param name="åç‰‡"></param>
         /// <returns></returns>
-        void Api_SetNameCard(string å“åº”çš„QQ, string ç¾¤å·, string QQ, string åç‰‡);
+        string Api_GetNameCard(string ÏìÓ¦µÄQQ, string ÈººÅ, string QQ);
 
         /// <summary>
-        /// é€€å‡ºè®¨è®ºç»„`
+        /// ÉèÖÃÈºÃûÆ¬`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="è®¨è®ºç»„ID"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
+        /// <param name="QQ"></param>
+        /// <param name="ÃûÆ¬"></param>
         /// <returns></returns>
-        void Api_QuitDG(string å“åº”çš„QQ, string è®¨è®ºç»„ID);
+        void Api_SetNameCard(string ÏìÓ¦µÄQQ, string ÈººÅ, string QQ, string ÃûÆ¬);
 
         /// <summary>
-        /// åˆ é™¤å¥½å‹`
+        /// ÍË³öÌÖÂÛ×é`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÌÖÂÛ×éID"></param>
+        /// <returns></returns>
+        void Api_QuitDG(string ÏìÓ¦µÄQQ, string ÌÖÂÛ×éID);
+
+        /// <summary>
+        /// É¾³ıºÃÓÑ`
+        /// </summary>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        bool Api_DelFriend(string å“åº”çš„QQ, string QQ);
+        bool Api_DelFriend(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å°†å¯¹è±¡ç§»é™¤ç¾¤`
+        /// ½«¶ÔÏóÒÆ³ıÈº`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
-        /// <param name="å¯¹è±¡"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
+        /// <param name="¶ÔÏó"></param>
         /// <returns></returns>
-        bool Api_Kick(string å“åº”çš„QQ, string ç¾¤å·, string å¯¹è±¡);
+        bool Api_Kick(string ÏìÓ¦µÄQQ, string ÈººÅ, string ¶ÔÏó);
 
         /// <summary>
-        /// ä¸»åŠ¨åŠ ç¾¤.ä¸ºäº†é¿å…å¹¿å‘Šã€ç¾¤å‘è¡Œä¸ºã€‚å‡ºç°éªŒè¯ç æ—¶å°†ä¼šç›´æ¥å¤±è´¥ä¸å¤„ç†`
+        /// Ö÷¶¯¼ÓÈº.ÎªÁË±ÜÃâ¹ã¸æ¡¢Èº·¢ĞĞÎª¡£³öÏÖÑéÖ¤ÂëÊ±½«»áÖ±½ÓÊ§°Ü²»´¦Àí`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
-        /// <param name="é™„åŠ ç†ç”±"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
+        /// <param name="¸½¼ÓÀíÓÉ"></param>
         /// <returns></returns>
-        void Api_JoinGroup(string å“åº”çš„QQ, string ç¾¤å·, string é™„åŠ ç†ç”±);
+        void Api_JoinGroup(string ÏìÓ¦µÄQQ, string ÈººÅ, string ¸½¼ÓÀíÓÉ);
 
         /// <summary>
-        /// é€€å‡ºç¾¤`
+        /// ÍË³öÈº`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        void Api_QuitGroup(string å“åº”çš„QQ, string ç¾¤å·);
+        void Api_QuitGroup(string ÏìÓ¦µÄQQ, string ÈººÅ);
 
         /// <summary>
-        /// è¿”å›å€¼:æˆåŠŸè¿”å›å›¾ç‰‡GUIDç”¨äºå‘é€è¯¥å›¾ç‰‡.å¤±è´¥è¿”å›ç©º.  å›¾ç‰‡å°ºå¯¸åº”å°äº4MB`
+        /// ·µ»ØÖµ:³É¹¦·µ»ØÍ¼Æ¬GUIDÓÃÓÚ·¢ËÍ¸ÃÍ¼Æ¬.Ê§°Ü·µ»Ø¿Õ.  Í¼Æ¬³ß´çÓ¦Ğ¡ÓÚ4MB`
         /// </summary>
-        /// <param name="å“åº”çš„QQ">æœºå™¨äººQQ</param>
-        /// <param name="å‚_ä¸Šä¼ ç±»å‹">1å¥½å‹2ç¾¤ æ³¨:å¥½å‹å›¾å’Œç¾¤å›¾çš„GUIDå¹¶ä¸ç›¸åŒå¹¶ä¸é€šç”¨ éœ€è¦éåˆ«ä¸Šä¼ ã€‚ç¾¤ã€è®¨è®ºç»„ç”¨ç±»å‹2 ä¸´æ—¶ä¼šè¯ã€å¥½å‹ä¿¡æ¯éœ€è¦ç±»å‹1</param>
-        /// <param name="å‚_å‚è€ƒå¯¹è±¡">ä¸Šä¼ è¯¥å›¾ç‰‡æ‰€å±çš„ç¾¤å·æˆ–QQ</param>
-        /// <param name="å‚_å›¾ç‰‡æ•°æ®">å€, å›¾ç‰‡å­—èŠ‚é›†æ•°æ®æˆ–å­—èŠ‚é›†æ•°æ®æŒ‡é’ˆ()</param>
+        /// <param name="ÏìÓ¦µÄQQ">»úÆ÷ÈËQQ</param>
+        /// <param name="²Î_ÉÏ´«ÀàĞÍ">1ºÃÓÑ2Èº ×¢:ºÃÓÑÍ¼ºÍÈºÍ¼µÄGUID²¢²»ÏàÍ¬²¢²»Í¨ÓÃ ĞèÒª·Ç±ğÉÏ´«¡£Èº¡¢ÌÖÂÛ×éÓÃÀàĞÍ2 ÁÙÊ±»á»°¡¢ºÃÓÑĞÅÏ¢ĞèÒªÀàĞÍ1</param>
+        /// <param name="²Î_²Î¿¼¶ÔÏó">ÉÏ´«¸ÃÍ¼Æ¬ËùÊôµÄÈººÅ»òQQ</param>
+        /// <param name="²Î_Í¼Æ¬Êı¾İ">Ö·, Í¼Æ¬×Ö½Ú¼¯Êı¾İ»ò×Ö½Ú¼¯Êı¾İÖ¸Õë()</param>
         /// <returns></returns>
-        string Api_UploadPic(string å“åº”çš„QQ, int å‚_ä¸Šä¼ ç±»å‹, string å‚_å‚è€ƒå¯¹è±¡, byte[] å‚_å›¾ç‰‡æ•°æ®);
+        string Api_UploadPic(string ÏìÓ¦µÄQQ, int ²Î_ÉÏ´«ÀàĞÍ, string ²Î_²Î¿¼¶ÔÏó, byte[] ²Î_Í¼Æ¬Êı¾İ);
 
         /// <summary>
-        /// æ ¹æ®å›¾ç‰‡GUIDå–å¾—å›¾ç‰‡ä¸‹è½½è¿æ¥ å¤±è´¥è¿”å›ç©º`
+        /// ¸ù¾İÍ¼Æ¬GUIDÈ¡µÃÍ¼Æ¬ÏÂÔØÁ¬½Ó Ê§°Ü·µ»Ø¿Õ`
         /// </summary>
-        /// <param name="å›¾ç‰‡GUID">{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpgè¿™æ ·çš„GUID</param>
+        /// <param name="Í¼Æ¬GUID">{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpgÕâÑùµÄGUID</param>
         /// <returns></returns>
-        string Api_GuidGetPicLink(string å›¾ç‰‡GUID);
+        string Api_GuidGetPicLink(string Í¼Æ¬GUID);
 
         /// <summary>
-        /// å›å¤ä¿¡æ¯ è¯·å°½é‡é¿å…ä½¿ç”¨è¯¥API`
+        /// »Ø¸´ĞÅÏ¢ Çë¾¡Á¿±ÜÃâÊ¹ÓÃ¸ÃAPI`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ä¿¡æ¯ç±»å‹">1å¥½å‹ 2ç¾¤ 3è®¨è®ºç»„ 4ç¾¤ä¸´æ—¶ä¼šè¯ 5è®¨è®ºç»„ä¸´æ—¶ä¼šè¯</param>
-        /// <param name="å›å¤å¯¹è±¡">æ¥æ”¶è¿™æ¡ä¿¡æ¯çš„å¯¹è±¡</param>
-        /// <param name="å†…å®¹">ä¿¡æ¯å†…å®¹</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ĞÅÏ¢ÀàĞÍ">1ºÃÓÑ 2Èº 3ÌÖÂÛ×é 4ÈºÁÙÊ±»á»° 5ÌÖÂÛ×éÁÙÊ±»á»°</param>
+        /// <param name="»Ø¸´¶ÔÏó">½ÓÊÕÕâÌõĞÅÏ¢µÄ¶ÔÏó</param>
+        /// <param name="ÄÚÈİ">ĞÅÏ¢ÄÚÈİ</param>
         /// <returns></returns>
-        int Api_Reply(string å“åº”çš„QQ, int ä¿¡æ¯ç±»å‹, string å›å¤å¯¹è±¡, string å†…å®¹);
+        int Api_Reply(string ÏìÓ¦µÄQQ, int ĞÅÏ¢ÀàĞÍ, string »Ø¸´¶ÔÏó, string ÄÚÈİ);
 
         /// <summary>
-        /// å‘å¯¹è±¡ã€ç›®æ ‡å‘é€ä¿¡æ¯ æ”¯æŒå¥½å‹ ç¾¤ è®¨è®ºç»„ ç¾¤ä¸´æ—¶ä¼šè¯ è®¨è®ºç»„ä¸´æ—¶ä¼šè¯`
+        /// Ïò¶ÔÏó¡¢Ä¿±ê·¢ËÍĞÅÏ¢ Ö§³ÖºÃÓÑ Èº ÌÖÂÛ×é ÈºÁÙÊ±»á»° ÌÖÂÛ×éÁÙÊ±»á»°`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ä¿¡æ¯ç±»å‹">1å¥½å‹ 2ç¾¤ 3è®¨è®ºç»„ 4ç¾¤ä¸´æ—¶ä¼šè¯ 5è®¨è®ºç»„ä¸´æ—¶ä¼šè¯</param>
-        /// <param name="å‚è€ƒå­ç±»å‹">æ— ç‰¹æ®Šè¯´æ˜æƒ…å†µä¸‹ç•™ç©ºæˆ–å¡«é›¶</param>
-        /// <param name="æ”¶ä¿¡ç¾¤_è®¨è®ºç»„">å‘é€ç¾¤ä¿¡æ¯ã€è®¨è®ºç»„ä¿¡æ¯ã€ç¾¤ä¸´æ—¶ä¼šè¯ä¿¡æ¯ã€è®¨è®ºç»„ä¸´æ—¶ä¼šè¯ä¿¡æ¯æ—¶å¡«å†™</param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡">æœ€ç»ˆæ¥æ”¶è¿™æ¡ä¿¡æ¯çš„å¯¹è±¡QQ</param>
-        /// <param name="å†…å®¹">ä¿¡æ¯å†…å®¹</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ĞÅÏ¢ÀàĞÍ">1ºÃÓÑ 2Èº 3ÌÖÂÛ×é 4ÈºÁÙÊ±»á»° 5ÌÖÂÛ×éÁÙÊ±»á»°</param>
+        /// <param name="²Î¿¼×ÓÀàĞÍ">ÎŞÌØÊâËµÃ÷Çé¿öÏÂÁô¿Õ»òÌîÁã</param>
+        /// <param name="ÊÕĞÅÈº_ÌÖÂÛ×é">·¢ËÍÈºĞÅÏ¢¡¢ÌÖÂÛ×éĞÅÏ¢¡¢ÈºÁÙÊ±»á»°ĞÅÏ¢¡¢ÌÖÂÛ×éÁÙÊ±»á»°ĞÅÏ¢Ê±ÌîĞ´</param>
+        /// <param name="ÊÕĞÅ¶ÔÏó">×îÖÕ½ÓÊÕÕâÌõĞÅÏ¢µÄ¶ÔÏóQQ</param>
+        /// <param name="ÄÚÈİ">ĞÅÏ¢ÄÚÈİ</param>
         /// <returns></returns>
-        int Api_SendMsg(string å“åº”çš„QQ, int ä¿¡æ¯ç±»å‹, int å‚è€ƒå­ç±»å‹, string æ”¶ä¿¡ç¾¤_è®¨è®ºç»„, string æ”¶ä¿¡å¯¹è±¡, string å†…å®¹);
+        int Api_SendMsg(string ÏìÓ¦µÄQQ, int ĞÅÏ¢ÀàĞÍ, int ²Î¿¼×ÓÀàĞÍ, string ÊÕĞÅÈº_ÌÖÂÛ×é, string ÊÕĞÅ¶ÔÏó, string ÄÚÈİ);
 
         /// <summary>
-        /// å‘é€å°åŒ…`
+        /// ·¢ËÍ·â°ü`
         /// </summary>
-        /// <param name="å°åŒ…å†…å®¹"></param>
+        /// <param name="·â°üÄÚÈİ"></param>
         /// <returns></returns>
-        string Api_Send(string å°åŒ…å†…å®¹);
+        string Api_Send(string ·â°üÄÚÈİ);
 
         /// <summary>
-        /// åœ¨æ¡†æ¶è®°å½•é¡µè¾“å‡ºä¸€è¡Œä¿¡æ¯`
+        /// ÔÚ¿ò¼Ü¼ÇÂ¼Ò³Êä³öÒ»ĞĞĞÅÏ¢`
         /// </summary>
-        /// <param name="å†…å®¹">è¾“å‡ºçš„å†…å®¹</param>
+        /// <param name="ÄÚÈİ">Êä³öµÄÄÚÈİ</param>
         /// <returns></returns>
-        int Api_OutPut(string å†…å®¹);
+        int Api_OutPut(string ÄÚÈİ);
 
         /// <summary>
-        /// å–å¾—æœ¬æ’ä»¶å¯ç”¨çŠ¶æ€`
+        /// È¡µÃ±¾²å¼şÆôÓÃ×´Ì¬`
         /// </summary>
         /// <returns></returns>
         bool Api_IsEnable();
 
         /// <summary>
-        /// ç™»å½•ä¸€ä¸ªç°å­˜çš„QQ`
+        /// µÇÂ¼Ò»¸öÏÖ´æµÄQQ`
         /// </summary>
-        /// <param name="QQ">æ¬²ç™»å½•çš„Q</param>
+        /// <param name="QQ">ÓûµÇÂ¼µÄQ</param>
         /// <returns></returns>
         bool Api_Login(string QQ);
 
         /// <summary>
-        /// è®©æŒ‡å®šQQä¸‹çº¿`
+        /// ÈÃÖ¸¶¨QQÏÂÏß`
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
         void Api_Logout(string QQ);
 
         /// <summary>
-        /// teanåŠ å¯†ç®—æ³•`
+        /// tean¼ÓÃÜËã·¨`
         /// </summary>
-        /// <param name="åŠ å¯†å†…å®¹"></param>
+        /// <param name="¼ÓÃÜÄÚÈİ"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        string Api_TeaåŠ å¯†(string åŠ å¯†å†…å®¹, string Key);
+        string Api_Tea¼ÓÃÜ(string ¼ÓÃÜÄÚÈİ, string Key);
 
         /// <summary>
-        /// teanè§£å¯†ç®—æ³•`
+        /// tean½âÃÜËã·¨`
         /// </summary>
-        /// <param name="è§£å¯†å†…å®¹"></param>
+        /// <param name="½âÃÜÄÚÈİ"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        string Api_Teaè§£å¯†(string è§£å¯†å†…å®¹, string Key);
+        string Api_Tea½âÃÜ(string ½âÃÜÄÚÈİ, string Key);
 
         /// <summary>
-        /// å–ç”¨æˆ·å`
+        /// È¡ÓÃ»§Ãû`
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
         string Api_GetNick(string QQ);
 
         /// <summary>
-        /// å–QQç­‰çº§+QQä¼šå‘˜ç­‰çº§ è¿”å›jsonæ ¼å¼ä¿¡æ¯`
+        /// È¡QQµÈ¼¶+QQ»áÔ±µÈ¼¶ ·µ»Øjson¸ñÊ½ĞÅÏ¢`
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
         string Api_GetQQLevel(string QQ);
 
         /// <summary>
-        /// ç¾¤å·è½¬ç¾¤ID`
+        /// ÈººÅ×ªÈºID`
         /// </summary>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        string Api_GNGetGid(string ç¾¤å·);
+        string Api_GNGetGid(string ÈººÅ);
 
         /// <summary>
-        /// ç¾¤IDè½¬ç¾¤å·`
+        /// ÈºID×ªÈººÅ`
         /// </summary>
-        /// <param name="ç¾¤ID"></param>
+        /// <param name="ÈºID"></param>
         /// <returns></returns>
-        string Api_GidGetGN(string ç¾¤ID);
+        string Api_GidGetGN(string ÈºID);
 
         /// <summary>
-        /// å–æ¡†æ¶ç‰ˆæœ¬å·(å‘å¸ƒæ—¶é—´æˆ³`
+        /// È¡¿ò¼Ü°æ±¾ºÅ(·¢²¼Ê±¼ä´Á`
         /// </summary>
         /// <returns></returns>
         int Api_GetVersion();
 
         /// <summary>
-        /// å–æ¡†æ¶ç‰ˆæœ¬å`
+        /// È¡¿ò¼Ü°æ±¾Ãû`
         /// </summary>
         /// <returns></returns>
         string Api_GetVersionName();
 
         /// <summary>
-        /// å–å½“å‰æ¡†æ¶å†…éƒ¨æ—¶é—´æˆ³_å‘¨æœŸæ€§ä¸æœåŠ¡å™¨æ—¶é—´åŒæ­¥`
+        /// È¡µ±Ç°¿ò¼ÜÄÚ²¿Ê±¼ä´Á_ÖÜÆÚĞÔÓë·şÎñÆ÷Ê±¼äÍ¬²½`
         /// </summary>
         /// <returns></returns>
         int Api_GetTimeStamp();
 
         /// <summary>
-        /// å–å¾—æ¡†æ¶è¾“å‡ºåˆ—è¡¨å†…æ‰€æœ‰ä¿¡æ¯`
+        /// È¡µÃ¿ò¼ÜÊä³öÁĞ±íÄÚËùÓĞĞÅÏ¢`
         /// </summary>
         /// <returns></returns>
         string Api_GetLog();
 
         /// <summary>
-        /// åˆ¤æ–­æ˜¯å¦å¤„äºè¢«å±è”½ç¾¤ä¿¡æ¯çŠ¶æ€ã€‚`
+        /// ÅĞ¶ÏÊÇ·ñ´¦ÓÚ±»ÆÁ±ÎÈºĞÅÏ¢×´Ì¬¡£`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        bool Api_IfBlock(string å“åº”çš„QQ);
+        bool Api_IfBlock(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–åŒ…æ‹¬ç¾¤ä¸»åœ¨å†…çš„ç¾¤ç®¡åˆ—è¡¨`
+        /// È¡°üÀ¨ÈºÖ÷ÔÚÄÚµÄÈº¹ÜÁĞ±í`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        string Api_GetAdminList(string å“åº”çš„QQ, string ç¾¤å·);
+        string Api_GetAdminList(string ÏìÓ¦µÄQQ, string ÈººÅ);
 
         /// <summary>
-        /// å‘è¯´è¯´`
+        /// ·¢ËµËµ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="å†…å®¹"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÄÚÈİ"></param>
         /// <returns></returns>
-        string Api_AddTaotao(string å“åº”çš„QQ, string å†…å®¹);
+        string Api_AddTaotao(string ÏìÓ¦µÄQQ, string ÄÚÈİ);
 
         /// <summary>
-        /// å–ä¸ªç­¾`
+        /// È¡¸öÇ©`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="å¯¹è±¡"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="¶ÔÏó"></param>
         /// <returns></returns>
-        string Api_GetSign(string å“åº”çš„QQ, string å¯¹è±¡);
+        string Api_GetSign(string ÏìÓ¦µÄQQ, string ¶ÔÏó);
 
         /// <summary>
-        /// è®¾ç½®ä¸ªç­¾`
+        /// ÉèÖÃ¸öÇ©`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="å†…å®¹"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÄÚÈİ"></param>
         /// <returns></returns>
-        string Api_SetSign(string å“åº”çš„QQ, string å†…å®¹);
+        string Api_SetSign(string ÏìÓ¦µÄQQ, string ÄÚÈİ);
 
         /// <summary>
-        /// é€šè¿‡qun.qzone.qq.comæ¥å£å–å¾—å–ç¾¤åˆ—è¡¨.æˆåŠŸè¿”å›è½¬ç åçš„JSONæ ¼å¼æ–‡æœ¬ä¿¡æ¯`
+        /// Í¨¹ıqun.qzone.qq.com½Ó¿ÚÈ¡µÃÈ¡ÈºÁĞ±í.³É¹¦·µ»Ø×ªÂëºóµÄJSON¸ñÊ½ÎÄ±¾ĞÅÏ¢`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetGroupListA(string å“åº”çš„QQ);
+        string Api_GetGroupListA(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// é€šè¿‡qun.qq.comæ¥å£å–å¾—å–ç¾¤åˆ—è¡¨.æˆåŠŸè¿”å›è½¬ç åçš„JSONæ ¼å¼æ–‡æœ¬ä¿¡æ¯`
+        /// Í¨¹ıqun.qq.com½Ó¿ÚÈ¡µÃÈ¡ÈºÁĞ±í.³É¹¦·µ»Ø×ªÂëºóµÄJSON¸ñÊ½ÎÄ±¾ĞÅÏ¢`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetGroupListB(string å“åº”çš„QQ);
+        string Api_GetGroupListB(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// é€šè¿‡qun.qq.comæ¥å£å–å¾—ç¾¤æˆå‘˜åˆ—è¡¨ æˆåŠŸè¿”å›è½¬ç åçš„JSONæ ¼å¼æ–‡æœ¬`
+        /// Í¨¹ıqun.qq.com½Ó¿ÚÈ¡µÃÈº³ÉÔ±ÁĞ±í ³É¹¦·µ»Ø×ªÂëºóµÄJSON¸ñÊ½ÎÄ±¾`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        string Api_GetGroupMemberA(string å“åº”çš„QQ, string ç¾¤å·);
+        string Api_GetGroupMemberA(string ÏìÓ¦µÄQQ, string ÈººÅ);
 
         /// <summary>
-        /// é€šè¿‡qun.qzone.qq.comæ¥å£å–å¾—ç¾¤æˆå‘˜åˆ—è¡¨ æˆåŠŸè¿”å›è½¬ç åçš„JSONæ ¼å¼æ–‡æœ¬`
+        /// Í¨¹ıqun.qzone.qq.com½Ó¿ÚÈ¡µÃÈº³ÉÔ±ÁĞ±í ³É¹¦·µ»Ø×ªÂëºóµÄJSON¸ñÊ½ÎÄ±¾`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        string Api_GetGroupMemberB(string å“åº”çš„QQ, string ç¾¤å·);
+        string Api_GetGroupMemberB(string ÏìÓ¦µÄQQ, string ÈººÅ);
 
         /// <summary>
-        /// é€šè¿‡qun.qq.comæ¥å£å–å¾—å¥½å‹åˆ—è¡¨ã€‚æˆåŠŸè¿”å›è½¬ç åçš„JSONæ–‡æœ¬`
+        /// Í¨¹ıqun.qq.com½Ó¿ÚÈ¡µÃºÃÓÑÁĞ±í¡£³É¹¦·µ»Ø×ªÂëºóµÄJSONÎÄ±¾`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetFriendList(string å“åº”çš„QQ);
+        string Api_GetFriendList(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å–Qé¾„ æˆåŠŸè¿”å›Qé¾„ å¤±è´¥è¿”å›-1`
+        /// È¡QÁä ³É¹¦·µ»ØQÁä Ê§°Ü·µ»Ø-1`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_GetQQAge(string å“åº”çš„QQ, string QQ);
+        int Api_GetQQAge(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å–å¹´é¾„ æˆåŠŸè¿”å›å¹´é¾„ å¤±è´¥è¿”å›-1`
+        /// È¡ÄêÁä ³É¹¦·µ»ØÄêÁä Ê§°Ü·µ»Ø-1`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_GetAge(string å“åº”çš„QQ, string QQ);
+        int Api_GetAge(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å–ä¸ªäººè¯´æ˜`
+        /// È¡¸öÈËËµÃ÷`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="QQ">å¯¹è±¡QQ</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="QQ">¶ÔÏóQQ</param>
         /// <returns></returns>
-        string Api_GetPersonalProfile(string å“åº”çš„QQ, string QQ);
+        string Api_GetPersonalProfile(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å–é‚®ç®± æˆåŠŸè¿”å›é‚®ç®± å¤±è´¥è¿”å›ç©º`
+        /// È¡ÓÊÏä ³É¹¦·µ»ØÓÊÏä Ê§°Ü·µ»Ø¿Õ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string Api_GetEmail(string å“åº”çš„QQ, string QQ);
+        string Api_GetEmail(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å–å¯¹è±¡æ€§åˆ« 1ç”· 2å¥³  æœªæˆ–å¤±è´¥è¿”å›-1`
+        /// È¡¶ÔÏóĞÔ±ğ 1ÄĞ 2Å®  Î´»òÊ§°Ü·µ»Ø-1`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_GetGender(string å“åº”çš„QQ, string QQ);
+        int Api_GetGender(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å‘å¥½å‹å‘é€â€˜æ­£åœ¨è¾“å…¥â€™çš„çŠ¶æ€ä¿¡æ¯.å½“å¥½å‹æ”¶åˆ°ä¿¡æ¯ä¹‹å â€œæ­£åœ¨è¾“å…¥â€çŠ¶æ€ä¼šç«‹åˆ»è¢«æ‰“æ–­`
+        /// ÏòºÃÓÑ·¢ËÍ¡®ÕıÔÚÊäÈë¡¯µÄ×´Ì¬ĞÅÏ¢.µ±ºÃÓÑÊÕµ½ĞÅÏ¢Ö®ºó ¡°ÕıÔÚÊäÈë¡±×´Ì¬»áÁ¢¿Ì±»´ò¶Ï`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_SendTyping(string å“åº”çš„QQ, string QQ);
+        int Api_SendTyping(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å‘å¥½å‹å‘é€çª—å£æŠ–åŠ¨ä¿¡æ¯`
+        /// ÏòºÃÓÑ·¢ËÍ´°¿Ú¶¶¶¯ĞÅÏ¢`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_SendShake(string å“åº”çš„QQ, string QQ);
+        int Api_SendShake(string ÏìÓ¦µÄQQ, string QQ);
 
         /// <summary>
-        /// å–å¾—æ¡†æ¶å†…éšæœºä¸€ä¸ªåœ¨çº¿ä¸”å¯ä»¥ä½¿ç”¨çš„QQ`
+        /// È¡µÃ¿ò¼ÜÄÚËæ»úÒ»¸öÔÚÏßÇÒ¿ÉÒÔÊ¹ÓÃµÄQQ`
         /// </summary>
         /// <returns></returns>
         string Api_GetRadomOnlineQQ();
 
         /// <summary>
-        /// å¾€å¸å·åˆ—è¡¨æ·»åŠ ä¸€ä¸ªQ.å½“è¯¥Qå·²å­˜åœ¨æ—¶åˆ™è¦†ç›–å¯†ç `
+        /// ÍùÕÊºÅÁĞ±íÌí¼ÓÒ»¸öQ.µ±¸ÃQÒÑ´æÔÚÊ±Ôò¸²¸ÇÃÜÂë`
         /// </summary>
         /// <param name="QQ"></param>
-        /// <param name="å¯†ç "></param>
-        /// <param name="è‡ªåŠ¨ç™»å½•">è¿è¡Œæ¡†æ¶æ—¶æ˜¯å¦è‡ªåŠ¨ç™»å½•è¯¥Q.è‹¥æ·»åŠ åéœ€è¦ç™»å½•è¯¥Qåˆ™éœ€è¦é€šè¿‡Api_Loginæ“ä½œ</param>
+        /// <param name="ÃÜÂë"></param>
+        /// <param name="×Ô¶¯µÇÂ¼">ÔËĞĞ¿ò¼ÜÊ±ÊÇ·ñ×Ô¶¯µÇÂ¼¸ÃQ.ÈôÌí¼ÓºóĞèÒªµÇÂ¼¸ÃQÔòĞèÒªÍ¨¹ıApi_Login²Ù×÷</param>
         /// <returns></returns>
-        bool Api_AddQQ(string QQ, string å¯†ç , bool è‡ªåŠ¨ç™»å½•);
+        bool Api_AddQQ(string QQ, string ÃÜÂë, bool ×Ô¶¯µÇÂ¼);
 
         /// <summary>
-        /// è®¾ç½®åœ¨çº¿çŠ¶æ€+é™„åŠ ä¿¡æ¯ `
+        /// ÉèÖÃÔÚÏß×´Ì¬+¸½¼ÓĞÅÏ¢ `
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="åœ¨çº¿çŠ¶æ€">1~6 åˆ†åˆ«å¯¹åº”æˆ‘åœ¨çº¿ä¸Š, Qæˆ‘å§, ç¦»å¼€, å¿™ç¢Œ, è¯·å‹¿æ‰“æ‰°, éšèº«</param>
-        /// <param name="çŠ¶æ€é™„åŠ ä¿¡æ¯">æœ€å¤§255å­—èŠ‚</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÔÚÏß×´Ì¬">1~6 ·Ö±ğ¶ÔÓ¦ÎÒÔÚÏßÉÏ, QÎÒ°É, Àë¿ª, Ã¦Âµ, ÇëÎğ´òÈÅ, ÒşÉí</param>
+        /// <param name="×´Ì¬¸½¼ÓĞÅÏ¢">×î´ó255×Ö½Ú</param>
         /// <returns></returns>
-        bool Api_SetOLStatus(string å“åº”çš„QQ, int åœ¨çº¿çŠ¶æ€, string çŠ¶æ€é™„åŠ ä¿¡æ¯);
+        bool Api_SetOLStatus(string ÏìÓ¦µÄQQ, int ÔÚÏß×´Ì¬, string ×´Ì¬¸½¼ÓĞÅÏ¢);
 
         /// <summary>
-        /// å–å¾—æœºå™¨ç `
+        /// È¡µÃ»úÆ÷Âë`
         /// </summary>
         /// <returns></returns>
         string Api_GetMC();
 
         /// <summary>
-        /// é‚€è¯·å¯¹è±¡åŠ å…¥ç¾¤ å¤±è´¥è¿”å›é”™è¯¯ç†ç”±`
+        /// ÑûÇë¶ÔÏó¼ÓÈëÈº Ê§°Ü·µ»Ø´íÎóÀíÓÉ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="å¥½å‹QQ">å¤šä¸ªå¥½å‹ç”¨æ¢è¡Œåˆ†å‰²</param>
-        /// <param name="ç¾¤å·"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ºÃÓÑQQ">¶à¸öºÃÓÑÓÃ»»ĞĞ·Ö¸î</param>
+        /// <param name="ÈººÅ"></param>
         /// <returns></returns>
-        string Api_GroupInvitation(string å“åº”çš„QQ, string å¥½å‹QQ, string ç¾¤å·);
+        string Api_GroupInvitation(string ÏìÓ¦µÄQQ, string ºÃÓÑQQ, string ÈººÅ);
 
         /// <summary>
-        /// åˆ›å»ºä¸€ä¸ªè®¨è®ºç»„ æˆåŠŸè¿”å›è®¨è®ºç»„ID å¤±è´¥è¿”å›ç©º æ³¨:æ¯24å°æ—¶åªèƒ½åˆ›å»º100ä¸ªè®¨è®ºç»„ æ‚ ç€ç‚¹ç”¨`
+        /// ´´½¨Ò»¸öÌÖÂÛ×é ³É¹¦·µ»ØÌÖÂÛ×éID Ê§°Ü·µ»Ø¿Õ ×¢:Ã¿24Ğ¡Ê±Ö»ÄÜ´´½¨100¸öÌÖÂÛ×é ÓÆ×ÅµãÓÃ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_CreateDG(string å“åº”çš„QQ);
+        string Api_CreateDG(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å°†å¯¹è±¡ç§»é™¤è®¨è®ºç»„.æˆåŠŸè¿”å›ç©º å¤±è´¥è¿”å›ç†ç”±`
+        /// ½«¶ÔÏóÒÆ³ıÌÖÂÛ×é.³É¹¦·µ»Ø¿Õ Ê§°Ü·µ»ØÀíÓÉ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="è®¨è®ºç»„ID"></param>
-        /// <param name="æˆå‘˜"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÌÖÂÛ×éID"></param>
+        /// <param name="³ÉÔ±"></param>
         /// <returns></returns>
-        string Api_KickDG(string å“åº”çš„QQ, string è®¨è®ºç»„ID, string æˆå‘˜);
+        string Api_KickDG(string ÏìÓ¦µÄQQ, string ÌÖÂÛ×éID, string ³ÉÔ±);
 
         /// <summary>
-        /// é‚€è¯·å¯¹è±¡åŠ å…¥è®¨è®ºç»„ æˆåŠŸè¿”å›ç©º å¤±è´¥è¿”å›ç†ç”±`
+        /// ÑûÇë¶ÔÏó¼ÓÈëÌÖÂÛ×é ³É¹¦·µ»Ø¿Õ Ê§°Ü·µ»ØÀíÓÉ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="è®¨è®ºç»„ID"></param>
-        /// <param name="æˆå‘˜ç»„">å¤šä¸ªæˆå‘˜ç”¨æ¢è¡Œç¬¦åˆ†å‰²</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÌÖÂÛ×éID"></param>
+        /// <param name="³ÉÔ±×é">¶à¸ö³ÉÔ±ÓÃ»»ĞĞ·û·Ö¸î</param>
         /// <returns></returns>
-        string Api_DGInvitation(string å“åº”çš„QQ, string è®¨è®ºç»„ID, string æˆå‘˜ç»„);
+        string Api_DGInvitation(string ÏìÓ¦µÄQQ, string ÌÖÂÛ×éID, string ³ÉÔ±×é);
 
         /// <summary>
-        /// æˆåŠŸè¿”å›ä»¥æ¢è¡Œç¬¦åˆ†å‰²çš„è®¨è®ºç»„å·åˆ—è¡¨.æœ€å¤§ä¸º100ä¸ªè®¨è®ºç»„  å¤±è´¥è¿”å›ç©º`
+        /// ³É¹¦·µ»ØÒÔ»»ĞĞ·û·Ö¸îµÄÌÖÂÛ×éºÅÁĞ±í.×î´óÎª100¸öÌÖÂÛ×é  Ê§°Ü·µ»Ø¿Õ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
         /// <returns></returns>
-        string Api_GetDGList(string å“åº”çš„QQ);
+        string Api_GetDGList(string ÏìÓ¦µÄQQ);
 
         /// <summary>
-        /// å‘å¯¹è±¡å‘é€ä¸€æ¡éŸ³ä¹ä¿¡æ¯ï¼ˆæ‰€è°“çš„ç‚¹æ­Œï¼‰æ¬¡æ•°ä¸é™`
+        /// Ïò¶ÔÏó·¢ËÍÒ»ÌõÒôÀÖĞÅÏ¢£¨ËùÎ½µÄµã¸è£©´ÎÊı²»ÏŞ`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡ç±»å‹">åŒApi_SendMsg  1å¥½å‹ 2ç¾¤ 3è®¨è®ºç»„ 4ç¾¤ä¸´æ—¶ä¼šè¯ 5è®¨è®ºç»„ä¸´æ—¶ä¼šè¯</param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡æ‰€å±ç¾¤_è®¨è®ºç»„">å‘ç¾¤å†…ã€ä¸´æ—¶ä¼šè¯å¿…å¡« å¥½å‹å¯ä¸å¡«</param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡QQ">ä¸´æ—¶ä¼šè¯ã€å¥½å‹å¿…å¡« å‘è‡³ç¾¤å†…å¯ä¸å¡«</param>
-        /// <param name="éŸ³ä¹ç®€ä»‹">ç•™ç©ºé»˜è®¤â€˜QQéŸ³ä¹ çš„åˆ†äº«â€™</param>
-        /// <param name="éŸ³ä¹æ’­æ”¾é¡µé¢è¿æ¥">ä»»æ„ç›´è¿æˆ–çŸ­é“¾æ¥å‡å¯ ç•™ç©ºä¸ºç©º æ— æ³•ç‚¹å¼€</param>
-        /// <param name="éŸ³ä¹å°é¢è¿æ¥">ä»»æ„ç›´è¿æˆ–çŸ­é“¾æ¥å‡å¯ å¯ç©º ä¾‹:http://url.cn/cDiJT4</param>
-        /// <param name="éŸ³ä¹æ–‡ä»¶ç›´è¿è¿æ¥">ä»»æ„ç›´è¿æˆ–çŸ­é“¾æ¥å‡å¯ ä¸å¯ç©º ä¾‹:http://url.cn/djwXjr</param>
-        /// <param name="æ›²å">å¯ç©º</param>
-        /// <param name="æ­Œæ‰‹å">å¯ç©º</param>
-        /// <param name="éŸ³ä¹æ¥æºå">å¯ç©º ä¸ºç©ºé»˜è®¤QQéŸ³ä¹</param>
-        /// <param name="éŸ³ä¹æ¥æºå›¾æ ‡è¿æ¥">å¯ç©º ä¸ºç©ºé»˜è®¤QQéŸ³ä¹ http://qzonestyle.gtimg.cn/ac/qzone/applogo/64/308/100497308_64.gif</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÊÕĞÅ¶ÔÏóÀàĞÍ">Í¬Api_SendMsg  1ºÃÓÑ 2Èº 3ÌÖÂÛ×é 4ÈºÁÙÊ±»á»° 5ÌÖÂÛ×éÁÙÊ±»á»°</param>
+        /// <param name="ÊÕĞÅ¶ÔÏóËùÊôÈº_ÌÖÂÛ×é">·¢ÈºÄÚ¡¢ÁÙÊ±»á»°±ØÌî ºÃÓÑ¿É²»Ìî</param>
+        /// <param name="ÊÕĞÅ¶ÔÏóQQ">ÁÙÊ±»á»°¡¢ºÃÓÑ±ØÌî ·¢ÖÁÈºÄÚ¿É²»Ìî</param>
+        /// <param name="ÒôÀÖ¼ò½é">Áô¿ÕÄ¬ÈÏ¡®QQÒôÀÖ µÄ·ÖÏí¡¯</param>
+        /// <param name="ÒôÀÖ²¥·ÅÒ³ÃæÁ¬½Ó">ÈÎÒâÖ±Á¬»ò¶ÌÁ´½Ó¾ù¿É Áô¿ÕÎª¿Õ ÎŞ·¨µã¿ª</param>
+        /// <param name="ÒôÀÖ·âÃæÁ¬½Ó">ÈÎÒâÖ±Á¬»ò¶ÌÁ´½Ó¾ù¿É ¿É¿Õ Àı:http://url.cn/cDiJT4</param>
+        /// <param name="ÒôÀÖÎÄ¼şÖ±Á¬Á¬½Ó">ÈÎÒâÖ±Á¬»ò¶ÌÁ´½Ó¾ù¿É ²»¿É¿Õ Àı:http://url.cn/djwXjr</param>
+        /// <param name="ÇúÃû">¿É¿Õ</param>
+        /// <param name="¸èÊÖÃû">¿É¿Õ</param>
+        /// <param name="ÒôÀÖÀ´Ô´Ãû">¿É¿Õ Îª¿ÕÄ¬ÈÏQQÒôÀÖ</param>
+        /// <param name="ÒôÀÖÀ´Ô´Í¼±êÁ¬½Ó">¿É¿Õ Îª¿ÕÄ¬ÈÏQQÒôÀÖ http://qzonestyle.gtimg.cn/ac/qzone/applogo/64/308/100497308_64.gif</param>
         /// <returns></returns>
-        bool Api_SendMusic(string å“åº”çš„QQ, int æ”¶ä¿¡å¯¹è±¡ç±»å‹, string æ”¶ä¿¡å¯¹è±¡æ‰€å±ç¾¤_è®¨è®ºç»„, string æ”¶ä¿¡å¯¹è±¡QQ, string éŸ³ä¹ç®€ä»‹, string éŸ³ä¹æ’­æ”¾é¡µé¢è¿æ¥,
-            string éŸ³ä¹å°é¢è¿æ¥, string éŸ³ä¹æ–‡ä»¶ç›´è¿è¿æ¥, string æ›²å, string æ­Œæ‰‹å, string éŸ³ä¹æ¥æºå, string éŸ³ä¹æ¥æºå›¾æ ‡è¿æ¥);
+        bool Api_SendMusic(string ÏìÓ¦µÄQQ, int ÊÕĞÅ¶ÔÏóÀàĞÍ, string ÊÕĞÅ¶ÔÏóËùÊôÈº_ÌÖÂÛ×é, string ÊÕĞÅ¶ÔÏóQQ, string ÒôÀÖ¼ò½é, string ÒôÀÖ²¥·ÅÒ³ÃæÁ¬½Ó,
+            string ÒôÀÖ·âÃæÁ¬½Ó, string ÒôÀÖÎÄ¼şÖ±Á¬Á¬½Ó, string ÇúÃû, string ¸èÊÖÃû, string ÒôÀÖÀ´Ô´Ãû, string ÒôÀÖÀ´Ô´Í¼±êÁ¬½Ó);
 
         /// <summary>
         /// `
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡ç±»å‹">åŒApi_SendMsg  1å¥½å‹ 2ç¾¤ 3è®¨è®ºç»„ 4ç¾¤ä¸´æ—¶ä¼šè¯ 5è®¨è®ºç»„ä¸´æ—¶ä¼šè¯</param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡æ‰€å±ç¾¤_è®¨è®ºç»„">å‘ç¾¤å†…ã€ä¸´æ—¶ä¼šè¯å¿…å¡« å¥½å‹å¯ä¸å¡«</param>
-        /// <param name="æ”¶ä¿¡å¯¹è±¡QQ">ä¸´æ—¶ä¼šè¯ã€å¥½å‹å¿…å¡« å‘è‡³ç¾¤å†…å¯ä¸å¡«</param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="ÊÕĞÅ¶ÔÏóÀàĞÍ">Í¬Api_SendMsg  1ºÃÓÑ 2Èº 3ÌÖÂÛ×é 4ÈºÁÙÊ±»á»° 5ÌÖÂÛ×éÁÙÊ±»á»°</param>
+        /// <param name="ÊÕĞÅ¶ÔÏóËùÊôÈº_ÌÖÂÛ×é">·¢ÈºÄÚ¡¢ÁÙÊ±»á»°±ØÌî ºÃÓÑ¿É²»Ìî</param>
+        /// <param name="ÊÕĞÅ¶ÔÏóQQ">ÁÙÊ±»á»°¡¢ºÃÓÑ±ØÌî ·¢ÖÁÈºÄÚ¿É²»Ìî</param>
         /// <param name="ObjectMsg"></param>
-        /// <param name="ç»“æ„å­ç±»å‹">00 åŸºæœ¬ 02 ç‚¹æ­Œ å…¶ä»–ä¸æ˜</param>
+        /// <param name="½á¹¹×ÓÀàĞÍ">00 »ù±¾ 02 µã¸è ÆäËû²»Ã÷</param>
         /// <returns></returns>
-        bool Api_SendObjectMsg(string å“åº”çš„QQ, int æ”¶ä¿¡å¯¹è±¡ç±»å‹, string æ”¶ä¿¡å¯¹è±¡æ‰€å±ç¾¤_è®¨è®ºç»„, string æ”¶ä¿¡å¯¹è±¡QQ, string ObjectMsg,
-            int ç»“æ„å­ç±»å‹);
+        bool Api_SendObjectMsg(string ÏìÓ¦µÄQQ, int ÊÕĞÅ¶ÔÏóÀàĞÍ, string ÊÕĞÅ¶ÔÏóËùÊôÈº_ÌÖÂÛ×é, string ÊÕĞÅ¶ÔÏóQQ, string ObjectMsg,
+            int ½á¹¹×ÓÀàĞÍ);
 
         /// <summary>
-        /// åˆ¤æ–­å¯¹è±¡æ˜¯å¦ä¸ºå¥½å‹ï¼ˆåŒå‘ï¼‰`
+        /// ÅĞ¶Ï¶ÔÏóÊÇ·ñÎªºÃÓÑ£¨Ë«Ïò£©`
         /// </summary>
-        /// <param name="å“åº”çš„QQ"></param>
-        /// <param name="å¯¹è±¡QQ"></param>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="¶ÔÏóQQ"></param>
         /// <returns></returns>
-        bool Api_IsFriend(string å“åº”çš„QQ, string å¯¹è±¡QQ);
+        bool Api_IsFriend(string ÏìÓ¦µÄQQ, string ¶ÔÏóQQ);
+
+        /// <summary>
+        /// QQÃûÆ¬ÔŞ 10ÔŞÃ¿QÃ¿ÈÕ ÖÁ¶à50ÈË\ÈÕÏµÁĞ ³É¹¦·µ»Ø¿Õ
+        /// </summary>
+        /// <param name="ÏìÓ¦µÄQQ"></param>
+        /// <param name="¶ÔÏóQQ"></param>
+        /// <returns></returns>
+        string Api_Like(string ÏìÓ¦µÄQQ, string ¶ÔÏóQQ);
     }
 }

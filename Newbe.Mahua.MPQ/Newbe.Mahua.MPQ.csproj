@@ -62,9 +62,10 @@
     <Compile Include="MqpCommand.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="MpqMahuaModule.cs" />
-    <Compile Include="NativeApi\IQqContainer.cs" />
-    <Compile Include="NativeApi\IMyPcqqApi.cs" />
     <Compile Include="NativeApi\MyPcqqApi.cs" />
+    <Compile Include="NativeApi\IMyPcqqApi.cs" />
+    <Compile Include="NativeApi\IQqContainer.cs" />
+    <Compile Include="NativeApi\QqContainer.cs" />
     <Compile Include="PluginApiExporter.cs" />
     <Compile Include="PluginInfoProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

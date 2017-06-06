@@ -4,9 +4,4 @@
     {
         long ReceivedQq { get; set; }
     }
-
-    class QqContainer : IQqContainer
-    {
-        public long ReceivedQq { get; set; }
-    }
 }
