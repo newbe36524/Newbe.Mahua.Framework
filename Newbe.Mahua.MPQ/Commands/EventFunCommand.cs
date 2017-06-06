@@ -31,4 +31,9 @@ namespace Newbe.Mahua.MPQ.Commands
         public string Message { get; set; }
         public string RawMessage { get; set; }
     }
+
+    internal class EventFunCommandResult : MahuaCommandResult
+    {
+        public int ResultCode { get; set; }
+    }
 }

@@ -57,8 +57,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\EndCommand.cs" />
     <Compile Include="Commands\EventFunCommand.cs" />
     <Compile Include="Commands\InfoCommand.cs" />
+    <Compile Include="Commands\AboutCommand.cs" />
+    <Compile Include="Commands\SetCommand.cs" />
     <Compile Include="MqpCommand.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="MpqMahuaModule.cs" />
