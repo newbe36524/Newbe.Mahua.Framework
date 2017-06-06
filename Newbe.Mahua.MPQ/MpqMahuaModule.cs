@@ -8,16 +8,9 @@ namespace Newbe.Mahua.MPQ
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] {new CqpModule(), new CommandModule(), new CommandHandlersModule()};
+            return new Module[] {new CqpModule(), new CommandHandlersModule()};
         }
 
-        internal class CommandModule : Module
-        {
-            protected override void Load(ContainerBuilder builder)
-            {
-                base.Load(builder);
-            }
-        }
 
         internal class CommandHandlersModule : Module
         {

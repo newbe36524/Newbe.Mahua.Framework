@@ -8,34 +8,10 @@ namespace Newbe.Mahua.CQP
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] {new CqpModule(), new CommandModule(), new CommandHandlersModule()};
+            return new Module[] {new CqpModule(), new CommandHandlersModule()};
         }
 
-        private class CommandModule : Module
-        {
-            protected override void Load(ContainerBuilder builder)
-            {
-                base.Load(builder);
-                builder.RegisterType<AddFriendRequestCommand>().AsImplementedInterfaces();
-                builder.RegisterType<AppInfoCommand>().AsImplementedInterfaces();
-                builder.RegisterType<CoolQExitedCommand>().AsImplementedInterfaces();
-                builder.RegisterType<DisabledCommand>().AsImplementedInterfaces();
-                builder.RegisterType<DiscussGroupMessageCommand>().AsImplementedInterfaces();
-                builder.RegisterType<EnabledCommand>().AsImplementedInterfaces();
-                builder.RegisterType<FriendsAddedCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupAdminChangeCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupMemberDecreasedCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupMemberIncreasedCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupMessageCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupUploadedCommand>().AsImplementedInterfaces();
-                builder.RegisterType<InitializeCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupJoiningInvitationCommand>().AsImplementedInterfaces();
-                builder.RegisterType<GroupJoiningRequestCommand>().AsImplementedInterfaces();
-                builder.RegisterType<PrivateMessageCommand>().AsImplementedInterfaces();
-            }
-        }
-
-        private class CommandHandlersModule : Module
+        internal class CommandHandlersModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
@@ -59,7 +35,7 @@ namespace Newbe.Mahua.CQP
             }
         }
 
-        private class CqpModule : Module
+        internal class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
