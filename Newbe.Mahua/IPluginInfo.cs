@@ -16,6 +16,11 @@
         string Name { get; set; }
 
         /// <summary>
+        /// 作者
+        /// </summary>
+        string Author { get; set; }
+
+        /// <summary>
         /// Id，插件唯一标识
         /// </summary>
         string Id { get; set; }
