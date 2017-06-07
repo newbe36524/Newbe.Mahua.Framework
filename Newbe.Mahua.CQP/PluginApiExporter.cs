@@ -6,15 +6,6 @@ using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.CQP
 {
-    internal static class PluginInstanceManager
-    {
-        public static IPluginLoader GetInstance()
-        {
-            var pluginInfo = PluginInfoProvider.GetPluginInfo();
-            return Mahua.PluginInstanceManager.GetInstance(pluginInfo);
-        }
-    }
-
     /// <summary>
     /// 暴露非托管代码的api集合
     /// </summary>

@@ -83,6 +83,7 @@
     <Compile Include="NativeApi\ICqpAuthCodeContainer.cs" />
     <Compile Include="PluginApiExporter.cs" />
     <Compile Include="PluginInfoProvider.cs" />
+    <Compile Include="PluginInstanceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
