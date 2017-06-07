@@ -20,6 +20,7 @@ namespace Newbe.Mahua.MPQ.Commands
         }
     }
 
+    [Serializable]
     internal class EventFunCommand : MqpCommand
     {
         public long ReceiverQq { get; set; }
@@ -32,6 +33,7 @@ namespace Newbe.Mahua.MPQ.Commands
         public string RawMessage { get; set; }
     }
 
+    [Serializable]
     internal class EventFunCommandResult : MahuaCommandResult
     {
         public int ResultCode { get; set; }

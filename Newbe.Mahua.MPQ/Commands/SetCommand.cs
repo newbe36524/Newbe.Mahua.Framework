@@ -1,4 +1,5 @@
-﻿using Newbe.Mahua.Commands;
+﻿using System;
+using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
@@ -10,6 +11,7 @@ namespace Newbe.Mahua.MPQ.Commands
         }
     }
 
+    [Serializable]
     internal class SetCommand : MqpCommand
     {
     }

@@ -1,22 +1,35 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.Amanda.Commands;
+using Newbe.Mahua.Commands;
 using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.Amanda
 {
     public class PluginApiExporter : IPluginApiExporter
     {
+        public static string Continue { get; } = "0";
+        public static string Stopped { get; } = "1";
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
 
         [DllExport("Information", CallingConvention.StdCall)]
-        public static string Information() => throw new NotImplementedException();
+        public static string Information()
+        {
+            var informationCommandResult = PluginInstanceManager.GetInstance()
+                .SendCommand<InformationCommandResult>(new InformationCommand());
+            return informationCommandResult.Info;
+        }
 
         /// <summary>
         /// 初始化插件，插件加载时会调用此事件
         /// </summary>
         /// <returns></returns>
         [DllExport("Event_Initialization", CallingConvention.StdCall)]
-        public static int Event_Initialization() => throw new NotImplementedException();
+        public static int Event_Initialization()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new InitializationCommand());
+            return 0;
+        }
 
 
         /// <summary>
@@ -24,7 +37,11 @@ namespace Newbe.Mahua.Amanda
         /// </summary>
         /// <returns></returns>
         [DllExport("Event_pluginStart", CallingConvention.StdCall)]
-        public static int Event_pluginStart() => throw new NotImplementedException();
+        public static int Event_pluginStart()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new PluginStartCommand());
+            return 0;
+        }
 
 
         /// <summary>
@@ -32,7 +49,11 @@ namespace Newbe.Mahua.Amanda
         /// </summary>
         /// <returns></returns>
         [DllExport("Event_pluginStop", CallingConvention.StdCall)]
-        public static int Event_pluginStop() => throw new NotImplementedException();
+        public static int Event_pluginStop()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new PluginStopCommand());
+            return 0;
+        }
 
         /// <summary>
         /// 获取最新信息(好友/群/群临时/讨论组/讨论组临时消息)事件
@@ -43,8 +64,17 @@ namespace Newbe.Mahua.Amanda
         /// <param name="message"></param>
         /// <returns></returns>
         [DllExport("Event_GetNewMsg", CallingConvention.StdCall)]
-        public static string Event_GetNewMsg(string type, string fromgroup, string fromqq, string message) =>
-            throw new NotImplementedException();
+        public static string Event_GetNewMsg(string type, string fromgroup, string fromqq, string message)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GetNewMsgCommand
+            {
+                Message = message,
+                Type = type,
+                Fromgroup = fromgroup,
+                Fromqq = fromqq,
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// QQ财付通转账事件
@@ -58,8 +88,19 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GetQQWalletData", CallingConvention.StdCall)]
         public static string Event_GetQQWalletData(string type, string fromgroup, string fromqq, string money,
-            string friendRemark, string orderNo) =>
-            throw new NotImplementedException();
+            string friendRemark, string orderNo)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GetQqWalletDataCommand
+            {
+                Type = type,
+                Fromqq = fromqq,
+                Fromgroup = fromgroup,
+                FriendRemark = friendRemark,
+                Money = money,
+                OrderNo = orderNo
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// 管理员变动事件
@@ -69,8 +110,16 @@ namespace Newbe.Mahua.Amanda
         /// <param name="fromqq"></param>
         /// <returns></returns>
         [DllExport("Event_AdminChange", CallingConvention.StdCall)]
-        public static string Event_AdminChange(string type, string fromgroup, string fromqq) =>
-            throw new NotImplementedException();
+        public static string Event_AdminChange(string type, string fromgroup, string fromqq)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new AdminChangeCommand
+            {
+                Type = type,
+                Fromqq = fromqq,
+                Fromgroup = fromgroup
+            });
+            return Continue;
+        }
 
 
         /// <summary>
@@ -83,8 +132,17 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GroupMemberIncrease", CallingConvention.StdCall)]
         public static string Event_GroupMemberIncrease(string type, string fromgroup, string fromqq,
-            string operatorQq) =>
-            throw new NotImplementedException();
+            string operatorQq)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreaseCommand
+            {
+                Type = type,
+                Fromqq = fromqq,
+                Fromgroup = fromgroup,
+                OperatorQq = operatorQq,
+            });
+            return Continue;
+        }
 
 
         /// <summary>
@@ -97,8 +155,17 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GroupMemberDecrease", CallingConvention.StdCall)]
         public static string Event_GroupMemberDecrease(string type, string fromgroup, string fromqq,
-            string operatorQq) =>
-            throw new NotImplementedException();
+            string operatorQq)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreaseCommand
+            {
+                Type = type,
+                Fromqq = fromqq,
+                Fromgroup = fromgroup,
+                OperatorQq = operatorQq
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// 群添加事件
@@ -111,9 +178,20 @@ namespace Newbe.Mahua.Amanda
         /// <param name="seq">群添加事件产生的Seq标识</param>
         /// <returns></returns>
         [DllExport("Event_AddGroup", CallingConvention.StdCall)]
-        public static string Event_GrouEvent_AddGrouppMemberDecrease(string type, string fromgroup, string fromqq,
-            string invatorQq, string moreMsg, string seq) =>
-            throw new NotImplementedException();
+        public static string Event_AddGroup(string type, string fromgroup, string fromqq,
+            string invatorQq, string moreMsg, string seq)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new AddGroupCommand
+            {
+                Type = type,
+                Fromqq = fromqq,
+                Fromgroup = fromgroup,
+                InvatorQq = invatorQq,
+                MoreMsg = moreMsg,
+                Seq = seq
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// 好友添加事件
@@ -121,9 +199,17 @@ namespace Newbe.Mahua.Amanda
         /// <param name="fromqq"></param>
         /// <param name="reason">好友添加理由</param>
         /// <returns></returns>
+        /// 这个拼写就是这样，没毛病
         [DllExport("Event_AddFrinend", CallingConvention.StdCall)]
-        public static string Event_AddFrinend(string fromqq, string reason) =>
-            throw new NotImplementedException();
+        public static string Event_AddFrinend(string fromqq, string reason)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new AddFrinendCommand
+            {
+                Fromqq = fromqq,
+                Reason = reason
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// 成为了好友事件
@@ -131,29 +217,52 @@ namespace Newbe.Mahua.Amanda
         /// <param name="fromqq"></param>
         /// <returns></returns>
         [DllExport("Event_BecomeFriends", CallingConvention.StdCall)]
-        public static string Event_BecomeFriends(string fromqq) =>
-            throw new NotImplementedException();
+        public static string Event_BecomeFriends(string fromqq)
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new BecomeFriendsCommand
+            {
+                Fromqq = fromqq
+            });
+            return Continue;
+        }
 
         /// <summary>
         /// Cookies更新时会触发此事件
         /// </summary>
         /// <returns></returns>
         [DllExport("Event_UpdataCookies", CallingConvention.StdCall)]
-        public static string Event_UpdataCookies() =>
-            throw new NotImplementedException();
+        public static string Event_UpdataCookies()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new UpdataCookiesCommand());
+            return Continue;
+        }
 
         /// <summary>
         ///
         /// </summary>
         /// <returns></returns>
         [DllExport("_TestMenu1", CallingConvention.StdCall)]
-        public static int _TestMenu1() => throw new NotImplementedException();
+        public static int _TestMenu1()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
+            {
+                MenuId = nameof(_TestMenu1),
+            });
+            return 0;
+        }
 
         /// <summary>
         ///
         /// </summary>
         /// <returns></returns>
         [DllExport("_TestMenu2", CallingConvention.StdCall)]
-        public static int _TestMenu2() => throw new NotImplementedException();
+        public static int _TestMenu2()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
+            {
+                MenuId = nameof(_TestMenu2),
+            });
+            return 0;
+        }
     }
 }

@@ -65,9 +65,25 @@
   <ItemGroup>
     <Compile Include="AmandaCommand.cs" />
     <Compile Include="AmandaMahuaModule.cs" />
+    <Compile Include="Commands\AddFrinendCommand.cs" />
+    <Compile Include="Commands\AddGroupCommand.cs" />
+    <Compile Include="Commands\AdminChangeCommand.cs" />
+    <Compile Include="Commands\BecomeFriendsCommand.cs" />
+    <Compile Include="Commands\GetNewMsgCommand.cs" />
+    <Compile Include="Commands\GetQQWalletDataCommand.cs" />
+    <Compile Include="Commands\GroupMemberDecreaseCommand.cs" />
+    <Compile Include="Commands\GroupMemberIncreaseCommand.cs" />
+    <Compile Include="Commands\InformationCommand.cs" />
+    <Compile Include="Commands\InitializationCommand.cs" />
+    <Compile Include="Commands\MenuCommand.cs" />
+    <Compile Include="Commands\PluginStartCommand.cs" />
+    <Compile Include="Commands\PluginStopCommand.cs" />
+    <Compile Include="Commands\UpdataCookiesCommand.cs" />
     <Compile Include="MahuaApi.cs" />
     <Compile Include="NativeApi\AmadaApi.cs" />
     <Compile Include="PluginApiExporter.cs" />
+    <Compile Include="PluginInfoProvider.cs" />
+    <Compile Include="PluginInstanceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

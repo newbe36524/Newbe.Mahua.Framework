@@ -1,4 +1,5 @@
-﻿using Newbe.Mahua.Commands;
+﻿using System;
+using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
@@ -9,6 +10,7 @@ namespace Newbe.Mahua.MPQ.Commands
             throw new System.NotImplementedException();
         }
     }
+    [Serializable]
 
     internal class EndCommand : MqpCommand
     {
