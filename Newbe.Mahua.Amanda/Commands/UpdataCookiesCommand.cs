@@ -7,7 +7,6 @@ namespace Newbe.Mahua.Amanda.Commands
     {
         protected override void HandleCore(UpdataCookiesCommand command)
         {
-            throw new NotImplementedException();
         }
     }
 

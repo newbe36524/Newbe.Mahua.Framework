@@ -27,67 +27,67 @@ namespace Newbe.Mahua.Amanda
 
         public void SendPrivateMessage(long toQq, string message)
         {
-            _amadaApi.Api_发送消息(MsgType好友消息, null, toQq.ToString(), message);
+            _amadaApi.Api_SendMsg(MsgType好友消息, null, toQq.ToString(), message);
         }
 
         public void SendGroupMessage(long toGroup, string message)
         {
-            _amadaApi.Api_发送消息(MsgType群消息, toGroup.ToString(), null, message);
+            _amadaApi.Api_SendMsg(MsgType群消息, toGroup.ToString(), null, message);
         }
 
         public void SendDiscussMessage(long toDiscuss, string message)
         {
-            _amadaApi.Api_发送消息(MsgType讨论组消息, toDiscuss.ToString(), null, message);
+            _amadaApi.Api_SendMsg(MsgType讨论组消息, toDiscuss.ToString(), null, message);
         }
 
         public void SendLike(long toQq)
         {
-            _amadaApi.Api_点赞(toQq.ToString());
+            _amadaApi.Api_SendPraise(toQq.ToString());
         }
 
         public string GetCookies()
         {
-            return _amadaApi.Api_取Cookies();
+            return _amadaApi.Api_GetCookies();
         }
 
         public string GetCsrfToken()
         {
-            return _amadaApi.Api_取bkn();
+            return _amadaApi.Api_Getbkn();
         }
 
         public long GetLoginQq()
         {
-            return long.Parse(_amadaApi.Api_取登录QQ());
+            return long.Parse(_amadaApi.Api_GetLoginQQ());
         }
 
         public string GetLoginNick()
         {
-            return _amadaApi.Api_取昵称(_amadaApi.Api_取登录QQ());
+            return _amadaApi.Api_GetNick(_amadaApi.Api_GetLoginQQ());
         }
 
         public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
         {
-            _amadaApi.Api_移除群成员(toGroup.ToString(), toQq.ToString(), rejectForever);
+            _amadaApi.Api_RemoveMember(toGroup.ToString(), toQq.ToString(), rejectForever);
         }
 
         public void BanGroupMember(long toGroup, long toQq, TimeSpan duration)
         {
-            _amadaApi.Api_禁言(toGroup.ToString(), toQq.ToString(), (int) duration.TotalSeconds);
+            _amadaApi.Api_Ban(toGroup.ToString(), toQq.ToString(), (int) duration.TotalSeconds);
         }
 
         public void RemoveBanGroupMember(long toGroup, long toQq)
         {
-            _amadaApi.Api_禁言(toGroup.ToString(), toQq.ToString(), 0);
+            _amadaApi.Api_Ban(toGroup.ToString(), toQq.ToString(), 0);
         }
 
         public void EnableGroupAdmin(long toGroup, long toQq)
         {
-            _amadaApi.Api_置群管理(toGroup.ToString(), toQq.ToString(), true);
+            _amadaApi.Api_SetManager(toGroup.ToString(), toQq.ToString(), true);
         }
 
         public void DisableGroupAdmin(long toGroup, long toQq)
         {
-            _amadaApi.Api_置群管理(toGroup.ToString(), toQq.ToString(), false);
+            _amadaApi.Api_SetManager(toGroup.ToString(), toQq.ToString(), false);
         }
 
         [NotSupportedMahuaApi]
@@ -98,7 +98,7 @@ namespace Newbe.Mahua.Amanda
 
         public void SetBanAllGroupMembersOption(long toGroup, bool enabled)
         {
-            _amadaApi.Api_置全群禁言(toGroup.ToString(), enabled);
+            _amadaApi.Api_BanGroup(toGroup.ToString(), enabled);
         }
 
         [NotSupportedMahuaApi]
@@ -109,27 +109,27 @@ namespace Newbe.Mahua.Amanda
 
         public void SetGroupAnonymousOption(long toGroup, bool enabled)
         {
-            _amadaApi.Api_置群匿名(toGroup.ToString(), enabled);
+            _amadaApi.Api_SetAnony(toGroup.ToString(), enabled);
         }
 
         public void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
         {
-            _amadaApi.Api_修改群名片(toGroup.ToString(), toQq.ToString(), groupMemberCard);
+            _amadaApi.Api_SetGroupCard(toGroup.ToString(), toQq.ToString(), groupMemberCard);
         }
 
         public void LeaveGroup(long toGroup)
         {
-            _amadaApi.Api_退出群(toGroup.ToString());
+            _amadaApi.Api_QuitGroup(toGroup.ToString());
         }
 
         public void DissolveGroup(long toGroup)
         {
-            _amadaApi.Api_解散群(toGroup.ToString());
+            _amadaApi.Api_RemoveGroup(toGroup.ToString());
         }
 
         public void LeaveDiscuss(long toDiscuss)
         {
-            _amadaApi.Api_退出讨论组(toDiscuss.ToString());
+            _amadaApi.Api_QuitDiscussGroup(toDiscuss.ToString());
         }
 
         [NotSupportedMahuaApi]
@@ -146,12 +146,12 @@ namespace Newbe.Mahua.Amanda
 
         public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
         {
-            _amadaApi.Api_置群添加请求(null, null, groupJoiningRequestId, Operation同意, null);
+            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningRequestId, Operation同意, null);
         }
 
         public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
         {
-            _amadaApi.Api_置群添加请求(null, null, groupJoiningRequestId, Operation拒绝, reason);
+            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningRequestId, Operation拒绝, reason);
         }
 
         [NotSupportedMahuaApi]
@@ -186,27 +186,27 @@ namespace Newbe.Mahua.Amanda
 
         public void RemoveFriend(long toQq)
         {
-            _amadaApi.Api_删除好友(toQq.ToString());
+            _amadaApi.Api_DeleteFriend(toQq.ToString());
         }
 
         public void JoinGroup(long toGroup, string reason)
         {
-            _amadaApi.Api_加群(toGroup.ToString(), reason);
+            _amadaApi.Api_AddGroup(toGroup.ToString(), reason);
         }
 
         public string GetGroupMemebers(long toGroup)
         {
-            return _amadaApi.Api_取群成员列表(toGroup.ToString());
+            return _amadaApi.Api_GetGroupMemberList(toGroup.ToString());
         }
 
         public string GetGroups()
         {
-            return _amadaApi.Api_取群列表();
+            return _amadaApi.Api_GetGroupList();
         }
 
         public string GetFriends()
         {
-            return _amadaApi.Api_取好友列表();
+            return _amadaApi.Api_GetFriendList();
         }
 
         [NotSupportedMahuaApi]
