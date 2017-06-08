@@ -55,7 +55,7 @@ namespace Newbe.Mahua
         /// </summary>
         /// <returns>bkn</returns>
         [Description("取CsrfToken，bkn")]
-        int GetCsrfToken();
+        string GetCsrfToken();
 
         /// <summary>
         /// 取当前登录QQ

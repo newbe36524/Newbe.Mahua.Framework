@@ -47,9 +47,9 @@ namespace Newbe.Mahua.MPQ
             return _myPcqqApi.Api_GetCookies(Qq);
         }
 
-        public int GetCsrfToken()
+        public string GetCsrfToken()
         {
-            return int.Parse(_myPcqqApi.Api_GetBkn32(Qq));
+            return _myPcqqApi.Api_GetBkn32(Qq);
         }
 
         public long GetLoginQq()
