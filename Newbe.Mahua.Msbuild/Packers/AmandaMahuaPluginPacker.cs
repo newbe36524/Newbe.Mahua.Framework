@@ -22,7 +22,7 @@ namespace Newbe.Mahua.Msbuild.Packers
             var npkPath = GetNpkPath(context.PackageDirectory, PkgName);
             //复制内容到平台插件目录
             var apiExporterDll = new FileInfo(Path.Combine(npkPath.ForPlugin, $"{PkgName}.dll"));
-            apiExporterDll.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.dll"));
+            apiExporterDll.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.plugin.dll"));
             //复制forPlugin文件夹内容
             Helper.DirectoryCopy(
                 npkPath.ForPlugin,

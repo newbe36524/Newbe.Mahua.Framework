@@ -3,12 +3,12 @@ using System.IO;
 
 namespace Newbe.Mahua.Amanda
 {
-    internal class PluginInfoProvider
+    internal static class PluginInfoProvider
     {
         public static PluginFileInfo GetPluginInfo()
         {
             var pluginApiExpDll = typeof(AmandaMahuaModule).Assembly.CodeBase;
-            var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll);
+            var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll).Replace(".plugin", string.Empty);
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var dllDir = Path.GetFullPath(Path.Combine(baseDir, pluginName));
             var re = new PluginFileInfo
