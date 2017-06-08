@@ -13,7 +13,7 @@ namespace Newbe.Mahua.Msbuild.Packers
                 case MahuaPlatform.Mpq:
                     break;
                 case MahuaPlatform.Amanda:
-                    break;
+                    return new AmandaMahuaPluginPacker();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mahuaPlatform), mahuaPlatform, null);
             }
