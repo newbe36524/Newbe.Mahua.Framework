@@ -66,10 +66,32 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_GetNewMsg", CallingConvention.StdCall)]
         public static string Event_GetNewMsg(string type, string fromgroup, string fromqq, string message)
         {
+            FromMessageType t;
+            switch (type)
+            {
+                case "1":
+                    t = FromMessageType.好友消息;
+                    break;
+                case "2":
+                    t = FromMessageType.群消息;
+                    break;
+                case "3":
+                    t = FromMessageType.群临时消息;
+                    break;
+                case "4":
+                    t = FromMessageType.讨论组消息;
+                    break;
+                case "5":
+                    t = FromMessageType.讨论组临时消息;
+                    break;
+                default:
+                    t = FromMessageType.Unknown;
+                    break;
+            }
             PluginInstanceManager.GetInstance().SendCommand(new GetNewMsgCommand
             {
                 Message = message,
-                Type = type,
+                Type = t,
                 Fromgroup = fromgroup,
                 Fromqq = fromqq,
             });
