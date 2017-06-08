@@ -17,7 +17,7 @@ namespace Newbe.Mahua.Amanda.Commands
         {
             var info = $"pluginID={_pluginInfo.Id};{Environment.NewLine}" +
                        $"pluginName={_pluginInfo.Name};{Environment.NewLine}" +
-                       $"pluginBrief=;{Environment.NewLine}" +
+                       $"pluginBrief={_pluginInfo.Description};{Environment.NewLine}" +
                        $"pluginVersion={_pluginInfo.Version};{Environment.NewLine}" +
                        $"pluginSDK={SdkVersion};{Environment.NewLine}" +
                        $"pluginAuthor={_pluginInfo.Author};{Environment.NewLine}" +
