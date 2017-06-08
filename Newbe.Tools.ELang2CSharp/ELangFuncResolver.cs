@@ -31,7 +31,7 @@ namespace Newbe.Tools.ELang2CSharp
                     var str1 = array1[0];
                     var elangFunc = new ELangFunc();
                     var strArray = str1.Split(',');
-                    elangFunc.Name = strArray[0].Trim();
+                    elangFunc.Name = strArray[3].Trim('"', ' ');
                     elangFunc.ReturnType = strArray[1].Trim();
                     elangFunc.Summary = strArray.Length > 4 ? strArray[5].Trim() : string.Empty;
                     if (array1.Length > 1)
