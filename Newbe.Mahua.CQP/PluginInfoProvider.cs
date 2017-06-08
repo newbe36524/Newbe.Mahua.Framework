@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Newbe.Mahua.CQP
 {
-    internal class PluginInfoProvider
+    internal static class PluginInfoProvider
     {
         public static PluginFileInfo GetPluginInfo()
         {

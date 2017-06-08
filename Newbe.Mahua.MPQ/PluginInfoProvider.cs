@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace Newbe.Mahua.MPQ
 {
-    internal class PluginInfoProvider
+    internal static class PluginInfoProvider
     {
         public static PluginFileInfo GetPluginInfo()
         {
