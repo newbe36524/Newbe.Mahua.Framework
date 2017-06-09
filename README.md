@@ -41,21 +41,22 @@ QQ    | QQ                     |
 事件                                           | 说明               | CQP | MPQ | Amanda
 -------------------------------------------- | ---------------- | --- | --- | ------
 IDiscussMessageReceivedMahuaEvent            | 讨论组消息接受事件        | √   |     | √
-IFriendAddedMahuaEvent                       | 已添加新好友事件         | √   |     |
-IFriendAddingRequestMahuaEvent               | 好友申请接受事件         | √   |     |
-IGroupAdminChangedMahuaEvent                 | 群管理员变更事件         | √   |     |
-IGroupAdminDisabledMahuaEvent                | 解除群管理员事件         | √   |     |
-IGroupAdminEnabledMahuaEvent                 | 任命新管理员事件         | √   |     |
-IGroupJoiningInvitationReceivedMahuaEvent    | 入群邀请接收事件         | √   |     |
-IGroupJoiningRequestReceivedMahuaEvent       | 入群申请接收事件         | √   |     |
-IGroupMemberChangedMahuaEvent                | 群成员变更事件          | √   |     |
-IGroupMemberDecreasedMahuaEvent              | 群成员减少事件          | √   |     |
-IGroupMemberIncreasedMahuaEvent              | 群成员增多事件          | √   |     |
+IFriendAddedMahuaEvent                       | 已添加新好友事件         | √   |     | √
+IFriendAddingRequestMahuaEvent               | 好友申请接受事件         | √   |     | √
+IGroupAdminChangedMahuaEvent                 | 群管理员变更事件         | √   |     | √
+IGroupAdminDisabledMahuaEvent                | 解除群管理员事件         | √   |     | √
+IGroupAdminEnabledMahuaEvent                 | 任命新管理员事件         | √   |     | √
+IGroupJoiningInvitationReceivedMahuaEvent    | 入群邀请接收事件         | √   |     | √
+IGroupJoiningRequestReceivedMahuaEvent       | 入群申请接收事件         | √   |     | √
+IGroupMemberChangedMahuaEvent                | 群成员变更事件          | √   |     | √
+IGroupMemberDecreasedMahuaEvent              | 群成员减少事件          | √   |     | √
+IGroupMemberIncreasedMahuaEvent              | 群成员增多事件          | √   |     | √
 IGroupMessageReceivedMahuaEvent              | 群消息接收事件          | √   |     | √
 IGroupUploadedMahuaEvent                     | 群文件上传事件          | √   |     |
+IInitializationMahuaEvent                    | 插件初始化事件          | √   | √   | √
 IPlatfromExitedMahuaEvent                    | 机器人平台退出事件        | √   |     |
-IPluginDisabledMahuaEvent                    | 插件被禁用事件          | √   |     |
-IPluginEnabledMahuaEvent                     | 插件被启用事件          | √   |     |
+IPluginDisabledMahuaEvent                    | 插件被禁用事件          | √   |     | √
+IPluginEnabledMahuaEvent                     | 插件被启用事件          | √   |     | √
 IPrivateMessageFromDiscussReceivedMahuaEvent | 来自讨论组成员的私聊消息接收事件 | √   |     | √
 IPrivateMessageFromFriendReceivedMahuaEvent  | 来自好友的私聊消息接收事件    | √   |     | √
 IPrivateMessageFromGroupReceivedMahuaEvent   | 来自群成员的私聊消息接收事件   | √   |     | √
