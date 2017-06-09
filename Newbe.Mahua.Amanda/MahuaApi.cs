@@ -89,7 +89,7 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void SetBanAllGroupMembersOption(string toGroup, bool enabled)
@@ -100,7 +100,7 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void SetGroupAnonymousOption(string toGroup, bool enabled)
@@ -131,13 +131,13 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void RejectFriendAddingRequest(string addingFriendRequestId)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
@@ -153,31 +153,31 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void BanFriend(string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void RemoveBanFriend(string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void SetNotice(string toGroup, string title, string content)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void RemoveFriend(string toQq)
@@ -208,31 +208,33 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public void SendGroupJoiningInvitation(string toQq, string toGroup)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public string CreateDiscuss()
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(string);
         }
 
         [NotSupportedMahuaApi]
         public void KickDiscussMember(string toDiscuss, string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public void SendDiscussJoiningInvitation(string toQq, string toDiscuss)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
         public string GetDiscusses()
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(string);
         }
     }
 }

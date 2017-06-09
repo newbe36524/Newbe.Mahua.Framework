@@ -49,7 +49,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppDomainExtensions.cs" />
     <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
     <Compile Include="Commands\CommandHandlerExtensions.cs" />
     <Compile Include="Commands\Impl\CommandCenter.cs" />

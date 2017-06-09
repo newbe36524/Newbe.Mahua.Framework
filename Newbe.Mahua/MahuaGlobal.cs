@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using Newbe.Mahua.Internals;
 
 namespace Newbe.Mahua
 {
@@ -9,64 +7,16 @@ namespace Newbe.Mahua
     /// </summary>
     public static class MahuaGlobal
     {
-        // ReSharper disable once InconsistentNaming
-        private static readonly Lazy<MahuaPlatform> currentPlatform =
-            new Lazy<MahuaPlatform>(() =>
-            {
-                return new IPlatformResolver[]
-                        {new CqpPlatformResolver(), new MpqPlatformResolver(), new AmandaPlatformResolver()}
-                    .First(x => x.IsThis()).MahuaPlatform;
-            });
-
         /// <summary>
         /// 当前机器人平台
         /// </summary>
-        public static MahuaPlatform CurrentPlatform => currentPlatform.Value;
+        /// <exception cref="NotSupportMahuaPlatformExpcetion"></exception>
+        public static MahuaPlatform CurrentPlatform => MahuaPlatformValueProvider.CurrentPlatform.Value;
 
-        private static string GetCurrentDir() => Environment.CurrentDirectory;
-
-        #region IPlatformResolver
-
-        internal interface IPlatformResolver
-        {
-            MahuaPlatform MahuaPlatform { get; }
-            bool IsThis();
-        }
-
-        class CqpPlatformResolver : IPlatformResolver
-        {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
-
-            public bool IsThis()
-            {
-                var currentDir = GetCurrentDir();
-                return File.Exists(Path.Combine(currentDir, "CQA.exe")) ||
-                       File.Exists(Path.Combine(currentDir, "CQP.exe"));
-            }
-        }
-
-        class MpqPlatformResolver : IPlatformResolver
-        {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Mpq;
-
-            public bool IsThis()
-            {
-                var currentDir = GetCurrentDir();
-                return File.Exists(Path.Combine(currentDir, "Core.exe"));
-            }
-        }
-
-        class AmandaPlatformResolver : IPlatformResolver
-        {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
-
-            public bool IsThis()
-            {
-                var currentDir = GetCurrentDir();
-                return File.Exists(Path.Combine(currentDir, "Amanda.exe"));
-            }
-        }
-
-        #endregion
+        /// <summary>
+        /// 调用标记为<see cref="NotSupportedMahuaApiAttribute"/>的Api的行为。默认为<see cref="ThrowsNotSupportedMahuaApiConvertion{NotImplementedException}"/>
+        /// </summary>
+        public static INotSupportedMahuaApiConvertion NotSupportedMahuaApiConvertion { get; set; } =
+            MahuaConvertions.NotSupportedMahuaApiConvertions.IgnoreNotSupportedMahuaApiConvertion;
     }
 }
