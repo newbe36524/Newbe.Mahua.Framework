@@ -25,7 +25,7 @@ namespace Newbe.Mahua.CQP.Commands
             {
                 SendTime = command.SendTime,
                 FromGroup = command.FromGroup.ToString(),
-                ToQq = command.ToQq.ToString(),
+                JoinedOrLeftQq = command.ToQq.ToString(),
                 GroupMemberChangedType = GroupMemberChangedType.Decreased
             }));
             _groupMemberDecreasedMahuaEvents.Handle(

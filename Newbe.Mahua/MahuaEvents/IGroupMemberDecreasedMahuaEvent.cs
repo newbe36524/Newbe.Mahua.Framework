@@ -18,7 +18,15 @@ namespace Newbe.Mahua.MahuaEvents
         public DateTime SendTime { get; set; }
         public GroupMemberDecreasedReason GroupMemberDecreasedReason { get; set; }
         public string FromGroup { get; set; }
+
+        /// <summary>
+        /// 若<see cref="GroupMemberDecreasedReason"/>为<see cref="Enums.GroupMemberDecreasedReason.Kicked"/>则此值为操作的管理员QQ，否则为null
+        /// </summary>
         public string FromQq { get; set; }
+
+        /// <summary>
+        /// 离开成员QQ
+        /// </summary>
         public string ToQq { get; set; }
     }
 }

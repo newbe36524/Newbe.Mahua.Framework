@@ -18,6 +18,10 @@ namespace Newbe.Mahua.MahuaEvents
         public DateTime SendTime { get; set; }
         public GroupMemberChangedType GroupMemberChangedType { get; set; }
         public string FromGroup { get; set; }
-        public string ToQq { get; set; }
+
+        /// <summary>
+        /// 入群或离开的Qq
+        /// </summary>
+        public string JoinedOrLeftQq { get; set; }
     }
 }

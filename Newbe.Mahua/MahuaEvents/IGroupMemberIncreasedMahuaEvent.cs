@@ -16,9 +16,22 @@ namespace Newbe.Mahua.MahuaEvents
     public class GroupMemberIncreasedContext
     {
         public DateTime SendTime { get; set; }
+
+        /// <summary>
+        /// 入群原因
+        /// </summary>
         public GroupMemberIncreasedReason GroupMemberIncreasedReason { get; set; }
+
         public string FromGroup { get; set; }
-        public string FromQq { get; set; }
-        public string ToQq { get; set; }
+
+        /// <summary>
+        /// 群员邀请者或者同意入群的管理员，取决于<see cref="GroupMemberIncreasedReason"/>
+        /// </summary>
+        public string InvitatorOrAdmin { get; set; }
+
+        /// <summary>
+        /// 已加入的QQ
+        /// </summary>
+        public string JoinedQq { get; set; }
     }
 }
