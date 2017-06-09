@@ -46,7 +46,7 @@ namespace Newbe.Mahua.CQP
             return _coolQApi.CQ_getCookies(AuthCode);
         }
 
-        public string GetCsrfToken()
+        public string GetBkn()
         {
             return _coolQApi.CQ_getCsrfToken(AuthCode).ToString();
         }

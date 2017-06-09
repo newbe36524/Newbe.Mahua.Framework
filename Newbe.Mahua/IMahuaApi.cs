@@ -51,11 +51,11 @@ namespace Newbe.Mahua
         string GetCookies();
 
         /// <summary>
-        /// 取CsrfToken，bkn
+        /// 取bkn
         /// </summary>
         /// <returns>bkn</returns>
-        [Description("取CsrfToken，bkn")]
-        string GetCsrfToken();
+        [Description("取bkn")]
+        string GetBkn();
 
         /// <summary>
         /// 取当前登录QQ

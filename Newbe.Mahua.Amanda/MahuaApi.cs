@@ -46,7 +46,7 @@ namespace Newbe.Mahua.Amanda
             return _amadaApi.Api_GetCookies();
         }
 
-        public string GetCsrfToken()
+        public string GetBkn()
         {
             return _amadaApi.Api_Getbkn();
         }
@@ -150,16 +150,15 @@ namespace Newbe.Mahua.Amanda
             _amadaApi.Api_SetGroupAdd(null, null, groupJoiningRequestId, Operation拒绝, reason);
         }
 
-        [NotSupportedMahuaApi]
         public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            //todo 需要验证
+            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningInvitationId, Operation同意, null);
         }
 
-        [NotSupportedMahuaApi]
         public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningInvitationId, Operation拒绝, null);
         }
 
         [NotSupportedMahuaApi]
