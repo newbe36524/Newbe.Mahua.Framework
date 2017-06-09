@@ -16,7 +16,7 @@ namespace Newbe.Mahua.MahuaEvents
     {
         public string AddingFriendRequestId { get; set; }
         public DateTime SendTime { get; set; }
-        public long FromQq { get; set; }
+        public string FromQq { get; set; }
         public string Message { get; set; }
     }
 }

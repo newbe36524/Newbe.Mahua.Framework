@@ -26,8 +26,8 @@ namespace Newbe.Mahua.CQP.Commands
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
             {
                 SendTime = command.SendTime,
-                ToQq = command.ToQq,
-                FromGroup = command.FromGroup,
+                ToQq = command.ToQq.ToString(),
+                FromGroup = command.FromGroup.ToString(),
                 GroupAdminChangeType = command.GroupAdminChangeType
             }));
             switch (command.GroupAdminChangeType)
@@ -37,8 +37,8 @@ namespace Newbe.Mahua.CQP.Commands
                         x => x.ProcessGroupAdminEnabled(new GroupAdminEnabledContext
                         {
                             SendTime = command.SendTime,
-                            FromGroup = command.FromGroup,
-                            ToQq = command.ToQq
+                            FromGroup = command.FromGroup.ToString(),
+                            ToQq = command.ToQq.ToString()
                         }));
                     break;
                 case GroupAdminChangeType.Disabled:
@@ -46,8 +46,8 @@ namespace Newbe.Mahua.CQP.Commands
                         x => x.ProcessGroupAdminDisabled(new GroupAdminDisabledContext
                         {
                             SendTime = command.SendTime,
-                            FromGroup = command.FromGroup,
-                            ToQq = command.ToQq,
+                            FromGroup = command.FromGroup.ToString(),
+                            ToQq = command.ToQq.ToString(),
                         }));
                     break;
                 default:

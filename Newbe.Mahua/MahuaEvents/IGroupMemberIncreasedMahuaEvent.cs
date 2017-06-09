@@ -17,8 +17,8 @@ namespace Newbe.Mahua.MahuaEvents
     {
         public DateTime SendTime { get; set; }
         public GroupMemberIncreasedReason GroupMemberIncreasedReason { get; set; }
-        public long FromGroup { get; set; }
-        public long FromQq { get; set; }
-        public long ToQq { get; set; }
+        public string FromGroup { get; set; }
+        public string FromQq { get; set; }
+        public string ToQq { get; set; }
     }
 }

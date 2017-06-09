@@ -19,8 +19,8 @@ namespace Newbe.Mahua.CQP.Commands
             _groupUploadedMahuaEvents.Handle(x => x.ProcessGroupUploaded(new GroupUploadedContext
             {
                 File = command.File,
-                FromGroup = command.GroupNum,
-                FromQq = command.FromQq,
+                FromGroup = command.GroupNum.ToString(),
+                FromQq = command.FromQq.ToString(),
                 SendTime = command.SendTime,
             }));
         }

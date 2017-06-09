@@ -15,7 +15,7 @@ namespace Newbe.Mahua
         /// <param name="toQq">目标QQ号</param>
         /// <param name="message">消息内容</param>
         [Description("发送私聊消息")]
-        void SendPrivateMessage(long toQq, string message);
+        void SendPrivateMessage(string toQq, string message);
 
         /// <summary>
         /// 发送群消息
@@ -23,7 +23,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup">目标群</param>
         /// <param name="message">消息内容</param>
         [Description("发送群消息")]
-        void SendGroupMessage(long toGroup, string message);
+        void SendGroupMessage(string toGroup, string message);
 
         /// <summary>
         /// 发送讨论组消息
@@ -31,7 +31,7 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss">目标讨论组</param>
         /// <param name="message">消息内容</param>
         [Description("发送讨论组消息")]
-        void SendDiscussMessage(long toDiscuss, string message);
+        void SendDiscussMessage(string toDiscuss, string message);
 
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Newbe.Mahua
         /// <returns></returns>
         /// <remarks>:QQ名片赞 10赞每Q每日 至多50人</remarks>
         [Description("发送名片赞")]
-        void SendLike(long toQq);
+        void SendLike(string toQq);
 
         /// <summary>
         /// 取Cookies
@@ -62,7 +62,7 @@ namespace Newbe.Mahua
         /// </summary>
         /// <returns></returns>
         [Description("取当前登录QQ")]
-        long GetLoginQq();
+        string GetLoginQq();
 
         /// <summary>
         /// 取当前登录QQ昵称
@@ -79,7 +79,7 @@ namespace Newbe.Mahua
         /// <param name="rejectForever">如果为真，则“不再接收此人加群申请”，请慎用</param>
         /// <returns></returns>
         [Description("移出群成员")]
-        void KickGroupMember(long toGroup, long toQq, bool rejectForever);
+        void KickGroupMember(string toGroup, string toQq, bool rejectForever);
 
         /// <summary>
         /// 禁言某群成员
@@ -89,7 +89,7 @@ namespace Newbe.Mahua
         /// <param name="duration">禁言的时间</param>
         /// <returns></returns>
         [Description("禁言某群成员")]
-        void BanGroupMember(long toGroup, long toQq, TimeSpan duration);
+        void BanGroupMember(string toGroup, string toQq, TimeSpan duration);
 
         /// <summary>
         /// 取消禁言某群成员
@@ -98,7 +98,7 @@ namespace Newbe.Mahua
         /// <param name="toQq">目标QQ</param>
         /// <returns></returns>
         [Description("取消禁言某群成员")]
-        void RemoveBanGroupMember(long toGroup, long toQq);
+        void RemoveBanGroupMember(string toGroup, string toQq);
 
         /// <summary>
         /// 设置群管理员
@@ -107,7 +107,7 @@ namespace Newbe.Mahua
         /// <param name="toQq">被设置的QQ</param>
         /// <returns></returns>
         [Description("设置群管理员")]
-        void EnableGroupAdmin(long toGroup, long toQq);
+        void EnableGroupAdmin(string toGroup, string toQq);
 
         /// <summary>
         /// 删除群管理员
@@ -116,7 +116,7 @@ namespace Newbe.Mahua
         /// <param name="toQq">被设置的Q</param>
         /// <returns></returns>
         [Description("删除群管理员")]
-        void DisableGroupAdmin(long toGroup, long toQq);
+        void DisableGroupAdmin(string toGroup, string toQq);
 
         /// <summary>
         /// 设置群成员专属头衔
@@ -127,7 +127,7 @@ namespace Newbe.Mahua
         /// <param name="duration">专属头衔有效期。如果永久有效，则使用<see cref="TimeSpan.MaxValue"/></param>
         /// <returns></returns>
         [Description("设置群成员专属头衔")]
-        void SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration);
+        void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration);
 
         /// <summary>
         /// 设置全群禁言
@@ -136,7 +136,7 @@ namespace Newbe.Mahua
         /// <param name="enabled">true为启用</param>
         /// <returns></returns>
         [Description("设置全群禁言")]
-        void SetBanAllGroupMembersOption(long toGroup, bool enabled);
+        void SetBanAllGroupMembersOption(string toGroup, bool enabled);
 
         /// <summary>
         /// 设置禁言某匿名群员
@@ -146,7 +146,7 @@ namespace Newbe.Mahua
         /// <param name="duration">禁言的时间。不支持解禁</param>
         /// <returns></returns>
         [Description("设置禁言某匿名群员")]
-        void BanGroupAnonymousMember(long toGroup, string anonymous, TimeSpan duration);
+        void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration);
 
         /// <summary>
         /// 设置群匿名设置
@@ -155,7 +155,7 @@ namespace Newbe.Mahua
         /// <param name="enabled">true为启用</param>
         /// <returns></returns>
         [Description("设置群匿名设置")]
-        void SetGroupAnonymousOption(long toGroup, bool enabled);
+        void SetGroupAnonymousOption(string toGroup, bool enabled);
 
         /// <summary>
         /// 设置群成员名片
@@ -165,7 +165,7 @@ namespace Newbe.Mahua
         /// <param name="groupMemberCard">群名片</param>
         /// <returns></returns>
         [Description("设置群成员名片")]
-        void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard);
+        void SetGroupMemberCard(string toGroup, string toQq, string groupMemberCard);
 
         /// <summary>
         /// 退出群
@@ -173,14 +173,14 @@ namespace Newbe.Mahua
         /// <param name="toGroup">目标群</param>
         /// <returns></returns>
         [Description("退出群")]
-        void LeaveGroup(long toGroup);
+        void LeaveGroup(string toGroup);
 
         /// <summary>
         /// 解散群
         /// </summary>
         /// <param name="toGroup">目标群</param>
         [Description("解散群")]
-        void DissolveGroup(long toGroup);
+        void DissolveGroup(string toGroup);
 
         /// <summary>
         /// 退出讨论组
@@ -188,7 +188,7 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss">目标讨论组</param>
         /// <returns></returns>
         [Description("退出讨论组")]
-        void LeaveDiscuss(long toDiscuss);
+        void LeaveDiscuss(string toDiscuss);
 
         /// <summary>
         /// 同意添加好友请求
@@ -241,14 +241,14 @@ namespace Newbe.Mahua
         /// </summary>
         /// <param name="toQq"></param>
         [Description("将QQ移入黑名单")]
-        void BanFriend(long toQq);
+        void BanFriend(string toQq);
 
         /// <summary>
         /// 将QQ移出黑名单
         /// </summary>
         /// <param name="toQq"></param>
         [Description("将QQ移出黑名单")]
-        void RemoveBanFriend(long toQq);
+        void RemoveBanFriend(string toQq);
 
         /// <summary>
         /// 发布群公告
@@ -257,7 +257,7 @@ namespace Newbe.Mahua
         /// <param name="title"></param>
         /// <param name="content"></param>
         [Description("发布群公告")]
-        void SetNotice(long toGroup, string title, string content);
+        void SetNotice(string toGroup, string title, string content);
 
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace Newbe.Mahua
         /// </summary>
         /// <param name="toQq"></param>
         [Description("删除好友")]
-        void RemoveFriend(long toQq);
+        void RemoveFriend(string toQq);
 
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup"></param>
         /// <param name="reason"></param>
         [Description("主动加群")]
-        void JoinGroup(long toGroup, string reason);
+        void JoinGroup(string toGroup, string reason);
 
         /// <summary>
         /// 获取群成员列表
@@ -282,7 +282,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup"></param>
         /// <returns></returns>
         [Description("获取群成员列表")]
-        string GetGroupMemebers(long toGroup);
+        string GetGroupMemebers(string toGroup);
 
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace Newbe.Mahua
         /// <param name="toQq"></param>
         /// <param name="toGroup"></param>
         [Description("发送入群邀请")]
-        void SendGroupJoiningInvitation(long toQq, long toGroup);
+        void SendGroupJoiningInvitation(string toQq, string toGroup);
 
         /// <summary>
         /// 创建讨论组
@@ -322,7 +322,7 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss"></param>
         /// <param name="toQq"></param>
         [Description("踢出讨论组")]
-        void KickDiscussMember(long toDiscuss, long toQq);
+        void KickDiscussMember(string toDiscuss, string toQq);
 
         /// <summary>
         /// 发送讨论组邀请
@@ -330,7 +330,7 @@ namespace Newbe.Mahua
         /// <param name="toQq"></param>
         /// <param name="toDiscuss"></param>
         [Description("发送讨论组邀请")]
-        void SendDiscussJoiningInvitation(long toQq, long toDiscuss);
+        void SendDiscussJoiningInvitation(string toQq, string toDiscuss);
 
         /// <summary>
         /// 获取讨论组列表

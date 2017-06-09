@@ -23,8 +23,8 @@ namespace Newbe.Mahua.CQP.Commands
                 {
                     GroupJoiningRequestId = command.GroupJoiningInvitationId,
                     SendTime = command.SendTime,
-                    FromQq = command.FromQq,
-                    ToGroup = command.ToGroup,
+                    FromQq = command.FromQq.ToString(),
+                    ToGroup = command.ToGroup.ToString(),
                     Message = command.Message,
                 }));
         }

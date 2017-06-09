@@ -24,17 +24,17 @@ namespace Newbe.Mahua.CQP.Commands
             _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
             {
                 SendTime = command.SendTime,
-                FromGroup = command.FromGroup,
-                ToQq = command.ToQq,
+                FromGroup = command.FromGroup.ToString(),
+                ToQq = command.ToQq.ToString(),
                 GroupMemberChangedType = GroupMemberChangedType.Increased
             }));
             _groupMemberIncreasedMahuaEvents.Handle(
                 x => x.ProcessGroupMemberIncreased(new GroupMemberIncreasedContext
                 {
                     SendTime = command.SendTime,
-                    FromGroup = command.FromGroup,
-                    ToQq = command.ToQq,
-                    FromQq = command.FromQq,
+                    FromGroup = command.FromGroup.ToString(),
+                    ToQq = command.ToQq.ToString(),
+                    FromQq = command.FromQq.ToString(),
                     GroupMemberIncreasedReason = command.GroupMemberIncreasedReason
                 }));
         }

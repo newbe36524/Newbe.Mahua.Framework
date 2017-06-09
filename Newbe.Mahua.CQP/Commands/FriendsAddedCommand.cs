@@ -22,7 +22,7 @@ namespace Newbe.Mahua.CQP.Commands
                     new FriendAddedMahuaEventContext
                     {
                         SendTime = command.SendTime,
-                        FromQq = command.FromQq
+                        FromQq = command.FromQq.ToString()
                     }));
         }
     }

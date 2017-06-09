@@ -15,8 +15,8 @@ namespace Newbe.Mahua.MahuaEvents
     public class DiscussMessageReceivedMahuaEventContext
     {
         public DateTime SendTime { get; set; }
-        public long FromDiscuss { get; set; }
-        public long FromQq { get; set; }
+        public string FromDiscuss { get; set; }
+        public string FromQq { get; set; }
         public string Message { get; set; }
     }
 }

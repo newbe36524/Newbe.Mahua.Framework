@@ -5,10 +5,10 @@ namespace Newbe.Mahua.CQP
 {
     public class MahuaApi : IMahuaApi
     {
-        public const int 请求通过 = 1;
-        public const int 请求拒绝 = 2;
-        public const int 请求群添加 = 1;
-        public const int 请求群邀请 = 2;
+        private static readonly int AcceptType请求通过 = 1;
+        private static readonly int AcceptType请求拒绝 = 2;
+        private static readonly int RequestType请求群添加 = 1;
+        private static readonly int RequestType请求群邀请 = 2;
 
         private readonly ICoolQApi _coolQApi;
         private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
@@ -21,24 +21,24 @@ namespace Newbe.Mahua.CQP
 
         private int AuthCode => _cqpAuthCodeContainer.AuthCode;
 
-        public void SendPrivateMessage(long toQq, string message)
+        public void SendPrivateMessage(string toQq, string message)
         {
-            _coolQApi.CQ_sendPrivateMsg(AuthCode, toQq, message);
+            _coolQApi.CQ_sendPrivateMsg(AuthCode, Convert.ToInt64(toQq), message);
         }
 
-        public void SendGroupMessage(long toGroup, string message)
+        public void SendGroupMessage(string toGroup, string message)
         {
-            _coolQApi.CQ_sendGroupMsg(AuthCode, toGroup, message);
+            _coolQApi.CQ_sendGroupMsg(AuthCode, Convert.ToInt64(toGroup), message);
         }
 
-        public void SendDiscussMessage(long toDiscuss, string message)
+        public void SendDiscussMessage(string toDiscuss, string message)
         {
-            _coolQApi.CQ_sendDiscussMsg(AuthCode, toDiscuss, message);
+            _coolQApi.CQ_sendDiscussMsg(AuthCode, Convert.ToInt64(toDiscuss), message);
         }
 
-        public void SendLike(long toQq)
+        public void SendLike(string toQq)
         {
-            _coolQApi.CQ_sendLikeV2(AuthCode, toQq, 1);
+            _coolQApi.CQ_sendLikeV2(AuthCode, Convert.ToInt64(toQq), 1);
         }
 
         public string GetCookies()
@@ -51,9 +51,9 @@ namespace Newbe.Mahua.CQP
             return _coolQApi.CQ_getCsrfToken(AuthCode).ToString();
         }
 
-        public long GetLoginQq()
+        public string GetLoginQq()
         {
-            return _coolQApi.CQ_getLoginQQ(AuthCode);
+            return _coolQApi.CQ_getLoginQQ(AuthCode).ToString();
         }
 
         public string GetLoginNick()
@@ -61,140 +61,148 @@ namespace Newbe.Mahua.CQP
             return _coolQApi.CQ_getLoginNick(AuthCode);
         }
 
-        public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
+        public void KickGroupMember(string toGroup, string toQq, bool rejectForever)
         {
-            _coolQApi.CQ_setGroupKick(AuthCode, toGroup, toQq, rejectForever);
+            _coolQApi.CQ_setGroupKick(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), rejectForever);
         }
 
-        public void BanGroupMember(long toGroup, long toQq, TimeSpan duration)
+        public void BanGroupMember(string toGroup, string toQq, TimeSpan duration)
         {
             var durationTotalSeconds = (long) duration.TotalSeconds;
             if (durationTotalSeconds <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(duration));
             }
-            _coolQApi.CQ_setGroupBan(AuthCode, toGroup, toQq, durationTotalSeconds);
+            _coolQApi.CQ_setGroupBan(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), durationTotalSeconds);
         }
 
-        public void RemoveBanGroupMember(long toGroup, long toQq)
+        public void RemoveBanGroupMember(string toGroup, string toQq)
         {
-            _coolQApi.CQ_setGroupBan(AuthCode, toGroup, toQq, 0);
+            _coolQApi.CQ_setGroupBan(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), 0);
         }
 
-        public void EnableGroupAdmin(long toGroup, long toQq)
+        public void EnableGroupAdmin(string toGroup, string toQq)
         {
-            _coolQApi.CQ_setGroupAdmin(AuthCode, toGroup, toQq, true);
+            _coolQApi.CQ_setGroupAdmin(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), true);
         }
 
-        public void DisableGroupAdmin(long toGroup, long toQq)
+        public void DisableGroupAdmin(string toGroup, string toQq)
         {
-            _coolQApi.CQ_setGroupAdmin(AuthCode, toGroup, toQq, false);
+            _coolQApi.CQ_setGroupAdmin(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), false);
         }
 
-        public void SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration)
+        public void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration)
         {
             var total = duration == TimeSpan.MaxValue ? -1 : (long) duration.TotalSeconds;
-            _coolQApi.CQ_setGroupSpecialTitle(AuthCode, toGroup, toQq, specialTitle, total);
+            _coolQApi.CQ_setGroupSpecialTitle(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), specialTitle,
+                total);
         }
 
-        public void SetBanAllGroupMembersOption(long toGroup, bool enabled)
+        public void SetBanAllGroupMembersOption(string toGroup, bool enabled)
         {
-            _coolQApi.CQ_setGroupWholeBan(AuthCode, toGroup, enabled);
+            _coolQApi.CQ_setGroupWholeBan(AuthCode, Convert.ToInt64(toGroup), enabled);
         }
 
-        public void BanGroupAnonymousMember(long toGroup, string anonymous, TimeSpan duration)
+        public void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration)
         {
-            _coolQApi.CQ_setGroupAnonymousBan(AuthCode, toGroup, anonymous, (long) duration.TotalSeconds);
+            _coolQApi.CQ_setGroupAnonymousBan(AuthCode, Convert.ToInt64(toGroup), anonymous,
+                (long) duration.TotalSeconds);
         }
 
-        public void SetGroupAnonymousOption(long toGroup, bool enabled)
+        public void SetGroupAnonymousOption(string toGroup, bool enabled)
         {
-            _coolQApi.CQ_setGroupAnonymous(AuthCode, toGroup, enabled);
+            _coolQApi.CQ_setGroupAnonymous(AuthCode, Convert.ToInt64(toGroup), enabled);
         }
 
-        public void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
+        public void SetGroupMemberCard(string toGroup, string toQq, string groupMemberCard)
         {
-            _coolQApi.CQ_setGroupCard(AuthCode, toGroup, toQq, groupMemberCard);
+            _coolQApi.CQ_setGroupCard(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), groupMemberCard);
         }
 
-        public void LeaveGroup(long toGroup)
+        public void LeaveGroup(string toGroup)
         {
-            _coolQApi.CQ_setGroupLeave(AuthCode, toGroup, false);
+            _coolQApi.CQ_setGroupLeave(AuthCode, Convert.ToInt64(toGroup), false);
         }
 
-        public void DissolveGroup(long toGroup)
+        public void DissolveGroup(string toGroup)
         {
-            _coolQApi.CQ_setGroupLeave(AuthCode, toGroup, true);
+            _coolQApi.CQ_setGroupLeave(AuthCode, Convert.ToInt64(toGroup), true);
         }
 
-        public void LeaveDiscuss(long toDiscuss)
+        public void LeaveDiscuss(string toDiscuss)
         {
-            _coolQApi.CQ_setDiscussLeave(AuthCode, toDiscuss);
+            _coolQApi.CQ_setDiscussLeave(AuthCode, Convert.ToInt64(toDiscuss));
         }
 
         public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
         {
-            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.请求通过, friendRemark);
+            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.AcceptType请求通过, friendRemark);
         }
 
         public void RejectFriendAddingRequest(string addingFriendRequestId)
         {
-            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.请求拒绝, null);
+            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.AcceptType请求拒绝, null);
         }
 
         public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.请求群添加, MahuaApi.请求通过, null);
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.RequestType请求群添加,
+                MahuaApi.AcceptType请求通过,
+                null);
         }
 
         public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.请求群添加, MahuaApi.请求拒绝, reason);
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.RequestType请求群添加,
+                MahuaApi.AcceptType请求拒绝,
+                reason);
         }
 
         public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.请求群邀请, MahuaApi.请求通过, null);
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.RequestType请求群邀请,
+                MahuaApi.AcceptType请求通过, null);
         }
 
         public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.请求群邀请, MahuaApi.请求拒绝,
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.RequestType请求群邀请,
+                MahuaApi.AcceptType请求拒绝,
                 reason);
         }
 
         [NotSupportedMahuaApi]
-        public void BanFriend(long toQq)
+        public void BanFriend(string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void RemoveBanFriend(long toQq)
+        public void RemoveBanFriend(string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void SetNotice(long toGroup, string title, string content)
+        public void SetNotice(string toGroup, string title, string content)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void RemoveFriend(long toQq)
+        public void RemoveFriend(string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void JoinGroup(long toGroup, string reason)
+        public void JoinGroup(string toGroup, string reason)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public string GetGroupMemebers(long toGroup)
+        public string GetGroupMemebers(string toGroup)
         {
             throw new NotImplementedException();
         }
@@ -212,7 +220,7 @@ namespace Newbe.Mahua.CQP
         }
 
         [NotSupportedMahuaApi]
-        public void SendGroupJoiningInvitation(long toQq, long toGroup)
+        public void SendGroupJoiningInvitation(string toQq, string toGroup)
         {
             throw new NotImplementedException();
         }
@@ -224,13 +232,13 @@ namespace Newbe.Mahua.CQP
         }
 
         [NotSupportedMahuaApi]
-        public void KickDiscussMember(long toDiscuss, long toQq)
+        public void KickDiscussMember(string toDiscuss, string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void SendDiscussJoiningInvitation(long toQq, long toDiscuss)
+        public void SendDiscussJoiningInvitation(string toQq, string toDiscuss)
         {
             throw new NotImplementedException();
         }

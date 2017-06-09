@@ -20,8 +20,8 @@ namespace Newbe.Mahua.CQP.Commands
             {
                 SendTime = command.SendTime,
                 FromAnonymous = command.FromAnonymous,
-                FromGroup = command.GroupNum,
-                FromQq = command.FromQq,
+                FromGroup = command.GroupNum.ToString(),
+                FromQq = command.FromQq.ToString(),
                 Message = command.Message,
             }));
         }

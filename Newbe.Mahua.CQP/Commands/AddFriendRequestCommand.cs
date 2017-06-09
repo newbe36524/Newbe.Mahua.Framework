@@ -20,7 +20,7 @@ namespace Newbe.Mahua.CQP.Commands
             _addingFriendRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
             {
                 SendTime = command.SendTime,
-                FromQq = command.FromQq,
+                FromQq = command.FromQq.ToString(),
                 Message = command.Message,
             }));
         }

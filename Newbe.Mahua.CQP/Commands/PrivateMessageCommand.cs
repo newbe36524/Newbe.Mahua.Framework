@@ -42,7 +42,7 @@ namespace Newbe.Mahua.CQP.Commands
             _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(new PrivateMessageReceivedContext
             {
                 SendTime = command.SendTime,
-                FromQq = command.FormNum,
+                FromQq = command.FormNum.ToString(),
                 Message = command.Message,
                 PrivateMessageFromType = command.PrivateMessageFromType,
             }));
@@ -55,7 +55,7 @@ namespace Newbe.Mahua.CQP.Commands
                         new PrivateMessageFromFriendReceivedContext
                         {
                             SendTime = command.SendTime,
-                            FromQq = command.FormNum,
+                            FromQq = command.FormNum.ToString(),
                             Message = command.Message
                         }));
                     break;
@@ -64,7 +64,7 @@ namespace Newbe.Mahua.CQP.Commands
                         new PrivateMessageFromOnlineReceivedContext
                         {
                             SendTime = command.SendTime,
-                            FromQq = command.FormNum,
+                            FromQq = command.FormNum.ToString(),
                             Message = command.Message,
                         }));
                     break;
@@ -74,7 +74,7 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            FromGroup = command.FormNum,
+                            FromGroup = command.FormNum.ToString(),
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -83,7 +83,7 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            FromDiscuss = command.FormNum,
+                            FromDiscuss = command.FormNum.ToString(),
                         }));
                     break;
                 default:

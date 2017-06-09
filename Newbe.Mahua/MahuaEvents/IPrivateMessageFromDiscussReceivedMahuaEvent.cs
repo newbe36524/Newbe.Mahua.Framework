@@ -15,7 +15,7 @@ namespace Newbe.Mahua.MahuaEvents
     public class PrivateMessageFromDiscussReceivedContext
     {
         public DateTime SendTime { get; set; }
-        public long FromDiscuss { get; set; }
+        public string FromDiscuss { get; set; }
         public string Message { get; set; }
     }
 }

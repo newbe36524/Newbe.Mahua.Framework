@@ -67,7 +67,7 @@ namespace Newbe.Mahua.Amanda.Commands
         protected override void HandleCore(GetNewMsgCommand command)
         {
             var sendTime = DateTime.Now;
-            var commandFromqq = long.Parse(command.Fromqq);
+            var commandFromqq = command.Fromqq;
             if (command.Type == FromMessageType.Unknown)
             {
                 //todo
@@ -79,7 +79,7 @@ namespace Newbe.Mahua.Amanda.Commands
                 {
                     Message = command.Message,
                     FromQq = commandFromqq,
-                    FromGroup = long.Parse(command.Fromgroup),
+                    FromGroup = command.Fromgroup,
                     SendTime = sendTime
                 }));
                 return;
@@ -91,7 +91,7 @@ namespace Newbe.Mahua.Amanda.Commands
                     {
                         Message = command.Message,
                         FromQq = commandFromqq,
-                        FromDiscuss = long.Parse(command.Fromgroup),
+                        FromDiscuss = command.Fromgroup,
                         SendTime = sendTime
                     }));
                 return;

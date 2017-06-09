@@ -21,9 +21,9 @@ namespace Newbe.Mahua.CQP.Commands
                 new DiscussMessageReceivedMahuaEventContext
                 {
                     SendTime = command.SendTime,
-                    FromQq = command.FromQq,
+                    FromQq = command.FromQq.ToString(),
                     Message = command.Message,
-                    FromDiscuss = command.DiscussGroupNum
+                    FromDiscuss = command.DiscussGroupNum.ToString()
                 }));
         }
     }

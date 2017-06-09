@@ -16,8 +16,8 @@ namespace Newbe.Mahua.MahuaEvents
     {
         public string GroupJoiningRequestId { get; set; }
         public DateTime SendTime { get; set; }
-        public long ToGroup { get; set; }
-        public long FromQq { get; set; }
+        public string ToGroup { get; set; }
+        public string FromQq { get; set; }
         public string Message { get; set; }
     }
 }

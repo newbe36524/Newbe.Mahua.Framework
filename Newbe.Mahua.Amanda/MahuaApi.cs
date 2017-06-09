@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newbe.Mahua.Amanda.NativeApi;
 
 namespace Newbe.Mahua.Amanda
@@ -25,24 +21,24 @@ namespace Newbe.Mahua.Amanda
             _amadaApi = amadaApi;
         }
 
-        public void SendPrivateMessage(long toQq, string message)
+        public void SendPrivateMessage(string toQq, string message)
         {
-            _amadaApi.Api_SendMsg(MsgType好友消息, null, toQq.ToString(), message);
+            _amadaApi.Api_SendMsg(MsgType好友消息, null, toQq, message);
         }
 
-        public void SendGroupMessage(long toGroup, string message)
+        public void SendGroupMessage(string toGroup, string message)
         {
-            _amadaApi.Api_SendMsg(MsgType群消息, toGroup.ToString(), null, message);
+            _amadaApi.Api_SendMsg(MsgType群消息, toGroup, null, message);
         }
 
-        public void SendDiscussMessage(long toDiscuss, string message)
+        public void SendDiscussMessage(string toDiscuss, string message)
         {
-            _amadaApi.Api_SendMsg(MsgType讨论组消息, toDiscuss.ToString(), null, message);
+            _amadaApi.Api_SendMsg(MsgType讨论组消息, toDiscuss, null, message);
         }
 
-        public void SendLike(long toQq)
+        public void SendLike(string toQq)
         {
-            _amadaApi.Api_SendPraise(toQq.ToString());
+            _amadaApi.Api_SendPraise(toQq);
         }
 
         public string GetCookies()
@@ -55,9 +51,9 @@ namespace Newbe.Mahua.Amanda
             return _amadaApi.Api_Getbkn();
         }
 
-        public long GetLoginQq()
+        public string GetLoginQq()
         {
-            return long.Parse(_amadaApi.Api_GetLoginQQ());
+            return _amadaApi.Api_GetLoginQQ();
         }
 
         public string GetLoginNick()
@@ -65,71 +61,71 @@ namespace Newbe.Mahua.Amanda
             return _amadaApi.Api_GetNick(_amadaApi.Api_GetLoginQQ());
         }
 
-        public void KickGroupMember(long toGroup, long toQq, bool rejectForever)
+        public void KickGroupMember(string toGroup, string toQq, bool rejectForever)
         {
-            _amadaApi.Api_RemoveMember(toGroup.ToString(), toQq.ToString(), rejectForever);
+            _amadaApi.Api_RemoveMember(toGroup, toQq, rejectForever);
         }
 
-        public void BanGroupMember(long toGroup, long toQq, TimeSpan duration)
+        public void BanGroupMember(string toGroup, string toQq, TimeSpan duration)
         {
-            _amadaApi.Api_Ban(toGroup.ToString(), toQq.ToString(), (int) duration.TotalSeconds);
+            _amadaApi.Api_Ban(toGroup, toQq, (int) duration.TotalSeconds);
         }
 
-        public void RemoveBanGroupMember(long toGroup, long toQq)
+        public void RemoveBanGroupMember(string toGroup, string toQq)
         {
-            _amadaApi.Api_Ban(toGroup.ToString(), toQq.ToString(), 0);
+            _amadaApi.Api_Ban(toGroup, toQq, 0);
         }
 
-        public void EnableGroupAdmin(long toGroup, long toQq)
+        public void EnableGroupAdmin(string toGroup, string toQq)
         {
-            _amadaApi.Api_SetManager(toGroup.ToString(), toQq.ToString(), true);
+            _amadaApi.Api_SetManager(toGroup, toQq, true);
         }
 
-        public void DisableGroupAdmin(long toGroup, long toQq)
+        public void DisableGroupAdmin(string toGroup, string toQq)
         {
-            _amadaApi.Api_SetManager(toGroup.ToString(), toQq.ToString(), false);
+            _amadaApi.Api_SetManager(toGroup, toQq, false);
         }
 
         [NotSupportedMahuaApi]
-        public void SetGroupMemberSpecialTitle(long toGroup, long toQq, string specialTitle, TimeSpan duration)
+        public void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        public void SetBanAllGroupMembersOption(long toGroup, bool enabled)
+        public void SetBanAllGroupMembersOption(string toGroup, bool enabled)
         {
-            _amadaApi.Api_BanGroup(toGroup.ToString(), enabled);
+            _amadaApi.Api_BanGroup(toGroup, enabled);
         }
 
         [NotSupportedMahuaApi]
-        public void BanGroupAnonymousMember(long toGroup, string anonymous, TimeSpan duration)
+        public void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration)
         {
             throw new NotImplementedException();
         }
 
-        public void SetGroupAnonymousOption(long toGroup, bool enabled)
+        public void SetGroupAnonymousOption(string toGroup, bool enabled)
         {
-            _amadaApi.Api_SetAnony(toGroup.ToString(), enabled);
+            _amadaApi.Api_SetAnony(toGroup, enabled);
         }
 
-        public void SetGroupMemberCard(long toGroup, long toQq, string groupMemberCard)
+        public void SetGroupMemberCard(string toGroup, string toQq, string groupMemberCard)
         {
-            _amadaApi.Api_SetGroupCard(toGroup.ToString(), toQq.ToString(), groupMemberCard);
+            _amadaApi.Api_SetGroupCard(toGroup, toQq, groupMemberCard);
         }
 
-        public void LeaveGroup(long toGroup)
+        public void LeaveGroup(string toGroup)
         {
-            _amadaApi.Api_QuitGroup(toGroup.ToString());
+            _amadaApi.Api_QuitGroup(toGroup);
         }
 
-        public void DissolveGroup(long toGroup)
+        public void DissolveGroup(string toGroup)
         {
-            _amadaApi.Api_RemoveGroup(toGroup.ToString());
+            _amadaApi.Api_RemoveGroup(toGroup);
         }
 
-        public void LeaveDiscuss(long toDiscuss)
+        public void LeaveDiscuss(string toDiscuss)
         {
-            _amadaApi.Api_QuitDiscussGroup(toDiscuss.ToString());
+            _amadaApi.Api_QuitDiscussGroup(toDiscuss);
         }
 
         [NotSupportedMahuaApi]
@@ -167,36 +163,36 @@ namespace Newbe.Mahua.Amanda
         }
 
         [NotSupportedMahuaApi]
-        public void BanFriend(long toQq)
+        public void BanFriend(string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void RemoveBanFriend(long toQq)
+        public void RemoveBanFriend(string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void SetNotice(long toGroup, string title, string content)
+        public void SetNotice(string toGroup, string title, string content)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveFriend(long toQq)
+        public void RemoveFriend(string toQq)
         {
-            _amadaApi.Api_DeleteFriend(toQq.ToString());
+            _amadaApi.Api_DeleteFriend(toQq);
         }
 
-        public void JoinGroup(long toGroup, string reason)
+        public void JoinGroup(string toGroup, string reason)
         {
-            _amadaApi.Api_AddGroup(toGroup.ToString(), reason);
+            _amadaApi.Api_AddGroup(toGroup, reason);
         }
 
-        public string GetGroupMemebers(long toGroup)
+        public string GetGroupMemebers(string toGroup)
         {
-            return _amadaApi.Api_GetGroupMemberList(toGroup.ToString());
+            return _amadaApi.Api_GetGroupMemberList(toGroup);
         }
 
         public string GetGroups()
@@ -210,7 +206,7 @@ namespace Newbe.Mahua.Amanda
         }
 
         [NotSupportedMahuaApi]
-        public void SendGroupJoiningInvitation(long toQq, long toGroup)
+        public void SendGroupJoiningInvitation(string toQq, string toGroup)
         {
             throw new NotImplementedException();
         }
@@ -222,13 +218,13 @@ namespace Newbe.Mahua.Amanda
         }
 
         [NotSupportedMahuaApi]
-        public void KickDiscussMember(long toDiscuss, long toQq)
+        public void KickDiscussMember(string toDiscuss, string toQq)
         {
             throw new NotImplementedException();
         }
 
         [NotSupportedMahuaApi]
-        public void SendDiscussJoiningInvitation(long toQq, long toDiscuss)
+        public void SendDiscussJoiningInvitation(string toQq, string toDiscuss)
         {
             throw new NotImplementedException();
         }
