@@ -14,9 +14,10 @@ namespace Newbe.Mahua
         public static MahuaPlatform CurrentPlatform => MahuaPlatformValueProvider.CurrentPlatform.Value;
 
         /// <summary>
-        /// 调用标记为<see cref="NotSupportedMahuaApiAttribute"/>的Api的行为。默认为<see cref="ThrowsNotSupportedMahuaApiConvertion{NotImplementedException}"/>
+        /// 调用标记为<see cref="NotSupportedMahuaApiAttribute"/>的Api的行为。默认为<see cref="ThrowsNotSupportedMahuaApiConvertion{NotSupportMahuaPlatformExpcetion}"/>
         /// </summary>
         public static INotSupportedMahuaApiConvertion NotSupportedMahuaApiConvertion { get; set; } =
-            MahuaConvertions.NotSupportedMahuaApiConvertions.IgnoreNotSupportedMahuaApiConvertion;
+            MahuaConvertions.NotSupportedMahuaApiConvertions
+                .GetThrowsNotSupportedMahuaApiConvertion<NotSupportMahuaPlatformExpcetion>();
     }
 }
