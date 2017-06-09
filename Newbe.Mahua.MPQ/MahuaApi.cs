@@ -140,37 +140,37 @@ namespace Newbe.Mahua.MPQ
         }
 
         [NotSupportedMahuaApi]
-        public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
+        public void AcceptFriendAddingRequest(string addingFriendRequestId, string fromQq, string friendRemark)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
-        public void RejectFriendAddingRequest(string addingFriendRequestId)
+        public void RejectFriendAddingRequest(string addingFriendRequestId, string fromQq)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
-        public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
+        public void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
-        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
+        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
+        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq, string reason)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }

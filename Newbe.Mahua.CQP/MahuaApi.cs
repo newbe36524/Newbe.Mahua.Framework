@@ -134,40 +134,42 @@ namespace Newbe.Mahua.CQP
             _coolQApi.CQ_setDiscussLeave(AuthCode, Convert.ToInt64(toDiscuss));
         }
 
-        public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
+        public void AcceptFriendAddingRequest(string addingFriendRequestId, string fromQq, string friendRemark)
         {
-            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.AcceptType请求通过, friendRemark);
+            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, AcceptType请求通过, friendRemark);
         }
 
-        public void RejectFriendAddingRequest(string addingFriendRequestId)
+        public void RejectFriendAddingRequest(string addingFriendRequestId, string fromQq)
         {
-            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, MahuaApi.AcceptType请求拒绝, null);
+            _coolQApi.CQ_setFriendAddRequest(AuthCode, addingFriendRequestId, AcceptType请求拒绝, null);
         }
 
-        public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
+        public void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.RequestType请求群添加,
-                MahuaApi.AcceptType请求通过,
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, RequestType请求群添加,
+                AcceptType请求通过,
                 null);
         }
 
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq,
+            string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, MahuaApi.RequestType请求群添加,
-                MahuaApi.AcceptType请求拒绝,
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, RequestType请求群添加,
+                AcceptType请求拒绝,
                 reason);
         }
 
-        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
+        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.RequestType请求群邀请,
-                MahuaApi.AcceptType请求通过, null);
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, RequestType请求群邀请,
+                AcceptType请求通过, null);
         }
 
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
+        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
+            string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, MahuaApi.RequestType请求群邀请,
-                MahuaApi.AcceptType请求拒绝,
+            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, RequestType请求群邀请,
+                AcceptType请求拒绝,
                 reason);
         }
 
@@ -252,7 +254,6 @@ namespace Newbe.Mahua.CQP
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
             return default(string);
-
         }
     }
 }

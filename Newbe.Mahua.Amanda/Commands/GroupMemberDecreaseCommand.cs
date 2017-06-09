@@ -36,17 +36,17 @@ namespace Newbe.Mahua.Amanda.Commands
             _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
             {
                 SendTime = sendTime,
-                FromGroup = command.Fromgroup.ToString(),
-                JoinedOrLeftQq = command.Fromqq.ToString(),
+                FromGroup = command.Fromgroup,
+                JoinedOrLeftQq = command.Fromqq,
                 GroupMemberChangedType = GroupMemberChangedType.Decreased,
             }));
             _groupMemberDecreasedMahuaEvents.Handle(
                 x => x.ProcessGroupMemberDecreased(new GroupMemberDecreasedContext
                 {
                     SendTime = sendTime,
-                    FromGroup = command.Fromgroup.ToString(),
-                    ToQq = command.Fromqq.ToString(),
-                    FromQq = command.OperatorQq.ToString(),
+                    FromGroup = command.Fromgroup,
+                    ToQq = command.Fromqq,
+                    FromQq = command.OperatorQq,
                     GroupMemberDecreasedReason = ConvertType(command.Type)
                 }));
         }

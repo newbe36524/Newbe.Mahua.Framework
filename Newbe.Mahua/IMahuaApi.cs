@@ -193,47 +193,58 @@ namespace Newbe.Mahua
         /// <summary>
         /// 同意添加好友请求
         /// </summary>
-        /// <param name="addingFriendRequestId">好友请求Id，<see cref="FriendAddingRequestContext.SendTime"/></param>
+        /// <param name="addingFriendRequestId">好友请求Id，<see cref="FriendAddingRequestContext.AddingFriendRequestId"/></param>
+        /// <param name="fromQq">发出申请的QQ，<see cref="FriendAddingRequestContext.FromQq"/></param>
         /// <param name="friendRemark">添加后的好友备注</param>
         [Description("同意添加好友请求")]
-        void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark);
+        void AcceptFriendAddingRequest(string addingFriendRequestId, string fromQq, string friendRemark);
 
         /// <summary>
         /// 拒绝添加好友请求
         /// </summary>
         /// <param name="addingFriendRequestId">好友请求Id，<see cref="FriendAddingRequestContext.SendTime"/></param>
+        /// <param name="fromQq">发出申请的QQ，<see cref="FriendAddingRequestContext.FromQq"/></param>
         [Description("拒绝添加好友请求")]
-        void RejectFriendAddingRequest(string addingFriendRequestId);
+        void RejectFriendAddingRequest(string addingFriendRequestId, string fromQq);
 
         /// <summary>
         /// 管理员同意入群申请
         /// </summary>
         /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestReceivedContext.GroupJoiningRequestId"/></param>
+        /// <param name="toGroup">申请加入的群，<see cref="GroupJoiningRequestReceivedContext.ToGroup"/></param>
+        /// <param name="fromQq">发出申请的QQ，<see cref="GroupJoiningRequestReceivedContext.FromQq"/></param>
         [Description("管理员同意入群申请")]
-        void AcceptGroupJoiningRequest(string groupJoiningRequestId);
+        void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq);
 
         /// <summary>
         /// 管理员拒绝入群申请
         /// </summary>
         /// <param name="groupJoiningRequestId">加入群请求Id，<see cref="GroupJoiningRequestReceivedContext.GroupJoiningRequestId"/></param>
+        /// <param name="toGroup">申请加入的群，<see cref="GroupJoiningRequestReceivedContext.ToGroup"/></param>
+        /// <param name="fromQq">发出申请的QQ，<see cref="GroupJoiningRequestReceivedContext.FromQq"/></param>
         /// <param name="reason">原因</param>
         [Description("管理员拒绝入群申请")]
-        void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason);
+        void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason);
 
         /// <summary>
         /// 接受入群邀请
         /// </summary>
         /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationReceivedContext.GroupJoiningInvitationId"/></param>
+        /// <param name="toGroup">接受加入的群，<see cref="GroupJoiningInvitationReceivedContext.ToGroup"/></param>
+        /// <param name="fromQq">发出接受的QQ，<see cref="GroupJoiningInvitationReceivedContext.FromQq"/></param>
         [Description("接受入群邀请")]
-        void AcceptGroupJoiningInvitation(string groupJoiningInvitationId);
+        void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq);
 
         /// <summary>
         /// 拒绝入群邀请
         /// </summary>
         /// <param name="groupJoiningInvitationId">入群邀请Id，<see cref="GroupJoiningInvitationReceivedContext.GroupJoiningInvitationId"/></param>
+        /// <param name="toGroup">接受加入的群，<see cref="GroupJoiningInvitationReceivedContext.ToGroup"/></param>
+        /// <param name="fromQq">发出接受的QQ，<see cref="GroupJoiningInvitationReceivedContext.FromQq"/></param>
         /// <param name="reason">原因</param>
         [Description("拒绝入群邀请")]
-        void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason);
+        void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
+            string reason);
 
 
         /// <summary>

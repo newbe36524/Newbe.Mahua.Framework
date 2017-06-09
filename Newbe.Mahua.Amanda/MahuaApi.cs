@@ -128,37 +128,38 @@ namespace Newbe.Mahua.Amanda
             _amadaApi.Api_QuitDiscussGroup(toDiscuss);
         }
 
-        [NotSupportedMahuaApi]
-        public void AcceptFriendAddingRequest(string addingFriendRequestId, string friendRemark)
+        public void AcceptFriendAddingRequest(string addingFriendRequestId, string fromQq, string friendRemark)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            _amadaApi.Api_SetFriendAdd(fromQq, Operation同意, null);
         }
 
-        [NotSupportedMahuaApi]
-        public void RejectFriendAddingRequest(string addingFriendRequestId)
+        public void RejectFriendAddingRequest(string addingFriendRequestId, string fromQq)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            _amadaApi.Api_SetFriendAdd(fromQq, Operation拒绝, null);
         }
 
-        public void AcceptGroupJoiningRequest(string groupJoiningRequestId)
+        public void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq)
         {
-            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningRequestId, Operation同意, null);
+            _amadaApi.Api_SetGroupAdd(toGroup, fromQq, groupJoiningRequestId, Operation同意, null);
         }
 
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq,
+            string reason)
         {
-            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningRequestId, Operation拒绝, reason);
+            _amadaApi.Api_SetGroupAdd(toGroup, fromQq, groupJoiningRequestId, Operation拒绝, reason);
         }
 
-        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId)
+        public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq)
         {
             //todo 需要验证
-            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningInvitationId, Operation同意, null);
+            _amadaApi.Api_SetGroupAdd(toGroup, fromQq, groupJoiningInvitationId, Operation同意, null);
         }
 
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string reason)
+        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
+            string reason)
         {
-            _amadaApi.Api_SetGroupAdd(null, null, groupJoiningInvitationId, Operation拒绝, null);
+            //todo 需要验证
+            _amadaApi.Api_SetGroupAdd(toGroup, fromQq, groupJoiningInvitationId, Operation拒绝, reason);
         }
 
         [NotSupportedMahuaApi]

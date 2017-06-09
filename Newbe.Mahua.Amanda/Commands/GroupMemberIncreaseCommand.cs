@@ -39,7 +39,7 @@ namespace Newbe.Mahua.Amanda.Commands
             {
                 SendTime = sendTime,
                 FromGroup = command.Fromgroup,
-                JoinedOrLeftQq = command.Fromqq.ToString(),
+                JoinedOrLeftQq = command.Fromqq,
                 GroupMemberChangedType = GroupMemberChangedType.Increased
             }));
             _groupMemberIncreasedMahuaEvents.Handle(
@@ -47,8 +47,8 @@ namespace Newbe.Mahua.Amanda.Commands
                 {
                     SendTime = sendTime,
                     FromGroup = command.Fromgroup,
-                    JoinedQq = command.Fromqq.ToString(),
-                    InvitatorOrAdmin = command.OperatorQq.ToString(),
+                    JoinedQq = command.Fromqq,
+                    InvitatorOrAdmin = command.OperatorQq,
                     GroupMemberIncreasedReason = ConvertType(command.Type)
                 }));
         }

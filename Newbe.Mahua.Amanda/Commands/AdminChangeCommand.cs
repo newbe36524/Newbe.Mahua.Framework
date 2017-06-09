@@ -39,8 +39,8 @@ namespace Newbe.Mahua.Amanda.Commands
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
             {
                 SendTime = sendTime,
-                ToQq = command.Fromqq.ToString(),
-                FromGroup = command.Fromgroup.ToString(),
+                ToQq = command.Fromqq,
+                FromGroup = command.Fromgroup,
                 GroupAdminChangeType = type
             }));
             switch (type)
@@ -50,8 +50,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         x => x.ProcessGroupAdminEnabled(new GroupAdminEnabledContext
                         {
                             SendTime = sendTime,
-                            FromGroup = command.Fromgroup.ToString(),
-                            ToQq = command.Fromqq.ToString()
+                            FromGroup = command.Fromgroup,
+                            ToQq = command.Fromqq,
                         }));
                     break;
                 case GroupAdminChangeType.Disabled:
@@ -59,8 +59,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         x => x.ProcessGroupAdminDisabled(new GroupAdminDisabledContext
                         {
                             SendTime = sendTime,
-                            FromGroup = command.Fromgroup.ToString(),
-                            ToQq = command.Fromqq.ToString(),
+                            FromGroup = command.Fromgroup,
+                            ToQq = command.Fromqq,
                         }));
                     break;
                 default:
