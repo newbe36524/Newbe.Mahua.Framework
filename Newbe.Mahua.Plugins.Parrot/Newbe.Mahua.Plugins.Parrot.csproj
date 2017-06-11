@@ -48,8 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MahuaModule.cs" />
-    <Compile Include="PluginInfo.cs" />
-    <Compile Include="PrivateMessageReceivedMahuaEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
