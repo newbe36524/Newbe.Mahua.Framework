@@ -1,10 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using Newbe.Mahua.Msbuild.Packers;
-using NuGet;
 
 namespace Newbe.Mahua.Msbuild
 {
@@ -52,7 +50,7 @@ namespace Newbe.Mahua.Msbuild
                 ProjectDirectory = ProjectDirectory,
                 Configuration = Configuration
             };
-            IMahuaPluginPackerFactory factory = new MahuaPluginPackerFactory();
+            IMahuaPluginPackerFactory factory = new MahuaPluginPackerFactory(new TaskLog(Log));
             return MahuaPlatforms.Select(x =>
                 {
                     Enum.TryParse(x, true, out MahuaPlatform platform);

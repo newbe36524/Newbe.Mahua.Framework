@@ -6,7 +6,13 @@ namespace Newbe.Mahua.Msbuild.Packers
 {
     internal class CqpMahuaPluginPacker : IMahuaPluginPacker
     {
+        private readonly ILog _log;
         private const string PkgName = "Newbe.Mahua.CQP";
+
+        public CqpMahuaPluginPacker(ILog log)
+        {
+            _log = log;
+        }
 
         public bool Pack(MahuaPluginPackContext context)
         {
@@ -21,6 +27,7 @@ namespace Newbe.Mahua.Msbuild.Packers
                 true);
             DirectoryHelper.DeleteOtherPlatformFile(targetPaths.PluginDir, MahuaPlatform.Cqp);
             var npkPath = GetNpkPath(context.PackageDirectory, PkgName);
+            _log.Debug($"将使用{npkPath}中的插件平台包。");
             //复制内容到平台插件目录
             var apiExporterDll = new FileInfo(Path.Combine(npkPath.ForPlugin, $"{PkgName}.dll"));
             apiExporterDll.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.dll"));
@@ -56,6 +63,11 @@ namespace Newbe.Mahua.Msbuild.Packers
 
             public string ForMain { get; }
             public string ForPlugin { get; }
+
+            public override string ToString()
+            {
+                return $"{nameof(ForMain)}: {ForMain}, {nameof(ForPlugin)}: {ForPlugin}";
+            }
         }
 
         private class TargetPaths

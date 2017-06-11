@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectoryHelper.cs" />
+    <Compile Include="ILog.cs" />
     <Compile Include="Packers\AmandaMahuaPluginPacker.cs" />
     <Compile Include="Packers\CqpMahuaPluginPacker.cs" />
     <Compile Include="Packers\IMahuaPluginPacker.cs" />
