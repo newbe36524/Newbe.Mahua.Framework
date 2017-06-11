@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.Remoting.Lifetime;
 using Autofac;
 using Newbe.Mahua.Commands;
+using Newbe.Mahua.Internals;
 using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua
@@ -12,13 +13,13 @@ namespace Newbe.Mahua
     public class CrossAppDomainPluginLoader : MarshalByRefObject, IPluginLoader
     {
         private static readonly ILog Logger = LogProvider.For<CrossAppDomainPluginLoader>();
-        internal static readonly int DefaultInitializeLeaseTimeInSeconds = 0;
         private IContainer _container;
 
         private static void Debug(string msg)
         {
             Logger.Debug(msg);
 #if CrossDomainLog
+            //%temp%/Newbe.Mahua.log
             File.AppendAllLines(Path.Combine(Path.GetTempPath(), "Newbe.Mahua.log"), new[] {msg});
 #endif
         }
@@ -29,7 +30,7 @@ namespace Newbe.Mahua
             System.Diagnostics.Debug.Assert(lease != null, "lease != null");
             if (lease.CurrentState == LeaseState.Initial)
             {
-                lease.InitialLeaseTime = TimeSpan.FromSeconds(DefaultInitializeLeaseTimeInSeconds);
+                lease.InitialLeaseTime = TimeSpan.FromSeconds(0);
             }
             return lease;
         }
@@ -65,6 +66,7 @@ namespace Newbe.Mahua
                     }
                 }
                 var container = builder.Build();
+                Debug("构建Container完毕。");
                 _container = container;
                 return true;
             }
@@ -75,8 +77,22 @@ namespace Newbe.Mahua
             }
         }
 
+        private static void WriteDiagnostics(Func<object> action)
+        {
+            if (MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics)
+            {
+                var re = action?.Invoke();
+                if (re != null)
+                {
+                    var s = re as string;
+                    Debug(s ?? $"{re.GetType().FullName} {GlobalCache.JavaScriptSerializer.Serialize(re)}");
+                }
+            }
+        }
+
         public void SendCommand(MahuaCommand command)
         {
+            WriteDiagnostics(() => command);
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
@@ -86,10 +102,14 @@ namespace Newbe.Mahua
 
         public void SendCommandWithResult(MahuaCommand command, out MahuaCommandResult mahuaCommandResult)
         {
+            WriteDiagnostics(() => command);
+
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
                 center.Handle(command, out mahuaCommandResult);
+                var re = mahuaCommandResult;
+                WriteDiagnostics(() => re);
             }
         }
     }

@@ -57,6 +57,7 @@
     <Compile Include="Commands\IComamndHandler.cs" />
     <Compile Include="Commands\ICommandCenter.cs" />
     <Compile Include="Commands\ICommandHandler.cs" />
+    <Compile Include="Internals\GlobalCache.cs" />
     <Compile Include="IPluginApiExporter.cs" />
     <Compile Include="IPluginLoader.cs" />
     <Compile Include="Commands\IResultCommandHandler.cs" />

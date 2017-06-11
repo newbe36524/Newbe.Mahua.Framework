@@ -19,5 +19,23 @@ namespace Newbe.Mahua
         public static INotSupportedMahuaApiConvertion NotSupportedMahuaApiConvertion { get; set; } =
             MahuaConvertions.NotSupportedMahuaApiConvertions
                 .GetThrowsNotSupportedMahuaApiConvertion<NotSupportMahuaPlatformExpcetion>();
+
+        /// <summary>
+        /// 诊断
+        /// </summary>
+        public static class DiagnosticsConvertion
+        {
+            static DiagnosticsConvertion()
+            {
+#if DEBUG
+                EnableDiagnostics = true;
+#endif
+            }
+
+            /// <summary>
+            /// 启用诊断
+            /// </summary>
+            public static bool EnableDiagnostics { get; set; }
+        }
     }
 }

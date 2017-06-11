@@ -1,16 +1,14 @@
-using System.Web.Script.Serialization;
 using Newbe.Mahua.Commands;
+using Newbe.Mahua.Internals;
 
 namespace Newbe.Mahua
 {
     public static class PluginLoaderExtensions
     {
-        private static readonly JavaScriptSerializer JavaScriptSerializer = new JavaScriptSerializer();
-
         private static TResult ConvertType<TResult>(MahuaCommandResult crossDomainCommandResult)
         {
-            var json = JavaScriptSerializer.Serialize(crossDomainCommandResult);
-            var re = JavaScriptSerializer.Deserialize<TResult>(json);
+            var json = GlobalCache.JavaScriptSerializer.Serialize(crossDomainCommandResult);
+            var re = GlobalCache.JavaScriptSerializer.Deserialize<TResult>(json);
             return re;
         }
 
