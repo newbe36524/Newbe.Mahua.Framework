@@ -90,6 +90,7 @@
     <None Include="build\Newbe.Mahua.CQP.targets">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Content\Newbe.Mahua.CQP.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,9 @@ namespace Newbe.Mahua.Msbuild.Packers
             //清理并创建目标文件夹
             targetPaths.CleanAndCreateNew();
             //复制bin
+            var cqpJson = new FileInfo(Path.Combine(projectDirectory, $"{PkgName}.json"));
+            //移动json文件到app目录
+            cqpJson.MoveTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.json"));
             DirectoryHelper.DirectoryCopy(
                 Path.Combine(projectDirectory, "bin", context.Configuration),
                 targetPaths.PluginDir,

@@ -27,5 +27,6 @@
     <file src="..\Newbe.Mahua.CQP\bin\Release\*.pdb" target="tools\ForMain"/>
     <file src="..\Newbe.Mahua.CQP\bin\Release\x86\**" target="tools\ForPlugin"/>
     <file src="..\Newbe.Mahua.CQP\build\**" target="build"/>
+    <file src="..\Newbe.Mahua.CQP\content\**" target="content"/>
   </files>
 </package>
