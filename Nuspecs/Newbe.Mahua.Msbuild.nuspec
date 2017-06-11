@@ -19,7 +19,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Newbe.Mahua.Msbuild\bin\Release\**" target="tools"/>
+    <file src="..\Newbe.Mahua.Msbuild\bin\Release\Newbe.Mahua.Msbuild.*" target="tools"/>
     <file src="..\Newbe.Mahua.Msbuild\build\**" target="build"/>
     <file src="..\Newbe.Mahua.Msbuild\content\**" target="content"/>
   </files>
