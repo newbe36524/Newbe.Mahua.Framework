@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper.cs" />
+    <Compile Include="DirectoryHelper.cs" />
     <Compile Include="Packers\AmandaMahuaPluginPacker.cs" />
     <Compile Include="Packers\CqpMahuaPluginPacker.cs" />
     <Compile Include="Packers\IMahuaPluginPacker.cs" />

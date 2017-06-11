@@ -1,9 +1,27 @@
+using System;
 using System.IO;
+using System.Linq;
 
 namespace Newbe.Mahua.Msbuild
 {
-    internal static class Helper
+    internal static class DirectoryHelper
     {
+        private static readonly MahuaPlatform[] MahuaPlatforms =
+            Enum.GetValues(typeof(MahuaPlatform)).Cast<MahuaPlatform>().ToArray();
+
+        internal static void DeleteOtherPlatformFile(string dir, MahuaPlatform keepedMahuaPlatform)
+        {
+            var othersFiles = MahuaPlatforms.Where(x => x != keepedMahuaPlatform).Select(x => $"Newbe.Mahua.{x:G}.*")
+                .ToArray();
+            foreach (var othersFile in othersFiles)
+            {
+                foreach (var file in Directory.GetFiles(dir, othersFile))
+                {
+                    File.Delete(file);
+                }
+            }
+        }
+
         /// <summary>
         /// 递归复制文件夹内容
         /// </summary>
