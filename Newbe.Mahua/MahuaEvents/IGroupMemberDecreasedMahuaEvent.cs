@@ -10,13 +10,31 @@ namespace Newbe.Mahua.MahuaEvents
     [Description("群成员减少事件")]
     public interface IGroupMemberDecreasedMahuaEvent : IMahuaEvent
     {
+        /// <summary>
+        /// 处理事件
+        /// </summary>
+        /// <param name="context"></param>
         void ProcessGroupMemberDecreased(GroupMemberDecreasedContext context);
     }
 
+    /// <summary>
+    /// 事件上下文
+    /// </summary>
     public class GroupMemberDecreasedContext
     {
+        /// <summary>
+        /// 事件时间
+        /// </summary>
         public DateTime SendTime { get; set; }
+
+        /// <summary>
+        /// 群成员减少原因
+        /// </summary>
         public GroupMemberDecreasedReason GroupMemberDecreasedReason { get; set; }
+
+        /// <summary>
+        /// 事件所属群
+        /// </summary>
         public string FromGroup { get; set; }
 
         /// <summary>

@@ -9,12 +9,15 @@ namespace Newbe.Mahua.MahuaEvents
     public interface IPlatfromExitedMahuaEvent : IMahuaEvent
     {
         /// <summary>
-        /// 机器人平台退出
+        /// 处理事件
         /// </summary>
         /// <param name="context"></param>
         void Exited(PlatfromExitedContext context);
     }
 
+    /// <summary>
+    /// 事件上下文
+    /// </summary>
     public class PlatfromExitedContext
     {
     }

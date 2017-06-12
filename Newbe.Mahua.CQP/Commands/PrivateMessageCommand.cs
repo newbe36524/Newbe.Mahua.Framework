@@ -74,7 +74,9 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            FromGroup = command.FormNum.ToString(),
+                            //todo CQP 无法获取发送者的群
+                            FromGroup = string.Empty,
+                            FromQq = command.FormNum.ToString()
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -83,7 +85,9 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            FromDiscuss = command.FormNum.ToString(),
+                            //todo CQP 无法获取发送者的讨论组信息
+                            FromDiscuss = string.Empty,
+                            FromQq = command.FormNum.ToString()
                         }));
                     break;
                 default:

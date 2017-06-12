@@ -9,12 +9,15 @@ namespace Newbe.Mahua.MahuaEvents
     public interface IPluginEnabledMahuaEvent : IMahuaEvent
     {
         /// <summary>
-        /// 插件被启用
+        /// 处理事件
         /// </summary>
         /// <param name="context"></param>
         void Enabled(PluginEnabledContext context);
     }
 
+    /// <summary>
+    /// 事件上下文
+    /// </summary>
     public class PluginEnabledContext
     {
     }

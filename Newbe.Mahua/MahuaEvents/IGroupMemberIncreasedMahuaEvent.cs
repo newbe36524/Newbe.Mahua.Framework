@@ -10,11 +10,21 @@ namespace Newbe.Mahua.MahuaEvents
     [Description("群成员增多事件")]
     public interface IGroupMemberIncreasedMahuaEvent : IMahuaEvent
     {
+        /// <summary>
+        /// 处理事件
+        /// </summary>
+        /// <param name="context"></param>
         void ProcessGroupMemberIncreased(GroupMemberIncreasedContext context);
     }
 
+    /// <summary>
+    /// 事件上下文
+    /// </summary>
     public class GroupMemberIncreasedContext
     {
+        /// <summary>
+        /// 事件时间
+        /// </summary>
         public DateTime SendTime { get; set; }
 
         /// <summary>
@@ -22,6 +32,9 @@ namespace Newbe.Mahua.MahuaEvents
         /// </summary>
         public GroupMemberIncreasedReason GroupMemberIncreasedReason { get; set; }
 
+        /// <summary>
+        /// 事件所属群
+        /// </summary>
         public string FromGroup { get; set; }
 
         /// <summary>

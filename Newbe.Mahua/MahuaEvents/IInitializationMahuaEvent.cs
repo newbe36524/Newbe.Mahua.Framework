@@ -9,14 +9,14 @@ namespace Newbe.Mahua.MahuaEvents
     public interface IInitializationMahuaEvent : IMahuaEvent
     {
         /// <summary>
-        /// 初始化插件
+        /// 处理事件
         /// </summary>
         /// <param name="context"></param>
         void Initialized(InitializedContext context);
     }
 
     /// <summary>
-    /// 初始化插件
+    /// 事件上下文
     /// </summary>
     public class InitializedContext
     {

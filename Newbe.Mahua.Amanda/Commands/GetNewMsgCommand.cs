@@ -135,7 +135,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         {
                             SendTime = sendTime,
                             Message = command.Message,
-                            FromGroup = commandFromqq,
+                            FromGroup = command.Fromgroup,
+                            FromQq = commandFromqq
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -144,7 +145,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         {
                             SendTime = sendTime,
                             Message = command.Message,
-                            FromDiscuss = commandFromqq,
+                            FromDiscuss = command.Fromgroup,
+                            FromQq = commandFromqq
                         }));
                     break;
                 default:

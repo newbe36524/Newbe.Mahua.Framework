@@ -9,11 +9,14 @@ namespace Newbe.Mahua.MahuaEvents
     public interface IPluginDisabledMahuaEvent : IMahuaEvent
     {
         /// <summary>
-        /// 插件被禁用
+        /// 处理事件
         /// </summary>
         void Disable(PluginDisabledContext context);
     }
 
+    /// <summary>
+    /// 事件上下文
+    /// </summary>
     public class PluginDisabledContext
     {
     }
