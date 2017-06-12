@@ -8,10 +8,10 @@
     <owners>Newbe</owners>
     <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
     <projectUrl>http://www.newbe.cf/</projectUrl>
-    <iconUrl>http://git.oschina.net/yks/Newbe.CQP.Framework/raw/master/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/dev/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Newbe.Mahua运行时隔离通讯协议实现</description>
-    <releaseNotes>Newbe.Mahua运行时隔离通讯协议实现</releaseNotes>
+    <description>Newbe.Mahua运行时隔离通讯协议中间件</description>
+    <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>
     <copyright>Copyright Newbe 2017</copyright>
     <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
     <dependencies>
@@ -22,5 +22,6 @@
   </metadata>
   <files>
     <file src="..\Newbe.Mahua.PluginLoader\bin\Release\Newbe.Mahua.PluginLoader.*" target="lib\net452"/>
+    <file src="Newbe.Mahua.PluginLoader\tools\**" target="tools"/>
   </files>
 </package>

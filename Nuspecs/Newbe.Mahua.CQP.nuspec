@@ -8,10 +8,11 @@
     <owners>Newbe</owners>
     <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
     <projectUrl>http://www.newbe.cf/</projectUrl>
-    <iconUrl>http://git.oschina.net/yks/Newbe.CQP.Framework/raw/master/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/dev/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Newbe.Mahua.CQP 对接酷Q实现</description>
-    <releaseNotes>Newbe.Mahua.CQP 对接酷Q实现</releaseNotes>
+    <description>Newbe.Mahua.CQP 对接酷Q实现。
+    CQP链接：https://cqp.cc/</description>
+    <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>
     <copyright>Copyright Newbe 2017</copyright>
     <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
     <dependencies>
@@ -30,6 +31,7 @@
     <file src="..\GlobalBin\NLog.config" target="tools\ForMain"/>
     <file src="..\Newbe.Mahua.CQP\bin\Release\x86\**" target="tools\ForPlugin"/>
     <file src="..\Newbe.Mahua.CQP\build\**" target="build"/>
+    <file src="Newbe.Mahua.CQP\tools\**" target="tools"/>
     <file src="..\Newbe.Mahua.CQP\content\**" target="content"/>
   </files>
 </package>
