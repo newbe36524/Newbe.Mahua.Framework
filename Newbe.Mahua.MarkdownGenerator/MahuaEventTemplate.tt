@@ -1,0 +1,52 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newbe.Mahua.MarkdownGenerator" #>
+<#@ parameter name="table" type="Newbe.Mahua.MarkdownGenerator.MahuaEventSupportedTable"#>
+
+
+<#=GetHeader(table.PlatformNames)#>
+<#=GetColumnSpliter(table.PlatformNames.Length + 2)#>
+<#
+    foreach (var state in table.SupportState)
+    {
+#><#=GetRow(state.Key,state.Value)#>
+<#
+    }
+
+#>
+
+<#+
+public string GetHeader(string[] platforms){
+	var sb = new StringBuilder();
+	sb.Append("事件|");
+	sb.Append("说明|");
+    foreach (var item in platforms)
+    {
+		 sb.Append(item + "|");
+    }
+	return sb.ToString().TrimEnd('|');
+}
+
+public string GetColumnSpliter(int cols){
+var sb = new StringBuilder();
+    for (int i = 0; i < cols; i++)
+    {
+			 sb.Append("---|");
+    }
+	return sb.ToString().TrimEnd('|');
+}
+public string GetRow(MahuaEventDescption desc,IDictionary<string, bool> supportStatus){
+	var sb = new StringBuilder();
+	sb.AppendFormat("{0}|",desc.MahuaEventInterfaceName);
+	sb.AppendFormat("{0}|",desc.MahuaEventDescription);
+    foreach (var name in table.PlatformNames)
+    {
+		var checkd = supportStatus[name] ? "√" : " ";
+		sb.Append(checkd + "|");
+    }
+	return sb.ToString().TrimEnd('|');
+}
+#>

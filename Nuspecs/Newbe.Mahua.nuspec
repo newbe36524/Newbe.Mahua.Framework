@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Newbe.Mahua</id>
+    <version>$version$</version>
+    <title>Newbe.Mahua</title>
+    <authors>Newbe</authors>
+    <owners>Newbe</owners>
+    <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
+    <projectUrl>http://www.newbe.cf/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>QQ机器人跨平台SDK，使用该SDK开发可以实现一次开发多平台应用的绝佳体验。</description>
+    <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>
+    <copyright>Copyright Newbe 2017</copyright>
+    <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
+    <dependencies>
+      <dependency id="Autofac" version="[4.6,5)"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Newbe.Mahua\bin\Release\Newbe.Mahua.*" target="lib\net452"/>
+    <file src="Newbe.Mahua\tools\**" target="tools"/>
+  </files>
+</package>
