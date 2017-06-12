@@ -8,7 +8,7 @@
     <owners>Newbe</owners>
     <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
     <projectUrl>http://www.newbe.cf/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/dev/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Newbe.Mahua运行时隔离通讯协议中间件</description>
     <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>

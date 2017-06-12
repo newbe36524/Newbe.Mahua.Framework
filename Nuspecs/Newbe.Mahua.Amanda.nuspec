@@ -8,7 +8,7 @@
     <owners>Newbe</owners>
     <licenseUrl>http://git.oschina.net/yks/Newbe.Mahua.Framework/raw/master/LICENSE</licenseUrl>
     <projectUrl>http://www.newbe.cf/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/dev/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Newbe.Mahua.Amanda 对接Amanda实现。Amanda链接：http://www.52chat.cc/forum.php</description>
     <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>
