@@ -15,7 +15,7 @@
     <copyright>Copyright Newbe 2017</copyright>
     <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
     <dependencies>
-      <dependency id="Newbe.Mahua" version="[1,2)"/>
+      <dependency id="Newbe.Mahua" version="[1.0.1.2,2)"/>
     </dependencies>
   </metadata>
   <files>

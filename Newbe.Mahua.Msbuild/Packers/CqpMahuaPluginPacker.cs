@@ -23,7 +23,7 @@ namespace Newbe.Mahua.Msbuild.Packers
             //复制bin
             var cqpJson = new FileInfo(Path.Combine(projectDirectory, $"{PkgName}.json"));
             //移动json文件到app目录
-            cqpJson.MoveTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.json"));
+            cqpJson.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.json"),true);
             DirectoryHelper.DirectoryCopy(
                 Path.Combine(projectDirectory, "bin", context.Configuration),
                 targetPaths.PluginDir,
