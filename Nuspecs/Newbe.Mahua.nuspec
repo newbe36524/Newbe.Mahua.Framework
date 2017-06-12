@@ -10,7 +10,7 @@
     <projectUrl>http://www.newbe.cf/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/dev/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>QQ机器人跨平台SDK，使用该SDK开发可以实现一次开发多平台功能的绝佳体验。</description>
+    <description>QQ机器人跨平台SDK，使用该SDK开发可以实现一次开发多平台应用的绝佳体验。</description>
     <releaseNotes>版本更新情况请查看：https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNodes.md</releaseNotes>
     <copyright>Copyright Newbe 2017</copyright>
     <tags>MSbuild Newbe Mahua CQP MPQ Amanda</tags>
