@@ -7,7 +7,7 @@ namespace Newbe.Mahua.Amanda.Commands
     {
         protected override void HandleCore(GetQqWalletDataCommand command)
         {
-            throw new NotImplementedException();
+            //todo
         }
     }
 
