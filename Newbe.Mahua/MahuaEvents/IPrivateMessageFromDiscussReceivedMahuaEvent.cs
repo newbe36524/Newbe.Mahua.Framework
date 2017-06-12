@@ -32,7 +32,7 @@ namespace Newbe.Mahua.MahuaEvents
         public string FromDiscuss { get; set; }
 
         /// <summary>
-        /// 来自QQ todo
+        /// 来自QQ
         /// </summary>
         public string FromQq { get; set; }
 
