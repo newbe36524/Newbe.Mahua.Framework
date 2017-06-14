@@ -17,7 +17,7 @@ namespace Newbe.Mahua.Msbuild.Tests
             _testOutputHelper = testOutputHelper;
         }
 
-        [Fact]
+        //集成测试[Fact]
         public void GetNewestVersion()
         {
             var npk = NugetHelper.GetLastestVersionPackage(Path.GetFullPath("../../pkgs"), "Package");
@@ -26,7 +26,7 @@ namespace Newbe.Mahua.Msbuild.Tests
         }
 
 
-        [Fact]
+        //集成测试[Fact]
         public void IntergationTest()
         {
             var npk = NugetHelper.GetLastestVersionPackage(@"D:\Codes\Repos\Newbe.Mahua.Framework\packages",
