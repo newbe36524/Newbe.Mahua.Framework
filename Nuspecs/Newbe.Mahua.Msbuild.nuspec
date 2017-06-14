@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Newbe.Mahua.Msbuild</id>
-    <version>$version$</version>
+    <version>1.0.1.4</version>
     <title>Newbe.Mahua.Msbuild</title>
     <authors>Newbe</authors>
     <owners>Newbe</owners>
