@@ -23,7 +23,7 @@ namespace Newbe.Mahua.Msbuild.Packers
             //复制bin
             var cqpJson = new FileInfo(Path.Combine(projectDirectory, $"{PkgName}.json"));
             //移动json文件到app目录
-            cqpJson.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.json"),true);
+            cqpJson.CopyTo(Path.Combine(targetPaths.PlatformPluginsDir, $"{context.NewbePluginName}.json"), true);
             DirectoryHelper.DirectoryCopy(
                 Path.Combine(projectDirectory, "bin", context.Configuration),
                 targetPaths.PluginDir,
@@ -49,9 +49,7 @@ namespace Newbe.Mahua.Msbuild.Packers
 
         private static NpkPath GetNpkPath(string packageDir, string pkgName)
         {
-            var repo = new LocalPackageRepository(packageDir);
-            var pkgs = repo.GetPackages();
-            var newbePk = pkgs.First(x => x.Id == pkgName && x.IsAbsoluteLatestVersion);
+            var newbePk = NugetHelper.GetLastestVersionPackage(packageDir, pkgName);
             var npkPath = new NpkPath(Path.Combine(packageDir, $"{newbePk.Id}.{newbePk.Version.ToFullString()}"));
             return npkPath;
         }

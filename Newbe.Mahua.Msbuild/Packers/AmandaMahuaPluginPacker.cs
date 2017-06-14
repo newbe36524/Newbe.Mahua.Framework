@@ -48,9 +48,7 @@ namespace Newbe.Mahua.Msbuild.Packers
 
         private static NpkPath GetNpkPath(string packageDir, string pkgName)
         {
-            var repo = new LocalPackageRepository(packageDir);
-            var pkgs = repo.GetPackages();
-            var newbePk = pkgs.First(x => x.Id == pkgName && x.IsAbsoluteLatestVersion);
+            var newbePk = NugetHelper.GetLastestVersionPackage(packageDir, pkgName);
             var npkPath = new NpkPath(Path.Combine(packageDir, $"{newbePk.Id}.{newbePk.Version.ToFullString()}"));
             return npkPath;
         }
