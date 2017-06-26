@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using Autofac;
 using Newbe.Mahua.MahuaEvents;
+using IContainer = System.ComponentModel.IContainer;
 
 namespace Newbe.Mahua
 {
@@ -349,5 +351,20 @@ namespace Newbe.Mahua
         /// <returns></returns>
         [Description("获取讨论组列表")]
         string GetDiscusses();
+
+        /// <summary>
+        /// 获取当前上下文运行的容器
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取当前上下文运行的容器")]
+        ILifetimeScope GetContainer();
+
+        /// <summary>
+        /// 设置当前上下文运行的容器
+        /// </summary>
+        /// <param name="container"></param>
+        [Description("设置当前上下文运行的容器")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        void SetContainer(ILifetimeScope container);
     }
 }

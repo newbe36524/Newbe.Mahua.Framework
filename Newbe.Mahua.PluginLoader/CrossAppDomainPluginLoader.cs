@@ -95,6 +95,7 @@ namespace Newbe.Mahua
             WriteDiagnostics(() => command);
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
+                SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
                 center.Handle(command);
             }
@@ -106,11 +107,18 @@ namespace Newbe.Mahua
 
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
+                SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
                 center.Handle(command, out mahuaCommandResult);
                 var re = mahuaCommandResult;
                 WriteDiagnostics(() => re);
             }
+        }
+
+        private static void SetContainer(ILifetimeScope container)
+        {
+            var api = container.Resolve<IMahuaApi>();
+            api.SetContainer(container);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using Autofac;
 using Newbe.Mahua.MPQ.NativeApi;
 
 namespace Newbe.Mahua.MPQ
@@ -12,6 +14,7 @@ namespace Newbe.Mahua.MPQ
         private static readonly int MsgType讨论组临时会话 = 5;
         private readonly IMyPcqqApi _myPcqqApi;
         private readonly IQqContainer _qqContainer;
+        private ILifetimeScope _container;
 
         public MahuaApi(IMyPcqqApi myPcqqApi, IQqContainer qqContainer)
         {
@@ -158,7 +161,8 @@ namespace Newbe.Mahua.MPQ
         }
 
         [NotSupportedMahuaApi]
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq,
+            string reason)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
@@ -170,7 +174,8 @@ namespace Newbe.Mahua.MPQ
         }
 
         [NotSupportedMahuaApi]
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq, string reason)
+        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
+            string reason)
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
@@ -238,6 +243,16 @@ namespace Newbe.Mahua.MPQ
         public string GetDiscusses()
         {
             return _myPcqqApi.Api_GetDGList(Qq);
+        }
+
+        public ILifetimeScope GetContainer()
+        {
+            return _container;
+        }
+
+        public void SetContainer(ILifetimeScope container)
+        {
+            _container = container;
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using Autofac;
 using Newbe.Mahua.Amanda.NativeApi;
 
 namespace Newbe.Mahua.Amanda
@@ -15,6 +17,7 @@ namespace Newbe.Mahua.Amanda
         private readonly int Operation拒绝 = 2;
         private readonly int Operation忽略 = 3;
         private readonly IAmadaApi _amadaApi;
+        private ILifetimeScope _container;
 
         public MahuaApi(IAmadaApi amadaApi)
         {
@@ -235,6 +238,16 @@ namespace Newbe.Mahua.Amanda
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
             return default(string);
+        }
+
+        public ILifetimeScope GetContainer()
+        {
+            return _container;
+        }
+
+        public void SetContainer(ILifetimeScope container)
+        {
+            _container = container;
         }
     }
 }

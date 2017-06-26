@@ -1,4 +1,5 @@
 ﻿using System;
+using Autofac;
 using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP
@@ -12,6 +13,7 @@ namespace Newbe.Mahua.CQP
 
         private readonly ICoolQApi _coolQApi;
         private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
+        private ILifetimeScope _container;
 
         public MahuaApi(ICoolQApi coolQApi, ICqpAuthCodeContainer cqpAuthCodeContainer)
         {
@@ -254,6 +256,16 @@ namespace Newbe.Mahua.CQP
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
             return default(string);
+        }
+
+        public ILifetimeScope GetContainer()
+        {
+            return _container;
+        }
+
+        public void SetContainer(ILifetimeScope container)
+        {
+            _container = container;
         }
     }
 }
