@@ -208,15 +208,12 @@ namespace Newbe.Mahua.CQP
         [NotSupportedMahuaApi]
         public string GetGroupMemebers(string toGroup)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return _coolQApi.CQ_getGroupMemberList(AuthCode, long.Parse(toGroup));
         }
 
-        [NotSupportedMahuaApi]
         public string GetGroups()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return _coolQApi.CQ_getGroupList(AuthCode);
         }
 
         [NotSupportedMahuaApi]

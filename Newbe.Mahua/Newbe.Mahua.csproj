@@ -46,6 +46,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IGroupMemberInfoSerializer.cs" />
+    <Compile Include="Extensions\MahuaApiExtensions.cs" />
+    <Compile Include="GroupMemberInfo.cs" />
     <Compile Include="INotSupportedMahuaApiConvertion.cs" />
     <Compile Include="Internals\IgnoreNotSupportedMahuaApiConvertion.cs" />
     <Compile Include="IMahuaApi.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="MahuaEvents\Enums\PrivateMessageFromType.cs" />
     <Compile Include="MahuaPlatform.cs" />
     <Compile Include="Internals\MahuaPlatformValueProvider.cs" />
+    <Compile Include="ModelWithSourceString.cs" />
     <Compile Include="NotOfficialMahuaApiAttribute.cs" />
     <Compile Include="NotSupportMahuaPlatformExpcetion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

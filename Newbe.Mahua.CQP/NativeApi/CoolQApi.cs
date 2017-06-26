@@ -272,6 +272,12 @@ namespace Newbe.Mahua.CQP.NativeApi
         /// <param name="不使用缓存"></param>
         /// <returns></returns>
         string CQ_getStrangerInfo(int AuthCode, long QQID, bool 不使用缓存);
+
+        /// <summary>
+        /// 取群列表
+        /// </summary>
+        /// <returns></returns>
+        string CQ_getGroupList(int AuthCode);
     }
 
     public class CoolQApi : ICoolQApi
@@ -575,6 +581,12 @@ namespace Newbe.Mahua.CQP.NativeApi
         string ICoolQApi.CQ_getStrangerInfo(int AuthCode, long QQID, bool 不使用缓存)
             => NativeMethods.CQ_getStrangerInfo(AuthCode, QQID, 不使用缓存);
 
+        /// <summary>
+        /// 取群列表
+        /// </summary>
+        /// <returns></returns>
+        string ICoolQApi.CQ_getGroupList(int AuthCode) => NativeMethods.CQ_getGroupList(AuthCode);
+
         private static class NativeMethods
         {
             /// <summary>
@@ -876,6 +888,14 @@ namespace Newbe.Mahua.CQP.NativeApi
             /// <returns></returns>
             [DllImport("CQP.dll")]
             public static extern string CQ_getStrangerInfo(int AuthCode, long QQID, bool 不使用缓存);
+
+            /// <summary>
+            /// 取群列表
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <returns></returns>
+            [DllImport("CQP.dll")]
+            public static extern string CQ_getGroupList(int AuthCode);
         }
     }
 }
