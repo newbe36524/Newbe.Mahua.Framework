@@ -46,6 +46,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GroupInfo.cs" />
+    <Compile Include="IGroupInfoSerializer.cs" />
     <Compile Include="IGroupMemberInfoSerializer.cs" />
     <Compile Include="Extensions\MahuaApiExtensions.cs" />
     <Compile Include="GroupMemberInfo.cs" />

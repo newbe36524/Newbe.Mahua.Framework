@@ -42,5 +42,15 @@ AAAAAAAAAAAAAAABGAAAAACRh36QAAAAAP8cJ7QAMw8jDyMPIw8jDyMPIAAAAAAD/AAAAAAAAWSa451k
                 GroupMemberInfos();
             }
         }
+
+        [Fact]
+        public void GroupInfos()
+        {
+            IGroupInfoSerializer serializer = new GroupInfoSerializer();
+            var deserializeGroupInfos = serializer.DeserializeGroupInfos("AAAAAQAVAAAAACRh36QAC05ld2JlLk1haHVh");
+            var groupInfo = deserializeGroupInfos.Single();
+            groupInfo.Group.Should().Be("610394020");
+            groupInfo.Name.Should().Be("Newbe.Mahua");
+        }
     }
 }

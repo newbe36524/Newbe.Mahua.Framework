@@ -41,7 +41,9 @@ namespace Newbe.Mahua.CQP
             {
                 base.Load(builder);
                 builder.RegisterType<CoolQApi>().As<ICoolQApi>();
-                builder.RegisterType<MahuaApi>().As<IMahuaApi>().SingleInstance();
+                builder.RegisterType<GroupInfoSerializer>().AsImplementedInterfaces();
+                builder.RegisterType<GroupMemberInfoSerializer>().AsImplementedInterfaces();
+                builder.RegisterType<MahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
                 builder.RegisterType<CqpAuthCodeContainer>().As<ICqpAuthCodeContainer>().SingleInstance();
             }
         }

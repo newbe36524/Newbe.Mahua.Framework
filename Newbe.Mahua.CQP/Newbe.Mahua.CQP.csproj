@@ -77,6 +77,7 @@
     <Compile Include="Commands\PrivateMessageCommand.cs" />
     <Compile Include="CqpCommand.cs" />
     <Compile Include="Commands\InitializeCommand.cs" />
+    <Compile Include="GroupInfoSerializer.cs" />
     <Compile Include="GroupMemberInfoSerializer.cs" />
     <Compile Include="Internals\DataConvert.cs" />
     <Compile Include="Internals\Unpack.cs" />
