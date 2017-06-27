@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Autofac;
 using Newbe.Mahua.Amanda.NativeApi;
 
 namespace Newbe.Mahua.Amanda
@@ -15,6 +18,7 @@ namespace Newbe.Mahua.Amanda
         private readonly int Operation拒绝 = 2;
         private readonly int Operation忽略 = 3;
         private readonly IAmadaApi _amadaApi;
+        private ILifetimeScope _container;
 
         public MahuaApi(IAmadaApi amadaApi)
         {
@@ -190,6 +194,20 @@ namespace Newbe.Mahua.Amanda
             _amadaApi.Api_AddGroup(toGroup, reason);
         }
 
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupMemberInfo>>);
+        }
+
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupInfo>>);
+        }
+
         public string GetGroupMemebers(string toGroup)
         {
             return _amadaApi.Api_GetGroupMemberList(toGroup);
@@ -235,6 +253,16 @@ namespace Newbe.Mahua.Amanda
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
             return default(string);
+        }
+
+        public ILifetimeScope GetContainer()
+        {
+            return _container;
+        }
+
+        public void SetContainer(ILifetimeScope container)
+        {
+            _container = container;
         }
     }
 }

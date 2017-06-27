@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using Autofac;
 using Newbe.Mahua.MahuaEvents;
+using IContainer = System.ComponentModel.IContainer;
 
 namespace Newbe.Mahua
 {
@@ -287,20 +290,35 @@ namespace Newbe.Mahua
         [Description("主动加群")]
         void JoinGroup(string toGroup, string reason);
 
-        /// <summary>
-        /// 获取群成员列表
-        /// </summary>
-        /// <param name="toGroup"></param>
-        /// <returns></returns>
-        [Description("获取群成员列表")]
-        string GetGroupMemebers(string toGroup);
 
+        /// <summary>
+        /// 取群成员列表
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <returns></returns>
+        [Description("取群成员列表")]
+        ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup);
 
         /// <summary>
         /// 获取群列表
         /// </summary>
         /// <returns></returns>
         [Description("获取群列表")]
+        ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel();
+
+        /// <summary>
+        /// 获取群成员列表（返回字符串）
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <returns></returns>
+        [Description("获取群成员列表（返回字符串）")]
+        string GetGroupMemebers(string toGroup);
+
+        /// <summary>
+        /// 获取群列表（返回字符串）
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取群列表（返回字符串）")]
         string GetGroups();
 
         /// <summary>
@@ -349,5 +367,20 @@ namespace Newbe.Mahua
         /// <returns></returns>
         [Description("获取讨论组列表")]
         string GetDiscusses();
+
+        /// <summary>
+        /// 获取当前上下文运行的容器
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取当前上下文运行的容器")]
+        ILifetimeScope GetContainer();
+
+        /// <summary>
+        /// 设置当前上下文运行的容器
+        /// </summary>
+        /// <param name="container"></param>
+        [Description("设置当前上下文运行的容器")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        void SetContainer(ILifetimeScope container);
     }
 }

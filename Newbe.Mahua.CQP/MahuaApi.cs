@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using Autofac;
 using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP
 {
-    public class MahuaApi : IMahuaApi
+    internal class MahuaApi : IMahuaApi
     {
         private static readonly int AcceptType请求通过 = 1;
         private static readonly int AcceptType请求拒绝 = 2;
@@ -12,11 +14,17 @@ namespace Newbe.Mahua.CQP
 
         private readonly ICoolQApi _coolQApi;
         private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
+        private readonly IGroupMemberInfoSerializer _groupMemberInfoSerializer;
+        private readonly IGroupInfoSerializer _groupInfoSerializer;
+        private ILifetimeScope _container;
 
-        public MahuaApi(ICoolQApi coolQApi, ICqpAuthCodeContainer cqpAuthCodeContainer)
+        public MahuaApi(ICoolQApi coolQApi, ICqpAuthCodeContainer cqpAuthCodeContainer,
+            IGroupMemberInfoSerializer groupMemberInfoSerializer, IGroupInfoSerializer groupInfoSerializer)
         {
             _coolQApi = coolQApi;
             _cqpAuthCodeContainer = cqpAuthCodeContainer;
+            _groupMemberInfoSerializer = groupMemberInfoSerializer;
+            _groupInfoSerializer = groupInfoSerializer;
         }
 
         private int AuthCode => _cqpAuthCodeContainer.AuthCode;
@@ -203,18 +211,36 @@ namespace Newbe.Mahua.CQP
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
-        [NotSupportedMahuaApi]
-        public string GetGroupMemebers(string toGroup)
+        public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            var source = GetGroupMemebers(toGroup);
+            var re = new ModelWithSourceString<IEnumerable<GroupMemberInfo>>
+            {
+                SourceString = source,
+                Model = _groupMemberInfoSerializer.DeserializeGroupMemberInfos(source),
+            };
+            return re;
         }
 
-        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
+        {
+            var source = GetGroups();
+            var re = new ModelWithSourceString<IEnumerable<GroupInfo>>
+            {
+                SourceString = source,
+                Model = _groupInfoSerializer.DeserializeGroupInfos(source),
+            };
+            return re;
+        }
+
+        public string GetGroupMemebers(string toGroup)
+        {
+            return _coolQApi.CQ_getGroupMemberList(AuthCode, long.Parse(toGroup));
+        }
+
         public string GetGroups()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return _coolQApi.CQ_getGroupList(AuthCode);
         }
 
         [NotSupportedMahuaApi]
@@ -254,6 +280,16 @@ namespace Newbe.Mahua.CQP
         {
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
             return default(string);
+        }
+
+        public ILifetimeScope GetContainer()
+        {
+            return _container;
+        }
+
+        public void SetContainer(ILifetimeScope container)
+        {
+            _container = container;
         }
     }
 }
