@@ -13,6 +13,8 @@
 
 [#12](https://github.com/Newbe36524/Newbe.Mahua.Framework/issues/12) 提供对群列表、群成员列表的结构化接口支持
 
+`IMahuaApi`新增方法:`GetGroupMemebersWithModel`,`GetGroupsWithModel`
+
 ## 1.0
 
 主框架发布，支持CQP和Amanda机器人平台。

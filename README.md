@@ -15,11 +15,11 @@ dev                                                                             
 
 你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ机器人平台。
 
-[点击此处，加入QQ群一起讨论吧](https://jq.qq.com/?_wv=1027&k=4AMMCTx)
+## 主要链接
 
-## 版本变更情况
-
-[ReleaseNotes](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
+- [版本变更情况](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
+- [帮助文档](http://www.newbe.cf)
+- [加群链接【610394020】](https://jq.qq.com/?_wv=1027&k=4AMMCTx)
 
 ## 名词表
 
@@ -69,47 +69,49 @@ IPrivateMessageReceivedMahuaEvent            | 私聊消息接收事件         
 
 ## MahuaApi支持列表
 
-Api                          | 说明           | CQP | MPQ | Amanda
----------------------------- | ------------ | --- | --- | ------
-AcceptFriendAddingRequest    | 同意添加好友请求     | √   |     | √
-AcceptGroupJoiningInvitation | 接受入群邀请       | √   |     | √
-AcceptGroupJoiningRequest    | 管理员同意入群申请    | √   |     | √
-BanFriend                    | 将QQ移入黑名单     |     | √   |
-BanGroupAnonymousMember      | 设置禁言某匿名群员    | √   |     |
-BanGroupMember               | 禁言某群成员       | √   | √   | √
-CreateDiscuss                | 创建讨论组        |     | √   |
-DisableGroupAdmin            | 删除群管理员       | √   |     | √
-DissolveGroup                | 解散群          | √   |     | √
-EnableGroupAdmin             | 设置群管理员       | √   |     | √
-GetBkn                       | 取bkn         | √   | √   | √
-GetContainer                 | 获取当前上下文运行的容器 | √   | √   | √
-GetCookies                   | 取Cookies     | √   | √   | √
-GetDiscusses                 | 获取讨论组列表      |     | √   |
-GetFriends                   | 获取好友列表       |     | √   | √
-GetGroupMemebers             | 获取群成员列表      | √   | √   | √
-GetGroups                    | 获取群列表        | √   | √   | √
-GetLoginNick                 | 取当前登录QQ昵称    | √   | √   | √
-GetLoginQq                   | 取当前登录QQ      | √   | √   | √
-JoinGroup                    | 主动加群         |     | √   | √
-KickDiscussMember            | 踢出讨论组        |     | √   |
-KickGroupMember              | 移出群成员        | √   | √   | √
-LeaveDiscuss                 | 退出讨论组        | √   | √   | √
-LeaveGroup                   | 退出群          | √   | √   | √
-RejectFriendAddingRequest    | 拒绝添加好友请求     | √   |     | √
-RejectGroupJoiningInvitation | 拒绝入群邀请       | √   |     | √
-RejectGroupJoiningRequest    | 管理员拒绝入群申请    | √   |     | √
-RemoveBanFriend              | 将QQ移出黑名单     |     | √   |
-RemoveBanGroupMember         | 取消禁言某群成员     | √   | √   | √
-RemoveFriend                 | 删除好友         |     | √   | √
-SendDiscussJoiningInvitation | 发送讨论组邀请      |     | √   |
-SendDiscussMessage           | 发送讨论组消息      | √   | √   | √
-SendGroupJoiningInvitation   | 发送入群邀请       |     | √   |
-SendGroupMessage             | 发送群消息        | √   | √   | √
-SendLike                     | 发送名片赞        | √   | √   | √
-SendPrivateMessage           | 发送私聊消息       | √   | √   | √
-SetBanAllGroupMembersOption  | 设置全群禁言       | √   |     | √
-SetContainer                 | 设置当前上下文运行的容器 | √   | √   | √
-SetGroupAnonymousOption      | 设置群匿名设置      | √   |     | √
-SetGroupMemberCard           | 设置群成员名片      | √   | √   | √
-SetGroupMemberSpecialTitle   | 设置群成员专属头衔    | √   |     |
-SetNotice                    | 发布群公告        |     | √   |
+Api                          | 说明             | CQP | MPQ | Amanda
+---------------------------- | -------------- | --- | --- | ------
+AcceptFriendAddingRequest    | 同意添加好友请求       | √   |     | √
+AcceptGroupJoiningInvitation | 接受入群邀请         | √   |     | √
+AcceptGroupJoiningRequest    | 管理员同意入群申请      | √   |     | √
+BanFriend                    | 将QQ移入黑名单       |     | √   |
+BanGroupAnonymousMember      | 设置禁言某匿名群员      | √   |     |
+BanGroupMember               | 禁言某群成员         | √   | √   | √
+CreateDiscuss                | 创建讨论组          |     | √   |
+DisableGroupAdmin            | 删除群管理员         | √   |     | √
+DissolveGroup                | 解散群            | √   |     | √
+EnableGroupAdmin             | 设置群管理员         | √   |     | √
+GetBkn                       | 取bkn           | √   | √   | √
+GetContainer                 | 获取当前上下文运行的容器   | √   | √   | √
+GetCookies                   | 取Cookies       | √   | √   | √
+GetDiscusses                 | 获取讨论组列表        |     | √   |
+GetFriends                   | 获取好友列表         |     | √   | √
+GetGroupMemebers             | 获取群成员列表（返回字符串） | √   | √   | √
+GetGroupMemebersWithModel    | 取群成员列表         | √   |     |
+GetGroups                    | 获取群列表（返回字符串）   | √   | √   | √
+GetGroupsWithModel           | 获取群列表          | √   |     |
+GetLoginNick                 | 取当前登录QQ昵称      | √   | √   | √
+GetLoginQq                   | 取当前登录QQ        | √   | √   | √
+JoinGroup                    | 主动加群           |     | √   | √
+KickDiscussMember            | 踢出讨论组          |     | √   |
+KickGroupMember              | 移出群成员          | √   | √   | √
+LeaveDiscuss                 | 退出讨论组          | √   | √   | √
+LeaveGroup                   | 退出群            | √   | √   | √
+RejectFriendAddingRequest    | 拒绝添加好友请求       | √   |     | √
+RejectGroupJoiningInvitation | 拒绝入群邀请         | √   |     | √
+RejectGroupJoiningRequest    | 管理员拒绝入群申请      | √   |     | √
+RemoveBanFriend              | 将QQ移出黑名单       |     | √   |
+RemoveBanGroupMember         | 取消禁言某群成员       | √   | √   | √
+RemoveFriend                 | 删除好友           |     | √   | √
+SendDiscussJoiningInvitation | 发送讨论组邀请        |     | √   |
+SendDiscussMessage           | 发送讨论组消息        | √   | √   | √
+SendGroupJoiningInvitation   | 发送入群邀请         |     | √   |
+SendGroupMessage             | 发送群消息          | √   | √   | √
+SendLike                     | 发送名片赞          | √   | √   | √
+SendPrivateMessage           | 发送私聊消息         | √   | √   | √
+SetBanAllGroupMembersOption  | 设置全群禁言         | √   |     | √
+SetContainer                 | 设置当前上下文运行的容器   | √   | √   | √
+SetGroupAnonymousOption      | 设置群匿名设置        | √   |     | √
+SetGroupMemberCard           | 设置群成员名片        | √   | √   | √
+SetGroupMemberSpecialTitle   | 设置群成员专属头衔      | √   |     |
+SetNotice                    | 发布群公告          |     | √   |

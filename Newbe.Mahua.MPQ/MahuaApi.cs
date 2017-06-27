@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Autofac;
 using Newbe.Mahua.MPQ.NativeApi;
@@ -203,6 +204,20 @@ namespace Newbe.Mahua.MPQ
         public void JoinGroup(string toGroup, string reason)
         {
             _myPcqqApi.Api_JoinGroup(Qq, toGroup, reason);
+        }
+
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupMemberInfo>>);
+        }
+
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupInfo>>);
         }
 
         public string GetGroupMemebers(string toGroup)

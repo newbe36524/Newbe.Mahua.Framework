@@ -47,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GroupInfo.cs" />
-    <Compile Include="IGroupInfoSerializer.cs" />
-    <Compile Include="IGroupMemberInfoSerializer.cs" />
     <Compile Include="MahuaApiExtensions.cs" />
     <Compile Include="GroupMemberInfo.cs" />
     <Compile Include="INotSupportedMahuaApiConvertion.cs" />

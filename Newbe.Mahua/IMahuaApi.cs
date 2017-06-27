@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Autofac;
 using Newbe.Mahua.MahuaEvents;
@@ -289,20 +290,35 @@ namespace Newbe.Mahua
         [Description("主动加群")]
         void JoinGroup(string toGroup, string reason);
 
-        /// <summary>
-        /// 获取群成员列表
-        /// </summary>
-        /// <param name="toGroup"></param>
-        /// <returns></returns>
-        [Description("获取群成员列表")]
-        string GetGroupMemebers(string toGroup);
 
+        /// <summary>
+        /// 取群成员列表
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <returns></returns>
+        [Description("取群成员列表")]
+        ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup);
 
         /// <summary>
         /// 获取群列表
         /// </summary>
         /// <returns></returns>
         [Description("获取群列表")]
+        ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel();
+
+        /// <summary>
+        /// 获取群成员列表（返回字符串）
+        /// </summary>
+        /// <param name="toGroup"></param>
+        /// <returns></returns>
+        [Description("获取群成员列表（返回字符串）")]
+        string GetGroupMemebers(string toGroup);
+
+        /// <summary>
+        /// 获取群列表（返回字符串）
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取群列表（返回字符串）")]
         string GetGroups();
 
         /// <summary>

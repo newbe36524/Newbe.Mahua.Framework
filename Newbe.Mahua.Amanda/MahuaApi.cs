@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Autofac;
 using Newbe.Mahua.Amanda.NativeApi;
@@ -191,6 +192,20 @@ namespace Newbe.Mahua.Amanda
         public void JoinGroup(string toGroup, string reason)
         {
             _amadaApi.Api_AddGroup(toGroup, reason);
+        }
+
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupMemberInfo>>);
+        }
+
+        [NotSupportedMahuaApi]
+        public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
+        {
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(ModelWithSourceString<IEnumerable<GroupInfo>>);
         }
 
         public string GetGroupMemebers(string toGroup)
