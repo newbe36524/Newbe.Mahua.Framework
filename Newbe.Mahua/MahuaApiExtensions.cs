@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Autofac;
 
-namespace Newbe.Mahua.Extensions
+namespace Newbe.Mahua
 {
     /// <summary>
     /// <see cref="IMahuaApi"/>相关的扩展方法

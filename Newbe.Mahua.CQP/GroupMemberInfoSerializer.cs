@@ -43,7 +43,18 @@ namespace Newbe.Mahua.CQP
                 .AddSeconds(u.GetInt());
             gm.Level = u.GetLenStr();
             var manager = u.GetInt();
-            gm.Authority = manager == 3 ? "群主" : (manager == 2 ? "管理员" : "成员");
+            switch (manager)
+            {
+                case 3:
+                    gm.Authority = GroupMemberAuthority.Leader;
+                    break;
+                case 2:
+                    gm.Authority = GroupMemberAuthority.Manager;
+                    break;
+                default:
+                    gm.Authority = GroupMemberAuthority.Normal;
+                    break;
+            }
             gm.HasBadRecord = (u.GetInt() == 1);
             gm.SpecialTitle = u.GetLenStr();
             gm.TitleExpirationTime = TimeSpan.FromSeconds(u.GetInt());

@@ -24,6 +24,32 @@ namespace Newbe.Mahua
     }
 
     /// <summary>
+    /// 群成员权限
+    /// </summary>
+    public enum GroupMemberAuthority
+    {
+        /// <summary>
+        /// 位置
+        /// </summary>
+        Unknown,
+
+        /// <summary>
+        /// 普通成员
+        /// </summary>
+        Normal,
+
+        /// <summary>
+        /// 管理员
+        /// </summary>
+        Manager,
+
+        /// <summary>
+        /// 群主
+        /// </summary>
+        Leader,
+    }
+
+    /// <summary>
     /// 群成员的信息。
     /// </summary>
     public sealed class GroupMemberInfo
@@ -43,7 +69,7 @@ namespace Newbe.Mahua
         /// <summary>
         /// 此群成员的身份。
         /// </summary>
-        public string Authority { get; set; }
+        public GroupMemberAuthority Authority { get; set; }
 
         /// <summary>
         /// 指示此群成员是否能够修改所有群成员名片的值。
