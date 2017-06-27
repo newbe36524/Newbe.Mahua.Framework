@@ -205,7 +205,6 @@ namespace Newbe.Mahua.CQP
             MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
-        [NotSupportedMahuaApi]
         public string GetGroupMemebers(string toGroup)
         {
             return _coolQApi.CQ_getGroupMemberList(AuthCode, long.Parse(toGroup));
