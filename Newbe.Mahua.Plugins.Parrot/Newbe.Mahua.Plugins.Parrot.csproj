@@ -42,10 +42,13 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.4\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.0.1.2\lib\net452\Newbe.Mahua.dll</HintPath>
+      <HintPath>..\packages\Newbe.Mahua.1.1.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua.Amanda, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Newbe.Mahua.Amanda.1.0.1.3\lib\net452\Newbe.Mahua.Amanda.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.CQP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.CQP.1.1.0\lib\net452\Newbe.Mahua.CQP.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua.PluginLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.0.1.2\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
@@ -72,12 +75,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj">
-      <Project>{0c305f78-179a-43c0-8430-ee34f2e3c827}</Project>
-      <Name>Newbe.Mahua.CQP</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -85,12 +82,12 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.4\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.4\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\Newbe.Mahua.CQP.1.0.1.2\build\Newbe.Mahua.CQP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Newbe.Mahua.CQP.1.0.1.2\build\Newbe.Mahua.CQP.targets'))" />
     <Error Condition="!Exists('..\packages\Newbe.Mahua.Amanda.1.0.1.3\build\Newbe.Mahua.Amanda.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Newbe.Mahua.Amanda.1.0.1.3\build\Newbe.Mahua.Amanda.targets'))" />
     <Error Condition="!Exists('..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.props'))" />
     <Error Condition="!Exists('..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.targets'))" />
+    <Error Condition="!Exists('..\packages\Newbe.Mahua.CQP.1.1.0\build\Newbe.Mahua.CQP.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Newbe.Mahua.CQP.1.1.0\build\Newbe.Mahua.CQP.targets'))" />
   </Target>
-  <Import Project="..\packages\Newbe.Mahua.CQP.1.0.1.2\build\Newbe.Mahua.CQP.targets" Condition="Exists('..\packages\Newbe.Mahua.CQP.1.0.1.2\build\Newbe.Mahua.CQP.targets')" />
   <Import Project="..\packages\Newbe.Mahua.Amanda.1.0.1.3\build\Newbe.Mahua.Amanda.targets" Condition="Exists('..\packages\Newbe.Mahua.Amanda.1.0.1.3\build\Newbe.Mahua.Amanda.targets')" />
   <Import Project="..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.targets" Condition="Exists('..\packages\Newbe.Mahua.Msbuild.1.0.1.4\build\Newbe.Mahua.Msbuild.targets')" />
+  <Import Project="..\packages\Newbe.Mahua.CQP.1.1.0\build\Newbe.Mahua.CQP.targets" Condition="Exists('..\packages\Newbe.Mahua.CQP.1.1.0\build\Newbe.Mahua.CQP.targets')" />
 </Project>
