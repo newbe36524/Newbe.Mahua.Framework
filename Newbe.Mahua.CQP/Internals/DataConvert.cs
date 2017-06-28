@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Newbe.Mahua.CQP.Internals
@@ -139,22 +142,28 @@ namespace Newbe.Mahua.CQP.Internals
             return sb.ToString();
         }
 
-        public static string GetProperties<T>(this T t)
+        private static readonly IDictionary<Type, PropertyInfo[]> PropertiesCache =
+            new Dictionary<Type, PropertyInfo[]>();
+
+        public static string GetProperties<T>(this T t) where T : class
         {
             var tStr = string.Empty;
             if (t == null)
             {
                 return tStr;
             }
-            var properties = t.GetType().GetProperties(System.Reflection.BindingFlags.Instance |
-                                                       System.Reflection.BindingFlags.Public);
-
+            var type = t.GetType();
+            if (!PropertiesCache.ContainsKey(type))
+            {
+                PropertiesCache[type] = type.GetProperties(BindingFlags.Instance | BindingFlags.Public);
+            }
+            var properties = PropertiesCache[type];
             if (properties.Length <= 0)
             {
                 return tStr;
             }
             var sb = new StringBuilder();
-            foreach (System.Reflection.PropertyInfo item in properties)
+            foreach (PropertyInfo item in properties)
             {
                 var name = item.Name;
                 var value = item.GetValue(t, null);
