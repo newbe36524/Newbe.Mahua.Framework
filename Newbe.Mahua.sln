@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MahuaPlatforms", "MahuaPlat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.CQP.Tests", "Newbe.Mahua.CQP.Tests\Newbe.Mahua.CQP.Tests.csproj", "{49C8AE4E-990F-4CD2-A238-4C87336C91C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MPQ.Tests", "Newbe.Mahua.MPQ.Tests\Newbe.Mahua.MPQ.Tests.csproj", "{8B695F75-C4CD-4367-B220-6585D96C5CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{49C8AE4E-990F-4CD2-A238-4C87336C91C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C8AE4E-990F-4CD2-A238-4C87336C91C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C8AE4E-990F-4CD2-A238-4C87336C91C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B695F75-C4CD-4367-B220-6585D96C5CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B695F75-C4CD-4367-B220-6585D96C5CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B695F75-C4CD-4367-B220-6585D96C5CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B695F75-C4CD-4367-B220-6585D96C5CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,5 +105,6 @@ Global
 		{2C2DA831-9F2A-4D42-8642-66D243FEEB41} = {1F5FCB50-0BC0-422D-9A52-D67B8B4236C5}
 		{4728B23F-2503-4955-BE1D-8A81024B5E79} = {1F5FCB50-0BC0-422D-9A52-D67B8B4236C5}
 		{49C8AE4E-990F-4CD2-A238-4C87336C91C8} = {4728B23F-2503-4955-BE1D-8A81024B5E79}
+		{8B695F75-C4CD-4367-B220-6585D96C5CC0} = {4728B23F-2503-4955-BE1D-8A81024B5E79}
 	EndGlobalSection
 EndGlobal
