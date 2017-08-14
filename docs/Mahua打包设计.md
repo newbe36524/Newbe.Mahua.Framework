@@ -17,6 +17,7 @@ content
 - Amanda.7z
   CQP.7z
   MPQ.7z
+xxxx.nuspec
 ```
 
 7z
@@ -24,4 +25,15 @@ content
 ```yml
 lib
 manifest.json
+```
+
+## manifest.json
+
+```json
+{
+  "files":[{
+    "path":"lib/.....dll",
+    "sha1":"B2FF712CA0947040CA0B8E9BD7436A3C3524BB5D"
+    }]
+}
 ```
