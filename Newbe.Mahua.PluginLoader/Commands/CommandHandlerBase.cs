@@ -2,9 +2,10 @@
 {
     public abstract class CommandHandlerBase<TCommand> : IComamndHandler<TCommand> where TCommand : MahuaCommand
     {
-        public void Handle(TCommand command)
+        public EmptyCommandResult Handle(TCommand command)
         {
             HandleCore(command);
+            return new EmptyCommandResult();
         }
 
         protected abstract void HandleCore(TCommand command);
@@ -14,9 +15,9 @@
             return command is TCommand;
         }
 
-        public void Handle(object command)
+        public object Handle(object command)
         {
-            Handle(command as TCommand);
+            return Handle(command as TCommand);
         }
     }
 

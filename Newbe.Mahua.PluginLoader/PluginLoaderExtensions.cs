@@ -1,4 +1,4 @@
-using Newbe.Mahua.Commands;
+锘縰sing Newbe.Mahua.Commands;
 using Newbe.Mahua.Internals;
 
 namespace Newbe.Mahua
@@ -15,9 +15,8 @@ namespace Newbe.Mahua
         public static TResult SendCommand<TResult>(this IPluginLoader pluginLoader, MahuaCommand command)
             where TResult : MahuaCommandResult, new()
         {
-            MahuaCommandResult result;
-            pluginLoader.SendCommandWithResult(command, out result);
-            //todo 跨AppDomain时遇到了强制转换失败的问题，因此采用了json序列化的办法
+            var result = pluginLoader.SendCommandWithResult(command);
+            //todo 璺ˋppDomain鏃堕亣鍒颁簡寮哄埗杞崲澶辫触鐨勯棶棰橈紝鍥犳閲囩敤浜唈son搴忓垪鍖栫殑鍔炴硶
             var re = ConvertType<TResult>(result);
             return re;
         }

@@ -1,7 +1,6 @@
-namespace Newbe.Mahua.Commands
+﻿namespace Newbe.Mahua.Commands
 {
-    public interface IComamndHandler<in TCommand> : IVoidCommandHandler where TCommand : MahuaCommand
+    public interface IComamndHandler<in TCommand> : ICommandHandler<TCommand, EmptyCommandResult> where TCommand : MahuaCommand
     {
-        void Handle(TCommand command);
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Autofac;
+using Autofac.Features.Variance;
+using MediatR;
+using Newbe.Mahua.Commands;
+using Newbe.Mahua.Internals;
+using Newbe.Mahua.Logging;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Lifetime;
-using Autofac;
-using Newbe.Mahua.Commands;
-using Newbe.Mahua.Internals;
-using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua
 {
@@ -20,13 +23,13 @@ namespace Newbe.Mahua
             Logger.Debug(msg);
 #if CrossDomainLog
             //%temp%/Newbe.Mahua.log
-            File.AppendAllLines(Path.Combine(Path.GetTempPath(), "Newbe.Mahua.log"), new[] {msg});
+            File.AppendAllLines(Path.Combine(Path.GetTempPath(), "Newbe.Mahua.log"), new[] { msg });
 #endif
         }
 
         public override object InitializeLifetimeService()
         {
-            var lease = (ILease) base.InitializeLifetimeService();
+            var lease = (ILease)base.InitializeLifetimeService();
             System.Diagnostics.Debug.Assert(lease != null, "lease != null");
             if (lease.CurrentState == LeaseState.Initial)
             {
@@ -65,6 +68,35 @@ namespace Newbe.Mahua
                         builder.RegisterModule(module);
                     }
                 }
+                // enables contravariant Resolve() for interfaces with single contravariant ("in") arg
+                builder
+                    .RegisterSource(new ContravariantRegistrationSource());
+
+                // mediator itself
+                builder
+                    .RegisterType<Mediator>()
+                    .As<IMediator>()
+                    .InstancePerLifetimeScope();
+
+                // request handlers
+                builder
+                    .Register<SingleInstanceFactory>(ctx =>
+                    {
+                        var c = ctx.Resolve<IComponentContext>();
+                        return t => { object o; return c.TryResolve(t, out o) ? o : null; };
+                    })
+                    .InstancePerLifetimeScope();
+
+                // notification handlers
+                builder
+                    .Register<MultiInstanceFactory>(ctx =>
+                    {
+                        var c = ctx.Resolve<IComponentContext>();
+                        return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
+                    })
+                    .InstancePerLifetimeScope();
+
+
                 var container = builder.Build();
                 Debug("构建Container完毕。");
                 _container = container;
@@ -90,18 +122,8 @@ namespace Newbe.Mahua
             }
         }
 
-        public void SendCommand(MahuaCommand command)
-        {
-            WriteDiagnostics(() => command);
-            using (var beginLifetimeScope = _container.BeginLifetimeScope())
-            {
-                SetContainer(beginLifetimeScope);
-                var center = beginLifetimeScope.Resolve<ICommandCenter>();
-                center.Handle(command);
-            }
-        }
 
-        public void SendCommandWithResult(MahuaCommand command, out MahuaCommandResult mahuaCommandResult)
+        public MahuaCommandResult SendCommandWithResult(MahuaCommand command)
         {
             WriteDiagnostics(() => command);
 
@@ -109,9 +131,9 @@ namespace Newbe.Mahua
             {
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
-                center.Handle(command, out mahuaCommandResult);
-                var re = mahuaCommandResult;
+                var re = center.Handle(command);
                 WriteDiagnostics(() => re);
+                return re;
             }
         }
 

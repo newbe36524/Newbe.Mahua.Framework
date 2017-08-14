@@ -1,4 +1,4 @@
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua
 {
@@ -6,7 +6,6 @@ namespace Newbe.Mahua
     {
         string Message { get; }
         bool LoadPlugin(string pluginEntryPointDllFullFilename);
-        void SendCommand(MahuaCommand command);
-        void SendCommandWithResult(MahuaCommand command, out MahuaCommandResult mahuaCommandResult);
+        MahuaCommandResult SendCommandWithResult(MahuaCommand command);
     }
 }
