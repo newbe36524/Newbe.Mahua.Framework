@@ -6,6 +6,7 @@
     }
     public interface ICommandHandler<in TCommand, out TCommandResult> : IResultCommandHandler
         where TCommand : MahuaCommand
+        where TCommandResult : MahuaCommandResult
     {
         TCommandResult Handle(TCommand command);
     }

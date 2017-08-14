@@ -23,6 +23,7 @@
 
     public abstract class CommandHandlerBase<TCommand, TResult> : ICommandHandler<TCommand, TResult>
         where TCommand : MahuaCommand
+        where TResult : MahuaCommandResult
     {
         public TResult Handle(TCommand command)
         {

@@ -1,6 +1,9 @@
-﻿namespace Newbe.Mahua.Commands
+﻿using System;
+
+namespace Newbe.Mahua.Commands
 {
-    public class EmptyCommandResult
+    [Serializable]
+    public class EmptyCommandResult : MahuaCommandResult
     {
 
     }
