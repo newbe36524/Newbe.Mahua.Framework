@@ -1,17 +1,16 @@
 ﻿using Autofac;
 using Newbe.Mahua.Commands;
-using Newbe.Mahua.Commands.Impl;
 
 namespace Newbe.Mahua
 {
-    class PluginLoaderMahuaModule : IMahuaModule
+    internal class PluginLoaderMahuaModule : IMahuaModule
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] {new PluginLoaderModule(),};
+            return new Module[] { new PluginLoaderModule(), };
         }
 
-        public class PluginLoaderModule : Autofac.Module
+        public class PluginLoaderModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {

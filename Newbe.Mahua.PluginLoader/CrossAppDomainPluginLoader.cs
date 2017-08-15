@@ -5,6 +5,7 @@ using Newbe.Mahua.Commands;
 using Newbe.Mahua.Internals;
 using Newbe.Mahua.Logging;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -83,7 +84,11 @@ namespace Newbe.Mahua
                     .Register<SingleInstanceFactory>(ctx =>
                     {
                         var c = ctx.Resolve<IComponentContext>();
-                        return t => { object o; return c.TryResolve(t, out o) ? o : null; };
+                        return t =>
+                        {
+                            object o;
+                            return c.TryResolve(t, out o) ? o : null;
+                        };
                     })
                     .InstancePerLifetimeScope();
 
@@ -109,6 +114,62 @@ namespace Newbe.Mahua
             }
         }
 
+        private static readonly ConcurrentDictionary<string, Type> CommandAndResultTypes =
+            new ConcurrentDictionary<string, Type>();
+
+        private static Type GetMahuaType(string typeName, MahuaPlatform? mahuaPlatform = null)
+        {
+            mahuaPlatform = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
+            var re = CommandAndResultTypes.GetOrAdd($"{typeName}, Newbe.Mahua.{mahuaPlatform:G}",
+                typeStr => Type.GetType(typeStr, true, true));
+            return re;
+        }
+
+
+        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> WithResultHandlers =
+            new ConcurrentDictionary<Type, Func<object, object[], object>>();
+
+        public string Handle(string commandJson, string cmdTypeFullName, string resultTypeFullName)
+        {
+            WriteDiagnostics(() => commandJson);
+            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            {
+                SetContainer(beginLifetimeScope);
+                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                var cmdTypeType = GetMahuaType(cmdTypeFullName);
+                System.Diagnostics.Debug.Assert(cmdTypeType != null, "cmdTypeType != null");
+                var handler = WithResultHandlers.GetOrAdd(cmdTypeType, typeof(ICommandCenter)
+                    .GetMethod(nameof(ICommandCenter.HandleWithResult))
+                    .MakeGenericMethod(cmdTypeType, GetMahuaType(resultTypeFullName))
+                    .Invoke);
+                var re = handler(center,
+                    new[] { GlobalCache.JavaScriptSerializer.Deserialize(commandJson, cmdTypeType) });
+                var rejson = GlobalCache.JavaScriptSerializer.Serialize(re);
+                WriteDiagnostics(() => rejson);
+                return rejson;
+            }
+        }
+
+
+        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> VoidResultHandlers =
+            new ConcurrentDictionary<Type, Func<object, object[], object>>();
+
+        public void Handle(string commandJson, string cmdTypeFullName)
+        {
+            WriteDiagnostics(() => commandJson);
+            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            {
+                SetContainer(beginLifetimeScope);
+                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                var cmdTypeType = GetMahuaType(cmdTypeFullName);
+                System.Diagnostics.Debug.Assert(cmdTypeType != null, "cmdTypeType != null");
+                var handler = VoidResultHandlers.GetOrAdd(cmdTypeType, typeof(ICommandCenter)
+                    .GetMethod(nameof(ICommandCenter.Handle))
+                    .MakeGenericMethod(cmdTypeType).Invoke);
+                handler(center, new[] { GlobalCache.JavaScriptSerializer.Deserialize(commandJson, cmdTypeType) });
+            }
+        }
+
         private static void WriteDiagnostics(Func<object> action)
         {
             if (MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics)
@@ -119,21 +180,6 @@ namespace Newbe.Mahua
                     var s = re as string;
                     Debug(s ?? $"{re.GetType().FullName} {GlobalCache.JavaScriptSerializer.Serialize(re)}");
                 }
-            }
-        }
-
-
-        public MahuaCommandResult SendCommandWithResult(MahuaCommand command)
-        {
-            WriteDiagnostics(() => command);
-
-            using (var beginLifetimeScope = _container.BeginLifetimeScope())
-            {
-                SetContainer(beginLifetimeScope);
-                var center = beginLifetimeScope.Resolve<ICommandCenter>();
-                var re = center.Handle(command);
-                WriteDiagnostics(() => re);
-                return re;
             }
         }
 

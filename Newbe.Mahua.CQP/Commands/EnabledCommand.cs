@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class EnabledCommandHandler : CommandHandlerBase<EnabledCommand>
+    internal class EnabledCommandHandler : ICommandHandler<EnabledCommand>
     {
         private readonly IEnumerable<IPluginEnabledMahuaEvent> _pluginEnabledMahuaEvents;
 
@@ -14,13 +13,12 @@ namespace Newbe.Mahua.CQP.Commands
             _pluginEnabledMahuaEvents = pluginEnabledMahuaEvents;
         }
 
-        protected override void HandleCore(EnabledCommand command)
+        public void Handle(EnabledCommand command)
         {
             _pluginEnabledMahuaEvents.Handle(x => x.Enabled(new PluginEnabledContext()));
         }
     }
 
-    [Serializable]
     internal class EnabledCommand : CqpCommand
     {
     }

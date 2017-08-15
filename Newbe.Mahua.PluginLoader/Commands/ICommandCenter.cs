@@ -2,6 +2,9 @@
 {
     public interface ICommandCenter
     {
-        MahuaCommandResult Handle(MahuaCommand command);
+        TResult HandleWithResult<TCommand, TResult>(TCommand command)
+            where TCommand : MahuaCommand<TResult> where TResult : MahuaCommandResult;
+
+        void Handle<TCommand>(TCommand command) where TCommand : MahuaCommand;
     }
 }

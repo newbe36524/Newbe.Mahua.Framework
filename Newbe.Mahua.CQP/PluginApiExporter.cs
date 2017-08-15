@@ -1,8 +1,8 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using Newbe.Mahua.CQP.Commands;
+﻿using Newbe.Mahua.CQP.Commands;
 using Newbe.Mahua.MahuaEvents.Enums;
 using RGiesecke.DllExport;
+using System;
+using System.Runtime.InteropServices;
 
 namespace Newbe.Mahua.CQP
 {
@@ -48,7 +48,7 @@ namespace Newbe.Mahua.CQP
         [DllExport("AppInfo", CallingConvention.StdCall)]
         public static string AppInfo()
         {
-            var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommandResult>(new AppInfoCommand());
+            var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommand, AppInfoCommandResult>(new AppInfoCommand());
             return $"{CoolApiVersion},{re.AppId}".ToLowerInvariant();
         }
 

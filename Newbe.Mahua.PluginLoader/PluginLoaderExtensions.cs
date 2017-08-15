@@ -5,27 +5,19 @@ namespace Newbe.Mahua
 {
     public static class PluginLoaderExtensions
     {
-        //todo 跨AppDomain时遇到了强制转换失败的问题，因此采用了json序列化的办法
-        private static TResult ConvertType<TResult>(MahuaCommandResult crossDomainCommandResult)
+        public static TResult SendCommand<TCommand, TResult>(this IPluginLoader pluginLoader, TCommand command)
+            where TResult : MahuaCommandResult, new() where TCommand : MahuaCommand<TResult>
         {
-            var json = GlobalCache.JavaScriptSerializer.Serialize(crossDomainCommandResult);
-            var re = GlobalCache.JavaScriptSerializer.Deserialize<TResult>(json);
+            var reJson = pluginLoader.Handle(GlobalCache.JavaScriptSerializer.Serialize(command),
+                typeof(TCommand).FullName, typeof(TResult).FullName);
+            var re = GlobalCache.JavaScriptSerializer.Deserialize<TResult>(reJson);
             return re;
         }
 
-        public static TResult SendCommand<TResult>(this IPluginLoader pluginLoader, MahuaCommand command)
-            where TResult : MahuaCommandResult, new()
+        public static void SendCommand(this IPluginLoader pluginLoader, MahuaCommand command)
         {
-            var result = pluginLoader.SendCommandWithResult(command);
-            var re = ConvertType<TResult>(result);
-            return re;
-        }
-
-        public static EmptyCommandResult SendCommand(this IPluginLoader pluginLoader, MahuaCommand command)
-        {
-            var result = pluginLoader.SendCommandWithResult(command);
-            var re = ConvertType<EmptyCommandResult>(result);
-            return re;
+            pluginLoader.Handle(GlobalCache.JavaScriptSerializer.Serialize(command),
+                command.GetType().FullName);
         }
     }
 }

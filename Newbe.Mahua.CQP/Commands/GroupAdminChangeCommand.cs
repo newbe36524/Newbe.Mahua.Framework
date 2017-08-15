@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupAdminChangeCommandHandler : CommandHandlerBase<GroupAdminChangeCommand>
+    internal class GroupAdminChangeCommandHandler : ICommandHandler<GroupAdminChangeCommand>
     {
         private readonly IEnumerable<IGroupAdminChangedMahuaEvent> _groupAdminChangedMahuaEvents;
         private readonly IEnumerable<IGroupAdminEnabledMahuaEvent> _groupAdminEnabledMahuaEvents;
@@ -20,8 +20,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupAdminEnabledMahuaEvents = groupAdminEnabledMahuaEvents;
             _groupAdminDisabledMahuaEvents = groupAdminDisabledMahuaEvents;
         }
-
-        protected override void HandleCore(GroupAdminChangeCommand command)
+        public void Handle(GroupAdminChangeCommand command)
         {
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
             {
@@ -56,7 +55,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class GroupAdminChangeCommand : CqpCommand
     {
         public GroupAdminChangeType GroupAdminChangeType { get; set; }

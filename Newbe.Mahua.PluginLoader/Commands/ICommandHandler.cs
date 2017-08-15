@@ -1,13 +1,20 @@
-﻿namespace Newbe.Mahua.Commands
+﻿using MediatR;
+
+namespace Newbe.Mahua.Commands
 {
     public interface ICommandHandler
     {
-        bool CanHandle(MahuaCommand command);
     }
-    public interface ICommandHandler<in TCommand, out TCommandResult> : IResultCommandHandler
+
+    public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand>, ICommandHandler
         where TCommand : MahuaCommand
-        where TCommandResult : MahuaCommandResult
     {
-        TCommandResult Handle(TCommand command);
     }
+
+    public interface ICommandHandler<in TCommand, out TResult> : IRequestHandler<TCommand, TResult>, ICommandHandler
+        where TCommand : MahuaCommand<TResult>, IRequest<TResult>
+        where TResult : MahuaCommandResult
+    {
+    }
+
 }

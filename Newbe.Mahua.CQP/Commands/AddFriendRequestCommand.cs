@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class AddFriendRequestCommandHandler : CommandHandlerBase<AddFriendRequestCommand>
+    internal class AddFriendRequestCommandHandler : ICommandHandler<AddFriendRequestCommand>
     {
         private readonly IEnumerable<IFriendAddingRequestMahuaEvent> _addingFriendRequestMahuaEvents;
 
@@ -15,7 +15,7 @@ namespace Newbe.Mahua.CQP.Commands
             _addingFriendRequestMahuaEvents = addingFriendRequestMahuaEvents;
         }
 
-        protected override void HandleCore(AddFriendRequestCommand command)
+        public void Handle(AddFriendRequestCommand command)
         {
             _addingFriendRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
             {
@@ -26,7 +26,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class AddFriendRequestCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

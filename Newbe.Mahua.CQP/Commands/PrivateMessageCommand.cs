@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class PrivateMessageCommandHandler : CommandHandlerBase<PrivateMessageCommand>
+    internal class PrivateMessageCommandHandler : ICommandHandler<PrivateMessageCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
 
@@ -37,7 +37,7 @@ namespace Newbe.Mahua.CQP.Commands
             _privateMessageFromDiscussGroupReceivedMahuaEvents = privateMessageFromDiscussGroupReceivedMahuaEvents;
         }
 
-        protected override void HandleCore(PrivateMessageCommand command)
+        public void Handle(PrivateMessageCommand command)
         {
             _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(new PrivateMessageReceivedContext
             {
@@ -96,7 +96,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class PrivateMessageCommand : CqpCommand
     {
         public PrivateMessageFromType PrivateMessageFromType { get; set; }

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class CoolQExitedCommandHandler : CommandHandlerBase<CoolQExitedCommand>
+    internal class CoolQExitedCommandHandler : ICommandHandler<CoolQExitedCommand>
     {
         private readonly IEnumerable<IPlatfromExitedMahuaEvent> _platfromExitedMahuaEvents;
 
@@ -14,13 +13,12 @@ namespace Newbe.Mahua.CQP.Commands
             _platfromExitedMahuaEvents = platfromExitedMahuaEvents;
         }
 
-        protected override void HandleCore(CoolQExitedCommand command)
+        public void Handle(CoolQExitedCommand message)
         {
             _platfromExitedMahuaEvents.Handle(x => x.Exited(new PlatfromExitedContext()));
         }
     }
 
-    [Serializable]
     internal class CoolQExitedCommand : CqpCommand
     {
     }

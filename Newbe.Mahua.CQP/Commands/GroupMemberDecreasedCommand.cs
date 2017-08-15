@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupMemberDecreasedCommandHandler : CommandHandlerBase<GroupMemberDecreasedCommand>
+    internal class GroupMemberDecreasedCommandHandler : ICommandHandler<GroupMemberDecreasedCommand>
     {
         private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;
         private readonly IEnumerable<IGroupMemberDecreasedMahuaEvent> _groupMemberDecreasedMahuaEvents;
@@ -19,7 +19,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupMemberDecreasedMahuaEvents = groupMemberDecreasedMahuaEvents;
         }
 
-        protected override void HandleCore(GroupMemberDecreasedCommand command)
+        public void Handle(GroupMemberDecreasedCommand command)
         {
             _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
             {
@@ -40,7 +40,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class GroupMemberDecreasedCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

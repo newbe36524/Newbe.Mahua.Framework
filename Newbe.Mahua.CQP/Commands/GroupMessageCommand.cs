@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupMessageCommandHandler : CommandHandlerBase<GroupMessageCommand>
+    internal class GroupMessageCommandHandler : ICommandHandler<GroupMessageCommand>
     {
         private readonly IEnumerable<IGroupMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
 
@@ -14,7 +14,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
         }
 
-        protected override void HandleCore(GroupMessageCommand command)
+        public void Handle(GroupMessageCommand command)
         {
             _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
             {
@@ -27,7 +27,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class GroupMessageCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

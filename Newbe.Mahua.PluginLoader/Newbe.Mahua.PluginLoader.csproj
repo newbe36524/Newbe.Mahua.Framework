@@ -54,17 +54,13 @@
   <ItemGroup>
     <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
     <Compile Include="Commands\CommandHandlerExtensions.cs" />
-    <Compile Include="Commands\EmptyCommandResult.cs" />
-    <Compile Include="Commands\Impl\CommandCenter.cs" />
-    <Compile Include="Commands\CommandHandlerBase.cs" />
+    <Compile Include="Commands\CommandCenter.cs" />
     <Compile Include="CrossAppDomainPluginLoader.cs" />
-    <Compile Include="Commands\IComamndHandler.cs" />
     <Compile Include="Commands\ICommandCenter.cs" />
     <Compile Include="Commands\ICommandHandler.cs" />
     <Compile Include="Internals\GlobalCache.cs" />
     <Compile Include="IPluginApiExporter.cs" />
     <Compile Include="IPluginLoader.cs" />
-    <Compile Include="Commands\IResultCommandHandler.cs" />
     <Compile Include="Commands\MahuaCommand.cs" />
     <Compile Include="Commands\MahuaCommandResult.cs" />
     <Compile Include="PluginFileInfo.cs" />

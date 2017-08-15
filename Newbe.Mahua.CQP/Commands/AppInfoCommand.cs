@@ -1,9 +1,8 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class AppInfoCommandHandler : CommandHandlerBase<AppInfoCommand, AppInfoCommandResult>
+    internal class AppInfoCommandHandler : ICommandHandler<AppInfoCommand, AppInfoCommandResult>
     {
         private readonly IPluginInfo _pluginInfo;
 
@@ -12,7 +11,8 @@ namespace Newbe.Mahua.CQP.Commands
             _pluginInfo = pluginInfo;
         }
 
-        protected override AppInfoCommandResult HandleCore(AppInfoCommand command)
+
+        public AppInfoCommandResult Handle(AppInfoCommand message)
         {
             return new AppInfoCommandResult
             {
@@ -21,14 +21,12 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
-    internal class AppInfoCommandResult : MahuaCommandResult
+    internal class AppInfoCommandResult : CqpCommandResult
     {
         public string AppId { get; set; }
     }
 
-    [Serializable]
-    internal class AppInfoCommand : CqpCommand
+    internal class AppInfoCommand : CqpCommand<AppInfoCommandResult>
     {
     }
 }

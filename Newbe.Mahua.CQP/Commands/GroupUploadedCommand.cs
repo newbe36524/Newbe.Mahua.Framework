@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupUploadedCommandHandler : CommandHandlerBase<GroupUploadedCommand>
+    internal class GroupUploadedCommandHandler : ICommandHandler<GroupUploadedCommand>
     {
         private readonly IEnumerable<IGroupUploadedMahuaEvent> _groupUploadedMahuaEvents;
 
@@ -14,7 +14,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupUploadedMahuaEvents = groupUploadedMahuaEvents;
         }
 
-        protected override void HandleCore(GroupUploadedCommand command)
+        public void Handle(GroupUploadedCommand command)
         {
             _groupUploadedMahuaEvents.Handle(x => x.ProcessGroupUploaded(new GroupUploadedContext
             {
@@ -26,7 +26,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class GroupUploadedCommand : CqpCommand
     {
         public DateTime SendTime { get; set; }

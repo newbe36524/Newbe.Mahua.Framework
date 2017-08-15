@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupJoiningInvitationCommandHandler : CommandHandlerBase<GroupJoiningInvitationCommand>
+    internal class GroupJoiningInvitationCommandHandler : ICommandHandler<GroupJoiningInvitationCommand>
     {
         private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent>
             _groupJoiningInvitationReceivedMahuaEvents;
@@ -16,7 +16,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
         }
 
-        protected override void HandleCore(GroupJoiningInvitationCommand command)
+        public void Handle(GroupJoiningInvitationCommand command)
         {
             _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
                 new GroupJoiningRequestReceivedContext
@@ -30,7 +30,6 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    [Serializable]
     internal class GroupJoiningInvitationCommand : CqpCommand
     {
         public string GroupJoiningInvitationId { get; set; }

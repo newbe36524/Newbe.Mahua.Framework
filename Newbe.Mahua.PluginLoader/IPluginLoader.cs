@@ -1,11 +1,10 @@
-﻿using Newbe.Mahua.Commands;
-
-namespace Newbe.Mahua
+﻿namespace Newbe.Mahua
 {
     public interface IPluginLoader
     {
         string Message { get; }
         bool LoadPlugin(string pluginEntryPointDllFullFilename);
-        MahuaCommandResult SendCommandWithResult(MahuaCommand command);
+        string Handle(string commandJson, string cmdTypeFullName, string resultTypeFullName);
+        void Handle(string commandJson, string cmdTypeFullName);
     }
 }
