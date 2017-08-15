@@ -27,8 +27,10 @@ namespace Newbe.Mahua.CQP
         /// <returns></returns>
         private static bool ConvertAnsiHexToGroupMemberInfo(byte[] source, ref GroupMemberInfo gm)
         {
-            if (source == null || source.Length < 40)
+            if (source?.Length < 40)
+            {
                 return false;
+            }
             var u = new Unpack(source);
             gm.Group = u.GetLong().ToString();
             gm.Qq = u.GetLong().ToString();
@@ -73,17 +75,23 @@ namespace Newbe.Mahua.CQP
             if (source == string.Empty)
                 return false;
             var data = source.DeBase64();
-            if (data == null || data.Length < 10)
+            if (data?.Length < 10)
+            {
                 return false;
+            }
             var u = new Unpack(data);
             var count = u.GetInt();
             for (var i = 0; i < count; i++)
             {
                 if (u.Len() <= 0)
+                {
                     return false;
+                }
                 var gm = new GroupMemberInfo();
                 if (!ConvertAnsiHexToGroupMemberInfo(u.GetToken(), ref gm))
+                {
                     return false;
+                }
                 lsGm.Add(gm);
             }
             return true;

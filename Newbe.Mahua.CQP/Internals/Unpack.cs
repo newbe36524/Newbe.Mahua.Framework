@@ -56,7 +56,6 @@ namespace Newbe.Mahua.CQP.Internals
             var bin = _source.SubArray(_location, 2);
             _location += 2;
             return bin.ToShort();
-            ;
         }
 
         public string GetLenStr()
