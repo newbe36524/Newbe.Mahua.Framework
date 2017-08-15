@@ -1,10 +1,10 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MPQ.NativeApi;
+using System;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
-    internal class EventFunCommandHandler : CommandHandlerBase<EventFunCommand>
+    internal class EventFunCommandHandler : ICommandHandler<EventFunCommand, EventFunCommandResult>
     {
         private readonly IQqContainer _qqContainer;
 
@@ -13,15 +13,13 @@ namespace Newbe.Mahua.MPQ.Commands
             _qqContainer = qqContainer;
         }
 
-        protected override void HandleCore(EventFunCommand command)
+        public EventFunCommandResult Handle(EventFunCommand message)
         {
-            _qqContainer.ReceivedQq = command.ReceiverQq;
             throw new NotImplementedException();
         }
     }
 
-    [Serializable]
-    internal class EventFunCommand : MqpCommand
+    internal class EventFunCommand : MpqCommand<EventFunCommandResult>
     {
         public long ReceiverQq { get; set; }
         public int EventType { get; set; }
@@ -33,8 +31,7 @@ namespace Newbe.Mahua.MPQ.Commands
         public string RawMessage { get; set; }
     }
 
-    [Serializable]
-    internal class EventFunCommandResult : MahuaCommandResult
+    internal class EventFunCommandResult : MpqCommandResult
     {
         public int ResultCode { get; set; }
     }

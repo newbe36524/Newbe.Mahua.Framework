@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
-    internal class InfoCommandHandler : CommandHandlerBase<InfoCommand, InfoCommandResult>
+    internal class InfoCommandHandler : ICommandHandler<InfoCommand, InfoCommandResult>
     {
         private readonly IPluginInfo _pluginInfo;
         private readonly IEnumerable<IInitializationMahuaEvent> _initializationMahuaEvents;
@@ -17,7 +16,7 @@ namespace Newbe.Mahua.MPQ.Commands
             _initializationMahuaEvents = initializationMahuaEvents;
         }
 
-        protected override InfoCommandResult HandleCore(InfoCommand command)
+        public InfoCommandResult Handle(InfoCommand command)
         {
             _initializationMahuaEvents.Handle(x => x.Initialized(new InitializedContext()));
             return new InfoCommandResult
@@ -27,13 +26,11 @@ namespace Newbe.Mahua.MPQ.Commands
         }
     }
 
-    [Serializable]
-    internal class InfoCommand : MqpCommand
+    internal class InfoCommand : MpqCommand<InfoCommandResult>
     {
     }
 
-    [Serializable]
-    internal class InfoCommandResult : MahuaCommandResult
+    internal class InfoCommandResult : MpqCommandResult
     {
         public string Info { get; set; }
     }

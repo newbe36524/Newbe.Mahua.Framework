@@ -1,18 +1,16 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
-    internal class SetCommandHandler : CommandHandlerBase<SetCommand>
+    internal class SetCommandHandler : ICommandHandler<SetCommand>
     {
-        protected override void HandleCore(SetCommand command)
+        public void Handle(SetCommand command)
         {
             throw new System.NotImplementedException();
         }
     }
 
-    [Serializable]
-    internal class SetCommand : MqpCommand
+    internal class SetCommand : MpqCommand
     {
     }
 }

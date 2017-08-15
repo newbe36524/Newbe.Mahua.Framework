@@ -1,5 +1,4 @@
-﻿using System;
-using Newbe.Mahua.MPQ.Commands;
+﻿using Newbe.Mahua.MPQ.Commands;
 using RGiesecke.DllExport;
 
 namespace Newbe.Mahua.MPQ
@@ -15,7 +14,7 @@ namespace Newbe.Mahua.MPQ
         public static string GetInfo()
         {
             var infoCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<InfoCommandResult>(new InfoCommand());
+                .SendCommand<InfoCommand, InfoCommandResult>(new InfoCommand());
             return infoCommandResult.Info;
         }
 
@@ -25,7 +24,7 @@ namespace Newbe.Mahua.MPQ
             string triggee,
             string message, string rawMessage)
         {
-            var eventFunCommandResult = PluginInstanceManager.GetInstance().SendCommand<EventFunCommandResult>(
+            var eventFunCommandResult = PluginInstanceManager.GetInstance().SendCommand<EventFunCommand, EventFunCommandResult>(
                 new EventFunCommand
                 {
                     ReceiverQq = long.Parse(receiverQq),
