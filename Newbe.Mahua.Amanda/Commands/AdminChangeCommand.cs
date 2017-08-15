@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class AdminChangeCommandHandler : CommandHandlerBase<AdminChangeCommand>
+    internal class AdminChangeCommandHandler : ICommandHandler<AdminChangeCommand>
     {
         private readonly IEnumerable<IGroupAdminChangedMahuaEvent> _groupAdminChangedMahuaEvents;
         private readonly IEnumerable<IGroupAdminEnabledMahuaEvent> _groupAdminEnabledMahuaEvents;
@@ -32,7 +32,7 @@ namespace Newbe.Mahua.Amanda.Commands
             }
         }
 
-        protected override void HandleCore(AdminChangeCommand command)
+        public void Handle(AdminChangeCommand command)
         {
             var sendTime = DateTime.Now;
             var type = ConvertType(command.Type);
@@ -69,7 +69,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class AdminChangeCommand : AmandaCommand
     {
         public string Type { get; set; }

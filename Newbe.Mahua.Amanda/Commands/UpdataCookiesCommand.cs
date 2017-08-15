@@ -1,16 +1,14 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class UpdataCookiesCommandHandler : CommandHandlerBase<UpdataCookiesCommand>
+    internal class UpdataCookiesCommandHandler : ICommandHandler<UpdataCookiesCommand>
     {
-        protected override void HandleCore(UpdataCookiesCommand command)
+        public void Handle(UpdataCookiesCommand command)
         {
         }
     }
 
-    [Serializable]
     internal class UpdataCookiesCommand : AmandaCommand
     {
     }

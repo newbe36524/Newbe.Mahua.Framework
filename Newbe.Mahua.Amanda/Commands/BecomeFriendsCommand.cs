@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class BecomeFriendsCommandHandler : CommandHandlerBase<BecomeFriendsCommand>
+    internal class BecomeFriendsCommandHandler : ICommandHandler<BecomeFriendsCommand>
     {
         private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddedMahuaEvents;
 
@@ -14,7 +14,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _friendAddedMahuaEvents = friendAddedMahuaEvents;
         }
 
-        protected override void HandleCore(BecomeFriendsCommand command)
+        public void Handle(BecomeFriendsCommand command)
         {
             _friendAddedMahuaEvents.Handle(x => x.ProcessFriendsAdded(new FriendAddedMahuaEventContext
             {
@@ -24,7 +24,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class BecomeFriendsCommand : AmandaCommand
     {
         public string Fromqq { get; set; }

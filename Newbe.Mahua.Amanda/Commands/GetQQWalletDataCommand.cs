@@ -1,17 +1,15 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class GetQqWalletDataCommandHandler : CommandHandlerBase<GetQqWalletDataCommand>
+    internal class GetQqWalletDataCommandHandler : ICommandHandler<GetQqWalletDataCommand>
     {
-        protected override void HandleCore(GetQqWalletDataCommand command)
+        public void Handle(GetQqWalletDataCommand command)
         {
             //todo
         }
     }
 
-    [Serializable]
     internal class GetQqWalletDataCommand : AmandaCommand
     {
         public string Type { get; set; }

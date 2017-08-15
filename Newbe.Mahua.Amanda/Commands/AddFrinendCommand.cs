@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class AddFrinendCommandHandler : CommandHandlerBase<AddFrinendCommand>
+    internal class AddFrinendCommandHandler : ICommandHandler<AddFrinendCommand>
     {
         private readonly IEnumerable<IFriendAddingRequestMahuaEvent> _addingRequestMahuaEvents;
 
@@ -14,7 +14,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _addingRequestMahuaEvents = addingRequestMahuaEvents;
         }
 
-        protected override void HandleCore(AddFrinendCommand command)
+        public void Handle(AddFrinendCommand command)
         {
             _addingRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
             {
@@ -27,7 +27,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class AddFrinendCommand : AmandaCommand
     {
         public string Fromqq { get; set; }

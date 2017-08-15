@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class InitializationCommandHandler : CommandHandlerBase<InitializationCommand>
+    internal class InitializationCommandHandler : ICommandHandler<InitializationCommand>
     {
         private readonly IEnumerable<IInitializationMahuaEvent> _initializationMahuaEvents;
 
@@ -14,13 +13,12 @@ namespace Newbe.Mahua.Amanda.Commands
             _initializationMahuaEvents = initializationMahuaEvents;
         }
 
-        protected override void HandleCore(InitializationCommand command)
+        public void Handle(InitializationCommand command)
         {
             _initializationMahuaEvents.Handle(x => x.Initialized(new InitializedContext()));
         }
     }
 
-    [Serializable]
     internal class InitializationCommand : AmandaCommand
     {
     }

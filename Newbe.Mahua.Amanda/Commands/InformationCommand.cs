@@ -1,9 +1,9 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
+using System;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class InformationCommandHandler : CommandHandlerBase<InformationCommand, InformationCommandResult>
+    internal class InformationCommandHandler : ICommandHandler<InformationCommand, InformationCommandResult>
     {
         private static readonly string SdkVersion = "1";
         private readonly IPluginInfo _pluginInfo;
@@ -13,7 +13,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _pluginInfo = pluginInfo;
         }
 
-        protected override InformationCommandResult HandleCore(InformationCommand command)
+        public InformationCommandResult Handle(InformationCommand command)
         {
             var info = $"pluginID={_pluginInfo.Id};{Environment.NewLine}" +
                        $"pluginName={_pluginInfo.Name};{Environment.NewLine}" +
@@ -29,13 +29,11 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
-    internal class InformationCommand : AmandaCommand
+    internal class InformationCommand : AmandaCommand<InformationCommandResult>
     {
     }
 
-    [Serializable]
-    public class InformationCommandResult : MahuaCommandResult
+    public class InformationCommandResult : AmandaCommandResult
     {
         public string Info { get; set; }
     }

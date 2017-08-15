@@ -1,8 +1,6 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using Newbe.Mahua.Amanda.Commands;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Amanda.Commands;
 using RGiesecke.DllExport;
+using System.Runtime.InteropServices;
 
 namespace Newbe.Mahua.Amanda
 {
@@ -16,7 +14,7 @@ namespace Newbe.Mahua.Amanda
         public static string Information()
         {
             var informationCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<InformationCommandResult>(new InformationCommand());
+                .SendCommand<InformationCommand, InformationCommandResult>(new InformationCommand());
             return informationCommandResult.Info;
         }
 

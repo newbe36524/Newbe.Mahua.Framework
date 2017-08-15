@@ -1,10 +1,16 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.Amanda
 {
-    [Serializable]
     public class AmandaCommand : MahuaCommand
+    {
+    }
+
+    public class AmandaCommand<TReslut> : MahuaCommand<TReslut> where TReslut : AmandaCommandResult
+    {
+    }
+
+    public class AmandaCommandResult : MahuaCommandResult
     {
     }
 }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.AccessControl;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class AddGroupCommandHandler : CommandHandlerBase<AddGroupCommand>
+    internal class AddGroupCommandHandler : ICommandHandler<AddGroupCommand>
     {
         private readonly IEnumerable<IGroupJoiningRequestReceivedMahuaEvent> _groupJoiningRequestReceivedMahuaEvents;
 
@@ -25,7 +24,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
         }
 
-        protected override void HandleCore(AddGroupCommand command)
+        public void Handle(AddGroupCommand command)
         {
             switch (command.Type)
             {
@@ -60,7 +59,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class AddGroupCommand : AmandaCommand
     {
         public string Type { get; set; }

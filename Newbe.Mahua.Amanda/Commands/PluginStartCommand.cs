@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class PluginStartCommandHandler : CommandHandlerBase<PluginStartCommand>
+    internal class PluginStartCommandHandler : ICommandHandler<PluginStartCommand>
     {
         private readonly IEnumerable<IPluginEnabledMahuaEvent> _enabledMahuaEvents;
 
@@ -14,13 +13,12 @@ namespace Newbe.Mahua.Amanda.Commands
             _enabledMahuaEvents = enabledMahuaEvents;
         }
 
-        protected override void HandleCore(PluginStartCommand command)
+        public void Handle(PluginStartCommand command)
         {
             _enabledMahuaEvents.Handle(x => x.Enabled(new PluginEnabledContext()));
         }
     }
 
-    [Serializable]
     internal class PluginStartCommand : AmandaCommand
     {
     }

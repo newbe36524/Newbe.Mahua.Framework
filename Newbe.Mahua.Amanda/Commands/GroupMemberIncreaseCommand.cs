@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class GroupMemberIncreaseCommandHandler : CommandHandlerBase<GroupMemberIncreaseCommand>
+    internal class GroupMemberIncreaseCommandHandler : ICommandHandler<GroupMemberIncreaseCommand>
     {
         private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;
         private readonly IEnumerable<IGroupMemberIncreasedMahuaEvent> _groupMemberIncreasedMahuaEvents;
@@ -31,7 +31,7 @@ namespace Newbe.Mahua.Amanda.Commands
             }
         }
 
-        protected override void HandleCore(GroupMemberIncreaseCommand command)
+        public void Handle(GroupMemberIncreaseCommand command)
         {
             var sendTime = DateTime.Now;
 
@@ -54,7 +54,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class GroupMemberIncreaseCommand : AmandaCommand
     {
         public string Type { get; set; }

@@ -1,17 +1,15 @@
-﻿using System;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class MenuCommandHandler : CommandHandlerBase<MenuCommand>
+    internal class MenuCommandHandler : ICommandHandler<MenuCommand>
     {
-        protected override void HandleCore(MenuCommand command)
+        public void Handle(MenuCommand command)
         {
             //todo
         }
     }
 
-    [Serializable]
     internal class MenuCommand : AmandaCommand
     {
         public string MenuId { get; set; }

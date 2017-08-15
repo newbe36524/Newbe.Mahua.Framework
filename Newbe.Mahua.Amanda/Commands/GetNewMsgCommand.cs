@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Newbe.Mahua.Commands;
+﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
+using System;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class GetNewMsgCommandHandler : CommandHandlerBase<GetNewMsgCommand>
+    internal class GetNewMsgCommandHandler : ICommandHandler<GetNewMsgCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
 
@@ -31,7 +31,7 @@ namespace Newbe.Mahua.Amanda.Commands
             IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
-            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>privateMessageFromDiscussGroupReceivedMahuaEvents,
+            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent> privateMessageFromDiscussGroupReceivedMahuaEvents,
             IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents,
             IEnumerable<IDiscussMessageReceivedMahuaEvent> discussMessageReceivedMahuaEvents
         )
@@ -64,7 +64,7 @@ namespace Newbe.Mahua.Amanda.Commands
             }
         }
 
-        protected override void HandleCore(GetNewMsgCommand command)
+        public void Handle(GetNewMsgCommand command)
         {
             var sendTime = DateTime.Now;
             var commandFromqq = command.Fromqq;
@@ -155,7 +155,6 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    [Serializable]
     internal class GetNewMsgCommand : AmandaCommand
     {
         public FromMessageType Type { get; set; }
