@@ -260,3 +260,13 @@ paket-files/
 __pycache__/
 *.pyc
 /.nuget/psake.4.4.1/tools
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/Autofac.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/MediatR.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/Newbe.Mahua.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/Newbe.Mahua.PluginLoader.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/Newbe.Mahua.xml
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Framework/Tungsten.Domains.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Platform/Amanda/CLR/Newbe.Mahua.Amanda.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Platform/Amanda/Native/Newbe.Mahua.Amanda.Native.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Platform/CQP/CLR/Newbe.Mahua.CQP.dll
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/Platform/CQP/Native/Newbe.Mahua.CQP.Native.dll

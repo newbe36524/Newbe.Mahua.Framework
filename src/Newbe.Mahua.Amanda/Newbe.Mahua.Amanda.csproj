@@ -11,6 +11,9 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix>dev02</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -24,8 +27,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\Newbe.Mahua.Amanda.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.Amanda.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net452\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\Newbe.Mahua.Amanda.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.Amanda.Native.pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib\net452\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\x86\Newbe.Mahua.Amanda.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.Amanda.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\Amanda\Native\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.Amanda.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.Amanda.pdb">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\net452\CLR\" />
+    <Folder Include="bin\Release\net452\Native\" />
   </ItemGroup>
 
 </Project>

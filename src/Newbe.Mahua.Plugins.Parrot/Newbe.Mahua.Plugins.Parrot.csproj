@@ -33,18 +33,43 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.2.0-dev01\lib\net452\Newbe.Mahua.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.Amanda, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.Amanda.1.2.0-dev02\lib\net452\Newbe.Mahua.Amanda.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.Amanda.Native, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.Amanda.1.2.0-dev02\lib\net452\Newbe.Mahua.Amanda.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.CQP, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.CQP.1.2.0-dev02\lib\net452\Newbe.Mahua.CQP.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.CQP.Native, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.CQP.1.2.0-dev02\lib\net452\Newbe.Mahua.CQP.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.2.0-dev01\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tungsten.Domains, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tungsten.Domains.1.0.0\lib\net45\Tungsten.Domains.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MahuaModule.cs" />
@@ -54,22 +79,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.CQP.Native\Newbe.Mahua.CQP.Native.csproj">
-      <Project>{79e0600a-8f6b-40a3-a1dc-3857855c7047}</Project>
-      <Name>Newbe.Mahua.CQP.Native</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj">
-      <Project>{7e31ff27-eab2-47af-95b1-474b6a6deed9}</Project>
-      <Name>Newbe.Mahua.CQP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj">
-      <Project>{12392cce-bdbb-4f57-ad37-8024dfa8077c}</Project>
-      <Name>Newbe.Mahua.PluginLoader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj">
-      <Project>{335c80ce-cab8-4a09-b3f4-5502c7c82498}</Project>
-      <Name>Newbe.Mahua</Name>
-    </ProjectReference>
+    <Content Include="NewbeLibs\Framework\Autofac.dll" />
+    <Content Include="NewbeLibs\Framework\MediatR.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.pdb" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.pdb" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.xml" />
+    <Content Include="NewbeLibs\Framework\Tungsten.Domains.dll" />
+    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.dll" />
+    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.pdb" />
+    <Content Include="NewbeLibs\Platform\Amanda\Native\Newbe.Mahua.Amanda.Native.dll" />
+    <Content Include="NewbeLibs\Platform\CQP\CLR\Newbe.Mahua.CQP.dll" />
+    <Content Include="NewbeLibs\Platform\CQP\CLR\Newbe.Mahua.CQP.pdb" />
+    <Content Include="NewbeLibs\Platform\CQP\Native\Newbe.Mahua.CQP.Native.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

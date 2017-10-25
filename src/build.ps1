@@ -3,7 +3,7 @@ properties {
     $rootNow = Resolve-Path .
     $nugetexe = "$rootNow\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
     $deployMode = "Release"
-    $releaseDir = "$rootNow/build/$deployMode"
+    $releaseDir = "$rootNow\build\"
 }
 
 Task Default -depends Build
@@ -24,3 +24,12 @@ Task Build -depends Nuget -Description "编译所有解决方案" {
     RebuildAllSln -deployMode $deployMode
 }
 
+Task NugetPushLocal -depends Build -Description "推送nuget包到本地" {
+    Get-ChildItem $releaseDir *.nupkg | ForEach-Object { 
+        Exec {
+            $s = "$nugetexe push $releaseDir$_ Admin:Admin -Source http://localhost:81/nuget/NewbeGet/"
+            Write-Output $s
+            cmd /c "$s"
+        }
+    }
+}

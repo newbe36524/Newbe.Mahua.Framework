@@ -11,21 +11,52 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix>dev02</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>lib\net452\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib\net452\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.CQP.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\CQP\Native\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.CQP.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.CQP.pdb">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\net452\Native\" />
+    <Folder Include="bin\Release\net452\CLR\" />
   </ItemGroup>
 
 </Project>
