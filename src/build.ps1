@@ -23,13 +23,24 @@ Task Nuget -depends Init -Description "nuget restore" {
 Task Build -depends Nuget -Description "编译所有解决方案" {
     RebuildAllSln -deployMode $deployMode
 }
-
-Task NugetPushLocal -depends Build -Description "推送nuget包到本地" {
+Task Pack -depends Build -Description "打包" {
+    $packList = @(
+        "Newbe.Mahua",
+        "Newbe.Mahua.PluginLoader",
+        "Newbe.Mahua.Tools.Psake",
+        "Newbe.Mahua.Amanda",
+        "Newbe.Mahua.CQP"
+    )
+    $packList | ForEach-Object {
+        Exec {
+            dotnet pack "$_\$_.csproj" -c $deployMode --no-build
+        }
+    }
+}
+Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
     Get-ChildItem $releaseDir *.nupkg | ForEach-Object { 
         Exec {
-            $s = "$nugetexe push $releaseDir$_ Admin:Admin -Source http://localhost:81/nuget/NewbeGet/"
-            Write-Output $s
-            cmd /c "$s"
+            cmd /c "$nugetexe push $releaseDir$_ Admin:Admin -Source http://localhost:81/nuget/NewbeGet/"
         }
     }
 }

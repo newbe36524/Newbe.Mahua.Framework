@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
     <PackageOutputPath>../build/</PackageOutputPath>
     <VersionPrefix>1.2.0</VersionPrefix>
     <VersionSuffix>dev01</VersionSuffix>

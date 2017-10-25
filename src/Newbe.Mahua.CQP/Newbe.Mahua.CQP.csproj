@@ -10,10 +10,11 @@
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>../build/</PackageOutputPath>
     <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev02</VersionSuffix>
+    <VersionSuffix>dev08</VersionSuffix>
+    <IsTool>true</IsTool>
+    <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -27,13 +28,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Content\Newbe.Mahua.CQP.json">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\CQP\Content\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>lib\net452\</PackagePath>
+      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
       <Pack>true</Pack>
-      <PackagePath>lib\net452\</PackagePath>
+      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>

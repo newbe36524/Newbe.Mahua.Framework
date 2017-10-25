@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <Authors>Newbe</Authors>
+    <Company>Newbe</Company>
+    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Newbe Mahua Tools Packer Psake </PackageTags>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>dev03</VersionSuffix>
+    <IsTool>true</IsTool>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="build.bat" />
+    <None Remove="build.ps1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build.bat" />
+    <Content Include="build.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newbe.Build.Psake" Version="1.0.4" />
+    <PackageReference Include="NuGet.CommandLine" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+</Project>
