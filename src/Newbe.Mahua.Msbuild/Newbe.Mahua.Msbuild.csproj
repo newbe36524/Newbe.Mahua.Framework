@@ -10,7 +10,10 @@
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
-    
+    <IsTool>true</IsTool>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix>dev01</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -22,6 +25,13 @@
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="README.md1">
+      <Pack>true</Pack>
+      <PackagePath>README.md</PackagePath>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NuGet.Core" Version="2.14.0" />

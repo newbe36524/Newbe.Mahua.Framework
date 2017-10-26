@@ -15,23 +15,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.Msbuild", "Newb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.PluginLoader", "Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj", "{12392CCE-BDBB-4F57-AD37-8024DFA8077C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MahuaPlatforms", "MahuaPlatforms", "{E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)MahuaPlatforms", "1)MahuaPlatforms", "{E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.CQP.Native", "Newbe.Mahua.CQP.Native\Newbe.Mahua.CQP.Native.csproj", "{79E0600A-8F6B-40A3-A1DC-3857855C7047}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQP", "CQP", "{3A0CA621-D6A1-4CB8-A97D-4ACF16612617}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1)CQP", "1.1)CQP", "{3A0CA621-D6A1-4CB8-A97D-4ACF16612617}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{D6A2AC89-2895-4D73-88EA-20315EFC83B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2)Plugins", "2)Plugins", "{D6A2AC89-2895-4D73-88EA-20315EFC83B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot", "Newbe.Mahua.Plugins.Parrot\Newbe.Mahua.Plugins.Parrot.csproj", "{8FFE9313-3E15-404F-A562-305154335513}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Amanda", "Amanda", "{DB9C69DA-2EA0-4E6C-9D8C-89C4E3FE978F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2)Amanda", "1.2)Amanda", "{DB9C69DA-2EA0-4E6C-9D8C-89C4E3FE978F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MPQ", "MPQ", "{DABD0D69-8757-4EDE-989D-5F65FF10D1FC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.3)MPQ", "1.3)MPQ", "{DABD0D69-8757-4EDE-989D-5F65FF10D1FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Amanda.Native", "Newbe.Mahua.Amanda.Native\Newbe.Mahua.Amanda.Native.csproj", "{3F6DD716-5DD5-4B36-B1A7-187CCB9003F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Tools.Psake", "Newbe.Mahua.Tools.Psake\Newbe.Mahua.Tools.Psake.csproj", "{2FF30FC4-C7E7-45EC-8BD7-9B43D3DAAF39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.Tools.Psake", "Newbe.Mahua.Tools.Psake\Newbe.Mahua.Tools.Psake.csproj", "{2FF30FC4-C7E7-45EC-8BD7-9B43D3DAAF39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3)Tools", "3)Tools", "{A1D81992-C02F-413A-A208-28B89B0DF306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Tools.ELang2CSharp", "Newbe.Tools.ELang2CSharp\Newbe.Tools.ELang2CSharp.csproj", "{563EB946-C844-46F4-B61F-3F192244DA83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4)Global", "4)Global", "{623B59F9-2AF6-472E-9A5F-3F77944866E0}"
+	ProjectSection(SolutionItems) = preProject
+		GlobalBin\init.ps1 = GlobalBin\init.ps1
+		GlobalBin\NLog.config = GlobalBin\NLog.config
+		GlobalBin\NLog.dll = GlobalBin\NLog.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +90,10 @@ Global
 		{2FF30FC4-C7E7-45EC-8BD7-9B43D3DAAF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF30FC4-C7E7-45EC-8BD7-9B43D3DAAF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF30FC4-C7E7-45EC-8BD7-9B43D3DAAF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563EB946-C844-46F4-B61F-3F192244DA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563EB946-C844-46F4-B61F-3F192244DA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563EB946-C844-46F4-B61F-3F192244DA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563EB946-C844-46F4-B61F-3F192244DA83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +108,7 @@ Global
 		{DB9C69DA-2EA0-4E6C-9D8C-89C4E3FE978F} = {E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}
 		{DABD0D69-8757-4EDE-989D-5F65FF10D1FC} = {E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}
 		{3F6DD716-5DD5-4B36-B1A7-187CCB9003F9} = {DB9C69DA-2EA0-4E6C-9D8C-89C4E3FE978F}
+		{563EB946-C844-46F4-B61F-3F192244DA83} = {A1D81992-C02F-413A-A208-28B89B0DF306}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}

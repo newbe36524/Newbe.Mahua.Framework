@@ -12,7 +12,7 @@
     <PackageTags>Newbe Mahua</PackageTags>
     <PackageOutputPath>../build/</PackageOutputPath>
     <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev06</VersionSuffix>
+    <VersionSuffix>dev07</VersionSuffix>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
@@ -28,6 +28,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
     <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\Newbe.Mahua.Amanda.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.Amanda.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>

@@ -6,7 +6,7 @@ properties {
     $releaseDir = "$rootNow\build\"
 }
 
-Task Default -depends Build
+Task Default -depends Pack
 
 Task Clean -Description "清理上一次编译结果" {
     Remove-Item $releaseDir -Force -Recurse -ErrorAction SilentlyContinue
@@ -21,12 +21,16 @@ Task Nuget -depends Init -Description "nuget restore" {
 }
 
 Task Build -depends Nuget -Description "编译所有解决方案" {
-    RebuildAllSln -deployMode $deployMode
+    Get-ChildItem *.sln -File -Recurse | ForEach-Object {
+        Exec {
+            msbuild /t:"Clean;Rebuild" /p:Configuration=$deployMode /v:minimal /nologo  $_ }
+    }
 }
 Task Pack -depends Build -Description "打包" {
     $packList = @(
         "Newbe.Mahua",
         "Newbe.Mahua.PluginLoader",
+        "Newbe.Mahua.Msbuild",
         "Newbe.Mahua.Tools.Psake",
         "Newbe.Mahua.Amanda",
         "Newbe.Mahua.CQP"

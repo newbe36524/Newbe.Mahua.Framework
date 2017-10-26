@@ -12,7 +12,7 @@
     <PackageTags>Newbe Mahua</PackageTags>
     <PackageOutputPath>../build/</PackageOutputPath>
     <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev08</VersionSuffix>
+    <VersionSuffix>dev09</VersionSuffix>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
@@ -35,6 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>

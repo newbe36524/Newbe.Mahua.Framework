@@ -10,10 +10,10 @@
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
-    
+
     <PackageOutputPath>../build/</PackageOutputPath>
     <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev01</VersionSuffix>
+    <VersionSuffix>dev02</VersionSuffix>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -27,19 +27,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\net452\Autofac.dll">
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
+    <None Include="..\GlobalBin\NLog.config" Link="bin\Release\net452\NLog.config">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.pdb">
+    <None Include="..\GlobalBin\NLog.dll" Link="bin\Release\net452\NLog.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.xml">
-      <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.dll">
+    <None Include="bin\Release\net452\*">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
