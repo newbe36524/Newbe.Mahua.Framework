@@ -6,11 +6,11 @@ namespace Newbe.Mahua.Amanda.Commands
     {
         public void Handle(UpdataCookiesCommand command)
         {
+            //todo 需要做的什么
         }
     }
 
     internal class UpdataCookiesCommand : AmandaCommand
     {
-        //todo 需要做的什么
     }
 }
