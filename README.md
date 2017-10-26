@@ -1,44 +1,57 @@
 # Newbe.Mahua.Framework
 
 dev                                                                                                                                                                                                                                                                   | master
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-[![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/dev?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/dev)                                                                                      | [![Build status](https://ci.appveyor.com/api/projects/status/9m8guue6ukpn01pa/branch/master?svg=true)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework/branch/master)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/87121d1e6dbf42edac3e356696504b8d)](https://www.codacy.com/app/472158246/Newbe.Mahua.Framework?utm_source=github.com&utm_medium=referral&utm_content=Newbe36524/Newbe.Mahua.Framework&utm_campaign=badger) |
+
+## 说在最前面
+
+开发本SDK的目的是为了促进.Net技术的交流学习。
+
+由本SDK衍生的任何产品均与本SDK无关！
+
+由本SDK支持的QQ自动化管理助手平台均与本SDK无关！
+
+禁止用于国家或地区法律法规所禁止的范围！
+
+**最后，但是最重要的，一定要Star一下！**
 
 ## 你打麻花，谁疼？麻花疼。
 
-本SDK为实现QQ机器人平台的大一统，全新实现支持以下高级特性：
+QQ自动化管理助手平台意指那些支持通过QQ进行消息收发和群员管理软件平台。
 
-- 支持多种机器人平台：酷Q、MyPCQQ、Amanda等
-- 支持Framework452
-- 支持依赖注入
+这些平台大多具有不同的接口，对接开发存在巨大困难。
 
-你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ机器人平台。
+使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
 
-## 主要链接
+支持容器管理生命周期，依赖注入，便于进行单元测试，确保开发效率。
+
+你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ自动化管理助手平台。
+
+## 技术支持
 
 - [版本变更情况](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
 - [帮助文档](http://www.newbe.cf)
-- [加群链接【610394020】](https://jq.qq.com/?_wv=1027&k=4AMMCTx)
+- [免费加入技术讨论群【610394020】](https://jq.qq.com/?_wv=1027&k=4AMMCTx)
 
 ## 名词表
 
-中文    | 英文                     | 说明
------ | ---------------------- | ------------------
-QQ    | QQ                     |
-群     | Group                  |
-群成员   | GroupMember            |
-讨论组   | Discuss                |
-好友    | Friend                 |
-好友申请  | FriendAddingRequest    |
-入群申请  | GroupJoiningRequest    |
-加群邀请  | GroupJoiningInvitation |
-私聊消息  | PrivateMessage         |
-群消息   | GroupMessage           |
-讨论组消息 | DiscussMessage         |
-禁言    | Ban                    |
-机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
-插件    | Plugin                 |
+中文          | 英文                     | 说明
+----------- | ---------------------- | ------------------
+QQ          | QQ                     |
+群           | Group                  |
+群成员         | GroupMember            |
+讨论组         | Discuss                |
+好友          | Friend                 |
+好友申请        | FriendAddingRequest    |
+入群申请        | GroupJoiningRequest    |
+加群邀请        | GroupJoiningInvitation |
+私聊消息        | PrivateMessage         |
+群消息         | GroupMessage           |
+讨论组消息       | DiscussMessage         |
+禁言          | Ban                    |
+QQ自动化管理助手平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
+插件          | Plugin                 |
 
 ## MahuaEvent支持列表
 
@@ -87,7 +100,7 @@ GetCookies                   | 取Cookies       | √   | √   | √
 GetDiscusses                 | 获取讨论组列表        |     | √   |
 GetFriends                   | 获取好友列表         |     | √   | √
 GetGroupMemebers             | 获取群成员列表（返回字符串） | √   | √   | √
-GetGroupMemebersWithModel    | 取群成员列表         | √   |     |
+GetGroupMemebersWithModel    | 获取群成员列表        | √   |     |
 GetGroups                    | 获取群列表（返回字符串）   | √   | √   | √
 GetGroupsWithModel           | 获取群列表          | √   |     |
 GetLoginNick                 | 取当前登录QQ昵称      | √   | √   | √
@@ -115,3 +128,11 @@ SetGroupAnonymousOption      | 设置群匿名设置        | √   |     | √
 SetGroupMemberCard           | 设置群成员名片        | √   | √   | √
 SetGroupMemberSpecialTitle   | 设置群成员专属头衔      | √   |     |
 SetNotice                    | 发布群公告          |     | √   |
+
+## 相关技术
+
+- <https://github.com/3F/DllExport>
+- <https://github.com/jbogard/MediatR>
+- <https://github.com/autofac/Autofac>
+- <https://github.com/mode51/Tungsten>
+- <https://gitee.com/yks/Newbe.Common>

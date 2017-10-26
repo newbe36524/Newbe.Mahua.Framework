@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <Authors>Newbe</Authors>
+    <Company>Newbe</Company>
+    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>Newbe Mahua</PackageTags>
+    <IsTool>true</IsTool>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Description>
+      Newbe.Mahua.Msbuild 从1.2.0开始已经不再需要，请使用[Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)进行替换
+    </Description>
+    <PackageReleaseNotes>
+      ## 1.2.0
+
+      Newbe.Mahua.Msbuild 从1.2.0开始已经不再需要
+
+      Newbe.Mahua.Msbuild在1.0阶段时作为插件打包自动化工具，现在我们将抛弃这个工具。
+
+      1.2.0的这个包只是一个空的nuget包。你可以从项目中直接删除对这个nuget包的依赖。
+
+      作为更加灵活稳定、方便扩展和调试容易的打包工具， [Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/) 将会是不二之选。
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.Core" Version="2.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+  </ItemGroup>
+
+</Project>
