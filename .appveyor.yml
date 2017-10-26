@@ -6,4 +6,4 @@ cache:
   - packages
 
 build_script:
-  - build.bat CI
+  - src\build.bat CI
