@@ -11,5 +11,6 @@ namespace Newbe.Mahua.Amanda.Commands
 
     internal class UpdataCookiesCommand : AmandaCommand
     {
+        //todo 需要做的什么
     }
 }

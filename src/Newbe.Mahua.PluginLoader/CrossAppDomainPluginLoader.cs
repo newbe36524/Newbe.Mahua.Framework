@@ -119,8 +119,8 @@ namespace Newbe.Mahua
 
         private static Type GetMahuaType(string typeName, MahuaPlatform? mahuaPlatform = null)
         {
-            mahuaPlatform = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
-            var re = CommandAndResultTypes.GetOrAdd($"{typeName}, Newbe.Mahua.{mahuaPlatform:G}",
+            var p = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
+            var re = CommandAndResultTypes.GetOrAdd($"{typeName}, Newbe.Mahua.{p:G}",
                 typeStr => Type.GetType(typeStr, true, true));
             return re;
         }
