@@ -9,12 +9,25 @@
     <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageTags>Newbe Mahua</PackageTags>
+    <PackageTags>Newbe Mahua Amanda</PackageTags>
     <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev07</VersionSuffix>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Description>
+      Newbe.Mahua 针对Amanda平台推出的平台支持包。
+      全新的 Amanda （http://www.52chat.cc/）
+      上手即用的QQ机器人
+      即刻提升您的群活跃度
+      全自动便捷管理群组
+      试试看，您一定会喜欢上她
+    </Description>
+    <PackageReleaseNotes>
+      ## 1.2.0
+
+      支持Newbe.Mahua.Tools.Psake
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">

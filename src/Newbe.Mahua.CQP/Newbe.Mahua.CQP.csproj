@@ -9,12 +9,23 @@
     <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageTags>Newbe Mahua</PackageTags>
+    <PackageTags>Newbe Mahua CQP</PackageTags>
     <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix>dev09</VersionSuffix>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Description>
+      Newbe.Mahua 针对酷Q平台推出的平台支持包。
+      酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的 V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
+      酷Q Pro （https://cqp.im/t/14901） 是一款收费软件，因此我们会更专注于其稳定性与专业性。
+      这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
+    </Description>
+    <PackageReleaseNotes>
+      ## 1.2.0
+
+      支持Newbe.Mahua.Tools.Psake
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
