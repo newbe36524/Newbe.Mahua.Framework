@@ -13,8 +13,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.3.0</VersionPrefix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Description>
       Newbe.Mahua 针对酷Q平台推出的平台支持包。
       酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的 V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
@@ -81,5 +81,6 @@
     <Folder Include="bin\Release\net452\Native\" />
     <Folder Include="bin\Release\net452\CLR\" />
   </ItemGroup>
+
 
 </Project>

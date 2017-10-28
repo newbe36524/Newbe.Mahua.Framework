@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Commands;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -10,7 +11,8 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class UpdataCookiesCommand : AmandaCommand
+    [DataContract]
+    public class UpdataCookiesCommand : AmandaCommand
     {
     }
 }

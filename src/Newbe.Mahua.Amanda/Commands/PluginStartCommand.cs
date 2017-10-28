@@ -1,6 +1,7 @@
 ﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -19,7 +20,8 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class PluginStartCommand : AmandaCommand
+    [DataContract]
+    public class PluginStartCommand : AmandaCommand
     {
     }
 }

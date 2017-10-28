@@ -4,7 +4,7 @@
     {
         string Message { get; }
         bool LoadPlugin(string pluginEntryPointDllFullFilename);
-        string Handle(string commandJson, string cmdTypeFullName, string resultTypeFullName);
-        void Handle(string commandJson, string cmdTypeFullName);
+        byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName);
+        void Handle(byte[] cmd, string cmdTypeFullName);
     }
 }

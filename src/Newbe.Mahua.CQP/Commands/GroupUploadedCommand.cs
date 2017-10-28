@@ -2,6 +2,7 @@
 using Newbe.Mahua.MahuaEvents;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -26,11 +27,19 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class GroupUploadedCommand : CqpCommand
+    [DataContract]
+    public class GroupUploadedCommand : CqpCommand
     {
+        [DataMember]
         public DateTime SendTime { get; set; }
+
+        [DataMember]
         public long FromQq { get; set; }
+
+        [DataMember]
         public long GroupNum { get; set; }
+
+        [DataMember]
         public string File { get; set; }
     }
 }

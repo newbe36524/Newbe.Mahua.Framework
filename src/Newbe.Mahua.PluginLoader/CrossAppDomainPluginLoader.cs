@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using Autofac.Features.Variance;
 using MediatR;
+using MessagePack;
 using Newbe.Mahua.Commands;
 using Newbe.Mahua.Internals;
 using Newbe.Mahua.Logging;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Lifetime;
@@ -22,10 +22,6 @@ namespace Newbe.Mahua
         private static void Debug(string msg)
         {
             Logger.Debug(msg);
-#if CrossDomainLog
-            //%temp%/Newbe.Mahua.log
-            File.AppendAllLines(Path.Combine(Path.GetTempPath(), "Newbe.Mahua.log"), new[] { msg });
-#endif
         }
 
         public override object InitializeLifetimeService()
@@ -125,26 +121,28 @@ namespace Newbe.Mahua
             return re;
         }
 
-
         private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> WithResultHandlers =
             new ConcurrentDictionary<Type, Func<object, object[], object>>();
 
-        public string Handle(string commandJson, string cmdTypeFullName, string resultTypeFullName)
+        private readonly MethodInfo _commandCenterHandleWithResultMethod =
+            typeof(ICommandCenter)
+                .GetMethod(nameof(ICommandCenter.HandleWithResult));
+
+        public byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName)
         {
-            WriteDiagnostics(() => commandJson);
+            WriteDiagnostics(() => cmd);
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
-                var cmdTypeType = GetMahuaType(cmdTypeFullName);
-                System.Diagnostics.Debug.Assert(cmdTypeType != null, "cmdTypeType != null");
-                var handler = WithResultHandlers.GetOrAdd(cmdTypeType, typeof(ICommandCenter)
-                    .GetMethod(nameof(ICommandCenter.HandleWithResult))
-                    .MakeGenericMethod(cmdTypeType, GetMahuaType(resultTypeFullName))
+                var cmdType = GetMahuaType(cmdTypeFullName);
+                var resultType = GetMahuaType(resultTypeFullName);
+                var handler = WithResultHandlers.GetOrAdd(cmdType, _commandCenterHandleWithResultMethod
+                    .MakeGenericMethod(cmdType, resultType)
                     .Invoke);
                 var re = handler(center,
-                    new[] { GlobalCache.JavaScriptSerializer.Deserialize(commandJson, cmdTypeType) });
-                var rejson = GlobalCache.JavaScriptSerializer.Serialize(re);
+                    new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
+                var rejson = GlobalCache.CrossDoaminSerializer.Serialize(re, resultType);
                 WriteDiagnostics(() => rejson);
                 return rejson;
             }
@@ -154,31 +152,32 @@ namespace Newbe.Mahua
         private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> VoidResultHandlers =
             new ConcurrentDictionary<Type, Func<object, object[], object>>();
 
-        public void Handle(string commandJson, string cmdTypeFullName)
+        private readonly MethodInfo _commandCenterHandleMethod =
+            typeof(ICommandCenter)
+                .GetMethod(nameof(ICommandCenter.Handle));
+
+        public void Handle(byte[] cmd, string cmdTypeFullName)
         {
-            WriteDiagnostics(() => commandJson);
+            WriteDiagnostics(() => cmd);
             using (var beginLifetimeScope = _container.BeginLifetimeScope())
             {
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
-                var cmdTypeType = GetMahuaType(cmdTypeFullName);
-                System.Diagnostics.Debug.Assert(cmdTypeType != null, "cmdTypeType != null");
-                var handler = VoidResultHandlers.GetOrAdd(cmdTypeType, typeof(ICommandCenter)
-                    .GetMethod(nameof(ICommandCenter.Handle))
-                    .MakeGenericMethod(cmdTypeType).Invoke);
-                handler(center, new[] { GlobalCache.JavaScriptSerializer.Deserialize(commandJson, cmdTypeType) });
+                var cmdType = GetMahuaType(cmdTypeFullName);
+                var handler = VoidResultHandlers.GetOrAdd(cmdType, _commandCenterHandleMethod
+                    .MakeGenericMethod(cmdType).Invoke);
+                handler(center, new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
             }
         }
 
-        private static void WriteDiagnostics(Func<object> action)
+        private static void WriteDiagnostics(Func<byte[]> action)
         {
             if (MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics)
             {
                 var re = action?.Invoke();
                 if (re != null)
                 {
-                    var s = re as string;
-                    Debug(s ?? $"{re.GetType().FullName} {GlobalCache.JavaScriptSerializer.Serialize(re)}");
+                    Debug($"{re.GetType().FullName} {MessagePackSerializer.ToJson(re)}");
                 }
             }
         }

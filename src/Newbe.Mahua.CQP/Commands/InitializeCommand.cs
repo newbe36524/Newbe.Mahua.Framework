@@ -1,7 +1,8 @@
 ﻿using Newbe.Mahua.Commands;
+using Newbe.Mahua.CQP.NativeApi;
 using Newbe.Mahua.MahuaEvents;
 using System.Collections.Generic;
-using Newbe.Mahua.CQP.NativeApi;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -24,8 +25,10 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class InitializeCommand : CqpCommand
+    [DataContract]
+    public class InitializeCommand : CqpCommand
     {
+        [DataMember]
         public int AuthCode { get; set; }
     }
 }

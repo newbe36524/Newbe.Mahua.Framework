@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 
 namespace Newbe.Mahua.Commands
 {
     [Serializable]
-    public abstract class MahuaCommandResult
+    public class MahuaCommandResult
     {
     }
 }

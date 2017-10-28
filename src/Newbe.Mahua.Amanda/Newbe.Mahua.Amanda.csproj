@@ -13,8 +13,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.3.0</VersionPrefix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Description>
       Newbe.Mahua 针对Amanda平台推出的平台支持包。
       全新的 Amanda （http://www.52chat.cc/）

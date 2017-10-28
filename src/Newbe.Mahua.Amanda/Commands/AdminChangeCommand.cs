@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -69,10 +70,16 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class AdminChangeCommand : AmandaCommand
+    [DataContract]
+    public class AdminChangeCommand : AmandaCommand
     {
+        [DataMember]
         public string Type { get; set; }
+
+        [DataMember]
         public string Fromgroup { get; set; }
+
+        [DataMember]
         public string Fromqq { get; set; }
     }
 }

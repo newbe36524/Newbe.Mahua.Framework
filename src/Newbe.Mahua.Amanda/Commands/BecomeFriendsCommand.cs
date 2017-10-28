@@ -2,6 +2,7 @@
 using Newbe.Mahua.MahuaEvents;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -24,8 +25,10 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class BecomeFriendsCommand : AmandaCommand
+    [DataContract]
+    public class BecomeFriendsCommand : AmandaCommand
     {
+        [DataMember]
         public string Fromqq { get; set; }
     }
 }

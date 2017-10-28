@@ -12,8 +12,8 @@
     <PackageTags>Newbe Mahua</PackageTags>
     <RootNamespace>Newbe.Mahua</RootNamespace>
     <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.2.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.3.0</VersionPrefix>
+    <VersionSuffix>dev05</VersionSuffix>
     <Description>
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
@@ -56,10 +56,23 @@
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
+    <None Include="bin\Release\net452\System.Threading.Tasks.Extensions.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\System.ValueTuple.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\MessagePack.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
+    <PackageReference Include="MessagePack" Version="1.7.2" />
     <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
   </ItemGroup>
 

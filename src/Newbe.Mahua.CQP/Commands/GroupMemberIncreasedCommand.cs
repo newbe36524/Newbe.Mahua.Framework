@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -40,12 +41,22 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class GroupMemberIncreasedCommand : CqpCommand
+    [DataContract]
+    public class GroupMemberIncreasedCommand : CqpCommand
     {
+        [DataMember]
         public DateTime SendTime { get; set; }
+
+        [DataMember]
         public GroupMemberIncreasedReason GroupMemberIncreasedReason { get; set; }
+
+        [DataMember]
         public long FromGroup { get; set; }
+
+        [DataMember]
         public long FromQq { get; set; }
+
+        [DataMember]
         public long ToQq { get; set; }
     }
 }
