@@ -45,8 +45,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\Newbe.Mahua.MPQ.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\Newbe.Mahua.MPQ.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.MPQ.Native.pdb">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\x86\Newbe.Mahua.MPQ.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.MPQ.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\MPQ\Native\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.MPQ.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+    </None>
+    <None Include="bin\Release\net452\Newbe.Mahua.MPQ.pdb">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\net452\Native\" />
+    <Folder Include="bin\Release\net452\CLR\" />
   </ItemGroup>
 
 </Project>

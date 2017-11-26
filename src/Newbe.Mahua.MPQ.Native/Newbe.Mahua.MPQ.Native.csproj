@@ -73,7 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="MpqNativeModule.cs" />
+    <Compile Include="MpqApi.cs" />
+    <Compile Include="PluginApiExporter.cs" />
+    <Compile Include="PluginInfoProvider.cs" />
+    <Compile Include="PluginInstanceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +99,14 @@
     <ProjectReference Include="..\Newbe.Mahua.MPQ\Newbe.Mahua.MPQ.csproj">
       <Project>{2620f84a-34a6-4fd4-9d6f-544630106e78}</Project>
       <Name>Newbe.Mahua.MPQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj">
+      <Project>{12392cce-bdbb-4f57-ad37-8024dfa8077c}</Project>
+      <Name>Newbe.Mahua.PluginLoader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj">
+      <Project>{335c80ce-cab8-4a09-b3f4-5502c7c82498}</Project>
+      <Name>Newbe.Mahua</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
