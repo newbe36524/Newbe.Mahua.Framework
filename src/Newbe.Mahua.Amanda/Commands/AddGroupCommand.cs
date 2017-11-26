@@ -2,6 +2,7 @@
 using Newbe.Mahua.MahuaEvents;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -59,13 +60,25 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class AddGroupCommand : AmandaCommand
+    [DataContract]
+    public class AddGroupCommand : AmandaCommand
     {
+        [DataMember]
         public string Type { get; set; }
+
+        [DataMember]
         public string Fromgroup { get; set; }
+
+        [DataMember]
         public string Fromqq { get; set; }
+
+        [DataMember]
         public string InvatorQq { get; set; }
+
+        [DataMember]
         public string MoreMsg { get; set; }
+
+        [DataMember]
         public string Seq { get; set; }
     }
 }

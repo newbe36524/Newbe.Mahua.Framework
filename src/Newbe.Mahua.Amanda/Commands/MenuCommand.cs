@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Commands;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -10,8 +11,10 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class MenuCommand : AmandaCommand
+    [DataContract]
+    public class MenuCommand : AmandaCommand
     {
+        [DataMember]
         public string MenuId { get; set; }
     }
 }

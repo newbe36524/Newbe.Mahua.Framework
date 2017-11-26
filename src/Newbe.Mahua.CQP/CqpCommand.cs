@@ -2,15 +2,15 @@
 
 namespace Newbe.Mahua.CQP
 {
-    internal abstract class CqpCommand : MahuaCommand
+    public abstract class CqpCommand : MahuaCommand
     {
     }
 
-    internal abstract class CqpCommand<TResult> : MahuaCommand<TResult> where TResult : CqpCommandResult
+    public abstract class CqpCommand<TResult> : MahuaCommand<TResult> where TResult : CqpCommandResult
     {
     }
 
-    internal abstract class CqpCommandResult : MahuaCommandResult
+    public abstract class CqpCommandResult : MahuaCommandResult
     {
     }
 }

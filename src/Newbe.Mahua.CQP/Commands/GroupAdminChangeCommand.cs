@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -20,6 +21,7 @@ namespace Newbe.Mahua.CQP.Commands
             _groupAdminEnabledMahuaEvents = groupAdminEnabledMahuaEvents;
             _groupAdminDisabledMahuaEvents = groupAdminDisabledMahuaEvents;
         }
+
         public void Handle(GroupAdminChangeCommand command)
         {
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
@@ -55,11 +57,19 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class GroupAdminChangeCommand : CqpCommand
+    [DataContract]
+    public class GroupAdminChangeCommand : CqpCommand
     {
+        [DataMember]
         public GroupAdminChangeType GroupAdminChangeType { get; set; }
+
+        [DataMember]
         public DateTime SendTime { get; set; }
+
+        [DataMember]
         public long FromGroup { get; set; }
+
+        [DataMember]
         public long ToQq { get; set; }
     }
 }

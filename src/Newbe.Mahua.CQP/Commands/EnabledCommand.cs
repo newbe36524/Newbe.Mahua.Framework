@@ -1,6 +1,7 @@
 ﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -19,7 +20,8 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class EnabledCommand : CqpCommand
+    [DataContract]
+    public class EnabledCommand : CqpCommand
     {
     }
 }

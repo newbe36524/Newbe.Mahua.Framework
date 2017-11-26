@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -155,15 +156,23 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class GetNewMsgCommand : AmandaCommand
+    [DataContract]
+    public class GetNewMsgCommand : AmandaCommand
     {
+        [DataMember]
         public FromMessageType Type { get; set; }
+
+        [DataMember]
         public string Fromgroup { get; set; }
+
+        [DataMember]
         public string Fromqq { get; set; }
+
+        [DataMember]
         public string Message { get; set; }
     }
 
-    enum FromMessageType
+    public enum FromMessageType
     {
         Unknown,
         好友消息,

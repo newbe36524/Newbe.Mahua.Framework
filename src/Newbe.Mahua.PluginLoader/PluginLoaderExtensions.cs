@@ -8,15 +8,17 @@ namespace Newbe.Mahua
         public static TResult SendCommand<TCommand, TResult>(this IPluginLoader pluginLoader, TCommand command)
             where TResult : MahuaCommandResult, new() where TCommand : MahuaCommand<TResult>
         {
-            var reJson = pluginLoader.Handle(GlobalCache.JavaScriptSerializer.Serialize(command),
-                typeof(TCommand).FullName, typeof(TResult).FullName);
-            var re = GlobalCache.JavaScriptSerializer.Deserialize<TResult>(reJson);
-            return re;
+            var cmdType = typeof(TCommand);
+            var resultType = typeof(TResult);
+            var reJson = pluginLoader.Handle(GlobalCache.CrossDoaminSerializer.Serialize(command, cmdType),
+                cmdType.FullName, resultType.FullName);
+            var re = GlobalCache.CrossDoaminSerializer.Deserialize(reJson, resultType);
+            return (TResult)re;
         }
 
-        public static void SendCommand(this IPluginLoader pluginLoader, MahuaCommand command)
+        public static void SendCommand<TMahuaCommand>(this IPluginLoader pluginLoader, TMahuaCommand command)
         {
-            pluginLoader.Handle(GlobalCache.JavaScriptSerializer.Serialize(command),
+            pluginLoader.Handle(GlobalCache.CrossDoaminSerializer.Serialize(command, typeof(TMahuaCommand)),
                 command.GetType().FullName);
         }
     }

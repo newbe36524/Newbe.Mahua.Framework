@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -96,11 +97,19 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class PrivateMessageCommand : CqpCommand
+    [DataContract]
+    public class PrivateMessageCommand : CqpCommand
     {
+        [DataMember]
         public PrivateMessageFromType PrivateMessageFromType { get; set; }
+
+        [DataMember]
         public long FormNum { get; set; }
+
+        [DataMember]
         public DateTime SendTime { get; set; }
+
+        [DataMember]
         public string Message { get; set; }
     }
 }

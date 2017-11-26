@@ -2,6 +2,7 @@
 using Newbe.Mahua.MahuaEvents;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -14,6 +15,7 @@ namespace Newbe.Mahua.CQP.Commands
         {
             _friendAddingRequestReceivedMahuaEvents = friendAddingRequestReceivedMahuaEvents;
         }
+
         public void Handle(FriendsAddedCommand command)
         {
             _friendAddingRequestReceivedMahuaEvents.Handle(
@@ -26,9 +28,13 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class FriendsAddedCommand : CqpCommand
+    [DataContract]
+    public class FriendsAddedCommand : CqpCommand
     {
+        [DataMember]
         public DateTime SendTime { get; set; }
+
+        [DataMember]
         public long FromQq { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Newbe.Mahua.Commands;
 using System;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
@@ -29,12 +30,15 @@ namespace Newbe.Mahua.Amanda.Commands
         }
     }
 
-    internal class InformationCommand : AmandaCommand<InformationCommandResult>
+    [DataContract]
+    public class InformationCommand : AmandaCommand<InformationCommandResult>
     {
     }
 
+    [DataContract]
     public class InformationCommandResult : AmandaCommandResult
     {
+        [DataMember]
         public string Info { get; set; }
     }
 }

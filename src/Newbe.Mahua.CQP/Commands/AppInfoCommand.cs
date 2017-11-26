@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Commands;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
@@ -21,12 +22,15 @@ namespace Newbe.Mahua.CQP.Commands
         }
     }
 
-    internal class AppInfoCommandResult : CqpCommandResult
+    [DataContract]
+    public class AppInfoCommandResult : CqpCommandResult
     {
+        [DataMember]
         public string AppId { get; set; }
     }
 
-    internal class AppInfoCommand : CqpCommand<AppInfoCommandResult>
+    [DataContract]
+    public class AppInfoCommand : CqpCommand<AppInfoCommandResult>
     {
     }
 }
