@@ -58,5 +58,16 @@ Task PackAmanda -depends Build -Description "Amanda打包" {
     }
 }
 
-Task Pack -depends PackCQP,PackAmanda -Description "打包"
+Task PackMPQ -depends Build -Description "MPQ打包" {
+    if ($InstalledPlatforms | Where-Object {$_.Name -eq "MPQ"}) {
+        New-Item -ItemType Directory "$releaseBase\MPQ"
+        New-Item -ItemType Directory "$releaseBase\MPQ\$pluginName"
+        New-Item -ItemType Directory "$releaseBase\MPQ\Plugin"
+        Copy-Item -Path  ".\NewbeLibs\Framework\*", ".\NewbeLibs\Platform\MPQ\CLR\*" -Destination "$releaseBase\MPQ" -Recurse
+        Copy-Item -Path "$releaseBase\$configuration\*", ".\NewbeLibs\Platform\MPQ\CLR\*"   -Destination "$releaseBase\MPQ\$pluginName" -Recurse
+        Copy-Item -Path ".\NewbeLibs\Platform\MPQ\Native\Newbe.Mahua.MPQ.Native.dll" -Destination  "$releaseBase\MPQ\Plugin\$pluginName.xx.dll"
+    }
+}
+
+Task Pack -depends PackCQP,PackAmanda,PackMPQ -Description "打包"
 
