@@ -81,4 +81,8 @@
     <Folder Include="bin\Release\net452\CLR\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+  </ItemGroup>
+
 </Project>

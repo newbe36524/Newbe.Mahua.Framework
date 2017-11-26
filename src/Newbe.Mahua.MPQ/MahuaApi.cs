@@ -9,12 +9,17 @@ namespace Newbe.Mahua.MPQ
     {
         private readonly IMpqApi _mpqApi;
         private readonly IQqSession _qqSession;
+        private readonly IEventFunOutput _eventFunOutput;
         private ILifetimeScope _container;
 
-        public MahuaApi(IMpqApi mpqApi, IQqSession qqSession)
+        public MahuaApi(
+            IMpqApi mpqApi,
+            IQqSession qqSession,
+            IEventFunOutput eventFunOutput)
         {
             _mpqApi = mpqApi;
             _qqSession = qqSession;
+            _eventFunOutput = eventFunOutput;
         }
 
         public void SendPrivateMessage(string toQq, string message)
