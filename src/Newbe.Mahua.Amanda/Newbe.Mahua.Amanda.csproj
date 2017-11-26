@@ -14,7 +14,7 @@
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
     <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix>dev03</VersionSuffix>
+    <VersionSuffix></VersionSuffix>
     <Description>
       Newbe.Mahua 针对Amanda平台推出的平台支持包。
       全新的 Amanda （http://www.52chat.cc/）
@@ -24,6 +24,10 @@
       试试看，您一定会喜欢上她
     </Description>
     <PackageReleaseNotes>
+      ## 1.3.0
+
+      使用MessagePack替代JSON序列化，消息处理速度明显提升。
+      ---
       ## 1.2.0
 
       支持Newbe.Mahua.Tools.Psake

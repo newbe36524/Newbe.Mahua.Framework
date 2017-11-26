@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua", "Newbe.Mahua\Newbe.Mahua.csproj", "{335C80CE-CAB8-4A09-B3F4-5502C7C82498}"
 EndProject
@@ -45,6 +45,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4)Global", "4)Global", "{62
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.LibTests", "Newbe.Mahua.LibTests\Newbe.Mahua.LibTests.csproj", "{A7B38C24-B1DA-4CAC-9208-262631844CD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
+	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+		build.ps1 = build.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
