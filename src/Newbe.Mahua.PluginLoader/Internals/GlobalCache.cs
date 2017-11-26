@@ -2,6 +2,6 @@
 {
     internal static class GlobalCache
     {
-        public static ICrossDoaminSerializer CrossDoaminSerializer = new MessagePackerCrossDoaminSerializer();
+        public static readonly ICrossDoaminSerializer CrossDoaminSerializer = new MessagePackerCrossDoaminSerializer();
     }
 }
