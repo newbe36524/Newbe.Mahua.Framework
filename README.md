@@ -136,3 +136,4 @@ SetNotice                    | 发布群公告          |     | √   |
 - <https://github.com/autofac/Autofac>
 - <https://github.com/mode51/Tungsten>
 - <https://gitee.com/yks/Newbe.Common>
+- <https://github.com/neuecc/MessagePack-CSharp>
