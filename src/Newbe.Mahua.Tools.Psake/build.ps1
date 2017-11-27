@@ -26,7 +26,7 @@ Task Init -depends Clean -Description "初始化参数" {
 
 Task Nuget -depends Init -Description "nuget restore" {
     Exec {
-        cmd /c "$nugetexe restore  -PackagesDirectory ..\packages"
+        cmd /c ""$nugetexe" restore  -PackagesDirectory ..\packages"
     }
 }
 
