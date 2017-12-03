@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Newbe.Mahua.MPQ.EventFuns
+﻿namespace Newbe.Mahua.MPQ.EventFuns
 {
     ///<summary>
     ///QQ被手动离线
@@ -11,7 +9,7 @@ namespace Newbe.Mahua.MPQ.EventFuns
 
         public void Handle(EventFunInput eventFunInput)
         {
-            throw new NotImplementedException();
+            //todo there is no mahua event
         }
     }
 }

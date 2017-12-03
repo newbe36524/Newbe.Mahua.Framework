@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Newbe.Mahua.MPQ.EventFuns
+﻿namespace Newbe.Mahua.MPQ.EventFuns
 {
     ///<summary>
     ///收到来自好友的财付通转账
@@ -11,7 +9,7 @@ namespace Newbe.Mahua.MPQ.EventFuns
 
         public void Handle(EventFunInput eventFunInput)
         {
-            throw new NotImplementedException();
+            //todo not supported
         }
     }
 }

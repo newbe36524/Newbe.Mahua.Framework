@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newbe.Mahua.Commands;
+using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
@@ -7,11 +9,19 @@ namespace Newbe.Mahua.MPQ.EventFuns
     ///</summary>
     public class EventFunHandler12001 : IEventFunHandler
     {
+        private readonly IEnumerable<IPluginEnabledMahuaEvent> _pluginEnabledMahuaEvents;
+
+        public EventFunHandler12001(
+            IEnumerable<IPluginEnabledMahuaEvent> pluginEnabledMahuaEvents)
+        {
+            _pluginEnabledMahuaEvents = pluginEnabledMahuaEvents;
+        }
         public int EventFun { get; } = 12001;
 
         public void Handle(EventFunInput eventFunInput)
         {
-            throw new NotImplementedException();
+            _pluginEnabledMahuaEvents
+                .Handle(x => x.Enabled(new PluginEnabledContext { }));
         }
     }
 }

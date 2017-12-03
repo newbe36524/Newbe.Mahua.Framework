@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newbe.Mahua.Commands;
+using Newbe.Mahua.MahuaEvents;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
@@ -7,11 +9,24 @@ namespace Newbe.Mahua.MPQ.EventFuns
     ///</summary>
     public class EventFunHandler1000 : IEventFunHandler
     {
+        private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddedMahuaEvents;
+
+        public EventFunHandler1000(
+            IEnumerable<IFriendAddedMahuaEvent> friendAddedMahuaEvents)
+        {
+            _friendAddedMahuaEvents = friendAddedMahuaEvents;
+        }
+
         public int EventFun { get; } = 1000;
 
         public void Handle(EventFunInput eventFunInput)
         {
-            throw new NotImplementedException();
+            _friendAddedMahuaEvents
+                .Handle(x => x.ProcessFriendsAdded(new FriendAddedMahuaEventContext
+                {
+                    FromQq = eventFunInput.FromNum,
+                    SendTime = Clock.Now,
+                }));
         }
     }
 }

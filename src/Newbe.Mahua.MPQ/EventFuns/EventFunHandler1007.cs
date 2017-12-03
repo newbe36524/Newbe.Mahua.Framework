@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Newbe.Mahua.MPQ.EventFuns
+﻿namespace Newbe.Mahua.MPQ.EventFuns
 {
     ///<summary>
     ///好友首次发起/打开聊天框会话事件(电脑上发起)
@@ -11,7 +9,7 @@ namespace Newbe.Mahua.MPQ.EventFuns
 
         public void Handle(EventFunInput eventFunInput)
         {
-            throw new NotImplementedException();
+            //todo there is no mahua event
         }
     }
 }

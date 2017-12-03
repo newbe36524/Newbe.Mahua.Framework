@@ -6,24 +6,24 @@ using System.Collections.Generic;
 namespace Newbe.Mahua.MPQ.EventFuns
 {
     ///<summary>
-    ///好友信息
+    /// 讨论组临时会话信息
     ///</summary>
-    public class EventFunHandler1 : IEventFunHandler
+    public class EventFunHandler5 : IEventFunHandler
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
 
-        private readonly IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent>
-            _privateMessageFromFriendReceivedMahuaEvents;
+        private readonly IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>
+            _privateMessageFromDiscussReceivedMahuaEvents;
 
-        public EventFunHandler1(
+        public EventFunHandler5(
             IEnumerable<IPrivateMessageReceivedMahuaEvent> privateMessageReceivedMahuaEvents,
-            IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents)
+            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent> privateMessageFromDiscussReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
-            _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
+            _privateMessageFromDiscussReceivedMahuaEvents = privateMessageFromDiscussReceivedMahuaEvents;
         }
 
-        public int EventFun { get; } = 1;
+        public int EventFun { get; } = 5;
 
         public void Handle(EventFunInput eventFunInput)
         {
@@ -34,15 +34,16 @@ namespace Newbe.Mahua.MPQ.EventFuns
                         FromQq = eventFunInput.EventOperator,
                         SendTime = Clock.Now,
                         Message = eventFunInput.Message,
-                        PrivateMessageFromType = PrivateMessageFromType.Friend
+                        PrivateMessageFromType = PrivateMessageFromType.Group
                     }));
-            _privateMessageFromFriendReceivedMahuaEvents
-                .Handle(x => x.ProcessFriendMessage(
-                    new PrivateMessageFromFriendReceivedContext
+            _privateMessageFromDiscussReceivedMahuaEvents
+                .Handle(x => x.ProcessDiscussGroupMessage(
+                    new PrivateMessageFromDiscussReceivedContext
                     {
                         Message = eventFunInput.Message,
                         FromQq = eventFunInput.EventOperator,
                         SendTime = Clock.Now,
+                        FromDiscuss = eventFunInput.FromNum,
                     }));
         }
     }
