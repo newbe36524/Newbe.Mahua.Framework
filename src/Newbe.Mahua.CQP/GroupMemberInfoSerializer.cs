@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Newbe.Mahua.CQP.Internals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newbe.Mahua.CQP.Internals;
 
 namespace Newbe.Mahua.CQP
 {
@@ -17,7 +17,6 @@ namespace Newbe.Mahua.CQP
             }
             return re;
         }
-
 
         /// <summary>
         /// 转换_ansihex到群成员信息
@@ -57,10 +56,10 @@ namespace Newbe.Mahua.CQP
                     gm.Authority = GroupMemberAuthority.Normal;
                     break;
             }
-            gm.HasBadRecord = (u.GetInt() == 1);
+            gm.HasBadRecord = u.GetInt() == 1;
             gm.SpecialTitle = u.GetLenStr();
             gm.TitleExpirationTime = TimeSpan.FromSeconds(u.GetInt());
-            gm.CanModifyInGroupName = (u.GetInt() == 1);
+            gm.CanModifyInGroupName = u.GetInt() == 1;
             return true;
         }
 
@@ -73,7 +72,9 @@ namespace Newbe.Mahua.CQP
         private static bool ConvertStrToGroupMemberInfos(string source, ref List<GroupMemberInfo> lsGm)
         {
             if (source == string.Empty)
+            {
                 return false;
+            }
             var data = source.DeBase64();
             if (data?.Length < 10)
             {

@@ -6,6 +6,22 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class DiscussGroupMessageCommand : CqpCommand
+    {
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public long DiscussGroupNum { get; set; }
+
+        [DataMember]
+        public long FromQq { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+    }
+
     internal class DiscussGroupMessageCommandHandler : ICommandHandler<DiscussGroupMessageCommand>
     {
         private readonly IEnumerable<IDiscussMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
@@ -27,21 +43,5 @@ namespace Newbe.Mahua.CQP.Commands
                     FromDiscuss = command.DiscussGroupNum.ToString()
                 }));
         }
-    }
-
-    [DataContract]
-    public class DiscussGroupMessageCommand : CqpCommand
-    {
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public long DiscussGroupNum { get; set; }
-
-        [DataMember]
-        public long FromQq { get; set; }
-
-        [DataMember]
-        public string Message { get; set; }
     }
 }

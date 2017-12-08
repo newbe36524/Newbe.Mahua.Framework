@@ -6,6 +6,25 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class GroupJoiningInvitationCommand : CqpCommand
+    {
+        [DataMember]
+        public string GroupJoiningInvitationId { get; set; }
+
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public long ToGroup { get; set; }
+
+        [DataMember]
+        public long FromQq { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+    }
+
     internal class GroupJoiningInvitationCommandHandler : ICommandHandler<GroupJoiningInvitationCommand>
     {
         private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent>
@@ -29,24 +48,5 @@ namespace Newbe.Mahua.CQP.Commands
                     Message = command.Message,
                 }));
         }
-    }
-
-    [DataContract]
-    public class GroupJoiningInvitationCommand : CqpCommand
-    {
-        [DataMember]
-        public string GroupJoiningInvitationId { get; set; }
-
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public long ToGroup { get; set; }
-
-        [DataMember]
-        public long FromQq { get; set; }
-
-        [DataMember]
-        public string Message { get; set; }
     }
 }

@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Autofac;
+using Newbe.Mahua.MahuaEvents;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Autofac;
-using Newbe.Mahua.MahuaEvents;
-using IContainer = System.ComponentModel.IContainer;
 
 namespace Newbe.Mahua
 {
@@ -35,7 +34,6 @@ namespace Newbe.Mahua
         /// <param name="message">消息内容</param>
         [Description("发送讨论组消息")]
         void SendDiscussMessage(string toDiscuss, string message);
-
 
         /// <summary>
         /// 发送名片赞
@@ -246,9 +244,7 @@ namespace Newbe.Mahua
         /// <param name="fromQq">发出接受的QQ，<see cref="GroupJoiningInvitationReceivedContext.FromQq"/></param>
         /// <param name="reason">原因</param>
         [Description("拒绝入群邀请")]
-        void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
-            string reason);
-
+        void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq, string reason);
 
         /// <summary>
         /// 将QQ移入黑名单
@@ -273,14 +269,12 @@ namespace Newbe.Mahua
         [Description("发布群公告")]
         void SetNotice(string toGroup, string title, string content);
 
-
         /// <summary>
         /// 删除好友
         /// </summary>
         /// <param name="toQq"></param>
         [Description("删除好友")]
         void RemoveFriend(string toQq);
-
 
         /// <summary>
         /// 主动加群
@@ -289,7 +283,6 @@ namespace Newbe.Mahua
         /// <param name="reason"></param>
         [Description("主动加群")]
         void JoinGroup(string toGroup, string reason);
-
 
         /// <summary>
         /// 取群成员列表
@@ -343,7 +336,6 @@ namespace Newbe.Mahua
         /// <remarks>每24小时只能创建100个讨论组</remarks>
         [Description("创建讨论组")]
         string CreateDiscuss();
-
 
         /// <summary>
         /// 踢出讨论组

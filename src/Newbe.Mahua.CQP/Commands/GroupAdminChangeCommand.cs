@@ -7,13 +7,30 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class GroupAdminChangeCommand : CqpCommand
+    {
+        [DataMember]
+        public GroupAdminChangeType GroupAdminChangeType { get; set; }
+
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public long FromGroup { get; set; }
+
+        [DataMember]
+        public long ToQq { get; set; }
+    }
+
     internal class GroupAdminChangeCommandHandler : ICommandHandler<GroupAdminChangeCommand>
     {
         private readonly IEnumerable<IGroupAdminChangedMahuaEvent> _groupAdminChangedMahuaEvents;
         private readonly IEnumerable<IGroupAdminEnabledMahuaEvent> _groupAdminEnabledMahuaEvents;
         private readonly IEnumerable<IGroupAdminDisabledMahuaEvent> _groupAdminDisabledMahuaEvents;
 
-        public GroupAdminChangeCommandHandler(IEnumerable<IGroupAdminChangedMahuaEvent> groupAdminChangedMahuaEvents,
+        public GroupAdminChangeCommandHandler(
+            IEnumerable<IGroupAdminChangedMahuaEvent> groupAdminChangedMahuaEvents,
             IEnumerable<IGroupAdminEnabledMahuaEvent> groupAdminEnabledMahuaEvents,
             IEnumerable<IGroupAdminDisabledMahuaEvent> groupAdminDisabledMahuaEvents)
         {
@@ -55,21 +72,5 @@ namespace Newbe.Mahua.CQP.Commands
                     throw new ArgumentOutOfRangeException();
             }
         }
-    }
-
-    [DataContract]
-    public class GroupAdminChangeCommand : CqpCommand
-    {
-        [DataMember]
-        public GroupAdminChangeType GroupAdminChangeType { get; set; }
-
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public long FromGroup { get; set; }
-
-        [DataMember]
-        public long ToQq { get; set; }
     }
 }

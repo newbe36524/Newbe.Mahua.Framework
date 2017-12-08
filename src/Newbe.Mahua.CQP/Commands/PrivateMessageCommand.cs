@@ -7,6 +7,22 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class PrivateMessageCommand : CqpCommand
+    {
+        [DataMember]
+        public PrivateMessageFromType PrivateMessageFromType { get; set; }
+
+        [DataMember]
+        public long FormNum { get; set; }
+
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+    }
+
     internal class PrivateMessageCommandHandler : ICommandHandler<PrivateMessageCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
@@ -28,8 +44,7 @@ namespace Newbe.Mahua.CQP.Commands
             IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
-            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>
-                privateMessageFromDiscussGroupReceivedMahuaEvents)
+            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent> privateMessageFromDiscussGroupReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
             _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
@@ -75,7 +90,8 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            //todo CQP 无法获取发送者的群
+
+                            // todo CQP 无法获取发送者的群
                             FromGroup = string.Empty,
                             FromQq = command.FormNum.ToString()
                         }));
@@ -86,7 +102,8 @@ namespace Newbe.Mahua.CQP.Commands
                         {
                             SendTime = command.SendTime,
                             Message = command.Message,
-                            //todo CQP 无法获取发送者的讨论组信息
+
+                            // todo CQP 无法获取发送者的讨论组信息
                             FromDiscuss = string.Empty,
                             FromQq = command.FormNum.ToString()
                         }));
@@ -95,21 +112,5 @@ namespace Newbe.Mahua.CQP.Commands
                     throw new ArgumentOutOfRangeException();
             }
         }
-    }
-
-    [DataContract]
-    public class PrivateMessageCommand : CqpCommand
-    {
-        [DataMember]
-        public PrivateMessageFromType PrivateMessageFromType { get; set; }
-
-        [DataMember]
-        public long FormNum { get; set; }
-
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public string Message { get; set; }
     }
 }

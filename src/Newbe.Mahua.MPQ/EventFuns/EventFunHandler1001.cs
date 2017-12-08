@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///被请求添加好友(设置了加好友理由、加好友需要填答案并由我审核)
-    ///</summary>
+    /// <summary>
+    /// 被请求添加好友(设置了加好友理由、加好友需要填答案并由我审核)
+    /// </summary>
     public class EventFunHandler1001 : IEventFunHandler
     {
         private readonly IEnumerable<IFriendAddingRequestMahuaEvent> _addingRequestMahuaEvents;
@@ -27,8 +27,9 @@ namespace Newbe.Mahua.MPQ.EventFuns
                     Message = eventFunInput.Message,
                     SendTime = Clock.Now,
                     FromQq = eventFunInput.FromNum,
-                    //todo AddingFriendRequestId
-                    //AddingFriendRequestId = eventFunInput.
+
+                    // todo AddingFriendRequestId
+                    // AddingFriendRequestId = eventFunInput.
                 }));
         }
     }

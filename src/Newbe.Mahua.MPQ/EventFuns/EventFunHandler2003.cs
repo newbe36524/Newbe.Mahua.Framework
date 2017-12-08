@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///我被邀请加入群
-    ///</summary>
+    /// <summary>
+    /// 我被邀请加入群
+    /// </summary>
     public class EventFunHandler2003 : IEventFunHandler
     {
         private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent> _groupJoiningInvitationReceivedMahuaEvents;
@@ -28,8 +28,9 @@ namespace Newbe.Mahua.MPQ.EventFuns
                     Message = eventFunInput.Message,
                     FromQq = eventFunInput.EventOperator,
                     ToGroup = eventFunInput.FromNum,
-                    //todo GroupJoiningRequestId
-                    //GroupJoiningRequestId =
+
+                    // todo GroupJoiningRequestId
+                    // GroupJoiningRequestId =
                 }));
         }
     }

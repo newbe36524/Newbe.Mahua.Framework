@@ -5,6 +5,11 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class InitializationCommand : AmandaCommand
+    {
+    }
+
     internal class InitializationCommandHandler : ICommandHandler<InitializationCommand>
     {
         private readonly IEnumerable<IInitializationMahuaEvent> _initializationMahuaEvents;
@@ -18,10 +23,5 @@ namespace Newbe.Mahua.Amanda.Commands
         {
             _initializationMahuaEvents.Handle(x => x.Initialized(new InitializedContext()));
         }
-    }
-
-    [DataContract]
-    public class InitializationCommand : AmandaCommand
-    {
     }
 }

@@ -11,13 +11,13 @@ namespace Newbe.Mahua.Internals
             typeof(MessagePackSerializer)
                 .GetMethod(nameof(MessagePackSerializer.Deserialize), new[] { typeof(byte[]) });
 
+        private readonly MethodInfo _serializeMethod = typeof(MessagePackSerializer).GetMethods().First(x =>
+            x.Name == nameof(MessagePackSerializer.Serialize) && x.GetParameters().Length == 1);
+
         object ICrossDoaminSerializer.Deserialize(byte[] source, Type type)
         {
             return _messagePackSerializerDeserializeMethod.MakeGenericMethod(type).Invoke(null, new object[] { source });
         }
-
-        private readonly MethodInfo _serializeMethod = typeof(MessagePackSerializer).GetMethods().First(x =>
-            x.Name == nameof(MessagePackSerializer.Serialize) && x.GetParameters().Length == 1);
 
         byte[] ICrossDoaminSerializer.Serialize(object source, Type type)
         {

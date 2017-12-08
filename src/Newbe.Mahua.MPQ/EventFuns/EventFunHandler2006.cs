@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///某人退出群
-    ///</summary>
+    /// <summary>
+    /// 某人退出群
+    /// </summary>
     public class EventFunHandler2006 : IEventFunHandler
     {
         private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;

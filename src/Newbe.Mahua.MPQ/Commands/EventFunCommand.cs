@@ -13,8 +13,7 @@ namespace Newbe.Mahua.MPQ.Commands
         public EventFunCommandHandler(
             IQqSession qqSession,
             IEventFunOutput eventFunOutput,
-            IIndex<int, IEventFunHandler> eventFuncHandlers
-        )
+            IIndex<int, IEventFunHandler> eventFuncHandlers)
         {
             _qqSession = qqSession;
             _eventFunOutput = eventFunOutput;
@@ -36,7 +35,8 @@ namespace Newbe.Mahua.MPQ.Commands
                     Message = message.Message,
                 });
             }
-            //todo with else
+
+            // todo with else
             return new EventFunCommandResult
             {
                 Result = _eventFunOutput.Result,

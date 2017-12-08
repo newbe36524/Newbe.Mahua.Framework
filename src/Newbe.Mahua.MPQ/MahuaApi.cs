@@ -29,22 +29,23 @@ namespace Newbe.Mahua.MPQ
 
         public void SendGroupMessage(string toGroup, string message)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_SendMsg(_qqSession.CurrentQq, 2, 0, toGroup, null, message);
         }
 
         public void SendDiscussMessage(string toDiscuss, string message)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_SendMsg(_qqSession.CurrentQq, 3, 0, toDiscuss, null, message);
         }
 
+        [NotSupportedMahuaApi]
         public void SendLike(string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public string GetCookies()
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_GetCookies(_qqSession.CurrentQq);
         }
 
         public string GetBkn()
@@ -54,27 +55,29 @@ namespace Newbe.Mahua.MPQ
 
         public string GetLoginQq()
         {
-            throw new NotImplementedException();
+            return _qqSession.CurrentQq;
         }
 
         public string GetLoginNick()
         {
-            throw new NotImplementedException();
+            var re = _mpqApi.Api_GetNick(_qqSession.CurrentQq);
+            return re;
         }
 
         public void KickGroupMember(string toGroup, string toQq, bool rejectForever)
         {
-            throw new NotImplementedException();
+            // todo notsupport rejectForever
+            _mpqApi.Api_Kick(_qqSession.CurrentQq, toGroup, toQq);
         }
 
         public void BanGroupMember(string toGroup, string toQq, TimeSpan duration)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_Shutup(_qqSession.CurrentQq, toGroup, toQq, (int)duration.TotalSeconds);
         }
 
         public void RemoveBanGroupMember(string toGroup, string toQq)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_Shutup(_qqSession.CurrentQq, toGroup, toQq, 0);
         }
 
         public void EnableGroupAdmin(string toGroup, string toQq)
@@ -87,99 +90,116 @@ namespace Newbe.Mahua.MPQ
             throw new NotImplementedException();
         }
 
+        [NotSupportedMahuaApi]
         public void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void SetBanAllGroupMembersOption(string toGroup, bool enabled)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_Shutup(_qqSession.CurrentQq, toGroup, null, 0);
         }
 
+        [NotSupportedMahuaApi]
         public void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
+        [NotSupportedMahuaApi]
         public void SetGroupAnonymousOption(string toGroup, bool enabled)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         public void SetGroupMemberCard(string toGroup, string toQq, string groupMemberCard)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_SetNameCard(_qqSession.CurrentQq, toGroup, toQq, groupMemberCard);
         }
 
         public void LeaveGroup(string toGroup)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_QuitGroup(_qqSession.CurrentQq, toGroup);
         }
 
         public void DissolveGroup(string toGroup)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_QuitGroup(_qqSession.CurrentQq, toGroup);
         }
 
         public void LeaveDiscuss(string toDiscuss)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_QuitDG(_qqSession.CurrentQq, toDiscuss);
         }
 
         public void AcceptFriendAddingRequest(string addingFriendRequestId, string fromQq, string friendRemark)
         {
-            throw new NotImplementedException();
+            // todo addingFriendRequestId
+            _eventFunOutput.Result = 1;
         }
 
         public void RejectFriendAddingRequest(string addingFriendRequestId, string fromQq)
         {
-            throw new NotImplementedException();
+            // todo addingFriendRequestId
+            _eventFunOutput.Result = 2;
         }
 
         public void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq)
         {
-            throw new NotImplementedException();
+            // todo groupJoiningRequestId
+            _eventFunOutput.Result = 1;
         }
 
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason)
+        public void RejectGroupJoiningRequest(
+            string groupJoiningRequestId,
+            string toGroup,
+            string fromQq,
+            string reason)
         {
-            throw new NotImplementedException();
+            // todo groupJoiningRequestId
+            _eventFunOutput.Result = 2;
         }
 
         public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq)
         {
-            throw new NotImplementedException();
+            // todo groupJoiningInvitationId
+            _eventFunOutput.Result = 1;
         }
 
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq, string reason)
+        public void RejectGroupJoiningInvitation(
+            string groupJoiningInvitationId,
+            string toGroup,
+            string fromQq,
+            string reason)
         {
-            throw new NotImplementedException();
+            // todo groupJoiningInvitationId
+            _eventFunOutput.Result = 2;
         }
 
         public void BanFriend(string toQq)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_Ban(_qqSession.CurrentQq, toQq);
         }
 
         public void RemoveBanFriend(string toQq)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_DBan(_qqSession.CurrentQq, toQq);
         }
 
         public void SetNotice(string toGroup, string title, string content)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_SetNotice(_qqSession.CurrentQq, toGroup, title, content);
         }
 
         public void RemoveFriend(string toQq)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_DelFriend(_qqSession.CurrentQq, toQq);
         }
 
         public void JoinGroup(string toGroup, string reason)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_JoinGroup(_qqSession.CurrentQq, toGroup, reason);
         }
 
         public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)

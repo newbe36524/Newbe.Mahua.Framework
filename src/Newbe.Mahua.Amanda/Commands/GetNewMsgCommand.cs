@@ -7,6 +7,32 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    public enum FromMessageType
+    {
+        Unknown,
+        好友消息,
+        群消息,
+        群临时消息,
+        讨论组消息,
+        讨论组临时消息,
+    }
+
+    [DataContract]
+    public class GetNewMsgCommand : AmandaCommand
+    {
+        [DataMember]
+        public FromMessageType Type { get; set; }
+
+        [DataMember]
+        public string Fromgroup { get; set; }
+
+        [DataMember]
+        public string Fromqq { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+    }
+
     internal class GetNewMsgCommandHandler : ICommandHandler<GetNewMsgCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
@@ -34,8 +60,7 @@ namespace Newbe.Mahua.Amanda.Commands
             IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent> privateMessageFromDiscussGroupReceivedMahuaEvents,
             IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents,
-            IEnumerable<IDiscussMessageReceivedMahuaEvent> discussMessageReceivedMahuaEvents
-        )
+            IEnumerable<IDiscussMessageReceivedMahuaEvent> discussMessageReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
             _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
@@ -46,32 +71,13 @@ namespace Newbe.Mahua.Amanda.Commands
             _discussMessageReceivedMahuaEvents = discussMessageReceivedMahuaEvents;
         }
 
-        private static PrivateMessageFromType ConvertType(FromMessageType source)
-        {
-            switch (source)
-            {
-                case FromMessageType.好友消息:
-                    return PrivateMessageFromType.Friend;
-                case FromMessageType.群临时消息:
-                    return PrivateMessageFromType.Group;
-                case FromMessageType.讨论组临时消息:
-                    return PrivateMessageFromType.DiscussGroup;
-                case FromMessageType.Unknown:
-                case FromMessageType.讨论组消息:
-                case FromMessageType.群消息:
-                    return PrivateMessageFromType.Unknown;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(source), source, null);
-            }
-        }
-
         public void Handle(GetNewMsgCommand command)
         {
             var sendTime = DateTime.Now;
             var commandFromqq = command.Fromqq;
             if (command.Type == FromMessageType.Unknown)
             {
-                //todo
+                // todo
                 return;
             }
             if (command.Type == FromMessageType.群消息)
@@ -154,31 +160,24 @@ namespace Newbe.Mahua.Amanda.Commands
                     throw new ArgumentOutOfRangeException();
             }
         }
-    }
 
-    [DataContract]
-    public class GetNewMsgCommand : AmandaCommand
-    {
-        [DataMember]
-        public FromMessageType Type { get; set; }
-
-        [DataMember]
-        public string Fromgroup { get; set; }
-
-        [DataMember]
-        public string Fromqq { get; set; }
-
-        [DataMember]
-        public string Message { get; set; }
-    }
-
-    public enum FromMessageType
-    {
-        Unknown,
-        好友消息,
-        群消息,
-        群临时消息,
-        讨论组消息,
-        讨论组临时消息,
+        private static PrivateMessageFromType ConvertType(FromMessageType source)
+        {
+            switch (source)
+            {
+                case FromMessageType.好友消息:
+                    return PrivateMessageFromType.Friend;
+                case FromMessageType.群临时消息:
+                    return PrivateMessageFromType.Group;
+                case FromMessageType.讨论组临时消息:
+                    return PrivateMessageFromType.DiscussGroup;
+                case FromMessageType.Unknown:
+                case FromMessageType.讨论组消息:
+                case FromMessageType.群消息:
+                    return PrivateMessageFromType.Unknown;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(source), source, null);
+            }
+        }
     }
 }

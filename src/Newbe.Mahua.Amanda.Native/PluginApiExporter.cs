@@ -6,7 +6,9 @@ namespace Newbe.Mahua.Amanda
     public class PluginApiExporter : IPluginApiExporter
     {
         public static string Continue { get; } = "0";
+
         public static string Stopped { get; } = "1";
+
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
 
         [DllExport("Information", CallingConvention.StdCall)]
@@ -28,7 +30,6 @@ namespace Newbe.Mahua.Amanda
             return 0;
         }
 
-
         /// <summary>
         /// 插件被启用事件
         /// </summary>
@@ -39,7 +40,6 @@ namespace Newbe.Mahua.Amanda
             PluginInstanceManager.GetInstance().SendCommand(new PluginStartCommand());
             return 0;
         }
-
 
         /// <summary>
         /// 插件被关闭事件
@@ -106,8 +106,13 @@ namespace Newbe.Mahua.Amanda
         /// <param name="orderNo">QQ转账获取的订单号</param>
         /// <returns></returns>
         [DllExport("Event_GetQQWalletData", CallingConvention.StdCall)]
-        public static string Event_GetQQWalletData(string type, string fromgroup, string fromqq, string money,
-            string friendRemark, string orderNo)
+        public static string Event_GetQQWalletData(
+            string type,
+            string fromgroup,
+            string fromqq,
+            string money,
+            string friendRemark,
+            string orderNo)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GetQqWalletDataCommand
             {
@@ -140,7 +145,6 @@ namespace Newbe.Mahua.Amanda
             return Continue;
         }
 
-
         /// <summary>
         /// 群成员增加事件
         /// </summary>
@@ -150,7 +154,10 @@ namespace Newbe.Mahua.Amanda
         /// <param name="operatorQq"> 类型为1.管理员 2.邀请人</param>
         /// <returns></returns>
         [DllExport("Event_GroupMemberIncrease", CallingConvention.StdCall)]
-        public static string Event_GroupMemberIncrease(string type, string fromgroup, string fromqq,
+        public static string Event_GroupMemberIncrease(
+            string type,
+            string fromgroup,
+            string fromqq,
             string operatorQq)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreaseCommand
@@ -163,7 +170,6 @@ namespace Newbe.Mahua.Amanda
             return Continue;
         }
 
-
         /// <summary>
         /// 群成员减少事件
         /// </summary>
@@ -173,7 +179,10 @@ namespace Newbe.Mahua.Amanda
         /// <param name="operatorQq">类型为1时参数为空</param>
         /// <returns></returns>
         [DllExport("Event_GroupMemberDecrease", CallingConvention.StdCall)]
-        public static string Event_GroupMemberDecrease(string type, string fromgroup, string fromqq,
+        public static string Event_GroupMemberDecrease(
+            string type,
+            string fromgroup,
+            string fromqq,
             string operatorQq)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreaseCommand
@@ -197,8 +206,13 @@ namespace Newbe.Mahua.Amanda
         /// <param name="seq">群添加事件产生的Seq标识</param>
         /// <returns></returns>
         [DllExport("Event_AddGroup", CallingConvention.StdCall)]
-        public static string Event_AddGroup(string type, string fromgroup, string fromqq,
-            string invatorQq, string moreMsg, string seq)
+        public static string Event_AddGroup(
+            string type,
+            string fromgroup,
+            string fromqq,
+            string invatorQq,
+            string moreMsg,
+            string seq)
         {
             PluginInstanceManager.GetInstance().SendCommand(new AddGroupCommand
             {

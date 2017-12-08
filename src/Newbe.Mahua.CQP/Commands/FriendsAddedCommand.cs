@@ -6,6 +6,16 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class FriendsAddedCommand : CqpCommand
+    {
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public long FromQq { get; set; }
+    }
+
     internal class FriendsAddedCommandHandler : ICommandHandler<FriendsAddedCommand>
     {
         private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddingRequestReceivedMahuaEvents;
@@ -26,15 +36,5 @@ namespace Newbe.Mahua.CQP.Commands
                         FromQq = command.FromQq.ToString()
                     }));
         }
-    }
-
-    [DataContract]
-    public class FriendsAddedCommand : CqpCommand
-    {
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public long FromQq { get; set; }
     }
 }

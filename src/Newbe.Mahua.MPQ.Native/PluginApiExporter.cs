@@ -14,6 +14,7 @@ namespace Newbe.Mahua.MPQ.Native
                 .SendCommand<GetInfoCommand, GetInfoCommandResult>(new GetInfoCommand());
             return getInfoCommandResult.Info;
         }
+
         /// <summary>
         ///
         /// </summary>
@@ -27,10 +28,15 @@ namespace Newbe.Mahua.MPQ.Native
         /// <param name="rawMessage">经过解密后的封包字节数据或json结构信息</param>
         /// <returns></returns>
         [DllExport("EventFun")]
-        public static int EventFun(string receiverQq, int eventType, int eventAdditionType, string fromNum,
+        public static int EventFun(
+            string receiverQq,
+            int eventType,
+            int eventAdditionType,
+            string fromNum,
             string eventOperator,
             string triggee,
-            string message, string rawMessage)
+            string message,
+            string rawMessage)
         {
             var endCommandResult = PluginInstanceManager.GetInstance()
                 .SendCommand<EventFunCommand, EventFunCommandResult>(new EventFunCommand
@@ -53,13 +59,11 @@ namespace Newbe.Mahua.MPQ.Native
             PluginInstanceManager.GetInstance().SendCommand(new SetCommand());
         }
 
-
         [DllExport("about")]
         public static void About()
         {
             PluginInstanceManager.GetInstance().SendCommand(new AboutCommand());
         }
-
 
         [DllExport("end")]
         public static int End()

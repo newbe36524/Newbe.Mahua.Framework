@@ -7,6 +7,5 @@ namespace Newbe.Mahua
     /// </summary>
     public class NotSupportMahuaPlatformExpcetion : Exception
     {
-
     }
 }

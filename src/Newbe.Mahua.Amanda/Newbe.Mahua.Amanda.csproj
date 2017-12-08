@@ -74,11 +74,20 @@
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="bin\Release\net452\CLR\" />
     <Folder Include="bin\Release\net452\Native\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NativeApi\IAmadaApi.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP.Native
@@ -9,6 +9,7 @@ namespace Newbe.Mahua.CQP.Native
         {
             return new Module[] { new CqpModule(), };
         }
+
         internal class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)

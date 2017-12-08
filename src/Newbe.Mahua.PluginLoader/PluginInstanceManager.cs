@@ -1,27 +1,39 @@
+ï»¿using Newbe.Mahua.Logging;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using Newbe.Mahua.Logging;
 using W.Domains;
 
 namespace Newbe.Mahua
 {
     /// <summary>
-    /// ²å¼şÊµÀı¹ÜÀíÆ÷
+    /// æ’ä»¶å®ä¾‹ç®¡ç†å™¨
     /// </summary>
     public static class PluginInstanceManager
     {
-        private static IDictionary<string, IPluginLoader> Instances { get; } =
-            new Dictionary<string, IPluginLoader>();
+        public static IPluginLoader GetInstance(PluginFileInfo pluginFileInfo)
+        {
+            try
+            {
+                EnsureAppDomainInitialized(pluginFileInfo);
+                return Instances[pluginFileInfo.Name];
+            }
+            catch (Exception e)
+            {
+                Logger.ErrorException(e.Message, e);
+                throw;
+            }
+        }
 
         private static readonly ILog Logger = LogProvider.GetLogger(typeof(PluginInstanceManager));
+
+        private static IDictionary<string, IPluginLoader> Instances { get; } =
+            new Dictionary<string, IPluginLoader>();
 
         private static void LogException(Exception e)
         {
             Logger.ErrorException(e.Message, e);
             Logger.Error(e.StackTrace);
         }
-
 
         private static void EnsureAppDomainInitialized(PluginFileInfo pluginFileInfo)
         {
@@ -30,19 +42,19 @@ namespace Newbe.Mahua
             {
                 return;
             }
-            Logger.Info($"µ±Ç°»úÆ÷ÈËÆ½Ì¨Îª£º{MahuaGlobal.CurrentPlatform:G}");
-            Logger.Info("¿ªÊ¼¼ÓÔØ²å¼ş");
+            Logger.Info($"å½“å‰æœºå™¨äººå¹³å°ä¸ºï¼š{MahuaGlobal.CurrentPlatform:G}");
+            Logger.Info("å¼€å§‹åŠ è½½æ’ä»¶");
             try
             {
                 Logger.Debug(pluginFileInfo.ToString());
-                Logger.Debug($"µ±Ç°²å¼şÃû³ÆÎª{pluginInfoName}");
+                Logger.Debug($"å½“å‰æ’ä»¶åç§°ä¸º{pluginInfoName}");
                 var domainLoader = new DomainLoader(pluginInfoName, pluginFileInfo.PluginEntyPointDirectory, true);
-                Logger.Debug($"´´½¨AppDomain½øĞĞ¼ÓÔØ²å¼ş:{pluginInfoName}");
+                Logger.Debug($"åˆ›å»ºAppDomainè¿›è¡ŒåŠ è½½æ’ä»¶:{pluginInfoName}");
                 domainLoader.Load();
-                Logger.Debug("¿ªÊ¼´´½¨Í¸Ã÷´úÀí");
+                Logger.Debug("å¼€å§‹åˆ›å»ºé€æ˜ä»£ç†");
                 var loader = domainLoader.Create<IPluginLoader>(typeof(CrossAppDomainPluginLoader).FullName);
                 Logger.Debug(
-                    $"Í¸Ã÷´úÀí´´½¨Íê±Ï£¬ÀàĞÍÎª{loader.GetType().FullName}£¬½«¿ªÊ¼µ÷ÓÃ{nameof(CrossAppDomainPluginLoader.LoadPlugin)}·½·¨");
+                    $"é€æ˜ä»£ç†åˆ›å»ºå®Œæ¯•ï¼Œç±»å‹ä¸º{loader.GetType().FullName}ï¼Œå°†å¼€å§‹è°ƒç”¨{nameof(CrossAppDomainPluginLoader.LoadPlugin)}æ–¹æ³•");
                 if (!loader.LoadPlugin(pluginFileInfo.PluginEntryPointDllFullFilename))
                 {
                     throw new PluginLoadException(pluginInfoName, loader.Message);
@@ -57,20 +69,6 @@ namespace Newbe.Mahua
                     LogException(inner);
                     inner = inner.InnerException;
                 }
-                throw;
-            }
-        }
-
-        public static IPluginLoader GetInstance(PluginFileInfo pluginFileInfo)
-        {
-            try
-            {
-                EnsureAppDomainInitialized(pluginFileInfo);
-                return Instances[pluginFileInfo.Name];
-            }
-            catch (Exception e)
-            {
-                Logger.ErrorException(e.Message, e);
                 throw;
             }
         }

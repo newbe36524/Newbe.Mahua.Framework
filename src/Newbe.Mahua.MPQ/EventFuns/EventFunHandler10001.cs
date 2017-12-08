@@ -1,15 +1,15 @@
 ﻿namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///框架即将重启
-    ///</summary>
+    /// <summary>
+    /// 框架即将重启
+    /// </summary>
     public class EventFunHandler10001 : IEventFunHandler
     {
         public int EventFun { get; } = 10001;
 
         public void Handle(EventFunInput eventFunInput)
         {
-            //todo there is no mahua event
+            // todo there is no mahua event
         }
     }
 }

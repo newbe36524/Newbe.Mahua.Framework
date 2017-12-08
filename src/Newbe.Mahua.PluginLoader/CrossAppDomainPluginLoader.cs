@@ -16,13 +16,7 @@ namespace Newbe.Mahua
 {
     public class CrossAppDomainPluginLoader : MarshalByRefObject, IPluginLoader
     {
-        private static readonly ILog Logger = LogProvider.For<CrossAppDomainPluginLoader>();
-        private IContainer _container;
-
-        private static void Debug(string msg)
-        {
-            Logger.Debug(msg);
-        }
+        public string Message { get; private set; }
 
         public override object InitializeLifetimeService()
         {
@@ -34,8 +28,6 @@ namespace Newbe.Mahua
             }
             return lease;
         }
-
-        public string Message { get; private set; }
 
         public bool LoadPlugin(string pluginEntryPointDllFullFilename)
         {
@@ -65,6 +57,7 @@ namespace Newbe.Mahua
                         builder.RegisterModule(module);
                     }
                 }
+
                 // enables contravariant Resolve() for interfaces with single contravariant ("in") arg
                 builder
                     .RegisterSource(new ContravariantRegistrationSource());
@@ -97,7 +90,6 @@ namespace Newbe.Mahua
                     })
                     .InstancePerLifetimeScope();
 
-
                 var container = builder.Build();
                 Debug("构建Container完毕。");
                 _container = container;
@@ -110,24 +102,6 @@ namespace Newbe.Mahua
             }
         }
 
-        private static readonly ConcurrentDictionary<string, Type> CommandAndResultTypes =
-            new ConcurrentDictionary<string, Type>();
-
-        private static Type GetMahuaType(string typeName, MahuaPlatform? mahuaPlatform = null)
-        {
-            var p = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
-            var re = CommandAndResultTypes.GetOrAdd($"{typeName}, Newbe.Mahua.{p:G}",
-                typeStr => Type.GetType(typeStr, true, true));
-            return re;
-        }
-
-        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> WithResultHandlers =
-            new ConcurrentDictionary<Type, Func<object, object[], object>>();
-
-        private readonly MethodInfo _commandCenterHandleWithResultMethod =
-            typeof(ICommandCenter)
-                .GetMethod(nameof(ICommandCenter.HandleWithResult));
-
         public byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName)
         {
             WriteDiagnostics(() => cmd);
@@ -137,24 +111,16 @@ namespace Newbe.Mahua
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
                 var resultType = GetMahuaType(resultTypeFullName);
-                var handler = WithResultHandlers.GetOrAdd(cmdType, _commandCenterHandleWithResultMethod
-                    .MakeGenericMethod(cmdType, resultType)
-                    .Invoke);
-                var re = handler(center,
-                    new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
+                Func<object, object[], object> invoke =
+                    _commandCenterHandleWithResultMethod.MakeGenericMethod(cmdType, resultType).Invoke;
+                var handler = WithResultHandlers
+                    .GetOrAdd(cmdType, invoke);
+                var re = handler(center, new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
                 var rejson = GlobalCache.CrossDoaminSerializer.Serialize(re, resultType);
                 WriteDiagnostics(() => rejson);
                 return rejson;
             }
         }
-
-
-        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> VoidResultHandlers =
-            new ConcurrentDictionary<Type, Func<object, object[], object>>();
-
-        private readonly MethodInfo _commandCenterHandleMethod =
-            typeof(ICommandCenter)
-                .GetMethod(nameof(ICommandCenter.Handle));
 
         public void Handle(byte[] cmd, string cmdTypeFullName)
         {
@@ -164,11 +130,45 @@ namespace Newbe.Mahua
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
-                var handler = VoidResultHandlers.GetOrAdd(cmdType, _commandCenterHandleMethod
-                    .MakeGenericMethod(cmdType).Invoke);
+                var handler = VoidResultHandlers
+                    .GetOrAdd(cmdType, _commandCenterHandleMethod.MakeGenericMethod(cmdType).Invoke);
                 handler(center, new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
             }
         }
+
+        private static void Debug(string msg)
+        {
+            Logger.Debug(msg);
+        }
+
+        private static Type GetMahuaType(string typeName, MahuaPlatform? mahuaPlatform = null)
+        {
+            var p = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
+            var re = CommandAndResultTypes
+                .GetOrAdd($"{typeName}, Newbe.Mahua.{p:G}", typeStr => Type.GetType(typeStr, true, true));
+            return re;
+        }
+
+        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> WithResultHandlers =
+            new ConcurrentDictionary<Type, Func<object, object[], object>>();
+
+        private static readonly ConcurrentDictionary<string, Type> CommandAndResultTypes =
+            new ConcurrentDictionary<string, Type>();
+
+        private static readonly ConcurrentDictionary<Type, Func<object, object[], object>> VoidResultHandlers =
+            new ConcurrentDictionary<Type, Func<object, object[], object>>();
+
+        private static readonly ILog Logger = LogProvider.For<CrossAppDomainPluginLoader>();
+
+        private IContainer _container;
+
+        private readonly MethodInfo _commandCenterHandleWithResultMethod =
+            typeof(ICommandCenter)
+                .GetMethod(nameof(ICommandCenter.HandleWithResult));
+
+        private readonly MethodInfo _commandCenterHandleMethod =
+            typeof(ICommandCenter)
+                .GetMethod(nameof(ICommandCenter.Handle));
 
         private static void WriteDiagnostics(Func<byte[]> action)
         {

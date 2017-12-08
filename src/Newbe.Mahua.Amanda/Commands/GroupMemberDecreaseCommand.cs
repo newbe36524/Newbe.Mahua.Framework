@@ -7,6 +7,22 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class GroupMemberDecreaseCommand : AmandaCommand
+    {
+        [DataMember]
+        public string Type { get; set; }
+
+        [DataMember]
+        public string Fromgroup { get; set; }
+
+        [DataMember]
+        public string Fromqq { get; set; }
+
+        [DataMember]
+        public string OperatorQq { get; set; }
+    }
+
     internal class GroupMemberDecreaseCommandHandler : ICommandHandler<GroupMemberDecreaseCommand>
     {
         private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;
@@ -18,17 +34,6 @@ namespace Newbe.Mahua.Amanda.Commands
         {
             _groupMemberChangedMahuaEvents = groupMemberChangedMahuaEvents;
             _groupMemberDecreasedMahuaEvents = groupMemberDecreasedMahuaEvents;
-        }
-
-        private static GroupMemberDecreasedReason ConvertType(string type)
-        {
-            //1.主动退群  2.被xxx踢出群
-            switch (type)
-            {
-                case "1": return GroupMemberDecreasedReason.Leavebyself;
-                case "2": return GroupMemberDecreasedReason.Kicked;
-                default: return GroupMemberDecreasedReason.Unknow;
-            }
         }
 
         public void Handle(GroupMemberDecreaseCommand command)
@@ -51,21 +56,16 @@ namespace Newbe.Mahua.Amanda.Commands
                     GroupMemberDecreasedReason = ConvertType(command.Type)
                 }));
         }
-    }
 
-    [DataContract]
-    public class GroupMemberDecreaseCommand : AmandaCommand
-    {
-        [DataMember]
-        public string Type { get; set; }
-
-        [DataMember]
-        public string Fromgroup { get; set; }
-
-        [DataMember]
-        public string Fromqq { get; set; }
-
-        [DataMember]
-        public string OperatorQq { get; set; }
+        private static GroupMemberDecreasedReason ConvertType(string type)
+        {
+            // 1.主动退群  2.被xxx踢出群
+            switch (type)
+            {
+                case "1": return GroupMemberDecreasedReason.Leavebyself;
+                case "2": return GroupMemberDecreasedReason.Kicked;
+                default: return GroupMemberDecreasedReason.Unknow;
+            }
+        }
     }
 }

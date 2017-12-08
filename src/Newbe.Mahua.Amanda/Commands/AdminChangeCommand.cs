@@ -7,30 +7,33 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class AdminChangeCommand : AmandaCommand
+    {
+        [DataMember]
+        public string Type { get; set; }
+
+        [DataMember]
+        public string Fromgroup { get; set; }
+
+        [DataMember]
+        public string Fromqq { get; set; }
+    }
+
     internal class AdminChangeCommandHandler : ICommandHandler<AdminChangeCommand>
     {
         private readonly IEnumerable<IGroupAdminChangedMahuaEvent> _groupAdminChangedMahuaEvents;
         private readonly IEnumerable<IGroupAdminEnabledMahuaEvent> _groupAdminEnabledMahuaEvents;
         private readonly IEnumerable<IGroupAdminDisabledMahuaEvent> _groupAdminDisabledMahuaEvents;
 
-        public AdminChangeCommandHandler(IEnumerable<IGroupAdminChangedMahuaEvent> groupAdminChangedMahuaEvents,
+        public AdminChangeCommandHandler(
+            IEnumerable<IGroupAdminChangedMahuaEvent> groupAdminChangedMahuaEvents,
             IEnumerable<IGroupAdminEnabledMahuaEvent> groupAdminEnabledMahuaEvents,
             IEnumerable<IGroupAdminDisabledMahuaEvent> groupAdminDisabledMahuaEvents)
         {
             _groupAdminChangedMahuaEvents = groupAdminChangedMahuaEvents;
             _groupAdminEnabledMahuaEvents = groupAdminEnabledMahuaEvents;
             _groupAdminDisabledMahuaEvents = groupAdminDisabledMahuaEvents;
-        }
-
-        private static GroupAdminChangeType ConvertType(string type)
-        {
-            //1.xx被添加管理 2.xx被解除管理
-            switch (type)
-            {
-                case "1": return GroupAdminChangeType.Enabled;
-                case "2": return GroupAdminChangeType.Disabled;
-                default: throw new ArgumentOutOfRangeException(nameof(type));
-            }
         }
 
         public void Handle(AdminChangeCommand command)
@@ -68,18 +71,16 @@ namespace Newbe.Mahua.Amanda.Commands
                     throw new ArgumentOutOfRangeException();
             }
         }
-    }
 
-    [DataContract]
-    public class AdminChangeCommand : AmandaCommand
-    {
-        [DataMember]
-        public string Type { get; set; }
-
-        [DataMember]
-        public string Fromgroup { get; set; }
-
-        [DataMember]
-        public string Fromqq { get; set; }
+        private static GroupAdminChangeType ConvertType(string type)
+        {
+            // 1.xx被添加管理 2.xx被解除管理
+            switch (type)
+            {
+                case "1": return GroupAdminChangeType.Enabled;
+                case "2": return GroupAdminChangeType.Disabled;
+                default: throw new ArgumentOutOfRangeException(nameof(type));
+            }
+        }
     }
 }

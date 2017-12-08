@@ -78,10 +78,19 @@
     <PackageReference Include="MediatR" Version="3.0.1" />
     <PackageReference Include="MessagePack" Version="1.7.2" />
     <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="App_Packages\LibLog.4.2\LibLog.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
 
 </Project>

@@ -86,5 +86,17 @@
     <Folder Include="bin\Release\net452\CLR\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NativeApi\ICoolQApi.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
 
 </Project>

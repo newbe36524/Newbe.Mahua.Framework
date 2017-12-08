@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///某人成为管理员
-    ///</summary>
+    /// <summary>
+    /// 某人成为管理员
+    /// </summary>
     public class EventFunHandler2009 : IEventFunHandler
     {
         private readonly IEnumerable<IGroupAdminChangedMahuaEvent> _groupAdminChangedMahuaEvents;

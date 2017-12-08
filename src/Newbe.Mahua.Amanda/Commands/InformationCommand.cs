@@ -4,6 +4,18 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class InformationCommand : AmandaCommand<InformationCommandResult>
+    {
+    }
+
+    [DataContract]
+    public class InformationCommandResult : AmandaCommandResult
+    {
+        [DataMember]
+        public string Info { get; set; }
+    }
+
     internal class InformationCommandHandler : ICommandHandler<InformationCommand, InformationCommandResult>
     {
         private static readonly string SdkVersion = "1";
@@ -28,17 +40,5 @@ namespace Newbe.Mahua.Amanda.Commands
                 Info = info
             };
         }
-    }
-
-    [DataContract]
-    public class InformationCommand : AmandaCommand<InformationCommandResult>
-    {
-    }
-
-    [DataContract]
-    public class InformationCommandResult : AmandaCommandResult
-    {
-        [DataMember]
-        public string Info { get; set; }
     }
 }

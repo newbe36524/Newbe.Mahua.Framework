@@ -5,6 +5,11 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class DisabledCommand : CqpCommand
+    {
+    }
+
     internal class DisabledCommandHandler : ICommandHandler<DisabledCommand>
     {
         private readonly IEnumerable<IPluginDisabledMahuaEvent> _pluginDisabledMahuaEvents;
@@ -18,10 +23,5 @@ namespace Newbe.Mahua.CQP.Commands
         {
             _pluginDisabledMahuaEvents.Handle(x => x.Disable(new PluginDisabledContext()));
         }
-    }
-
-    [DataContract]
-    public class DisabledCommand : CqpCommand
-    {
     }
 }

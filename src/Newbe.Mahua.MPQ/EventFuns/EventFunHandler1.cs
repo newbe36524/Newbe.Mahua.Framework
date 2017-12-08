@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
-    ///<summary>
-    ///好友信息
-    ///</summary>
+    /// <summary>
+    /// 好友信息
+    /// </summary>
     public class EventFunHandler1 : IEventFunHandler
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;

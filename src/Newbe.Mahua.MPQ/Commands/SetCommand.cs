@@ -10,9 +10,9 @@ namespace Newbe.Mahua.MPQ.Commands
             throw new System.NotImplementedException();
         }
     }
+
     [DataContract]
     public class SetCommand : MpqCommand
     {
-
     }
 }

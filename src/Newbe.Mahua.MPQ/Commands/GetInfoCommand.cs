@@ -11,7 +11,8 @@ namespace Newbe.Mahua.MPQ.Commands
             {
                 Info = "todo"
             };
-            //todo
+
+            // todo
         }
     }
 

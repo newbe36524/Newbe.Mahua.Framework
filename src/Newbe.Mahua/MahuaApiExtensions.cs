@@ -14,8 +14,7 @@ namespace Newbe.Mahua
         /// <param name="fromGroup">目标群</param>
         /// <param name="fromQq">目标QQ</param>
         /// <returns></returns>
-        public static GroupMemberInfo GetGroupMemberInfo(this IMahuaApi api,
-            string fromGroup, string fromQq)
+        public static GroupMemberInfo GetGroupMemberInfo(this IMahuaApi api, string fromGroup, string fromQq)
         {
             return api.GetGroupMemebersWithModel(fromGroup).Model.FirstOrDefault(x => x.Qq == fromQq);
         }

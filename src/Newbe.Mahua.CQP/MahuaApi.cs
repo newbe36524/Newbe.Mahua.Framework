@@ -1,7 +1,7 @@
 ﻿using Autofac;
+using Newbe.Mahua.CQP.NativeApi;
 using System;
 using System.Collections.Generic;
-using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP
 {
@@ -18,8 +18,11 @@ namespace Newbe.Mahua.CQP
         private readonly IGroupInfoSerializer _groupInfoSerializer;
         private ILifetimeScope _container;
 
-        public MahuaApi(ICoolQApi coolQApi, ICqpAuthCodeContainer cqpAuthCodeContainer,
-            IGroupMemberInfoSerializer groupMemberInfoSerializer, IGroupInfoSerializer groupInfoSerializer)
+        public MahuaApi(
+            ICoolQApi coolQApi,
+            ICqpAuthCodeContainer cqpAuthCodeContainer,
+            IGroupMemberInfoSerializer groupMemberInfoSerializer,
+            IGroupInfoSerializer groupInfoSerializer)
         {
             _coolQApi = coolQApi;
             _cqpAuthCodeContainer = cqpAuthCodeContainer;
@@ -102,7 +105,11 @@ namespace Newbe.Mahua.CQP
         public void SetGroupMemberSpecialTitle(string toGroup, string toQq, string specialTitle, TimeSpan duration)
         {
             var total = duration == TimeSpan.MaxValue ? -1 : (long)duration.TotalSeconds;
-            _coolQApi.CQ_setGroupSpecialTitle(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), specialTitle,
+            _coolQApi.CQ_setGroupSpecialTitle(
+                AuthCode,
+                Convert.ToInt64(toGroup),
+                Convert.ToInt64(toQq),
+                specialTitle,
                 total);
         }
 
@@ -113,7 +120,10 @@ namespace Newbe.Mahua.CQP
 
         public void BanGroupAnonymousMember(string toGroup, string anonymous, TimeSpan duration)
         {
-            _coolQApi.CQ_setGroupAnonymousBan(AuthCode, Convert.ToInt64(toGroup), anonymous,
+            _coolQApi.CQ_setGroupAnonymousBan(
+                AuthCode,
+                Convert.ToInt64(toGroup),
+                anonymous,
                 (long)duration.TotalSeconds);
         }
 
@@ -154,29 +164,44 @@ namespace Newbe.Mahua.CQP
 
         public void AcceptGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, RequestType请求群添加,
+            _coolQApi.CQ_setGroupAddRequestV2(
+                AuthCode,
+                groupJoiningRequestId,
+                RequestType请求群添加,
                 AcceptType请求通过,
                 null);
         }
 
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq,
-            string reason)
+        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningRequestId, RequestType请求群添加,
+            _coolQApi.CQ_setGroupAddRequestV2(
+                AuthCode,
+                groupJoiningRequestId,
+                RequestType请求群添加,
                 AcceptType请求拒绝,
                 reason);
         }
 
         public void AcceptGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, RequestType请求群邀请,
-                AcceptType请求通过, null);
+            _coolQApi.CQ_setGroupAddRequestV2(
+                AuthCode,
+                groupJoiningInvitationId,
+                RequestType请求群邀请,
+                AcceptType请求通过,
+                null);
         }
 
-        public void RejectGroupJoiningInvitation(string groupJoiningInvitationId, string toGroup, string fromQq,
+        public void RejectGroupJoiningInvitation(
+            string groupJoiningInvitationId,
+            string toGroup,
+            string fromQq,
             string reason)
         {
-            _coolQApi.CQ_setGroupAddRequestV2(AuthCode, groupJoiningInvitationId, RequestType请求群邀请,
+            _coolQApi.CQ_setGroupAddRequestV2(
+                AuthCode,
+                groupJoiningInvitationId,
+                RequestType请求群邀请,
                 AcceptType请求拒绝,
                 reason);
         }

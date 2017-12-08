@@ -9,6 +9,7 @@ namespace Newbe.Mahua.MPQ
     public class MpqCommand<TReslut> : MahuaCommand<TReslut> where TReslut : MpqCommandResult
     {
     }
+
     public class MpqCommandResult : MahuaCommandResult
     {
     }

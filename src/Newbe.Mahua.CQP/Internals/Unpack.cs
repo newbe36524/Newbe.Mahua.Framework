@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text;
 
 namespace Newbe.Mahua.CQP.Internals
@@ -32,7 +32,7 @@ namespace Newbe.Mahua.CQP.Internals
 
         public byte GetByte()
         {
-            var bin = (byte) _source.SubArray(_location, 1).GetValue(0);
+            var bin = (byte)_source.SubArray(_location, 1).GetValue(0);
             _location += 1;
             return bin;
         }
@@ -68,7 +68,7 @@ namespace Newbe.Mahua.CQP.Internals
             }
             catch (Exception)
             {
-                return "";
+                return string.Empty;
             }
         }
 
