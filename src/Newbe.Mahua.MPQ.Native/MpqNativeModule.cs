@@ -7,13 +7,14 @@ namespace Newbe.Mahua.MPQ.Native
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] { new AmandaApiModule() };
+            return new Module[] { new MpqApiModule() };
         }
 
-        private class AmandaApiModule : Module
+        private class MpqApiModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
+                base.Load(builder);
                 builder.RegisterType<MpqApi>().As<IMpqApi>().InstancePerLifetimeScope();
             }
         }
