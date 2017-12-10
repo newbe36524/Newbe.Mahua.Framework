@@ -1,8 +1,6 @@
 # Newbe.Mahua.Framework
 
-dev                                                                                                                                                                                                                                                                   | master
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87121d1e6dbf42edac3e356696504b8d)](https://www.codacy.com/app/472158246/Newbe.Mahua.Framework?utm_source=github.com&utm_medium=referral&utm_content=Newbe36524/Newbe.Mahua.Framework&utm_campaign=badger) |
+[![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=for-the-badge)]() [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=for-the-badge)]()
 
 ## 说在最前面
 
@@ -27,6 +25,17 @@ QQ自动化管理助手平台意指那些支持通过QQ进行消息收发和群�
 支持容器管理生命周期，依赖注入，便于进行单元测试，确保开发效率。
 
 你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ自动化管理助手平台。
+
+## 当前版本
+
+包                        | 版本                                                                                                                                                                               | 下载量                                                                                                                                                                                | 开发版                                                                                                                                                                                     | 说明
+------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------
+Newbe.Mahua              | [![Newbe.Mahua.Version](https://img.shields.io/nuget/v/Newbe.Mahua.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua/)                                        | [![Newbe.Mahua.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua/)                                        | [![Newbe.Mahua.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua/)                                        | 核心接口
+Newbe.Mahua.PluginLoader | [![Newbe.Mahua.PluginLoader.Version](https://img.shields.io/nuget/v/Newbe.Mahua.PluginLoader.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.PluginLoader/) | [![Newbe.Mahua.PluginLoader.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.PluginLoader.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.PluginLoader/) | [![Newbe.Mahua.PluginLoader.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.PluginLoader.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.PluginLoader/) | 核心运行时
+Newbe.Mahua.Tools.Psake  | [![Newbe.Mahua.Tools.Psake .Version](https://img.shields.io/nuget/v/Newbe.Mahua.Tools.Psake .svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)  | [![Newbe.Mahua.Tools.Psake.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Tools.Psake.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)    | [![Newbe.Mahua.Tools.Psake.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Tools.Psake .svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)   | 工具包
+Newbe.Mahua.CQP          | [![Newbe.Mahua.CQP.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | [![Newbe.Mahua.CQP.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | [![Newbe.Mahua.CQP.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | CQP（酷Q）实现
+Newbe.Mahua.Amanda       | [![Newbe.Mahua.Amanda.Version](https://img.shields.io/nuget/v/Newbe.Mahua.Amanda.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | [![Newbe.Mahua.Amanda.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Amanda.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | [![Newbe.Mahua.Amanda.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Amanda.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | Amanda实现
+Newbe.Mahua.MPQ          | [![Newbe.Mahua.MPQ.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | [![Newbe.Mahua.MPQ.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | [![Newbe.Mahua.MPQ.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.svg?style=for-the-badge)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | MPQ（MyPcQQ）实现
 
 ## 技术支持
 
@@ -120,7 +129,7 @@ SendDiscussJoiningInvitation | 发送讨论组邀请        |     | √   |
 SendDiscussMessage           | 发送讨论组消息        | √   | √   | √
 SendGroupJoiningInvitation   | 发送入群邀请         |     | √   |
 SendGroupMessage             | 发送群消息          | √   | √   | √
-SendLike                     | 发送名片赞          | √   | √   | √
+SendLike                     | 发送名片赞          | √   |     | √
 SendPrivateMessage           | 发送私聊消息         | √   | √   | √
 SetBanAllGroupMembersOption  | 设置全群禁言         | √   |     | √
 SetContainer                 | 设置当前上下文运行的容器   | √   | √   | √
