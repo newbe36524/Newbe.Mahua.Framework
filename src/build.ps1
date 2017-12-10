@@ -2,7 +2,7 @@
 properties {
     $rootNow = Resolve-Path .
     $nugetexe = "$rootNow\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
-    $deployMode = "Release"
+    $deployMode = "Debug"
     $releaseDir = "$rootNow\build\"
 }
 
@@ -33,7 +33,8 @@ Task Pack -depends Build -Description "打包" {
         "Newbe.Mahua.Msbuild",
         "Newbe.Mahua.Tools.Psake",
         "Newbe.Mahua.Amanda",
-        "Newbe.Mahua.CQP"
+        "Newbe.Mahua.CQP",
+        "Newbe.Mahua.MPQ"
     )
     $packList | ForEach-Object {
         Exec {
