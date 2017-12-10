@@ -13,8 +13,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <VersionSuffix>dev04</VersionSuffix>
     <Description>
       Newbe.Mahua 针对酷Q平台推出的平台支持包。
       酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的 V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
@@ -22,11 +22,15 @@
       这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
     </Description>
     <PackageReleaseNotes>
-      ## 1.3.0
+      ## 1.4
+
+      随版本更新。
+      ---
+      ## 1.3
 
       使用MessagePack替代JSON序列化，消息处理速度明显提升。
       ---
-      ## 1.2.0
+      ## 1.2
 
       支持Newbe.Mahua.Tools.Psake
     </PackageReleaseNotes>
@@ -60,23 +64,23 @@
       <Pack>true</Pack>
       <PackagePath>tools\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.dll">
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\Newbe.Mahua.CQP.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\Release\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.CQP.Native.dll">
+    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\Native\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.CQP.dll">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.CQP.pdb">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
@@ -88,14 +92,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Release\net452\Native\" />
-    <Folder Include="bin\Release\net452\CLR\" />
+    <Folder Include="bin\$(Configuration)\net452\Native\" />
+    <Folder Include="bin\$(Configuration)\net452\CLR\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
