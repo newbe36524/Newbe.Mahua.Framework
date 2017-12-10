@@ -59,12 +59,19 @@ namespace Newbe.Mahua.MPQ.Native
             PluginInstanceManager.GetInstance().SendCommand(new SetCommand());
         }
 
+        /// <summary>
+        /// 放版权和声明\教程
+        /// </summary>
         [DllExport("about")]
         public static void About()
         {
             PluginInstanceManager.GetInstance().SendCommand(new AboutCommand());
         }
 
+        /// <summary>
+        /// 当插件被停用、卸载时将会调用
+        /// </summary>
+        /// <returns></returns>
         [DllExport("end")]
         public static int End()
         {

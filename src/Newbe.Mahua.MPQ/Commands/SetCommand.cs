@@ -3,11 +3,14 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
+    /// <summary>
+    /// 处理菜单
+    /// </summary>
     public class SetCommandHandler : ICommandHandler<SetCommand>
     {
         public void Handle(SetCommand message)
         {
-            throw new System.NotImplementedException();
+            // todo 处理菜单
         }
     }
 

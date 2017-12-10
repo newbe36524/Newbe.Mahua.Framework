@@ -5,14 +5,20 @@ namespace Newbe.Mahua.MPQ.Commands
 {
     public class GetInfoCommandHandler : ICommandHandler<GetInfoCommand, GetInfoCommandResult>
     {
+        private readonly IPluginInfo _pluginInfo;
+
+        public GetInfoCommandHandler(
+            IPluginInfo pluginInfo)
+        {
+            _pluginInfo = pluginInfo;
+        }
+
         public GetInfoCommandResult Handle(GetInfoCommand message)
         {
             return new GetInfoCommandResult
             {
-                Info = "todo"
+                Info = $"{_pluginInfo.Description}【{_pluginInfo.Author}({_pluginInfo.Version})】"
             };
-
-            // todo
         }
     }
 
