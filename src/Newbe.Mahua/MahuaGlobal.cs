@@ -30,6 +30,9 @@ namespace Newbe.Mahua
 #if DEBUG
                 EnableDiagnostics = true;
 #endif
+#if !DEBUG
+                EnableDiagnostics = false;
+#endif
             }
 
             /// <summary>

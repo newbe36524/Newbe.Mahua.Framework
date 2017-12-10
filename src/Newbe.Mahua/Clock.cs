@@ -8,10 +8,10 @@ namespace Newbe.Mahua
 
         public static DateTimeOffset NowOffset => ClockInstance.NowOffset;
 
-        DateTime IClock.Now => Now;
+        DateTime IClock.Now => DateTime.Now;
 
-        DateTimeOffset IClock.NowOffset => NowOffset;
+        DateTimeOffset IClock.NowOffset => DateTimeOffset.Now;
 
-        internal static IClock ClockInstance { get; set; }
+        internal static IClock ClockInstance { get; set; } = new Clock();
     }
 }

@@ -11,13 +11,17 @@
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
     <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <VersionSuffix>dev07</VersionSuffix>
     <Description>
       QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
     </Description>
     <PackageReleaseNotes>
-      ## 1.3.0
+      ## 1.4
+
+      增加Newbe.Mahua.MPQ实现，支持MyPcQQ平台。
+      ---
+      ## 1.3
 
       使用MessagePack替代JSON序列化，消息处理速度明显提升。
       ---
@@ -35,7 +39,6 @@
       `IMahuaApi`新增方法:`GetGroupMemebersWithModel`,`GetGroupsWithModel`
 
       ---
-
       ## 1.0
 
       主框架发布，支持CQP和Amanda机器人平台。
@@ -62,15 +65,15 @@
       <Pack>true</Pack>
       <PackagePath>tools\</PackagePath>
     </None>
-    <None Include="..\GlobalBin\NLog.config" Link="bin\Release\net452\NLog.config">
+    <None Include="..\GlobalBin\NLog.config" Link="bin\$(Configuration)\net452\NLog.config">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="..\GlobalBin\NLog.dll" Link="bin\Release\net452\NLog.dll">
+    <None Include="..\GlobalBin\NLog.dll" Link="bin\$(Configuration)\net452\NLog.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\*">
+    <None Include="bin\$(Configuration)\net452\*">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
@@ -78,9 +81,15 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.2" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

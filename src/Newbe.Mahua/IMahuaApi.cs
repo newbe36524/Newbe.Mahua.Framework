@@ -354,11 +354,11 @@ namespace Newbe.Mahua
         void SendDiscussJoiningInvitation(string toQq, string toDiscuss);
 
         /// <summary>
-        /// 获取讨论组列表
+        /// 获取讨论组列表，使用<see cref="Environment.NewLine"/>分割的讨论组号列表
         /// </summary>
         /// <returns></returns>
         [Description("获取讨论组列表")]
-        string GetDiscusses();
+        string GetDiscusses(); // todo 应该再内部就分割好数据
 
         /// <summary>
         /// 获取当前上下文运行的容器
