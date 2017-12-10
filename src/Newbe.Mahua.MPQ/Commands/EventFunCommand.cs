@@ -8,12 +8,12 @@ namespace Newbe.Mahua.MPQ.Commands
     {
         private readonly IQqSession _qqSession;
         private readonly IEventFunOutput _eventFunOutput;
-        private readonly IIndex<int, IEventFunHandler> _eventFuncHandlers;
+        private readonly IIndex<int, IEventFun> _eventFuncHandlers;
 
         public EventFunCommandHandler(
             IQqSession qqSession,
             IEventFunOutput eventFunOutput,
-            IIndex<int, IEventFunHandler> eventFuncHandlers)
+            IIndex<int, IEventFun> eventFuncHandlers)
         {
             _qqSession = qqSession;
             _eventFunOutput = eventFunOutput;

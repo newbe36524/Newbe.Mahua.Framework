@@ -13,8 +13,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.0.0</VersionPrefix>
-    <VersionSuffix>dev01</VersionSuffix>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <VersionSuffix>dev13</VersionSuffix>
     <Description>
       Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
       0 长久有效的技术支持及更新维护+独占功能
@@ -28,7 +28,7 @@
       https://f.mypcqq.cc/thread-4900-1-1.html
     </Description>
     <PackageReleaseNotes>
-      ## 1.0.0
+      ## 1.4.0
 
       初版
     </PackageReleaseNotes>
@@ -39,6 +39,8 @@
     <DocumentationFile>bin\Debug\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
+    <CodeAnalysisRuleSet>Newbe.Mahua.MPQ.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
@@ -46,6 +48,8 @@
     <DocumentationFile>bin\Release\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
+    <CodeAnalysisRuleSet>Newbe.Mahua.MPQ.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -53,23 +57,23 @@
       <Pack>true</Pack>
       <PackagePath>tools\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\Newbe.Mahua.MPQ.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\Newbe.Mahua.MPQ.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.MPQ.Native.pdb">
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\Release\x86\Newbe.Mahua.MPQ.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.MPQ.Native.dll">
+    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\x86\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.MPQ.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\Native\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.MPQ.dll">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.MPQ.pdb">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
@@ -81,15 +85,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Release\net452\Native\" />
-    <Folder Include="bin\Release\net452\CLR\" />
+    <Folder Include="bin\$(Configuration)\net452\Native\" />
+    <Folder Include="bin\$(Configuration)\net452\CLR\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.6.2" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
 
   <ItemGroup>
@@ -98,5 +111,14 @@
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
   </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/App_Packages/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
+
 
 </Project>

@@ -1,12 +1,16 @@
 ﻿using Autofac;
+using Newbe.Mahua.Logging;
 using Newbe.Mahua.MPQ.NativeApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web.Script.Serialization;
 
 namespace Newbe.Mahua.MPQ
 {
     public class MahuaApi : IMahuaApi
     {
+        private static readonly ILog Logger = LogProvider.For<MahuaApi>();
         private readonly IMpqApi _mpqApi;
         private readonly IQqSession _qqSession;
         private readonly IEventFunOutput _eventFunOutput;
@@ -80,14 +84,16 @@ namespace Newbe.Mahua.MPQ
             _mpqApi.Api_Shutup(_qqSession.CurrentQq, toGroup, toQq, 0);
         }
 
+        [NotSupportedMahuaApi]
         public void EnableGroupAdmin(string toGroup, string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
+        [NotSupportedMahuaApi]
         public void DisableGroupAdmin(string toGroup, string toQq)
         {
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
         }
 
         [NotSupportedMahuaApi]
@@ -204,52 +210,85 @@ namespace Newbe.Mahua.MPQ
 
         public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
         {
+            var json = _mpqApi.Api_GetGroupMemberA(_qqSession.CurrentQq, toGroup);
+            Logger.Debug(json);
+            return new ModelWithSourceString<IEnumerable<GroupMemberInfo>>
+            {
+                SourceString = json,
+                Model = Enumerable.Empty<GroupMemberInfo>()
+            };
             throw new NotImplementedException();
         }
 
         public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
         {
-            throw new NotImplementedException();
+            var json = _mpqApi.Api_GetGroupListA(_qqSession.CurrentQq);
+            if (string.IsNullOrEmpty(json))
+            {
+                return new ModelWithSourceString<IEnumerable<GroupInfo>>
+                {
+                    Model = Enumerable.Empty<GroupInfo>(),
+                    SourceString = json
+                };
+            }
+            var js = new JavaScriptSerializer
+            {
+                MaxJsonLength = int.MaxValue
+            };
+            var groupInfos = js.Deserialize<GroupInfoJson[]>(json);
+            var re = groupInfos
+                .Select(x => new GroupInfo
+                {
+                    Group = x.Gc.ToString(),
+                    Name = x.Gn
+                })
+                .ToArray();
+            return new ModelWithSourceString<IEnumerable<GroupInfo>>
+            {
+                SourceString = json,
+                Model = re
+            };
         }
 
         public string GetGroupMemebers(string toGroup)
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_GetGroupMemberA(_qqSession.CurrentQq, toGroup);
         }
 
         public string GetGroups()
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_GetGroupListA(_qqSession.CurrentQq);
         }
 
         public string GetFriends()
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_GetFriendList(_qqSession.CurrentQq);
         }
 
         public void SendGroupJoiningInvitation(string toQq, string toGroup)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_GroupInvitation(_qqSession.CurrentQq, toQq, toGroup);
         }
 
         public string CreateDiscuss()
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_CreateDG(_qqSession.CurrentQq);
         }
 
         public void KickDiscussMember(string toDiscuss, string toQq)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_KickDG(_qqSession.CurrentQq, toQq, toDiscuss);
         }
 
         public void SendDiscussJoiningInvitation(string toQq, string toDiscuss)
         {
-            throw new NotImplementedException();
+            _mpqApi.Api_DGInvitation(_qqSession.CurrentQq, toQq, toDiscuss);
         }
 
         public string GetDiscusses()
         {
-            throw new NotImplementedException();
+            var dblist = _mpqApi.Api_GetDGList(_qqSession.CurrentQq);
+            return dblist;
         }
 
         public ILifetimeScope GetContainer()
@@ -260,6 +299,27 @@ namespace Newbe.Mahua.MPQ
         public void SetContainer(ILifetimeScope container)
         {
             _container = container;
+        }
+
+        /// <summary>
+        /// 群基本信息
+        /// </summary>
+        public class GroupInfoJson
+        {
+            /// <summary>
+            /// 群号
+            /// </summary>
+            public long Gc { get; set; }
+
+            /// <summary>
+            /// 群名称
+            /// </summary>
+            public string Gn { get; set; }
+
+            /// <summary>
+            /// 群主QQ
+            /// </summary>
+            public long Owner { get; set; }
         }
     }
 }
