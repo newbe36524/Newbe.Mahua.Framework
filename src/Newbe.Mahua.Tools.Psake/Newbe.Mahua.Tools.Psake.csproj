@@ -14,7 +14,7 @@
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
     <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix>dev01</VersionSuffix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Description>
       Newbe.Mahua开发工具包，是使用Newbe.Mahua进行开发不可获取的官方工具集合。轻巧灵便，便于扩展。
     </Description>
