@@ -3,7 +3,7 @@ using Newbe.Mahua.Commands;
 
 namespace Newbe.Mahua
 {
-    internal class PluginLoaderMahuaModule : IMahuaModule
+    public class PluginLoaderMahuaModule : IMahuaModule
     {
         Module[] IMahuaModule.GetModules()
         {

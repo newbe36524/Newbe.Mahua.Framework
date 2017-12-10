@@ -18,6 +18,8 @@ namespace Newbe.Mahua
     {
         public string Message { get; private set; }
 
+        public string ExceptionString { get; private set; }
+
         public override object InitializeLifetimeService()
         {
             var lease = (ILease)base.InitializeLifetimeService();
@@ -42,21 +44,26 @@ namespace Newbe.Mahua
                 {
                     Debug($"当前已加载程序集:{assembly.FullName}");
                 }
-                Debug($"程序集加载完毕,开始构建Container");
+                Debug("程序集加载完毕,开始构建Container");
                 var superBuilder = new ContainerBuilder();
                 superBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).AsImplementedInterfaces()
                     .AsSelf();
                 var superContainer = superBuilder.Build();
+                Debug("IMahuaModule扫描容器，构建完毕。开始扫描IMahuaModule。");
                 var subBuilderRegisters = superContainer.Resolve<IMahuaModule[]>().ToArray();
+                Debug($"共发现{subBuilderRegisters.Length}个IMahuaModule");
                 var builder = new ContainerBuilder();
                 foreach (var autofacContainerBuilder in subBuilderRegisters)
                 {
                     var modules = autofacContainerBuilder.GetModules();
+                    Debug($"{autofacContainerBuilder.GetType().FullName} 中发现了 {modules.Length} 个 Autofac.Module。");
                     foreach (var module in modules)
                     {
                         builder.RegisterModule(module);
+                        Debug($"注册了 {module.GetType().FullName}");
                     }
                 }
+                Debug("IMahuaModule扫描注册完毕。");
 
                 // enables contravariant Resolve() for interfaces with single contravariant ("in") arg
                 builder
@@ -89,7 +96,7 @@ namespace Newbe.Mahua
                         return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
                     })
                     .InstancePerLifetimeScope();
-
+                Debug("命令处理中心注册完毕。");
                 var container = builder.Build();
                 Debug("构建Container完毕。");
                 _container = container;
@@ -97,6 +104,7 @@ namespace Newbe.Mahua
             }
             catch (Exception ex)
             {
+                ExceptionString = ex.ToString();
                 Message = ex.Message;
                 return false;
             }

@@ -12,12 +12,16 @@
     <PackageTags>Newbe Mahua</PackageTags>
     <RootNamespace>Newbe.Mahua</RootNamespace>
     <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <VersionSuffix>dev07</VersionSuffix>
     <Description>
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
     <PackageReleaseNotes>
+      ## 1.4
+
+      增加Newbe.Mahua.MPQ实现，支持MyPcQQ平台。
+      ---
       ## 1.3.0
 
       使用MessagePack替代JSON序列化，消息处理速度明显提升。
@@ -38,6 +42,7 @@
     <DocumentationFile>bin\Debug\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <DefineConstants>TRACE;DEBUG;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
@@ -45,34 +50,35 @@
     <DocumentationFile>bin\Release\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <DefineConstants>TRACE;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\net452\MediatR.dll">
+    <None Include="bin\$(Configuration)\net452\MediatR.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.PluginLoader.dll">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.PluginLoader.pdb">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Tungsten.Domains.dll">
+    <None Include="bin\$(Configuration)\net452\Tungsten.Domains.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\System.Threading.Tasks.Extensions.dll">
+    <None Include="bin\$(Configuration)\net452\System.Threading.Tasks.Extensions.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\System.ValueTuple.dll">
+    <None Include="bin\$(Configuration)\net452\System.ValueTuple.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\MessagePack.dll">
+    <None Include="bin\$(Configuration)\net452\MessagePack.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
@@ -81,10 +87,16 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
     <PackageReference Include="MessagePack" Version="1.7.2" />
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
     <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
