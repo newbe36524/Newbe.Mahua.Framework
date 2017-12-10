@@ -14,7 +14,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Information", CallingConvention.StdCall)]
         public static string Information()
         {
-            var informationCommandResult = PluginInstanceManager.GetInstance()
+            var informationCommandResult = Native.PluginInstanceManager.GetInstance()
                 .SendCommand<InformationCommand, InformationCommandResult>(new InformationCommand());
             return informationCommandResult.Info;
         }
@@ -26,7 +26,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_Initialization", CallingConvention.StdCall)]
         public static int Event_Initialization()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new InitializationCommand());
+            Native.PluginInstanceManager.GetInstance().SendCommand(new InitializationCommand());
             return 0;
         }
 
@@ -37,7 +37,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_pluginStart", CallingConvention.StdCall)]
         public static int Event_pluginStart()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new PluginStartCommand());
+            Native.PluginInstanceManager.GetInstance().SendCommand(new PluginStartCommand());
             return 0;
         }
 
@@ -48,7 +48,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_pluginStop", CallingConvention.StdCall)]
         public static int Event_pluginStop()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new PluginStopCommand());
+            Native.PluginInstanceManager.GetInstance().SendCommand(new PluginStopCommand());
             return 0;
         }
 
@@ -85,7 +85,7 @@ namespace Newbe.Mahua.Amanda
                     t = FromMessageType.Unknown;
                     break;
             }
-            PluginInstanceManager.GetInstance().SendCommand(new GetNewMsgCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new GetNewMsgCommand
             {
                 Message = message,
                 Type = t,
@@ -114,7 +114,7 @@ namespace Newbe.Mahua.Amanda
             string friendRemark,
             string orderNo)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GetQqWalletDataCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new GetQqWalletDataCommand
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -136,7 +136,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_AdminChange", CallingConvention.StdCall)]
         public static string Event_AdminChange(string type, string fromgroup, string fromqq)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new AdminChangeCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new AdminChangeCommand
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -160,7 +160,7 @@ namespace Newbe.Mahua.Amanda
             string fromqq,
             string operatorQq)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreaseCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreaseCommand
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -185,7 +185,7 @@ namespace Newbe.Mahua.Amanda
             string fromqq,
             string operatorQq)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreaseCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreaseCommand
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -214,7 +214,7 @@ namespace Newbe.Mahua.Amanda
             string moreMsg,
             string seq)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new AddGroupCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new AddGroupCommand
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -236,7 +236,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_AddFrinend", CallingConvention.StdCall)]
         public static string Event_AddFrinend(string fromqq, string reason)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new AddFrinendCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new AddFrinendCommand
             {
                 Fromqq = fromqq,
                 Reason = reason
@@ -252,7 +252,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_BecomeFriends", CallingConvention.StdCall)]
         public static string Event_BecomeFriends(string fromqq)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new BecomeFriendsCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new BecomeFriendsCommand
             {
                 Fromqq = fromqq
             });
@@ -266,7 +266,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("Event_UpdataCookies", CallingConvention.StdCall)]
         public static string Event_UpdataCookies()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new UpdataCookiesCommand());
+            Native.PluginInstanceManager.GetInstance().SendCommand(new UpdataCookiesCommand());
             return Continue;
         }
 
@@ -277,7 +277,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("_TestMenu1", CallingConvention.StdCall)]
         public static int _TestMenu1()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
             {
                 MenuId = nameof(_TestMenu1),
             });
@@ -291,7 +291,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("_TestMenu2", CallingConvention.StdCall)]
         public static int _TestMenu2()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
+            Native.PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
             {
                 MenuId = nameof(_TestMenu2),
             });

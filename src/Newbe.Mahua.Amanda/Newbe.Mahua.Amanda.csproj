@@ -13,8 +13,8 @@
     <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.4.0</VersionPrefix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Description>
       Newbe.Mahua 针对Amanda平台推出的平台支持包。
       全新的 Amanda （http://www.52chat.cc/）
@@ -24,6 +24,10 @@
       试试看，您一定会喜欢上她
     </Description>
     <PackageReleaseNotes>
+      ## 1.4
+
+      随版本更新。
+      ---
       ## 1.3.0
 
       使用MessagePack替代JSON序列化，消息处理速度明显提升。
@@ -55,23 +59,23 @@
       <Pack>true</Pack>
       <PackagePath>tools\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\Newbe.Mahua.Amanda.Native.dll" Link="bin\Release\net452\CLR\Newbe.Mahua.Amanda.Native.dll">
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\Newbe.Mahua.Amanda.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Amanda.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\Newbe.Mahua.Amanda.Native.pdb" Link="bin\Release\net452\CLR\Newbe.Mahua.Amanda.Native.pdb">
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\Newbe.Mahua.Amanda.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Amanda.Native.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
-    <None Include="..\Newbe.Mahua.Amanda.Native\bin\Release\x86\Newbe.Mahua.Amanda.Native.dll" Link="bin\Release\net452\Native\Newbe.Mahua.Amanda.Native.dll">
+    <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\x86\Newbe.Mahua.Amanda.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.Amanda.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\Native\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.Amanda.dll">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.Amanda.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.Amanda.pdb">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.Amanda.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
@@ -83,14 +87,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="bin\Release\net452\CLR\" />
-    <Folder Include="bin\Release\net452\Native\" />
+    <Folder Include="bin\$(Configuration)\net452\CLR\" />
+    <Folder Include="bin\$(Configuration)\net452\Native\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
