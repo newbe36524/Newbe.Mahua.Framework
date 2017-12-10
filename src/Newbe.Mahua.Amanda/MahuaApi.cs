@@ -7,15 +7,21 @@ namespace Newbe.Mahua.Amanda
 {
     internal class MahuaApi : IMahuaApi
     {
+#pragma warning disable S125 // Sections of code should not be "commented out"
         private readonly string _msgType好友消息 = "1";
-        private readonly string _msgType群消息 = "2";
-        private readonly string _msgType群临时消息 = "3";
-        private readonly string _msgType讨论组消息 = "4";
-        private readonly string _msgType讨论组临时消息 = "5";
 
+        private readonly string _msgType群消息 = "2";
+
+        //// todo _msgType群临时消息3;
+        private readonly string _msgType讨论组消息 = "4";
+
+        //// todo _msgType讨论组临时消息5;
         private readonly int _operation同意 = 1;
+
         private readonly int _operation拒绝 = 2;
-        private readonly int _operation忽略 = 3;
+        //// todo _operation忽略3;
+#pragma warning restore S125 // Sections of code should not be "commented out"
+
         private readonly IAmadaApi _amadaApi;
         private ILifetimeScope _container;
 
@@ -202,15 +208,14 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public ModelWithSourceString<IEnumerable<GroupMemberInfo>> GetGroupMemebersWithModel(string toGroup)
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(ModelWithSourceString<IEnumerable<GroupMemberInfo>>);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion
+                .Handle<ModelWithSourceString<IEnumerable<GroupMemberInfo>>>();
         }
 
         [NotSupportedMahuaApi]
         public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(ModelWithSourceString<IEnumerable<GroupInfo>>);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion.Handle<ModelWithSourceString<IEnumerable<GroupInfo>>>();
         }
 
         public string GetGroupMemebers(string toGroup)
@@ -256,8 +261,7 @@ namespace Newbe.Mahua.Amanda
         [NotSupportedMahuaApi]
         public string GetDiscusses()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion.Handle<string>();
         }
 
         public ILifetimeScope GetContainer()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace Newbe.Mahua.CQP.Internals
@@ -23,7 +24,7 @@ namespace Newbe.Mahua.CQP.Internals
         {
             if (len <= 0)
             {
-                return null;
+                return Enumerable.Empty<byte>().ToArray();
             }
             var bin = _source.SubArray(_location, len);
             _location += len;

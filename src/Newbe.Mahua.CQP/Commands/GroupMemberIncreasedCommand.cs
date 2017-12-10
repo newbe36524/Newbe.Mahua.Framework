@@ -39,23 +39,23 @@ namespace Newbe.Mahua.CQP.Commands
             _groupMemberIncreasedMahuaEvents = groupMemberIncreasedMahuaEvents;
         }
 
-        public void Handle(GroupMemberIncreasedCommand command)
+        public void Handle(GroupMemberIncreasedCommand message)
         {
             _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
             {
-                SendTime = command.SendTime,
-                FromGroup = command.FromGroup.ToString(),
-                JoinedOrLeftQq = command.ToQq.ToString(),
+                SendTime = message.SendTime,
+                FromGroup = message.FromGroup.ToString(),
+                JoinedOrLeftQq = message.ToQq.ToString(),
                 GroupMemberChangedType = GroupMemberChangedType.Increased
             }));
             _groupMemberIncreasedMahuaEvents.Handle(
                 x => x.ProcessGroupMemberIncreased(new GroupMemberIncreasedContext
                 {
-                    SendTime = command.SendTime,
-                    FromGroup = command.FromGroup.ToString(),
-                    JoinedQq = command.ToQq.ToString(),
-                    InvitatorOrAdmin = command.FromQq.ToString(),
-                    GroupMemberIncreasedReason = command.GroupMemberIncreasedReason
+                    SendTime = message.SendTime,
+                    FromGroup = message.FromGroup.ToString(),
+                    JoinedQq = message.ToQq.ToString(),
+                    InvitatorOrAdmin = message.FromQq.ToString(),
+                    GroupMemberIncreasedReason = message.GroupMemberIncreasedReason
                 }));
         }
     }

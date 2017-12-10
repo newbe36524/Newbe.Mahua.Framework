@@ -19,7 +19,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _enabledMahuaEvents = enabledMahuaEvents;
         }
 
-        public void Handle(PluginStartCommand command)
+        public void Handle(PluginStartCommand message)
         {
             _enabledMahuaEvents.Handle(x => x.Enabled(new PluginEnabledContext()));
         }

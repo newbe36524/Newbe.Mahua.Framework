@@ -36,16 +36,16 @@ namespace Newbe.Mahua.CQP.Commands
             _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
         }
 
-        public void Handle(GroupJoiningInvitationCommand command)
+        public void Handle(GroupJoiningInvitationCommand message)
         {
             _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
                 new GroupJoiningRequestReceivedContext
                 {
-                    GroupJoiningRequestId = command.GroupJoiningInvitationId,
-                    SendTime = command.SendTime,
-                    FromQq = command.FromQq.ToString(),
-                    ToGroup = command.ToGroup.ToString(),
-                    Message = command.Message,
+                    GroupJoiningRequestId = message.GroupJoiningInvitationId,
+                    SendTime = message.SendTime,
+                    FromQq = message.FromQq.ToString(),
+                    ToGroup = message.ToGroup.ToString(),
+                    Message = message.Message,
                 }));
         }
     }

@@ -12,7 +12,7 @@ namespace Newbe.Mahua.Amanda.Commands
 
     internal class MenuCommandHandler : ICommandHandler<MenuCommand>
     {
-        public void Handle(MenuCommand command)
+        public void Handle(MenuCommand message)
         {
             // todo
         }

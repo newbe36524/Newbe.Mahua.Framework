@@ -53,16 +53,16 @@ namespace Newbe.Mahua.CQP.Commands
             _privateMessageFromDiscussGroupReceivedMahuaEvents = privateMessageFromDiscussGroupReceivedMahuaEvents;
         }
 
-        public void Handle(PrivateMessageCommand command)
+        public void Handle(PrivateMessageCommand message)
         {
             _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(new PrivateMessageReceivedContext
             {
-                SendTime = command.SendTime,
-                FromQq = command.FormNum.ToString(),
-                Message = command.Message,
-                PrivateMessageFromType = command.PrivateMessageFromType,
+                SendTime = message.SendTime,
+                FromQq = message.FormNum.ToString(),
+                Message = message.Message,
+                PrivateMessageFromType = message.PrivateMessageFromType,
             }));
-            switch (command.PrivateMessageFromType)
+            switch (message.PrivateMessageFromType)
             {
                 case PrivateMessageFromType.Unknown:
                     break;
@@ -70,46 +70,46 @@ namespace Newbe.Mahua.CQP.Commands
                     _privateMessageFromFriendReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(
                         new PrivateMessageFromFriendReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            FromQq = command.FormNum.ToString(),
-                            Message = command.Message
+                            SendTime = message.SendTime,
+                            FromQq = message.FormNum.ToString(),
+                            Message = message.Message
                         }));
                     break;
                 case PrivateMessageFromType.Online:
                     _privateMessageFromOnlineReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(
                         new PrivateMessageFromOnlineReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            FromQq = command.FormNum.ToString(),
-                            Message = command.Message,
+                            SendTime = message.SendTime,
+                            FromQq = message.FormNum.ToString(),
+                            Message = message.Message,
                         }));
                     break;
                 case PrivateMessageFromType.Group:
                     _privateMessageFromGroupReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(
                         new PrivateMessageFromGroupReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            Message = command.Message,
+                            SendTime = message.SendTime,
+                            Message = message.Message,
 
                             // todo CQP 无法获取发送者的群
                             FromGroup = string.Empty,
-                            FromQq = command.FormNum.ToString()
+                            FromQq = message.FormNum.ToString()
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
                     _privateMessageFromDiscussGroupReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(
                         new PrivateMessageFromDiscussReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            Message = command.Message,
+                            SendTime = message.SendTime,
+                            Message = message.Message,
 
                             // todo CQP 无法获取发送者的讨论组信息
                             FromDiscuss = string.Empty,
-                            FromQq = command.FormNum.ToString()
+                            FromQq = message.FormNum.ToString()
                         }));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
     }

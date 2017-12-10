@@ -71,46 +71,46 @@ namespace Newbe.Mahua.Amanda.Commands
             _discussMessageReceivedMahuaEvents = discussMessageReceivedMahuaEvents;
         }
 
-        public void Handle(GetNewMsgCommand command)
+        public void Handle(GetNewMsgCommand message)
         {
             var sendTime = DateTime.Now;
-            var commandFromqq = command.Fromqq;
-            if (command.Type == FromMessageType.Unknown)
+            var commandFromqq = message.Fromqq;
+            if (message.Type == FromMessageType.Unknown)
             {
                 // todo
                 return;
             }
-            if (command.Type == FromMessageType.群消息)
+            if (message.Type == FromMessageType.群消息)
             {
                 _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
                 {
-                    Message = command.Message,
+                    Message = message.Message,
                     FromQq = commandFromqq,
-                    FromGroup = command.Fromgroup,
+                    FromGroup = message.Fromgroup,
                     SendTime = sendTime
                 }));
                 return;
             }
-            if (command.Type == FromMessageType.讨论组消息)
+            if (message.Type == FromMessageType.讨论组消息)
             {
                 _discussMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessageReceived(
                     new DiscussMessageReceivedMahuaEventContext
                     {
-                        Message = command.Message,
+                        Message = message.Message,
                         FromQq = commandFromqq,
-                        FromDiscuss = command.Fromgroup,
+                        FromDiscuss = message.Fromgroup,
                         SendTime = sendTime
                     }));
                 return;
             }
-            var type = ConvertType(command.Type);
+            var type = ConvertType(message.Type);
             _privateMessageReceivedMahuaEvents.Handle(x =>
             {
                 x.ProcessPrivateMessage(new PrivateMessageReceivedContext
                 {
                     SendTime = sendTime,
                     FromQq = commandFromqq,
-                    Message = command.Message,
+                    Message = message.Message,
                     PrivateMessageFromType = type,
                 });
             });
@@ -124,7 +124,7 @@ namespace Newbe.Mahua.Amanda.Commands
                         {
                             SendTime = sendTime,
                             FromQq = commandFromqq,
-                            Message = command.Message
+                            Message = message.Message
                         }));
                     break;
                 case PrivateMessageFromType.Online:
@@ -133,7 +133,7 @@ namespace Newbe.Mahua.Amanda.Commands
                         {
                             SendTime = sendTime,
                             FromQq = commandFromqq,
-                            Message = command.Message,
+                            Message = message.Message,
                         }));
                     break;
                 case PrivateMessageFromType.Group:
@@ -141,8 +141,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         new PrivateMessageFromGroupReceivedContext
                         {
                             SendTime = sendTime,
-                            Message = command.Message,
-                            FromGroup = command.Fromgroup,
+                            Message = message.Message,
+                            FromGroup = message.Fromgroup,
                             FromQq = commandFromqq
                         }));
                     break;
@@ -151,13 +151,13 @@ namespace Newbe.Mahua.Amanda.Commands
                         new PrivateMessageFromDiscussReceivedContext
                         {
                             SendTime = sendTime,
-                            Message = command.Message,
-                            FromDiscuss = command.Fromgroup,
+                            Message = message.Message,
+                            FromDiscuss = message.Fromgroup,
                             FromQq = commandFromqq
                         }));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
 

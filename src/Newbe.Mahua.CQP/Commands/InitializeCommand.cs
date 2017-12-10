@@ -26,9 +26,9 @@ namespace Newbe.Mahua.CQP.Commands
             _initializationMahuaEvents = initializationMahuaEvents;
         }
 
-        public void Handle(InitializeCommand command)
+        public void Handle(InitializeCommand message)
         {
-            _cqpAuthCodeContainer.AuthCode = command.AuthCode;
+            _cqpAuthCodeContainer.AuthCode = message.AuthCode;
             _initializationMahuaEvents.Handle(x => x.Initialized(new InitializedContext()));
         }
     }

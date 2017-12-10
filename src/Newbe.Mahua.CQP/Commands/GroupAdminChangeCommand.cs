@@ -39,37 +39,37 @@ namespace Newbe.Mahua.CQP.Commands
             _groupAdminDisabledMahuaEvents = groupAdminDisabledMahuaEvents;
         }
 
-        public void Handle(GroupAdminChangeCommand command)
+        public void Handle(GroupAdminChangeCommand message)
         {
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
             {
-                SendTime = command.SendTime,
-                ToQq = command.ToQq.ToString(),
-                FromGroup = command.FromGroup.ToString(),
-                GroupAdminChangeType = command.GroupAdminChangeType
+                SendTime = message.SendTime,
+                ToQq = message.ToQq.ToString(),
+                FromGroup = message.FromGroup.ToString(),
+                GroupAdminChangeType = message.GroupAdminChangeType
             }));
-            switch (command.GroupAdminChangeType)
+            switch (message.GroupAdminChangeType)
             {
                 case GroupAdminChangeType.Enabled:
                     _groupAdminEnabledMahuaEvents.Handle(
                         x => x.ProcessGroupAdminEnabled(new GroupAdminEnabledContext
                         {
-                            SendTime = command.SendTime,
-                            FromGroup = command.FromGroup.ToString(),
-                            ToQq = command.ToQq.ToString()
+                            SendTime = message.SendTime,
+                            FromGroup = message.FromGroup.ToString(),
+                            ToQq = message.ToQq.ToString()
                         }));
                     break;
                 case GroupAdminChangeType.Disabled:
                     _groupAdminDisabledMahuaEvents.Handle(
                         x => x.ProcessGroupAdminDisabled(new GroupAdminDisabledContext
                         {
-                            SendTime = command.SendTime,
-                            FromGroup = command.FromGroup.ToString(),
-                            ToQq = command.ToQq.ToString(),
+                            SendTime = message.SendTime,
+                            FromGroup = message.FromGroup.ToString(),
+                            ToQq = message.ToQq.ToString(),
                         }));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
     }

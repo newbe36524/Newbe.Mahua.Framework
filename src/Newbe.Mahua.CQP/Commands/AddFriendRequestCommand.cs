@@ -29,13 +29,13 @@ namespace Newbe.Mahua.CQP.Commands
             _addingFriendRequestMahuaEvents = addingFriendRequestMahuaEvents;
         }
 
-        public void Handle(AddFriendRequestCommand command)
+        public void Handle(AddFriendRequestCommand message)
         {
             _addingFriendRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
             {
-                SendTime = command.SendTime,
-                FromQq = command.FromQq.ToString(),
-                Message = command.Message,
+                SendTime = message.SendTime,
+                FromQq = message.FromQq.ToString(),
+                Message = message.Message,
             }));
         }
     }

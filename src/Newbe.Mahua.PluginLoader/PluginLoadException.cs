@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua
 {
     /// <summary>
     /// 插件加载异常
     /// </summary>
+    [Serializable]
     public class PluginLoadException : Exception
     {
         /// <summary>
@@ -16,6 +18,10 @@ namespace Newbe.Mahua
         {
             PluginName = pluginName;
             Reason = reason;
+        }
+
+        protected PluginLoadException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
         }
 
         /// <summary>

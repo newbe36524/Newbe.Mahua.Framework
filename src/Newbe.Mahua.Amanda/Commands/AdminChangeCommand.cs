@@ -36,15 +36,15 @@ namespace Newbe.Mahua.Amanda.Commands
             _groupAdminDisabledMahuaEvents = groupAdminDisabledMahuaEvents;
         }
 
-        public void Handle(AdminChangeCommand command)
+        public void Handle(AdminChangeCommand message)
         {
             var sendTime = DateTime.Now;
-            var type = ConvertType(command.Type);
+            var type = ConvertType(message.Type);
             _groupAdminChangedMahuaEvents.Handle(x => x.ProcessGroupAdminChange(new GroupAdminChangedContext
             {
                 SendTime = sendTime,
-                ToQq = command.Fromqq,
-                FromGroup = command.Fromgroup,
+                ToQq = message.Fromqq,
+                FromGroup = message.Fromgroup,
                 GroupAdminChangeType = type
             }));
             switch (type)
@@ -54,8 +54,8 @@ namespace Newbe.Mahua.Amanda.Commands
                         x => x.ProcessGroupAdminEnabled(new GroupAdminEnabledContext
                         {
                             SendTime = sendTime,
-                            FromGroup = command.Fromgroup,
-                            ToQq = command.Fromqq,
+                            FromGroup = message.Fromgroup,
+                            ToQq = message.Fromqq,
                         }));
                     break;
                 case GroupAdminChangeType.Disabled:
@@ -63,12 +63,12 @@ namespace Newbe.Mahua.Amanda.Commands
                         x => x.ProcessGroupAdminDisabled(new GroupAdminDisabledContext
                         {
                             SendTime = sendTime,
-                            FromGroup = command.Fromgroup,
-                            ToQq = command.Fromqq,
+                            FromGroup = message.Fromgroup,
+                            ToQq = message.Fromqq,
                         }));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
 

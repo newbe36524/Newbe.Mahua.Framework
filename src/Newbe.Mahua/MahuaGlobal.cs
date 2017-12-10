@@ -10,7 +10,7 @@ namespace Newbe.Mahua
         /// <summary>
         /// 当前机器人平台
         /// </summary>
-        /// <exception cref="NotSupportMahuaPlatformExpcetion"></exception>
+        /// <exception cref="NotSupportMahuaPlatformException"></exception>
         public static MahuaPlatform CurrentPlatform => MahuaPlatformValueProvider.CurrentPlatform.Value;
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Newbe.Mahua
         /// </summary>
         public static INotSupportedMahuaApiConvertion NotSupportedMahuaApiConvertion { get; set; } =
             MahuaConvertions.NotSupportedMahuaApiConvertions
-                .GetThrowsNotSupportedMahuaApiConvertion<NotSupportMahuaPlatformExpcetion>();
+                .GetThrowsNotSupportedMahuaApiConvertion<NotSupportMahuaPlatformException>();
 
         /// <summary>
         /// 诊断

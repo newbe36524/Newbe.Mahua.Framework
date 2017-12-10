@@ -10,7 +10,7 @@ namespace Newbe.Mahua.Amanda.Commands
 
     internal class UpdataCookiesCommandHandler : ICommandHandler<UpdataCookiesCommand>
     {
-        public void Handle(UpdataCookiesCommand command)
+        public void Handle(UpdataCookiesCommand message)
         {
             // todo 需要做的什么
         }

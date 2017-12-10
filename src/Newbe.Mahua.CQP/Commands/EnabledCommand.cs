@@ -19,7 +19,7 @@ namespace Newbe.Mahua.CQP.Commands
             _pluginEnabledMahuaEvents = pluginEnabledMahuaEvents;
         }
 
-        public void Handle(EnabledCommand command)
+        public void Handle(EnabledCommand message)
         {
             _pluginEnabledMahuaEvents.Handle(x => x.Enabled(new PluginEnabledContext()));
         }

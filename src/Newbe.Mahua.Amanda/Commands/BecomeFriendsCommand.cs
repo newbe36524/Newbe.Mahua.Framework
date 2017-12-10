@@ -22,12 +22,12 @@ namespace Newbe.Mahua.Amanda.Commands
             _friendAddedMahuaEvents = friendAddedMahuaEvents;
         }
 
-        public void Handle(BecomeFriendsCommand command)
+        public void Handle(BecomeFriendsCommand message)
         {
             _friendAddedMahuaEvents.Handle(x => x.ProcessFriendsAdded(new FriendAddedMahuaEventContext
             {
                 SendTime = DateTime.Now,
-                FromQq = command.Fromqq,
+                FromQq = message.Fromqq,
             }));
         }
     }

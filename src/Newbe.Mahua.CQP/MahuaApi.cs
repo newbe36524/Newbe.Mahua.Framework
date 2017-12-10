@@ -271,8 +271,7 @@ namespace Newbe.Mahua.CQP
         [NotSupportedMahuaApi]
         public string GetFriends()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion.Handle<string>();
         }
 
         [NotSupportedMahuaApi]
@@ -284,8 +283,7 @@ namespace Newbe.Mahua.CQP
         [NotSupportedMahuaApi]
         public string CreateDiscuss()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion.Handle<string>();
         }
 
         [NotSupportedMahuaApi]
@@ -303,8 +301,7 @@ namespace Newbe.Mahua.CQP
         [NotSupportedMahuaApi]
         public string GetDiscusses()
         {
-            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
-            return default(string);
+            return MahuaGlobal.NotSupportedMahuaApiConvertion.Handle<string>();
         }
 
         public ILifetimeScope GetContainer()

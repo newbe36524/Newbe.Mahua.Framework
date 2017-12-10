@@ -49,21 +49,21 @@ namespace Newbe.Mahua.Amanda.Commands
             _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
         }
 
-        public void Handle(AddGroupCommand command)
+        public void Handle(AddGroupCommand message)
         {
-            switch (command.Type)
+            switch (message.Type)
             {
                 case AddGroup主动加群:
                     _groupJoiningRequestReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
                         new GroupJoiningRequestReceivedContext
                         {
-                            Message = command.MoreMsg,
+                            Message = message.MoreMsg,
 
                             // 主动申请入群的申请者
-                            FromQq = command.Fromqq,
+                            FromQq = message.Fromqq,
                             SendTime = DateTime.Now,
-                            GroupJoiningRequestId = command.Seq,
-                            ToGroup = command.Fromgroup
+                            GroupJoiningRequestId = message.Seq,
+                            ToGroup = message.Fromgroup
                         }));
                     break;
                 case AddGroup被邀请进群:
@@ -72,16 +72,16 @@ namespace Newbe.Mahua.Amanda.Commands
                     _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
                         new GroupJoiningRequestReceivedContext
                         {
-                            Message = command.MoreMsg,
+                            Message = message.MoreMsg,
 
                             // 机器人被邀请时，这就是邀请者
-                            FromQq = command.InvatorQq,
-                            ToGroup = command.Fromgroup,
+                            FromQq = message.InvatorQq,
+                            ToGroup = message.Fromgroup,
                             SendTime = DateTime.Now,
-                            GroupJoiningRequestId = command.Seq
+                            GroupJoiningRequestId = message.Seq
                         }));
                     break;
-                default: throw new ArgumentOutOfRangeException(command.Type);
+                default: throw new ArgumentOutOfRangeException(message.Type);
             }
         }
     }

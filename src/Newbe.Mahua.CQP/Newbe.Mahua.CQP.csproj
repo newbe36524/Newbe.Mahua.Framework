@@ -35,11 +35,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <DocumentationFile>bin\Debug\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <CodeAnalysisRuleSet>Newbe.Mahua.CQP.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <DocumentationFile>bin\Release\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <CodeAnalysisRuleSet>Newbe.Mahua.CQP.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
@@ -87,6 +93,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
     <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
     <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
   </ItemGroup>

@@ -27,7 +27,7 @@ namespace Newbe.Mahua.Amanda.Commands
 
     internal class GetQqWalletDataCommandHandler : ICommandHandler<GetQqWalletDataCommand>
     {
-        public void Handle(GetQqWalletDataCommand command)
+        public void Handle(GetQqWalletDataCommand message)
         {
             // todo
         }

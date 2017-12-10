@@ -34,15 +34,15 @@ namespace Newbe.Mahua.CQP.Commands
             _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
         }
 
-        public void Handle(GroupMessageCommand command)
+        public void Handle(GroupMessageCommand message)
         {
             _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
             {
-                SendTime = command.SendTime,
-                FromAnonymous = command.FromAnonymous,
-                FromGroup = command.GroupNum.ToString(),
-                FromQq = command.FromQq.ToString(),
-                Message = command.Message,
+                SendTime = message.SendTime,
+                FromAnonymous = message.FromAnonymous,
+                FromGroup = message.GroupNum.ToString(),
+                FromQq = message.FromQq.ToString(),
+                Message = message.Message,
             }));
         }
     }

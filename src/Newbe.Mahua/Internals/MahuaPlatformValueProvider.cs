@@ -21,7 +21,7 @@ namespace Newbe.Mahua.Internals
                     .FirstOrDefault(x => x.IsThis())?.MahuaPlatform;
                 if (mahuaPlatform == null)
                 {
-                    throw new NotSupportMahuaPlatformExpcetion();
+                    throw new NotSupportMahuaPlatformException();
                 }
                 return mahuaPlatform.Value;
             });

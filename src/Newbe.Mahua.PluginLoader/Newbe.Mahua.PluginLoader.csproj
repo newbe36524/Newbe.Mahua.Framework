@@ -35,12 +35,16 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -77,9 +81,10 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
     <PackageReference Include="MessagePack" Version="1.7.2" />
-    <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267" />
     <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" />
     <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" />
+    <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -92,5 +97,13 @@
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
   </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/App_Packages/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
 
 </Project>

@@ -19,7 +19,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _initializationMahuaEvents = initializationMahuaEvents;
         }
 
-        public void Handle(InitializationCommand command)
+        public void Handle(InitializationCommand message)
         {
             _initializationMahuaEvents.Handle(x => x.Initialized(new InitializedContext()));
         }

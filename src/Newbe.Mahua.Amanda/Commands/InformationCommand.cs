@@ -26,7 +26,7 @@ namespace Newbe.Mahua.Amanda.Commands
             _pluginInfo = pluginInfo;
         }
 
-        public InformationCommandResult Handle(InformationCommand command)
+        public InformationCommandResult Handle(InformationCommand message)
         {
             var info = $"pluginID={_pluginInfo.Id};{Environment.NewLine}" +
                        $"pluginName={_pluginInfo.Name};{Environment.NewLine}" +

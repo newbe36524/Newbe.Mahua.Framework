@@ -6,6 +6,21 @@ namespace Newbe.Mahua.Internals
     {
         void INotSupportedMahuaApiConvertion.Handle()
         {
+            throw ThrowDefaultException();
+        }
+
+        public T1 Handle<T1>(T1 defaultValue)
+        {
+            throw ThrowDefaultException();
+        }
+
+        public T1 Handle<T1>()
+        {
+            throw ThrowDefaultException();
+        }
+
+        private static T ThrowDefaultException()
+        {
             throw new T();
         }
     }
