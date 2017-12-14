@@ -2,26 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
-    <Authors>Newbe</Authors>
-    <Company>Newbe</Company>
-    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua Tools Packer Psake </PackageTags>
-    <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.1.0</VersionPrefix>
-    <VersionSuffix>dev03</VersionSuffix>
     <Description>
       Newbe.Mahua开发工具包，是使用Newbe.Mahua进行开发不可获取的官方工具集合。轻巧灵便，便于扩展。
     </Description>
     <PackageReleaseNotes>
-      ## 1.1
+      ## 1.4
 
-      增加MPQ打包支持
+      增加MPQ打包支持,为保持版本一致，而跳过了先前的版本号
       ---
       ## 1.0
 
@@ -48,5 +38,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
+  <Import Project="..\Newbe.Mahua.props" />
 
 </Project>

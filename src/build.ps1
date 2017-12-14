@@ -30,7 +30,6 @@ Task Pack -depends Build -Description "打包" {
     $packList = @(
         "Newbe.Mahua",
         "Newbe.Mahua.PluginLoader",
-        "Newbe.Mahua.Msbuild",
         "Newbe.Mahua.Tools.Psake",
         "Newbe.Mahua.Amanda",
         "Newbe.Mahua.CQP",

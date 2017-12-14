@@ -2,19 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
-    <Authors>Newbe</Authors>
-    <Company>Newbe</Company>
-    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua MPQ MyPcQQ</PackageTags>
-    <PackageOutputPath>../build/</PackageOutputPath>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
-    <VersionPrefix>1.4.0</VersionPrefix>
-    <VersionSuffix>dev13</VersionSuffix>
     <Description>
       Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
       0 长久有效的技术支持及更新维护+独占功能
@@ -35,28 +25,16 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <NoWarn>1701;1702;1705;1591</NoWarn>
     <DocumentationFile>bin\Debug\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
     <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
-    <CodeAnalysisRuleSet>Newbe.Mahua.MPQ.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <NoWarn>1701;1702;1705;1591</NoWarn>
     <DocumentationFile>bin\Release\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
     <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
-    <CodeAnalysisRuleSet>Newbe.Mahua.MPQ.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
-      <Pack>true</Pack>
-      <PackagePath>tools\</PackagePath>
-    </None>
     <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
@@ -89,17 +67,6 @@
     <Folder Include="bin\$(Configuration)\net452\CLR\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.0.4267">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="System.Web.Extensions" />
@@ -119,6 +86,7 @@
       </SonarQubeSetting>
     </ItemGroup>
   </Target>
+  <Import Project="..\Newbe.Mahua.props" />
 
 
 </Project>
