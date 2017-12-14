@@ -38,10 +38,8 @@ namespace Newbe.Mahua.CQP
             gm.Gender = u.GetInt() == 0 ? Gender.Male : Gender.Female;
             gm.Age = u.GetInt();
             gm.Area = u.GetLenStr();
-            gm.JoinTime = new DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime()
-                .AddSeconds(u.GetInt());
-            gm.LastSpeakingTime = new DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime()
-                .AddSeconds(u.GetInt());
+            gm.JoinTime = Clock.ConvertSecondsToDateTime(u.GetInt());
+            gm.LastSpeakingTime = Clock.ConvertSecondsToDateTime(u.GetInt());
             gm.Level = u.GetLenStr();
             var manager = u.GetInt();
             switch (manager)

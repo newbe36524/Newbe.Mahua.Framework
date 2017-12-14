@@ -51,6 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.bat = build.bat
 		build.ps1 = build.ps1
 		Newbe.Mahua.props = Newbe.Mahua.props
+		Newbe.Mahua.ruleset = Newbe.Mahua.ruleset
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MPQ.Native", "Newbe.Mahua.MPQ.Native\Newbe.Mahua.MPQ.Native.csproj", "{8E94685A-C2F5-4131-8D82-A7A74E42B559}"

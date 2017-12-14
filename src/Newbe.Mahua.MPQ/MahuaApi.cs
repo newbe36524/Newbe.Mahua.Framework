@@ -54,7 +54,7 @@ namespace Newbe.Mahua.MPQ
 
         public string GetBkn()
         {
-            throw new NotImplementedException();
+            return _mpqApi.Api_GetBkn32(_qqSession.CurrentQq);
         }
 
         public string GetLoginQq()
@@ -212,17 +212,70 @@ namespace Newbe.Mahua.MPQ
         {
             var json = _mpqApi.Api_GetGroupMemberA(_qqSession.CurrentQq, toGroup);
             Logger.Debug(json);
-            return new ModelWithSourceString<IEnumerable<GroupMemberInfo>>
+            if (string.IsNullOrEmpty(json))
+            {
+                return new ModelWithSourceString<IEnumerable<GroupMemberInfo>>
+                {
+                    SourceString = json,
+                    Model = Enumerable.Empty<GroupMemberInfo>()
+                };
+            }
+            var js = new JavaScriptSerializer
+            {
+                MaxJsonLength = int.MaxValue
+            };
+            var infos = js.Deserialize<GroupMemberInfoListJson>(json);
+
+            var re = new ModelWithSourceString<IEnumerable<GroupMemberInfo>>
             {
                 SourceString = json,
-                Model = Enumerable.Empty<GroupMemberInfo>()
+                Model = infos.Mems
+                    .Select(x => new GroupMemberInfo
+                    {
+                        Group = toGroup,
+
+                        // todo age
+                        Age = 0,
+
+                        // todo Area
+                        Area = string.Empty,
+                        Authority = x.Role == 3
+                            ? GroupMemberAuthority.Leader
+                            : x.Role == 2
+                                ? GroupMemberAuthority.Manager
+                                : GroupMemberAuthority.Normal,
+
+                        // todo CanModifyInGroupName
+                        CanModifyInGroupName = false,
+                        Gender = !x.G.HasValue
+                            ? Gender.Unknow
+                            : x.G == GroupMemberSex.Female
+                                ? Gender.Female
+                                : Gender.Male,
+
+                        // todo CanModifyInGroupName
+                        HasBadRecord = false,
+                        InGroupName = x.Card,
+                        JoinTime = Clock.ConvertSecondsToDateTime(x.Join_time),
+                        LastSpeakingTime = Clock.ConvertSecondsToDateTime(x.Last_speak_time),
+                        Level = x.Lv.Level.ToString(),
+                        NickName = x.Nick,
+                        Qq = x.Uin.ToString(),
+
+                        // todo SpecialTitle
+                        SpecialTitle = string.Empty,
+
+                        // todo TitleExpirationTime
+                        TitleExpirationTime = TimeSpan.MinValue
+                    })
+                    .ToArray(),
             };
-            throw new NotImplementedException();
+            return re;
         }
 
         public ModelWithSourceString<IEnumerable<GroupInfo>> GetGroupsWithModel()
         {
-            var json = _mpqApi.Api_GetGroupListA(_qqSession.CurrentQq);
+            var json = _mpqApi.Api_GetGroupListB(_qqSession.CurrentQq);
             if (string.IsNullOrEmpty(json))
             {
                 return new ModelWithSourceString<IEnumerable<GroupInfo>>
@@ -235,8 +288,8 @@ namespace Newbe.Mahua.MPQ
             {
                 MaxJsonLength = int.MaxValue
             };
-            var groupInfos = js.Deserialize<GroupInfoJson[]>(json);
-            var re = groupInfos
+            var groupInfos = js.Deserialize<GroupInfoJsonList>(json);
+            var re = groupInfos.Join
                 .Select(x => new GroupInfo
                 {
                     Group = x.Gc.ToString(),
@@ -257,7 +310,7 @@ namespace Newbe.Mahua.MPQ
 
         public string GetGroups()
         {
-            return _mpqApi.Api_GetGroupListA(_qqSession.CurrentQq);
+            return _mpqApi.Api_GetGroupListB(_qqSession.CurrentQq);
         }
 
         public string GetFriends()
@@ -301,9 +354,16 @@ namespace Newbe.Mahua.MPQ
             _container = container;
         }
 
-        /// <summary>
-        /// 群基本信息
-        /// </summary>
+        public class GroupInfoJsonList
+        {
+            public int Ec { get; set; }
+
+            /// <summary>
+            /// 群列表
+            /// </summary>
+            public GroupInfoJson[] Join { get; set; }
+        }
+
         public class GroupInfoJson
         {
             /// <summary>
@@ -320,6 +380,144 @@ namespace Newbe.Mahua.MPQ
             /// 群主QQ
             /// </summary>
             public long Owner { get; set; }
+        }
+
+        public class GroupMemberInfoListJson
+        {
+            /// <summary>
+            /// 管理员最大人数
+            /// </summary>
+            public int Adm_max { get; set; }
+
+            /// <summary>
+            /// 管理员人数
+            /// </summary>
+            public int Adm_num { get; set; }
+
+            /// <summary>
+            /// 人数
+            /// </summary>
+            public int Count { get; set; }
+
+            /// <summary>
+            /// 响应结果
+            /// </summary>
+            public int Ec { get; set; }
+
+            /// <summary>
+            /// 等级信息
+            /// </summary>
+            public Levelname Levelname { get; set; }
+
+            /// <summary>
+            /// 群人数上限
+            /// </summary>
+            public int Max_count { get; set; }
+
+            /// <summary>
+            /// 群成员信息
+            /// </summary>
+            public Mem[] Mems { get; set; }
+
+            /// <summary>
+            /// 当前查询结果
+            /// </summary>
+            public int Search_count { get; set; }
+
+            /// <summary>
+            /// 服务器当前时间戳(毫秒)
+            /// </summary>
+            public int Svr_time { get; set; }
+
+            /// <summary>
+            /// todo 不知道什么值
+            /// </summary>
+            public int Vecsize { get; set; }
+        }
+
+        public class Levelname : Dictionary<string, string>
+        {
+        }
+
+        public enum GroupMemberSex
+        {
+            Male = 0,
+            Female = 1,
+            NotSetted = 255,
+        }
+
+        public class Mem
+        {
+            /// <summary>
+            /// 群名片
+            /// </summary>
+            public string Card { get; set; }
+
+            /// <summary>
+            /// todo 不知道
+            /// </summary>
+            public int Flag { get; set; }
+
+            /// <summary>
+            /// 性别
+            /// </summary>
+            public GroupMemberSex? G { get; set; }
+
+            /// <summary>
+            /// 入群时间毫秒时间戳
+            /// </summary>
+            public int Join_time { get; set; }
+
+            /// <summary>
+            /// 最近发言时间毫秒时间戳
+            /// </summary>
+            public int Last_speak_time { get; set; }
+
+            /// <summary>
+            /// 群员等级信息
+            /// </summary>
+            public Lv Lv { get; set; }
+
+            /// <summary>
+            /// 昵称
+            /// </summary>
+            public string Nick { get; set; }
+
+            /// <summary>
+            /// Q龄
+            /// </summary>
+            public int Qage { get; set; }
+
+            /// <summary>
+            /// 群员身份,3群主，2管理员，普通成员
+            /// </summary>
+            public int Role { get; set; }
+
+            /// <summary>
+            /// todo 不知道
+            /// </summary>
+            public string Tags { get; set; }
+
+            /// <summary>
+            /// QQ号
+            /// </summary>
+            public long Uin { get; set; }
+        }
+
+        /// <summary>
+        /// 群员等级信息
+        /// </summary>
+        public class Lv
+        {
+            /// <summary>
+            /// 等级
+            /// </summary>
+            public int Level { get; set; }
+
+            /// <summary>
+            /// 群积分
+            /// </summary>
+            public int Point { get; set; }
         }
     }
 }

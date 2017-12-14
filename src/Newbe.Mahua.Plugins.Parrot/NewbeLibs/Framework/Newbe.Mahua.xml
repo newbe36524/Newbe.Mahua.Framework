@@ -464,7 +464,7 @@
         </member>
         <member name="M:Newbe.Mahua.IMahuaApi.GetDiscusses">
             <summary>
-            获取讨论组列表
+            获取讨论组列表，使用<see cref="P:System.Environment.NewLine"/>分割的讨论组号列表
             </summary>
             <returns></returns>
         </member>
@@ -505,6 +505,21 @@
             <summary>
             处理
             </summary>
+        </member>
+        <member name="M:Newbe.Mahua.INotSupportedMahuaApiConvertion.Handle``1(``0)">
+            <summary>
+            处理后返回一个默认的值，通常是为了处理具有返回值的方法。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.INotSupportedMahuaApiConvertion.Handle``1">
+            <summary>
+            处理后返回一个默认的值，通常是为了处理具有返回值的方法。
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>default(T)</returns>
         </member>
         <member name="T:Newbe.Mahua.Internals.MahuaPlatformValueProvider">
             <summary>
@@ -1392,7 +1407,7 @@
             <summary>
             当前机器人平台
             </summary>
-            <exception cref="T:Newbe.Mahua.NotSupportMahuaPlatformExpcetion"></exception>
+            <exception cref="T:Newbe.Mahua.NotSupportMahuaPlatformException"></exception>
         </member>
         <member name="P:Newbe.Mahua.MahuaGlobal.NotSupportedMahuaApiConvertion">
             <summary>
@@ -1455,7 +1470,7 @@
             用于标记在特定平台上不受支持的Api
             </summary>
         </member>
-        <member name="T:Newbe.Mahua.NotSupportMahuaPlatformExpcetion">
+        <member name="T:Newbe.Mahua.NotSupportMahuaPlatformException">
             <summary>
             不受支持的机器人平台
             </summary>

@@ -9,6 +9,12 @@
 
 对于修订号和构建号此列表将不会记录，直接升级没有影响。
 
+## 1.4.0
+
+新增MPQ（MyPCQQ）实现，是本SDK支持的第一个支持多开QQ的机器人平台。
+
+至此，本SDK已经能够支持CQP、Amanda和MPQ三个平台。
+
 ## 1.3.0
 
 使用MessagePack替代JSON序列化，消息处理速度明显提升。
@@ -16,8 +22,8 @@
 ## 1.2.0
 
 全新的打包机制：[Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)
-被废弃的打包机制：Newbe.Mahua.Msbuild
-[新版快速指南](http://www.newbe.cf/docs/mahua/2017/10/26/Begin-First-Plugin-With-Mahua-In-v1.2.html)
+
+被废弃的打包机制：Newbe.Mahua.Msbuild [新版快速指南](http://www.newbe.cf/docs/mahua/2017/10/26/Begin-First-Plugin-With-Mahua-In-v1.2.html)
 
 ## 1.1
 

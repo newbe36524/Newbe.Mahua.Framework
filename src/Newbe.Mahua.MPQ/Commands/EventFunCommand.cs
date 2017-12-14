@@ -1,11 +1,14 @@
 ﻿using Autofac.Features.Indexed;
 using Newbe.Mahua.Commands;
+using Newbe.Mahua.Logging;
 using System.Runtime.Serialization;
+using System.Web.Script.Serialization;
 
 namespace Newbe.Mahua.MPQ.Commands
 {
     public class EventFunCommandHandler : ICommandHandler<EventFunCommand, EventFunCommandResult>
     {
+        private static readonly ILog Logger = LogProvider.For<EventFunCommandHandler>();
         private readonly IQqSession _qqSession;
         private readonly IEventFunOutput _eventFunOutput;
         private readonly IIndex<int, IEventFun> _eventFuncHandlers;
@@ -35,8 +38,15 @@ namespace Newbe.Mahua.MPQ.Commands
                     Message = message.Message,
                 });
             }
+            else
+            {
+                var js = new JavaScriptSerializer
+                {
+                    MaxJsonLength = int.MaxValue
+                };
+                Logger.Warn($"没有能够处理MPQ事件，事件内容为{js.Serialize(message)}");
+            }
 
-            // todo with else
             return new EventFunCommandResult
             {
                 Result = _eventFunOutput.Result,

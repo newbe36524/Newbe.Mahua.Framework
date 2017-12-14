@@ -26,10 +26,11 @@ namespace Newbe.Mahua.MPQ.EventFuns
                 {
                     Message = eventFunInput.Message,
                     SendTime = Clock.Now,
+                    FromGroup = eventFunInput.FromNum,
+                    FromQq = eventFunInput.EventOperator,
 
-                    // todo there is no fromqq
-                    // FromQq = eventFunInput.,
-                    FromGroup = eventFunInput.FromNum
+                    // todo there is no FromAnonymous
+                    // FromAnonymous = e
                 }));
         }
     }
