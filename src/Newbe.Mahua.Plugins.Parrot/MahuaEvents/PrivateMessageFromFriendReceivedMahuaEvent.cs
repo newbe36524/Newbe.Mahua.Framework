@@ -1,12 +1,12 @@
 ﻿using Newbe.Mahua.MahuaEvents;
-using System;
 
-namespace Newbe.Mahua.Plugins.Parrot
+namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 {
     /// <summary>
     /// 监听来自好友的私聊消息事件
     /// </summary>
-    public class PrivateMessageFromFriendReceivedMahuaEvent : IPrivateMessageFromFriendReceivedMahuaEvent
+    public class PrivateMessageFromFriendReceivedMahuaEvent
+        : IPrivateMessageFromFriendReceivedMahuaEvent
     {
         private readonly IMahuaApi _mahuaApi;
 
@@ -14,7 +14,8 @@ namespace Newbe.Mahua.Plugins.Parrot
         /// 采用构造函数注入<see cref="IMahuaApi"/>，以便后续调用
         /// </summary>
         /// <param name="mahuaApi"></param>
-        public PrivateMessageFromFriendReceivedMahuaEvent(IMahuaApi mahuaApi)
+        public PrivateMessageFromFriendReceivedMahuaEvent(
+            IMahuaApi mahuaApi)
         {
             _mahuaApi = mahuaApi;
         }
@@ -27,13 +28,6 @@ namespace Newbe.Mahua.Plugins.Parrot
         {
             //调用_mahuaApi实现将消息回发给好友的功能
             _mahuaApi.SendPrivateMessage(context.FromQq, context.Message);
-            foreach (var groupInfo in _mahuaApi.GetGroupsWithModel().Model)
-            {
-                foreach (var groupMemberInfo in _mahuaApi.GetGroupMemebersWithModel(groupInfo.Group).Model)
-                {
-                    Console.WriteLine(groupMemberInfo);
-                }
-            }
         }
     }
 }

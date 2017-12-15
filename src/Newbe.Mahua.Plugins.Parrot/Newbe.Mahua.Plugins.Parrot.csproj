@@ -75,7 +75,7 @@
   <ItemGroup>
     <Compile Include="MahuaModule.cs" />
     <Compile Include="PluginInfo.cs" />
-    <Compile Include="PrivateMessageFromFriendReceivedMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\PrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
