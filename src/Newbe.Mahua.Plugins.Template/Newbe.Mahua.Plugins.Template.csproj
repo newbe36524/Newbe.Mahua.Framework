@@ -79,11 +79,13 @@
   <ItemGroup>
     <None Include="build.bat" />
     <None Include="build.ps1" />
+    <None Include="buildTools\packages.config" />
     <None Include="NewbeLibs\Framework\NLog.config" />
     <None Include="NewbeLibs\Platform\CQP\Content\Newbe.Mahua.CQP.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="buildTools\7z.exe" />
     <Content Include="NewbeLibs\Framework\Autofac.dll" />
     <Content Include="NewbeLibs\Framework\MediatR.dll" />
     <Content Include="NewbeLibs\Framework\MessagePack.dll" />
