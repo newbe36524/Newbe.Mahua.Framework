@@ -1,0 +1,1 @@
+Newbe.Mahua.VsExtensions，为使用Newbe.Mahua框架开发QQ及其人提供便利。包含项目模板和常用操作菜单等内容。
