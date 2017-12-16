@@ -15,7 +15,6 @@
 也可以加入QQ群（610394020），一同分享使用经验。
 	</Description>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5.2</RequiredFrameworkVersion>
     <SortOrder>10</SortOrder>
     <Icon>__TemplateIcon.png</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>

@@ -56,7 +56,6 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
 也可以加入QQ群（610394020），一同分享使用经验。
 	</Description>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5.2</RequiredFrameworkVersion>
     <SortOrder>10</SortOrder>
     <Icon>__TemplateIcon.png</Icon>
     <PreviewImage>__PreviewImage.png</PreviewImage>
@@ -65,7 +64,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     <References />
     <ProjectItem SubType="""" TargetFileName=""$fileinputname$.cs"" ReplaceParameters=""true"">");
             
-            #line 25 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 24 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name.Substring(1)));
             
             #line default
