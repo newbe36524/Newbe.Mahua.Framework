@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FFE9313-3E15-404F-A562-305154335513}</ProjectGuid>
+    <ProjectGuid>{6A7E034A-7313-4945-81D3-368199644E8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Newbe.Mahua.Plugins.Parrot</RootNamespace>
@@ -38,7 +38,6 @@
     </Reference>
     <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="MessagePack, Version=1.7.2.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\packages\MessagePack.1.7.2\lib\net45\MessagePack.dll</HintPath>
@@ -73,9 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MahuaEvents\PrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="MahuaModule.cs" />
     <Compile Include="PluginInfo.cs" />
-    <Compile Include="MahuaEvents\PrivateMessageFromFriendReceivedMahuaEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +115,7 @@
     <Content Include="NewbeLibs\Platform\MPQ\CLR\Newbe.Mahua.MPQ.pdb" />
     <Content Include="NewbeLibs\Platform\MPQ\Native\Newbe.Mahua.MPQ.Native.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
