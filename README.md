@@ -2,6 +2,10 @@
 
 [![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]() [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 
+## 开篇一张图，功能全靠编
+
+![Newbe.Mahua.Version](docs/体系结构.png)
+
 ## 说在最前面
 
 开发本SDK的目的是为了促进.Net技术的交流学习。
