@@ -1,36 +1,40 @@
 # Newbe.Mahua.Framework
 
+先点击一下右上角的Star，开启隐藏功能。
+
 [![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]() [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 
 ## 开篇一张图，功能全靠编
 
-![Newbe.Mahua.Version](docs/体系结构.png)
+![Newbe.Mahua.Version](i/体系结构.png)
 
-## 说在最前面
-
-开发本SDK的目的是为了促进.Net技术的交流学习。
-
-由本SDK衍生的任何产品均与本SDK无关！
-
-由本SDK支持的QQ自动化管理助手平台均与本SDK无关！
-
-禁止用于国家或地区法律法规所禁止的范围！
-
-**最后，但是最重要的，一定要Star一下！**
+真正的勇士，看图就明白了其中的道理。
 
 ## 你打麻花，谁疼？麻花疼。
 
-QQ自动化管理助手平台意指那些支持通过QQ进行消息收发和群员管理软件平台。
-
-这些平台大多具有不同的接口，对接开发存在巨大困难。
+QQ协议实现也有不少，QQ机器人平台有不少，这些平台大多具有不同的接口，对接开发存在巨大困难。
 
 使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
 
 支持容器管理生命周期，依赖注入，便于进行单元测试，确保开发效率。
 
-你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ自动化管理助手平台。
+你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ机器人平台。
 
-## 当前版本
+不用担心某个平台被咔嚓。
+
+## 这是一个有VS插件的SDK
+
+VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemName=Newbe36524.NewbeMahuaVsExtensions>
+
+官网下载太慢？群文件里也有，加群链接：<https://jq.qq.com/?_wv=1027&k=4AMMCTx>
+
+## 立马开始
+
+点击查看[帮助文档](http://www.newbe.cf)开始编写第一个QQ机器人。
+
+## 版本
+
+- [版本变更情况](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
 
 包                        | 版本                                                                                                                                                                             | 下载量                                                                                                                                                                              | 开发版                                                                                                                                                                                   | 说明
 ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------
@@ -40,12 +44,6 @@ Newbe.Mahua.Tools.Psake  | [![Newbe.Mahua.Tools.Psake.Version](https://img.shiel
 Newbe.Mahua.CQP          | [![Newbe.Mahua.CQP.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | [![Newbe.Mahua.CQP.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | [![Newbe.Mahua.CQP.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP/)                            | CQP（酷Q）实现
 Newbe.Mahua.Amanda       | [![Newbe.Mahua.Amanda.Version](https://img.shields.io/nuget/v/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | [![Newbe.Mahua.Amanda.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | [![Newbe.Mahua.Amanda.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                   | Amanda实现
 Newbe.Mahua.MPQ          | [![Newbe.Mahua.MPQ.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | [![Newbe.Mahua.MPQ.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | [![Newbe.Mahua.MPQ.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ/)                            | MPQ（MyPcQQ）实现
-
-## 技术支持
-
-- [版本变更情况](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
-- [帮助文档](http://www.newbe.cf)
-- [免费加入技术讨论群【610394020】](https://jq.qq.com/?_wv=1027&k=4AMMCTx)
 
 ## 名词表
 
@@ -155,3 +153,15 @@ SetNotice                    | 发布群公告          |     | √   |
 - <https://www.sonarlint.org/visualstudio/>
 - <https://github.com/xunit/xunit>
 - <http://www.fluentassertions.com/>
+
+## 说在最后面
+
+开发本SDK的目的是为了促进.Net技术的交流学习。
+
+由本SDK衍生的任何产品均与本SDK无关！
+
+由本SDK支持的QQ自动化管理助手平台均与本SDK无关！
+
+禁止用于国家或地区法律法规所禁止的范围！
+
+**最后，但是最重要的，一定要Star一下！**
