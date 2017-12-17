@@ -78,13 +78,24 @@
           <ButtonText>为项目点赞</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidNewbeCommandPackageCmdSet" id="QuestionCommandId" priority="0x0104" type="Button">
+        <Parent guid="guidNewbeCommandPackageCmdSet" id="MyMenuGroup" />
+        <Strings>
+          <ButtonText>我有意见</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidNewbeCommandPackageCmdSet" id="AdviseCommandId" priority="0x0105" type="Button">
+        <Parent guid="guidNewbeCommandPackageCmdSet" id="MyMenuGroup" />
+        <Strings>
+          <ButtonText>我有问题</ButtonText>
+        </Strings>
+      </Button>
       <Button guid="guidNewbeCommandPackageCmdSet" id="MoneyCommandId" priority="0x0103" type="Button">
         <Parent guid="guidNewbeCommandPackageCmdSet" id="MyMenuGroup" />
         <Strings>
           <ButtonText>施舍作者</ButtonText>
         </Strings>
       </Button>
-
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -110,6 +121,8 @@
       <IDSymbol name="OpenTeachingCommandId" value="0x0101" />
       <IDSymbol name="StarCommandId" value="0x0102" />
       <IDSymbol name="MoneyCommandId" value="0x0103" />
+      <IDSymbol name="QuestionCommandId" value="0x0104" />
+      <IDSymbol name="AdviseCommandId" value="0x0105" />
     </GuidSymbol>
 
     <GuidSymbol name="guidImages" value="{d573e38b-ecca-4291-b1eb-1c667e595193}">

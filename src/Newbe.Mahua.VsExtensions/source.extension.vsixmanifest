@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Newbe.Mahua.VsExtensions.b9996f0d-b1dd-455d-bd99-18c4ded29f02" Version="1.4.1" Language="zh-Hans" Publisher="Newbe36524" />
+        <Identity Id="Newbe.Mahua.VsExtensions.b9996f3d-b1dd-455d-bd99-18c4ded29602" Version="1.4.3" Language="zh-Hans" Publisher="Newbe36524" />
         <DisplayName>Newbe.Mahua.VsExtensions</DisplayName>
-        <Description xml:space="preserve">Newbe.Mahua.VsExtensions，为使用Newbe.Mahua框架开发QQ及其人提供便利。
-包含项目模板和常用操作菜单等内容。</Description>
+        <Description xml:space="preserve">Newbe.Mahua.VsExtensions, Tools for Newbe.Mahua.</Description>
         <MoreInfo>http://www.newbe.cf</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>logo.png</Icon>
         <PreviewImage>logo.png</PreviewImage>
-        <Tags>Newbe Newbe.Mahua QQ Robot</Tags>
+        <Tags>Newbe Newbe.Mahua QQ Robot Template</Tags>
     </Metadata>
     <Installation AllUsers="true">
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0,16.0]" />

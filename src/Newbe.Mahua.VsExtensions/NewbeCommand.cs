@@ -14,13 +14,17 @@ namespace Newbe.Mahua.VsExtensions
         public const int OpenTeachingCommandId = 0x0101;
         public const int StarCommandId = 0x0102;
         public const int MoneyCommandId = 0x0103;
+        public const int QuestionCommandId = 0x0104;
+        public const int AdviseCommandId = 0x0105;
 
-        public readonly static int[] CommandIds = new[]
+        public static readonly int[] CommandIds =
         {
             JoinQqGroupCommandId,
             OpenTeachingCommandId,
             StarCommandId,
-            MoneyCommandId
+            MoneyCommandId,
+            QuestionCommandId,
+            AdviseCommandId,
         };
 
         /// <summary>
@@ -106,6 +110,12 @@ namespace Newbe.Mahua.VsExtensions
                     break;
                 case MoneyCommandId:
                     Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework#project-donate-overview");
+                    break;
+                case AdviseCommandId:
+                    Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework/issues/new");
+                    break;
+                case QuestionCommandId:
+                    Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework/issues/new");
                     break;
             }
         }
