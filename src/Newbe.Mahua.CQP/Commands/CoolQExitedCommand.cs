@@ -5,6 +5,11 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class CoolQExitedCommand : CqpCommand
+    {
+    }
+
     internal class CoolQExitedCommandHandler : ICommandHandler<CoolQExitedCommand>
     {
         private readonly IEnumerable<IPlatfromExitedMahuaEvent> _platfromExitedMahuaEvents;
@@ -18,10 +23,5 @@ namespace Newbe.Mahua.CQP.Commands
         {
             _platfromExitedMahuaEvents.Handle(x => x.Exited(new PlatfromExitedContext()));
         }
-    }
-
-    [DataContract]
-    public class CoolQExitedCommand : CqpCommand
-    {
     }
 }

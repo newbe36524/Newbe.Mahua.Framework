@@ -1,22 +1,14 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Newbe.Mahua
 {
     /// <summary>
     /// 插件加载异常
     /// </summary>
+    [Serializable]
     public class PluginLoadException : Exception
     {
-        /// <summary>
-        /// 插件名称
-        /// </summary>
-        public string PluginName { get; }
-
-        /// <summary>
-        /// 原因
-        /// </summary>
-        public string Reason { get; }
-
         /// <summary>
         /// 初始化
         /// </summary>
@@ -27,6 +19,20 @@ namespace Newbe.Mahua
             PluginName = pluginName;
             Reason = reason;
         }
+
+        protected PluginLoadException(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+
+        /// <summary>
+        /// 插件名称
+        /// </summary>
+        public string PluginName { get; }
+
+        /// <summary>
+        /// 原因
+        /// </summary>
+        public string Reason { get; }
 
         /// <summary>
         /// 错误信息

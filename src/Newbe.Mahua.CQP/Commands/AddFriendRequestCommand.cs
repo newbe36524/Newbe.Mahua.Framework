@@ -6,27 +6,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class AddFriendRequestCommandHandler : ICommandHandler<AddFriendRequestCommand>
-    {
-        private readonly IEnumerable<IFriendAddingRequestMahuaEvent> _addingFriendRequestMahuaEvents;
-
-        public AddFriendRequestCommandHandler(
-            IEnumerable<IFriendAddingRequestMahuaEvent> addingFriendRequestMahuaEvents)
-        {
-            _addingFriendRequestMahuaEvents = addingFriendRequestMahuaEvents;
-        }
-
-        public void Handle(AddFriendRequestCommand command)
-        {
-            _addingFriendRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
-            {
-                SendTime = command.SendTime,
-                FromQq = command.FromQq.ToString(),
-                Message = command.Message,
-            }));
-        }
-    }
-
     [DataContract]
     public class AddFriendRequestCommand : CqpCommand
     {
@@ -38,5 +17,26 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+    }
+
+    internal class AddFriendRequestCommandHandler : ICommandHandler<AddFriendRequestCommand>
+    {
+        private readonly IEnumerable<IFriendAddingRequestMahuaEvent> _addingFriendRequestMahuaEvents;
+
+        public AddFriendRequestCommandHandler(
+            IEnumerable<IFriendAddingRequestMahuaEvent> addingFriendRequestMahuaEvents)
+        {
+            _addingFriendRequestMahuaEvents = addingFriendRequestMahuaEvents;
+        }
+
+        public void Handle(AddFriendRequestCommand message)
+        {
+            _addingFriendRequestMahuaEvents.Handle(x => x.ProcessAddingFriendRequest(new FriendAddingRequestContext
+            {
+                SendTime = message.SendTime,
+                FromQq = message.FromQq.ToString(),
+                Message = message.Message,
+            }));
+        }
     }
 }

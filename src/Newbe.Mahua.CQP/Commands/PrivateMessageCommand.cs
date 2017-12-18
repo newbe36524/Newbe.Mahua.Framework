@@ -7,6 +7,22 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
+    [DataContract]
+    public class PrivateMessageCommand : CqpCommand
+    {
+        [DataMember]
+        public PrivateMessageFromType PrivateMessageFromType { get; set; }
+
+        [DataMember]
+        public long FormNum { get; set; }
+
+        [DataMember]
+        public DateTime SendTime { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+    }
+
     internal class PrivateMessageCommandHandler : ICommandHandler<PrivateMessageCommand>
     {
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
@@ -28,8 +44,7 @@ namespace Newbe.Mahua.CQP.Commands
             IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromGroupReceivedMahuaEvent> privateMessageFromGroupReceivedMahuaEvents,
-            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent>
-                privateMessageFromDiscussGroupReceivedMahuaEvents)
+            IEnumerable<IPrivateMessageFromDiscussReceivedMahuaEvent> privateMessageFromDiscussGroupReceivedMahuaEvents)
         {
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
             _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
@@ -38,16 +53,16 @@ namespace Newbe.Mahua.CQP.Commands
             _privateMessageFromDiscussGroupReceivedMahuaEvents = privateMessageFromDiscussGroupReceivedMahuaEvents;
         }
 
-        public void Handle(PrivateMessageCommand command)
+        public void Handle(PrivateMessageCommand message)
         {
             _privateMessageReceivedMahuaEvents.Handle(x => x.ProcessPrivateMessage(new PrivateMessageReceivedContext
             {
-                SendTime = command.SendTime,
-                FromQq = command.FormNum.ToString(),
-                Message = command.Message,
-                PrivateMessageFromType = command.PrivateMessageFromType,
+                SendTime = message.SendTime,
+                FromQq = message.FormNum.ToString(),
+                Message = message.Message,
+                PrivateMessageFromType = message.PrivateMessageFromType,
             }));
-            switch (command.PrivateMessageFromType)
+            switch (message.PrivateMessageFromType)
             {
                 case PrivateMessageFromType.Unknown:
                     break;
@@ -55,61 +70,47 @@ namespace Newbe.Mahua.CQP.Commands
                     _privateMessageFromFriendReceivedMahuaEvents.Handle(x => x.ProcessFriendMessage(
                         new PrivateMessageFromFriendReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            FromQq = command.FormNum.ToString(),
-                            Message = command.Message
+                            SendTime = message.SendTime,
+                            FromQq = message.FormNum.ToString(),
+                            Message = message.Message
                         }));
                     break;
                 case PrivateMessageFromType.Online:
                     _privateMessageFromOnlineReceivedMahuaEvents.Handle(x => x.ProcessOnlineMessage(
                         new PrivateMessageFromOnlineReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            FromQq = command.FormNum.ToString(),
-                            Message = command.Message,
+                            SendTime = message.SendTime,
+                            FromQq = message.FormNum.ToString(),
+                            Message = message.Message,
                         }));
                     break;
                 case PrivateMessageFromType.Group:
                     _privateMessageFromGroupReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(
                         new PrivateMessageFromGroupReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            Message = command.Message,
-                            //todo CQP 无法获取发送者的群
+                            SendTime = message.SendTime,
+                            Message = message.Message,
+
+                            // todo CQP 无法获取发送者的群
                             FromGroup = string.Empty,
-                            FromQq = command.FormNum.ToString()
+                            FromQq = message.FormNum.ToString()
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
                     _privateMessageFromDiscussGroupReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessage(
                         new PrivateMessageFromDiscussReceivedContext
                         {
-                            SendTime = command.SendTime,
-                            Message = command.Message,
-                            //todo CQP 无法获取发送者的讨论组信息
+                            SendTime = message.SendTime,
+                            Message = message.Message,
+
+                            // todo CQP 无法获取发送者的讨论组信息
                             FromDiscuss = string.Empty,
-                            FromQq = command.FormNum.ToString()
+                            FromQq = message.FormNum.ToString()
                         }));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
-    }
-
-    [DataContract]
-    public class PrivateMessageCommand : CqpCommand
-    {
-        [DataMember]
-        public PrivateMessageFromType PrivateMessageFromType { get; set; }
-
-        [DataMember]
-        public long FormNum { get; set; }
-
-        [DataMember]
-        public DateTime SendTime { get; set; }
-
-        [DataMember]
-        public string Message { get; set; }
     }
 }

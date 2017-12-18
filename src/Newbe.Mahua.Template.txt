@@ -1,0 +1,9 @@
+Newbe.Mahua开发模板。本模板安装了所有支持的平台部件，是开发全平台插件的可靠模板。详细使用方法参照教程 http://www.newbe.cf
+
+Newbe.Mahua开发模板。本模板支持Amanda平台，Amanda下载链接 http://www.52chat.cc/。详细使用方法参照教程 http://www.newbe.cf
+
+Newbe.Mahua开发模板。本模板支持CQP平台，CQP下载链接 https://cqp.cc/。详细使用方法参照教程 http://www.newbe.cf
+
+Newbe.Mahua开发模板。本模板支持MPQ平台，MPQ下载链接 https://f.mypcqq.cc/。详细使用方法参照教程 http://www.newbe.cf
+
+D:\Repos\Newbe.Mahua.Framework\logo.png

@@ -30,10 +30,10 @@ Task Pack -depends Build -Description "打包" {
     $packList = @(
         "Newbe.Mahua",
         "Newbe.Mahua.PluginLoader",
-        "Newbe.Mahua.Msbuild",
         "Newbe.Mahua.Tools.Psake",
         "Newbe.Mahua.Amanda",
-        "Newbe.Mahua.CQP"
+        "Newbe.Mahua.CQP",
+        "Newbe.Mahua.MPQ"
     )
     $packList | ForEach-Object {
         Exec {
@@ -51,8 +51,6 @@ Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
 
 Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
     Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
-        Exec {
-            cmd /c "$nugetexe push $releaseDir$_ -Source https://www.nuget.org/api/v2/package"
-        }
+        cmd /c "$nugetexe push $releaseDir$_ -Source https://www.nuget.org/api/v2/package"
     }
 }

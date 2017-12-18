@@ -1,6 +1,4 @@
-﻿using Newbe.Mahua.Amanda.Native;
-
-namespace Newbe.Mahua.Amanda
+﻿namespace Newbe.Mahua.Amanda.Native
 {
     internal static class PluginInstanceManager
     {

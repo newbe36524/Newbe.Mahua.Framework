@@ -6,29 +6,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class DiscussGroupMessageCommandHandler : ICommandHandler<DiscussGroupMessageCommand>
-    {
-        private readonly IEnumerable<IDiscussMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
-
-        public DiscussGroupMessageCommandHandler(
-            IEnumerable<IDiscussMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
-        {
-            _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
-        }
-
-        public void Handle(DiscussGroupMessageCommand command)
-        {
-            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessageReceived(
-                new DiscussMessageReceivedMahuaEventContext
-                {
-                    SendTime = command.SendTime,
-                    FromQq = command.FromQq.ToString(),
-                    Message = command.Message,
-                    FromDiscuss = command.DiscussGroupNum.ToString()
-                }));
-        }
-    }
-
     [DataContract]
     public class DiscussGroupMessageCommand : CqpCommand
     {
@@ -43,5 +20,28 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+    }
+
+    internal class DiscussGroupMessageCommandHandler : ICommandHandler<DiscussGroupMessageCommand>
+    {
+        private readonly IEnumerable<IDiscussMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
+
+        public DiscussGroupMessageCommandHandler(
+            IEnumerable<IDiscussMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
+        {
+            _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
+        }
+
+        public void Handle(DiscussGroupMessageCommand message)
+        {
+            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessDiscussGroupMessageReceived(
+                new DiscussMessageReceivedMahuaEventContext
+                {
+                    SendTime = message.SendTime,
+                    FromQq = message.FromQq.ToString(),
+                    Message = message.Message,
+                    FromDiscuss = message.DiscussGroupNum.ToString()
+                }));
+        }
     }
 }

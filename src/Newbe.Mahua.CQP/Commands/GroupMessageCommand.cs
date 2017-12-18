@@ -6,28 +6,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupMessageCommandHandler : ICommandHandler<GroupMessageCommand>
-    {
-        private readonly IEnumerable<IGroupMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
-
-        public GroupMessageCommandHandler(IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
-        {
-            _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
-        }
-
-        public void Handle(GroupMessageCommand command)
-        {
-            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
-            {
-                SendTime = command.SendTime,
-                FromAnonymous = command.FromAnonymous,
-                FromGroup = command.GroupNum.ToString(),
-                FromQq = command.FromQq.ToString(),
-                Message = command.Message,
-            }));
-        }
-    }
-
     [DataContract]
     public class GroupMessageCommand : CqpCommand
     {
@@ -45,5 +23,27 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+    }
+
+    internal class GroupMessageCommandHandler : ICommandHandler<GroupMessageCommand>
+    {
+        private readonly IEnumerable<IGroupMessageReceivedMahuaEvent> _groupMessageReceivedMahuaEvents;
+
+        public GroupMessageCommandHandler(IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents)
+        {
+            _groupMessageReceivedMahuaEvents = groupMessageReceivedMahuaEvents;
+        }
+
+        public void Handle(GroupMessageCommand message)
+        {
+            _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
+            {
+                SendTime = message.SendTime,
+                FromAnonymous = message.FromAnonymous,
+                FromGroup = message.GroupNum.ToString(),
+                FromQq = message.FromQq.ToString(),
+                Message = message.Message,
+            }));
+        }
     }
 }

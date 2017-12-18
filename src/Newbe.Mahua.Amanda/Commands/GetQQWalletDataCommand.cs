@@ -3,14 +3,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
-    internal class GetQqWalletDataCommandHandler : ICommandHandler<GetQqWalletDataCommand>
-    {
-        public void Handle(GetQqWalletDataCommand command)
-        {
-            //todo
-        }
-    }
-
     [DataContract]
     public class GetQqWalletDataCommand : AmandaCommand
     {
@@ -31,5 +23,13 @@ namespace Newbe.Mahua.Amanda.Commands
 
         [DataMember]
         public string OrderNo { get; set; }
+    }
+
+    internal class GetQqWalletDataCommandHandler : ICommandHandler<GetQqWalletDataCommand>
+    {
+        public void Handle(GetQqWalletDataCommand message)
+        {
+            // todo
+        }
     }
 }

@@ -7,40 +7,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupMemberIncreasedCommandHandler : ICommandHandler<GroupMemberIncreasedCommand>
-    {
-        private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;
-        private readonly IEnumerable<IGroupMemberIncreasedMahuaEvent> _groupMemberIncreasedMahuaEvents;
-
-        public GroupMemberIncreasedCommandHandler(
-            IEnumerable<IGroupMemberChangedMahuaEvent> groupMemberChangedMahuaEvents,
-            IEnumerable<IGroupMemberIncreasedMahuaEvent> groupMemberIncreasedMahuaEvents)
-        {
-            _groupMemberChangedMahuaEvents = groupMemberChangedMahuaEvents;
-            _groupMemberIncreasedMahuaEvents = groupMemberIncreasedMahuaEvents;
-        }
-
-        public void Handle(GroupMemberIncreasedCommand command)
-        {
-            _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
-            {
-                SendTime = command.SendTime,
-                FromGroup = command.FromGroup.ToString(),
-                JoinedOrLeftQq = command.ToQq.ToString(),
-                GroupMemberChangedType = GroupMemberChangedType.Increased
-            }));
-            _groupMemberIncreasedMahuaEvents.Handle(
-                x => x.ProcessGroupMemberIncreased(new GroupMemberIncreasedContext
-                {
-                    SendTime = command.SendTime,
-                    FromGroup = command.FromGroup.ToString(),
-                    JoinedQq = command.ToQq.ToString(),
-                    InvitatorOrAdmin = command.FromQq.ToString(),
-                    GroupMemberIncreasedReason = command.GroupMemberIncreasedReason
-                }));
-        }
-    }
-
     [DataContract]
     public class GroupMemberIncreasedCommand : CqpCommand
     {
@@ -58,5 +24,39 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public long ToQq { get; set; }
+    }
+
+    internal class GroupMemberIncreasedCommandHandler : ICommandHandler<GroupMemberIncreasedCommand>
+    {
+        private readonly IEnumerable<IGroupMemberChangedMahuaEvent> _groupMemberChangedMahuaEvents;
+        private readonly IEnumerable<IGroupMemberIncreasedMahuaEvent> _groupMemberIncreasedMahuaEvents;
+
+        public GroupMemberIncreasedCommandHandler(
+            IEnumerable<IGroupMemberChangedMahuaEvent> groupMemberChangedMahuaEvents,
+            IEnumerable<IGroupMemberIncreasedMahuaEvent> groupMemberIncreasedMahuaEvents)
+        {
+            _groupMemberChangedMahuaEvents = groupMemberChangedMahuaEvents;
+            _groupMemberIncreasedMahuaEvents = groupMemberIncreasedMahuaEvents;
+        }
+
+        public void Handle(GroupMemberIncreasedCommand message)
+        {
+            _groupMemberChangedMahuaEvents.Handle(x => x.ProcessGroupMemberChanged(new GroupMemberChangedContext
+            {
+                SendTime = message.SendTime,
+                FromGroup = message.FromGroup.ToString(),
+                JoinedOrLeftQq = message.ToQq.ToString(),
+                GroupMemberChangedType = GroupMemberChangedType.Increased
+            }));
+            _groupMemberIncreasedMahuaEvents.Handle(
+                x => x.ProcessGroupMemberIncreased(new GroupMemberIncreasedContext
+                {
+                    SendTime = message.SendTime,
+                    FromGroup = message.FromGroup.ToString(),
+                    JoinedQq = message.ToQq.ToString(),
+                    InvitatorOrAdmin = message.FromQq.ToString(),
+                    GroupMemberIncreasedReason = message.GroupMemberIncreasedReason
+                }));
+        }
     }
 }

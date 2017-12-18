@@ -1,11 +1,11 @@
-using System;
+锘縰sing System;
 using System.IO;
 using System.Linq;
 
 namespace Newbe.Mahua.Internals
 {
     /// <summary>
-    /// 当前插件平台信息读取
+    /// 褰撳墠鎻掍欢骞冲彴淇℃伅璇诲彇
     /// </summary>
     internal static class MahuaPlatformValueProvider
     {
@@ -13,11 +13,15 @@ namespace Newbe.Mahua.Internals
             new Lazy<MahuaPlatform>(() =>
             {
                 var mahuaPlatform = new IPlatformResolver[]
-                        {new CqpPlatformResolver(), new MpqPlatformResolver(), new AmandaPlatformResolver()}
+                    {
+                        new CqpPlatformResolver(),
+                        new MpqPlatformResolver(),
+                        new AmandaPlatformResolver()
+                    }
                     .FirstOrDefault(x => x.IsThis())?.MahuaPlatform;
                 if (mahuaPlatform == null)
                 {
-                    throw new NotSupportMahuaPlatformExpcetion();
+                    throw new NotSupportMahuaPlatformException();
                 }
                 return mahuaPlatform.Value;
             });
@@ -26,13 +30,7 @@ namespace Newbe.Mahua.Internals
 
         #region IPlatformResolver
 
-        internal interface IPlatformResolver
-        {
-            MahuaPlatform MahuaPlatform { get; }
-            bool IsThis();
-        }
-
-        class CqpPlatformResolver : IPlatformResolver
+        private class CqpPlatformResolver : IPlatformResolver
         {
             public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
 
@@ -44,7 +42,7 @@ namespace Newbe.Mahua.Internals
             }
         }
 
-        class MpqPlatformResolver : IPlatformResolver
+        private class MpqPlatformResolver : IPlatformResolver
         {
             public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Mpq;
 
@@ -55,7 +53,7 @@ namespace Newbe.Mahua.Internals
             }
         }
 
-        class AmandaPlatformResolver : IPlatformResolver
+        private class AmandaPlatformResolver : IPlatformResolver
         {
             public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
 

@@ -5,6 +5,11 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class PluginStartCommand : AmandaCommand
+    {
+    }
+
     internal class PluginStartCommandHandler : ICommandHandler<PluginStartCommand>
     {
         private readonly IEnumerable<IPluginEnabledMahuaEvent> _enabledMahuaEvents;
@@ -14,14 +19,9 @@ namespace Newbe.Mahua.Amanda.Commands
             _enabledMahuaEvents = enabledMahuaEvents;
         }
 
-        public void Handle(PluginStartCommand command)
+        public void Handle(PluginStartCommand message)
         {
             _enabledMahuaEvents.Handle(x => x.Enabled(new PluginEnabledContext()));
         }
-    }
-
-    [DataContract]
-    public class PluginStartCommand : AmandaCommand
-    {
     }
 }

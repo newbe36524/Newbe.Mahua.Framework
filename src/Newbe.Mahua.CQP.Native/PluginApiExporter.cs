@@ -11,12 +11,8 @@ namespace Newbe.Mahua.CQP.Native
     public sealed class PluginApiExporter : IPluginApiExporter
     {
         private const string CoolApiVersion = "9";
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
 
-        private static DateTime ConvertToDatetime(int time)
-        {
-            return new DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime().AddSeconds(time);
-        }
+        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
 
         /// <summary>
         /// 此函数会在插件被开启时发生。
@@ -77,7 +73,6 @@ namespace Newbe.Mahua.CQP.Native
             return 0;
         }
 
-
         /// <summary>
         /// 处理私聊消息。
         /// </summary>
@@ -119,7 +114,6 @@ namespace Newbe.Mahua.CQP.Native
             return 0;
         }
 
-
         /// <summary>
         /// 处理群聊消息。
         /// </summary>
@@ -132,9 +126,14 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="font">消息所使用字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventGroupMsg", CallingConvention.StdCall)]
-        public static int ProcessGroupMessage(int subType, int sendTime, long fromGroup, long fromQQ,
+        public static int ProcessGroupMessage(
+            int subType,
+            int sendTime,
+            long fromGroup,
+            long fromQQ,
             string fromAnonymous,
-            string msg, int font)
+            string msg,
+            int font)
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupMessageCommand
             {
@@ -158,7 +157,11 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="font">消息所使用字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventDiscussMsg", CallingConvention.StdCall)]
-        public static int ProcessDiscussGroupMessage(int subType, int sendTime, long fromDiscuss, long fromQQ,
+        public static int ProcessDiscussGroupMessage(
+            int subType,
+            int sendTime,
+            long fromDiscuss,
+            long fromQQ,
             string msg,
             int font)
         {
@@ -225,7 +228,11 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="target">被操作的QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventSystem_GroupMemberDecrease", CallingConvention.StdCall)]
-        public static int ProcessGroupMemberDecrease(int subType, int sendTime, long fromGroup, long fromQQ,
+        public static int ProcessGroupMemberDecrease(
+            int subType,
+            int sendTime,
+            long fromGroup,
+            long fromQQ,
             long target)
         {
             GroupMemberDecreasedReason reason;
@@ -265,7 +272,11 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="target">被操作的QQ。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventSystem_GroupMemberIncrease", CallingConvention.StdCall)]
-        public static int ProcessGroupMemberIncrease(int subType, int sendTime, long fromGroup, long fromQQ,
+        public static int ProcessGroupMemberIncrease(
+            int subType,
+            int sendTime,
+            long fromGroup,
+            long fromQQ,
             long target)
         {
             GroupMemberIncreasedReason reason;
@@ -342,12 +353,17 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="responseMark">用于处理请求的标识。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventRequest_AddGroup", CallingConvention.StdCall)]
-        public static int ProcessJoinGroupRequest(int subType, int sendTime, long fromGroup, long fromQQ, string msg,
+        public static int ProcessJoinGroupRequest(
+            int subType,
+            int sendTime,
+            long fromGroup,
+            long fromQQ,
+            string msg,
             string responseMark)
         {
             switch (subType)
             {
-                case 1: //管理员收到入群申请
+                case 1: // 管理员收到入群申请
                     PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningRequestCommand
                     {
                         SendTime = ConvertToDatetime(sendTime),
@@ -358,7 +374,7 @@ namespace Newbe.Mahua.CQP.Native
                     });
                     break;
 
-                case 2: //收到加群邀请
+                case 2: // 收到加群邀请
                     PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningInvitationCommand
                     {
                         SendTime = ConvertToDatetime(sendTime),
@@ -440,5 +456,10 @@ namespace Newbe.Mahua.CQP.Native
         public static int ProcessMenuClickI() => throw new NotImplementedException();
 
         #endregion
+
+        private static DateTime ConvertToDatetime(int time)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime().AddSeconds(time);
+        }
     }
 }

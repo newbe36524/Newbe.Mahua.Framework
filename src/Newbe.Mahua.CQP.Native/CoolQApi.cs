@@ -1,63 +1,61 @@
+ï»¿using Newbe.Mahua.CQP.NativeApi;
 using System.Runtime.InteropServices;
-using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP.Native
 {
-
-
     public class CoolQApi : ICoolQApi
     {
         /// <summary>
-        /// ·¢ËÍºÃÓÑÏûÏ¢
+        /// å‘é€å¥½å‹æ¶ˆæ¯
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
         /// <returns></returns>
         int ICoolQApi.CQ_sendPrivateMsg(int AuthCode, long QQID, string msg)
             => NativeMethods.CQ_sendPrivateMsg(AuthCode, QQID, msg);
 
         /// <summary>
-        /// ·¢ËÍÈºÏûÏ¢
+        /// å‘é€ç¾¤æ¶ˆæ¯
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendGroupMsg(int AuthCode, long ÈººÅ, string msg)
-            => NativeMethods.CQ_sendGroupMsg(AuthCode, ÈººÅ, msg);
+        int ICoolQApi.CQ_sendGroupMsg(int AuthCode, long ç¾¤å·, string msg)
+            => NativeMethods.CQ_sendGroupMsg(AuthCode, ç¾¤å·, msg);
 
         /// <summary>
-        /// ·¢ËÍÌÖÂÛ×éÏûÏ¢
+        /// å‘é€è®¨è®ºç»„æ¶ˆæ¯
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÌÖÂÛ×éºÅ">Ä¿±êÌÖÂÛ×é</param>
-        /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+        /// <param name="è®¨è®ºç»„å·">ç›®æ ‡è®¨è®ºç»„</param>
+        /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long ÌÖÂÛ×éºÅ, string msg)
-            => NativeMethods.CQ_sendDiscussMsg(AuthCode, ÌÖÂÛ×éºÅ, msg);
+        int ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long è®¨è®ºç»„å·, string msg)
+            => NativeMethods.CQ_sendDiscussMsg(AuthCode, è®¨è®ºç»„å·, msg);
 
         /// <summary>
-        /// ·¢ËÍÔŞ
+        /// å‘é€èµ
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="QQID">Ä¿±êQQ</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
         /// <returns></returns>
         int ICoolQApi.CQ_sendLike(int AuthCode, long QQID)
             => NativeMethods.CQ_sendLike(AuthCode, QQID);
 
         /// <summary>
-        /// ·¢ËÍÔŞ
+        /// å‘é€èµ
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="times">ÔŞµÄ´ÎÊı£¬×î¶à10´Î</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="times">èµçš„æ¬¡æ•°ï¼Œæœ€å¤š10æ¬¡</param>
         /// <returns></returns>
         int ICoolQApi.CQ_sendLikeV2(int AuthCode, long QQID, int times)
             => NativeMethods.CQ_sendLikeV2(AuthCode, QQID, times);
 
         /// <summary>
-        /// È¡Cookies(É÷ÓÃ
+        /// å–Cookies(æ…ç”¨
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <returns></returns>
@@ -65,17 +63,17 @@ namespace Newbe.Mahua.CQP.Native
             => NativeMethods.CQ_getCookies(AuthCode);
 
         /// <summary>
-        /// ½ÓÊÕÓïÒô
+        /// æ¥æ”¶è¯­éŸ³
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="file">ÊÕµ½ÏûÏ¢ÖĞµÄÓïÒôÎÄ¼şÃû(file)</param>
-        /// <param name="outformat">Ó¦ÓÃËùĞèµÄ¸ñÊ½</param>
+        /// <param name="file">æ”¶åˆ°æ¶ˆæ¯ä¸­çš„è¯­éŸ³æ–‡ä»¶å(file)</param>
+        /// <param name="outformat">åº”ç”¨æ‰€éœ€çš„æ ¼å¼</param>
         /// <returns></returns>
         string ICoolQApi.CQ_getRecord(int AuthCode, string file, string outformat)
             => NativeMethods.CQ_getRecord(AuthCode, file, outformat);
 
         /// <summary>
-        /// È¡CsrfToken(É÷ÓÃ
+        /// å–CsrfToken(æ…ç”¨
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <returns></returns>
@@ -83,7 +81,7 @@ namespace Newbe.Mahua.CQP.Native
             => NativeMethods.CQ_getCsrfToken(AuthCode);
 
         /// <summary>
-        /// È¡Ó¦ÓÃÄ¿Â¼
+        /// å–åº”ç”¨ç›®å½•
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <returns></returns>
@@ -91,7 +89,7 @@ namespace Newbe.Mahua.CQP.Native
             => NativeMethods.CQ_getAppDirectory(AuthCode);
 
         /// <summary>
-        /// È¡µÇÂ¼QQ
+        /// å–ç™»å½•QQ
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <returns></returns>
@@ -99,7 +97,7 @@ namespace Newbe.Mahua.CQP.Native
             => NativeMethods.CQ_getLoginQQ(AuthCode);
 
         /// <summary>
-        /// È¡µÇÂ¼êÇ³Æ
+        /// å–ç™»å½•æ˜µç§°
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <returns></returns>
@@ -107,207 +105,207 @@ namespace Newbe.Mahua.CQP.Native
             => NativeMethods.CQ_getLoginNick(AuthCode);
 
         /// <summary>
-        /// ÖÃÈºÔ±ÒÆ³ı
+        /// ç½®ç¾¤å‘˜ç§»é™¤
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="¾Ü¾øÔÙ¼ÓÈº">Èç¹ûÎªÕæ£¬Ôò¡°²»ÔÙ½ÓÊÕ´ËÈË¼ÓÈºÉêÇë¡±£¬ÇëÉ÷ÓÃ</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="æ‹’ç»å†åŠ ç¾¤">å¦‚æœä¸ºçœŸï¼Œåˆ™â€œä¸å†æ¥æ”¶æ­¤äººåŠ ç¾¤ç”³è¯·â€ï¼Œè¯·æ…ç”¨</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupKick(int AuthCode, long ÈººÅ, long QQID, bool ¾Ü¾øÔÙ¼ÓÈº)
-            => NativeMethods.CQ_setGroupKick(AuthCode, ÈººÅ, QQID, ¾Ü¾øÔÙ¼ÓÈº);
+        int ICoolQApi.CQ_setGroupKick(int AuthCode, long ç¾¤å·, long QQID, bool æ‹’ç»å†åŠ ç¾¤)
+            => NativeMethods.CQ_setGroupKick(AuthCode, ç¾¤å·, QQID, æ‹’ç»å†åŠ ç¾¤);
 
         /// <summary>
-        /// ÖÃÈºÔ±½ûÑÔ
+        /// ç½®ç¾¤å‘˜ç¦è¨€
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="½ûÑÔÊ±¼ä">½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£Èç¹ûÒª½â½û£¬ÕâÀïÌîĞ´0</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="ç¦è¨€æ—¶é—´">ç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœè¦è§£ç¦ï¼Œè¿™é‡Œå¡«å†™0</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupBan(int AuthCode, long ÈººÅ, long QQID, long ½ûÑÔÊ±¼ä)
-            => NativeMethods.CQ_setGroupBan(AuthCode, ÈººÅ, QQID, ½ûÑÔÊ±¼ä);
+        int ICoolQApi.CQ_setGroupBan(int AuthCode, long ç¾¤å·, long QQID, long ç¦è¨€æ—¶é—´)
+            => NativeMethods.CQ_setGroupBan(AuthCode, ç¾¤å·, QQID, ç¦è¨€æ—¶é—´);
 
         /// <summary>
-        /// ÖÃÈº¹ÜÀíÔ±
+        /// ç½®ç¾¤ç®¡ç†å‘˜
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="QQID">±»ÉèÖÃµÄQQ</param>
-        /// <param name="³ÉÎª¹ÜÀíÔ±">Õæ/ÉèÖÃ¹ÜÀíÔ± ¼Ù/È¡Ïû¹ÜÀíÔ±</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="QQID">è¢«è®¾ç½®çš„QQ</param>
+        /// <param name="æˆä¸ºç®¡ç†å‘˜">çœŸ/è®¾ç½®ç®¡ç†å‘˜ å‡/å–æ¶ˆç®¡ç†å‘˜</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupAdmin(int AuthCode, long ÈººÅ, long QQID, bool ³ÉÎª¹ÜÀíÔ±)
-            => NativeMethods.CQ_setGroupAdmin(AuthCode, ÈººÅ, QQID, ³ÉÎª¹ÜÀíÔ±);
+        int ICoolQApi.CQ_setGroupAdmin(int AuthCode, long ç¾¤å·, long QQID, bool æˆä¸ºç®¡ç†å‘˜)
+            => NativeMethods.CQ_setGroupAdmin(AuthCode, ç¾¤å·, QQID, æˆä¸ºç®¡ç†å‘˜);
 
         /// <summary>
-        /// ÖÃÈº³ÉÔ±×¨ÊôÍ·ÏÎ
+        /// ç½®ç¾¤æˆå‘˜ä¸“å±å¤´è¡”
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="Í·ÏÎ">Èç¹ûÒªÉ¾³ı£¬ÕâÀïÌî¿Õ</param>
-        /// <param name="¹ıÆÚÊ±¼ä">×¨ÊôÍ·ÏÎÓĞĞ§ÆÚ£¬µ¥Î»ÎªÃë¡£Èç¹ûÓÀ¾ÃÓĞĞ§£¬ÕâÀïÌîĞ´-1</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="å¤´è¡”">å¦‚æœè¦åˆ é™¤ï¼Œè¿™é‡Œå¡«ç©º</param>
+        /// <param name="è¿‡æœŸæ—¶é—´">ä¸“å±å¤´è¡”æœ‰æ•ˆæœŸï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœæ°¸ä¹…æœ‰æ•ˆï¼Œè¿™é‡Œå¡«å†™-1</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupSpecialTitle(int AuthCode, long ÈººÅ, long QQID, string Í·ÏÎ, long ¹ıÆÚÊ±¼ä)
-            => NativeMethods.CQ_setGroupSpecialTitle(AuthCode, ÈººÅ, QQID, Í·ÏÎ, ¹ıÆÚÊ±¼ä);
+        int ICoolQApi.CQ_setGroupSpecialTitle(int AuthCode, long ç¾¤å·, long QQID, string å¤´è¡”, long è¿‡æœŸæ—¶é—´)
+            => NativeMethods.CQ_setGroupSpecialTitle(AuthCode, ç¾¤å·, QQID, å¤´è¡”, è¿‡æœŸæ—¶é—´);
 
         /// <summary>
-        /// ÖÃÈ«Èº½ûÑÔ
+        /// ç½®å…¨ç¾¤ç¦è¨€
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="¿ªÆô½ûÑÔ">Õæ/¿ªÆô ¼Ù/¹Ø±Õ</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="å¼€å¯ç¦è¨€">çœŸ/å¼€å¯ å‡/å…³é—­</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupWholeBan(int AuthCode, long ÈººÅ, bool ¿ªÆô½ûÑÔ)
-            => NativeMethods.CQ_setGroupWholeBan(AuthCode, ÈººÅ, ¿ªÆô½ûÑÔ);
+        int ICoolQApi.CQ_setGroupWholeBan(int AuthCode, long ç¾¤å·, bool å¼€å¯ç¦è¨€)
+            => NativeMethods.CQ_setGroupWholeBan(AuthCode, ç¾¤å·, å¼€å¯ç¦è¨€);
 
         /// <summary>
-        /// ÖÃÄäÃûÈºÔ±½ûÑÔ
+        /// ç½®åŒ¿åç¾¤å‘˜ç¦è¨€
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="ÄäÃû">ÈºÏûÏ¢ÊÂ¼şÊÕµ½µÄ¡°ÄäÃû¡±²ÎÊı</param>
-        /// <param name="½ûÑÔÊ±¼ä">½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£²»Ö§³Ö½â½û</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="åŒ¿å">ç¾¤æ¶ˆæ¯äº‹ä»¶æ”¶åˆ°çš„â€œåŒ¿åâ€å‚æ•°</param>
+        /// <param name="ç¦è¨€æ—¶é—´">ç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚ä¸æ”¯æŒè§£ç¦</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupAnonymousBan(int AuthCode, long ÈººÅ, string ÄäÃû, long ½ûÑÔÊ±¼ä)
-            => NativeMethods.CQ_setGroupAnonymousBan(AuthCode, ÈººÅ, ÄäÃû, ½ûÑÔÊ±¼ä);
+        int ICoolQApi.CQ_setGroupAnonymousBan(int AuthCode, long ç¾¤å·, string åŒ¿å, long ç¦è¨€æ—¶é—´)
+            => NativeMethods.CQ_setGroupAnonymousBan(AuthCode, ç¾¤å·, åŒ¿å, ç¦è¨€æ—¶é—´);
 
         /// <summary>
-        /// ÖÃÈºÄäÃûÉèÖÃ
+        /// ç½®ç¾¤åŒ¿åè®¾ç½®
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ"></param>
-        /// <param name="¿ªÆôÄäÃû"></param>
+        /// <param name="ç¾¤å·"></param>
+        /// <param name="å¼€å¯åŒ¿å"></param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupAnonymous(int AuthCode, long ÈººÅ, bool ¿ªÆôÄäÃû)
-            => NativeMethods.CQ_setGroupAnonymous(AuthCode, ÈººÅ, ¿ªÆôÄäÃû);
+        int ICoolQApi.CQ_setGroupAnonymous(int AuthCode, long ç¾¤å·, bool å¼€å¯åŒ¿å)
+            => NativeMethods.CQ_setGroupAnonymous(AuthCode, ç¾¤å·, å¼€å¯åŒ¿å);
 
         /// <summary>
-        /// ÖÃÈº³ÉÔ±ÃûÆ¬
+        /// ç½®ç¾¤æˆå‘˜åç‰‡
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="QQID">±»ÉèÖÃµÄQQ</param>
-        /// <param name="ĞÂÃûÆ¬_êÇ³Æ"></param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="QQID">è¢«è®¾ç½®çš„QQ</param>
+        /// <param name="æ–°åç‰‡_æ˜µç§°"></param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupCard(int AuthCode, long ÈººÅ, long QQID, string ĞÂÃûÆ¬_êÇ³Æ)
-            => NativeMethods.CQ_setGroupCard(AuthCode, ÈººÅ, QQID, ĞÂÃûÆ¬_êÇ³Æ);
+        int ICoolQApi.CQ_setGroupCard(int AuthCode, long ç¾¤å·, long QQID, string æ–°åç‰‡_æ˜µç§°)
+            => NativeMethods.CQ_setGroupCard(AuthCode, ç¾¤å·, QQID, æ–°åç‰‡_æ˜µç§°);
 
         /// <summary>
-        /// ÖÃÈºÍË³ö
+        /// ç½®ç¾¤é€€å‡º
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êÈº</param>
-        /// <param name="ÊÇ·ñ½âÉ¢">Õæ/½âÉ¢±¾Èº(ÈºÖ÷) ¼Ù/ÍË³ö±¾Èº(¹ÜÀí¡¢Èº³ÉÔ±)</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+        /// <param name="æ˜¯å¦è§£æ•£">çœŸ/è§£æ•£æœ¬ç¾¤(ç¾¤ä¸») å‡/é€€å‡ºæœ¬ç¾¤(ç®¡ç†ã€ç¾¤æˆå‘˜)</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupLeave(int AuthCode, long ÈººÅ, bool ÊÇ·ñ½âÉ¢)
-            => NativeMethods.CQ_setGroupLeave(AuthCode, ÈººÅ, ÊÇ·ñ½âÉ¢);
+        int ICoolQApi.CQ_setGroupLeave(int AuthCode, long ç¾¤å·, bool æ˜¯å¦è§£æ•£)
+            => NativeMethods.CQ_setGroupLeave(AuthCode, ç¾¤å·, æ˜¯å¦è§£æ•£);
 
         /// <summary>
-        /// ÖÃÌÖÂÛ×éÍË³ö
+        /// ç½®è®¨è®ºç»„é€€å‡º
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÌÖÂÛ×éºÅ">Ä¿±êÌÖÂÛ×é</param>
+        /// <param name="è®¨è®ºç»„å·">ç›®æ ‡è®¨è®ºç»„</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setDiscussLeave(int AuthCode, long ÌÖÂÛ×éºÅ)
-            => NativeMethods.CQ_setDiscussLeave(AuthCode, ÌÖÂÛ×éºÅ);
+        int ICoolQApi.CQ_setDiscussLeave(int AuthCode, long è®¨è®ºç»„å·)
+            => NativeMethods.CQ_setDiscussLeave(AuthCode, è®¨è®ºç»„å·);
 
         /// <summary>
-        /// ÖÃºÃÓÑÌí¼ÓÇëÇó
+        /// ç½®å¥½å‹æ·»åŠ è¯·æ±‚
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-        /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
-        /// <param name="±¸×¢">Ìí¼ÓºóµÄºÃÓÑ±¸×¢</param>
+        /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+        /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
+        /// <param name="å¤‡æ³¨">æ·»åŠ åçš„å¥½å‹å¤‡æ³¨</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setFriendAddRequest(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ·´À¡ÀàĞÍ, string ±¸×¢)
-            => NativeMethods.CQ_setFriendAddRequest(AuthCode, ÇëÇó·´À¡±êÊ¶, ·´À¡ÀàĞÍ, ±¸×¢);
+        int ICoolQApi.CQ_setFriendAddRequest(int AuthCode, string è¯·æ±‚åé¦ˆæ ‡è¯†, int åé¦ˆç±»å‹, string å¤‡æ³¨)
+            => NativeMethods.CQ_setFriendAddRequest(AuthCode, è¯·æ±‚åé¦ˆæ ‡è¯†, åé¦ˆç±»å‹, å¤‡æ³¨);
 
         /// <summary>
-        /// ÖÃÈºÌí¼ÓÇëÇó
+        /// ç½®ç¾¤æ·»åŠ è¯·æ±‚
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-        /// <param name="ÇëÇóÀàĞÍ">¸ù¾İÇëÇóÊÂ¼şµÄ×ÓÀàĞÍÇø·Ö #ÇëÇó_ÈºÌí¼Ó »ò #ÇëÇó_ÈºÑûÇë</param>
-        /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
+        /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+        /// <param name="è¯·æ±‚ç±»å‹">æ ¹æ®è¯·æ±‚äº‹ä»¶çš„å­ç±»å‹åŒºåˆ† #è¯·æ±‚_ç¾¤æ·»åŠ  æˆ– #è¯·æ±‚_ç¾¤é‚€è¯·</param>
+        /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupAddRequest(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ÇëÇóÀàĞÍ, int ·´À¡ÀàĞÍ)
-            => NativeMethods.CQ_setGroupAddRequest(AuthCode, ÇëÇó·´À¡±êÊ¶, ÇëÇóÀàĞÍ, ·´À¡ÀàĞÍ);
+        int ICoolQApi.CQ_setGroupAddRequest(int AuthCode, string è¯·æ±‚åé¦ˆæ ‡è¯†, int è¯·æ±‚ç±»å‹, int åé¦ˆç±»å‹)
+            => NativeMethods.CQ_setGroupAddRequest(AuthCode, è¯·æ±‚åé¦ˆæ ‡è¯†, è¯·æ±‚ç±»å‹, åé¦ˆç±»å‹);
 
         /// <summary>
-        /// ÖÃÈºÌí¼ÓÇëÇó
+        /// ç½®ç¾¤æ·»åŠ è¯·æ±‚
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-        /// <param name="ÇëÇóÀàĞÍ">¸ù¾İÇëÇóÊÂ¼şµÄ×ÓÀàĞÍÇø·Ö #ÇëÇó_ÈºÌí¼Ó »ò #ÇëÇó_ÈºÑûÇë</param>
-        /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
-        /// <param name="ÀíÓÉ">²Ù×÷ÀíÓÉ£¬½ö #ÇëÇó_ÈºÌí¼Ó ÇÒ #ÇëÇó_¾Ü¾ø Ê±¿ÉÓÃ</param>
+        /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+        /// <param name="è¯·æ±‚ç±»å‹">æ ¹æ®è¯·æ±‚äº‹ä»¶çš„å­ç±»å‹åŒºåˆ† #è¯·æ±‚_ç¾¤æ·»åŠ  æˆ– #è¯·æ±‚_ç¾¤é‚€è¯·</param>
+        /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
+        /// <param name="ç†ç”±">æ“ä½œç†ç”±ï¼Œä»… #è¯·æ±‚_ç¾¤æ·»åŠ  ä¸” #è¯·æ±‚_æ‹’ç» æ—¶å¯ç”¨</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setGroupAddRequestV2(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ÇëÇóÀàĞÍ, int ·´À¡ÀàĞÍ, string ÀíÓÉ)
-            => NativeMethods.CQ_setGroupAddRequestV2(AuthCode, ÇëÇó·´À¡±êÊ¶, ÇëÇóÀàĞÍ, ·´À¡ÀàĞÍ, ÀíÓÉ);
+        int ICoolQApi.CQ_setGroupAddRequestV2(int AuthCode, string è¯·æ±‚åé¦ˆæ ‡è¯†, int è¯·æ±‚ç±»å‹, int åé¦ˆç±»å‹, string ç†ç”±)
+            => NativeMethods.CQ_setGroupAddRequestV2(AuthCode, è¯·æ±‚åé¦ˆæ ‡è¯†, è¯·æ±‚ç±»å‹, åé¦ˆç±»å‹, ç†ç”±);
 
         /// <summary>
-        /// Ôö¼ÓÔËĞĞÈÕÖ¾
+        /// å¢åŠ è¿è¡Œæ—¥å¿—
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÓÅÏÈ¼¶">#Log_ ¿ªÍ·³£Á¿</param>
-        /// <param name="ÀàĞÍ"></param>
-        /// <param name="ÄÚÈİ"></param>
+        /// <param name="ä¼˜å…ˆçº§">#Log_ å¼€å¤´å¸¸é‡</param>
+        /// <param name="ç±»å‹"></param>
+        /// <param name="å†…å®¹"></param>
         /// <returns></returns>
-        int ICoolQApi.CQ_addLog(int AuthCode, int ÓÅÏÈ¼¶, string ÀàĞÍ, string ÄÚÈİ)
-            => NativeMethods.CQ_addLog(AuthCode, ÓÅÏÈ¼¶, ÀàĞÍ, ÄÚÈİ);
+        int ICoolQApi.CQ_addLog(int AuthCode, int ä¼˜å…ˆçº§, string ç±»å‹, string å†…å®¹)
+            => NativeMethods.CQ_addLog(AuthCode, ä¼˜å…ˆçº§, ç±»å‹, å†…å®¹);
 
         /// <summary>
-        /// ÖÃÖÂÃü´íÎóÌáÊ¾
+        /// ç½®è‡´å‘½é”™è¯¯æç¤º
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="´íÎóĞÅÏ¢"></param>
+        /// <param name="é”™è¯¯ä¿¡æ¯"></param>
         /// <returns></returns>
-        int ICoolQApi.CQ_setFatal(int AuthCode, string ´íÎóĞÅÏ¢)
-            => NativeMethods.CQ_setFatal(AuthCode, ´íÎóĞÅÏ¢);
+        int ICoolQApi.CQ_setFatal(int AuthCode, string é”™è¯¯ä¿¡æ¯)
+            => NativeMethods.CQ_setFatal(AuthCode, é”™è¯¯ä¿¡æ¯);
 
         /// <summary>
-        /// È¡Èº³ÉÔ±ĞÅÏ¢(¾É°æ
+        /// å–ç¾¤æˆå‘˜ä¿¡æ¯(æ—§ç‰ˆ
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
-        /// <param name="QQID">Ä¿±êQQ</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
         /// <returns></returns>
-        string ICoolQApi.CQ_getGroupMemberInfo(int AuthCode, long ÈººÅ, long QQID)
-            => NativeMethods.CQ_getGroupMemberInfo(AuthCode, ÈººÅ, QQID);
+        string ICoolQApi.CQ_getGroupMemberInfo(int AuthCode, long ç¾¤å·, long QQID)
+            => NativeMethods.CQ_getGroupMemberInfo(AuthCode, ç¾¤å·, QQID);
 
         /// <summary>
-        /// È¡Èº³ÉÔ±ĞÅÏ¢(Ö§³Ö»º´æ)
+        /// å–ç¾¤æˆå‘˜ä¿¡æ¯(æ”¯æŒç¼“å­˜)
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="²»Ê¹ÓÃ»º´æ"></param>
+        /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="ä¸ä½¿ç”¨ç¼“å­˜"></param>
         /// <returns></returns>
-        string ICoolQApi.CQ_getGroupMemberInfoV2(int AuthCode, long ÈººÅ, long QQID, bool ²»Ê¹ÓÃ»º´æ)
-            => NativeMethods.CQ_getGroupMemberInfoV2(AuthCode, ÈººÅ, QQID, ²»Ê¹ÓÃ»º´æ);
+        string ICoolQApi.CQ_getGroupMemberInfoV2(int AuthCode, long ç¾¤å·, long QQID, bool ä¸ä½¿ç”¨ç¼“å­˜)
+            => NativeMethods.CQ_getGroupMemberInfoV2(AuthCode, ç¾¤å·, QQID, ä¸ä½¿ç”¨ç¼“å­˜);
 
         /// <summary>
-        /// È¡Èº³ÉÔ±ÁĞ±í
+        /// å–ç¾¤æˆå‘˜åˆ—è¡¨
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
+        /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
         /// <returns></returns>
-        string ICoolQApi.CQ_getGroupMemberList(int AuthCode, long ÈººÅ)
-            => NativeMethods.CQ_getGroupMemberList(AuthCode, ÈººÅ);
+        string ICoolQApi.CQ_getGroupMemberList(int AuthCode, long ç¾¤å·)
+            => NativeMethods.CQ_getGroupMemberList(AuthCode, ç¾¤å·);
 
         /// <summary>
-        /// È¡Ä°ÉúÈËĞÅÏ¢(Ö§³Ö»º´æ)
+        /// å–é™Œç”Ÿäººä¿¡æ¯(æ”¯æŒç¼“å­˜)
         /// </summary>
         /// <param name="AuthCode"></param>
-        /// <param name="QQID">Ä¿±êQQ</param>
-        /// <param name="²»Ê¹ÓÃ»º´æ"></param>
+        /// <param name="QQID">ç›®æ ‡QQ</param>
+        /// <param name="ä¸ä½¿ç”¨ç¼“å­˜"></param>
         /// <returns></returns>
-        string ICoolQApi.CQ_getStrangerInfo(int AuthCode, long QQID, bool ²»Ê¹ÓÃ»º´æ)
-            => NativeMethods.CQ_getStrangerInfo(AuthCode, QQID, ²»Ê¹ÓÃ»º´æ);
+        string ICoolQApi.CQ_getStrangerInfo(int AuthCode, long QQID, bool ä¸ä½¿ç”¨ç¼“å­˜)
+            => NativeMethods.CQ_getStrangerInfo(AuthCode, QQID, ä¸ä½¿ç”¨ç¼“å­˜);
 
         /// <summary>
-        /// È¡ÈºÁĞ±í
+        /// å–ç¾¤åˆ—è¡¨
         /// </summary>
         /// <returns></returns>
         string ICoolQApi.CQ_getGroupList(int AuthCode) => NativeMethods.CQ_getGroupList(AuthCode);
@@ -315,56 +313,56 @@ namespace Newbe.Mahua.CQP.Native
         private static class NativeMethods
         {
             /// <summary>
-            /// ·¢ËÍºÃÓÑÏûÏ¢
+            /// å‘é€å¥½å‹æ¶ˆæ¯
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
             public static extern int CQ_sendPrivateMsg(int AuthCode, long QQID, string msg);
 
             /// <summary>
-            /// ·¢ËÍÈºÏûÏ¢
+            /// å‘é€ç¾¤æ¶ˆæ¯
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_sendGroupMsg(int AuthCode, long ÈººÅ, string msg);
+            public static extern int CQ_sendGroupMsg(int AuthCode, long ç¾¤å·, string msg);
 
             /// <summary>
-            /// ·¢ËÍÌÖÂÛ×éÏûÏ¢
+            /// å‘é€è®¨è®ºç»„æ¶ˆæ¯
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÌÖÂÛ×éºÅ">Ä¿±êÌÖÂÛ×é</param>
-            /// <param name="msg">ÏûÏ¢ÄÚÈİ</param>
+            /// <param name="è®¨è®ºç»„å·">ç›®æ ‡è®¨è®ºç»„</param>
+            /// <param name="msg">æ¶ˆæ¯å†…å®¹</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_sendDiscussMsg(int AuthCode, long ÌÖÂÛ×éºÅ, string msg);
+            public static extern int CQ_sendDiscussMsg(int AuthCode, long è®¨è®ºç»„å·, string msg);
 
             /// <summary>
-            /// ·¢ËÍÔŞ
+            /// å‘é€èµ
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="QQID">Ä¿±êQQ</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
             public static extern int CQ_sendLike(int AuthCode, long QQID);
 
             /// <summary>
-            /// ·¢ËÍÔŞ
+            /// å‘é€èµ
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="times">ÔŞµÄ´ÎÊı£¬×î¶à10´Î</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="times">èµçš„æ¬¡æ•°ï¼Œæœ€å¤š10æ¬¡</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
             public static extern int CQ_sendLikeV2(int AuthCode, long QQID, int times);
 
             /// <summary>
-            /// È¡Cookies(É÷ÓÃ
+            /// å–Cookies(æ…ç”¨
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>
@@ -372,17 +370,17 @@ namespace Newbe.Mahua.CQP.Native
             public static extern string CQ_getCookies(int AuthCode);
 
             /// <summary>
-            /// ½ÓÊÕÓïÒô
+            /// æ¥æ”¶è¯­éŸ³
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="file">ÊÕµ½ÏûÏ¢ÖĞµÄÓïÒôÎÄ¼şÃû(file)</param>
-            /// <param name="outformat">Ó¦ÓÃËùĞèµÄ¸ñÊ½</param>
+            /// <param name="file">æ”¶åˆ°æ¶ˆæ¯ä¸­çš„è¯­éŸ³æ–‡ä»¶å(file)</param>
+            /// <param name="outformat">åº”ç”¨æ‰€éœ€çš„æ ¼å¼</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
             public static extern string CQ_getRecord(int AuthCode, string file, string outformat);
 
             /// <summary>
-            /// È¡CsrfToken(É÷ÓÃ
+            /// å–CsrfToken(æ…ç”¨
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>
@@ -390,7 +388,7 @@ namespace Newbe.Mahua.CQP.Native
             public static extern int CQ_getCsrfToken(int AuthCode);
 
             /// <summary>
-            /// È¡Ó¦ÓÃÄ¿Â¼
+            /// å–åº”ç”¨ç›®å½•
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>
@@ -398,7 +396,7 @@ namespace Newbe.Mahua.CQP.Native
             public static extern string CQ_getAppDirectory(int AuthCode);
 
             /// <summary>
-            /// È¡µÇÂ¼QQ
+            /// å–ç™»å½•QQ
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>
@@ -406,7 +404,7 @@ namespace Newbe.Mahua.CQP.Native
             public static extern long CQ_getLoginQQ(int AuthCode);
 
             /// <summary>
-            /// È¡µÇÂ¼êÇ³Æ
+            /// å–ç™»å½•æ˜µç§°
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>
@@ -414,208 +412,212 @@ namespace Newbe.Mahua.CQP.Native
             public static extern string CQ_getLoginNick(int AuthCode);
 
             /// <summary>
-            /// ÖÃÈºÔ±ÒÆ³ı
+            /// ç½®ç¾¤å‘˜ç§»é™¤
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="¾Ü¾øÔÙ¼ÓÈº">Èç¹ûÎªÕæ£¬Ôò¡°²»ÔÙ½ÓÊÕ´ËÈË¼ÓÈºÉêÇë¡±£¬ÇëÉ÷ÓÃ</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="æ‹’ç»å†åŠ ç¾¤">å¦‚æœä¸ºçœŸï¼Œåˆ™â€œä¸å†æ¥æ”¶æ­¤äººåŠ ç¾¤ç”³è¯·â€ï¼Œè¯·æ…ç”¨</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupKick(int AuthCode, long ÈººÅ, long QQID, bool ¾Ü¾øÔÙ¼ÓÈº);
+            public static extern int CQ_setGroupKick(int AuthCode, long ç¾¤å·, long QQID, bool æ‹’ç»å†åŠ ç¾¤);
 
             /// <summary>
-            /// ÖÃÈºÔ±½ûÑÔ
+            /// ç½®ç¾¤å‘˜ç¦è¨€
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="½ûÑÔÊ±¼ä">½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£Èç¹ûÒª½â½û£¬ÕâÀïÌîĞ´0</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="ç¦è¨€æ—¶é—´">ç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœè¦è§£ç¦ï¼Œè¿™é‡Œå¡«å†™0</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupBan(int AuthCode, long ÈººÅ, long QQID, long ½ûÑÔÊ±¼ä);
+            public static extern int CQ_setGroupBan(int AuthCode, long ç¾¤å·, long QQID, long ç¦è¨€æ—¶é—´);
 
             /// <summary>
-            /// ÖÃÈº¹ÜÀíÔ±
+            /// ç½®ç¾¤ç®¡ç†å‘˜
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="QQID">±»ÉèÖÃµÄQQ</param>
-            /// <param name="³ÉÎª¹ÜÀíÔ±">Õæ/ÉèÖÃ¹ÜÀíÔ± ¼Ù/È¡Ïû¹ÜÀíÔ±</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="QQID">è¢«è®¾ç½®çš„QQ</param>
+            /// <param name="æˆä¸ºç®¡ç†å‘˜">çœŸ/è®¾ç½®ç®¡ç†å‘˜ å‡/å–æ¶ˆç®¡ç†å‘˜</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupAdmin(int AuthCode, long ÈººÅ, long QQID, bool ³ÉÎª¹ÜÀíÔ±);
+            public static extern int CQ_setGroupAdmin(int AuthCode, long ç¾¤å·, long QQID, bool æˆä¸ºç®¡ç†å‘˜);
 
             /// <summary>
-            /// ÖÃÈº³ÉÔ±×¨ÊôÍ·ÏÎ
+            /// ç½®ç¾¤æˆå‘˜ä¸“å±å¤´è¡”
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="Í·ÏÎ">Èç¹ûÒªÉ¾³ı£¬ÕâÀïÌî¿Õ</param>
-            /// <param name="¹ıÆÚÊ±¼ä">×¨ÊôÍ·ÏÎÓĞĞ§ÆÚ£¬µ¥Î»ÎªÃë¡£Èç¹ûÓÀ¾ÃÓĞĞ§£¬ÕâÀïÌîĞ´-1</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="å¤´è¡”">å¦‚æœè¦åˆ é™¤ï¼Œè¿™é‡Œå¡«ç©º</param>
+            /// <param name="è¿‡æœŸæ—¶é—´">ä¸“å±å¤´è¡”æœ‰æ•ˆæœŸï¼Œå•ä½ä¸ºç§’ã€‚å¦‚æœæ°¸ä¹…æœ‰æ•ˆï¼Œè¿™é‡Œå¡«å†™-1</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupSpecialTitle(int AuthCode, long ÈººÅ, long QQID, string Í·ÏÎ, long ¹ıÆÚÊ±¼ä);
+            public static extern int CQ_setGroupSpecialTitle(int AuthCode, long ç¾¤å·, long QQID, string å¤´è¡”, long è¿‡æœŸæ—¶é—´);
 
             /// <summary>
-            /// ÖÃÈ«Èº½ûÑÔ
+            /// ç½®å…¨ç¾¤ç¦è¨€
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="¿ªÆô½ûÑÔ">Õæ/¿ªÆô ¼Ù/¹Ø±Õ</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="å¼€å¯ç¦è¨€">çœŸ/å¼€å¯ å‡/å…³é—­</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupWholeBan(int AuthCode, long ÈººÅ, bool ¿ªÆô½ûÑÔ);
+            public static extern int CQ_setGroupWholeBan(int AuthCode, long ç¾¤å·, bool å¼€å¯ç¦è¨€);
 
             /// <summary>
-            /// ÖÃÄäÃûÈºÔ±½ûÑÔ
+            /// ç½®åŒ¿åç¾¤å‘˜ç¦è¨€
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="ÄäÃû">ÈºÏûÏ¢ÊÂ¼şÊÕµ½µÄ¡°ÄäÃû¡±²ÎÊı</param>
-            /// <param name="½ûÑÔÊ±¼ä">½ûÑÔµÄÊ±¼ä£¬µ¥Î»ÎªÃë¡£²»Ö§³Ö½â½û</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="åŒ¿å">ç¾¤æ¶ˆæ¯äº‹ä»¶æ”¶åˆ°çš„â€œåŒ¿åâ€å‚æ•°</param>
+            /// <param name="ç¦è¨€æ—¶é—´">ç¦è¨€çš„æ—¶é—´ï¼Œå•ä½ä¸ºç§’ã€‚ä¸æ”¯æŒè§£ç¦</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupAnonymousBan(int AuthCode, long ÈººÅ, string ÄäÃû, long ½ûÑÔÊ±¼ä);
+            public static extern int CQ_setGroupAnonymousBan(int AuthCode, long ç¾¤å·, string åŒ¿å, long ç¦è¨€æ—¶é—´);
 
             /// <summary>
-            /// ÖÃÈºÄäÃûÉèÖÃ
+            /// ç½®ç¾¤åŒ¿åè®¾ç½®
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ"></param>
-            /// <param name="¿ªÆôÄäÃû"></param>
+            /// <param name="ç¾¤å·"></param>
+            /// <param name="å¼€å¯åŒ¿å"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupAnonymous(int AuthCode, long ÈººÅ, bool ¿ªÆôÄäÃû);
+            public static extern int CQ_setGroupAnonymous(int AuthCode, long ç¾¤å·, bool å¼€å¯åŒ¿å);
 
             /// <summary>
-            /// ÖÃÈº³ÉÔ±ÃûÆ¬
+            /// ç½®ç¾¤æˆå‘˜åç‰‡
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="QQID">±»ÉèÖÃµÄQQ</param>
-            /// <param name="ĞÂÃûÆ¬_êÇ³Æ"></param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="QQID">è¢«è®¾ç½®çš„QQ</param>
+            /// <param name="æ–°åç‰‡_æ˜µç§°"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupCard(int AuthCode, long ÈººÅ, long QQID, string ĞÂÃûÆ¬_êÇ³Æ);
+            public static extern int CQ_setGroupCard(int AuthCode, long ç¾¤å·, long QQID, string æ–°åç‰‡_æ˜µç§°);
 
             /// <summary>
-            /// ÖÃÈºÍË³ö
+            /// ç½®ç¾¤é€€å‡º
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êÈº</param>
-            /// <param name="ÊÇ·ñ½âÉ¢">Õæ/½âÉ¢±¾Èº(ÈºÖ÷) ¼Ù/ÍË³ö±¾Èº(¹ÜÀí¡¢Èº³ÉÔ±)</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡ç¾¤</param>
+            /// <param name="æ˜¯å¦è§£æ•£">çœŸ/è§£æ•£æœ¬ç¾¤(ç¾¤ä¸») å‡/é€€å‡ºæœ¬ç¾¤(ç®¡ç†ã€ç¾¤æˆå‘˜)</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupLeave(int AuthCode, long ÈººÅ, bool ÊÇ·ñ½âÉ¢);
+            public static extern int CQ_setGroupLeave(int AuthCode, long ç¾¤å·, bool æ˜¯å¦è§£æ•£);
 
             /// <summary>
-            /// ÖÃÌÖÂÛ×éÍË³ö
+            /// ç½®è®¨è®ºç»„é€€å‡º
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÌÖÂÛ×éºÅ">Ä¿±êÌÖÂÛ×é</param>
+            /// <param name="è®¨è®ºç»„å·">ç›®æ ‡è®¨è®ºç»„</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setDiscussLeave(int AuthCode, long ÌÖÂÛ×éºÅ);
+            public static extern int CQ_setDiscussLeave(int AuthCode, long è®¨è®ºç»„å·);
 
             /// <summary>
-            /// ÖÃºÃÓÑÌí¼ÓÇëÇó
+            /// ç½®å¥½å‹æ·»åŠ è¯·æ±‚
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-            /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
-            /// <param name="±¸×¢">Ìí¼ÓºóµÄºÃÓÑ±¸×¢</param>
+            /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+            /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
+            /// <param name="å¤‡æ³¨">æ·»åŠ åçš„å¥½å‹å¤‡æ³¨</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setFriendAddRequest(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ·´À¡ÀàĞÍ, string ±¸×¢);
+            public static extern int CQ_setFriendAddRequest(int AuthCode, string è¯·æ±‚åé¦ˆæ ‡è¯†, int åé¦ˆç±»å‹, string å¤‡æ³¨);
 
             /// <summary>
-            /// ÖÃÈºÌí¼ÓÇëÇó
+            /// ç½®ç¾¤æ·»åŠ è¯·æ±‚
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-            /// <param name="ÇëÇóÀàĞÍ">¸ù¾İÇëÇóÊÂ¼şµÄ×ÓÀàĞÍÇø·Ö #ÇëÇó_ÈºÌí¼Ó »ò #ÇëÇó_ÈºÑûÇë</param>
-            /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
+            /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+            /// <param name="è¯·æ±‚ç±»å‹">æ ¹æ®è¯·æ±‚äº‹ä»¶çš„å­ç±»å‹åŒºåˆ† #è¯·æ±‚_ç¾¤æ·»åŠ  æˆ– #è¯·æ±‚_ç¾¤é‚€è¯·</param>
+            /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupAddRequest(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ÇëÇóÀàĞÍ, int ·´À¡ÀàĞÍ);
+            public static extern int CQ_setGroupAddRequest(int AuthCode, string è¯·æ±‚åé¦ˆæ ‡è¯†, int è¯·æ±‚ç±»å‹, int åé¦ˆç±»å‹);
 
             /// <summary>
-            /// ÖÃÈºÌí¼ÓÇëÇó
+            /// ç½®ç¾¤æ·»åŠ è¯·æ±‚
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÇëÇó·´À¡±êÊ¶">ÇëÇóÊÂ¼şÊÕµ½µÄ¡°·´À¡±êÊ¶¡±²ÎÊı</param>
-            /// <param name="ÇëÇóÀàĞÍ">¸ù¾İÇëÇóÊÂ¼şµÄ×ÓÀàĞÍÇø·Ö #ÇëÇó_ÈºÌí¼Ó »ò #ÇëÇó_ÈºÑûÇë</param>
-            /// <param name="·´À¡ÀàĞÍ">#ÇëÇó_Í¨¹ı »ò #ÇëÇó_¾Ü¾ø</param>
-            /// <param name="ÀíÓÉ">²Ù×÷ÀíÓÉ£¬½ö #ÇëÇó_ÈºÌí¼Ó ÇÒ #ÇëÇó_¾Ü¾ø Ê±¿ÉÓÃ</param>
+            /// <param name="è¯·æ±‚åé¦ˆæ ‡è¯†">è¯·æ±‚äº‹ä»¶æ”¶åˆ°çš„â€œåé¦ˆæ ‡è¯†â€å‚æ•°</param>
+            /// <param name="è¯·æ±‚ç±»å‹">æ ¹æ®è¯·æ±‚äº‹ä»¶çš„å­ç±»å‹åŒºåˆ† #è¯·æ±‚_ç¾¤æ·»åŠ  æˆ– #è¯·æ±‚_ç¾¤é‚€è¯·</param>
+            /// <param name="åé¦ˆç±»å‹">#è¯·æ±‚_é€šè¿‡ æˆ– #è¯·æ±‚_æ‹’ç»</param>
+            /// <param name="ç†ç”±">æ“ä½œç†ç”±ï¼Œä»… #è¯·æ±‚_ç¾¤æ·»åŠ  ä¸” #è¯·æ±‚_æ‹’ç» æ—¶å¯ç”¨</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setGroupAddRequestV2(int AuthCode, string ÇëÇó·´À¡±êÊ¶, int ÇëÇóÀàĞÍ, int ·´À¡ÀàĞÍ,
-                string ÀíÓÉ);
+            public static extern int CQ_setGroupAddRequestV2(
+                int AuthCode,
+                string è¯·æ±‚åé¦ˆæ ‡è¯†,
+                int è¯·æ±‚ç±»å‹,
+                int åé¦ˆç±»å‹,
+                string ç†ç”±);
 
             /// <summary>
-            /// Ôö¼ÓÔËĞĞÈÕÖ¾
+            /// å¢åŠ è¿è¡Œæ—¥å¿—
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÓÅÏÈ¼¶">#Log_ ¿ªÍ·³£Á¿</param>
-            /// <param name="ÀàĞÍ"></param>
-            /// <param name="ÄÚÈİ"></param>
+            /// <param name="ä¼˜å…ˆçº§">#Log_ å¼€å¤´å¸¸é‡</param>
+            /// <param name="ç±»å‹"></param>
+            /// <param name="å†…å®¹"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_addLog(int AuthCode, int ÓÅÏÈ¼¶, string ÀàĞÍ, string ÄÚÈİ);
+            public static extern int CQ_addLog(int AuthCode, int ä¼˜å…ˆçº§, string ç±»å‹, string å†…å®¹);
 
             /// <summary>
-            /// ÖÃÖÂÃü´íÎóÌáÊ¾
+            /// ç½®è‡´å‘½é”™è¯¯æç¤º
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="´íÎóĞÅÏ¢"></param>
+            /// <param name="é”™è¯¯ä¿¡æ¯"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern int CQ_setFatal(int AuthCode, string ´íÎóĞÅÏ¢);
+            public static extern int CQ_setFatal(int AuthCode, string é”™è¯¯ä¿¡æ¯);
 
             /// <summary>
-            /// È¡Èº³ÉÔ±ĞÅÏ¢(¾É°æ
+            /// å–ç¾¤æˆå‘˜ä¿¡æ¯(æ—§ç‰ˆ
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
-            /// <param name="QQID">Ä¿±êQQ</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern string CQ_getGroupMemberInfo(int AuthCode, long ÈººÅ, long QQID);
+            public static extern string CQ_getGroupMemberInfo(int AuthCode, long ç¾¤å·, long QQID);
 
             /// <summary>
-            /// È¡Èº³ÉÔ±ĞÅÏ¢(Ö§³Ö»º´æ)
+            /// å–ç¾¤æˆå‘˜ä¿¡æ¯(æ”¯æŒç¼“å­˜)
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="²»Ê¹ÓÃ»º´æ"></param>
+            /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="ä¸ä½¿ç”¨ç¼“å­˜"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern string CQ_getGroupMemberInfoV2(int AuthCode, long ÈººÅ, long QQID, bool ²»Ê¹ÓÃ»º´æ);
+            public static extern string CQ_getGroupMemberInfoV2(int AuthCode, long ç¾¤å·, long QQID, bool ä¸ä½¿ç”¨ç¼“å­˜);
 
             /// <summary>
-            /// È¡Èº³ÉÔ±ÁĞ±í
+            /// å–ç¾¤æˆå‘˜åˆ—è¡¨
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="ÈººÅ">Ä¿±êQQËùÔÚÈº</param>
+            /// <param name="ç¾¤å·">ç›®æ ‡QQæ‰€åœ¨ç¾¤</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern string CQ_getGroupMemberList(int AuthCode, long ÈººÅ);
+            public static extern string CQ_getGroupMemberList(int AuthCode, long ç¾¤å·);
 
             /// <summary>
-            /// È¡Ä°ÉúÈËĞÅÏ¢(Ö§³Ö»º´æ)
+            /// å–é™Œç”Ÿäººä¿¡æ¯(æ”¯æŒç¼“å­˜)
             /// </summary>
             /// <param name="AuthCode"></param>
-            /// <param name="QQID">Ä¿±êQQ</param>
-            /// <param name="²»Ê¹ÓÃ»º´æ"></param>
+            /// <param name="QQID">ç›®æ ‡QQ</param>
+            /// <param name="ä¸ä½¿ç”¨ç¼“å­˜"></param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
-            public static extern string CQ_getStrangerInfo(int AuthCode, long QQID, bool ²»Ê¹ÓÃ»º´æ);
+            public static extern string CQ_getStrangerInfo(int AuthCode, long QQID, bool ä¸ä½¿ç”¨ç¼“å­˜);
 
             /// <summary>
-            /// È¡ÈºÁĞ±í
+            /// å–ç¾¤åˆ—è¡¨
             /// </summary>
             /// <param name="AuthCode"></param>
             /// <returns></returns>

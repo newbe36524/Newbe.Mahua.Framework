@@ -6,6 +6,13 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.Amanda.Commands
 {
+    [DataContract]
+    public class BecomeFriendsCommand : AmandaCommand
+    {
+        [DataMember]
+        public string Fromqq { get; set; }
+    }
+
     internal class BecomeFriendsCommandHandler : ICommandHandler<BecomeFriendsCommand>
     {
         private readonly IEnumerable<IFriendAddedMahuaEvent> _friendAddedMahuaEvents;
@@ -15,20 +22,13 @@ namespace Newbe.Mahua.Amanda.Commands
             _friendAddedMahuaEvents = friendAddedMahuaEvents;
         }
 
-        public void Handle(BecomeFriendsCommand command)
+        public void Handle(BecomeFriendsCommand message)
         {
             _friendAddedMahuaEvents.Handle(x => x.ProcessFriendsAdded(new FriendAddedMahuaEventContext
             {
                 SendTime = DateTime.Now,
-                FromQq = command.Fromqq,
+                FromQq = message.Fromqq,
             }));
         }
-    }
-
-    [DataContract]
-    public class BecomeFriendsCommand : AmandaCommand
-    {
-        [DataMember]
-        public string Fromqq { get; set; }
     }
 }

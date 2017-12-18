@@ -6,31 +6,6 @@ using System.Runtime.Serialization;
 
 namespace Newbe.Mahua.CQP.Commands
 {
-    internal class GroupJoiningInvitationCommandHandler : ICommandHandler<GroupJoiningInvitationCommand>
-    {
-        private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent>
-            _groupJoiningInvitationReceivedMahuaEvents;
-
-        public GroupJoiningInvitationCommandHandler(
-            IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent> groupJoiningInvitationReceivedMahuaEvents)
-        {
-            _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
-        }
-
-        public void Handle(GroupJoiningInvitationCommand command)
-        {
-            _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
-                new GroupJoiningRequestReceivedContext
-                {
-                    GroupJoiningRequestId = command.GroupJoiningInvitationId,
-                    SendTime = command.SendTime,
-                    FromQq = command.FromQq.ToString(),
-                    ToGroup = command.ToGroup.ToString(),
-                    Message = command.Message,
-                }));
-        }
-    }
-
     [DataContract]
     public class GroupJoiningInvitationCommand : CqpCommand
     {
@@ -48,5 +23,30 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+    }
+
+    internal class GroupJoiningInvitationCommandHandler : ICommandHandler<GroupJoiningInvitationCommand>
+    {
+        private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent>
+            _groupJoiningInvitationReceivedMahuaEvents;
+
+        public GroupJoiningInvitationCommandHandler(
+            IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent> groupJoiningInvitationReceivedMahuaEvents)
+        {
+            _groupJoiningInvitationReceivedMahuaEvents = groupJoiningInvitationReceivedMahuaEvents;
+        }
+
+        public void Handle(GroupJoiningInvitationCommand message)
+        {
+            _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
+                new GroupJoiningRequestReceivedContext
+                {
+                    GroupJoiningRequestId = message.GroupJoiningInvitationId,
+                    SendTime = message.SendTime,
+                    FromQq = message.FromQq.ToString(),
+                    ToGroup = message.ToGroup.ToString(),
+                    Message = message.Message,
+                }));
+        }
     }
 }

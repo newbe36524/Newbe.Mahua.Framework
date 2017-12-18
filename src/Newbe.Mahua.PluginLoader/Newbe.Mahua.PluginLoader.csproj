@@ -2,22 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
-    <Authors>Newbe</Authors>
-    <Company>Newbe</Company>
-    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
-    <RepositoryType>GIT</RepositoryType>
     <PackageTags>Newbe Mahua</PackageTags>
     <RootNamespace>Newbe.Mahua</RootNamespace>
-    <PackageOutputPath>../build/</PackageOutputPath>
-    <VersionPrefix>1.3.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
     <Description>
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
     <PackageReleaseNotes>
+      ## 1.4
+
+      增加Newbe.Mahua.MPQ实现，支持MyPcQQ平台。
+      ---
       ## 1.3.0
 
       使用MessagePack替代JSON序列化，消息处理速度明显提升。
@@ -34,41 +28,41 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <NoWarn>1701;1702;1705;1591</NoWarn>
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+    <DefineConstants>TRACE;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\net452\MediatR.dll">
+    <None Include="bin\$(Configuration)\net452\MediatR.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.PluginLoader.dll">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Newbe.Mahua.PluginLoader.pdb">
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.pdb">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\Tungsten.Domains.dll">
+    <None Include="bin\$(Configuration)\net452\Tungsten.Domains.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\System.Threading.Tasks.Extensions.dll">
+    <None Include="bin\$(Configuration)\net452\System.Threading.Tasks.Extensions.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\System.ValueTuple.dll">
+    <None Include="bin\$(Configuration)\net452\System.ValueTuple.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\Release\net452\MessagePack.dll">
+    <None Include="bin\$(Configuration)\net452\MessagePack.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
@@ -83,5 +77,21 @@
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
+
+  <Import Project="..\Newbe.Mahua.props" />
+  <ItemGroup>
+    <Compile Update="App_Packages\LibLog.4.2\LibLog.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/App_Packages/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
 
 </Project>

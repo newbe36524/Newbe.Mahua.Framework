@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.VsExtensions", "Newbe.Mahua.VsExtensions\Newbe.Mahua.VsExtensions.csproj", "{B43EAC41-E67A-4A1D-B90D-C72666F58FBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectTemplates", "ProjectTemplates", "{CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{85252022-1EED-475A-BCCD-19D731EFFE2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.ItemTemplateGenerator", "Newbe.Mahua.ItemTemplateGenerator\Newbe.Mahua.ItemTemplateGenerator.csproj", "{396259A5-09E9-4F12-9514-2E9FFA20B31C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template", "Newbe.Mahua.Plugins.Template\Newbe.Mahua.Plugins.Template.csproj", "{DD0BBAFB-9C43-4E71-8357-FE878F347995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.Amanda", "Newbe.Mahua.Plugins.Template.Amanda\Newbe.Mahua.Plugins.Template.Amanda.csproj", "{9BC2384E-3E10-47D5-A51D-39499EBB4643}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.CQP", "Newbe.Mahua.Plugins.Template.CQP\Newbe.Mahua.Plugins.Template.CQP.csproj", "{BB8CC368-4620-4BF6-B8BC-74B2489428D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.MPQ", "Newbe.Mahua.Plugins.Template.MPQ\Newbe.Mahua.Plugins.Template.MPQ.csproj", "{DC9773D7-3439-421C-9D60-7E782775F941}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FDA6E22-1A95-465F-94EA-E72F62165ABC}"
+	ProjectSection(SolutionItems) = preProject
+		Newbe.Mahua.Template.txt = Newbe.Mahua.Template.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43EAC41-E67A-4A1D-B90D-C72666F58FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43EAC41-E67A-4A1D-B90D-C72666F58FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43EAC41-E67A-4A1D-B90D-C72666F58FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43EAC41-E67A-4A1D-B90D-C72666F58FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396259A5-09E9-4F12-9514-2E9FFA20B31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396259A5-09E9-4F12-9514-2E9FFA20B31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396259A5-09E9-4F12-9514-2E9FFA20B31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396259A5-09E9-4F12-9514-2E9FFA20B31C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC2384E-3E10-47D5-A51D-39499EBB4643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC2384E-3E10-47D5-A51D-39499EBB4643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC2384E-3E10-47D5-A51D-39499EBB4643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC2384E-3E10-47D5-A51D-39499EBB4643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9773D7-3439-421C-9D60-7E782775F941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9773D7-3439-421C-9D60-7E782775F941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9773D7-3439-421C-9D60-7E782775F941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9773D7-3439-421C-9D60-7E782775F941}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{396259A5-09E9-4F12-9514-2E9FFA20B31C} = {85252022-1EED-475A-BCCD-19D731EFFE2E}
+		{DD0BBAFB-9C43-4E71-8357-FE878F347995} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
+		{9BC2384E-3E10-47D5-A51D-39499EBB4643} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
+		{BB8CC368-4620-4BF6-B8BC-74B2489428D3} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
+		{DC9773D7-3439-421C-9D60-7E782775F941} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}
+	EndGlobalSection
+EndGlobal

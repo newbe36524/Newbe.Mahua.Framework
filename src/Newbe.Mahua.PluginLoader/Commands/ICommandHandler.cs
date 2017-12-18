@@ -16,5 +16,4 @@ namespace Newbe.Mahua.Commands
         where TResult : MahuaCommandResult
     {
     }
-
 }
