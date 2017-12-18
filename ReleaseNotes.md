@@ -15,6 +15,8 @@
 
 至此，本SDK已经能够支持CQP、Amanda和MPQ三个平台。
 
+增加了VS插件支持，插件下载地址：<https://marketplace.visualstudio.com/items?itemName=Newbe36524.NewbeMahuaVsExtensions#overview>
+
 ## 1.3.0
 
 使用MessagePack替代JSON序列化，消息处理速度明显提升。
