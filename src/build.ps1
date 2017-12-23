@@ -2,7 +2,7 @@
 properties {
     $rootNow = Resolve-Path .
     $nugetexe = "$rootNow\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
-    $deployMode = "Release"
+    $deployMode = "Debug"
     $releaseDir = "$rootNow\build\"
 }
 
