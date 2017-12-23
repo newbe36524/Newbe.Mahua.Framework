@@ -7,19 +7,19 @@ namespace Newbe.Mahua.MahuaEvents
     /// 菜单点击事件
     /// </summary>
     [Description("菜单点击事件")]
-    public interface IManhuaMenuClickedMahuaEvent : IMahuaEvent
+    public interface IMahuaMenuClickedMahuaEvent : IMahuaEvent
     {
         /// <summary>
         /// 处理事件
         /// </summary>
         /// <param name="context"></param>
-        void ProcessManhuaMenuClicked(ManhuaMenuClickedContext context);
+        void ProcessManhuaMenuClicked(MahuaMenuClickedContext context);
     }
 
     /// <summary>
     /// 事件上下文
     /// </summary>
-    public class ManhuaMenuClickedContext
+    public class MahuaMenuClickedContext
     {
         /// <summary>
         /// 被点击的菜单

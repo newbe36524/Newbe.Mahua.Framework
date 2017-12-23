@@ -25,7 +25,7 @@ namespace Newbe.Mahua.Amanda
                 builder.RegisterType<GroupMemberIncreaseCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<InformationCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<InitializationCommandHandler>().AsImplementedInterfaces();
-                builder.RegisterType<MenuCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PluginStartCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PluginStopCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<UpdataCookiesCommandHandler>().AsImplementedInterfaces();

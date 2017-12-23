@@ -17,20 +17,20 @@ Task Init -depends Clean -Description "初始化参数" {
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
-    NugetRestoreAll -nugetexe $nugetexe
+	dotnet restore Newbe.Mahua.sln
 }
 
 Task Build -depends Nuget -Description "编译所有解决方案" {
-    Get-ChildItem *.sln -File -Recurse | ForEach-Object {
-        Exec {
-            msbuild /t:"Clean;Rebuild" /p:Configuration=$deployMode /v:minimal /nologo  $_ }
-    }
+	Exec {
+        msbuild /m /t:"Clean;Rebuild" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.sln
+	}
 }
 Task Pack -depends Build -Description "打包" {
     $packList = @(
         "Newbe.Mahua",
         "Newbe.Mahua.PluginLoader",
         "Newbe.Mahua.Tools.Psake",
+        "Newbe.Mahua.ConfigurationManagers",
         "Newbe.Mahua.Amanda",
         "Newbe.Mahua.CQP",
         "Newbe.Mahua.MPQ"

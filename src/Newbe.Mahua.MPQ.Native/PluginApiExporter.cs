@@ -53,10 +53,13 @@ namespace Newbe.Mahua.MPQ.Native
             return endCommandResult.Result;
         }
 
+        /// <summary>
+        /// 点击设置按钮
+        /// </summary>
         [DllExport("set")]
         public static void Set()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new SetCommand());
+            PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
         }
 
         /// <summary>

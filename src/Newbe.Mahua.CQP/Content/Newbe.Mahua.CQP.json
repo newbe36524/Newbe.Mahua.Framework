@@ -111,12 +111,8 @@
   ],
   "menu": [ // 设置菜单（发布前请删除无用菜单，如果无需设置菜单请全部删除）
     {
-      "name": "设置A", //菜单名称
+      "name": "设置中心", //菜单名称
       "function": "_menuA" //菜单对应函数
-    },
-    {
-      "name": "设置B",
-      "function": "_menuB"
     }
   ],
   "status": [ // 悬浮窗状态（见 com.example.status 样例）

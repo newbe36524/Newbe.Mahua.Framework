@@ -25,7 +25,7 @@ namespace Newbe.Mahua.MPQ
                 builder.RegisterType<EndCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<EventFunCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GetInfoCommandHandler>().AsImplementedInterfaces();
-                builder.RegisterType<SetCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
             }
         }
 

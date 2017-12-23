@@ -31,6 +31,7 @@ namespace Newbe.Mahua.CQP
                 builder.RegisterType<GroupJoiningInvitationCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GroupJoiningRequestCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
             }
         }
 
