@@ -93,122 +93,117 @@
     <VSCTCompile Include="NewbeCommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\DiscussMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\DiscussMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\DiscussMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\FriendAddedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\FriendAddedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\FriendAddedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\FriendAddingRequestMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\FriendAddingRequestMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\FriendAddingRequestMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminChangedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminChangedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminChangedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminDisabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminDisabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminDisabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminEnabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminEnabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminEnabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupJoiningInvitationReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupJoiningInvitationReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupJoiningInvitationReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupJoiningRequestReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupJoiningRequestReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupJoiningRequestReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberChangedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberChangedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberChangedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberDecreasedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberDecreasedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberDecreasedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberIncreasedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberIncreasedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberIncreasedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupUploadedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupUploadedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupUploadedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\InitializationMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\InitializationMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\InitializationMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\Newbe.Mahua.ItemTemplate.zip">
-      <Link>ItemTemplates\Newbe.Mahua\Newbe.Mahua.ItemTemplate.zip</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\Newbe.Mahua.ProjectTemplate.zip">
-      <Link>ItemTemplates\Newbe.Mahua\Newbe.Mahua.ProjectTemplate.zip</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PlatfromExitedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PlatfromExitedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PlatfromExitedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PluginDisabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\MahuaMenuClickedMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\MahuaMenuClickedMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PluginDisabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PluginDisabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PluginEnabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PluginEnabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PluginEnabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromDiscussReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromDiscussReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromDiscussReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromFriendReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromFriendReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromFriendReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromGroupReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromGroupReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromGroupReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromOnlineReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromOnlineReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromOnlineReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
