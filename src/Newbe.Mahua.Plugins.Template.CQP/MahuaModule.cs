@@ -30,6 +30,9 @@ namespace Newbe.Mahua.Plugins.Template.CQP
                 builder.RegisterType<PluginInfo>()
                     .As<IPluginInfo>();
 
+                //注册在“设置中心”中注册菜单，若想订阅菜单点击事件，可以查看教程。http://www.newbe.cf/docs/mahua/2017/12/24/Newbe-Mahua-Navigations.html
+                builder.RegisterType<MyMenuProvider>()
+                    .As<IMahuaMenuProvider>();
             }
         }
 

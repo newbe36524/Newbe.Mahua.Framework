@@ -8,20 +8,20 @@ namespace Newbe.Mahua.MPQ.Commands
     /// </summary>
     public class ConfigurationManagerCommandHandler : ICommandHandler<ConfigurationManagerCommand>
     {
-        private readonly IMahuaConfigurationManager _mahuaConfigurationManager;
+        private readonly IMahuaAdministration _mahuaAdministration;
         private readonly IMahuaApi _mahuaApi;
 
         public ConfigurationManagerCommandHandler(
-            IMahuaConfigurationManager mahuaConfigurationManager,
+            IMahuaAdministration mahuaAdministration,
             IMahuaApi mahuaApi)
         {
-            _mahuaConfigurationManager = mahuaConfigurationManager;
+            _mahuaAdministration = mahuaAdministration;
             _mahuaApi = mahuaApi;
         }
 
         public void Handle(ConfigurationManagerCommand message)
         {
-            _mahuaConfigurationManager.Show(_mahuaApi.GetContainer());
+            _mahuaAdministration.Show(_mahuaApi.GetContainer());
         }
     }
 

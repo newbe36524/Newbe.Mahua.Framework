@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Newbe.Mahua.VsExtensions.b9996f3d-b1dd-455d-bd99-18c4ded29602" Version="1.4.5" Language="zh-Hans" Publisher="Newbe36524" />
+        <Identity Id="Newbe.Mahua.VsExtensions.b9996f3d-b1dd-455d-bd99-18c4ded29602" Version="1.5.0" Language="zh-Hans" Publisher="Newbe36524" />
         <DisplayName>Newbe.Mahua.VsExtensions</DisplayName>
         <Description xml:space="preserve">Newbe.Mahua.VsExtensions, Tools for Newbe.Mahua.</Description>
         <MoreInfo>http://www.newbe.cf</MoreInfo>
         <License>LICENSE.txt</License>
+        <ReleaseNotes>ReleaseNodes.txt</ReleaseNotes>
         <Icon>logo.png</Icon>
         <PreviewImage>logo.png</PreviewImage>
         <Tags>Newbe Newbe.Mahua QQ Robot Template</Tags>
@@ -34,6 +35,7 @@
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\GroupMessageReceivedMahuaEvent.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\GroupUploadedMahuaEvent.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\InitializationMahuaEvent.zip" />
+        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\MahuaMenuClickedMahuaEvent.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\PlatfromExitedMahuaEvent.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\PluginDisabledMahuaEvent.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\PluginEnabledMahuaEvent.zip" />

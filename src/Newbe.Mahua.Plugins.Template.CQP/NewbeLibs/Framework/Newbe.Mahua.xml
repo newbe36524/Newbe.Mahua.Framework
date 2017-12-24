@@ -156,6 +156,17 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Newbe.Mahua.IMahuaAdministration">
+            <summary>
+            设置中心接口
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.IMahuaAdministration.Show(Autofac.ILifetimeScope)">
+            <summary>
+            打开设置中心
+            </summary>
+            <param name="lifetimeScope"></param>
+        </member>
         <member name="T:Newbe.Mahua.IMahuaApi">
             <summary>
             MahuaApi
@@ -484,6 +495,12 @@
             <summary>
             所有的MahuaEvent都需要集成此接口
             </summary>
+        </member>
+        <member name="M:Newbe.Mahua.IMahuaMenuProvider.GetMenus">
+            <summary>
+            生成菜单列表
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Newbe.Mahua.IMahuaModule">
             <summary>
@@ -1181,6 +1198,32 @@
             事件上下文
             </summary>
         </member>
+        <member name="T:Newbe.Mahua.MahuaEvents.IMahuaMenuClickedMahuaEvent">
+            <summary>
+            菜单点击事件
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.MahuaEvents.IMahuaMenuClickedMahuaEvent.ProcessManhuaMenuClicked(Newbe.Mahua.MahuaEvents.MahuaMenuClickedContext)">
+            <summary>
+            处理事件
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Newbe.Mahua.MahuaEvents.MahuaMenuClickedContext">
+            <summary>
+            事件上下文
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaEvents.MahuaMenuClickedContext.Menu">
+            <summary>
+            被点击的菜单
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaEvents.MahuaMenuClickedContext.ClickedTime">
+            <summary>
+            点击时间
+            </summary>
+        </member>
         <member name="T:Newbe.Mahua.MahuaEvents.IPlatfromExitedMahuaEvent">
             <summary>
             机器人平台退出事件
@@ -1422,6 +1465,16 @@
         <member name="P:Newbe.Mahua.MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics">
             <summary>
             启用诊断
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaMenu.Id">
+            <summary>
+            菜单ID
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaMenu.Text">
+            <summary>
+            菜单显示名称
             </summary>
         </member>
         <member name="T:Newbe.Mahua.MahuaPlatform">

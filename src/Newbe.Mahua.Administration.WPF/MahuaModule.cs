@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using System.Windows;
 
-namespace Newbe.Mahua.ConfigurationManagers.WPF
+namespace Newbe.Mahua.Administration.WPF
 {
     public class MahuaModule : IMahuaModule
     {
@@ -18,8 +18,8 @@ namespace Newbe.Mahua.ConfigurationManagers.WPF
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<WpfConfigurationManager>()
-                    .As<IMahuaConfigurationManager>()
+                builder.RegisterType<WpfAdministration>()
+                    .As<IMahuaAdministration>()
                     .SingleInstance();
                 builder.RegisterType<MainWindow>()
                     .AsSelf();
@@ -27,7 +27,7 @@ namespace Newbe.Mahua.ConfigurationManagers.WPF
         }
     }
 
-    public class WpfConfigurationManager : IMahuaConfigurationManager
+    public class WpfAdministration : IMahuaAdministration
     {
         public void Show(ILifetimeScope lifetimeScope)
         {

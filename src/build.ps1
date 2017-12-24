@@ -30,7 +30,7 @@ Task Pack -depends Build -Description "打包" {
         "Newbe.Mahua",
         "Newbe.Mahua.PluginLoader",
         "Newbe.Mahua.Tools.Psake",
-        "Newbe.Mahua.ConfigurationManagers",
+        "Newbe.Mahua.Administration",
         "Newbe.Mahua.Amanda",
         "Newbe.Mahua.CQP",
         "Newbe.Mahua.MPQ"

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Newbe.Mahua.ConfigurationManagers.WPF
+namespace Newbe.Mahua.Administration.WPF
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑

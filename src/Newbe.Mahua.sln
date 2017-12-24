@@ -56,13 +56,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MPQ.Native", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot", "Newbe.Mahua.Plugins.Parrot\Newbe.Mahua.Plugins.Parrot.csproj", "{6A7E034A-7313-4945-81D3-368199644E8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.ConfigurationManagers", "Newbe.Mahua.ConfigurationManagers\Newbe.Mahua.ConfigurationManagers.csproj", "{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.Administration", "Newbe.Mahua.Administration\Newbe.Mahua.Administration.csproj", "{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5)Extensions", "5)Extensions", "{5B646BFD-8CFE-439E-95E7-129083AAC599}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)ConfigurationManagers", "1)ConfigurationManagers", "{6B10B8F4-78E3-4543-9FEE-2281F1019CAD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)Administration", "1)Administration", "{6B10B8F4-78E3-4543-9FEE-2281F1019CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.ConfigurationManagers.WPF", "Newbe.Mahua.ConfigurationManagers.WPF\Newbe.Mahua.ConfigurationManagers.WPF.csproj", "{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Administration.WPF", "Newbe.Mahua.Administration.WPF\Newbe.Mahua.Administration.WPF.csproj", "{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
