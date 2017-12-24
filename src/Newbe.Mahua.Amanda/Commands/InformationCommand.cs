@@ -34,7 +34,7 @@ namespace Newbe.Mahua.Amanda.Commands
                        $"pluginVersion={_pluginInfo.Version};{Environment.NewLine}" +
                        $"pluginSDK={SdkVersion};{Environment.NewLine}" +
                        $"pluginAuthor={_pluginInfo.Author};{Environment.NewLine}" +
-                       $"pluginWindowsTitle={{_TestMenu1=测试窗口1}}{{_TestMenu2=测试窗口2}};";
+                       $"pluginWindowsTitle={{_TestMenu1=设置中心}};";
             return new InformationCommandResult
             {
                 Info = info

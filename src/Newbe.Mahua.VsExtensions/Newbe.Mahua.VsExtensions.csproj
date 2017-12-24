@@ -52,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DeployExtension>False</DeployExtension>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="NewbeCommand.cs" />
@@ -59,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReleaseNodes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -88,122 +93,117 @@
     <VSCTCompile Include="NewbeCommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\DiscussMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\DiscussMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\DiscussMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\FriendAddedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\FriendAddedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\FriendAddedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\FriendAddingRequestMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\FriendAddingRequestMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\FriendAddingRequestMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminChangedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminChangedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminChangedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminDisabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminDisabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminDisabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupAdminEnabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminEnabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminEnabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupJoiningInvitationReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupJoiningInvitationReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupJoiningInvitationReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupJoiningRequestReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupJoiningRequestReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupJoiningRequestReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberChangedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberChangedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberChangedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberDecreasedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberDecreasedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberDecreasedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMemberIncreasedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMemberIncreasedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMemberIncreasedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\GroupUploadedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupUploadedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupUploadedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\InitializationMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\InitializationMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\InitializationMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\Newbe.Mahua.ItemTemplate.zip">
-      <Link>ItemTemplates\Newbe.Mahua\Newbe.Mahua.ItemTemplate.zip</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\Newbe.Mahua.ProjectTemplate.zip">
-      <Link>ItemTemplates\Newbe.Mahua\Newbe.Mahua.ProjectTemplate.zip</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PlatfromExitedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PlatfromExitedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PlatfromExitedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PluginDisabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\MahuaMenuClickedMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\MahuaMenuClickedMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PluginDisabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PluginDisabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PluginEnabledMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PluginEnabledMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PluginEnabledMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromDiscussReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromDiscussReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromDiscussReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromFriendReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromFriendReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromFriendReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromGroupReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromGroupReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromGroupReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageFromOnlineReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageFromOnlineReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageFromOnlineReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Debug\PrivateMessageReceivedMahuaEvent.zip">
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\PrivateMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\PrivateMessageReceivedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
@@ -243,11 +243,11 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.CoreUtility.15.0.26201\lib\net45\Microsoft.VisualStudio.CoreUtility.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.CoreUtility.15.4.27004\lib\net45\Microsoft.VisualStudio.CoreUtility.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Imaging, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Imaging.15.0.26201\lib\net45\Microsoft.VisualStudio.Imaging.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.Imaging.15.4.27004\lib\net45\Microsoft.VisualStudio.Imaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -255,11 +255,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.15.0, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Shell.15.0.15.0.26201\lib\Microsoft.VisualStudio.Shell.15.0.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.15.0.15.4.27004\lib\Microsoft.VisualStudio.Shell.15.0.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.Framework, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Framework.15.0.26201\lib\net45\Microsoft.VisualStudio.Shell.Framework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Framework.15.4.27004\lib\net45\Microsoft.VisualStudio.Shell.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -281,6 +281,11 @@
       <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.12.0.12.0.30110\lib\Microsoft.VisualStudio.Shell.Interop.12.0.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.15.3.DesignTime, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.15.3.DesignTime.15.0.26606\lib\net20\Microsoft.VisualStudio.Shell.Interop.15.3.DesignTime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\Microsoft.VisualStudio.Shell.Interop.8.0.8.0.50727\lib\Microsoft.VisualStudio.Shell.Interop.8.0.dll</HintPath>
       <Private>True</Private>
@@ -297,15 +302,17 @@
       <HintPath>..\packages\Microsoft.VisualStudio.TextManager.Interop.8.0.8.0.50727\lib\Microsoft.VisualStudio.TextManager.Interop.8.0.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.Threading, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Threading.15.0.240\lib\net45\Microsoft.VisualStudio.Threading.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.VisualStudio.Utilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Utilities.15.0.26201\lib\net45\Microsoft.VisualStudio.Utilities.dll</HintPath>
+    <Reference Include="Microsoft.VisualStudio.Threading, Version=15.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Threading.15.5.24\lib\net46\Microsoft.VisualStudio.Threading.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.Validation, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Validation.15.0.82\lib\net45\Microsoft.VisualStudio.Validation.dll</HintPath>
+    <Reference Include="Microsoft.VisualStudio.Utilities, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Utilities.15.4.27004\lib\net46\Microsoft.VisualStudio.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Validation.15.3.32\lib\net45\Microsoft.VisualStudio.Validation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -316,6 +323,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VSPackage.resx">
@@ -325,16 +333,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.10\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.14\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.14\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.targets" Condition="Exists('..\packages\Microsoft.VSSDK.BuildTools.15.5.100\build\Microsoft.VSSDK.BuildTools.targets')" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.14\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.14\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

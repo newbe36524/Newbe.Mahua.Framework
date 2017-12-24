@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <PackageTags>Newbe Mahua </PackageTags>
+    <IsTool>true</IsTool>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Description>
+      Newbe.Mahua.Administration.WPF 为基于Newbe.Mahua开发的插件，提供可扩展的设置中心界面。
+    </Description>
+    <PackageReleaseNotes>
+      ## 1.5.0
+
+      WPF设置中心界面，初版
+    </PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Newbe.Mahua.Administration.WPF\bin\$(Configuration)\Newbe.Mahua.Administration.WPF.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Administration.WPF.dll">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Framework\Extensions\Administration\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.Administration.WPF\bin\$(Configuration)\Newbe.Mahua.Administration.WPF.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Administration.WPF.pdb">
+      <Pack>true</Pack>
+      <PackagePath>content\NewbeLibs\Framework\Extensions\Administration\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <Import Project="..\Newbe.Mahua.props" />
+</Project>

@@ -56,6 +56,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MPQ.Native", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot", "Newbe.Mahua.Plugins.Parrot\Newbe.Mahua.Plugins.Parrot.csproj", "{6A7E034A-7313-4945-81D3-368199644E8F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.Administration", "Newbe.Mahua.Administration\Newbe.Mahua.Administration.csproj", "{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5)Extensions", "5)Extensions", "{5B646BFD-8CFE-439E-95E7-129083AAC599}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)Administration", "1)Administration", "{6B10B8F4-78E3-4543-9FEE-2281F1019CAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Administration.WPF", "Newbe.Mahua.Administration.WPF\Newbe.Mahua.Administration.WPF.csproj", "{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +122,14 @@ Global
 		{6A7E034A-7313-4945-81D3-368199644E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A7E034A-7313-4945-81D3-368199644E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A7E034A-7313-4945-81D3-368199644E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +147,9 @@ Global
 		{A7B38C24-B1DA-4CAC-9208-262631844CD4} = {A1D81992-C02F-413A-A208-28B89B0DF306}
 		{8E94685A-C2F5-4131-8D82-A7A74E42B559} = {DABD0D69-8757-4EDE-989D-5F65FF10D1FC}
 		{6A7E034A-7313-4945-81D3-368199644E8F} = {D6A2AC89-2895-4D73-88EA-20315EFC83B7}
+		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5} = {6B10B8F4-78E3-4543-9FEE-2281F1019CAD}
+		{6B10B8F4-78E3-4543-9FEE-2281F1019CAD} = {5B646BFD-8CFE-439E-95E7-129083AAC599}
+		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117} = {6B10B8F4-78E3-4543-9FEE-2281F1019CAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}

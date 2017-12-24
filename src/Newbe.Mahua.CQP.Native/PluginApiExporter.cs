@@ -390,72 +390,16 @@ namespace Newbe.Mahua.CQP.Native
             return 0;
         }
 
-        #region 菜单
-
         /// <summary>
-        /// 菜单A
+        /// 设置中心菜单
         /// </summary>
         /// <returns></returns>
         [DllExport("_menuA", CallingConvention.StdCall)]
-        public static int ProcessMenuClickA() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单B
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuB", CallingConvention.StdCall)]
-        public static int ProcessMenuClickB() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单C
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuC", CallingConvention.StdCall)]
-        public static int ProcessMenuClickC() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单D
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuD", CallingConvention.StdCall)]
-        public static int ProcessMenuClickD() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单E
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuE", CallingConvention.StdCall)]
-        public static int ProcessMenuClickE() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单F
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuF", CallingConvention.StdCall)]
-        public static int ProcessMenuClickF() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单G
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuG", CallingConvention.StdCall)]
-        public static int ProcessMenuClickG() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单H
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuH", CallingConvention.StdCall)]
-        public static int ProcessMenuClickH() => throw new NotImplementedException();
-
-        /// <summary>
-        /// 菜单I
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_menuI", CallingConvention.StdCall)]
-        public static int ProcessMenuClickI() => throw new NotImplementedException();
-
-        #endregion
+        public static int ProcessMenuClickA()
+        {
+            PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
+            return 0;
+        }
 
         private static DateTime ConvertToDatetime(int time)
         {

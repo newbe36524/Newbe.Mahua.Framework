@@ -277,24 +277,7 @@ namespace Newbe.Mahua.Amanda
         [DllExport("_TestMenu1", CallingConvention.StdCall)]
         public static int _TestMenu1()
         {
-            Native.PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
-            {
-                MenuId = nameof(_TestMenu1),
-            });
-            return 0;
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
-        /// <returns></returns>
-        [DllExport("_TestMenu2", CallingConvention.StdCall)]
-        public static int _TestMenu2()
-        {
-            Native.PluginInstanceManager.GetInstance().SendCommand(new MenuCommand
-            {
-                MenuId = nameof(_TestMenu2),
-            });
+            Native.PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
             return 0;
         }
     }
