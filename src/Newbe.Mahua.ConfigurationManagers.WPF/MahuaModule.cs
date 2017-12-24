@@ -29,12 +29,12 @@ namespace Newbe.Mahua.ConfigurationManagers.WPF
 
     public class WpfConfigurationManager : IMahuaConfigurationManager
     {
-        private readonly Application _app = new Application();
-
         public void Show(ILifetimeScope lifetimeScope)
         {
             var win = lifetimeScope.Resolve<MainWindow>();
-            _app.Run(win);
+            win.ResizeMode = ResizeMode.NoResize;
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.ShowDialog();
         }
     }
 }
