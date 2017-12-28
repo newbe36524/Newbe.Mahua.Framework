@@ -54,10 +54,6 @@
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\$(Configuration)\net452\Tungsten.Domains.dll">
-      <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
-    </None>
     <None Include="bin\$(Configuration)\net452\System.Threading.Tasks.Extensions.dll">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
@@ -74,8 +70,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3" />
-    <PackageReference Include="Tungsten.Domains" Version="1.0.0" />
+    <PackageReference Include="MessagePack" Version="1.7.3.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,6 +80,14 @@
   <Import Project="..\Newbe.Mahua.props" />
   <ItemGroup>
     <Compile Update="App_Packages\LibLog.4.2\LibLog.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Update="Domains\AssemblyLoader.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Update="Domains\DomainLoader.cs">
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
