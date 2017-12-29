@@ -56,6 +56,7 @@ namespace Newbe.Mahua
             {
                 throw new PluginLoadException(pluginInfoName, loader.Message);
             }
+
             Instances.Add(pluginInfoName, loader);
         }
     }

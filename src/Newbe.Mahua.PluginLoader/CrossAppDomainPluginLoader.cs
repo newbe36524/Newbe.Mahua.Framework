@@ -18,8 +18,6 @@ namespace Newbe.Mahua
     {
         public string Message { get; private set; }
 
-        public string ExceptionString { get; private set; }
-
         public override object InitializeLifetimeService()
         {
             var lease = (ILease)base.InitializeLifetimeService();
@@ -99,12 +97,12 @@ namespace Newbe.Mahua
                 Debug("命令处理中心注册完毕。");
                 var container = builder.Build();
                 Debug("构建Container完毕。");
+                Debug("插件已经初始化成功。");
                 _container = container;
                 return true;
             }
             catch (Exception ex)
             {
-                ExceptionString = ex.ToString();
                 Message = ex.Message;
                 return false;
             }

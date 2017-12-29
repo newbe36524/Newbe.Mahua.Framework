@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4)Global", "4)Global", "{62
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.LibTests", "Newbe.Mahua.LibTests\Newbe.Mahua.LibTests.csproj", "{A7B38C24-B1DA-4CAC-9208-262631844CD4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0)Solution Items", "0)Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
 		build.ps1 = build.ps1

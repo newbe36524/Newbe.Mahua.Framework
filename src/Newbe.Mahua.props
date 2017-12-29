@@ -2,8 +2,8 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.5.2</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.6.0</VersionPrefix>
+    <VersionSuffix>dev02</VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
