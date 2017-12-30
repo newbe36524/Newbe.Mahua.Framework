@@ -155,6 +155,7 @@ SetNotice                    | 发布群公告          |     | √   |
 - <https://www.sonarlint.org/visualstudio/>
 - <https://github.com/xunit/xunit>
 - <http://www.fluentassertions.com/>
+- <https://github.com/ctaggart/SourceLink>
 
 ## 说在最后面
 
