@@ -28,6 +28,8 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 
 官网下载太慢？群文件里也有，加群链接：<https://jq.qq.com/?_wv=1027&k=4AMMCTx>
 
+直播码字：<https://live.bilibili.com/7834872>
+
 ## 立马开始
 
 点击查看[帮助文档](http://www.newbe.cf)开始编写第一个QQ机器人。
