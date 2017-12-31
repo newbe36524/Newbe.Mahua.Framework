@@ -7,6 +7,7 @@ namespace Newbe.Mahua.Samples.LiveGirl.Services.Impl
 {
     public class OwinWebHost : IWebHost
     {
+        // 保存Web服务的实例
         private IDisposable _webhost;
 
         public Task StartAsync(string baseUrl, ILifetimeScope lifetimeScope)

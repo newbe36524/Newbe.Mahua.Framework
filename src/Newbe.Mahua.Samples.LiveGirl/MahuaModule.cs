@@ -58,9 +58,12 @@ namespace Newbe.Mahua.Samples.LiveGirl
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
+                // 确保Web服务是单例
                 builder.RegisterType<OwinWebHost>()
                     .As<IWebHost>()
                     .SingleInstance();
+
+                // AsSelf是为了Hangfire能够初始化这个类
                 builder.RegisterType<Livegirl>()
                     .As<ILivegirl>()
                     .AsSelf();

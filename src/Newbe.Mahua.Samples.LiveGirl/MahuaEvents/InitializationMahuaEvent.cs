@@ -22,6 +22,7 @@ namespace Newbe.Mahua.Samples.LiveGirl.MahuaEvents
 
         public void Initialized(InitializedContext context)
         {
+            // 在本地地址上启动Web服务，可以根据需求改变端口
             _webHost.StartAsync("http://localhost:65238", _mahuaApi.GetSourceContainer());
         }
     }
