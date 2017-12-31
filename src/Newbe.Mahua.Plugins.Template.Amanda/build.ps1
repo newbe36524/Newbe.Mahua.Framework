@@ -2,7 +2,7 @@
 properties {
     $rootNow = Resolve-Path .
     $nugetexe = "$rootNow\..\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
-    $configuration = "Release"
+    $configuration = "Debug"
     $releaseBase = "$rootNow\bin"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
 }
@@ -23,9 +23,13 @@ function Copy-FrameworkItems ($dest) {
 
 function Copy-FrameworkExtensionItems ($dest) {
     Write-Output "开始复制-框架扩展"
-    Get-ChildItem "$rootNow\NewbeLibs\Framework\Extensions\" |
-        ForEach-Object {
-        Copy-Item -Path  "$rootNow\NewbeLibs\Framework\Extensions\$_\*" -Destination $dest -Recurse
+    if (Test-Path "$rootNow\NewbeLibs\Framework\Extensions\") {
+        Get-ChildItem "$rootNow\NewbeLibs\Framework\Extensions\" |
+            ForEach-Object {
+            Copy-Item -Path  "$rootNow\NewbeLibs\Framework\Extensions\$_\*" -Destination $dest -Recurse
+        }
+    }else {
+        Write-Output "未发现扩展"
     }
     Write-Output "结束复制-框架扩展"
 }
@@ -42,7 +46,7 @@ Task Clean -Description "清理" {
 }
 
 Task Init -depends Clean -Description "初始化参数" {
-	Initialize-MSBuild
+    Initialize-MSBuild
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
