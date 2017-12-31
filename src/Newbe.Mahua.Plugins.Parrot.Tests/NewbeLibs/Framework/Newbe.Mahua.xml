@@ -491,6 +491,30 @@
             </summary>
             <param name="container"></param>
         </member>
+        <member name="M:Newbe.Mahua.IMahuaApi.GetLifetimeScope">
+            <summary>
+            获取当前上下文运行的容器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.IMahuaApi.SetLifetimeScope(Autofac.ILifetimeScope)">
+            <summary>
+            设置当前上下文运行的容器
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:Newbe.Mahua.IMahuaApi.GetSourceContainer">
+            <summary>
+            获取全局的容器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.IMahuaApi.SetSourceContainer(Autofac.IContainer)">
+            <summary>
+            设置全局的容器
+            </summary>
+            <param name="container"></param>
+        </member>
         <member name="T:Newbe.Mahua.IMahuaEvent">
             <summary>
             所有的MahuaEvent都需要集成此接口
@@ -743,6 +767,38 @@
         <member name="P:Newbe.Mahua.MahuaEvents.DiscussMessageReceivedMahuaEventContext.Message">
             <summary>
             消息内容
+            </summary>
+        </member>
+        <member name="T:Newbe.Mahua.MahuaEvents.IExceptionOccuredMahuaEvent">
+            <inheritdoc />
+            <summary>
+            运行出现异常事件
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.MahuaEvents.IExceptionOccuredMahuaEvent.HandleException(Newbe.Mahua.MahuaEvents.ExceptionOccuredContext)">
+            <summary>
+            处理事件
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Newbe.Mahua.MahuaEvents.ExceptionOccuredContext">
+            <summary>
+            事件上下文
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaEvents.ExceptionOccuredContext.ContinueThrows">
+            <summary>
+            是否忽略此异常，不抛出以避免进程终止。默认为：true
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaEvents.ExceptionOccuredContext.Exception">
+            <summary>
+            异常的内容
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaEvents.ExceptionOccuredContext.SourceCommand">
+            <summary>
+            引发事件的命令对象
             </summary>
         </member>
         <member name="T:Newbe.Mahua.MahuaEvents.IFriendAddedMahuaEvent">

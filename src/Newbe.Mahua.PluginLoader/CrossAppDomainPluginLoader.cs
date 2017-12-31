@@ -188,10 +188,11 @@ namespace Newbe.Mahua
             }
         }
 
-        private static void SetContainer(ILifetimeScope container)
+        private void SetContainer(ILifetimeScope container)
         {
             var api = container.Resolve<IMahuaApi>();
-            api.SetContainer(container);
+            api.SetLifetimeScope(container);
+            api.SetSourceContainer(_container);
         }
     }
 }

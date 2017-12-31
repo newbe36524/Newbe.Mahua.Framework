@@ -23,7 +23,8 @@ namespace Newbe.Mahua.Amanda
 #pragma warning restore S125 // Sections of code should not be "commented out"
 
         private readonly IAmadaApi _amadaApi;
-        private ILifetimeScope _container;
+        private ILifetimeScope _lifetimeScope;
+        private IContainer _container;
 
         public MahuaApi(IAmadaApi amadaApi)
         {
@@ -266,10 +267,30 @@ namespace Newbe.Mahua.Amanda
 
         public ILifetimeScope GetContainer()
         {
-            return _container;
+            return GetLifetimeScope();
         }
 
         public void SetContainer(ILifetimeScope container)
+        {
+            SetLifetimeScope(container);
+        }
+
+        public ILifetimeScope GetLifetimeScope()
+        {
+            return _lifetimeScope;
+        }
+
+        public void SetLifetimeScope(ILifetimeScope container)
+        {
+            _lifetimeScope = container;
+        }
+
+        public IContainer GetSourceContainer()
+        {
+            return _container;
+        }
+
+        public void SetSourceContainer(IContainer container)
         {
             _container = container;
         }

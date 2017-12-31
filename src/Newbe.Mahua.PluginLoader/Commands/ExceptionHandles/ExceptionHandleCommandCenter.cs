@@ -43,7 +43,7 @@ namespace Newbe.Mahua.Commands.ExceptionHandles
                 HandlerExceptionByMahuaCommad(e, command);
             }
 
-            return default(TResult);
+            return new TResult();
         }
 
         private void HandlerExceptionByMahuaCommad(Exception e, object sourceCommand)
