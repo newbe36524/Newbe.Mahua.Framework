@@ -39,14 +39,16 @@
     <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
     </Reference>
-    <Reference Include="MessagePack, Version=1.7.3.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\packages\MessagePack.1.7.3\lib\net45\MessagePack.dll</HintPath>
+    <Reference Include="MessagePack, Version=1.7.3.1, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MessagePack.1.7.3.1\lib\net45\MessagePack.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.5.2\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.6.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.5.2\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.6.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -69,9 +71,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tungsten.Domains, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Tungsten.Domains.1.0.0\lib\net45\Tungsten.Domains.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +104,6 @@
     <Content Include="NewbeLibs\Framework\NLog.dll" />
     <Content Include="NewbeLibs\Framework\System.Threading.Tasks.Extensions.dll" />
     <Content Include="NewbeLibs\Framework\System.ValueTuple.dll" />
-    <Content Include="NewbeLibs\Framework\Tungsten.Domains.dll" />
     <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.dll" />
     <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.Native.dll" />
     <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.Native.pdb" />

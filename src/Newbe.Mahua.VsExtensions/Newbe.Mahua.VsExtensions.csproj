@@ -108,6 +108,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\ExceptionOccuredMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\ExceptionOccuredMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\GroupAdminChangedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\GroupAdminChangedMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

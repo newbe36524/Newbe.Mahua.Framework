@@ -3,6 +3,7 @@ using Newbe.Mahua.MahuaEvents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using IContainer = Autofac.IContainer;
 
 namespace Newbe.Mahua
 {
@@ -365,6 +366,7 @@ namespace Newbe.Mahua
         /// </summary>
         /// <returns></returns>
         [Description("获取当前上下文运行的容器")]
+        [Obsolete("使用GetLifetimeScope代替")]
         ILifetimeScope GetContainer();
 
         /// <summary>
@@ -373,6 +375,37 @@ namespace Newbe.Mahua
         /// <param name="container"></param>
         [Description("设置当前上下文运行的容器")]
         [EditorBrowsable(EditorBrowsableState.Never)]
+        [Obsolete("使用SetLifetimeScope代替")]
         void SetContainer(ILifetimeScope container);
+
+        /// <summary>
+        /// 获取当前上下文运行的容器
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取当前上下文运行的容器")]
+        ILifetimeScope GetLifetimeScope();
+
+        /// <summary>
+        /// 设置当前上下文运行的容器
+        /// </summary>
+        /// <param name="container"></param>
+        [Description("设置当前上下文运行的容器")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        void SetLifetimeScope(ILifetimeScope container);
+
+        /// <summary>
+        /// 获取全局的容器
+        /// </summary>
+        /// <returns></returns>
+        [Description("获取全局的容器")]
+        IContainer GetSourceContainer();
+
+        /// <summary>
+        /// 设置全局的容器
+        /// </summary>
+        /// <param name="container"></param>
+        [Description("设置全局的容器")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        void SetSourceContainer(IContainer container);
     }
 }

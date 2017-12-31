@@ -14,7 +14,8 @@ namespace Newbe.Mahua.MPQ
         private readonly IMpqApi _mpqApi;
         private readonly IQqSession _qqSession;
         private readonly IEventFunOutput _eventFunOutput;
-        private ILifetimeScope _container;
+        private ILifetimeScope _lifetimeScope;
+        private IContainer _container;
 
         public MahuaApi(
             IMpqApi mpqApi,
@@ -346,10 +347,30 @@ namespace Newbe.Mahua.MPQ
 
         public ILifetimeScope GetContainer()
         {
-            return _container;
+            return GetLifetimeScope();
         }
 
         public void SetContainer(ILifetimeScope container)
+        {
+            SetLifetimeScope(container);
+        }
+
+        public ILifetimeScope GetLifetimeScope()
+        {
+            return _lifetimeScope;
+        }
+
+        public void SetLifetimeScope(ILifetimeScope container)
+        {
+            _lifetimeScope = container;
+        }
+
+        public IContainer GetSourceContainer()
+        {
+            return _container;
+        }
+
+        public void SetSourceContainer(IContainer container)
         {
             _container = container;
         }

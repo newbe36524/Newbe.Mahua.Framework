@@ -28,6 +28,8 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 
 官网下载太慢？群文件里也有，加群链接：<https://jq.qq.com/?_wv=1027&k=4AMMCTx>
 
+直播码字：<https://live.bilibili.com/7834872>
+
 ## 立马开始
 
 点击查看[帮助文档](http://www.newbe.cf)开始编写第一个QQ机器人。
@@ -69,6 +71,7 @@ QQ机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ等等
 
 事件                                           | 说明               | CQP | MPQ | Amanda
 -------------------------------------------- | ---------------- | --- | --- | ------
+IExceptionOccuredMahuaEvent                  | 运行出现异常事件         | √   | √   | √
 IDiscussMessageReceivedMahuaEvent            | 讨论组消息接受事件        | √   | √   | √
 IFriendAddedMahuaEvent                       | 已添加新好友事件         | √   | √   | √
 IFriendAddingRequestMahuaEvent               | 好友申请接受事件         | √   | √   | √
@@ -155,6 +158,10 @@ SetNotice                    | 发布群公告          |     | √   |
 - <https://www.sonarlint.org/visualstudio/>
 - <https://github.com/xunit/xunit>
 - <http://www.fluentassertions.com/>
+- <https://github.com/ctaggart/SourceLink>
+- <https://github.com/HangfireIO/Hangfire>
+- <https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki>
+- <https://github.com/aspnet/AspNetKatana/>
 
 ## 说在最后面
 

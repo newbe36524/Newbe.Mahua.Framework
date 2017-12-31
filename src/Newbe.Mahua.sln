@@ -44,7 +44,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4)Global", "4)Global", "{62
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.LibTests", "Newbe.Mahua.LibTests\Newbe.Mahua.LibTests.csproj", "{A7B38C24-B1DA-4CAC-9208-262631844CD4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0)Solution Items", "0)Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
 		build.ps1 = build.ps1
@@ -63,6 +63,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)Administration", "1)Administration", "{6B10B8F4-78E3-4543-9FEE-2281F1019CAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Administration.WPF", "Newbe.Mahua.Administration.WPF\Newbe.Mahua.Administration.WPF.csproj", "{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot.Tests", "Newbe.Mahua.Plugins.Parrot.Tests\Newbe.Mahua.Plugins.Parrot.Tests.csproj", "{842ED708-5E43-4627-84D0-E46A88B3B247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.BeeSite", "Newbe.BeeSite\Newbe.BeeSite.csproj", "{6337F6C8-1242-4380-BB9E-466EE2D618BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +134,14 @@ Global
 		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842ED708-5E43-4627-84D0-E46A88B3B247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842ED708-5E43-4627-84D0-E46A88B3B247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842ED708-5E43-4627-84D0-E46A88B3B247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842ED708-5E43-4627-84D0-E46A88B3B247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,6 +162,8 @@ Global
 		{BE6E84B8-05D1-4052-85CE-8ADE47A1FAF5} = {6B10B8F4-78E3-4543-9FEE-2281F1019CAD}
 		{6B10B8F4-78E3-4543-9FEE-2281F1019CAD} = {5B646BFD-8CFE-439E-95E7-129083AAC599}
 		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117} = {6B10B8F4-78E3-4543-9FEE-2281F1019CAD}
+		{842ED708-5E43-4627-84D0-E46A88B3B247} = {D6A2AC89-2895-4D73-88EA-20315EFC83B7}
+		{6337F6C8-1242-4380-BB9E-466EE2D618BB} = {A1D81992-C02F-413A-A208-28B89B0DF306}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}

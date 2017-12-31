@@ -13,7 +13,8 @@ namespace Newbe.Mahua.Commands
         }
 
         public TResult HandleWithResult<TCommand, TResult>(TCommand command)
-            where TCommand : MahuaCommand<TResult> where TResult : MahuaCommandResult
+            where TCommand : MahuaCommand<TResult>
+            where TResult : MahuaCommandResult, new()
         {
             return _mediator.Send(command).Result;
         }

@@ -23,7 +23,7 @@ namespace Newbe.Mahua.Amanda.Commands
 
         public void Handle(ConfigurationManagerCommand message)
         {
-            _mahuaAdministration.Show(_mahuaApi.GetContainer());
+            _mahuaAdministration.Show(_mahuaApi.GetLifetimeScope());
         }
     }
 }
