@@ -161,6 +161,7 @@ SetNotice                    | 发布群公告          |     | √   |
 - <https://github.com/ctaggart/SourceLink>
 - <https://github.com/HangfireIO/Hangfire>
 - <https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki>
+- <https://github.com/aspnet/AspNetKatana/>
 
 ## 说在最后面
 
