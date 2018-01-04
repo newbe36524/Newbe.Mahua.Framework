@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Newbe.Mahua.Apis;
+using Newbe.Mahua.CQP.Apis;
 using Newbe.Mahua.CQP.Commands;
 
 namespace Newbe.Mahua.CQP
@@ -7,7 +9,12 @@ namespace Newbe.Mahua.CQP
     {
         Module[] IMahuaModule.GetModules()
         {
-            return new Module[] { new CqpModule(), new CommandHandlersModule() };
+            return new Module[]
+            {
+                new CqpModule(),
+                new CommandHandlersModule(),
+                new ApiCommandHandlersModule()
+            };
         }
 
         internal class CommandHandlersModule : Module
@@ -32,6 +39,15 @@ namespace Newbe.Mahua.CQP
                 builder.RegisterType<GroupJoiningRequestCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
+            }
+        }
+
+        internal class ApiCommandHandlersModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
             }
         }
 

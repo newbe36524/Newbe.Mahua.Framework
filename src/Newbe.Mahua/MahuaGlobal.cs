@@ -40,5 +40,10 @@ namespace Newbe.Mahua
             /// </summary>
             public static bool EnableDiagnostics { get; set; }
         }
+
+        /// <summary>
+        /// 默认API的作者名称
+        /// </summary>
+        public static string DefaultApiHandlerAuthorName => "Newbe";
     }
 }

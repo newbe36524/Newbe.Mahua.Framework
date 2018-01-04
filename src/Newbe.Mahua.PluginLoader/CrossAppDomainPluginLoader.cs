@@ -2,6 +2,7 @@
 using Autofac.Features.Variance;
 using MediatR;
 using MessagePack;
+using Newbe.Mahua.Apis;
 using Newbe.Mahua.Commands;
 using Newbe.Mahua.Internals;
 using Newbe.Mahua.Logging;
@@ -80,8 +81,18 @@ namespace Newbe.Mahua
                         var c = ctx.Resolve<IComponentContext>();
                         return t =>
                         {
-                            object o;
-                            return c.TryResolve(t, out o) ? o : null;
+                            if (t.GenericTypeArguments.Any())
+                            {
+                                var apiCommmandType = t.GenericTypeArguments[0];
+
+                                // API命令按照登记的作者名称去寻找
+                                if (apiCommmandType.IsAssignableTo<ApiMahuaCommand>())
+                                {
+                                    var apiHandlerName = MahuaApiRegistrations.GetHangdlerAuthorName(apiCommmandType);
+                                    return c.TryResolveKeyed(apiHandlerName, t, out var oo) ? oo : null;
+                                }
+                            }
+                            return c.TryResolve(t, out var o) ? o : null;
                         };
                     })
                     .InstancePerLifetimeScope();

@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Newbe.Mahua.Apis;
+using Newbe.Mahua.Commands;
 using Newbe.Mahua.CQP.NativeApi;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace Newbe.Mahua.CQP
         private static readonly int RequestType请求群添加 = 1;
         private static readonly int RequestType请求群邀请 = 2;
 
+        private readonly ICommandCenter _commandCenter;
         private readonly ICoolQApi _coolQApi;
         private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
         private readonly IGroupMemberInfoSerializer _groupMemberInfoSerializer;
@@ -20,11 +23,13 @@ namespace Newbe.Mahua.CQP
         private IContainer _container;
 
         public MahuaApi(
+            ICommandCenter commandCenter,
             ICoolQApi coolQApi,
             ICqpAuthCodeContainer cqpAuthCodeContainer,
             IGroupMemberInfoSerializer groupMemberInfoSerializer,
             IGroupInfoSerializer groupInfoSerializer)
         {
+            _commandCenter = commandCenter;
             _coolQApi = coolQApi;
             _cqpAuthCodeContainer = cqpAuthCodeContainer;
             _groupMemberInfoSerializer = groupMemberInfoSerializer;
@@ -35,7 +40,11 @@ namespace Newbe.Mahua.CQP
 
         public void SendPrivateMessage(string toQq, string message)
         {
-            _coolQApi.CQ_sendPrivateMsg(AuthCode, Convert.ToInt64(toQq), message);
+            _commandCenter.Handle(new SendPrivateMessageApiMahuaCommand
+            {
+                Message = message,
+                ToQq = toQq,
+            });
         }
 
         public void SendGroupMessage(string toGroup, string message)
@@ -85,6 +94,7 @@ namespace Newbe.Mahua.CQP
             {
                 throw new ArgumentOutOfRangeException(nameof(duration));
             }
+
             _coolQApi.CQ_setGroupBan(AuthCode, Convert.ToInt64(toGroup), Convert.ToInt64(toQq), durationTotalSeconds);
         }
 
@@ -173,7 +183,11 @@ namespace Newbe.Mahua.CQP
                 null);
         }
 
-        public void RejectGroupJoiningRequest(string groupJoiningRequestId, string toGroup, string fromQq, string reason)
+        public void RejectGroupJoiningRequest(
+            string groupJoiningRequestId,
+            string toGroup,
+            string fromQq,
+            string reason)
         {
             _coolQApi.CQ_setGroupAddRequestV2(
                 AuthCode,
