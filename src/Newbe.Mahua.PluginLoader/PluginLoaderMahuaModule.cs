@@ -45,7 +45,7 @@ namespace Newbe.Mahua
             {
                 base.Load(builder);
                 builder.RegisterType<ContainerSaver>().As<IContainerSaver>().InstancePerLifetimeScope();
-                builder.RegisterType<MahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
+                builder.RegisterType<CommandCenterMahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
             }
         }
     }
