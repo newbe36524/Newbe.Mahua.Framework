@@ -17,7 +17,7 @@ namespace Newbe.Mahua.CQP
             };
         }
 
-        internal class CommandHandlersModule : Module
+        private class CommandHandlersModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
@@ -42,7 +42,7 @@ namespace Newbe.Mahua.CQP
             }
         }
 
-        internal class ApiCommandHandlersModule : Module
+        private class ApiCommandHandlersModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
@@ -81,7 +81,7 @@ namespace Newbe.Mahua.CQP
             }
         }
 
-        internal class CqpModule : Module
+        private class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
