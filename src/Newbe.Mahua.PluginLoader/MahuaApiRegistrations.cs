@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using MediatR;
 using Newbe.Mahua.Apis;
+using Newbe.Mahua.Logging;
 using System;
 using System.Collections.Concurrent;
 
@@ -17,6 +18,8 @@ namespace Newbe.Mahua
         private static readonly ConcurrentDictionary<Type, string> ApiHandlerAuthorNames =
             new ConcurrentDictionary<Type, string>();
 
+        private static readonly ILog Logger = LogProvider.GetLogger(typeof(MahuaApiRegistrations));
+
         /// <summary>
         /// 注册MahuaApi的实现类
         /// </summary>
@@ -29,7 +32,9 @@ namespace Newbe.Mahua
             where TCmd : ApiMahuaCommand
         {
             ApiHandlerAuthorNames[typeof(TCmd)] = authorName;
+            var handlerType = typeof(THandler);
             builder.RegisterType<THandler>().Keyed<IRequestHandler<TCmd>>(authorName);
+            Logger.Info($"注册MahuaApi:[{handlerType.FullName} 作者名称：{authorName}]");
         }
 
         /// <summary>
@@ -46,7 +51,9 @@ namespace Newbe.Mahua
             where TResult : ApiMahuaCommandResult
         {
             ApiHandlerAuthorNames[typeof(TCmd)] = authorName;
+            var handlerType = typeof(THandler);
             builder.RegisterType<THandler>().Keyed<IRequestHandler<TCmd, TResult>>(authorName);
+            Logger.Info($"注册MahuaApi:[{handlerType.FullName} 作者名称：{authorName}]");
         }
 
         internal static string GetHangdlerAuthorName(Type commandType)
