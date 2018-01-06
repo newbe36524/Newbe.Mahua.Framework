@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class LeaveGroupApiMahuaCommandHandler
+    internal class LeaveGroupApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<LeaveGroupApiMahuaCommand>
     {
         public LeaveGroupApiMahuaCommandHandler(

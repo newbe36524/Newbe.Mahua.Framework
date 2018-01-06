@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SetBanAllGroupMembersOptionApiMahuaCommandHandler
+    internal class SetBanAllGroupMembersOptionApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<SetBanAllGroupMembersOptionApiMahuaCommand>
     {
         public SetBanAllGroupMembersOptionApiMahuaCommandHandler(

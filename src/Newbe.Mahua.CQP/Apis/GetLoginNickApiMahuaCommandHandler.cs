@@ -3,7 +3,7 @@ using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class GetLoginNickApiMahuaCommandHandler
+    internal class GetLoginNickApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<GetLoginNickApiMahuaCommand, GetLoginNickApiMahuaCommandResult>
     {
         public GetLoginNickApiMahuaCommandHandler(

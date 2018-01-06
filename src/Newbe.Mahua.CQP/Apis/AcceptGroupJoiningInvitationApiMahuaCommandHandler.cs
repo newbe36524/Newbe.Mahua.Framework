@@ -3,7 +3,7 @@ using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class AcceptGroupJoiningInvitationApiMahuaCommandHandler
+    internal class AcceptGroupJoiningInvitationApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<AcceptGroupJoiningInvitationApiMahuaCommand>
     {
         public AcceptGroupJoiningInvitationApiMahuaCommandHandler(

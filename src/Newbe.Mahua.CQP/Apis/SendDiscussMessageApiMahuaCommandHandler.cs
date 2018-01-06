@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SendDiscussMessageApiMahuaCommandHandler : CqpApiCommandHandlerBase<SendDiscussMessageApiMahuaCommand>
+    internal class SendDiscussMessageApiMahuaCommandHandler : CqpApiCommandHandlerBase<SendDiscussMessageApiMahuaCommand>
     {
         public SendDiscussMessageApiMahuaCommandHandler(
             ICoolQApi coolQApi,

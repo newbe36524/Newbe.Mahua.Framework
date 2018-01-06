@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class KickGroupMemberApiMahuaCommandHandler : CqpApiCommandHandlerBase<KickGroupMemberApiMahuaCommand>
+    internal class KickGroupMemberApiMahuaCommandHandler : CqpApiCommandHandlerBase<KickGroupMemberApiMahuaCommand>
     {
         public KickGroupMemberApiMahuaCommandHandler(
             ICoolQApi coolQApi,

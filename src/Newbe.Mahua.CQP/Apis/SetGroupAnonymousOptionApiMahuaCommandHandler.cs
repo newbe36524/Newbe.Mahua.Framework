@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SetGroupAnonymousOptionApiMahuaCommandHandler
+    internal class SetGroupAnonymousOptionApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<SetGroupAnonymousOptionApiMahuaCommand>
     {
         public SetGroupAnonymousOptionApiMahuaCommandHandler(

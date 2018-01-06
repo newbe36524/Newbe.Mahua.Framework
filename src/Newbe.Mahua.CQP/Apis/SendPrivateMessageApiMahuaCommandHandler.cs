@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SendPrivateMessageApiMahuaCommandHandler : CqpApiCommandHandlerBase<SendPrivateMessageApiMahuaCommand>
+    internal class SendPrivateMessageApiMahuaCommandHandler : CqpApiCommandHandlerBase<SendPrivateMessageApiMahuaCommand>
     {
         public SendPrivateMessageApiMahuaCommandHandler(
             ICoolQApi coolQApi,

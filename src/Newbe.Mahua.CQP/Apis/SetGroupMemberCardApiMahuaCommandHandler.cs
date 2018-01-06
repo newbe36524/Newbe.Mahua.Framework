@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SetGroupMemberCardApiMahuaCommandHandler
+    internal class SetGroupMemberCardApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<SetGroupMemberCardApiMahuaCommand>
     {
         public SetGroupMemberCardApiMahuaCommandHandler(

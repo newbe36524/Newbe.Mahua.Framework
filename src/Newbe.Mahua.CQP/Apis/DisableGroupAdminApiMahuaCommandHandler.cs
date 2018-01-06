@@ -4,7 +4,7 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class DisableGroupAdminApiMahuaCommandHandler
+    internal class DisableGroupAdminApiMahuaCommandHandler
         : CqpApiCommandHandlerBase<DisableGroupAdminApiMahuaCommand>
     {
         public DisableGroupAdminApiMahuaCommandHandler(
