@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Newbe.Mahua.CQP.Apis
 {
     internal class GetGroupsWithModelApiMahuaCommandHandler
-        : CqpApiCommandHandlerBase<GetGroupsWithModelApiMahuaCommand, GetGroupsWithModelApiMahuaCommandResult>
+        : CqpApiMahuaCommandHandlerBase<GetGroupsWithModelApiMahuaCommand, GetGroupsWithModelApiMahuaCommandResult>
     {
         private readonly IGroupInfoSerializer _groupInfoSerializer;
 

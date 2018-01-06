@@ -4,7 +4,7 @@ using Newbe.Mahua.CQP.NativeApi;
 namespace Newbe.Mahua.CQP.Apis
 {
     internal class GetBknApiMahuaCommandHandler
-        : CqpApiCommandHandlerBase<GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>
+        : CqpApiMahuaCommandHandlerBase<GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>
     {
         public GetBknApiMahuaCommandHandler(
             ICoolQApi coolQApi,

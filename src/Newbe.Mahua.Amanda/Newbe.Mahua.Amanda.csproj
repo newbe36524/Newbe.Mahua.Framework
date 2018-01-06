@@ -83,7 +83,11 @@
   <Import Project="..\Newbe.Mahua.props" />
 
   <ItemGroup>
-    <Compile Update="NativeApi\IAmadaApi.cs">
+    <Reference Include="ReachFramework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NativeApi\IAmandaApi.cs">
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
