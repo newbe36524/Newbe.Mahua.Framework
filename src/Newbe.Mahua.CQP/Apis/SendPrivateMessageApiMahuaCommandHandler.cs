@@ -4,22 +4,18 @@ using System;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    public class SendPrivateMessageApiMahuaCommandHandler : IApiCommandHandler<SendPrivateMessageApiMahuaCommand>
+    public class SendPrivateMessageApiMahuaCommandHandler : CqpApiCommandHandlerBase<SendPrivateMessageApiMahuaCommand>
     {
-        private readonly ICqpAuthCodeContainer _authCodeContainer;
-        private readonly ICoolQApi _coolQApi;
-
         public SendPrivateMessageApiMahuaCommandHandler(
-            ICqpAuthCodeContainer authCodeContainer,
-            ICoolQApi coolQApi)
+            ICoolQApi coolQApi,
+            ICqpAuthCodeContainer cqpAuthCodeContainer)
+            : base(coolQApi, cqpAuthCodeContainer)
         {
-            _authCodeContainer = authCodeContainer;
-            _coolQApi = coolQApi;
         }
 
-        public void Handle(SendPrivateMessageApiMahuaCommand message)
+        public override void Handle(SendPrivateMessageApiMahuaCommand message)
         {
-            _coolQApi.CQ_sendPrivateMsg(_authCodeContainer.AuthCode, Convert.ToInt64(message.ToQq), message.Message);
+            CoolQApi.CQ_sendPrivateMsg(AuthCode, Convert.ToInt64(message.ToQq), message.Message);
         }
     }
 }

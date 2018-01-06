@@ -1,0 +1,27 @@
+﻿using Newbe.Mahua.Apis;
+using Newbe.Mahua.CQP.NativeApi;
+
+namespace Newbe.Mahua.CQP.Apis
+{
+    internal class GetGroupMemebersApiMahuaCommandHandler
+        : CqpApiCommandHandlerBase<GetGroupMemebersApiMahuaCommand, GetGroupMemebersApiMahuaCommandResult>
+    {
+        public GetGroupMemebersApiMahuaCommandHandler(
+            ICoolQApi coolQApi,
+            ICqpAuthCodeContainer cqpAuthCodeContainer)
+            : base(coolQApi, cqpAuthCodeContainer)
+        {
+        }
+
+        public override GetGroupMemebersApiMahuaCommandResult Handle(
+            GetGroupMemebersApiMahuaCommand message)
+        {
+            var source = CoolQApi.CQ_getGroupMemberList(AuthCode, long.Parse(message.ToGroup));
+            var re = new GetGroupMemebersApiMahuaCommandResult
+            {
+                GroupMemebersString = source
+            };
+            return re;
+        }
+    }
+}

@@ -14,7 +14,8 @@ namespace Newbe.Mahua
         /// <summary>
         /// 记录API实现者的作者名称，用于创建对应实现类时进行索引
         /// </summary>
-        private static readonly ConcurrentDictionary<Type, string> ApiHandlerAuthorNames = new ConcurrentDictionary<Type, string>();
+        private static readonly ConcurrentDictionary<Type, string> ApiHandlerAuthorNames =
+            new ConcurrentDictionary<Type, string>();
 
         /// <summary>
         /// 注册MahuaApi的实现类
@@ -55,8 +56,8 @@ namespace Newbe.Mahua
                 return handlerName;
             }
 
-            // todo
-            throw new NotImplementedException();
+            MahuaGlobal.NotSupportedMahuaApiConvertion.Handle();
+            return default(string);
         }
     }
 }
