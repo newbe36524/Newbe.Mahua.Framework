@@ -539,7 +539,7 @@
         </member>
         <member name="T:Newbe.Mahua.INotSupportedMahuaApiConvertion">
             <summary>
-            调用标记为<see cref="T:Newbe.Mahua.NotSupportedMahuaApiAttribute"/>的Api的行为
+            调用不受支持的Api的行为
             </summary>
         </member>
         <member name="M:Newbe.Mahua.INotSupportedMahuaApiConvertion.Handle">
@@ -618,7 +618,7 @@
         </member>
         <member name="T:Newbe.Mahua.MahuaConvertions.NotSupportedMahuaApiConvertions">
             <summary>
-            调用标记为<see cref="T:Newbe.Mahua.NotSupportedMahuaApiAttribute"/>的Api将引发的规则
+            调用不受支持的Api将引发的规则
             </summary>
         </member>
         <member name="P:Newbe.Mahua.MahuaConvertions.NotSupportedMahuaApiConvertions.IgnoreNotSupportedMahuaApiConvertion">
@@ -1510,7 +1510,7 @@
         </member>
         <member name="P:Newbe.Mahua.MahuaGlobal.NotSupportedMahuaApiConvertion">
             <summary>
-            调用标记为<see cref="T:Newbe.Mahua.NotSupportedMahuaApiAttribute"/>的Api的行为。默认为<see cref="T:Newbe.Mahua.Internals.ThrowsNotSupportedMahuaApiConvertion`1"/>
+            调用不受支持的的Api的行为。默认为<see cref="T:Newbe.Mahua.Internals.ThrowsNotSupportedMahuaApiConvertion`1"/>
             </summary>
         </member>
         <member name="T:Newbe.Mahua.MahuaGlobal.DiagnosticsConvertion">
@@ -1521,6 +1521,11 @@
         <member name="P:Newbe.Mahua.MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics">
             <summary>
             启用诊断
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaGlobal.DefaultApiHandlerAuthorName">
+            <summary>
+            默认API的作者名称
             </summary>
         </member>
         <member name="P:Newbe.Mahua.MahuaMenu.Id">
@@ -1567,16 +1572,6 @@
         <member name="P:Newbe.Mahua.ModelWithSourceString`1.SourceString">
             <summary>
             原字符串
-            </summary>
-        </member>
-        <member name="T:Newbe.Mahua.NotOfficialMahuaApiAttribute">
-            <summary>
-            用于标记非调用官方接口的Api
-            </summary>
-        </member>
-        <member name="T:Newbe.Mahua.NotSupportedMahuaApiAttribute">
-            <summary>
-            用于标记在特定平台上不受支持的Api
             </summary>
         </member>
         <member name="T:Newbe.Mahua.NotSupportMahuaPlatformException">

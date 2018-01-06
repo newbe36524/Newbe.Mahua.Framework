@@ -7,6 +7,10 @@
       QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
     </Description>
     <PackageReleaseNotes>
+      ## 1.7
+
+      支持外部添加IMahuaApi的相关实现
+      ---
       ## 1.6
 
       IMahuaApi接口增加GetLifetimeScope、SetLifetimeScope、GetSourceContainer、SetSourceContainer

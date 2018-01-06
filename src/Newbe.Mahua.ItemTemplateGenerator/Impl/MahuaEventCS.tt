@@ -4,7 +4,6 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ parameter name="Des" type="Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor" #>
-
 using Newbe.Mahua.MahuaEvents;
 using System;
 

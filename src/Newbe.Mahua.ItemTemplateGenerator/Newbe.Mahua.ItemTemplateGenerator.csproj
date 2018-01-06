@@ -39,11 +39,20 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack, Version=1.7.3.2, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagePack.1.7.3.2\lib\net45\MessagePack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.6.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.7.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    </Reference>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.7.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +60,12 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,10 +74,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMahuaApiCommandFinder.cs" />
+    <Compile Include="IMahuaApiCommandHandlerItemTemplateGernerator.cs" />
     <Compile Include="IMahuaEventDesciptorResolver.cs" />
     <Compile Include="IMahuaEventFinder.cs" />
     <Compile Include="IMahuaEventItemTemplateGenerator.cs" />
     <Compile Include="IMahuaItemTemplateGenerator.cs" />
+    <Compile Include="Impl\MahuaApiCommandFinder.cs" />
+    <Compile Include="Impl\MahuaApiCommandHandlerCS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MahuaApiCommandHandlerCS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Impl\MahuaApiCommandHandlerMyTemplateXml.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MahuaApiCommandHandlerMyTemplateXml.tt</DependentUpon>
+    </Compile>
     <Compile Include="Impl\MahuaEventCS1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,6 +105,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaEventMyTemplateXml.tt</DependentUpon>
     </Compile>
+    <Compile Include="MahuaApiCommandDesciptor.cs" />
+    <Compile Include="IMahuaApiCommandDesciptorResolver.cs" />
+    <Compile Include="Impl\MahuaApiCommandDesciptorResolver.cs" />
+    <Compile Include="Impl\MahuaApiCommandHandlerItemTemplateGernerator.cs" />
     <Compile Include="MahuaEventDesciptor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +124,14 @@
   <ItemGroup>
     <Content Include="7z.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Impl\MahuaApiCommandHandlerCS.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaApiCommandHandlerCS.cs</LastGenOutput>
+    </Content>
+    <Content Include="Impl\MahuaApiCommandHandlerMyTemplateXml.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaApiCommandHandlerMyTemplateXml.cs</LastGenOutput>
     </Content>
     <Content Include="Impl\MahuaEventCS.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -111,10 +151,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="NewbeLibs\Framework\Autofac.dll" />
+    <Content Include="NewbeLibs\Framework\MediatR.dll" />
+    <Content Include="NewbeLibs\Framework\MessagePack.dll" />
     <Content Include="NewbeLibs\Framework\Newbe.Mahua.dll" />
     <Content Include="NewbeLibs\Framework\Newbe.Mahua.pdb" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.pdb" />
     <Content Include="NewbeLibs\Framework\Newbe.Mahua.xml" />
     <Content Include="NewbeLibs\Framework\NLog.dll" />
+    <Content Include="NewbeLibs\Framework\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="NewbeLibs\Framework\System.ValueTuple.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -14,7 +14,7 @@
         /// 插件名称
         /// </summary>
 
-        public string Name { get; set; } = "插件名称";
+        public string Name { get; set; } = "数据库操作测试";
 
         /// <summary>
         /// 作者名称
@@ -29,6 +29,6 @@
         /// <summary>
         /// 插件描述
         /// </summary>
-        public string Description { get; set; } = "插件描述";
+        public string Description { get; set; } = "数据库操作测试";
     }
 }

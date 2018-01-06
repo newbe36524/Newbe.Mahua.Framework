@@ -86,7 +86,7 @@ namespace Newbe.Mahua
                                 var apiCommmandType = t.GenericTypeArguments[0];
 
                                 // API命令按照登记的作者名称去寻找
-                                if (apiCommmandType.IsAssignableTo<ApiMahuaCommand>())
+                                if (apiCommmandType.IsAssignableTo<IApiMahuaCommand>())
                                 {
                                     var apiHandlerName = MahuaApiRegistrations.GetHangdlerAuthorName(apiCommmandType);
                                     return c.TryResolveKeyed(apiHandlerName, t, out var oo) ? oo : null;

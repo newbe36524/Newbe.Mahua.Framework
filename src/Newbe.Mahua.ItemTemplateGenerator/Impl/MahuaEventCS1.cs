@@ -28,17 +28,17 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nusing Newbe.Mahua.MahuaEvents;\nusing System;\n\nnamespace $rootnamespace$\n{\n    /" +
-                    "// <summary>\n    /// ");
+            this.Write("using Newbe.Mahua.MahuaEvents;\nusing System;\n\nnamespace $rootnamespace$\n{\n    ///" +
+                    " <summary>\n    /// ");
             
-            #line 8 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
             #line hidden
             this.Write("\n    /// </summary>\n    public class $safeitemname$\n        : ");
             
-            #line 8 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name));
             
             #line default
@@ -47,14 +47,14 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
                     "e$(\n            IMahuaApi mahuaApi)\n        {\n            _mahuaApi = mahuaApi;\n" +
                     "        }\n\n        public void ");
             
-            #line 8 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 8 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodContextName));
             
             #line default

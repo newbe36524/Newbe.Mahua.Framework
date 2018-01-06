@@ -28,7 +28,8 @@ function Copy-FrameworkExtensionItems ($dest) {
             ForEach-Object {
             Copy-Item -Path  "$rootNow\NewbeLibs\Framework\Extensions\$_\*" -Destination $dest -Recurse
         }
-    }else {
+    }
+    else {
         Write-Output "未发现扩展"
     }
     Write-Output "结束复制-框架扩展"
@@ -60,6 +61,40 @@ Task Build -depends Nuget -Description "编译" {
         msbuild /p:Configuration=$configuration
     }
 }
+
+# 生成CQP的JSON文件
+function WriteCqpJsonFile ($targetFilePath) {
+    # 加载所有的DLL
+    Get-ChildItem  "$releaseBase\$configuration\*" *.dll | ForEach-Object {
+       [void][reflection.assembly]::LoadFile($_)
+   }
+
+   # 创建实例
+   $pluginInfo = New-Object "$pluginName.PluginInfo"
+
+   # 读取文件
+   $jsonFile = "$rootNow\NewbeLibs\Platform\CQP\Content\Newbe.Mahua.CQP.json"
+   $jsonText = Get-Content $jsonFile -Encoding "utf8"
+   $json = $jsonText | ConvertFrom-Json
+
+   # 内容赋值
+   $json.name = $pluginInfo.Name
+   $json.version = $pluginInfo.Version
+   $json.author = $pluginInfo.Author
+   $json.description = $pluginInfo.Description
+   $versionNos = ""
+   # 版本号每个部分*10，因此版本号，每个版本不能超过10
+   $pluginInfo.version.Split(".") | ForEach-Object {
+       $v = [string](10 *[int]$_)
+       $versionNos += $v
+   }
+   $json.version_id = [int] $versionNos
+
+   # 写入文件
+   $encoding = [System.Text.Encoding]::GetEncoding("gb2312")
+   [System.IO.File]::WriteAllText("$targetFilePath", ($json | ConvertTo-Json),$encoding)
+}
+
 Task PackCQP -depends Build -Description "CQP打包" {
     if ($InstalledPlatforms | Where-Object {$_.Name -eq "CQP"}) {
         New-Item -ItemType Directory "$releaseBase\CQP"
@@ -70,7 +105,7 @@ Task PackCQP -depends Build -Description "CQP打包" {
         Copy-FrameworkExtensionItems -dest "$releaseBase\CQP\$pluginName"
         Copy-Item -Path "$releaseBase\$configuration\*", "$rootNow\NewbeLibs\Platform\CQP\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
         Copy-Item -Path "$rootNow\NewbeLibs\Platform\CQP\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
-        Copy-Item -Path "$rootNow\NewbeLibs\Platform\CQP\Content\Newbe.Mahua.CQP.json" -Destination  "$releaseBase\CQP\app\$pluginName.json"
+        WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$pluginName.json"
     }
 }
 
