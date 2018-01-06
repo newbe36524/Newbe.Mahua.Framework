@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 设置群成员名片
+    /// </summary>
+    [Description("设置群成员名片")]
     public class SetGroupMemberCardApiMahuaCommand : ApiMahuaCommand
     {
         public string ToGroup { get; set; }

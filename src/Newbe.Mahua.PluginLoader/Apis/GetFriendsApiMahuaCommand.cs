@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 获取好友列表
+    /// </summary>
+    [Description("获取好友列表")]
     public class GetFriendsApiMahuaCommand : ApiMahuaCommand<GetFriendsApiMahuaCommandResult>
     {
     }

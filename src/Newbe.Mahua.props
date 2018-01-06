@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <VersionPrefix>1.7.0</VersionPrefix>
-    <VersionSuffix>dev03</VersionSuffix>
+    <VersionSuffix>dev04</VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
@@ -28,7 +28,7 @@
     <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.1.4347" PrivateAssets="all" />
     <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" PrivateAssets="all" />
     <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" PrivateAssets="all" />
-    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.7.3" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.7.4" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

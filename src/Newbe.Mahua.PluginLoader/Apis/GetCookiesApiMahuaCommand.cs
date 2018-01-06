@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 取Cookies
+    /// </summary>
+    [Description("取Cookies")]
     public class GetCookiesApiMahuaCommand : ApiMahuaCommand<GetCookiesApiMahuaCommandResult>
     {
     }

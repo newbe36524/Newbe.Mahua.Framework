@@ -98,7 +98,7 @@ IPrivateMessageReceivedMahuaEvent            | 私聊消息接收事件         
 
 ## MahuaApi支持列表
 
-Api                          | 说明             | CQP | MPQ | Amanda
+Api                          | 说明             | Cqp | Mpq | Amanda
 ---------------------------- | -------------- | --- | --- | ------
 AcceptFriendAddingRequest    | 同意添加好友请求       | √   | √   | √
 AcceptGroupJoiningInvitation | 接受入群邀请         | √   | √   | √
@@ -111,7 +111,6 @@ DisableGroupAdmin            | 删除群管理员         | √   |     | √
 DissolveGroup                | 解散群            | √   | √   | √
 EnableGroupAdmin             | 设置群管理员         | √   |     | √
 GetBkn                       | 取bkn           | √   | √   | √
-GetContainer                 | 获取当前上下文运行的容器   | √   | √   | √
 GetCookies                   | 取Cookies       | √   | √   | √
 GetDiscusses                 | 获取讨论组列表        |     | √   |
 GetFriends                   | 获取好友列表         |     | √   | √
@@ -139,7 +138,6 @@ SendGroupMessage             | 发送群消息          | √   | √   | √
 SendLike                     | 发送名片赞          | √   |     | √
 SendPrivateMessage           | 发送私聊消息         | √   | √   | √
 SetBanAllGroupMembersOption  | 设置全群禁言         | √   | √   | √
-SetContainer                 | 设置当前上下文运行的容器   | √   | √   | √
 SetGroupAnonymousOption      | 设置群匿名设置        | √   |     | √
 SetGroupMemberCard           | 设置群成员名片        | √   | √   | √
 SetGroupMemberSpecialTitle   | 设置群成员专属头衔      | √   |     |

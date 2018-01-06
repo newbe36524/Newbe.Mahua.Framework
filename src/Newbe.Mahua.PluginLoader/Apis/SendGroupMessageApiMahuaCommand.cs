@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 发送群消息
+    /// </summary>
+    [Description("发送群消息")]
     public class SendGroupMessageApiMahuaCommand : ApiMahuaCommand
     {
         /// <summary>

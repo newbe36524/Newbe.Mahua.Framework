@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 同意添加好友请求
+    /// </summary>
+    [Description("同意添加好友请求")]
     public class AcceptFriendAddingRequestApiMahuaCommand : ApiMahuaCommand
     {
         public string AddingFriendRequestId { get; set; }

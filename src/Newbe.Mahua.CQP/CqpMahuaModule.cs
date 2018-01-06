@@ -5,7 +5,7 @@ using Newbe.Mahua.CQP.Commands;
 
 namespace Newbe.Mahua.CQP
 {
-    public class MahuaModule : IMahuaModule
+    public class CqpMahuaModule : IMahuaModule
     {
         Module[] IMahuaModule.GetModules()
         {

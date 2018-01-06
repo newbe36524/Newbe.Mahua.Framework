@@ -1,5 +1,5 @@
-﻿using System;
-using Newbe.Mahua.Internals;
+﻿using Newbe.Mahua.Internals;
+using System;
 
 namespace Newbe.Mahua
 {
@@ -9,7 +9,7 @@ namespace Newbe.Mahua
     public static class MahuaConvertions
     {
         /// <summary>
-        /// 调用标记为<see cref="NotSupportedMahuaApiAttribute"/>的Api将引发的规则
+        /// 调用不受支持的Api将引发的规则
         /// </summary>
         public static class NotSupportedMahuaApiConvertions
         {

@@ -68,6 +68,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.BeeSite", "Newbe.BeeSite\Newbe.BeeSite.csproj", "{6337F6C8-1242-4380-BB9E-466EE2D618BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.ApiMahuaCommandFinder", "Newbe.Mahua.ApiMahuaCommandFinder\Newbe.Mahua.ApiMahuaCommandFinder.csproj", "{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -142,6 +144,10 @@ Global
 		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6337F6C8-1242-4380-BB9E-466EE2D618BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,6 +170,7 @@ Global
 		{4B7CCDDD-9813-42E1-BEE0-2AA4B0345117} = {6B10B8F4-78E3-4543-9FEE-2281F1019CAD}
 		{842ED708-5E43-4627-84D0-E46A88B3B247} = {D6A2AC89-2895-4D73-88EA-20315EFC83B7}
 		{6337F6C8-1242-4380-BB9E-466EE2D618BB} = {A1D81992-C02F-413A-A208-28B89B0DF306}
+		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7} = {A1D81992-C02F-413A-A208-28B89B0DF306}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}

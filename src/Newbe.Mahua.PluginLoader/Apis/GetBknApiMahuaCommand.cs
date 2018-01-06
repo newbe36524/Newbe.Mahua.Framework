@@ -1,5 +1,11 @@
-﻿namespace Newbe.Mahua.Apis
+﻿using System.ComponentModel;
+
+namespace Newbe.Mahua.Apis
 {
+    /// <summary>
+    /// 取bkn
+    /// </summary>
+    [Description("取bkn")]
     public class GetBknApiMahuaCommand : ApiMahuaCommand<GetBknApiMahuaCommandResult>
     {
     }
