@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Newbe.Mahua.Apis;
+using Newbe.Mahua.CQP.ApiExtensions;
 using Newbe.Mahua.MahuaEvents;
 using Newbe.Mahua.Samples.ApiExtensions.MahuaApis;
 using Newbe.Mahua.Samples.ApiExtensions.MahuaEvents;
@@ -19,6 +20,9 @@ namespace Newbe.Mahua.Samples.ApiExtensions
                 new PluginModule(),
                 new MahuaEventsModule(),
                 new MyApiModule(),
+
+                // 引入CQP的API扩展包
+                new CqpApiExtensionsModule(),
             };
         }
 
@@ -67,7 +71,6 @@ namespace Newbe.Mahua.Samples.ApiExtensions
 
                     // 此方法没有CQP提供，此处将注册自己的实现
                     builder.RegisterMahuaApi<GetFriendsApiMahuaCommandHandler, GetFriendsApiMahuaCommand, GetFriendsApiMahuaCommandResult>(authorName);
-                    builder.RegisterMahuaApi<SetNoticeApiMahuaCommandHandler, SetNoticeApiMahuaCommand>(authorName);
 
                     // CQP原生也提供了此API的实现，这里注册时候将会覆盖原来的实现
                     builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(authorName);

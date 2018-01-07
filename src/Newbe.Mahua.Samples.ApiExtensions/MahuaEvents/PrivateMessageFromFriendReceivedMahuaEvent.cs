@@ -19,9 +19,14 @@ namespace Newbe.Mahua.Samples.ApiExtensions.MahuaEvents
 
         public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
         {
+            // 获取好友列表
             var friends = _mahuaApi.GetFriends();
-            _mahuaApi.SetNotice("text", "标题", friends);
+
+            // 测试好友消息发送
             _mahuaApi.SendPrivateMessage("472158246", "这条消息将写入到日志当中");
+
+            // 测试公共
+            _mahuaApi.SetNotice("610394020", "测试公告", friends);
         }
     }
 }

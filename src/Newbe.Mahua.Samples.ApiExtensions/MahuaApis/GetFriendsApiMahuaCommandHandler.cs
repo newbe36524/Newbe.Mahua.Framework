@@ -8,7 +8,7 @@ namespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis
         {
             var re = new GetFriendsApiMahuaCommandResult
             {
-                FriendsString = "测试方法好友列表结果"
+                FriendsString = "这是一段测试好友消息，这段消息会被发送到公告中"
             };
             return re;
         }

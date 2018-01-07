@@ -48,11 +48,11 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.7.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.7.1\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.7.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.7.1\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

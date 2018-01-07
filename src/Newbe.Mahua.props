@@ -2,7 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.7.0</VersionPrefix>
+    <VersionPrefix>1.7.1</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>

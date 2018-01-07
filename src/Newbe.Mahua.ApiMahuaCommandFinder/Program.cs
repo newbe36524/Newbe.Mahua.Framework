@@ -2,6 +2,7 @@
 using Newbe.Mahua.Amanda;
 using Newbe.Mahua.Apis;
 using Newbe.Mahua.CQP;
+using Newbe.Mahua.CQP.ApiExtensions;
 using Newbe.Mahua.MPQ;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,18 @@ namespace Newbe.Mahua.ApiMahuaCommandFinder
                 {MahuaPlatform.Mpq, typeof(MpqMahuaModule).Assembly},
                 {MahuaPlatform.Amanda, typeof(AmandaMahuaModule).Assembly},
             };
+
+            var extensions = new Dictionary<MahuaPlatform, Assembly>
+            {
+                {MahuaPlatform.Cqp,typeof(CqpApiExtensionsModule).Assembly}
+            };
             var all = GetAll();
 
             var apiTable = new ApiTable
             {
                 All = all,
-                Plugins = plugins.ToDictionary(x => x.Key, x => GetPluginApi(x.Value))
+                Plugins = plugins.ToDictionary(x => x.Key, x => GetPluginApi(x.Value)),
+                Extensions = extensions.ToDictionary(x => x.Key, x => GetPluginApi(x.Value)),
             };
 
             var titles = new string[] { "Api", "说明" }.Concat(apiTable.Plugins.Keys.Select(x => x.ToString()));
@@ -47,7 +54,15 @@ namespace Newbe.Mahua.ApiMahuaCommandFinder
                     }
                     else
                     {
-                        line.Add(" ");
+                        if (apiTable.Extensions.ContainsKey(apiTablePlugin.Key))
+                        {
+                            var ext = apiTable.Extensions[apiTablePlugin.Key];
+                            line.Add(ext.Any(a => a.Name == api.Name) ? "√(ext)" : " ");
+                        }
+                        else
+                        {
+                            line.Add(" ");
+                        }
                     }
                 }
                 Console.WriteLine(string.Join("|", line));
@@ -79,7 +94,8 @@ namespace Newbe.Mahua.ApiMahuaCommandFinder
             var gertype = typeof(ApiMahuaCommand<>);
             var types = typeof(ApiMahuaCommand).Assembly.GetTypes();
             var list = types
-                .Where(x => x.Name.Contains("ApiMahuaCommand") && !x.Name.Contains("ApiMahuaCommandResult"))
+                .Where(x => typeof(IApiMahuaCommand).IsAssignableFrom(x))
+                .Where(x => x.IsClass && !x.IsAbstract)
                 .Where(x => x != type)
                 .Where(x => x != gertype)
                 .ToList();
@@ -105,6 +121,8 @@ namespace Newbe.Mahua.ApiMahuaCommandFinder
         public IEnumerable<MahuaApiDescription> All { get; set; }
 
         public IDictionary<MahuaPlatform, IEnumerable<MahuaApiDescription>> Plugins { get; set; }
+
+        public IDictionary<MahuaPlatform, IEnumerable<MahuaApiDescription>> Extensions { get; set; }
     }
 
     public class MahuaApiDescription

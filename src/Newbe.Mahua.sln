@@ -46,10 +46,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.LibTests", "New
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0)Solution Items", "0)Solution Items", "{461A0A33-E7B5-4C86-83E8-D9EAEBC3A996}"
 	ProjectSection(SolutionItems) = preProject
-		build.bat = build.bat
 		build.ps1 = build.ps1
 		Newbe.Mahua.props = Newbe.Mahua.props
 		Newbe.Mahua.ruleset = Newbe.Mahua.ruleset
+		build.bat = build.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.MPQ.Native", "Newbe.Mahua.MPQ.Native\Newbe.Mahua.MPQ.Native.csproj", "{8E94685A-C2F5-4131-8D82-A7A74E42B559}"
@@ -68,7 +68,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Parrot.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.BeeSite", "Newbe.BeeSite\Newbe.BeeSite.csproj", "{6337F6C8-1242-4380-BB9E-466EE2D618BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.ApiMahuaCommandFinder", "Newbe.Mahua.ApiMahuaCommandFinder\Newbe.Mahua.ApiMahuaCommandFinder.csproj", "{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.ApiMahuaCommandFinder", "Newbe.Mahua.ApiMahuaCommandFinder\Newbe.Mahua.ApiMahuaCommandFinder.csproj", "{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2)CQP", "2)CQP", "{F11C6532-C3F0-489C-86B6-9234A6BF93C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.CQP.ApiExtensions", "Newbe.Mahua.CQP.ApiExtensions\Newbe.Mahua.CQP.ApiExtensions.csproj", "{C9C61684-4367-426C-B32D-EFADF3B3B1F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -148,6 +152,10 @@ Global
 		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C61684-4367-426C-B32D-EFADF3B3B1F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C61684-4367-426C-B32D-EFADF3B3B1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C61684-4367-426C-B32D-EFADF3B3B1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C61684-4367-426C-B32D-EFADF3B3B1F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +179,8 @@ Global
 		{842ED708-5E43-4627-84D0-E46A88B3B247} = {D6A2AC89-2895-4D73-88EA-20315EFC83B7}
 		{6337F6C8-1242-4380-BB9E-466EE2D618BB} = {A1D81992-C02F-413A-A208-28B89B0DF306}
 		{E6AA7F4D-3069-429E-9CC6-386ACAFAEBA7} = {A1D81992-C02F-413A-A208-28B89B0DF306}
+		{F11C6532-C3F0-489C-86B6-9234A6BF93C2} = {5B646BFD-8CFE-439E-95E7-129083AAC599}
+		{C9C61684-4367-426C-B32D-EFADF3B3B1F0} = {F11C6532-C3F0-489C-86B6-9234A6BF93C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}
