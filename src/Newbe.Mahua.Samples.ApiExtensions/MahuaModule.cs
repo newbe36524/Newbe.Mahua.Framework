@@ -21,7 +21,7 @@ namespace Newbe.Mahua.Samples.ApiExtensions
                 new MahuaEventsModule(),
                 new MyApiModule(),
 
-                // 引入CQP的API扩展包
+                // 引入CQP的API扩展包的模块注册
                 new CqpApiExtensionsModule(),
             };
         }
@@ -64,6 +64,8 @@ namespace Newbe.Mahua.Samples.ApiExtensions
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
+
+                // 当前平台是CQP时才注册这些扩展API
                 if (MahuaGlobal.CurrentPlatform == MahuaPlatform.Cqp)
                 {
                     // 作者名称，既然是你实现了这个功能，那就填上你的名字吧

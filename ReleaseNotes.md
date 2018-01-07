@@ -17,7 +17,7 @@
 
 支持在构建时对CQP的JSON文件进行修改。
 
-详细内容：<http://www.newbe.cf/docs/mahua/releasenodes/2018/01/06/Release-Notes-1-7-0.html>
+详细内容：<http://www.newbe.cf/docs/mahua/releasenodes/2018/01/07/Release-Notes-1-7-0.html>
 
 ## 1.6.0
 
