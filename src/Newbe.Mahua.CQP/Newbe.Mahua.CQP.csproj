@@ -12,6 +12,11 @@
       这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
     </Description>
     <PackageReleaseNotes>
+      ## 1.7
+
+      CQP ：支持在构建时自动修改JSON内容
+      支持外部添加IMahuaApi的相关实现
+      ---
       ## 1.6
 
       随版本更新。

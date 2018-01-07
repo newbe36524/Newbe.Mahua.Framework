@@ -17,13 +17,13 @@ Task Init -depends Clean -Description "初始化参数" {
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
-	dotnet restore Newbe.Mahua.sln
+    dotnet restore Newbe.Mahua.sln
 }
 
 Task Build -depends Nuget -Description "编译所有解决方案" {
-	Exec {
+    Exec {
         msbuild /m /t:"Clean;Rebuild" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.sln
-	}
+    }
 }
 Task Pack -depends Build -Description "打包" {
     $packList = @(
@@ -33,7 +33,8 @@ Task Pack -depends Build -Description "打包" {
         "Newbe.Mahua.Administration",
         "Newbe.Mahua.Amanda",
         "Newbe.Mahua.CQP",
-        "Newbe.Mahua.MPQ"
+        "Newbe.Mahua.MPQ",
+        "Newbe.Mahua.CQP.ApiExtensions"
     )
     $packList | ForEach-Object {
         Exec {

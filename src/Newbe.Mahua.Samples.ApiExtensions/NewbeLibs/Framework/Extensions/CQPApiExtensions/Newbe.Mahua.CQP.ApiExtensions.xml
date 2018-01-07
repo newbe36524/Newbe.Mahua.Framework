@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Newbe.Mahua.CQP.ApiExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:Newbe.Mahua.CQP.ApiExtensions.Apis.SetNoticeApiMahuaCommandHandler">
+            <summary>
+            发布群公告
+            </summary>
+        </member>
+    </members>
+</doc>

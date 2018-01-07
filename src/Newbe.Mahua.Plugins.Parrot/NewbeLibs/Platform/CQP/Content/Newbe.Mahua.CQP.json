@@ -1,146 +1,140 @@
-// ¿áQ µÄJsonÎÄ¼şÖ§³ÖÒÔ // ¿ªÍ·µÄ×¢ÊÍ¡£
-// ´ò°üÇ°£¬Ó¦ÓÃµÄ .dll, .json µÄÎÄ¼şÃûĞëÒÔappidÃüÃû£¬Ó¦ÓÃAppInfo·µ»ØµÄÄÚÈİĞë¸ÄÎªappid
-// Èç appid=com.example.demo, Ôòdll¼°jsonÎÄ¼şĞè·Ö±ğÃüÃûÎª com.example.demo.dll¡¢com.example.demo.json
 {
-  "ret": 1, // ·µ»ØÂë£¬¹Ì¶¨Îª1
-  "apiver": 9, // Api°æ±¾£¬±¾SDKÎª9
-  "name": "¿áQÑùÀıÓ¦ÓÃ", // Ó¦ÓÃÃû³Æ
-  "version": "1.0.0", // Ó¦ÓÃ°æ±¾
-  "version_id": 1, // Ó¦ÓÃË³Ğò°æ±¾£¨Ã¿´Î·¢²¼Ê±ÖÁÉÙ+1£©
-  "author": "Newbe", // Ó¦ÓÃ×÷Õß
-  "description": "¿áQÑùÀıÓ¦ÓÃ(V9Ó¦ÓÃ»úÖÆ)",
-  "event": [ // ÊÂ¼şÁĞ±í£¬Í¬Ò»ÊÂ¼şÀàĞÍ¿ÉÖØ¸´¶¨Òå£¨·¢²¼Ç°ÇëÉ¾³ıÎŞÓÃÊÂ¼ş£©
-    {
-      "id": 1, // ÊÂ¼şID
-      "type": 21, // ÊÂ¼şÀàĞÍ
-      "name": "Ë½ÁÄÏûÏ¢´¦Àí", // ÊÂ¼şÃû³Æ
-      "function": "_eventPrivateMsg", // ÊÂ¼ş¶ÔÓ¦º¯Êı
-      "priority": 30000 // ÊÂ¼şÓÅÏÈ¼¶(²Î¼û cqp.im/deveventpriority)
+  "ret": 1,
+  "apiver": 9,
+  "name": "é…·Qæ ·ä¾‹åº”ç”¨",
+  "version": "1.0.0",
+  "version_id": 1,
+  "author": "Newbe",
+  "description": "é…·Qæ ·ä¾‹åº”ç”¨(V9åº”ç”¨æœºåˆ¶)",
+  "event": [{
+      "id": 1,
+      "type": 21,
+      "name": "ç§èŠæ¶ˆæ¯å¤„ç†",
+      "function": "_eventPrivateMsg",
+      "priority": 30000
     },
     {
       "id": 2,
       "type": 2,
-      "name": "ÈºÏûÏ¢´¦Àí",
+      "name": "ç¾¤æ¶ˆæ¯å¤„ç†",
       "function": "_eventGroupMsg",
       "priority": 30000
     },
     {
       "id": 3,
       "type": 4,
-      "name": "ÌÖÂÛ×éÏûÏ¢´¦Àí",
+      "name": "è®¨è®ºç»„æ¶ˆæ¯å¤„ç†",
       "function": "_eventDiscussMsg",
       "priority": 30000
     },
     {
       "id": 4,
       "type": 11,
-      "name": "ÈºÎÄ¼şÉÏ´«ÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æ–‡ä»¶ä¸Šä¼ äº‹ä»¶å¤„ç†",
       "function": "_eventGroupUpload",
       "priority": 30000
     },
     {
       "id": 5,
       "type": 101,
-      "name": "Èº¹ÜÀí±ä¶¯ÊÂ¼ş´¦Àí",
+      "name": "ç¾¤ç®¡ç†å˜åŠ¨äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupAdmin",
       "priority": 30000
     },
     {
       "id": 6,
       "type": 102,
-      "name": "Èº³ÉÔ±¼õÉÙÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æˆå‘˜å‡å°‘äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupMemberDecrease",
       "priority": 30000
     },
     {
       "id": 7,
       "type": 103,
-      "name": "Èº³ÉÔ±Ôö¼ÓÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æˆå‘˜å¢åŠ äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupMemberIncrease",
       "priority": 30000
     },
     {
       "id": 10,
       "type": 201,
-      "name": "ºÃÓÑÒÑÌí¼ÓÊÂ¼ş´¦Àí",
+      "name": "å¥½å‹å·²æ·»åŠ äº‹ä»¶å¤„ç†",
       "function": "_eventFriend_Add",
       "priority": 30000
     },
     {
       "id": 8,
       "type": 301,
-      "name": "ºÃÓÑÌí¼ÓÇëÇó´¦Àí",
+      "name": "å¥½å‹æ·»åŠ è¯·æ±‚å¤„ç†",
       "function": "_eventRequest_AddFriend",
       "priority": 30000
     },
     {
       "id": 9,
       "type": 302,
-      "name": "ÈºÌí¼ÓÇëÇó´¦Àí",
+      "name": "ç¾¤æ·»åŠ è¯·æ±‚å¤„ç†",
       "function": "_eventRequest_AddGroup",
       "priority": 30000
     },
     {
       "id": 1001,
       "type": 1001,
-      "name": "¿áQÆô¶¯ÊÂ¼ş",
+      "name": "é…·Qå¯åŠ¨äº‹ä»¶",
       "priority": 30000,
       "function": "_eventStartup"
     },
     {
       "id": 1002,
       "type": 1002,
-      "name": "¿áQ¹Ø±ÕÊÂ¼ş",
+      "name": "é…·Qå…³é—­äº‹ä»¶",
       "priority": 30000,
       "function": "_eventExit"
     },
     {
       "id": 1003,
       "type": 1003,
-      "name": "Ó¦ÓÃÒÑ±»ÆôÓÃ",
+      "name": "åº”ç”¨å·²è¢«å¯ç”¨",
       "priority": 30000,
       "function": "_eventEnable"
     },
     {
       "id": 1004,
       "type": 1004,
-      "name": "Ó¦ÓÃ½«±»Í£ÓÃ",
+      "name": "åº”ç”¨å°†è¢«åœç”¨",
       "priority": 30000,
       "function": "_eventDisable"
     }
   ],
-  "menu": [ // ÉèÖÃ²Ëµ¥£¨·¢²¼Ç°ÇëÉ¾³ıÎŞÓÃ²Ëµ¥£¬Èç¹ûÎŞĞèÉèÖÃ²Ëµ¥ÇëÈ«²¿É¾³ı£©
-    {
-      "name": "ÉèÖÃÖĞĞÄ", //²Ëµ¥Ãû³Æ
-      "function": "_menuA" //²Ëµ¥¶ÔÓ¦º¯Êı
-    }
-  ],
-  "status": [ // Ğü¸¡´°×´Ì¬£¨¼û com.example.status ÑùÀı£©
+  "menu": [{
+    "name": "è®¾ç½®ä¸­å¿ƒ",
+    "function": "_menuA"
+  }],
+  "status": [
 
   ],
-  "auth": [ // Ó¦ÓÃÈ¨ÏŞ£¨·¢²¼Ç°ÇëÉ¾³ıÎŞÓÃÈ¨ÏŞ£©
-    20, //[Ãô¸Ğ]È¡Cookies  getCookies / getCsrfToken
-    30, //½ÓÊÕÓïÒô     getRecord
-    101, //·¢ËÍÈºÏûÏ¢      sendGroupMsg
-    103, //·¢ËÍÌÖÂÛ×éÏûÏ¢    sendDiscussMsg
-    106, //·¢ËÍË½ÁÄÏûÏ¢    sendPrivateMsg
-    110, //·¢ËÍÔŞ        sendLike
-    120, //ÖÃÈºÔ±ÒÆ³ı      setGroupKick
-    121, //ÖÃÈºÔ±½ûÑÔ      setGroupBan
-    122, //ÖÃÈº¹ÜÀíÔ±      setGroupAdmin
-    123, //ÖÃÈ«Èº½ûÑÔ      setGroupWholeBan
-    124, //ÖÃÄäÃûÈºÔ±½ûÑÔ    setGroupAnonymousBan
-    125, //ÖÃÈºÄäÃûÉèÖÃ    setGroupAnonymous
-    126, //ÖÃÈº³ÉÔ±ÃûÆ¬    setGroupCard
-    127, //[Ãô¸Ğ]ÖÃÈºÍË³ö   setGroupLeave
-    128, //ÖÃÈº³ÉÔ±×¨ÊôÍ·ÏÎ  setGroupSpecialTitle
-    130, //È¡Èº³ÉÔ±ĞÅÏ¢    getGroupMemberInfoV2 / getGroupMemberInfo
-    131, //È¡Ä°ÉúÈËĞÅÏ¢    getStrangerInfo
-    140, //ÖÃÌÖÂÛ×éÍË³ö    setDiscussLeave
-    150, //ÖÃºÃÓÑÌí¼ÓÇëÇó    setFriendAddRequest
-    151, //ÖÃÈºÌí¼ÓÇëÇó    setGroupAddRequest
-    160, //È¡Èº³ÉÔ±ÁĞ±í    getGroupMemberList
-    161, //È¡ÈºÁĞ±í      getGroupList
-    180 //³·»ØÏûÏ¢      deleteMsg
+  "auth": [
+    20,
+    30,
+    101,
+    103,
+    106,
+    110,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    130,
+    131,
+    140,
+    150,
+    151,
+    160,
+    161,
+    180
   ]
 }

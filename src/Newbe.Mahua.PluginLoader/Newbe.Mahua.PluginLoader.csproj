@@ -8,6 +8,10 @@
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
     <PackageReleaseNotes>
+      ## 1.7
+
+      支持外部添加IMahuaApi的相关实现
+      ---
       ## 1.6
 
       默认地，在触发IExceptionOccuredMahuaEvent时，将在日志文件中记录相关信息。
@@ -76,7 +80,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3.1" />
+    <PackageReference Include="MessagePack" Version="1.7.3.2" />
   </ItemGroup>
 
   <ItemGroup>

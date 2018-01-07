@@ -12,6 +12,7 @@ namespace Newbe.Mahua
             {
                 new PluginLoaderModule(),
                 new LoggedCommandCenterModule(),
+                new MahuaApiModule(),
             };
         }
 
@@ -35,6 +36,16 @@ namespace Newbe.Mahua
                 base.Load(builder);
                 builder.RegisterType<HandlerExceptionHandler>().AsImplementedInterfaces();
                 builder.RegisterType<LoggedExceptionOccuredMahuaEvent>().AsImplementedInterfaces();
+            }
+        }
+
+        public class MahuaApiModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<ContainerSaver>().As<IContainerSaver>().InstancePerLifetimeScope();
+                builder.RegisterType<CommandCenterMahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
             }
         }
     }
