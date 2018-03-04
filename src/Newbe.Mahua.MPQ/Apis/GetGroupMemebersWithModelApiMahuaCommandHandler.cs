@@ -53,19 +53,11 @@ namespace Newbe.Mahua.MPQ.Apis
 
                         // todo Area
                         Area = string.Empty,
-                        Authority = x.Role == 3
-                            ? GroupMemberAuthority.Leader
-                            : x.Role == 2
-                                ? GroupMemberAuthority.Manager
-                                : GroupMemberAuthority.Normal,
+                        Authority = GetGroupMemberAuthority(x.Role),
 
                         // todo CanModifyInGroupName
                         CanModifyInGroupName = false,
-                        Gender = !x.G.HasValue
-                            ? Gender.Unknow
-                            : x.G == GroupMemberSex.Female
-                                ? Gender.Female
-                                : Gender.Male,
+                        Gender = GetGender(x.G),
 
                         // todo CanModifyInGroupName
                         HasBadRecord = false,
@@ -88,6 +80,30 @@ namespace Newbe.Mahua.MPQ.Apis
                 ModelWithSourceString = modelWithSourceString,
             };
             return re;
+        }
+
+        private GroupMemberAuthority GetGroupMemberAuthority(int role)
+        {
+            switch (role)
+            {
+                case 2: return GroupMemberAuthority.Manager;
+                case 3: return GroupMemberAuthority.Leader;
+                default:
+                    return GroupMemberAuthority.Normal;
+            }
+        }
+
+        private Gender GetGender(GroupMemberSex? gender)
+        {
+            switch (gender)
+            {
+                case GroupMemberSex.Male:
+                    return Gender.Male;
+                case GroupMemberSex.Female:
+                    return Gender.Female;
+                default:
+                    return Gender.Unknow;
+            }
         }
 
         public class GroupMemberInfoListJson

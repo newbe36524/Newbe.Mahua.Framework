@@ -53,5 +53,8 @@
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
   <Import Project="..\Newbe.Mahua.props" />
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
+  </ItemGroup>
 
 </Project>

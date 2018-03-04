@@ -97,4 +97,8 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
+  </ItemGroup>
+
 </Project>
