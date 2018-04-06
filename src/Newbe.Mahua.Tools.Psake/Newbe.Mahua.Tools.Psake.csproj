@@ -45,7 +45,7 @@
     <Content Include="build.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Net.Compilers" Version="2.6.1" />
+    <PackageReference Include="Microsoft.Net.Compilers" Version="2.7.0" />
     <PackageReference Include="Newbe.Build.Psake" Version="1.0.6" />
     <PackageReference Include="NuGet.CommandLine" Version="4.3.0" />
   </ItemGroup>

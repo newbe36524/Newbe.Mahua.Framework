@@ -26,8 +26,6 @@
 
   <ItemGroup>
     <PackageReference Include="SonarAnalyzer.CSharp" Version="6.8.2.4717" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" PrivateAssets="all" />
     <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.0" PrivateAssets="all" />
   </ItemGroup>
 
