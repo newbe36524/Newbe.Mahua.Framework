@@ -77,13 +77,13 @@ namespace Newbe.Mahua.CQP.Native
         /// 处理私聊消息。
         /// </summary>
         /// <param name="subType">私聊消息类型。11代表消息来自好友；1代表消息来自在线状态；2代表消息来自群；3代表消息来自讨论组。</param>
-        /// <param name="sendTime">消息发送时间的时间戳。</param>
+        /// <param name="msgId">消息Id。</param>
         /// <param name="fromQQ">发送此消息的QQ号码。</param>
         /// <param name="msg">消息的内容。</param>
         /// <param name="font">消息所使用的字体。</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventPrivateMsg", CallingConvention.StdCall)]
-        public static int ProcessPrivateMessage(int subType, int sendTime, long fromQQ, string msg, int font)
+        public static int ProcessPrivateMessage(int subType, int msgId, long fromQQ, string msg, int font)
         {
             PrivateMessageFromType privateMessageFromType;
             switch (subType)
@@ -109,7 +109,7 @@ namespace Newbe.Mahua.CQP.Native
                 PrivateMessageFromType = privateMessageFromType,
                 FormNum = fromQQ,
                 Message = msg,
-                SendTime = ConvertToDatetime(sendTime),
+                SendTime = DateTime.Now,
             });
             return 0;
         }
@@ -118,7 +118,7 @@ namespace Newbe.Mahua.CQP.Native
         /// 处理群聊消息。
         /// </summary>
         /// <param name="subType">消息类型，目前固定为1。</param>
-        /// <param name="sendTime">消息发送时间的时间戳。</param>
+        /// <param name="msgId">消息Id</param>
         /// <param name="fromGroup">消息来源群号。</param>
         /// <param name="fromQQ">发送此消息的QQ号码。</param>
         /// <param name="fromAnonymous">发送此消息的匿名用户。</param>
@@ -128,7 +128,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventGroupMsg", CallingConvention.StdCall)]
         public static int ProcessGroupMessage(
             int subType,
-            int sendTime,
+            int msgId,
             long fromGroup,
             long fromQQ,
             string fromAnonymous,
@@ -137,7 +137,7 @@ namespace Newbe.Mahua.CQP.Native
         {
             PluginInstanceManager.GetInstance().SendCommand(new GroupMessageCommand
             {
-                SendTime = ConvertToDatetime(sendTime),
+                SendTime = DateTime.Now,
                 Message = msg,
                 GroupNum = fromGroup,
                 FromAnonymous = fromAnonymous,
@@ -150,7 +150,7 @@ namespace Newbe.Mahua.CQP.Native
         /// 处理讨论组消息。
         /// </summary>
         /// <param name="subType">消息类型，目前固定为1。</param>
-        /// <param name="sendTime">消息发送时间的时间戳。</param>
+        /// <param name="msgId">消息Id</param>
         /// <param name="fromDiscuss">消息来源讨论组号。</param>
         /// <param name="fromQQ">发送此消息的QQ号码。</param>
         /// <param name="msg">消息内容。</param>
@@ -159,7 +159,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventDiscussMsg", CallingConvention.StdCall)]
         public static int ProcessDiscussGroupMessage(
             int subType,
-            int sendTime,
+            int msgId,
             long fromDiscuss,
             long fromQQ,
             string msg,
@@ -167,7 +167,7 @@ namespace Newbe.Mahua.CQP.Native
         {
             PluginInstanceManager.GetInstance().SendCommand(new DiscussGroupMessageCommand()
             {
-                SendTime = ConvertToDatetime(sendTime),
+                SendTime = DateTime.Now,
                 Message = msg,
                 DiscussGroupNum = fromDiscuss,
                 FromQq = fromQQ,

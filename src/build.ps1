@@ -45,7 +45,7 @@ Task Pack -depends Build -Description "打包" {
 Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
     Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
         Exec {
-            cmd /c "$nugetexe push $releaseDir$_ -Source http://localhost:8081/repository/nuget-hosted/"
+            cmd /c "$nugetexe push $releaseDir$_ -Source http://localhost:28081/repository/nuget-hosted/"
         }
     }
 }
