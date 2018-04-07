@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IFace
+    public interface IFace : IMessageBuilder
     {
         /// <summary>
         ///  QQ表情

@@ -1,15 +1,15 @@
 ﻿using Newbe.Mahua.Messages;
 
-namespace Newbe.Mahua.CQP.Messages
+namespace Newbe.Mahua.Amanda.Messages
 {
     public class GroupMessageFlowFactory : IGroupMessageFlowFactory
     {
         private readonly IGroupMessageStep _groupMessageStep;
-        private readonly IMessage _message;
+        private readonly IAmandaMessage _message;
 
         public GroupMessageFlowFactory(
             IGroupMessageStep groupMessageStep,
-            IMessage message)
+            IAmandaMessage message)
         {
             _groupMessageStep = groupMessageStep;
             _message = message;

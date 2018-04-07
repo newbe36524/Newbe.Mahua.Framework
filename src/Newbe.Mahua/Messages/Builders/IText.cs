@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IText
+    public interface IText : IMessageBuilder
     {
         /// <summary>
         /// 文本信息

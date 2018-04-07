@@ -1,7 +1,12 @@
 ﻿using Autofac;
 using Newbe.Mahua.Amanda.Apis;
 using Newbe.Mahua.Amanda.Commands;
+using Newbe.Mahua.Amanda.Messages;
+using Newbe.Mahua.Amanda.Messages.Builders;
 using Newbe.Mahua.Apis;
+using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.Amanda
 {
@@ -13,7 +18,9 @@ namespace Newbe.Mahua.Amanda
             {
                 new AmandaApiModule(),
                 new AmandaCommandHandlerModule(),
-                new ApiCommandHandlersModule()
+                new ApiCommandHandlersModule(),
+                new MessageBuilderStepModule(),
+                new MessageBuilderModule(),
             };
         }
 
@@ -82,6 +89,50 @@ namespace Newbe.Mahua.Amanda
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
+            }
+        }
+
+
+
+        private class MessageBuilderStepModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<DiscussMessageDone>().As<IDiscussMessageDone>().InstancePerLifetimeScope();
+                builder.RegisterType<DiscussMessageFlowFactory>().As<IDiscussMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
+                builder.RegisterType<DiscussMessageStep>().As<IDiscussMessageStep>().InstancePerLifetimeScope();
+                builder.RegisterType<DiscussMessageStep2>().As<IDiscussMessageStep2>().InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageDone>().As<IGroupMessageDone>().InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageFlowFactory>().As<IGroupMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageStep>().As<IGroupMessageStep>().InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageStep2>().As<IGroupMessageStep2>().InstancePerLifetimeScope();
+                builder.RegisterType<AmanadaMessage>().As<IAmandaMessage>().InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageDone>().As<IPrivateMessageDone>().InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageFlowFactory>().As<IPrivateMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
+            }
+        }
+
+        private class MessageBuilderModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<AmandaMessageBuilder>().As<IAt>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IAtAll>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IBFace>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IEmoji>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IFace>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IImage>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IRecord>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<ISFace>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IShake>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaMessageBuilder>().As<IText>().InstancePerLifetimeScope();
             }
         }
     }

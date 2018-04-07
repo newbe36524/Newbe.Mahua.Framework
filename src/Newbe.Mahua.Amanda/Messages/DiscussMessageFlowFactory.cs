@@ -1,15 +1,15 @@
 ﻿using Newbe.Mahua.Messages;
 
-namespace Newbe.Mahua.CQP.Messages
+namespace Newbe.Mahua.Amanda.Messages
 {
     public class DiscussMessageFlowFactory : IDiscussMessageFlowFactory
     {
         private readonly IDiscussMessageStep _discussMessageStep;
-        private readonly IMessage _message;
+        private readonly IAmandaMessage _message;
 
         public DiscussMessageFlowFactory(
             IDiscussMessageStep discussMessageStep,
-            IMessage message)
+            IAmandaMessage message)
         {
             _discussMessageStep = discussMessageStep;
             _message = message;

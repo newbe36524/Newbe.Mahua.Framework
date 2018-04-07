@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IAt
+    public interface IAt : IMessageBuilder
     {
         /// <summary>
         /// @某人

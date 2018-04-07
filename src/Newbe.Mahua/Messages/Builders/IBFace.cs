@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IBFace
+    public interface IBFace : IMessageBuilder
     {
         /// <summary>
         /// 原创表情

@@ -54,37 +54,91 @@ namespace Newbe.Mahua.CQP
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterMahuaApi<AcceptFriendAddingRequestApiMahuaMahuaCommandHandler, AcceptFriendAddingRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<AcceptGroupJoiningInvitationApiMahuaMahuaCommandHandler, AcceptGroupJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<AcceptGroupJoiningRequestApiMahuaMahuaCommandHandler, AcceptGroupJoiningRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<BanGroupAnonymousMemberApiMahuaMahuaCommandHandler, BanGroupAnonymousMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<BanGroupMemberApiMahuaMahuaCommandHandler, BanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<DisableGroupAdminApiMahuaMahuaCommandHandler, DisableGroupAdminApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<DissolveGroupApiMahuaMahuaCommandHandler, DissolveGroupApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<EnableGroupAdminApiMahuaMahuaCommandHandler, EnableGroupAdminApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetBknApiMahuaCommandHandler, GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetCookiesApiMahuaCommandHandler, GetCookiesApiMahuaCommand, GetCookiesApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetGroupMemebersApiMahuaCommandHandler, GetGroupMemebersApiMahuaCommand, GetGroupMemebersApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetGroupMemebersWithModelApiMahuaCommandHandler, GetGroupMemebersWithModelApiMahuaCommand, GetGroupMemebersWithModelApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetGroupsApiMahuaCommandHandler, GetGroupsApiMahuaCommand, GetGroupsApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetGroupsWithModelApiMahuaCommandHandler, GetGroupsWithModelApiMahuaCommand, GetGroupsWithModelApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetLoginNickApiMahuaCommandHandler, GetLoginNickApiMahuaCommand, GetLoginNickApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<GetLoginQqApiMahuaCommandHandler, GetLoginQqApiMahuaCommand, GetLoginQqApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<KickGroupMemberApiMahuaMahuaCommandHandler, KickGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<LeaveDiscussApiMahuaMahuaCommandHandler, LeaveDiscussApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<LeaveGroupApiMahuaMahuaCommandHandler, LeaveGroupApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<RejectFriendAddingRequestApiMahuaMahuaCommandHandler, RejectFriendAddingRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<RejectGroupJoiningInvitationApiMahuaMahuaCommandHandler, RejectGroupJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<RejectGroupJoiningRequestApiMahuaMahuaCommandHandler, RejectGroupJoiningRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<RemoveBanGroupMemberApiMahuaMahuaCommandHandler, RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendLikeApiMahuaMahuaCommandHandler, SendLikeApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaMahuaCommandHandler, SetBanAllGroupMembersOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SetGroupAnonymousOptionApiMahuaMahuaCommandHandler, SetGroupAnonymousOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SetGroupMemberCardApiMahuaMahuaCommandHandler, SetGroupMemberCardApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SetGroupMemberSpecialTitleApiMahuaMahuaCommandHandler, SetGroupMemberSpecialTitleApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<AcceptFriendAddingRequestApiMahuaMahuaCommandHandler,
+                        AcceptFriendAddingRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<AcceptGroupJoiningInvitationApiMahuaMahuaCommandHandler,
+                        AcceptGroupJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<AcceptGroupJoiningRequestApiMahuaMahuaCommandHandler,
+                        AcceptGroupJoiningRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<BanGroupAnonymousMemberApiMahuaMahuaCommandHandler,
+                        BanGroupAnonymousMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<BanGroupMemberApiMahuaMahuaCommandHandler, BanGroupMemberApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<DisableGroupAdminApiMahuaMahuaCommandHandler, DisableGroupAdminApiMahuaCommand>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<DissolveGroupApiMahuaMahuaCommandHandler, DissolveGroupApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<EnableGroupAdminApiMahuaMahuaCommandHandler, EnableGroupAdminApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetBknApiMahuaCommandHandler, GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetCookiesApiMahuaCommandHandler, GetCookiesApiMahuaCommand,
+                        GetCookiesApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetGroupMemebersApiMahuaCommandHandler, GetGroupMemebersApiMahuaCommand,
+                        GetGroupMemebersApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetGroupMemebersWithModelApiMahuaCommandHandler,
+                        GetGroupMemebersWithModelApiMahuaCommand, GetGroupMemebersWithModelApiMahuaCommandResult>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetGroupsApiMahuaCommandHandler, GetGroupsApiMahuaCommand,
+                        GetGroupsApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetGroupsWithModelApiMahuaCommandHandler, GetGroupsWithModelApiMahuaCommand,
+                        GetGroupsWithModelApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetLoginNickApiMahuaCommandHandler, GetLoginNickApiMahuaCommand,
+                        GetLoginNickApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<GetLoginQqApiMahuaCommandHandler, GetLoginQqApiMahuaCommand,
+                        GetLoginQqApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<KickGroupMemberApiMahuaMahuaCommandHandler, KickGroupMemberApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<LeaveDiscussApiMahuaMahuaCommandHandler, LeaveDiscussApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<LeaveGroupApiMahuaMahuaCommandHandler, LeaveGroupApiMahuaCommand>(MahuaGlobal
+                    .DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<RejectFriendAddingRequestApiMahuaMahuaCommandHandler,
+                        RejectFriendAddingRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<RejectGroupJoiningInvitationApiMahuaMahuaCommandHandler,
+                        RejectGroupJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<RejectGroupJoiningRequestApiMahuaMahuaCommandHandler,
+                        RejectGroupJoiningRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<RemoveBanGroupMemberApiMahuaMahuaCommandHandler,
+                        RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(
+                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendLikeApiMahuaMahuaCommandHandler, SendLikeApiMahuaCommand>(MahuaGlobal
+                    .DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaMahuaCommandHandler,
+                        SetBanAllGroupMembersOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SetGroupAnonymousOptionApiMahuaMahuaCommandHandler,
+                        SetGroupAnonymousOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SetGroupMemberCardApiMahuaMahuaCommandHandler, SetGroupMemberCardApiMahuaCommand>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SetGroupMemberSpecialTitleApiMahuaMahuaCommandHandler,
+                        SetGroupMemberSpecialTitleApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
             }
         }
 
@@ -105,16 +159,19 @@ namespace Newbe.Mahua.CQP
             {
                 base.Load(builder);
                 builder.RegisterType<DiscussMessageDone>().As<IDiscussMessageDone>().InstancePerLifetimeScope();
-                builder.RegisterType<DiscussMessageFlowFactory>().As<IDiscussMessageFlowFactory>().InstancePerLifetimeScope();
+                builder.RegisterType<DiscussMessageFlowFactory>().As<IDiscussMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
                 builder.RegisterType<DiscussMessageStep>().As<IDiscussMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<DiscussMessageStep2>().As<IDiscussMessageStep2>().InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageDone>().As<IGroupMessageDone>().InstancePerLifetimeScope();
-                builder.RegisterType<GroupMessageFlowFactory>().As<IGroupMessageFlowFactory>().InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageFlowFactory>().As<IGroupMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageStep>().As<IGroupMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageStep2>().As<IGroupMessageStep2>().InstancePerLifetimeScope();
-                builder.RegisterType<MessageBuilder>().As<IMessageBuilder>().InstancePerLifetimeScope();
+                builder.RegisterType<Message>().As<IMessage>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageDone>().As<IPrivateMessageDone>().InstancePerLifetimeScope();
-                builder.RegisterType<PrivateMessageFlowFactory>().As<IPrivateMessageFlowFactory>().InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageFlowFactory>().As<IPrivateMessageFlowFactory>()
+                    .InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
             }

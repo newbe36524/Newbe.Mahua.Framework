@@ -1,9 +1,9 @@
-﻿using System.Text;
-using Newbe.Mahua.Messages;
+﻿using Newbe.Mahua.Messages;
+using System.Text;
 
 namespace Newbe.Mahua.CQP.Messages
 {
-    internal class MessageBuilder : IMessageBuilder
+    internal class Message : IMessage
     {
         private readonly StringBuilder _sb = new StringBuilder();
         public string Target { get; set; }

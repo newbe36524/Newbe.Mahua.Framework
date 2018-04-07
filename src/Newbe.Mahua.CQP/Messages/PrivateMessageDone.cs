@@ -6,19 +6,19 @@ namespace Newbe.Mahua.CQP.Messages
     public class PrivateMessageDone : IPrivateMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
-        private readonly IMessageBuilder _messageBuilder;
+        private readonly IMessage _message;
 
         public PrivateMessageDone(
             IMahuaApi mahuaApi,
-            IMessageBuilder messageBuilder)
+            IMessage message)
         {
             _mahuaApi = mahuaApi;
-            _messageBuilder = messageBuilder;
+            _message = message;
         }
 
         public void Done()
         {
-            _mahuaApi.SendPrivateMessage(_messageBuilder.Target, _messageBuilder.GetMessage());
+            _mahuaApi.SendPrivateMessage(_message.Target, _message.GetMessage());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IShake
+    public interface IShake : IMessageBuilder
     {
         /// <summary>
         /// 戳一戳

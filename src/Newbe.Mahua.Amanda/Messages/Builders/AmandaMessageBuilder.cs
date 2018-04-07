@@ -1,10 +1,9 @@
-﻿using Newbe.Mahua.Messages;
-using Newbe.Mahua.Messages.Builders;
+﻿using Newbe.Mahua.Messages.Builders;
 using System;
 
-namespace Newbe.Mahua.CQP.Messages.Builders
+namespace Newbe.Mahua.Amanda.Messages.Builders
 {
-    public class CqpMessageBuilder :
+    public class AmandaMessageBuilder :
         IAt,
         IAtAll,
         IBFace,
@@ -16,22 +15,22 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         IShake,
         IText
     {
-        private readonly IMessage _message;
+        private readonly IAmandaMessage _amandaMessage;
 
-        public CqpMessageBuilder(
-            IMessage message)
+        public AmandaMessageBuilder(
+            IAmandaMessage amandaMessage)
         {
-            _message = message;
+            _amandaMessage = amandaMessage;
         }
 
         public void At(string qq)
         {
-            _message.Append($"[CQ:at,qq={qq}]");
+            _amandaMessage.Append($"[QQ:at={qq}]");
         }
 
         public void AtlAll()
         {
-            _message.Append($"[CQ:at,qq=all]");
+            _amandaMessage.Append("[QQ:at=all]");
         }
 
         /// <summary>
@@ -40,17 +39,17 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="id"></param>
         public void BFace(string id)
         {
-            _message.Append($"[CQ:bface,id={id}]");
+            MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<IBFace>();
         }
 
         public void Emoji(string id)
         {
-            _message.Append($"[CQ:emoji,id={id}]");
+            _amandaMessage.Append($"[QQ:emoji={id}]");
         }
 
         public void Face(string id)
         {
-            _message.Append($"[CQ:face,id={id}]");
+            _amandaMessage.Append($"[QQ:face={id}]");
         }
 
         /// <summary>
@@ -59,32 +58,32 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            _message.Append($"[CQ:image,file={file}]");
+            _amandaMessage.Append($"[QQ:pic={file}]");
         }
 
         public void Record(string file)
         {
-            _message.Append($"[CQ:record,file={file},magic=false]");
+            _amandaMessage.Append($"[QQ:voice={file}]");
         }
 
         public void SFace(string id)
         {
-            _message.Append($"[CQ:sface,id={id}]");
+            MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<ISFace>();
         }
 
         public void Shake()
         {
-            _message.Append("[CQ:shake]");
+            _amandaMessage.Shake = true;
         }
 
         public void Text(string text)
         {
-            _message.Append(text);
+            _amandaMessage.Append(text);
         }
 
         public void Newline()
         {
-            _message.Append(Environment.NewLine);
+            _amandaMessage.Append(Environment.NewLine);
         }
     }
 }

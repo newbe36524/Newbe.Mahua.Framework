@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface IEmoji
+    public interface IEmoji : IMessageBuilder
     {
         /// <summary>
         /// emoji表情

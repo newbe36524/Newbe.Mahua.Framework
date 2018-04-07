@@ -1,15 +1,15 @@
 ﻿using Newbe.Mahua.Messages;
 
-namespace Newbe.Mahua.CQP.Messages
+namespace Newbe.Mahua.Amanda.Messages
 {
     public class PrivateMessageFlowFactory : IPrivateMessageFlowFactory
     {
         private readonly IPrivateMessageStep _privateMessageStep;
-        private readonly IMessage _message;
+        private readonly IAmandaMessage _message;
 
         public PrivateMessageFlowFactory(
             IPrivateMessageStep privateMessageStep,
-            IMessage message)
+            IAmandaMessage message)
         {
             _privateMessageStep = privateMessageStep;
             _message = message;

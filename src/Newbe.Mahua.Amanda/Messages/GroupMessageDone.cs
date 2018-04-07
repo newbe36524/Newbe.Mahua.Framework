@@ -1,16 +1,15 @@
-﻿using Newbe.Mahua.Messages;
-using Newbe.Mahua.Messages.Steps;
+﻿using Newbe.Mahua.Messages.Steps;
 
-namespace Newbe.Mahua.CQP.Messages
+namespace Newbe.Mahua.Amanda.Messages
 {
     public class GroupMessageDone : IGroupMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
-        private readonly IMessage _message;
+        private readonly IAmandaMessage _message;
 
         public GroupMessageDone(
             IMahuaApi mahuaApi,
-            IMessage message)
+            IAmandaMessage message)
         {
             _mahuaApi = mahuaApi;
             _message = message;

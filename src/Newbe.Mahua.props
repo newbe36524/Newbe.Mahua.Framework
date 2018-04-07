@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <VersionPrefix>1.8.0</VersionPrefix>
-    <VersionSuffix>dev02</VersionSuffix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>

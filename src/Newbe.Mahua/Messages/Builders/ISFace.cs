@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.Messages.Builders
 {
-    public interface ISFace
+    public interface ISFace : IMessageBuilder
     {
         /// <summary>
         /// 小表情
