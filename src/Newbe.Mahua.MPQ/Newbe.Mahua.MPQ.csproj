@@ -18,6 +18,9 @@
       https://f.mypcqq.cc/thread-4900-1-1.html
     </Description>
     <PackageReleaseNotes>
+      ## 1.8
+
+      MPQ 支持 MessageBuilder
       ## 1.7
 
       支持外部添加IMahuaApi的相关实现

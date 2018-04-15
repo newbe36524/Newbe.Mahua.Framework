@@ -7,6 +7,11 @@
       QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
     </Description>
     <PackageReleaseNotes>
+      ## 1.8
+
+      支持使用 Fluent Api 进行消息发送。
+      添加一系列 IMessageBuilder 接口，实现消息构建接口的统一。
+      ---
       ## 1.7
 
       支持外部添加IMahuaApi的相关实现

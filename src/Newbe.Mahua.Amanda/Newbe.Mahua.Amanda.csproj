@@ -17,6 +17,10 @@
       试试看，您一定会喜欢上她
     </Description>
     <PackageReleaseNotes>
+      ## 1.8
+
+      Amanda 支持 MessageBuilder
+      ---
       ## 1.7
 
       支持外部添加IMahuaApi的相关实现
