@@ -92,8 +92,6 @@ namespace Newbe.Mahua.Amanda
             }
         }
 
-
-
         private class MessageBuilderStepModule : Module
         {
             protected override void Load(ContainerBuilder builder)

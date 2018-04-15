@@ -122,7 +122,7 @@ namespace Newbe.Mahua
         public byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName)
         {
             WriteDiagnostics(() => cmd);
-            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            using (var beginLifetimeScope = _container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.Command))
             {
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();
@@ -142,7 +142,7 @@ namespace Newbe.Mahua
         public void Handle(byte[] cmd, string cmdTypeFullName)
         {
             WriteDiagnostics(() => cmd);
-            using (var beginLifetimeScope = _container.BeginLifetimeScope())
+            using (var beginLifetimeScope = _container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.Command))
             {
                 SetContainer(beginLifetimeScope);
                 var center = beginLifetimeScope.Resolve<ICommandCenter>();

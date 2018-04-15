@@ -1,4 +1,5 @@
-﻿using Newbe.Mahua.Internals;
+﻿using System.ComponentModel;
+using Newbe.Mahua.Internals;
 
 namespace Newbe.Mahua
 {
@@ -42,8 +43,9 @@ namespace Newbe.Mahua
             }
 
             /// <summary>
-            /// 启用诊断
+            /// 启用诊断，默认为false
             /// </summary>
+            [DefaultValue(false)]
             public static bool EnableDiagnostics { get; set; }
         }
 
@@ -51,5 +53,16 @@ namespace Newbe.Mahua
         /// 默认API的作者名称
         /// </summary>
         public static string DefaultApiHandlerAuthorName => "Newbe";
+
+        /// <summary>
+        /// 生命周期，详细见 Autofac相关文档，http://autofac.readthedocs.io/en/latest/lifetime/working-with-scopes.html
+        /// </summary>
+        public static class LifeTimeScopes
+        {
+            /// <summary>
+            /// CommandCenter触发一次处理的范围
+            /// </summary>
+            public static readonly string Command = "Command";
+        }
     }
 }
