@@ -1,6 +1,7 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
 using System;
+using System.IO;
 
 namespace Newbe.Mahua.CQP.Messages.Builders
 {
@@ -59,12 +60,24 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            _message.Append($"[CQ:image,file={file}]");
+            var destFileName = file;
+            if (!file.StartsWith(CqpDirectories.Image))
+            {
+                destFileName = Path.Combine(CqpDirectories.Image, Path.GetFileName(file));
+                File.Copy(file, destFileName);
+            }
+            _message.Append($"[CQ:image,file={destFileName}]");
         }
 
         public void Record(string file)
         {
-            _message.Append($"[CQ:record,file={file},magic=false]");
+            var destFileName = file;
+            if (!file.StartsWith(CqpDirectories.Record))
+            {
+                destFileName = Path.Combine(CqpDirectories.Record, Path.GetFileName(file));
+                File.Copy(file, destFileName);
+            }
+            _message.Append($"[CQ:record,file={destFileName},magic=false]");
         }
 
         public void SFace(string id)
