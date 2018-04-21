@@ -32,7 +32,7 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 
 ## 立马开始
 
-点击查看[帮助文档](http://www.newbe.cf)开始编写第一个QQ机器人。
+点击查看[帮助文档](http://www.newbe.pro)开始编写第一个QQ机器人。
 
 ## 版本
 
