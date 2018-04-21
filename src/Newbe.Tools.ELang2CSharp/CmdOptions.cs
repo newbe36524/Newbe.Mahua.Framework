@@ -10,10 +10,10 @@ namespace Newbe.Tools.ELang2CSharp
 {
     public class CmdOptions
     {
-        [Option('i', "input", DefaultValue = ".\\api.txt", HelpText = "易语言api定义文件")]
+        [Option('i', "input", Default = ".\\api.txt", HelpText = "易语言api定义文件")]
         public string InputFile { get; set; }
 
-        [Option('o', "out", DefaultValue = ".\\api.cs", HelpText = "Api输出位置")]
+        [Option('o', "out", Default = ".\\api.cs", HelpText = "Api输出位置")]
         public string OutFile { get; set; }
 
         [Option('d', "dll", HelpText = "定义导入DLL名称，这将影响[DllImport(*DllName*)]", Required = true)]

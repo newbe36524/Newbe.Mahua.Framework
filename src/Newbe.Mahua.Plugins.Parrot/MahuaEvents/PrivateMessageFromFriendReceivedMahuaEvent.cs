@@ -18,8 +18,23 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 
         public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
         {
-            //将好友信息会发给好友
+            // 戳一戳
+            _mahuaApi.SendPrivateMessage(context.FromQq)
+                .Shake()
+                .Done();
+            // 嘤嘤嘤
+            _mahuaApi.SendPrivateMessage(context.FromQq)
+                .Text("嘤嘤嘤：")
+                .Newline()
+                .Text(context.Message)
+                .Done();
+
+            // 将好友信息会发给好友
             _mahuaApi.SendPrivateMessage(context.FromQq, context.Message);
+
+            _mahuaApi.SendPrivateMessage(context.FromQq)
+                .Image(@"D:\logo.png")
+                .Done();
         }
     }
 }

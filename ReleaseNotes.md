@@ -11,21 +11,27 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
-## 1.7.0
+## 1.8
+
+增加了”消息发送Fluent API”，发送消息接口更加方便。
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/04/21/Release-Notes-1-8-0.html>
+
+## 1.7
 
 可以在插件中追加MahuaApi的实现。
 
 支持在构建时对CQP的JSON文件进行修改。
 
-详细内容：<http://www.newbe.cf/docs/mahua/releasenodes/2018/01/07/Release-Notes-1-7-0.html>
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/01/07/Release-Notes-1-7-0.html>
 
-## 1.6.0
+## 1.6
 
 此次版本发布主要围绕"开发便利性提升"特性。可调试行、可追踪性都有进一步提升。
 
-详细内容：<http://www.newbe.cf/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html>
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html>
 
-## 1.5.0
+## 1.5
 
 新增`设置中心`。
 
@@ -33,7 +39,7 @@
 
 实现多平台统一配置界面的目的。
 
-## 1.4.0
+## 1.4
 
 新增MPQ（MyPCQQ）实现，是本SDK支持的第一个支持多开QQ的机器人平台。
 
@@ -41,11 +47,11 @@
 
 增加了VS插件支持，插件下载地址：<https://marketplace.visualstudio.com/items?itemName=Newbe36524.NewbeMahuaVsExtensions#overview>
 
-## 1.3.0
+## 1.3
 
 使用MessagePack替代JSON序列化，消息处理速度明显提升。
 
-## 1.2.0
+## 1.2
 
 全新的打包机制：[Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)
 

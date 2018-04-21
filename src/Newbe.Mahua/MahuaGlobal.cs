@@ -1,4 +1,5 @@
-﻿using Newbe.Mahua.Internals;
+﻿using System.ComponentModel;
+using Newbe.Mahua.Internals;
 
 namespace Newbe.Mahua
 {
@@ -14,11 +15,17 @@ namespace Newbe.Mahua
         public static MahuaPlatform CurrentPlatform => MahuaPlatformValueProvider.CurrentPlatform.Value;
 
         /// <summary>
-        /// 调用不受支持的的Api的行为。默认为<see cref="ThrowsNotSupportedMahuaApiConvertion{NotSupportMahuaPlatformExpcetion}"/>
+        /// 调用不受支持的Api的行为。默认为<see cref="ThrowsNotSupportedMahuaApiConvertion{NotSupportMahuaPlatformExpcetion}"/>
         /// </summary>
         public static INotSupportedMahuaApiConvertion NotSupportedMahuaApiConvertion { get; set; } =
             MahuaConvertions.NotSupportedMahuaApiConvertions
                 .GetThrowsNotSupportedMahuaApiConvertion<NotSupportMahuaPlatformException>();
+
+        /// <summary>
+        /// 调用不受支持的MessageBuilder的行为。默认为<see cref="IgnoreNotSupportedMessageBuilderConvertion"/>
+        /// </summary>
+        public static INotSupportedMessageBuilderConvertion NotSupportedMessageBuilderConvertion { get; set; } =
+            MahuaConvertions.NotSupportedMessageBuilderConvertions.IgnoreNotSupportedMessageBuilderConvertion;
 
         /// <summary>
         /// 诊断
@@ -36,8 +43,9 @@ namespace Newbe.Mahua
             }
 
             /// <summary>
-            /// 启用诊断
+            /// 启用诊断，默认为false
             /// </summary>
+            [DefaultValue(false)]
             public static bool EnableDiagnostics { get; set; }
         }
 
@@ -45,5 +53,16 @@ namespace Newbe.Mahua
         /// 默认API的作者名称
         /// </summary>
         public static string DefaultApiHandlerAuthorName => "Newbe";
+
+        /// <summary>
+        /// 生命周期，详细见 Autofac相关文档，http://autofac.readthedocs.io/en/latest/lifetime/working-with-scopes.html
+        /// </summary>
+        public static class LifeTimeScopes
+        {
+            /// <summary>
+            /// CommandCenter触发一次处理的范围
+            /// </summary>
+            public static readonly string Command = "Command";
+        }
     }
 }

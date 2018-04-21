@@ -8,6 +8,11 @@
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
     <PackageReleaseNotes>
+      ## 1.8
+
+      支持使用 Fluent Api 进行消息发送。
+      添加一系列 IMessageBuilder 接口，实现消息构建接口的统一。
+      ---
       ## 1.7
 
       支持外部添加IMahuaApi的相关实现
@@ -80,7 +85,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="3.0.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3.2" />
+    <PackageReference Include="MessagePack" Version="1.7.3.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -101,6 +106,9 @@
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
   </ItemGroup>
 
   <Target Name="BeforeBuild">
