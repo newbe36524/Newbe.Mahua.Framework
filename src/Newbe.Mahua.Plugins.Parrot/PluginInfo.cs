@@ -14,7 +14,7 @@
         /// 插件名称
         /// </summary>
 
-        public string Name { get; set; } = "鹦鹉学舌";
+        public string Name { get; set; } = "嘤鹉学舌";
 
         /// <summary>
         /// 作者名称
@@ -29,6 +29,6 @@
         /// <summary>
         /// 插件描述
         /// </summary>
-        public string Description { get; set; } = "鹦鹉学舌，是一个使用Mahua框架开发的第一个插件。该插件实现将好友的私聊消息回发给好友的功能。";
+        public string Description { get; set; } = "嘤鹉学舌，是一个使用Mahua框架开发的第一个插件。该插件实现将好友的私聊消息回发给好友的功能。(绝对没有戳一戳）";
     }
 }

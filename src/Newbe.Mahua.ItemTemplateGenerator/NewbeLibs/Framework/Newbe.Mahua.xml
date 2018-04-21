@@ -562,6 +562,16 @@
             <typeparam name="T"></typeparam>
             <returns>default(T)</returns>
         </member>
+        <member name="T:Newbe.Mahua.INotSupportedMessageBuilderConvertion">
+            <summary>
+            调用不受支持的MessageBuilder的行为
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.INotSupportedMessageBuilderConvertion.Handle``1">
+            <summary>
+            处理
+            </summary>
+        </member>
         <member name="T:Newbe.Mahua.Internals.MahuaPlatformValueProvider">
             <summary>
             当前插件平台信息读取
@@ -632,6 +642,17 @@
             </summary>
             <typeparam name="TException">希望抛出的异常类型</typeparam>
             <returns></returns>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaConvertions.NotSupportedMessageBuilderConvertions.IgnoreNotSupportedMessageBuilderConvertion">
+            <summary>
+            忽略此次调用继续进行下一步
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.MahuaConvertions.NotSupportedMessageBuilderConvertions.GetThrowsNotSupportedMahuaApiConvertion``1">
+            <summary>
+            抛出指定的异常
+            </summary>
+            <typeparam name="TException">希望抛出的异常类型</typeparam>
         </member>
         <member name="T:Newbe.Mahua.MahuaEvents.Enums.GroupAdminChangeType">
             <summary>
@@ -1510,7 +1531,12 @@
         </member>
         <member name="P:Newbe.Mahua.MahuaGlobal.NotSupportedMahuaApiConvertion">
             <summary>
-            调用不受支持的的Api的行为。默认为<see cref="T:Newbe.Mahua.Internals.ThrowsNotSupportedMahuaApiConvertion`1"/>
+            调用不受支持的Api的行为。默认为<see cref="T:Newbe.Mahua.Internals.ThrowsNotSupportedMahuaApiConvertion`1"/>
+            </summary>
+        </member>
+        <member name="P:Newbe.Mahua.MahuaGlobal.NotSupportedMessageBuilderConvertion">
+            <summary>
+            调用不受支持的MessageBuilder的行为。默认为<see cref="T:Newbe.Mahua.Internals.IgnoreNotSupportedMessageBuilderConvertion"/>
             </summary>
         </member>
         <member name="T:Newbe.Mahua.MahuaGlobal.DiagnosticsConvertion">
@@ -1520,12 +1546,22 @@
         </member>
         <member name="P:Newbe.Mahua.MahuaGlobal.DiagnosticsConvertion.EnableDiagnostics">
             <summary>
-            启用诊断
+            启用诊断，默认为false
             </summary>
         </member>
         <member name="P:Newbe.Mahua.MahuaGlobal.DefaultApiHandlerAuthorName">
             <summary>
             默认API的作者名称
+            </summary>
+        </member>
+        <member name="T:Newbe.Mahua.MahuaGlobal.LifeTimeScopes">
+            <summary>
+            生命周期，详细见 Autofac相关文档，http://autofac.readthedocs.io/en/latest/lifetime/working-with-scopes.html
+            </summary>
+        </member>
+        <member name="F:Newbe.Mahua.MahuaGlobal.LifeTimeScopes.Command">
+            <summary>
+            CommandCenter触发一次处理的范围
             </summary>
         </member>
         <member name="P:Newbe.Mahua.MahuaMenu.Id">
@@ -1557,6 +1593,201 @@
             <summary>
             Amanda
             </summary>
+        </member>
+        <member name="M:Newbe.Mahua.MessageBuilderExtensions.SendPrivateMessage(Newbe.Mahua.IMahuaApi,System.String)">
+            <summary>
+            发送私聊消息
+            </summary>
+            <param name="api"></param>
+            <param name="toQq"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.MessageBuilderExtensions.SendGroupMessage(Newbe.Mahua.IMahuaApi,System.String)">
+            <summary>
+            发送群消息
+            </summary>
+            <param name="api"></param>
+            <param name="toGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.MessageBuilderExtensions.SendDiscussMessage(Newbe.Mahua.IMahuaApi,System.String)">
+            <summary>
+            发送讨论组消息
+            </summary>
+            <param name="api"></param>
+            <param name="toDiscuss"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IAt.At(System.String)">
+            <summary>
+            @某人
+            </summary>
+            <param name="qq">被@的群成员QQ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IAtAll.AtlAll">
+            <summary>
+            @全体成员
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IBFace.BFace(System.String)">
+            <summary>
+            原创表情
+            </summary>
+            <param name="id">原创表情的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IEmoji.Emoji(System.String)">
+            <summary>
+            emoji表情
+            </summary>
+            <param name="id">emoji字符的unicode编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IFace.Face(System.String)">
+            <summary>
+             QQ表情
+            </summary>
+            <param name="id">0-170的数字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IImage.Image(System.String)">
+            <summary>
+            发送自定义图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IRecord.Record(System.String)">
+            <summary>
+            发送语音
+            </summary>
+            <param name="file">音频文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.ISFace.SFace(System.String)">
+            <summary>
+            小表情
+            </summary>
+            <param name="id">小表情的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IShake.Shake">
+            <summary>
+            戳一戳
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IText.Text(System.String)">
+            <summary>
+            文本信息
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Builders.IText.Newline">
+            <summary>
+            换行
+            </summary>
+        </member>
+        <member name="T:Newbe.Mahua.Messages.Exceptions.NotSupportedMessageBuilderException">
+            <summary>
+            不支持的消息发送形式
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IAtAllStep`1.AtlAll">
+            <summary>
+            @全体成员
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IAtStep`1.At(System.String)">
+            <summary>
+            @某人
+            </summary>
+            <param name="qq">被@的群成员QQ</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IBFaceStep`1.BFace(System.String)">
+            <summary>
+            原创表情
+            </summary>
+            <param name="id">原创表情的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IDiscussMessageDone.Done">
+            <summary>
+            完成发送
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IEmojiStep`1.Emoji(System.String)">
+            <summary>
+            emoji表情
+            </summary>
+            <param name="id">emoji字符的unicode编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IFaceStep`1.Face(System.String)">
+            <summary>
+             QQ表情
+            </summary>
+            <param name="id">0-170的数字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IGroupMessageDone.Done">
+            <summary>
+            完成发送
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IImageStep`1.Image(System.String)">
+            <summary>
+            发送自定义图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IPrivateMessageDone.Done">
+            <summary>
+            完成发送
+            </summary>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IRecordStep`1.Record(System.String,System.Boolean)">
+            <summary>
+            发送语音
+            </summary>
+            <param name="file">音频文件名称</param>
+            <param name="magic">是否为变声</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IRecordStep`1.Record(System.String)">
+            <summary>
+            发送语音
+            </summary>
+            <param name="file">音频文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.ISFaceStep`1.SFace(System.String)">
+            <summary>
+            小表情
+            </summary>
+            <param name="id">小表情的ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.IShakeStep`1.Shake">
+            <summary>
+            戳一戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.ITextStep`1.Text(System.String)">
+            <summary>
+            文本信息
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Newbe.Mahua.Messages.Steps.ITextStep`1.Newline">
+            <summary>
+            换行
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Newbe.Mahua.ModelWithSourceString`1">
             <summary>

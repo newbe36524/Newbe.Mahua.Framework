@@ -2,13 +2,13 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.7.1</VersionPrefix>
+    <VersionPrefix>1.8.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>http://www.newbe.cf</PackageProjectUrl>
+    <PackageProjectUrl>http://www.newbe.pro</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageOutputPath>../build/</PackageOutputPath>
@@ -25,10 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.7.1.4347" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.Error.MSBuild" Version="1.0.0" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.MSBuild" Version="5.0.0" PrivateAssets="all" />
-    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.7.4" PrivateAssets="all" />
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.8.2.4717" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.0" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

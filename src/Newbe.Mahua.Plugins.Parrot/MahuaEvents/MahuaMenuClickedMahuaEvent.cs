@@ -26,7 +26,7 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 
         private static void ShowNewbe()
         {
-            Process.Start("http://www.newbe.cf");
+            Process.Start("http://www.newbe.pro");
         }
     }
 }
