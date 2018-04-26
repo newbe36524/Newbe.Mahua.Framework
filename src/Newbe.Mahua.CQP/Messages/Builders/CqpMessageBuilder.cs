@@ -60,24 +60,24 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            var destFileName = file;
+            var fileName = Path.GetFileName(file);
             if (!file.StartsWith(CqpDirectories.Image))
             {
-                destFileName = Path.Combine(CqpDirectories.Image, Path.GetFileName(file));
-                File.Copy(file, destFileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, fileName);
+                File.Copy(file, destFileName,true);
             }
-            _message.Append($"[CQ:image,file={destFileName}]");
+            _message.Append($"[CQ:image,file={fileName}]");
         }
 
         public void Record(string file)
         {
-            var destFileName = file;
-            if (!file.StartsWith(CqpDirectories.Record))
+            var fileName = Path.GetFileName(file);
+            if (!file.StartsWith(CqpDirectories.Image))
             {
-                destFileName = Path.Combine(CqpDirectories.Record, Path.GetFileName(file));
-                File.Copy(file, destFileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, fileName);
+                File.Copy(file, destFileName, true);
             }
-            _message.Append($"[CQ:record,file={destFileName},magic=false]");
+            _message.Append($"[CQ:record,file={fileName},magic=false]");
         }
 
         public void SFace(string id)
