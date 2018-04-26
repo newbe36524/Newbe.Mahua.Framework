@@ -68,7 +68,10 @@ namespace Newbe.Mahua.CQP.Messages.Builders
             }
             _message.Append($"[CQ:image,file={fileName}]");
         }
-
+        /// <summary>
+        /// {1}为语音文件名称，图片存放在酷Q目录的data\record\下
+        /// </summary>
+        /// <param name="file"></param>
         public void Record(string file)
         {
             var fileName = Path.GetFileName(file);
