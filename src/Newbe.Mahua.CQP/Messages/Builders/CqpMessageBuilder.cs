@@ -60,13 +60,13 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            var fileName = Path.GetFileName(file);
+            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
             if (!file.StartsWith(CqpDirectories.Image))
             {
-                var destFileName = Path.Combine(CqpDirectories.Image, fileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, newName);
                 File.Copy(file, destFileName,true);
             }
-            _message.Append($"[CQ:image,file={fileName}]");
+            _message.Append($"[CQ:image,file={newName}]");
         }
         /// <summary>
         /// {1}为语音文件名称，图片存放在酷Q目录的data\record\下
@@ -74,13 +74,13 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Record(string file)
         {
-            var fileName = Path.GetFileName(file);
+            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
             if (!file.StartsWith(CqpDirectories.Image))
             {
-                var destFileName = Path.Combine(CqpDirectories.Image, fileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, newName);
                 File.Copy(file, destFileName, true);
             }
-            _message.Append($"[CQ:record,file={fileName},magic=false]");
+            _message.Append($"[CQ:record,file={newName},magic=false]");
         }
 
         public void SFace(string id)
