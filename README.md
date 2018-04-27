@@ -1,3 +1,5 @@
+这是一个自用魔改版！
+
 # Newbe.Mahua.Framework
 
 先点击一下右上角的Star，开启隐藏功能。

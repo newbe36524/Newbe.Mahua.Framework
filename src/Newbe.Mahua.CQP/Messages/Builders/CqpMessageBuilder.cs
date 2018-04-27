@@ -60,24 +60,27 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            var destFileName = file;
+            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
             if (!file.StartsWith(CqpDirectories.Image))
             {
-                destFileName = Path.Combine(CqpDirectories.Image, Path.GetFileName(file));
-                File.Copy(file, destFileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, newName);
+                File.Copy(file, destFileName,true);
             }
-            _message.Append($"[CQ:image,file={destFileName}]");
+            _message.Append($"[CQ:image,file={newName}]");
         }
-
+        /// <summary>
+        /// {1}为语音文件名称，图片存放在酷Q目录的data\record\下
+        /// </summary>
+        /// <param name="file"></param>
         public void Record(string file)
         {
-            var destFileName = file;
-            if (!file.StartsWith(CqpDirectories.Record))
+            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
+            if (!file.StartsWith(CqpDirectories.Image))
             {
-                destFileName = Path.Combine(CqpDirectories.Record, Path.GetFileName(file));
-                File.Copy(file, destFileName);
+                var destFileName = Path.Combine(CqpDirectories.Image, newName);
+                File.Copy(file, destFileName, true);
             }
-            _message.Append($"[CQ:record,file={destFileName},magic=false]");
+            _message.Append($"[CQ:record,file={newName},magic=false]");
         }
 
         public void SFace(string id)
