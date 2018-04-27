@@ -60,11 +60,11 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
+            var newName = Guid.NewGuid() + "." + Path.GetExtension(file);
             if (!file.StartsWith(CqpDirectories.Image))
             {
                 var destFileName = Path.Combine(CqpDirectories.Image, newName);
-                File.Copy(file, destFileName,true);
+                File.Copy(file, destFileName, true);
             }
             _message.Append($"[CQ:image,file={newName}]");
         }
@@ -74,10 +74,10 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         /// <param name="file"></param>
         public void Record(string file)
         {
-            string newName = Guid.NewGuid().ToString() + "." + System.IO.Path.GetExtension(file);
-            if (!file.StartsWith(CqpDirectories.Image))
+            var newName = Guid.NewGuid() + "." + Path.GetExtension(file);
+            if (!file.StartsWith(CqpDirectories.Record))
             {
-                var destFileName = Path.Combine(CqpDirectories.Image, newName);
+                var destFileName = Path.Combine(CqpDirectories.Record, newName);
                 File.Copy(file, destFileName, true);
             }
             _message.Append($"[CQ:record,file={newName},magic=false]");
