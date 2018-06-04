@@ -312,7 +312,7 @@ namespace Newbe.Mahua.Domains
             var result = Loader.Create<TInterfaceType>(typeName);
             if (result == null)
                 throw new NotImplementedException();
-            return (TInterfaceType)result;
+            return result;
         }
 
         /// <summary>

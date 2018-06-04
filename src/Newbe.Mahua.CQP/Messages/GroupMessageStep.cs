@@ -1,13 +1,11 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
-using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
     public class GroupMessageStep : IGroupMessageStep
     {
         private readonly IGroupMessageStep2 _groupMessageStep2;
-        private readonly IGroupMessageDone _groupMessageDone;
         private readonly IAtAll _atAll;
         private readonly IAt _at;
         private readonly IText _text;
@@ -19,7 +17,6 @@ namespace Newbe.Mahua.CQP.Messages
 
         public GroupMessageStep(
             IGroupMessageStep2 groupMessageStep2,
-            IGroupMessageDone groupMessageDone,
             IAtAll atAll,
             IAt at,
             IText text,
@@ -30,7 +27,6 @@ namespace Newbe.Mahua.CQP.Messages
             IEmoji emoji)
         {
             _groupMessageStep2 = groupMessageStep2;
-            _groupMessageDone = groupMessageDone;
             _atAll = atAll;
             _at = at;
             _text = text;

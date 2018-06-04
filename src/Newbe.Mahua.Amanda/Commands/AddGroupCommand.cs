@@ -30,12 +30,6 @@ namespace Newbe.Mahua.Amanda.Commands
 
     internal class AddGroupCommandHandler : ICommandHandler<AddGroupCommand>
     {
-        private const string AddGroup主动加群 = "1";
-
-        private const string AddGroup被邀请进群 = "2";
-
-        private const string AddGroup机器人被邀请入群 = "3";
-
         private readonly IEnumerable<IGroupJoiningRequestReceivedMahuaEvent> _groupJoiningRequestReceivedMahuaEvents;
 
         private readonly IEnumerable<IGroupJoiningInvitationReceivedMahuaEvent>
@@ -51,6 +45,9 @@ namespace Newbe.Mahua.Amanda.Commands
 
         public void Handle(AddGroupCommand message)
         {
+            const string AddGroup主动加群 = "1";
+            const string AddGroup被邀请进群 = "2";
+            const string AddGroup机器人被邀请入群 = "3";
             switch (message.Type)
             {
                 case AddGroup主动加群:

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
@@ -49,16 +49,11 @@
     <Content Include="build.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Net.Compilers" Version="2.7.0" />
-    <PackageReference Include="Newbe.Build.Psake" Version="1.0.6" />
-    <PackageReference Include="NuGet.CommandLine" Version="4.3.0" />
+    <PackageReference Include="Newbe.Build.Psake" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
   <Import Project="..\Newbe.Mahua.props" />
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
-  </ItemGroup>
 
 </Project>

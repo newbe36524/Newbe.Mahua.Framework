@@ -86,10 +86,7 @@ namespace Newbe.Mahua.Amanda
 
         private class AmandaApiModule : Module
         {
-            protected override void Load(ContainerBuilder builder)
-            {
-                base.Load(builder);
-            }
+
         }
 
         private class MessageBuilderStepModule : Module

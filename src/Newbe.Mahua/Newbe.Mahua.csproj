@@ -80,10 +80,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
   <Import Project="..\Newbe.Mahua.props" />
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
-  </ItemGroup>
+
 </Project>

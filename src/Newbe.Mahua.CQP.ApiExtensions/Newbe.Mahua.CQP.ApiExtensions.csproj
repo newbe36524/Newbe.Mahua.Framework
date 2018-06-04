@@ -41,7 +41,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="refit" Version="4.3.0" />
+    <PackageReference Include="refit" Version="4.4.17" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,7 +51,5 @@
 
   <Import Project="..\Newbe.Mahua.props" />
 
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
-  </ItemGroup>
+
 </Project>

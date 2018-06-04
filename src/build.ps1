@@ -1,7 +1,7 @@
 ﻿Framework "4.6"
 properties {
     $rootNow = Resolve-Path .
-    $nugetexe = "$rootNow\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
+    $nugetexe = "$rootNow\buildTools\NuGet.exe"
     $deployMode = "Debug"
     $releaseDir = "$rootNow\build\"
 }
@@ -13,7 +13,7 @@ Task Clean -Description "清理上一次编译结果" {
 }
 
 Task Init -depends Clean -Description "初始化参数" {
-    Initialize-MSBuild
+
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
@@ -43,11 +43,7 @@ Task Pack -depends Build -Description "打包" {
     }
 }
 Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
-    Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
-        Exec {
-            cmd /c "$nugetexe push $releaseDir$_ -Source http://localhost:28081/repository/nuget-hosted/"
-        }
-    }
+
 }
 
 Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
