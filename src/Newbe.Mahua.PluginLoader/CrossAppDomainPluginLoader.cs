@@ -110,6 +110,8 @@ namespace Newbe.Mahua
                 Debug("构建Container完毕。");
                 Debug("插件已经初始化成功。");
                 _container = container;
+                var mahuaRobot = new MahuaRobotManagerImpl(container);
+                MahuaRobotManager.Instance = mahuaRobot;
                 return true;
             }
             catch (Exception ex)
@@ -122,10 +124,11 @@ namespace Newbe.Mahua
         public byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName)
         {
             WriteDiagnostics(() => cmd);
-            using (var beginLifetimeScope = _container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.Command))
+            using (var robotSession = MahuaRobotManager.Instance.CreateSession())
             {
-                SetContainer(beginLifetimeScope);
-                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                var lifetimeScope = robotSession.LifetimeScope;
+                SetContainer(lifetimeScope);
+                var center = lifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
                 var resultType = GetMahuaType(resultTypeFullName);
                 Func<object, object[], object> invoke =
@@ -142,10 +145,11 @@ namespace Newbe.Mahua
         public void Handle(byte[] cmd, string cmdTypeFullName)
         {
             WriteDiagnostics(() => cmd);
-            using (var beginLifetimeScope = _container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.Command))
+            using (var robotSession = MahuaRobotManager.Instance.CreateSession())
             {
-                SetContainer(beginLifetimeScope);
-                var center = beginLifetimeScope.Resolve<ICommandCenter>();
+                var lifetimeScope = robotSession.LifetimeScope;
+                SetContainer(lifetimeScope);
+                var center = lifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
                 var handler = VoidResultHandlers
                     .GetOrAdd(cmdType, _commandCenterHandleMethod.MakeGenericMethod(cmdType).Invoke);

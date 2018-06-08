@@ -17,6 +17,7 @@ namespace Newbe.Mahua.MPQ
         {
             return new Module[]
             {
+                new MpqModule(),
                 new MpqCommandHandlerModule(),
                 new MpqApiModule(),
                 new ApiCommandHandlersModule(),
@@ -24,6 +25,15 @@ namespace Newbe.Mahua.MPQ
                 new MessageBuilderStepModule(),
                 new MessageBuilderModule(),
             };
+        }
+
+        private class MpqModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<QqProvider>().As<IQqProvider>();
+            }
         }
 
         private class MpqCommandHandlerModule : Module
@@ -44,7 +54,6 @@ namespace Newbe.Mahua.MPQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<QqSession>().As<IQqSession>().InstancePerMatchingLifetimeScope(MahuaGlobal.LifeTimeScopes.Command);
                 builder.RegisterType<EventFunOutput>().As<IEventFunOutput>().InstancePerLifetimeScope();
             }
         }
