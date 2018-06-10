@@ -83,29 +83,10 @@
     <None Include="buildTools\packages.config" />
     <None Include="MahuaApis\readme.md" />
     <None Include="MahuaEvents\readme.md" />
-    <None Include="NewbeLibs\Framework\NLog.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="buildTools\7z.exe" />
-    <Content Include="NewbeLibs\Framework\Autofac.dll" />
-    <Content Include="NewbeLibs\Framework\Extensions\Administration\Newbe.Mahua.Administration.WPF.dll" />
-    <Content Include="NewbeLibs\Framework\Extensions\Administration\Newbe.Mahua.Administration.WPF.pdb" />
-    <Content Include="NewbeLibs\Framework\MediatR.dll" />
-    <Content Include="NewbeLibs\Framework\MessagePack.dll" />
-    <Content Include="NewbeLibs\Framework\Newbe.Mahua.dll" />
-    <Content Include="NewbeLibs\Framework\Newbe.Mahua.pdb" />
-    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.dll" />
-    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.pdb" />
-    <Content Include="NewbeLibs\Framework\Newbe.Mahua.xml" />
-    <Content Include="NewbeLibs\Framework\NLog.dll" />
-    <Content Include="NewbeLibs\Framework\System.Threading.Tasks.Extensions.dll" />
-    <Content Include="NewbeLibs\Framework\System.ValueTuple.dll" />
-    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.dll" />
-    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.Native.dll" />
-    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.Native.pdb" />
-    <Content Include="NewbeLibs\Platform\Amanda\CLR\Newbe.Mahua.Amanda.pdb" />
-    <Content Include="NewbeLibs\Platform\Amanda\Native\Newbe.Mahua.Amanda.Native.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
