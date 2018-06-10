@@ -1,5 +1,4 @@
-﻿using Newbe.Mahua.Logging;
-using Newbe.Mahua.MPQ.NativeApi;
+﻿using Newbe.Mahua.MPQ.NativeApi;
 using System;
 
 namespace Newbe.Mahua.MPQ
@@ -14,18 +13,15 @@ namespace Newbe.Mahua.MPQ
             _mpqApi = mpqApi;
         }
 
-        // TODO 需要测试
         public Func<string> DefaultQqProvider => () =>
         {
             var apiGetOnlineQQlist = _mpqApi.Api_GetOnlineQQlist();
-            LogProvider.For<QqProvider>().Info($" get qq list {apiGetOnlineQQlist}");
-            return string.Empty;
+            return apiGetOnlineQQlist;
         };
 
         public bool CheckQq(string qq)
         {
-            // TODO 需要实现
-            return false;
+            return DefaultQqProvider() == qq;
         }
     }
 }
