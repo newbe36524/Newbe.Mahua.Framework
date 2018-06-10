@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>NET452</TargetFrameworks>
@@ -6,15 +6,6 @@
     <Description>
       对原生的CQP平台API进行扩展，增加或改进部分API
     </Description>
-    <PackageReleaseNotes>
-      ## 1.8
-
-      随版本升级
-      ---
-      ## 1.7
-
-      增加发布群公告API
-    </PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">

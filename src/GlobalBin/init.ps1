@@ -4,6 +4,7 @@ $pcName = (Get-WmiObject -Class Win32_UserAccount -Filter "Name='$env:username' 
 
 if($pcName -ne "yks"){
 	Start-Process "http://www.newbe.pro/"
-	Start-Process "https://gitee.com/yks/Newbe.Mahua.Framework#project-donate-overview"
+	Start-Process "https://github.com/Newbe36524/Newbe.Mahua.Framework/issues/36"
+	Start-Process "https://github.com/Newbe36524/Newbe.Mahua.Framework/issues/37"
 }
 

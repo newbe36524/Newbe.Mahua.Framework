@@ -11,9 +11,15 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.9
+
+增加 MahuaRobotManager 和 RobotSession 机制，支持在 MahuaEvent 之外调用机器人API。
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/06/10/Release-Notes-1-9-0.html>
+
 ## 1.8
 
-增加了”消息发送Fluent API”，发送消息接口更加方便。
+增加了"消息发送Fluent API"，发送消息接口更加方便。
 
 详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/04/21/Release-Notes-1-8-0.html>
 
