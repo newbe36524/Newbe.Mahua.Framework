@@ -261,3 +261,10 @@ __pycache__/
 *.pyc
 /src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/
 /src/Newbe.Mahua.Plugins.Parrot.Tests/NewbeLibs/
+/src/Newbe.Mahua.Samples.ApiExtensions/NewbeLibs/
+/src/Newbe.Mahua.Samples.LiveGirl/NewbeLibs/
+/src/Newbe.Mahua.Samples.Sqlite/NewbeLibs/
+/src/Newbe.Mahua.Samples.Sqlite/buildTools/
+/src/Newbe.Mahua.Samples.LiveGirl/buildTools/
+/src/Newbe.Mahua.Samples.ApiExtensions/buildTools/
+/src/Newbe.Mahua.Samples.Sqlite.Tests/NewbeLibs/Framework/
