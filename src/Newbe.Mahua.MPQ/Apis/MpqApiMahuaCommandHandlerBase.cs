@@ -6,7 +6,7 @@ namespace Newbe.Mahua.MPQ.Apis
     public abstract class MpqApiMahuaCommandHandlerBase<T> : IApiCommandHandler<T>
         where T : ApiMahuaCommand
     {
-        private readonly IQqSession _qqSession;
+        private readonly IRobotSessionContext _robotSessionContext;
         private readonly IEventFunOutput _eventFunOutput;
 
         public IMpqApi MpqApi { get; }
@@ -17,14 +17,14 @@ namespace Newbe.Mahua.MPQ.Apis
             set => _eventFunOutput.Result = value;
         }
 
-        public string CurrentQq => _qqSession.CurrentQq;
+        public string CurrentQq => _robotSessionContext.CurrentQq;
 
         protected MpqApiMahuaCommandHandlerBase(
             IMpqApi mpqApi,
-            IQqSession qqSession,
+            IRobotSessionContext robotSessionContext,
             IEventFunOutput eventFunOutput)
         {
-            _qqSession = qqSession;
+            _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
             MpqApi = mpqApi;
         }
@@ -36,7 +36,7 @@ namespace Newbe.Mahua.MPQ.Apis
         where TCmd : ApiMahuaCommand<TResult>
         where TResult : ApiMahuaCommandResult
     {
-        private readonly IQqSession _qqSession;
+        private readonly IRobotSessionContext _robotSessionContext;
         private readonly IEventFunOutput _eventFunOutput;
 
         public IMpqApi MpqApi { get; }
@@ -47,14 +47,14 @@ namespace Newbe.Mahua.MPQ.Apis
             set => _eventFunOutput.Result = value;
         }
 
-        public string CurrentQq => _qqSession.CurrentQq;
+        public string CurrentQq => _robotSessionContext.CurrentQq;
 
         protected MpqApiMahuaCommandHandlerBase(
             IMpqApi mpqApi,
-            IQqSession qqSession,
+            IRobotSessionContext robotSessionContext,
             IEventFunOutput eventFunOutput)
         {
-            _qqSession = qqSession;
+            _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
             MpqApi = mpqApi;
         }

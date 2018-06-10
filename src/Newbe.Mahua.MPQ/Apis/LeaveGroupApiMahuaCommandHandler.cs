@@ -8,9 +8,9 @@ namespace Newbe.Mahua.MPQ.Apis
     {
         public LeaveGroupApiMahuaCommandHandler(
             IMpqApi mpqApi,
-            IQqSession qqSession,
+            IRobotSessionContext robotSessionContext,
             IEventFunOutput eventFunOutput)
-            : base(mpqApi, qqSession, eventFunOutput)
+            : base(mpqApi, robotSessionContext, eventFunOutput)
         {
         }
 

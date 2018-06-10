@@ -60,9 +60,9 @@ namespace Newbe.Mahua
         public static class LifeTimeScopes
         {
             /// <summary>
-            /// CommandCenter触发一次处理的范围
+            /// RobotSession生命周期的范围
             /// </summary>
-            public static readonly string Command = "Command";
+            public static readonly string RobotSession = "RobotSession";
         }
     }
 }

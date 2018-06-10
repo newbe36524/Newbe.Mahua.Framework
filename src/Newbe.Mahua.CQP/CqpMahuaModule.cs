@@ -149,9 +149,9 @@ namespace Newbe.Mahua.CQP
                 base.Load(builder);
                 builder.RegisterType<GroupInfoSerializer>().AsImplementedInterfaces();
                 builder.RegisterType<GroupMemberInfoSerializer>().AsImplementedInterfaces();
+                builder.RegisterType<QqProvider>().As<IQqProvider>();
             }
         }
-
 
         private class MessageBuilderStepModule : Module
         {

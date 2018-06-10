@@ -16,6 +16,7 @@ namespace Newbe.Mahua.Amanda
         {
             return new Module[]
             {
+                new AmanadaModule(),
                 new AmandaApiModule(),
                 new AmandaCommandHandlerModule(),
                 new ApiCommandHandlersModule(),
@@ -24,6 +25,14 @@ namespace Newbe.Mahua.Amanda
             };
         }
 
+        private class AmanadaModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<QqProvider>().As<IQqProvider>();
+            }
+        }
         private class AmandaCommandHandlerModule : Module
         {
             protected override void Load(ContainerBuilder builder)
