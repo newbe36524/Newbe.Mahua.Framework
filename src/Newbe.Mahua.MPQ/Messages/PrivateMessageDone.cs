@@ -10,25 +10,25 @@ namespace Newbe.Mahua.MPQ.Messages
         private readonly IMahuaApi _mahuaApi;
         private readonly IMpqMessage _message;
         private readonly IMpqApi _mpqApi;
-        private readonly IQqSession _qqSession;
+        private readonly IRobotSessionContext _robotSessionContext;
 
         public PrivateMessageDone(
             IMahuaApi mahuaApi,
             IMpqMessage message,
             IMpqApi mpqApi,
-            IQqSession qqSession)
+            IRobotSessionContext robotSessionContext)
         {
             _mahuaApi = mahuaApi;
             _message = message;
             _mpqApi = mpqApi;
-            _qqSession = qqSession;
+            _robotSessionContext = robotSessionContext;
         }
 
         public void Done()
         {
             if (_message.Shake)
             {
-                _mpqApi.Api_SendShake(_qqSession.CurrentQq, _message.Target);
+                _mpqApi.Api_SendShake(_robotSessionContext.CurrentQq, _message.Target);
             }
             else
             {
@@ -37,7 +37,7 @@ namespace Newbe.Mahua.MPQ.Messages
                 {
                     _message.Images.Upload(file =>
                         _mpqApi.Api_UploadPic(
-                            _qqSession.CurrentQq,
+                            _robotSessionContext.CurrentQq,
                             1,
                             _message.Target,
                             File.ReadAllBytes(file)));

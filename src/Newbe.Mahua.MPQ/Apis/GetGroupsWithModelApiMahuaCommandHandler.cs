@@ -11,9 +11,9 @@ namespace Newbe.Mahua.MPQ.Apis
     {
         public GetGroupsWithModelApiMahuaCommandHandler(
             IMpqApi mpqApi,
-            IQqSession qqSession,
+            IRobotSessionContext robotSessionContext,
             IEventFunOutput eventFunOutput)
-            : base(mpqApi, qqSession, eventFunOutput)
+            : base(mpqApi, robotSessionContext, eventFunOutput)
         {
         }
 

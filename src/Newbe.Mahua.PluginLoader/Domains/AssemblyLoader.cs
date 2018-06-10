@@ -23,7 +23,7 @@ namespace Newbe.Mahua.Domains
     //<Serializable()>
     internal class AssemblyLoader : MarshalByRefObject, IAssemblyLoader
     {
-        private List<System.Reflection.Assembly> Assemblies { get; set; } = new List<Assembly>();
+        private List<Assembly> Assemblies { get; } = new List<Assembly>();
 
         /// <summary>
         /// Loads a dll into the new AppDomain

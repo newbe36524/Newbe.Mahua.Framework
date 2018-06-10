@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
@@ -6,54 +6,6 @@
     <Description>
       QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
     </Description>
-    <PackageReleaseNotes>
-      ## 1.8
-
-      支持使用 Fluent Api 进行消息发送。
-      添加一系列 IMessageBuilder 接口，实现消息构建接口的统一。
-      ---
-      ## 1.7
-
-      支持外部添加IMahuaApi的相关实现
-      ---
-      ## 1.6
-
-      IMahuaApi接口增加GetLifetimeScope、SetLifetimeScope、GetSourceContainer、SetSourceContainer
-      IMahuaApib标记过期的接口GetContainer、SetContainer
-      增加IExceptionOccuredMahuaEvent用于全局异常处理
-      ---
-      ## 1.5
-
-      增加IMahuaConfigurationManager接口，作为“设置中心”抽象接口。
-      增加IMahuaMenuProvider接口，作为“设置中心”的菜单扩展接口。
-      增加IMahuaMenuClickedMahuaEvent接口，作为“设置中心”的菜单单击事件。
-      ---
-      ## 1.4
-
-      增加Newbe.Mahua.MPQ实现，支持MyPcQQ平台。
-      ---
-      ## 1.3
-
-      使用MessagePack替代JSON序列化，消息处理速度明显提升。
-      ---
-      ## 1.2
-
-      全新的打包机制：[Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)
-      被废弃的打包机制：Newbe.Mahua.Msbuild
-      [新版快速指南](http://www.newbe.cf/docs/mahua/2017/10/26/Begin-First-Plugin-With-Mahua-In-v1.2.html)
-
-      ---
-      ## 1.1
-
-      [#12](https://github.com/Newbe36524/Newbe.Mahua.Framework/issues/12) 提供对群列表、群成员列表的结构化接口支持
-
-      `IMahuaApi`新增方法:`GetGroupMemebersWithModel`,`GetGroupsWithModel`
-
-      ---
-      ## 1.0
-
-      主框架发布，支持CQP和Amanda机器人平台。
-    </PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -80,10 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="Autofac" Version="4.8.1" />
   </ItemGroup>
   <Import Project="..\Newbe.Mahua.props" />
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="6.8.2.4717" />
-  </ItemGroup>
+
 </Project>

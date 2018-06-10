@@ -13,10 +13,11 @@ namespace Newbe.Mahua
                 new PluginLoaderModule(),
                 new LoggedCommandCenterModule(),
                 new MahuaApiModule(),
+                new MahuaRobotManagerModule(),
             };
         }
 
-        public class PluginLoaderModule : Module
+        private class PluginLoaderModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
@@ -30,7 +31,7 @@ namespace Newbe.Mahua
             }
         }
 
-        public class LoggedCommandCenterModule : Module
+        private class LoggedCommandCenterModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
@@ -40,13 +41,25 @@ namespace Newbe.Mahua
             }
         }
 
-        public class MahuaApiModule : Module
+        private class MahuaApiModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
                 builder.RegisterType<ContainerSaver>().As<IContainerSaver>().InstancePerLifetimeScope();
                 builder.RegisterType<CommandCenterMahuaApi>().As<IMahuaApi>().InstancePerLifetimeScope();
+            }
+        }
+
+        private class MahuaRobotManagerModule : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                base.Load(builder);
+                builder.RegisterType<RobotSessionContext>()
+                    .As<IRobotSessionContext>()
+                    .InstancePerMatchingLifetimeScope(MahuaGlobal.LifeTimeScopes.RobotSession);
+                builder.Register(t => MahuaRobotManager.Instance).As<IMahuaRobotManager>();
             }
         }
     }

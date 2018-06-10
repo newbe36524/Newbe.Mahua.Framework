@@ -2,7 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.8.1</VersionPrefix>
+    <VersionPrefix>1.9.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -16,6 +16,64 @@
     <WarningsAsErrors></WarningsAsErrors>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
+    <PackageReleaseNotes>
+      ## 1.9
+
+      增加 MahuaRobotManager 和 RobotSession 机制，支持在 MahuaEvent 之外调用机器人API。
+
+      不再需要 NuGet.CommandLine ，可以卸载此包。
+
+      [新版快速指南](http://www.newbe.pro/docs/mahua/2018/06/10/Begin-First-Plugin-With-Mahua-In-v1.9.html)
+      ---
+      ## 1.8
+
+      支持使用 Fluent Api 进行消息发送。
+      添加一系列 IMessageBuilder 接口，实现消息构建接口的统一。
+      [新版快速指南](http://www.newbe.pro/docs/mahua/2018/04/21/Begin-First-Plugin-With-Mahua-In-v1.8.html)
+      ---
+      ## 1.7
+
+      支持外部添加IMahuaApi的相关实现
+      ---
+      ## 1.6
+
+      IMahuaApi接口增加GetLifetimeScope、SetLifetimeScope、GetSourceContainer、SetSourceContainer
+      IMahuaApib标记过期的接口GetContainer、SetContainer
+      增加IExceptionOccuredMahuaEvent用于全局异常处理
+      ---
+      ## 1.5
+
+      增加IMahuaConfigurationManager接口，作为“设置中心”抽象接口。
+      增加IMahuaMenuProvider接口，作为“设置中心”的菜单扩展接口。
+      增加IMahuaMenuClickedMahuaEvent接口，作为“设置中心”的菜单单击事件。
+      ---
+      ## 1.4
+
+      增加Newbe.Mahua.MPQ实现，支持MyPcQQ平台。
+      [新版快速指南](http://www.newbe.pro/docs/mahua/2017/12/16/Begin-First-Plugin-With-Mahua-In-v1.4.html)
+      ---
+      ## 1.3
+
+      使用MessagePack替代JSON序列化，消息处理速度明显提升。
+      ---
+      ## 1.2
+
+      全新的打包机制：[Newbe.Mahua.Tools.Psake](https://www.nuget.org/packages/Newbe.Mahua.Tools.Psake/)
+      被废弃的打包机制：Newbe.Mahua.Msbuild
+      [新版快速指南](http://www.newbe.pro/docs/mahua/2017/10/26/Begin-First-Plugin-With-Mahua-In-v1.2.html)
+
+      ---
+      ## 1.1
+
+      [#12](https://github.com/Newbe36524/Newbe.Mahua.Framework/issues/12) 提供对群列表、群成员列表的结构化接口支持
+
+      `IMahuaApi`新增方法:`GetGroupMemebersWithModel`,`GetGroupsWithModel`
+
+      ---
+      ## 1.0
+
+      主框架发布，支持CQP和Amanda机器人平台。
+    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
@@ -25,8 +83,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="6.8.2.4717" PrivateAssets="all" />
-    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.0" PrivateAssets="all" />
+    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.2.0.5463" PrivateAssets="all" /> -->
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.2" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

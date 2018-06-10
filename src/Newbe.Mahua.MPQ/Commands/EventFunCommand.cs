@@ -9,23 +9,23 @@ namespace Newbe.Mahua.MPQ.Commands
     public class EventFunCommandHandler : ICommandHandler<EventFunCommand, EventFunCommandResult>
     {
         private static readonly ILog Logger = LogProvider.For<EventFunCommandHandler>();
-        private readonly IQqSession _qqSession;
+        private readonly IRobotSessionContext _robotSessionContext;
         private readonly IEventFunOutput _eventFunOutput;
         private readonly IIndex<int, IEventFun> _eventFuncHandlers;
 
         public EventFunCommandHandler(
-            IQqSession qqSession,
+            IRobotSessionContext robotSessionContext,
             IEventFunOutput eventFunOutput,
             IIndex<int, IEventFun> eventFuncHandlers)
         {
-            _qqSession = qqSession;
+            _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
             _eventFuncHandlers = eventFuncHandlers;
         }
 
         public EventFunCommandResult Handle(EventFunCommand message)
         {
-            _qqSession.CurrentQq = message.ReceiverQq;
+            _robotSessionContext.CurrentQq = message.ReceiverQq;
             if (_eventFuncHandlers.TryGetValue(message.EventType, out var handler))
             {
                 handler.Handle(new EventFunInput

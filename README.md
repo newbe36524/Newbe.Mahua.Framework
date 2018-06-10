@@ -156,8 +156,6 @@ SetNotice                    | 发布群公告          | √(ext) | √   |
 - <https://github.com/mode51/Tungsten>
 - <https://gitee.com/yks/Newbe.Common>
 - <https://github.com/neuecc/MessagePack-CSharp>
-- <https://github.com/StyleCop/StyleCop>
-- <https://bitbucket.org/Manishkp/stylecop.error.msbuild>
 - <https://www.sonarlint.org/visualstudio/>
 - <https://github.com/xunit/xunit>
 - <http://www.fluentassertions.com/>
