@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.MahuaEvents;
+using System.Threading.Tasks;
 
 namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 {
@@ -35,6 +36,16 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
             _mahuaApi.SendPrivateMessage(context.FromQq)
                 .Image(@"D:\logo.png")
                 .Done();
+
+            // 异步发送消息，不能使用 _mahuaApi 实例，需要另外开启Session
+            Task.Factory.StartNew(() =>
+            {
+                using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+                {
+                    var api = robotSession.MahuaApi;
+                    api.SendPrivateMessage(context.FromQq, "异步的嘤嘤嘤");
+                }
+            });
         }
     }
 }
