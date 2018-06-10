@@ -259,4 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/.nuget/psake.4.4.1/tools
+/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Parrot.Tests/NewbeLibs/
