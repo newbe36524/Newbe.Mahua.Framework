@@ -102,7 +102,7 @@ namespace Newbe.Mahua.VsExtensions
                     Process.Start("https://jq.qq.com/?_wv=1027&k=4AMMCTx");
                     break;
                 case OpenTeachingCommandId:
-                    Process.Start("http://www.newbe.cf");
+                    Process.Start("http://www.newbe.pro");
                     break;
                 case StarCommandId:
                     Process.Start("https://github.com/Newbe36524/Newbe.Mahua.Framework/stargazers");
@@ -112,10 +112,10 @@ namespace Newbe.Mahua.VsExtensions
                     Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework#project-donate-overview");
                     break;
                 case AdviseCommandId:
-                    Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework/issues/new");
+                    Process.Start("https://github.com/Newbe36524/Newbe.Mahua.Framework/issues");
                     break;
                 case QuestionCommandId:
-                    Process.Start("https://gitee.com/yks/Newbe.Mahua.Framework/issues/new");
+                    Process.Start("https://github.com/Newbe36524/Newbe.Mahua.Framework/issues");
                     break;
             }
         }

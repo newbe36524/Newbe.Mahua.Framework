@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="MediatR, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MediatR.3.0.1\lib\net45\MediatR.dll</HintPath>
@@ -42,11 +42,11 @@
     <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.8.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.9.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.8.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.9.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -83,10 +83,30 @@
     <None Include="buildTools\packages.config" />
     <None Include="MahuaApis\readme.md" />
     <None Include="MahuaEvents\readme.md" />
+    <None Include="NewbeLibs\Framework\NLog.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="buildTools\7z.exe" />
+    <Content Include="buildTools\nuget.exe" />
+    <Content Include="NewbeLibs\Framework\Autofac.dll" />
+    <Content Include="NewbeLibs\Framework\Extensions\Administration\Newbe.Mahua.Administration.WPF.dll" />
+    <Content Include="NewbeLibs\Framework\Extensions\Administration\Newbe.Mahua.Administration.WPF.pdb" />
+    <Content Include="NewbeLibs\Framework\MediatR.dll" />
+    <Content Include="NewbeLibs\Framework\MessagePack.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.pdb" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.dll" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.PluginLoader.pdb" />
+    <Content Include="NewbeLibs\Framework\Newbe.Mahua.xml" />
+    <Content Include="NewbeLibs\Framework\NLog.dll" />
+    <Content Include="NewbeLibs\Framework\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="NewbeLibs\Framework\System.ValueTuple.dll" />
+    <Content Include="NewbeLibs\Platform\MPQ\CLR\Newbe.Mahua.MPQ.dll" />
+    <Content Include="NewbeLibs\Platform\MPQ\CLR\Newbe.Mahua.MPQ.Native.dll" />
+    <Content Include="NewbeLibs\Platform\MPQ\CLR\Newbe.Mahua.MPQ.Native.pdb" />
+    <Content Include="NewbeLibs\Platform\MPQ\CLR\Newbe.Mahua.MPQ.pdb" />
+    <Content Include="NewbeLibs\Platform\MPQ\Native\Newbe.Mahua.MPQ.Native.dll" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

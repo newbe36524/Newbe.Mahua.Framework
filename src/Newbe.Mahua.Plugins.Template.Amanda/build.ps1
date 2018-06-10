@@ -1,7 +1,7 @@
 ﻿Framework "4.6"
 properties {
     $rootNow = Resolve-Path .
-    $nugetexe = "$rootNow\..\packages\NuGet.CommandLine.4.3.0\tools\NuGet.exe"
+    $nugetexe = "$rootNow\buildTools\NuGet.exe"
     $configuration = "Debug"
     $releaseBase = "$rootNow\bin"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
@@ -47,12 +47,12 @@ Task Clean -Description "清理" {
 }
 
 Task Init -depends Clean -Description "初始化参数" {
-    Initialize-MSBuild
+
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
     Exec {
-        cmd /c ""$nugetexe" restore  -PackagesDirectory $rootNow\..\packages"
+        cmd /c """$nugetexe"" restore  -PackagesDirectory ""$rootNow\..\packages"""
     }
 }
 

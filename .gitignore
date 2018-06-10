@@ -268,3 +268,12 @@ __pycache__/
 /src/Newbe.Mahua.Samples.LiveGirl/buildTools/
 /src/Newbe.Mahua.Samples.ApiExtensions/buildTools/
 /src/Newbe.Mahua.Samples.Sqlite.Tests/NewbeLibs/Framework/
+/src/Newbe.Mahua.ItemTemplateGenerator/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Template.Amanda/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Template.CQP/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Template.MPQ/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Template/NewbeLibs/
+/src/Newbe.Mahua.Plugins.Template/buildTools/
+/src/Newbe.Mahua.Plugins.Template.MPQ/buildTools/
+/src/Newbe.Mahua.Plugins.Template.CQP/buildTools/
+/src/Newbe.Mahua.Plugins.Template.Amanda/buildTools/
