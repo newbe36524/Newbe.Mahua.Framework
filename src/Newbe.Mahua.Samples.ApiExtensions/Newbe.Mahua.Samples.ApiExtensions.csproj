@@ -98,6 +98,7 @@
     <None Include="NewbeLibs\Framework\NLog.config" />
     <None Include="NewbeLibs\Platform\CQP\Content\Newbe.Mahua.CQP.json" />
     <None Include="packages.config" />
+    <None Include="READEME.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="buildTools\7z.exe" />
