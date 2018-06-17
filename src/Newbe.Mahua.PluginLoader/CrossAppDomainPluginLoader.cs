@@ -109,7 +109,6 @@ namespace Newbe.Mahua
                 var container = builder.Build();
                 Debug("构建Container完毕。");
                 Debug("插件已经初始化成功。");
-                _container = container;
                 var mahuaRobot = new MahuaRobotManagerImpl(container);
                 MahuaRobotManager.Instance = mahuaRobot;
                 return true;
@@ -127,7 +126,6 @@ namespace Newbe.Mahua
             using (var robotSession = MahuaRobotManager.Instance.CreateSession())
             {
                 var lifetimeScope = robotSession.LifetimeScope;
-                SetContainer(lifetimeScope);
                 var center = lifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
                 var resultType = GetMahuaType(resultTypeFullName);
@@ -148,7 +146,6 @@ namespace Newbe.Mahua
             using (var robotSession = MahuaRobotManager.Instance.CreateSession())
             {
                 var lifetimeScope = robotSession.LifetimeScope;
-                SetContainer(lifetimeScope);
                 var center = lifetimeScope.Resolve<ICommandCenter>();
                 var cmdType = GetMahuaType(cmdTypeFullName);
                 var handler = VoidResultHandlers
@@ -181,8 +178,6 @@ namespace Newbe.Mahua
 
         private static readonly ILog Logger = LogProvider.For<CrossAppDomainPluginLoader>();
 
-        private IContainer _container;
-
         private readonly MethodInfo _commandCenterHandleWithResultMethod =
             typeof(ICommandCenter)
                 .GetMethod(nameof(ICommandCenter.HandleWithResult));
@@ -201,13 +196,6 @@ namespace Newbe.Mahua
                     Debug($"{re.GetType().FullName} {MessagePackSerializer.ToJson(re)}");
                 }
             }
-        }
-
-        private void SetContainer(ILifetimeScope container)
-        {
-            var api = container.Resolve<IMahuaApi>();
-            api.SetLifetimeScope(container);
-            api.SetSourceContainer(_container);
         }
     }
 }

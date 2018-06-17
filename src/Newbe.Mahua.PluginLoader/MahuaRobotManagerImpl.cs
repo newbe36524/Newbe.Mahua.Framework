@@ -20,7 +20,7 @@ namespace Newbe.Mahua
         public IRobotSession CreateSession()
         {
             var beginLifetimeScope = Container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.RobotSession);
-            var re = new RobotSession(beginLifetimeScope);
+            var re = new RobotSession(beginLifetimeScope, Container);
             re.Init(_qqProvider.DefaultQqProvider);
             return re;
         }
@@ -32,7 +32,7 @@ namespace Newbe.Mahua
                 throw new QqNotFoundException(qq);
             }
             var beginLifetimeScope = Container.BeginLifetimeScope(MahuaGlobal.LifeTimeScopes.RobotSession);
-            var re = new RobotSession(beginLifetimeScope);
+            var re = new RobotSession(beginLifetimeScope, Container);
             re.Init(qq);
             return re;
         }

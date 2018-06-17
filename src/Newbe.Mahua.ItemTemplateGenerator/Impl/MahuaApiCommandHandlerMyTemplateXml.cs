@@ -52,7 +52,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             #line hidden
             this.Write(@"”API的扩展。
 该模板使用T4模板生成，适用于1.x版本的Newbe.Mahua
-详细使用帮助可以参照教程说明 http://www.newbe.cf 。
+详细使用帮助可以参照教程说明 http://www.newbe.pro 。
 也可以加入QQ群（610394020），一同分享使用经验。
 	</Description>
     <ProjectType>CSharp</ProjectType>

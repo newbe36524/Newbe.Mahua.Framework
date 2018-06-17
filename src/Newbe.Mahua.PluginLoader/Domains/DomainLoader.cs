@@ -170,7 +170,7 @@ namespace Newbe.Mahua.Domains
                 DeleteDirectory(dir);
                 try
                 {
-                    System.IO.Directory.Delete(dir);
+                    System.IO.Directory.Delete(dir, true);
                 }
                 catch (Exception)
                 {
