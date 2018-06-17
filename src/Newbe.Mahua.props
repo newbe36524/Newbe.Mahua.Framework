@@ -2,8 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.9.0</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.9.1</VersionPrefix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>

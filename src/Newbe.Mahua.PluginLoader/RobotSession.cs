@@ -5,9 +5,13 @@ namespace Newbe.Mahua
 {
     internal class RobotSession : IRobotSession
     {
+        private readonly IContainer _container;
+
         public RobotSession(
-            ILifetimeScope lifetimeScope)
+            ILifetimeScope lifetimeScope,
+            IContainer container)
         {
+            _container = container;
             LifetimeScope = lifetimeScope;
         }
 
@@ -15,13 +19,33 @@ namespace Newbe.Mahua
         {
             var qqSession = LifetimeScope.Resolve<IRobotSessionContext>();
             qqSession.CurrentQq = qq;
+            EnsureMahuaApiHasContainer();
         }
 
         public void Init(Func<string> qqfunc)
         {
             var qqSession = LifetimeScope.Resolve<IRobotSessionContext>();
             qqSession.CurrentQqProvider = qqfunc;
+            EnsureMahuaApiHasContainer();
         }
+
+        private void EnsureMahuaApiHasContainer()
+        {
+            var mahuaApi = LifetimeScope.Resolve<IMahuaApi>();
+            mahuaApi.SetLifetimeScope(LifetimeScope);
+            mahuaApi.SetSourceContainer(_container);
+        }
+
+        public IMahuaApi MahuaApi
+        {
+            get
+            {
+                var mahuaApi = LifetimeScope.Resolve<IMahuaApi>();
+                return mahuaApi;
+            }
+        }
+
+        public ILifetimeScope LifetimeScope { get; }
 
         #region IDisposable Support
         private bool _disposedValue; // 要检测冗余调用
@@ -43,8 +67,5 @@ namespace Newbe.Mahua
             GC.SuppressFinalize(this);
         }
         #endregion
-
-        public IMahuaApi MahuaApi => LifetimeScope.Resolve<IMahuaApi>();
-        public ILifetimeScope LifetimeScope { get; }
     }
 }
