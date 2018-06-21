@@ -46,7 +46,7 @@ namespace Newbe.Mahua.Samples.OkexRobot.MahuaEvents
             _webHost.StartAsync(options.HangdireDashboardUri, _mahuaApi.GetSourceContainer());
 
             // 定时记录资产
-            RecurringJob.AddOrUpdate(nameof(IUserAssetTracer), () => _userAssetTracer.Recode(), Cron.Minutely);
+            RecurringJob.AddOrUpdate(nameof(IUserAssetTracer), () => _userAssetTracer.Recode(), Cron.MinuteInterval(10));
 
             // 定时检测订单成交变化
             RecurringJob.AddOrUpdate(nameof(OrderTracer), () => _orderTracer.ReportFinishedOrders(), () => Cron.MinuteInterval(5));
