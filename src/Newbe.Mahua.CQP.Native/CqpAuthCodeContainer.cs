@@ -1,4 +1,4 @@
-using Newbe.Mahua.CQP.NativeApi;
+﻿using Newbe.Mahua.CQP.NativeApi;
 
 namespace Newbe.Mahua.CQP.Native
 {

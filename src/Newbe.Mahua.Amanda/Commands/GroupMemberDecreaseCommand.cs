@@ -11,7 +11,7 @@ namespace Newbe.Mahua.Amanda.Commands
     public class GroupMemberDecreaseCommand : AmandaCommand
     {
         [DataMember]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataMember]
         public string Fromgroup { get; set; }
@@ -57,13 +57,13 @@ namespace Newbe.Mahua.Amanda.Commands
                 }));
         }
 
-        private static GroupMemberDecreasedReason ConvertType(string type)
+        private static GroupMemberDecreasedReason ConvertType(int type)
         {
             // 1.主动退群  2.被xxx踢出群
             switch (type)
             {
-                case "1": return GroupMemberDecreasedReason.Leavebyself;
-                case "2": return GroupMemberDecreasedReason.Kicked;
+                case 1: return GroupMemberDecreasedReason.Leavebyself;
+                case 2: return GroupMemberDecreasedReason.Kicked;
                 default: return GroupMemberDecreasedReason.Unknow;
             }
         }

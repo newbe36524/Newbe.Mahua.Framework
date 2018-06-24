@@ -11,7 +11,7 @@ namespace Newbe.Mahua.Amanda.Commands
     public class AdminChangeCommand : AmandaCommand
     {
         [DataMember]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataMember]
         public string Fromgroup { get; set; }
@@ -72,13 +72,13 @@ namespace Newbe.Mahua.Amanda.Commands
             }
         }
 
-        private static GroupAdminChangeType ConvertType(string type)
+        private static GroupAdminChangeType ConvertType(int type)
         {
             // 1.xx被添加管理 2.xx被解除管理
             switch (type)
             {
-                case "1": return GroupAdminChangeType.Enabled;
-                case "2": return GroupAdminChangeType.Disabled;
+                case 1: return GroupAdminChangeType.Enabled;
+                case 2: return GroupAdminChangeType.Disabled;
                 default: throw new ArgumentOutOfRangeException(nameof(type));
             }
         }

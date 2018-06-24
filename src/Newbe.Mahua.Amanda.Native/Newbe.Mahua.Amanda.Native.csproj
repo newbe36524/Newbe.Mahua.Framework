@@ -69,6 +69,7 @@
     <Compile Include="AmandaApi.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="AmandaAuthCodeContainer.cs" />
     <Compile Include="MahuaModule.cs" />
     <Compile Include="PluginApiExporter.cs" />
     <Compile Include="PluginInfoProvider.cs" />
