@@ -1,5 +1,6 @@
 ﻿using Newbe.Mahua.Samples.OkexRobot.Common;
 using Newbe.Mahua.Samples.OkexRobot.OkexApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -67,29 +68,53 @@ namespace Newbe.Mahua.Samples.OkexRobot.Services.Impl
                         foreach (var order in newOrders)
                         {
                             var ticker = _tickerProvider.GetTikcer(order.Symbol);
-                            if (order.Status == Order.OrderStatus.Finished)
+                            switch (order.Status)
                             {
-                                api.SendPrivateMessage(systemOptions.MasterQq)
-                                    .Text($"{order.Symbol} {order.Type:G} FINISHED")
-                                    .Newline()
-                                    .Text($"Price:{order.Price:E6}")
-                                    .Newline()
-                                    .Text($"Amount:{order.DealAmount:e2}/{order.Amount:e2} ")
-                                    .Newline()
-                                    .Text($"USD:{order.Amount * ticker.Last:0000000.00}")
-                                    .Done();
-                            }
-                            else
-                            {
-                                api.SendPrivateMessage(systemOptions.MasterQq)
-                                    .Text($"{order.Symbol} {order.Type:G} FINISHED")
-                                    .Newline()
-                                    .Text($"Price:{order.Price:E6}")
-                                    .Newline()
-                                    .Text($"Amount:{order.DealAmount:e2}/{order.Amount:e2} ")
-                                    .Newline()
-                                    .Text($"USD:{order.DealAmount * ticker.Last:0000000.00}")
-                                    .Done();
+                                case Order.OrderStatus.Canceled:
+                                    var step = api.SendPrivateMessage(systemOptions.MasterQq)
+                                        .Text($"{order.Symbol} {order.Type:G} CANCELED")
+                                        .Newline()
+                                        .Text($"Price:{order.Price:E6}")
+                                        .Newline();
+                                    if (order.DealAmount != 0)
+                                    {
+                                        step
+                                            .Text($"Amount:{order.DealAmount:e2}/{order.Amount:e2} ")
+                                            .Newline()
+                                            .Text($"USD:{order.Amount * ticker.Last:0000000.00}")
+                                            .Done();
+                                    }
+                                    else
+                                    {
+                                        step.Done();
+                                    }
+                                    break;
+                                case Order.OrderStatus.Finished:
+                                    api.SendPrivateMessage(systemOptions.MasterQq)
+                                        .Text($"{order.Symbol} {order.Type:G} FINISHED")
+                                        .Newline()
+                                        .Text($"Price:{order.Price:E6}")
+                                        .Newline()
+                                        .Text($"Amount:{order.DealAmount:e2}/{order.Amount:e2} ")
+                                        .Newline()
+                                        .Text($"USD:{order.Amount * ticker.Last:0000000.00}")
+                                        .Done();
+                                    break;
+                                case Order.OrderStatus.Doing:
+                                case Order.OrderStatus.Some:
+                                case Order.OrderStatus.Canceling:
+                                    api.SendPrivateMessage(systemOptions.MasterQq)
+                                        .Text($"{order.Symbol} {order.Type:G} {order.Status:D}")
+                                        .Newline()
+                                        .Text($"Price:{order.Price:E6}")
+                                        .Newline()
+                                        .Text($"Amount:{order.DealAmount:e2}/{order.Amount:e2} ")
+                                        .Newline()
+                                        .Text($"USD:{order.DealAmount * ticker.Last:0000000.00}")
+                                        .Done();
+                                    break;
+                                default:
+                                    throw new ArgumentOutOfRangeException();
                             }
                         }
                         FinishedOrders.AddRange(newOrders.Select(x => x.OrderId).ToArray());
