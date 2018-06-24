@@ -25,14 +25,6 @@
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="..\GlobalBin\ReflectSoftware.Insight.dll" Link="bin\Debug\net452\ReflectSoftware.Insight.dll">
-      <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="..\GlobalBin\ReflectSoftware.Insight.Extensions.NLog.dll" Link="bin\Debug\net452\ReflectSoftware.Insight.Extensions.NLog.dll" >
-      <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
-    </None>
     <None Include="bin\$(Configuration)\net452\*">
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>

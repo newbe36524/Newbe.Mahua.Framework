@@ -2,8 +2,8 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.10.0</VersionPrefix>
-    <VersionSuffix>dev01</VersionSuffix>
+    <VersionPrefix>1.10</VersionPrefix>
+    <VersionSuffix>dev03</VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
@@ -84,7 +84,7 @@
 
   <ItemGroup>
     <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.2.0.5463" PrivateAssets="all" /> -->
-    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.2" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
