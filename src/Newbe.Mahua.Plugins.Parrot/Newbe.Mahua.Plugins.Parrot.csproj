@@ -45,10 +45,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newbe.Mahua, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.10.0-dev05\lib\net452\Newbe.Mahua.dll</HintPath>
+      <HintPath>..\packages\Newbe.Mahua.1.10.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua.PluginLoader, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.10.0-dev05\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.10.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

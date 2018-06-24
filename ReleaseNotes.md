@@ -11,6 +11,12 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.10
+
+升级 Amanda SDK ，适应最新版本。
+
+增加 Log4View 日志输出方式，日志可见容易查看。
+
 ## 1.9
 
 增加 MahuaRobotManager 和 RobotSession 机制，支持在 MahuaEvent 之外调用机器人API。

@@ -176,3 +176,5 @@ SetNotice                    | 发布群公告          | √(ext) | √   |
 禁止用于国家或地区法律法规所禁止的范围！
 
 **最后，但是最重要的，一定要Star一下！**
+
+[借一步说话](http://www.newbe.pro/donate.html)
