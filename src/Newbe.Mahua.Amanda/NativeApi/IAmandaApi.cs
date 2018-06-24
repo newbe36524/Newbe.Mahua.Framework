@@ -133,7 +133,7 @@
         /// <param name="QQ号">类型为2，4时可留空</param>
         /// <param name="内容"></param>
         /// <returns></returns>
-        void Api_SendMsg(string 类型, string 群组, string QQ号, string 内容);
+        void Api_SendMsg(int 类型, string 群组, string QQ号, string 内容);
 
         /// <summary>
         /// 处理加群消息
@@ -154,50 +154,6 @@
         /// <param name="拒绝理由">参数可为空，且为 拒绝 时有效</param>
         /// <returns></returns>
         void Api_SetFriendAdd(string QQ号, int 操作方式, string 拒绝理由);
-
-        /// <summary>
-        /// 总共五种积分类型，取出对应序号的积分名称，返回空
-        /// </summary>
-        /// <param name="积分类型"></param>
-        /// <returns></returns>
-        string Api_GetPointsName(int 积分类型);
-
-        /// <summary>
-        /// 取得当前某一类型积分是全局的还是分群的 0.全局 1.分群 -1.该积分未被启用
-        /// </summary>
-        /// <param name="积分类型"></param>
-        /// <returns></returns>
-        int Api_GetPointsState(int 积分类型);
-
-        /// <summary>
-        /// 修改成功返回积分数值，失败返回-1
-        /// </summary>
-        /// <param name="积分类型"></param>
-        /// <param name="群号">如果积分库是全局的 则不用填写此参数</param>
-        /// <param name="QQ号"></param>
-        /// <param name="积分数值"></param>
-        /// <returns></returns>
-        long Api_SetPointsNum(int 积分类型, string 群号, string QQ号, long 积分数值);
-
-        /// <summary>
-        /// 修改成功返回积分数值，失败返回-1
-        /// </summary>
-        /// <param name="积分类型"></param>
-        /// <param name="群号">如果积分库是全局的 则不用填写此参数</param>
-        /// <param name="QQ号"></param>
-        /// <param name="积分数值"></param>
-        /// <returns></returns>
-        long Api_AddPoints(int 积分类型, string 群号, string QQ号, long 积分数值);
-
-        /// <summary>
-        /// 修改成功返回积分数值，失败返回-1
-        /// </summary>
-        /// <param name="积分类型"></param>
-        /// <param name="群号">如果积分库是全局的 则不用填写此参数</param>
-        /// <param name="QQ号"></param>
-        /// <param name="积分数值"></param>
-        /// <returns></returns>
-        long Api_ReducePoints(int 积分类型, string 群号, string QQ号, long 积分数值);
 
         /// <summary>
         ///

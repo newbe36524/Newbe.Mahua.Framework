@@ -15,6 +15,7 @@ namespace Newbe.Mahua.Amanda.Native
             protected override void Load(ContainerBuilder builder)
             {
                 builder.RegisterType<AmandaApi>().As<IAmandaApi>().InstancePerLifetimeScope();
+                builder.RegisterType<AmandaAuthCodeContainer>().As<IAmandaAuthCodeContainer>().SingleInstance();
             }
         }
     }

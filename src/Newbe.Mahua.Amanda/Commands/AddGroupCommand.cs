@@ -10,7 +10,7 @@ namespace Newbe.Mahua.Amanda.Commands
     public class AddGroupCommand : AmandaCommand
     {
         [DataMember]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataMember]
         public string Fromgroup { get; set; }
@@ -45,9 +45,9 @@ namespace Newbe.Mahua.Amanda.Commands
 
         public void Handle(AddGroupCommand message)
         {
-            const string AddGroup主动加群 = "1";
-            const string AddGroup被邀请进群 = "2";
-            const string AddGroup机器人被邀请入群 = "3";
+            const int AddGroup主动加群 = 1;
+            const int AddGroup被邀请进群 = 2;
+            const int AddGroup机器人被邀请入群 = 3;
             switch (message.Type)
             {
                 case AddGroup主动加群:
@@ -78,7 +78,7 @@ namespace Newbe.Mahua.Amanda.Commands
                             GroupJoiningRequestId = message.Seq
                         }));
                     break;
-                default: throw new ArgumentOutOfRangeException(message.Type);
+                default: throw new ArgumentOutOfRangeException(nameof(message));
             }
         }
     }

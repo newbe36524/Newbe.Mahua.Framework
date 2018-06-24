@@ -44,10 +44,6 @@
       <Pack>true</Pack>
       <PackagePath>content\NewbeLibs\Framework\</PackagePath>
     </None>
-    <None Include="bin\$(Configuration)\net452\Newtonsoft.Json.dll">
-      <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
-    </None>
   </ItemGroup>
 
   <ItemGroup>

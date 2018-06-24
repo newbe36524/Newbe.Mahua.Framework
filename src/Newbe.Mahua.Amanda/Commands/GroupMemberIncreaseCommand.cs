@@ -11,7 +11,7 @@ namespace Newbe.Mahua.Amanda.Commands
     public class GroupMemberIncreaseCommand : AmandaCommand
     {
         [DataMember]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataMember]
         public string Fromgroup { get; set; }
@@ -58,13 +58,13 @@ namespace Newbe.Mahua.Amanda.Commands
                 }));
         }
 
-        private static GroupMemberIncreasedReason ConvertType(string type)
+        private static GroupMemberIncreasedReason ConvertType(int type)
         {
             // 1.主动入群  2.被xxx邀请入群
             switch (type)
             {
-                case "1": return GroupMemberIncreasedReason.AdminAllowed;
-                case "2": return GroupMemberIncreasedReason.GroupMemberInvitated;
+                case 1: return GroupMemberIncreasedReason.AdminAllowed;
+                case 2: return GroupMemberIncreasedReason.GroupMemberInvitated;
                 default: return GroupMemberIncreasedReason.Unknow;
             }
         }

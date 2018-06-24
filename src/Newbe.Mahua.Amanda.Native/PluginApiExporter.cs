@@ -12,10 +12,13 @@ namespace Newbe.Mahua.Amanda
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
 
         [DllExport("Information", CallingConvention.StdCall)]
-        public static string Information()
+        public static string Information(string authCode)
         {
             var informationCommandResult = Native.PluginInstanceManager.GetInstance()
-                .SendCommand<InformationCommand, InformationCommandResult>(new InformationCommand());
+                .SendCommand<InformationCommand, InformationCommandResult>(new InformationCommand
+                {
+                    AuthCode = authCode,
+                });
             return informationCommandResult.Info;
         }
 
@@ -59,26 +62,27 @@ namespace Newbe.Mahua.Amanda
         /// <param name="fromgroup">类型=1的时候，此参数为空，其余情况下为 群号或讨论组号</param>
         /// <param name="fromqq"></param>
         /// <param name="message"></param>
+        /// <param name="messageId"></param>
         /// <returns></returns>
         [DllExport("Event_GetNewMsg", CallingConvention.StdCall)]
-        public static string Event_GetNewMsg(string type, string fromgroup, string fromqq, string message)
+        public static string Event_GetNewMsg(int type, string fromgroup, string fromqq, string message, string messageId)
         {
             FromMessageType t;
             switch (type)
             {
-                case "1":
+                case 1:
                     t = FromMessageType.好友消息;
                     break;
-                case "2":
+                case 2:
                     t = FromMessageType.群消息;
                     break;
-                case "3":
+                case 3:
                     t = FromMessageType.群临时消息;
                     break;
-                case "4":
+                case 4:
                     t = FromMessageType.讨论组消息;
                     break;
-                case "5":
+                case 5:
                     t = FromMessageType.讨论组临时消息;
                     break;
                 default:
@@ -107,7 +111,7 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GetQQWalletData", CallingConvention.StdCall)]
         public static string Event_GetQQWalletData(
-            string type,
+            int type,
             string fromgroup,
             string fromqq,
             string money,
@@ -134,7 +138,7 @@ namespace Newbe.Mahua.Amanda
         /// <param name="fromqq"></param>
         /// <returns></returns>
         [DllExport("Event_AdminChange", CallingConvention.StdCall)]
-        public static string Event_AdminChange(string type, string fromgroup, string fromqq)
+        public static string Event_AdminChange(int type, string fromgroup, string fromqq)
         {
             Native.PluginInstanceManager.GetInstance().SendCommand(new AdminChangeCommand
             {
@@ -155,7 +159,7 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GroupMemberIncrease", CallingConvention.StdCall)]
         public static string Event_GroupMemberIncrease(
-            string type,
+            int type,
             string fromgroup,
             string fromqq,
             string operatorQq)
@@ -180,7 +184,7 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_GroupMemberDecrease", CallingConvention.StdCall)]
         public static string Event_GroupMemberDecrease(
-            string type,
+            int type,
             string fromgroup,
             string fromqq,
             string operatorQq)
@@ -207,7 +211,7 @@ namespace Newbe.Mahua.Amanda
         /// <returns></returns>
         [DllExport("Event_AddGroup", CallingConvention.StdCall)]
         public static string Event_AddGroup(
-            string type,
+            int type,
             string fromgroup,
             string fromqq,
             string invatorQq,

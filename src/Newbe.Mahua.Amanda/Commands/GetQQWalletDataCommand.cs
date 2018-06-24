@@ -7,7 +7,7 @@ namespace Newbe.Mahua.Amanda.Commands
     public class GetQqWalletDataCommand : AmandaCommand
     {
         [DataMember]
-        public string Type { get; set; }
+        public int Type { get; set; }
 
         [DataMember]
         public string Fromgroup { get; set; }
