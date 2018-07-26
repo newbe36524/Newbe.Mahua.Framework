@@ -1,17 +1,16 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-
+name: 我想到了一个没有婉过的传新版本
+about: 简要描述一下你新奇的想法
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**这个想法是不是和你的某个需求有关，说说看？**
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+[描述一下，为啥要有这个特性]
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**给出你的解决方案**
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+[描述一下你的解决方案]
+
+**额外信息**
+
+[添加一些额外信息]
