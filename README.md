@@ -169,7 +169,7 @@ SetNotice                    | 发布群公告          | √(ext) | √   |
 
 ![https://codescene.io/projects/3150/jobs/latest-successful/results](https://codescene.io/projects/3150/status.svg)
 
-Get more details at **codescene.io**.](<https://codescene.io/projects/3150/jobs/latest-successful/results>)
+[Get more details at **codescene.io**.](https://codescene.io/projects/3150/jobs/latest-successful/results)
 
 ## 说在最后面
 
