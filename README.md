@@ -165,6 +165,12 @@ SetNotice                    | 发布群公告          | √(ext) | √   |
 - <https://github.com/aspnet/AspNetKatana/>
 - <https://github.com/paulcbetts/refit>
 
+## Emmmm....
+
+![https://codescene.io/projects/3150/jobs/latest-successful/results](https://codescene.io/projects/3150/status.svg)
+
+Get more details at **codescene.io**.](<https://codescene.io/projects/3150/jobs/latest-successful/results>)
+
 ## 说在最后面
 
 开发本SDK的目的是为了促进.Net技术的交流学习。

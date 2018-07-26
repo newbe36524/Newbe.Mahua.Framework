@@ -1,35 +1,38 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-
+name: 提个碧油鸡
+about: 简要描述
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**详细过程**
 
-**To Reproduce**
-Steps to reproduce the behavior:
+[填写详细过程]
+
+**如何重现**
+
+重现步骤:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**测试期望**
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+[详细描述这个bug的期望]
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**来点截图**
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+[有图截图]
 
-**Additional context**
-Add any other context about the problem here.
+**系统参数:**
+
+- 操作系统版本: [e.g. Windows 10 Build 17134 ]
+- VS版本： [e.g. VS2017]
+
+**错误日志**
+
+[粘贴一些重要的错误日志]
+
+**额外信息**
+
+[添加一些额外信息]
