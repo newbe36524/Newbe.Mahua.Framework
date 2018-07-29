@@ -15,7 +15,7 @@ namespace Newbe.Mahua
             try
             {
                 EnsureAppDomainInitialized(pluginFileInfo);
-                return Instances[pluginFileInfo.Name];
+                return Instances[pluginFileInfo.Name].PluginLoader;
             }
             catch (Exception e)
             {
@@ -26,8 +26,20 @@ namespace Newbe.Mahua
 
         private static readonly ILog Logger = LogProvider.GetLogger(typeof(PluginInstanceManager));
 
-        private static IDictionary<string, IPluginLoader> Instances { get; } =
-            new Dictionary<string, IPluginLoader>();
+        private static IDictionary<string, PluginInstance> Instances { get; } =
+            new Dictionary<string, PluginInstance>();
+
+        internal static void DisposeAppDomain(PluginFileInfo pluginFileInfo)
+        {
+            var name = pluginFileInfo.Name;
+            if (Instances.ContainsKey(name))
+            {
+                var pluginInstance = Instances[name];
+                pluginInstance.DomainLoader.Dispose();
+                pluginInstance.DomainLoader = null;
+                pluginInstance.PluginLoader = null;
+            }
+        }
 
         private static void EnsureAppDomainInitialized(PluginFileInfo pluginFileInfo)
         {
@@ -57,7 +69,17 @@ namespace Newbe.Mahua
                 throw new PluginLoadException(pluginInfoName, loader.Message);
             }
 
-            Instances.Add(pluginInfoName, loader);
+            Instances.Add(pluginInfoName, new PluginInstance
+            {
+                DomainLoader = domainLoader,
+                PluginLoader = loader,
+            });
+        }
+
+        private class PluginInstance
+        {
+            public DomainLoader DomainLoader { get; set; }
+            public IPluginLoader PluginLoader { get; set; }
         }
     }
 }

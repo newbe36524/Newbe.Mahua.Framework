@@ -32,23 +32,23 @@
   <ItemGroup>
     <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\x86\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.MPQ.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\MPQ\Native\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\MPQ\Native\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\MPQ\CLR\</PackagePath>
     </None>
   </ItemGroup>
 

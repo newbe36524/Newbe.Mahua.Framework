@@ -19,15 +19,15 @@
   <ItemGroup>
     <None Include="..\GlobalBin\NLog.config" Link="bin\$(Configuration)\net452\NLog.config">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="..\GlobalBin\NLog.dll" Link="bin\$(Configuration)\net452\NLog.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\*">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
   </ItemGroup>
 

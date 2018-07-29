@@ -24,30 +24,27 @@
   <ItemGroup>
     <Content Include="Content\Newbe.Mahua.CQP.json">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\Content\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\Content\</PackagePath>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.CQP.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\Native\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\Native\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\CQP\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\CQP\CLR\</PackagePath>
     </None>
   </ItemGroup>
 

@@ -29,23 +29,23 @@
   <ItemGroup>
     <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\Newbe.Mahua.Amanda.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Amanda.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\Newbe.Mahua.Amanda.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Amanda.Native.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.Amanda.Native\bin\$(Configuration)\x86\Newbe.Mahua.Amanda.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.Amanda.Native.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\Amanda\Native\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\Amanda\Native\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.Amanda.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.Amanda.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Platform\Amanda\CLR\</PackagePath>
     </None>
   </ItemGroup>
 
