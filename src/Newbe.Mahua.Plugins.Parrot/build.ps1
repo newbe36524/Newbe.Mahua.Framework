@@ -49,11 +49,11 @@ function Get-Download-Package-ToolsDir {
 function Copy-FrameworkItems ($dest) {
     Exec {
         $installedFramework | ForEach-Object {
-            Write-Output "开始复制-框架主体"
+            Write-Output "copy start : $($_.id).$($_.version)"
             $framework = Get-MahuaPackage -id $_.id
             $toolBase = Get-Download-Package-ToolsDir -package $framework
             Copy-Item -Path  "$toolBase\NewbeLibs\Framework\*" -Destination $dest
-            Write-Output "结束复制-框架主体"
+            Write-Output "copy end : $($_.id).$($_.version)"
         }
     }
 }
@@ -61,11 +61,11 @@ function Copy-FrameworkItems ($dest) {
 function Copy-FrameworkExtensionItems ($dest) {
     Exec {
         $installedExts | ForEach-Object {
-            Write-Output "开始复制-框架扩展"
+            Write-Output "copy start : $($_.id).$($_.version)"
             $ext = Get-MahuaPackage -id $_.id
             $toolBase = Get-Download-Package-ToolsDir -package $ext
             Copy-Item -Path  "$toolBase\NewbeLibs\Framework\Extensions\*" -Destination $dest -Recurse
-            Write-Output "结束复制-框架扩展"
+            Write-Output "copy end : $($_.id).$($_.version)"
         }
     }
 }
@@ -85,12 +85,12 @@ Task Clean -Description "清理" {
 Task Init -depends Clean -Description "初始化参数" {
     $InstalledPlatforms | ForEach-Object {
         Exec {
-            Write-Output "当前已安装平台包：$($_.id).$($_.version)"
+            Write-Output "platform installed : $($_.id).$($_.version)"
         }
     }
     $installedExts | ForEach-Object {
         Exec {
-            Write-Output "当前已安装扩展包：$($_.id).$($_.version)"
+            Write-Output "extensions installed : $($_.id).$($_.version)"
         }
     }
 }
@@ -130,7 +130,7 @@ function WriteCqpJsonFile ($targetFilePath) {
     $installCqpVersion = Get-MahuaPackage -id "Newbe.Mahua.CQP"
     $toolBase = Get-Download-Package-ToolsDir -package $installCqpVersion
     # 读取文件
-    $jsonFile = "$toolBase\NewbeLibs\Platform\CQP\Content\Newbe.Mahua.CQP.json"
+    $jsonFile = "$toolBase\NewbeLibs\Platform\Content\Newbe.Mahua.CQP.json"
     $jsonText = Get-Content $jsonFile -Encoding "utf8"
     $json = $jsonText | ConvertFrom-Json
 
@@ -160,11 +160,17 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
             New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
             New-Item -ItemType Directory "$releaseBase\CQP\app"
             Copy-FrameworkItems -dest "$releaseBase\CQP\"
-            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CQP\CLR\*" -Destination "$releaseBase\CQP" -Recurse
+            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\CQP" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\CQP\$pluginName"
-            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CQP\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\CQP\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
+            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
             WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$pluginName.json"
+
+            Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\Asset\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\CQP\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Remove-Item "$releaseBase\hash.txt" 
+            Remove-Item "$releaseBase\CQP\$pluginName" -Recurse
         }
     }
 }
@@ -177,10 +183,16 @@ Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
             New-Item -ItemType Directory "$releaseBase\Amanda\$pluginName"
             New-Item -ItemType Directory "$releaseBase\Amanda\plugin"
             Copy-FrameworkItems -dest "$releaseBase\Amanda\"
-            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\Amanda\CLR\*" -Destination "$releaseBase\Amanda" -Recurse
+            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\Amanda" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\Amanda\$pluginName"
-            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\Amanda\CLR\*"   -Destination "$releaseBase\Amanda\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Amanda\Native\Newbe.Mahua.Amanda.Native.dll" -Destination  "$releaseBase\Amanda\plugin\$pluginName.plugin.dll"
+            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\Amanda\$pluginName" -Recurse
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.Amanda.Native.dll" -Destination  "$releaseBase\Amanda\plugin\$pluginName.plugin.dll"
+
+            Copy-Item "$releaseBase\Amanda\$pluginName" "$releaseBase\Amanda\Asset\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\Amanda\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Remove-Item "$releaseBase\hash.txt" 
+            Remove-Item "$releaseBase\Amanda\$pluginName" -Recurse
         }
     }
 }
@@ -193,10 +205,16 @@ Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
             New-Item -ItemType Directory "$releaseBase\MPQ\$pluginName"
             New-Item -ItemType Directory "$releaseBase\MPQ\Plugin"
             Copy-FrameworkItems -dest "$releaseBase\MPQ\"
-            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\MPQ\CLR\*" -Destination "$releaseBase\MPQ" -Recurse
+            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\MPQ" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\MPQ\$pluginName"
-            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\MPQ\CLR\*"   -Destination "$releaseBase\MPQ\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\MPQ\Native\Newbe.Mahua.MPQ.Native.dll" -Destination  "$releaseBase\MPQ\Plugin\$pluginName.xx.dll"
+            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\MPQ\$pluginName" -Recurse
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.MPQ.Native.dll" -Destination  "$releaseBase\MPQ\Plugin\$pluginName.xx.dll"
+
+            Copy-Item "$releaseBase\MPQ\$pluginName" "$releaseBase\MPQ\Asset\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\MPQ\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Remove-Item "$releaseBase\hash.txt" 
+            Remove-Item "$releaseBase\MPQ\$pluginName" -Recurse
         }
     }
 }
