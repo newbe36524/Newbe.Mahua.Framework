@@ -2,6 +2,9 @@
 using Newbe.Mahua.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.ExceptionServices;
+using System.Threading.Tasks;
 
 namespace Newbe.Mahua
 {
@@ -20,8 +23,9 @@ namespace Newbe.Mahua
             catch (Exception e)
             {
                 Logger.ErrorException(e.Message, e);
-                throw;
+                ExceptionDispatchInfo.Capture(e).Throw();
             }
+            return null;
         }
 
         private static readonly ILog Logger = LogProvider.GetLogger(typeof(PluginInstanceManager));
@@ -29,15 +33,16 @@ namespace Newbe.Mahua
         private static IDictionary<string, PluginInstance> Instances { get; } =
             new Dictionary<string, PluginInstance>();
 
-        internal static void DisposeAppDomain(PluginFileInfo pluginFileInfo)
+        internal static void DisposeAppDomain(string pluginName)
         {
-            var name = pluginFileInfo.Name;
-            if (Instances.ContainsKey(name))
+            if (Instances.ContainsKey(pluginName))
             {
-                var pluginInstance = Instances[name];
+                var pluginInstance = Instances[pluginName];
                 pluginInstance.DomainLoader.Dispose();
                 pluginInstance.DomainLoader = null;
                 pluginInstance.PluginLoader = null;
+                pluginInstance.FileSystemWatcher.Dispose();
+                Instances.Remove(pluginName);
             }
         }
 
@@ -53,6 +58,21 @@ namespace Newbe.Mahua
             Logger.Info("开始加载插件");
             Logger.Debug(pluginFileInfo.ToString());
             Logger.Debug($"当前插件名称为{pluginInfoName}");
+            Logger.Debug($"开始复制插件Asset文件 : {pluginInfoName}");
+            var pluginAssetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", pluginInfoName);
+            var pluginRuntimeDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pluginInfoName);
+            if (Directory.Exists(pluginRuntimeDir))
+            {
+                Directory.Delete(pluginRuntimeDir, true);
+            }
+
+            Directory.CreateDirectory(pluginRuntimeDir);
+            foreach (var fileFullname in Directory.GetFiles(pluginAssetDir))
+            {
+                var filename = Path.GetFileName(fileFullname);
+                File.Copy(fileFullname, Path.Combine(pluginRuntimeDir, filename));
+            }
+            Logger.Debug($"复制Asset文件完毕 : {pluginInfoName}");
             var domainLoader = new DomainLoader(
                 pluginInfoName,
                 pluginFileInfo.PluginEntyPointDirectory,
@@ -69,10 +89,33 @@ namespace Newbe.Mahua
                 throw new PluginLoadException(pluginInfoName, loader.Message);
             }
 
-            Instances.Add(pluginInfoName, new PluginInstance
+            var pluginInstance = new PluginInstance
             {
                 DomainLoader = domainLoader,
                 PluginLoader = loader,
+            };
+            var watcher = new FileSystemWatcher
+            {
+                Path = Path.Combine(pluginAssetDir),
+                NotifyFilter = NotifyFilters.CreationTime | NotifyFilters.LastWrite,
+                Filter = "hash.txt"
+            };
+            watcher.Changed += Watcher_Changed;
+            watcher.EnableRaisingEvents = true;
+            pluginInstance.FileSystemWatcher = watcher;
+            Instances.Add(pluginInfoName, pluginInstance);
+        }
+
+        private static void Watcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            var pluginName = Path.GetFileName(Path.GetDirectoryName(e.FullPath));
+            Logger.Info($"{pluginName} 发现 hash.txt 文件变更，将于3秒后启动热更新。");
+            Task.Run(() =>
+            {
+                Task.Delay(TimeSpan.FromSeconds(3));
+                Logger.Info($"{pluginName} 热更新启动...");
+                DisposeAppDomain(pluginName);
+                Logger.Info($"{pluginName} 热更新完毕.");
             });
         }
 
@@ -80,6 +123,7 @@ namespace Newbe.Mahua
         {
             public DomainLoader DomainLoader { get; set; }
             public IPluginLoader PluginLoader { get; set; }
+            public FileSystemWatcher FileSystemWatcher { get; set; }
         }
     }
 }
