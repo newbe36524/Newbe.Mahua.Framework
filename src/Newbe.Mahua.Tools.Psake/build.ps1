@@ -6,6 +6,7 @@ properties {
     $releaseBase = "$rootNow\bin"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $mahuaDownloadTempDir = "$($env:TEMP)\Newbe\Newbe.Mahua"
+	$assetDirName = "YUELUO"
 }
 
 $pkgNames = @{
@@ -165,9 +166,9 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
             Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
             WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$pluginName.json"
 
-            Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\Asset\$pluginName" -Recurse
-            Get-ChildItem "$releaseBase\CQP\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\$assetDirName\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\CQP\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\$assetDirName\$pluginName\hash.txt"
             Remove-Item "$releaseBase\hash.txt"
             Remove-Item "$releaseBase\CQP\$pluginName" -Recurse
         }
@@ -187,9 +188,9 @@ Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\Amanda\$pluginName" -Recurse
             Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.Amanda.Native.dll" -Destination  "$releaseBase\Amanda\plugin\$pluginName.plugin.dll"
 
-            Copy-Item "$releaseBase\Amanda\$pluginName" "$releaseBase\Amanda\Asset\$pluginName" -Recurse
-            Get-ChildItem "$releaseBase\Amanda\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Copy-Item "$releaseBase\Amanda\$pluginName" "$releaseBase\Amanda\$assetDirName\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\Amanda\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\$assetDirName\$pluginName\hash.txt"
             Remove-Item "$releaseBase\hash.txt"
             Remove-Item "$releaseBase\Amanda\$pluginName" -Recurse
         }
@@ -209,9 +210,9 @@ Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\MPQ\$pluginName" -Recurse
             Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.MPQ.Native.dll" -Destination  "$releaseBase\MPQ\Plugin\$pluginName.xx.dll"
 
-            Copy-Item "$releaseBase\MPQ\$pluginName" "$releaseBase\MPQ\Asset\$pluginName" -Recurse
-            Get-ChildItem "$releaseBase\MPQ\Asset\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\Asset\$pluginName\hash.txt"
+            Copy-Item "$releaseBase\MPQ\$pluginName" "$releaseBase\MPQ\$assetDirName\$pluginName" -Recurse
+            Get-ChildItem "$releaseBase\MPQ\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\$assetDirName\$pluginName\hash.txt"
             Remove-Item "$releaseBase\hash.txt"
             Remove-Item "$releaseBase\MPQ\$pluginName" -Recurse
         }

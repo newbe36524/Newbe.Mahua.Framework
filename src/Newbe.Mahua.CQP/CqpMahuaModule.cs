@@ -46,6 +46,8 @@ namespace Newbe.Mahua.CQP
                 builder.RegisterType<GroupJoiningRequestCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradingCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradedCommandHandler>().AsImplementedInterfaces();
             }
         }
 
