@@ -17,7 +17,7 @@ namespace Newbe.Mahua
     {
         private const string AssetDirName = "YUELUO";
         private static readonly ILog Logger = LogProvider.GetLogger(typeof(PluginInstanceManager));
-
+        private static readonly object PluginInitLocker = new object();
         public static IPluginLoader GetInstance(PluginFileInfo pluginFileInfo)
         {
             try
@@ -27,6 +27,7 @@ namespace Newbe.Mahua
             }
             catch (Exception e)
             {
+                // ReSharper disable once InconsistentlySynchronizedField
                 Logger.ErrorException(e.Message, e);
                 ExceptionDispatchInfo.Capture(e).Throw();
             }
@@ -44,57 +45,65 @@ namespace Newbe.Mahua
                 return;
             }
 
-            Logger.Info($"当前机器人平台为：{MahuaGlobal.CurrentPlatform:G}");
-            Logger.Info("开始加载插件");
-            Logger.Debug(pluginFileInfo.ToString());
-            Logger.Debug($"当前插件名称为{pluginInfoName}");
-            Logger.Debug($"开始复制插件Asset文件 : {pluginInfoName}");
-            var pluginAssetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AssetDirName, pluginInfoName);
-            var pluginRuntimeDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pluginInfoName);
-            if (Directory.Exists(pluginRuntimeDir))
+            lock (PluginInitLocker)
             {
-                Directory.Delete(pluginRuntimeDir, true);
+                if (Instances.ContainsKey(pluginInfoName))
+                {
+                    return;
+                }
+                Logger.Info($"当前机器人平台为：{MahuaGlobal.CurrentPlatform:G}");
+                Logger.Info("开始加载插件");
+                Logger.Debug(pluginFileInfo.ToString());
+                Logger.Debug($"当前插件名称为{pluginInfoName}");
+                Logger.Debug($"开始复制插件Asset文件 : {pluginInfoName}");
+                var pluginAssetDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AssetDirName, pluginInfoName);
+                var pluginRuntimeDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pluginInfoName);
+                if (Directory.Exists(pluginRuntimeDir))
+                {
+                    Directory.Delete(pluginRuntimeDir, true);
+                }
+
+                Directory.CreateDirectory(pluginRuntimeDir);
+                foreach (var fileFullname in Directory.GetFiles(pluginAssetDir))
+                {
+                    var filename = Path.GetFileName(fileFullname);
+                    File.Copy(fileFullname, Path.Combine(pluginRuntimeDir, filename));
+                }
+                Logger.Debug($"复制Asset文件完毕 : {pluginInfoName}");
+                var domainLoader = new DomainLoader(
+                    pluginInfoName,
+                    pluginFileInfo.PluginEntyPointDirectory,
+                    pluginFileInfo.PluginEntryPointConfigFullFilename,
+                    true);
+                Logger.Debug($"创建AppDomain进行加载插件:{pluginInfoName}");
+                domainLoader.Load();
+                Logger.Debug("开始创建透明代理");
+                var loader = domainLoader.Create<IPluginLoader>(typeof(CrossAppDomainPluginLoader).FullName);
+                Logger.Debug(
+                    $"透明代理创建完毕，类型为{loader.GetType().FullName}，将开始调用{nameof(CrossAppDomainPluginLoader.LoadPlugin)}方法");
+                if (!loader.LoadPlugin(pluginFileInfo.PluginEntryPointDllFullFilename))
+                {
+                    throw new PluginLoadException(pluginInfoName, loader.Message);
+                }
+
+                var pluginInstance = new PluginInstance
+                {
+                    DomainLoader = domainLoader,
+                    PluginLoader = loader,
+                    PluginFileInfo = pluginFileInfo,
+                };
+                var watcher = new FileSystemWatcher
+                {
+                    Path = Path.Combine(pluginAssetDir),
+                    NotifyFilter = NotifyFilters.LastWrite,
+                    Filter = "hash.txt"
+                };
+                watcher.Changed += Watcher_Changed;
+                watcher.EnableRaisingEvents = true;
+                pluginInstance.FileSystemWatcher = watcher;
+                Instances.Add(pluginInfoName, pluginInstance);
             }
 
-            Directory.CreateDirectory(pluginRuntimeDir);
-            foreach (var fileFullname in Directory.GetFiles(pluginAssetDir))
-            {
-                var filename = Path.GetFileName(fileFullname);
-                File.Copy(fileFullname, Path.Combine(pluginRuntimeDir, filename));
-            }
-            Logger.Debug($"复制Asset文件完毕 : {pluginInfoName}");
-            var domainLoader = new DomainLoader(
-                pluginInfoName,
-                pluginFileInfo.PluginEntyPointDirectory,
-                pluginFileInfo.PluginEntryPointConfigFullFilename,
-                true);
-            Logger.Debug($"创建AppDomain进行加载插件:{pluginInfoName}");
-            domainLoader.Load();
-            Logger.Debug("开始创建透明代理");
-            var loader = domainLoader.Create<IPluginLoader>(typeof(CrossAppDomainPluginLoader).FullName);
-            Logger.Debug(
-                $"透明代理创建完毕，类型为{loader.GetType().FullName}，将开始调用{nameof(CrossAppDomainPluginLoader.LoadPlugin)}方法");
-            if (!loader.LoadPlugin(pluginFileInfo.PluginEntryPointDllFullFilename))
-            {
-                throw new PluginLoadException(pluginInfoName, loader.Message);
-            }
-
-            var pluginInstance = new PluginInstance
-            {
-                DomainLoader = domainLoader,
-                PluginLoader = loader,
-                PluginFileInfo = pluginFileInfo,
-            };
-            var watcher = new FileSystemWatcher
-            {
-                Path = Path.Combine(pluginAssetDir),
-                NotifyFilter = NotifyFilters.LastWrite,
-                Filter = "hash.txt"
-            };
-            watcher.Changed += Watcher_Changed;
-            watcher.EnableRaisingEvents = true;
-            pluginInstance.FileSystemWatcher = watcher;
-            Instances.Add(pluginInfoName, pluginInstance);
         }
 
         private static void Watcher_Changed(object sender, FileSystemEventArgs e)
@@ -109,7 +118,7 @@ namespace Newbe.Mahua
                    return;
                }
                var pluginInstance = Instances[pluginName];
-               lock (pluginInstance.PluginFileInfo)
+               lock (PluginInitLocker)
                {
                    // 已经更新后Domain发生变化，因此无需再次更新
                    if (Instances[pluginName].DomainLoader != pluginInstance.DomainLoader)
