@@ -46,6 +46,8 @@ namespace Newbe.Mahua.MPQ
                 builder.RegisterType<EventFunCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<GetInfoCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradingCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradedCommandHandler>().AsImplementedInterfaces();
             }
         }
 
