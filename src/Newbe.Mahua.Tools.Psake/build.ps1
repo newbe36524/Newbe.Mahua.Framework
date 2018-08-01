@@ -176,7 +176,7 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
 }
 
 Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
-    $InstalledPlatforms | Where-Object {$_.Name -eq "Newbe.Mahua.Amanda"}  | ForEach-Object {
+    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.Amanda"}  | ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\Amanda"
@@ -190,7 +190,7 @@ Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
 
             Copy-Item "$releaseBase\Amanda\$pluginName" "$releaseBase\Amanda\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\Amanda\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\$assetDirName\$pluginName\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\Amanda\$assetDirName\$pluginName\hash.txt"
             Remove-Item "$releaseBase\hash.txt"
             Remove-Item "$releaseBase\Amanda\$pluginName" -Recurse
         }
@@ -198,7 +198,7 @@ Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
 }
 
 Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
-    $InstalledPlatforms | Where-Object {$_.Name -eq "Newbe.Mahua.MPQ"}| ForEach-Object {
+    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.MPQ"}| ForEach-Object {
         Exec {
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\MPQ"
@@ -212,7 +212,7 @@ Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
 
             Copy-Item "$releaseBase\MPQ\$pluginName" "$releaseBase\MPQ\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\MPQ\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\CQP\$assetDirName\$pluginName\hash.txt"
+            Copy-Item "$releaseBase\hash.txt" "$releaseBase\MPQ\$assetDirName\$pluginName\hash.txt"
             Remove-Item "$releaseBase\hash.txt"
             Remove-Item "$releaseBase\MPQ\$pluginName" -Recurse
         }
