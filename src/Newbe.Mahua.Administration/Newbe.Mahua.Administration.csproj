@@ -13,11 +13,11 @@
   <ItemGroup>
     <None Include="..\Newbe.Mahua.Administration.WPF\bin\$(Configuration)\Newbe.Mahua.Administration.WPF.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Administration.WPF.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\Extensions\Administration\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\Extensions\</PackagePath>
     </None>
     <None Include="..\Newbe.Mahua.Administration.WPF\bin\$(Configuration)\Newbe.Mahua.Administration.WPF.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.Administration.WPF.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\Extensions\Administration\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\Extensions\</PackagePath>
     </None>
   </ItemGroup>
 

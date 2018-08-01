@@ -22,27 +22,27 @@
   <ItemGroup>
     <None Include="bin\$(Configuration)\net452\MediatR.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\System.Threading.Tasks.Extensions.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\System.ValueTuple.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\MessagePack.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
     </None>
   </ItemGroup>
 

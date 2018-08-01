@@ -3,5 +3,9 @@
     public interface IAmandaAuthCodeContainer
     {
         string AuthCode { get; set; }
+
+        void Save();
+
+        void Load();
     }
 }
