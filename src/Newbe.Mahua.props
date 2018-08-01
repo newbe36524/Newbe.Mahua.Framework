@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <VersionPrefix>1.11</VersionPrefix>
-    <VersionSuffix>dev09</VersionSuffix>
+    <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
@@ -17,8 +17,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
     <PackageReleaseNotes>
-      升级 Amanda SDK ，适应最新版本。
-      增加 Log4View 日志输出方式，日志可见容易查看。
+      添加了插件热更新功能
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -29,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.2.0.5463" PrivateAssets="all" /> -->
+    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.3.1.5982" PrivateAssets="all" /> -->
     <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 

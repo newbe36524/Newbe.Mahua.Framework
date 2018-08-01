@@ -93,6 +93,7 @@
     <Content Include="Resources\NewbeCommandPackage.ico" />
     <VSCTCompile Include="NewbeCommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
     <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\DiscussMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\Events\DiscussMessageReceivedMahuaEvent.zip</Link>
