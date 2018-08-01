@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Samples.ApiExte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Samples.OkexRobot", "Newbe.Mahua.Samples.OkexRobot\Newbe.Mahua.Samples.OkexRobot.csproj", "{C78562A8-DFE1-4B98-A3A0-4FBAE1B773EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Samples.HotUpdate", "Newbe.Mahua.Samples.HotUpdate\Newbe.Mahua.Samples.HotUpdate.csproj", "{ECF9964E-F05B-42B4-998C-D7144D34A80B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C78562A8-DFE1-4B98-A3A0-4FBAE1B773EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C78562A8-DFE1-4B98-A3A0-4FBAE1B773EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C78562A8-DFE1-4B98-A3A0-4FBAE1B773EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF9964E-F05B-42B4-998C-D7144D34A80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF9964E-F05B-42B4-998C-D7144D34A80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF9964E-F05B-42B4-998C-D7144D34A80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF9964E-F05B-42B4-998C-D7144D34A80B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
