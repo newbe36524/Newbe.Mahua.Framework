@@ -159,11 +159,10 @@ namespace Newbe.Mahua
             Logger.Debug(msg);
         }
 
-        private static Type GetMahuaType(string typeName, MahuaPlatform? mahuaPlatform = null)
+        private static Type GetMahuaType(string typeName)
         {
-            var p = mahuaPlatform ?? MahuaGlobal.CurrentPlatform;
             var re = CommandAndResultTypes
-                .GetOrAdd($"{typeName}, Newbe.Mahua.{p:G}", typeStr => Type.GetType(typeStr, true, true));
+                .GetOrAdd(typeName, typeStr => Type.GetType(typeStr, true, true));
             return re;
         }
 

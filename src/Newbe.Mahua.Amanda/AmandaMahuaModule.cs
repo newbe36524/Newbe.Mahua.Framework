@@ -52,6 +52,8 @@ namespace Newbe.Mahua.Amanda
                 builder.RegisterType<PluginStartCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PluginStopCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<UpdataCookiesCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradingCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradedCommandHandler>().AsImplementedInterfaces();
             }
         }
 

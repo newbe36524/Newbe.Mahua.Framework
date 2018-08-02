@@ -26,28 +26,15 @@ Task Build -depends Nuget -Description "编译所有解决方案" {
     }
 }
 Task Pack -depends Build -Description "打包" {
-    $packList = @(
-        "Newbe.Mahua",
-        "Newbe.Mahua.PluginLoader",
-        "Newbe.Mahua.Tools.Psake",
-        "Newbe.Mahua.Administration",
-        "Newbe.Mahua.Amanda",
-        "Newbe.Mahua.CQP",
-        "Newbe.Mahua.MPQ",
-        "Newbe.Mahua.CQP.ApiExtensions"
-    )
-    $packList | ForEach-Object {
-        Exec {
-            dotnet pack "$_\$_.csproj" -c $deployMode --no-build
-        }
-    }
+    dotnet pack Newbe.Mahua.Pack.sln -c $deployMode --no-build
 }
 Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
-
+    Write-Output "构建完毕，当前时间为 $(Get-Date)"
 }
 
 Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
     Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
         cmd /c "$nugetexe push $releaseDir$_ -Source https://www.nuget.org/api/v2/package"
     }
+    Write-Output "构建完毕，当前时间为 $(Get-Date)"
 }

@@ -19,15 +19,15 @@
   <ItemGroup>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.dll" Link="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.dll">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\Extensions\CQPApiExtensions\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\Extensions\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.pdb" Link="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.pdb">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\Extensions\CQPApiExtensions\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\Extensions\</PackagePath>
     </None>
     <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.xml" Link="bin\$(Configuration)\net452\Newbe.Mahua.CQP.ApiExtensions.xml">
       <Pack>true</Pack>
-      <PackagePath>content\NewbeLibs\Framework\Extensions\CQPApiExtensions\</PackagePath>
+      <PackagePath>tools\NewbeLibs\Framework\Extensions\</PackagePath>
     </None>
   </ItemGroup>
 

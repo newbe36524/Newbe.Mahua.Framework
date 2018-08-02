@@ -11,14 +11,14 @@ namespace Newbe.Mahua
             var cmdType = typeof(TCommand);
             var resultType = typeof(TResult);
             var reJson = pluginLoader
-                .Handle(GlobalCache.CrossDoaminSerializer.Serialize(command, cmdType), cmdType.FullName, resultType.FullName);
+                .Handle(GlobalCache.CrossDoaminSerializer.Serialize(command, cmdType), cmdType.AssemblyQualifiedName, resultType.AssemblyQualifiedName);
             var re = GlobalCache.CrossDoaminSerializer.Deserialize(reJson, resultType);
             return (TResult)re;
         }
 
         public static void SendCommand<TMahuaCommand>(this IPluginLoader pluginLoader, TMahuaCommand command)
         {
-            var cmdTypeFullName = command.GetType().FullName;
+            var cmdTypeFullName = command.GetType().AssemblyQualifiedName;
             var serializeCmd = GlobalCache.CrossDoaminSerializer.Serialize(command, typeof(TMahuaCommand));
             pluginLoader.Handle(serializeCmd, cmdTypeFullName);
         }
