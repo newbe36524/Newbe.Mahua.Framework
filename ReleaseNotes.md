@@ -11,11 +11,19 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.11
+
+重新调整nuget包结构。支持插件热更新。
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/08/02/Release-Notes-1-11-0.html>
+
 ## 1.10
 
 升级 Amanda SDK ，适应最新版本。
 
 增加 Log4View 日志输出方式，日志可见容易查看。
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/06/24/Release-Notes-1-10-0.html>
 
 ## 1.9
 

@@ -425,6 +425,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Release\PluginHotUpgradedMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\Events\PluginHotUpgradedMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Release\PluginHotUpgradingMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\Events\PluginHotUpgradingMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="app.config" />
     <None Include="Key.snk" />
     <Content Include="overview.md">
