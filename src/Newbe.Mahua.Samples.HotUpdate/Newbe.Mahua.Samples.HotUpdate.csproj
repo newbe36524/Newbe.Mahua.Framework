@@ -42,10 +42,10 @@
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.11.0-dev12\lib\net452\Newbe.Mahua.dll</HintPath>
+      <HintPath>..\packages\Newbe.Mahua.1.11.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
     <Reference Include="Newbe.Mahua.PluginLoader, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.11.0-dev12\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.11.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -70,6 +70,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MahuaEvents\PluginHotUpgradingMahuaEvent.cs" />
+    <Compile Include="MahuaEvents\PluginHotUpgradedMahuaEvent.cs" />
     <Compile Include="MahuaEvents\PrivateMessageMahuaEventV1.cs" />
     <Compile Include="MahuaEvents\PrivateMessageMahuaEventV2.cs" />
     <Compile Include="MahuaModule.cs" />

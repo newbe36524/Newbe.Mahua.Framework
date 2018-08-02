@@ -93,6 +93,7 @@
     <Content Include="Resources\NewbeCommandPackage.ico" />
     <VSCTCompile Include="NewbeCommandPackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
+      <SubType>Designer</SubType>
     </VSCTCompile>
     <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\DiscussMessageReceivedMahuaEvent.zip">
       <Link>ItemTemplates\Newbe.Mahua\Events\DiscussMessageReceivedMahuaEvent.zip</Link>
@@ -421,6 +422,16 @@
     </Content>
     <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\$(Configuration)\SetNoticeApiMahuaCommandHandler.zip">
       <Link>ItemTemplates\Newbe.Mahua\Apis\SetNoticeApiMahuaCommandHandler.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Release\PluginHotUpgradedMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\Events\PluginHotUpgradedMahuaEvent.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\Newbe.Mahua.ItemTemplateGenerator\bin\Release\PluginHotUpgradingMahuaEvent.zip">
+      <Link>ItemTemplates\Newbe.Mahua\Events\PluginHotUpgradingMahuaEvent.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

@@ -91,6 +91,8 @@ IInitializationMahuaEvent                    | 插件初始化事件          | 
 IPlatfromExitedMahuaEvent                    | 机器人平台退出事件        | √   |     |
 IPluginDisabledMahuaEvent                    | 插件被禁用事件          | √   | √   | √
 IPluginEnabledMahuaEvent                     | 插件被启用事件          | √   | √   | √
+IPluginHotUpgradedMahuaEvent                 | 插件热更新成功事件        | √   | √   | √
+IPluginHotUpgradingMahuaEvent                | 开始插件热更新事件        | √   | √   | √
 IPrivateMessageFromDiscussReceivedMahuaEvent | 来自讨论组成员的私聊消息接收事件 | √   |     | √
 IPrivateMessageFromFriendReceivedMahuaEvent  | 来自好友的私聊消息接收事件    | √   | √   | √
 IPrivateMessageFromGroupReceivedMahuaEvent   | 来自群成员的私聊消息接收事件   | √   | √   | √

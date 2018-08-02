@@ -47,6 +47,8 @@ namespace Newbe.Mahua.Samples.HotUpdate
                 base.Load(builder);
                 builder.RegisterType<PrivateMessageMahuaEventV1>().AsImplementedInterfaces();
                 builder.RegisterType<PrivateMessageMahuaEventV2>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradingMahuaEvent>().AsImplementedInterfaces();
+                builder.RegisterType<PluginHotUpgradedMahuaEvent>().AsImplementedInterfaces();
                 // 将需要监听的事件注册，若缺少此注册，则不会调用相关的实现类
             }
         }
