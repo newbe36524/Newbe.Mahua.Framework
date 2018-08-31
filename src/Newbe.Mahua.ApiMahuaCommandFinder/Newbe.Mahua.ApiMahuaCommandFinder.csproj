@@ -16,6 +16,7 @@
     <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj" />
     <ProjectReference Include="..\Newbe.Mahua.MPQ\Newbe.Mahua.MPQ.csproj" />
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+    <ProjectReference Include="..\Newbe.Mahua.QQLight\Newbe.Mahua.QQLight.csproj" />
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
 
