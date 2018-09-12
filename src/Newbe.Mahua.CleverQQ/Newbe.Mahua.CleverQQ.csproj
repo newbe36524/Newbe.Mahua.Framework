@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <PackageTags>Newbe Mahua MPQ MyPcQQ</PackageTags>
+    <IsTool>true</IsTool>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Description>
+      Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
+      0 长久有效的技术支持及更新维护+独占功能
+      1 轻壳 极速运行
+      2 企业Q登录
+      3 不接入云黑机制
+      4 插件初始情况默认启用
+      5 允许接入UU 若快两个打码
+      6 移除推广信息
+      7 商业使用许可
+      https://f.mypcqq.cc/thread-4900-1-1.html
+    </Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.CleverQQ.xml</DocumentationFile>
+    <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.CleverQQ.xml</DocumentationFile>
+    <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Newbe.Mahua.CleverQQ.Native\bin\$(Configuration)\Newbe.Mahua.CleverQQ.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CleverQQ.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.CleverQQ.Native\bin\$(Configuration)\Newbe.Mahua.CleverQQ.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CleverQQ.Native.pdb">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.CleverQQ.Native\bin\$(Configuration)\x86\Newbe.Mahua.CleverQQ.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.CleverQQ.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\Native\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CleverQQ.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CleverQQ.pdb">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\$(Configuration)\net452\Native\" />
+    <Folder Include="bin\$(Configuration)\net452\CLR\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NativeApi\ICleverQQApi.cs">
+      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+  </ItemGroup>
+
+  <Target Name="BeforeBuild">
+    <ItemGroup>
+      <SonarQubeSetting Include="sonar.exclusions">
+        <Value>**/App_Packages/**/*</Value>
+      </SonarQubeSetting>
+    </ItemGroup>
+  </Target>
+  <Import Project="..\Newbe.Mahua.props" />
+
+
+</Project>

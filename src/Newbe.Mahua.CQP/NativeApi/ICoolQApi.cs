@@ -276,5 +276,6 @@
         /// </summary>
         /// <returns></returns>
         string CQ_getGroupList(int AuthCode);
+
     }
 }
