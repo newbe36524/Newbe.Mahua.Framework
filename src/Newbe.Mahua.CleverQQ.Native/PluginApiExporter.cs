@@ -15,7 +15,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         public static string IR_Create()
         {
             var getInfoCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<IR_CreateCommand, IR_CreateCommandResult>(new IR_CreateCommand());
+                .SendCommand<IrCreateCommand, IrCreateCommandResult>(new IrCreateCommand());
             return getInfoCommandResult.Info;
         }
 
@@ -99,7 +99,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         public static int IR_DestroyPlugin()
         {
             var endCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<IR_DestroyPluginCommand, IR_DestroyPluginCommandResult>(new IR_DestroyPluginCommand());
+                .SendCommand<IrDestroyPluginCommand, IrDestroyPluginCommandResult>(new IrDestroyPluginCommand());
             return endCommandResult.Result;
         }
     }

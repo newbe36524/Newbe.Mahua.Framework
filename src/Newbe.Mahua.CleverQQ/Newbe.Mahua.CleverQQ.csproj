@@ -2,20 +2,14 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452</TargetFrameworks>
-    <PackageTags>Newbe Mahua MPQ MyPcQQ</PackageTags>
+    <PackageTags>Newbe Mahua IRQQ CleverQQ</PackageTags>
     <IsTool>true</IsTool>
     <DevelopmentDependency>true</DevelopmentDependency>
     <Description>
-      Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
-      0 长久有效的技术支持及更新维护+独占功能
-      1 轻壳 极速运行
-      2 企业Q登录
-      3 不接入云黑机制
-      4 插件初始情况默认启用
-      5 允许接入UU 若快两个打码
-      6 移除推广信息
-      7 商业使用许可
-      https://f.mypcqq.cc/thread-4900-1-1.html
+      Newbe.Mahua 针对CleverQQ平台推出的平台支持包。
+      CleverQQ是基于pc协议开发的一款多功能且扩展性强的机器人框架，我们提供了稳定的运行框架、简便的插件模板和专业的维护团队，力求给所有的正常用户更好的体验。
+      同时，为建造一个良好的使用环境，我们同样加入了不断完善的检测机制（人工、机器），对于黄、赌等各种非法用途一律采取不接受、不姑息的政策，也希望各位用户能够互相监督、自检自律。
+      https://d.cleverqq.cn/forum.php
     </Description>
   </PropertyGroup>
 
@@ -82,6 +76,5 @@
     </ItemGroup>
   </Target>
   <Import Project="..\Newbe.Mahua.props" />
-
 
 </Project>

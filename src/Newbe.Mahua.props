@@ -2,8 +2,8 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.11.12</VersionPrefix>
-    <VersionSuffix></VersionSuffix>
+    <VersionPrefix>1.12</VersionPrefix>
+    <VersionSuffix>dev01</VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
     <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
@@ -17,7 +17,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
     <PackageReleaseNotes>
-      添加了插件热更新功能
+      添加 QQLight、CleverQQ 支持，移除 Amanda 支持
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.3.1.5982" PrivateAssets="all" /> -->
+    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.5.0.6605" PrivateAssets="all" /> -->
     <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 

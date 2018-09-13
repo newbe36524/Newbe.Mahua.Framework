@@ -7,7 +7,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         where T : ApiMahuaCommand
     {
         private readonly IRobotSessionContext _robotSessionContext;
-        private readonly IIR_EventOutput _eventFunOutput;
+        private readonly IIrEventOutput _eventFunOutput;
 
         public ICleverQQApi CleverQQApi { get; }
 
@@ -22,7 +22,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         protected CleverQQApiMahuaCommandHandlerBase(
             ICleverQQApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
-            IIR_EventOutput eventFunOutput)
+            IIrEventOutput eventFunOutput)
         {
             _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
@@ -37,7 +37,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         where TResult : ApiMahuaCommandResult
     {
         private readonly IRobotSessionContext _robotSessionContext;
-        private readonly IIR_EventOutput _eventFunOutput;
+        private readonly IIrEventOutput _eventFunOutput;
 
         public ICleverQQApi CleverQQApi { get; }
 
@@ -52,7 +52,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         protected CleverQQApiMahuaCommandHandlerBase(
             ICleverQQApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
-            IIR_EventOutput eventFunOutput)
+            IIrEventOutput eventFunOutput)
         {
             _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;

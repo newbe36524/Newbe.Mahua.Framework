@@ -8,8 +8,8 @@ namespace Newbe.Mahua
 
         public string CurrentQq
         {
-            get => _currentQq ?? (_currentQq = CurrentQqProvider());
-            set => _currentQq = value;
+            get { return _currentQq ?? (_currentQq = CurrentQqProvider()); }
+            set { _currentQq = value; }
         }
 
         public Func<string> CurrentQqProvider { get; set; }
