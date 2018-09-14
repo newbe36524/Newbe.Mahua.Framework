@@ -12,7 +12,6 @@ properties {
 $pkgNames = @{
     "platform"  = @(
         "Newbe.Mahua.CQP",
-        "Newbe.Mahua.Amanda",
         "Newbe.Mahua.MPQ",
         "Newbe.Mahua.QQLight",
         "Newbe.Mahua.CleverQQ"
@@ -199,28 +198,6 @@ Task PackQQLight -depends DonwloadPackages, Build -Description "QQLight打包" {
     }
 }
 
-Task PackAmanda -depends DonwloadPackages, Build -Description "Amanda打包" {
-    $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.Amanda"}  | ForEach-Object {
-        Exec {
-            $toolBase = Get-Download-Package-ToolsDir -package $_
-            New-Item -ItemType Directory "$releaseBase\Amanda"
-            New-Item -ItemType Directory "$releaseBase\Amanda\$pluginName"
-            New-Item -ItemType Directory "$releaseBase\Amanda\plugin"
-            Copy-FrameworkItems -dest "$releaseBase\Amanda\"
-            Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\Amanda" -Recurse
-            Copy-FrameworkExtensionItems -dest "$releaseBase\Amanda\$pluginName"
-            Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\Amanda\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.Amanda.Native.dll" -Destination  "$releaseBase\Amanda\plugin\$pluginName.plugin.dll"
-
-            Copy-Item "$releaseBase\Amanda\$pluginName" "$releaseBase\Amanda\$assetDirName\$pluginName" -Recurse
-            Get-ChildItem "$releaseBase\Amanda\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
-            Copy-Item "$releaseBase\hash.txt" "$releaseBase\Amanda\$assetDirName\$pluginName\hash.txt"
-            Remove-Item "$releaseBase\hash.txt"
-            Remove-Item "$releaseBase\Amanda\$pluginName" -Recurse
-        }
-    }
-}
-
 Task PackMPQ -depends DonwloadPackages, Build -Description "MPQ打包" {
     $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.MPQ"}| ForEach-Object {
         Exec {
@@ -265,7 +242,7 @@ Task PackCleverQQ -depends DonwloadPackages, Build -Description "CleverQQ打包"
     }
 }
 
-Task Pack -depends PackCQP, PackAmanda, PackMPQ, PackCleverQQ, PackQQLight -Description "打包" {
+Task Pack -depends PackCQP, PackMPQ, PackCleverQQ, PackQQLight -Description "打包" {
     Write-Output "构建完毕，当前时间为 $(Get-Date)"
 }
 
