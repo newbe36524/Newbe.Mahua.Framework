@@ -1,4 +1,4 @@
-﻿namespace Newbe.Mahua.CQP.NativeApi
+﻿namespace Newbe.Mahua.CQP
 {
     public interface ICqpAuthCodeContainer
     {

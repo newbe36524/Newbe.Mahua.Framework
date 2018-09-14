@@ -1,4 +1,4 @@
-﻿namespace Newbe.Mahua.CQP.NativeApi
+﻿namespace Newbe.Mahua.NativeApi
 {
     public interface ICoolQApi
     {

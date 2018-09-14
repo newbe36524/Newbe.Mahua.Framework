@@ -58,12 +58,5 @@
 
   <Import Project="..\Newbe.Mahua.props" />
 
-  <ItemGroup>
-    <Compile Update="NativeApi\IQqLightApi.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-  </ItemGroup>
-
 
 </Project>

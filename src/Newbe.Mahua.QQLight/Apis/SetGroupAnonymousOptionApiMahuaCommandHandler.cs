@@ -1,5 +1,5 @@
 ﻿using Newbe.Mahua.Apis;
-using Newbe.Mahua.QQLight.NativeApi;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.QQLight.Apis
 {

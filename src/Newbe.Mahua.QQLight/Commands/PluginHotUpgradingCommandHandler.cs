@@ -1,6 +1,5 @@
 ﻿using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
-using Newbe.Mahua.QQLight.NativeApi;
 using System.Collections.Generic;
 
 namespace Newbe.Mahua.QQLight.Commands

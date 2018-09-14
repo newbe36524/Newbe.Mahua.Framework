@@ -1,14 +1,14 @@
-﻿using Newbe.Mahua.CleverQQ.NativeApi;
-using System;
+﻿using System;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ
 {
     public class QqProvider : IQqProvider
     {
-        private readonly ICleverQQApi _cleverqqApi;
+        private readonly ICleverQqApi _cleverqqApi;
 
         public QqProvider(
-            ICleverQQApi cleverqqApi)
+            ICleverQqApi cleverqqApi)
         {
             _cleverqqApi = cleverqqApi;
         }

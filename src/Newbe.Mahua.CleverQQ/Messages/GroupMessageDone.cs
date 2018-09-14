@@ -1,7 +1,7 @@
 ﻿using Newbe.Mahua.Messages.Steps;
-using Newbe.Mahua.CleverQQ.NativeApi;
 using System.IO;
 using System.Linq;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
@@ -9,13 +9,13 @@ namespace Newbe.Mahua.CleverQQ.Messages
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly ICleverQQMessage _message;
-        private readonly ICleverQQApi _cleverqqApi;
+        private readonly ICleverQqApi _cleverqqApi;
         private readonly IRobotSessionContext _robotSessionContext;
 
         public GroupMessageDone(
             IMahuaApi mahuaApi,
             ICleverQQMessage message,
-            ICleverQQApi cleverqqApi,
+            ICleverQqApi cleverqqApi,
             IRobotSessionContext robotSessionContext)
         {
             _mahuaApi = mahuaApi;

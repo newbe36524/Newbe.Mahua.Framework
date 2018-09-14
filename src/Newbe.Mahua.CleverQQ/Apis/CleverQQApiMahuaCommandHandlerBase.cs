@@ -1,5 +1,5 @@
 ﻿using Newbe.Mahua.Apis;
-using Newbe.Mahua.CleverQQ.NativeApi;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Apis
 {
@@ -9,7 +9,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         private readonly IRobotSessionContext _robotSessionContext;
         private readonly IIrEventOutput _eventFunOutput;
 
-        public ICleverQQApi CleverQQApi { get; }
+        public ICleverQqApi CleverQQApi { get; }
 
         public int ResultCode
         {
@@ -20,7 +20,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         public string CurrentQq => _robotSessionContext.CurrentQq;
 
         protected CleverQQApiMahuaCommandHandlerBase(
-            ICleverQQApi cleverqqApi,
+            ICleverQqApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
         {
@@ -39,7 +39,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         private readonly IRobotSessionContext _robotSessionContext;
         private readonly IIrEventOutput _eventFunOutput;
 
-        public ICleverQQApi CleverQQApi { get; }
+        public ICleverQqApi CleverQQApi { get; }
 
         public int ResultCode
         {
@@ -50,7 +50,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         public string CurrentQq => _robotSessionContext.CurrentQq;
 
         protected CleverQQApiMahuaCommandHandlerBase(
-            ICleverQQApi cleverqqApi,
+            ICleverQqApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
         {
