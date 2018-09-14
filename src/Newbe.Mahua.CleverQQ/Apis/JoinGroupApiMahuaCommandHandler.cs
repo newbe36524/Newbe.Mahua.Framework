@@ -9,7 +9,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         public JoinGroupApiMahuaCommandHandler(
             ICleverQQApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
-            IIR_EventOutput eventFunOutput)
+            IIrEventOutput eventFunOutput)
             : base(cleverqqApi, robotSessionContext, eventFunOutput)
         {
         }

@@ -280,3 +280,4 @@ __pycache__/
 /src/Newbe.Mahua.Samples.OkexRobot/buildTools/
 /src/Newbe.Mahua.Samples.OkexRobot/NewbeLibs/
 /src/Newbe.Mahua.Plugins.Parrot/buildTools
+*.orig

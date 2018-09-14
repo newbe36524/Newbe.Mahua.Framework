@@ -10,13 +10,13 @@ namespace Newbe.Mahua.CleverQQ.Commands
     {
         private static readonly ILog Logger = LogProvider.For<EventFunCommandHandler>();
         private readonly IRobotSessionContext _robotSessionContext;
-        private readonly IIR_EventOutput _eventFunOutput;
-        private readonly IIndex<int, IIR_Event> _eventFuncHandlers;
+        private readonly IIrEventOutput _eventFunOutput;
+        private readonly IIndex<int, IIrEvent> _eventFuncHandlers;
 
         public EventFunCommandHandler(
             IRobotSessionContext robotSessionContext,
-            IIR_EventOutput eventFunOutput,
-            IIndex<int, IIR_Event> eventFuncHandlers)
+            IIrEventOutput eventFunOutput,
+            IIndex<int, IIrEvent> eventFuncHandlers)
         {
             _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
@@ -28,7 +28,7 @@ namespace Newbe.Mahua.CleverQQ.Commands
             _robotSessionContext.CurrentQq = message.ReceiverQq;
             if (_eventFuncHandlers.TryGetValue(message.EventType, out var handler))
             {
-                handler.Handle(new IR_EventInput
+                handler.Handle(new IrEventInput
                 {
                     EventOperator = message.EventOperator,
                     RawMessage = message.RawMessage,

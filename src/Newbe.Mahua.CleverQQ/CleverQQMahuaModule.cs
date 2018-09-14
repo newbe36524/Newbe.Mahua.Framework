@@ -1,13 +1,13 @@
 ﻿using Autofac;
 using Newbe.Mahua.Apis;
+using Newbe.Mahua.CleverQQ.Apis;
+using Newbe.Mahua.CleverQQ.Commands;
+using Newbe.Mahua.CleverQQ.IrEvents;
+using Newbe.Mahua.CleverQQ.Messages;
+using Newbe.Mahua.CleverQQ.Messages.Builders;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
 using Newbe.Mahua.Messages.Steps;
-using Newbe.Mahua.CleverQQ.Apis;
-using Newbe.Mahua.CleverQQ.Commands;
-using Newbe.Mahua.CleverQQ.IR_Event;
-using Newbe.Mahua.CleverQQ.Messages;
-using Newbe.Mahua.CleverQQ.Messages.Builders;
 
 namespace Newbe.Mahua.CleverQQ
 {
@@ -41,9 +41,9 @@ namespace Newbe.Mahua.CleverQQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<IR_DestroyPluginCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<IrDestroyPluginCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<EventFunCommandHandler>().AsImplementedInterfaces();
-                builder.RegisterType<IR_CreateCommandHandler>().AsImplementedInterfaces();
+                builder.RegisterType<IrCreateCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<ConfigurationManagerCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PluginHotUpgradingCommandHandler>().AsImplementedInterfaces();
                 builder.RegisterType<PluginHotUpgradedCommandHandler>().AsImplementedInterfaces();
@@ -55,7 +55,7 @@ namespace Newbe.Mahua.CleverQQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<IR_EventInputOutput>().As<IIR_EventOutput>().InstancePerLifetimeScope();
+                builder.RegisterType<IrEventInputOutput>().As<IIrEventOutput>().InstancePerLifetimeScope();
             }
         }
 
@@ -108,50 +108,50 @@ namespace Newbe.Mahua.CleverQQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<IR_Event1>().AsImplementedInterfaces().Keyed<IIR_Event>(1);
-                builder.RegisterType<IR_Event2>().AsImplementedInterfaces().Keyed<IIR_Event>(2);
-                builder.RegisterType<IR_Event3>().AsImplementedInterfaces().Keyed<IIR_Event>(3);
-                builder.RegisterType<IR_Event4>().AsImplementedInterfaces().Keyed<IIR_Event>(4);
-                builder.RegisterType<IR_Event5>().AsImplementedInterfaces().Keyed<IIR_Event>(5);
-                builder.RegisterType<IR_Event6>().AsImplementedInterfaces().Keyed<IIR_Event>(6);
-                builder.RegisterType<IR_Event100>().AsImplementedInterfaces().Keyed<IIR_Event>(100);
-                builder.RegisterType<IR_Event101>().AsImplementedInterfaces().Keyed<IIR_Event>(101);
-                builder.RegisterType<IR_Event104>().AsImplementedInterfaces().Keyed<IIR_Event>(104);
-                builder.RegisterType<IR_Event105>().AsImplementedInterfaces().Keyed<IIR_Event>(105);
-                builder.RegisterType<IR_Event106>().AsImplementedInterfaces().Keyed<IIR_Event>(106);
-                builder.RegisterType<IR_Event107>().AsImplementedInterfaces().Keyed<IIR_Event>(107);
-                builder.RegisterType<IR_Event201>().AsImplementedInterfaces().Keyed<IIR_Event>(201);
-                builder.RegisterType<IR_Event202>().AsImplementedInterfaces().Keyed<IIR_Event>(202);
-                builder.RegisterType<IR_Event203>().AsImplementedInterfaces().Keyed<IIR_Event>(203);
-                builder.RegisterType<IR_Event204>().AsImplementedInterfaces().Keyed<IIR_Event>(204);
-                builder.RegisterType<IR_Event205>().AsImplementedInterfaces().Keyed<IIR_Event>(205);
-                builder.RegisterType<IR_Event206>().AsImplementedInterfaces().Keyed<IIR_Event>(206);
-                builder.RegisterType<IR_Event207>().AsImplementedInterfaces().Keyed<IIR_Event>(207);
-                builder.RegisterType<IR_Event208>().AsImplementedInterfaces().Keyed<IIR_Event>(208);
-                builder.RegisterType<IR_Event209>().AsImplementedInterfaces().Keyed<IIR_Event>(209);
-                builder.RegisterType<IR_Event210>().AsImplementedInterfaces().Keyed<IIR_Event>(210);
-                builder.RegisterType<IR_Event211>().AsImplementedInterfaces().Keyed<IIR_Event>(211);
-                builder.RegisterType<IR_Event212>().AsImplementedInterfaces().Keyed<IIR_Event>(212);
-                builder.RegisterType<IR_Event213>().AsImplementedInterfaces().Keyed<IIR_Event>(213);
-                builder.RegisterType<IR_Event214>().AsImplementedInterfaces().Keyed<IIR_Event>(214);
-                builder.RegisterType<IR_Event215>().AsImplementedInterfaces().Keyed<IIR_Event>(215);
-                builder.RegisterType<IR_Event216>().AsImplementedInterfaces().Keyed<IIR_Event>(216);
-                builder.RegisterType<IR_Event217>().AsImplementedInterfaces().Keyed<IIR_Event>(217);
-                builder.RegisterType<IR_Event218>().AsImplementedInterfaces().Keyed<IIR_Event>(218);
-                builder.RegisterType<IR_Event219>().AsImplementedInterfaces().Keyed<IIR_Event>(219);
-                builder.RegisterType<IR_Event220>().AsImplementedInterfaces().Keyed<IIR_Event>(220);
-                builder.RegisterType<IR_Event221>().AsImplementedInterfaces().Keyed<IIR_Event>(221);
-                builder.RegisterType<IR_Event1100>().AsImplementedInterfaces().Keyed<IIR_Event>(1100);
-                builder.RegisterType<IR_Event1101>().AsImplementedInterfaces().Keyed<IIR_Event>(1101);
-                builder.RegisterType<IR_Event1102>().AsImplementedInterfaces().Keyed<IIR_Event>(1102);
-                builder.RegisterType<IR_Event1103>().AsImplementedInterfaces().Keyed<IIR_Event>(1103);
-                builder.RegisterType<IR_Event1104>().AsImplementedInterfaces().Keyed<IIR_Event>(1104);
-                builder.RegisterType<IR_Event10000>().AsImplementedInterfaces().Keyed<IIR_Event>(10000);
-                builder.RegisterType<IR_Event10001>().AsImplementedInterfaces().Keyed<IIR_Event>(10001);
-                builder.RegisterType<IR_Event12000>().AsImplementedInterfaces().Keyed<IIR_Event>(12000);
-                builder.RegisterType<IR_Event12001>().AsImplementedInterfaces().Keyed<IIR_Event>(12001);
-                builder.RegisterType<IR_Event12002>().AsImplementedInterfaces().Keyed<IIR_Event>(12002);
-                builder.RegisterType<IR_Event12003>().AsImplementedInterfaces().Keyed<IIR_Event>(12003);
+                builder.RegisterType<IrEvent1>().AsImplementedInterfaces().Keyed<IIrEvent>(1);
+                builder.RegisterType<IrEvent2>().AsImplementedInterfaces().Keyed<IIrEvent>(2);
+                builder.RegisterType<IrEvent3>().AsImplementedInterfaces().Keyed<IIrEvent>(3);
+                builder.RegisterType<IrEvent4>().AsImplementedInterfaces().Keyed<IIrEvent>(4);
+                builder.RegisterType<IrEvent5>().AsImplementedInterfaces().Keyed<IIrEvent>(5);
+                builder.RegisterType<IrEvent6>().AsImplementedInterfaces().Keyed<IIrEvent>(6);
+                builder.RegisterType<IrEvent100>().AsImplementedInterfaces().Keyed<IIrEvent>(100);
+                builder.RegisterType<IrEvent101>().AsImplementedInterfaces().Keyed<IIrEvent>(101);
+                builder.RegisterType<IrEvent104>().AsImplementedInterfaces().Keyed<IIrEvent>(104);
+                builder.RegisterType<IrEvent105>().AsImplementedInterfaces().Keyed<IIrEvent>(105);
+                builder.RegisterType<IrEvent106>().AsImplementedInterfaces().Keyed<IIrEvent>(106);
+                builder.RegisterType<IrEvent107>().AsImplementedInterfaces().Keyed<IIrEvent>(107);
+                builder.RegisterType<IrEvent201>().AsImplementedInterfaces().Keyed<IIrEvent>(201);
+                builder.RegisterType<IrEvent202>().AsImplementedInterfaces().Keyed<IIrEvent>(202);
+                builder.RegisterType<IrEvent203>().AsImplementedInterfaces().Keyed<IIrEvent>(203);
+                builder.RegisterType<IrEvent204>().AsImplementedInterfaces().Keyed<IIrEvent>(204);
+                builder.RegisterType<IrEvent205>().AsImplementedInterfaces().Keyed<IIrEvent>(205);
+                builder.RegisterType<IrEvent206>().AsImplementedInterfaces().Keyed<IIrEvent>(206);
+                builder.RegisterType<IrEvent207>().AsImplementedInterfaces().Keyed<IIrEvent>(207);
+                builder.RegisterType<IrEvent208>().AsImplementedInterfaces().Keyed<IIrEvent>(208);
+                builder.RegisterType<IrEvent209>().AsImplementedInterfaces().Keyed<IIrEvent>(209);
+                builder.RegisterType<IrEvent210>().AsImplementedInterfaces().Keyed<IIrEvent>(210);
+                builder.RegisterType<IrEvent211>().AsImplementedInterfaces().Keyed<IIrEvent>(211);
+                builder.RegisterType<IrEvent212>().AsImplementedInterfaces().Keyed<IIrEvent>(212);
+                builder.RegisterType<IrEvent213>().AsImplementedInterfaces().Keyed<IIrEvent>(213);
+                builder.RegisterType<IrEvent214>().AsImplementedInterfaces().Keyed<IIrEvent>(214);
+                builder.RegisterType<IrEvent215>().AsImplementedInterfaces().Keyed<IIrEvent>(215);
+                builder.RegisterType<IrEvent216>().AsImplementedInterfaces().Keyed<IIrEvent>(216);
+                builder.RegisterType<IrEvent217>().AsImplementedInterfaces().Keyed<IIrEvent>(217);
+                builder.RegisterType<IrEvent218>().AsImplementedInterfaces().Keyed<IIrEvent>(218);
+                builder.RegisterType<IrEvent219>().AsImplementedInterfaces().Keyed<IIrEvent>(219);
+                builder.RegisterType<IrEvent220>().AsImplementedInterfaces().Keyed<IIrEvent>(220);
+                builder.RegisterType<IrEvent221>().AsImplementedInterfaces().Keyed<IIrEvent>(221);
+                builder.RegisterType<IrEvent1100>().AsImplementedInterfaces().Keyed<IIrEvent>(1100);
+                builder.RegisterType<IrEvent1101>().AsImplementedInterfaces().Keyed<IIrEvent>(1101);
+                builder.RegisterType<IrEvent1102>().AsImplementedInterfaces().Keyed<IIrEvent>(1102);
+                builder.RegisterType<IrEvent1103>().AsImplementedInterfaces().Keyed<IIrEvent>(1103);
+                builder.RegisterType<IrEvent1104>().AsImplementedInterfaces().Keyed<IIrEvent>(1104);
+                builder.RegisterType<IrEvent10000>().AsImplementedInterfaces().Keyed<IIrEvent>(10000);
+                builder.RegisterType<IrEvent10001>().AsImplementedInterfaces().Keyed<IIrEvent>(10001);
+                builder.RegisterType<IrEvent12000>().AsImplementedInterfaces().Keyed<IIrEvent>(12000);
+                builder.RegisterType<IrEvent12001>().AsImplementedInterfaces().Keyed<IIrEvent>(12001);
+                builder.RegisterType<IrEvent12002>().AsImplementedInterfaces().Keyed<IIrEvent>(12002);
+                builder.RegisterType<IrEvent12003>().AsImplementedInterfaces().Keyed<IIrEvent>(12003);
             }
         }
 

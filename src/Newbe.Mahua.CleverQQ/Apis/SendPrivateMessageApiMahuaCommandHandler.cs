@@ -9,14 +9,14 @@ namespace Newbe.Mahua.CleverQQ.Apis
         public SendPrivateMessageApiMahuaCommandHandler(
             ICleverQQApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
-            IIR_EventOutput eventFunOutput)
+            IIrEventOutput eventFunOutput)
             : base(cleverqqApi, robotSessionContext, eventFunOutput)
         {
         }
 
         public override void Handle(SendPrivateMessageApiMahuaCommand message)
         {
-            CleverQQApi.Api_SendMsg(CurrentQq, 1,  null, message.ToQq, message.Message, -2);
+            CleverQQApi.Api_SendMsg(CurrentQq, 1, null, message.ToQq, message.Message, -2);
         }
     }
 }
