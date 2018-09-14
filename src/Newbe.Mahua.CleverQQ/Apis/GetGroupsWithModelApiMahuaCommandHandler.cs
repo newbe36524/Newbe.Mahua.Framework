@@ -1,8 +1,8 @@
 ﻿using Newbe.Mahua.Apis;
-using Newbe.Mahua.CleverQQ.NativeApi;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Script.Serialization;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Apis
 {
@@ -10,7 +10,7 @@ namespace Newbe.Mahua.CleverQQ.Apis
         : CleverQQApiMahuaCommandHandlerBase<GetGroupsWithModelApiMahuaCommand, GetGroupsWithModelApiMahuaCommandResult>
     {
         public GetGroupsWithModelApiMahuaCommandHandler(
-            ICleverQQApi cleverqqApi,
+            ICleverQqApi cleverqqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
             : base(cleverqqApi, robotSessionContext, eventFunOutput)

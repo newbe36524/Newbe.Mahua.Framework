@@ -61,13 +61,6 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="NativeApi\ICleverQQApi.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-  </ItemGroup>
-
   <Target Name="BeforeBuild">
     <ItemGroup>
       <SonarQubeSetting Include="sonar.exclusions">

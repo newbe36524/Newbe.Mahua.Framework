@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Newbe.Mahua.CleverQQ.NativeApi;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Native
 {
@@ -15,7 +15,7 @@ namespace Newbe.Mahua.CleverQQ.Native
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<CleverQQApi>().As<ICleverQQApi>().InstancePerLifetimeScope();
+                builder.RegisterType<CleverQQApi>().As<ICleverQqApi>().InstancePerLifetimeScope();
             }
         }
     }

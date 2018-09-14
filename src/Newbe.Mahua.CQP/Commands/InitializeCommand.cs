@@ -1,5 +1,4 @@
 ﻿using Newbe.Mahua.Commands;
-using Newbe.Mahua.CQP.NativeApi;
 using Newbe.Mahua.MahuaEvents;
 using System.Collections.Generic;
 using System.Runtime.Serialization;

@@ -1,7 +1,7 @@
 ﻿using Newbe.Mahua.Messages.Steps;
-using Newbe.Mahua.MPQ.NativeApi;
 using System.IO;
 using System.Linq;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Messages
 {

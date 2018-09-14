@@ -1,5 +1,4 @@
-﻿using Newbe.Mahua.QQLight.NativeApi;
-using System;
+﻿using System;
 using System.IO;
 
 namespace Newbe.Mahua.QQLight.Native

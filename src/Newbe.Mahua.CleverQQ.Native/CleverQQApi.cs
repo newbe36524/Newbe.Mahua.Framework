@@ -1,16 +1,16 @@
-﻿using Newbe.Mahua.CleverQQ.NativeApi;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Native
 {
-    public class CleverQQApi : ICleverQQApi
+    public class CleverQQApi : ICleverQqApi
     {
         /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetBkn(string 响应的QQ)
+        string ICleverQqApi.Api_GetBkn(string 响应的QQ)
             => NativeMethods.Api_GetBkn(响应的QQ);
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetBkn32(string 响应的QQ)
+        string ICleverQqApi.Api_GetBkn32(string 响应的QQ)
             => NativeMethods.Api_GetBkn32(响应的QQ);
 
         /// <summary>
@@ -26,21 +26,21 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetLongLdw(string 响应的QQ)
+        string ICleverQqApi.Api_GetLongLdw(string 响应的QQ)
             => NativeMethods.Api_GetLongLdw(响应的QQ);
 
         /// <summary>
         /// 取得当前框架内在线可用的QQ列表`
         /// </summary>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetOnLineList()
+        string ICleverQqApi.Api_GetOnLineList()
             => NativeMethods.Api_GetOnLineList();
 
         /// <summary>
         /// 取得框架内所有QQ列表。包括未登录以及登录失败的QQ`
         /// </summary>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetQQList()
+        string ICleverQqApi.Api_GetQQList()
             => NativeMethods.Api_GetQQList();
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_SessionKey(string 响应的QQ)
+        string ICleverQqApi.Api_SessionKey(string 响应的QQ)
             => NativeMethods.Api_SessionKey(响应的QQ);
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetClientkey(string 响应的QQ)
+        string ICleverQqApi.Api_GetClientkey(string 响应的QQ)
             => NativeMethods.Api_GetClientkey(响应的QQ);
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetLongClientkey(string 响应的QQ)
+        string ICleverQqApi.Api_GetLongClientkey(string 响应的QQ)
             => NativeMethods.Api_GetLongClientkey(响应的QQ);
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetCookies(string 响应的QQ)
+        string ICleverQqApi.Api_GetCookies(string 响应的QQ)
             => NativeMethods.Api_GetCookies(响应的QQ);
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_AddBkList(string 响应的QQ, string QQ)
+        void ICleverQqApi.Api_AddBkList(string 响应的QQ, string QQ)
             => NativeMethods.Api_AddBkList(响应的QQ, QQ);
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="QQ">禁言对象.留空为全群禁言</param>
         /// <param name="时长">单位:秒 最大为1个月. 为零解除对象或全群禁言</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_ShutUP(string 响应的QQ, string 群号, string QQ, int 时长)
+        void ICleverQqApi.Api_ShutUP(string 响应的QQ, string 群号, string QQ, int 时长)
             => NativeMethods.Api_ShutUP(响应的QQ, 群号, QQ, 时长);
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="标题"></param>
         /// <param name="内容"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_PBGroupNotic(string 响应的QQ, string 群号, string 标题, string 内容)
+        void ICleverQqApi.Api_PBGroupNotic(string 响应的QQ, string 群号, string 标题, string 内容)
             => NativeMethods.Api_PBGroupNotic(响应的QQ, 群号, 标题, 内容);
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="群号"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetGroupCard(string 响应的QQ, string 群号, string QQ)
+        string ICleverQqApi.Api_GetGroupCard(string 响应的QQ, string 群号, string QQ)
             => NativeMethods.Api_GetGroupCard(响应的QQ, 群号, QQ);
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="QQ"></param>
         /// <param name="名片"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_SetGroupCard(string 响应的QQ, string 群号, string QQ, string 名片)
+        void ICleverQqApi.Api_SetGroupCard(string 响应的QQ, string 群号, string QQ, string 名片)
             => NativeMethods.Api_SetGroupCard(响应的QQ, 群号, QQ, 名片);
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="讨论组ID"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_QuitDisGroup(string 响应的QQ, string 讨论组ID)
+        void ICleverQqApi.Api_QuitDisGroup(string 响应的QQ, string 讨论组ID)
             => NativeMethods.Api_QuitDisGroup(响应的QQ, 讨论组ID);
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        bool ICleverQQApi.Api_DelFriend(string 响应的QQ, string QQ)
+        bool ICleverQqApi.Api_DelFriend(string 响应的QQ, string QQ)
             => NativeMethods.Api_DelFriend(响应的QQ, QQ);
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="对象"></param>
         /// <param name="不再接收加群请求">真为不再接收，假为接收</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_KickGroupMBR(string 响应的QQ, string 群号, string 对象, bool 不再接收加群请求)
+        void ICleverQqApi.Api_KickGroupMBR(string 响应的QQ, string 群号, string 对象, bool 不再接收加群请求)
             => NativeMethods.Api_KickGroupMBR(响应的QQ, 群号, 对象, 不再接收加群请求);
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="群号"></param>
         /// <param name="附加理由"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_JoinGroup(string 响应的QQ, string 群号, string 附加理由)
+        void ICleverQqApi.Api_JoinGroup(string 响应的QQ, string 群号, string 附加理由)
             => NativeMethods.Api_JoinGroup(响应的QQ, 群号, 附加理由);
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_QuitGroup(string 响应的QQ, string 群号)
+        void ICleverQqApi.Api_QuitGroup(string 响应的QQ, string 群号)
             => NativeMethods.Api_QuitGroup(响应的QQ, 群号);
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="参_参考对象">上传该图片所属的群号或QQ</param>
         /// <param name="参_图片数据">址, 图片字节集数据或字节集数据指针()</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_UpLoadPic(string 响应的QQ, int 参_上传类型, string 参_参考对象, byte[] 参_图片数据)
+        string ICleverQqApi.Api_UpLoadPic(string 响应的QQ, int 参_上传类型, string 参_参考对象, byte[] 参_图片数据)
             => NativeMethods.Api_UpLoadPic(响应的QQ, 参_上传类型, 参_参考对象, 参_图片数据);
 
         /// <summary>
@@ -194,7 +194,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         ///<param name="参考对象">参考对象</param> 图片所属对应的群号（可随意乱填写，只有群图片需要填写）
         ///<param name="图片GUID">图片GUID</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetPicLink(string 响应的QQ, int 图片类型, string 参考对象, string 图片GUID)
+        string ICleverQqApi.Api_GetPicLink(string 响应的QQ, int 图片类型, string 参考对象, string 图片GUID)
             => NativeMethods.Api_GetPicLink(响应的QQ, 图片类型, 参考对象, 图片GUID);
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="内容">信息内容</param>
         /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
+        void ICleverQqApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
             => NativeMethods.Api_SendMsg(响应的QQ, 信息类型, 收信群_讨论组, 收信对象, 内容, 气泡ID);
 
         /// <summary>
@@ -215,14 +215,14 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="内容">输出的内容</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_OutPutLog(string 内容)
+        void ICleverQqApi.Api_OutPutLog(string 内容)
             => NativeMethods.Api_OutPutLog(内容);
 
         /// <summary>
         /// 取得本插件启用状态`
         /// </summary>
         /// <returns></returns>
-        bool ICleverQQApi.Api_IsEnable()
+        bool ICleverQqApi.Api_IsEnable()
             => NativeMethods.Api_IsEnable();
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="QQ">欲登录的Q</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_LoginQQ(string QQ)
+        void ICleverQqApi.Api_LoginQQ(string QQ)
             => NativeMethods.Api_LoginQQ(QQ);
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_OffLineQQ(string QQ)
+        void ICleverQqApi.Api_OffLineQQ(string QQ)
             => NativeMethods.Api_OffLineQQ(QQ);
 
         /// <summary>
@@ -247,7 +247,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="加密内容"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_Tea加密(string 加密内容, string Key)
+        string ICleverQqApi.Api_Tea加密(string 加密内容, string Key)
             => NativeMethods.Api_Tea加密(加密内容, Key);
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="解密内容"></param>
         /// <param name="Key"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_Tea解密(string 解密内容, string Key)
+        string ICleverQqApi.Api_Tea解密(string 解密内容, string Key)
             => NativeMethods.Api_Tea解密(解密内容, Key);
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetRInf(string QQ)
+        string ICleverQqApi.Api_GetRInf(string QQ)
             => NativeMethods.Api_GetRInf(QQ);
 
         /// <summary>
@@ -272,7 +272,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GNTransGID(string 群号)
+        string ICleverQqApi.Api_GNTransGID(string 群号)
             => NativeMethods.Api_GNTransGID(群号);
 
         /// <summary>
@@ -280,28 +280,28 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="群ID"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GIDTransGN(string 群ID)
+        string ICleverQqApi.Api_GIDTransGN(string 群ID)
             => NativeMethods.Api_GIDTransGN(群ID);
 
         /// <summary>
         /// 取框架版本名`
         /// </summary>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetVer()
+        string ICleverQqApi.Api_GetVer()
             => NativeMethods.Api_GetVer();
 
         /// <summary>
         /// 取当前框架内部时间戳_周期性与服务器时间同步`
         /// </summary>
         /// <returns></returns>
-        long ICleverQQApi.Api_GetTimeStamp()
+        long ICleverQqApi.Api_GetTimeStamp()
             => NativeMethods.Api_GetTimeStamp();
 
         /// <summary>
         /// 取得框架输出列表内所有信息`
         /// </summary>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetLog()
+        string ICleverQqApi.Api_GetLog()
             => NativeMethods.Api_GetLog();
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetGroupAdmin(string 响应的QQ, string 群号)
+        string ICleverQqApi.Api_GetGroupAdmin(string 响应的QQ, string 群号)
             => NativeMethods.Api_GetGroupAdmin(响应的QQ, 群号);
 
         /// <summary>
@@ -319,7 +319,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="内容"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_PBTaoTao(string 响应的QQ, string 内容)
+        string ICleverQqApi.Api_PBTaoTao(string 响应的QQ, string 内容)
             => NativeMethods.Api_PBTaoTao(响应的QQ, 内容);
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="地名">签到地名（Pro可自定义）</param>
         /// <param name="想说的话">想发表的内容</param>
         /// <returns></returns>
-        bool ICleverQQApi.Api_SignIn(string 响应的QQ, string 群号, string 地名, string 想说的话)
+        bool ICleverQqApi.Api_SignIn(string 响应的QQ, string 群号, string 地名, string 想说的话)
             => NativeMethods.Api_SignIn(响应的QQ, 群号, 地名, 想说的话);
 
         /// <summary>
@@ -338,7 +338,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetGroupList(string 响应的QQ)
+        string ICleverQqApi.Api_GetGroupList(string 响应的QQ)
             => NativeMethods.Api_GetGroupList(响应的QQ);
 
         /// <summary>
@@ -347,7 +347,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetGroupMemberList(string 响应的QQ, string 群号)
+        string ICleverQqApi.Api_GetGroupMemberList(string 响应的QQ, string 群号)
             => NativeMethods.Api_GetGroupMemberList(响应的QQ, 群号);
 
         /// <summary>
@@ -355,7 +355,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetFriendList(string 响应的QQ)
+        string ICleverQqApi.Api_GetFriendList(string 响应的QQ)
             => NativeMethods.Api_GetFriendList(响应的QQ);
 
         /// <summary>
@@ -364,7 +364,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int ICleverQQApi.Api_GetQQAge(string 响应的QQ, string QQ)
+        int ICleverQqApi.Api_GetQQAge(string 响应的QQ, string QQ)
             => NativeMethods.Api_GetQQAge(响应的QQ, QQ);
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int ICleverQQApi.Api_GetAge(string 响应的QQ, string QQ)
+        int ICleverQqApi.Api_GetAge(string 响应的QQ, string QQ)
             => NativeMethods.Api_GetAge(响应的QQ, QQ);
 
         /// <summary>
@@ -382,7 +382,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ">对象QQ</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetPerExp(string 响应的QQ, string QQ)
+        string ICleverQqApi.Api_GetPerExp(string 响应的QQ, string QQ)
             => NativeMethods.Api_GetPerExp(响应的QQ, QQ);
 
         /// <summary>
@@ -391,7 +391,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetEmail(string 响应的QQ, string QQ)
+        string ICleverQqApi.Api_GetEmail(string 响应的QQ, string QQ)
             => NativeMethods.Api_GetEmail(响应的QQ, QQ);
 
         /// <summary>
@@ -400,7 +400,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int ICleverQQApi.Api_GetGender(string 响应的QQ, string QQ)
+        int ICleverQqApi.Api_GetGender(string 响应的QQ, string QQ)
             => NativeMethods.Api_GetGender(响应的QQ, QQ);
 
         /// <summary>
@@ -409,7 +409,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        bool ICleverQQApi.Api_ShakeWindow(string 响应的QQ, string QQ)
+        bool ICleverQqApi.Api_ShakeWindow(string 响应的QQ, string QQ)
             => NativeMethods.Api_ShakeWindow(响应的QQ, QQ);
 
         /// <summary>
@@ -419,7 +419,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="密码"></param>
         /// <param name="自动登录">运行框架时是否自动登录该Q.若添加后需要登录该Q则需要通过Api_Login操作</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_AddQQ(string QQ, string 密码, bool 自动登录)
+        string ICleverQqApi.Api_AddQQ(string QQ, string 密码, bool 自动登录)
             => NativeMethods.Api_AddQQ(QQ, 密码, 自动登录);
 
         /// <summary>
@@ -429,7 +429,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="在线状态">1~6 分别对应我在线上, Q我吧, 离开, 忙碌, 请勿打扰, 隐身</param>
         /// <param name="状态附加信息">最大255字节</param>
         /// <returns></returns>
-        void ICleverQQApi.Api_SetRInf(string 响应的QQ, int 在线状态, string 状态附加信息)
+        void ICleverQqApi.Api_SetRInf(string 响应的QQ, int 在线状态, string 状态附加信息)
             => NativeMethods.Api_SetRInf(响应的QQ, 在线状态, 状态附加信息);
 
         /// <summary>
@@ -439,7 +439,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="好友QQ">多个好友用换行分割</param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        void ICleverQQApi.Api_NoAdminInviteGroup(string 响应的QQ, string 好友QQ, string 群号)
+        void ICleverQqApi.Api_NoAdminInviteGroup(string 响应的QQ, string 好友QQ, string 群号)
             => NativeMethods.Api_NoAdminInviteGroup(响应的QQ, 好友QQ, 群号);
 
         /// <summary>
@@ -448,7 +448,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         ///<param name="讨论组名称">讨论组名称</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_CreateDisGroup(string 响应的QQ, string 讨论组名称)
+        string ICleverQqApi.Api_CreateDisGroup(string 响应的QQ, string 讨论组名称)
             => NativeMethods.Api_CreateDisGroup(响应的QQ, 讨论组名称);
 
         /// <summary>
@@ -458,7 +458,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="讨论组ID"></param>
         /// <param name="成员"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_KickDisGroupMBR(string 响应的QQ, string 讨论组ID, string 成员)
+        string ICleverQqApi.Api_KickDisGroupMBR(string 响应的QQ, string 讨论组ID, string 成员)
             => NativeMethods.Api_KickDisGroupMBR(响应的QQ, 讨论组ID, 成员);
 
         /// <summary>
@@ -468,7 +468,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="讨论组ID"></param>
         /// <param name="成员组">多个成员用换行符分割</param>
         /// <returns></returns>
-        string ICleverQQApi.Api_InviteDisGroup(string 响应的QQ, string 讨论组ID, string 成员组)
+        string ICleverQqApi.Api_InviteDisGroup(string 响应的QQ, string 讨论组ID, string 成员组)
             => NativeMethods.Api_InviteDisGroup(响应的QQ, 讨论组ID, 成员组);
 
         /// <summary>
@@ -476,7 +476,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string ICleverQQApi.Api_GetDisGroupList(string 响应的QQ)
+        string ICleverQqApi.Api_GetDisGroupList(string 响应的QQ)
             => NativeMethods.Api_GetDisGroupList(响应的QQ);
 
         /// <summary>
@@ -485,7 +485,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="响应的QQ"></param>
         /// <param name="对象QQ"></param>
         /// <returns></returns>
-        bool ICleverQQApi.Api_IfFriend(string 响应的QQ, string 对象QQ)
+        bool ICleverQqApi.Api_IfFriend(string 响应的QQ, string 对象QQ)
             => NativeMethods.Api_IfFriend(响应的QQ, 对象QQ);
 
         private static class NativeMethods

@@ -61,13 +61,6 @@
   <Import Project="..\Newbe.Mahua.props" />
 
   <ItemGroup>
-    <Compile Update="NativeApi\ICoolQApi.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Update="SonarAnalyzer.CSharp" Version="7.5.0.6605">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

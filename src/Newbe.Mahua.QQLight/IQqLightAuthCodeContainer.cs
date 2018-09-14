@@ -1,4 +1,4 @@
-﻿namespace Newbe.Mahua.QQLight.NativeApi
+﻿namespace Newbe.Mahua.QQLight
 {
     public interface IQqLightAuthCodeContainer
     {

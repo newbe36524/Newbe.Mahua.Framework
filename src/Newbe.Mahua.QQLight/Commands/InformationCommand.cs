@@ -1,5 +1,4 @@
 ﻿using Newbe.Mahua.Commands;
-using Newbe.Mahua.QQLight.NativeApi;
 using System;
 using System.Runtime.Serialization;
 

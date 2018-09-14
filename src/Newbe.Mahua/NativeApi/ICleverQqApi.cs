@@ -1,13 +1,13 @@
-﻿namespace Newbe.Mahua.MPQ.NativeApi
+﻿namespace Newbe.Mahua.NativeApi
 {
-    public interface IMpqApi
+    public interface ICleverQqApi
     {
         /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string Api_GetGtk_Bkn(string 响应的QQ);
+        string Api_GetBkn(string 响应的QQ);
         /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数长Bkn或长G_tk`
         /// </summary>
@@ -19,28 +19,23 @@
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string Api_GetLdw(string 响应的QQ);
-        /// <summary>
-        /// 取得框架所在目录.可能鸡肋了。`
-        /// </summary>
-        /// <returns></returns>
-        string Api_GetRunPath();
+        string Api_GetLongLdw(string 响应的QQ);
         /// <summary>
         /// 取得当前框架内在线可用的QQ列表`
         /// </summary>
         /// <returns></returns>
-        string Api_GetOnlineQQlist();
+        string Api_GetOnLineList();
         /// <summary>
         /// 取得框架内所有QQ列表。包括未登录以及登录失败的QQ`
         /// </summary>
         /// <returns></returns>
-        string Api_GetQQlist();
+        string Api_GetQQList();
         /// <summary>
         /// 根据QQ取得对应的会话秘钥`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string Api_GetSessionkey(string 响应的QQ);
+        string Api_SessionKey(string 响应的QQ);
         /// <summary>
         /// 取得页面登录用的Clientkey`
         /// </summary>
@@ -60,32 +55,12 @@
         /// <returns></returns>
         string Api_GetCookies(string 响应的QQ);
         /// <summary>
-        /// 取得框架内设置的信息发送前缀`
-        /// </summary>
-        /// <returns></returns>
-        string Api_GetPrefix();
-        /// <summary>
-        /// 将群名片加入高速缓存当作.`
-        /// </summary>
-        /// <param name="群号"></param>
-        /// <param name="QQ"></param>
-        /// <param name="名片"></param>
-        /// <returns></returns>
-        void Api_Cache_NameCard(string 群号, string QQ, string 名片);
-        /// <summary>
-        /// 将指定QQ移出QQ黑名单`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="QQ"></param>
-        /// <returns></returns>
-        void Api_DBan(string 响应的QQ, string QQ);
-        /// <summary>
         /// 将指定QQ列入QQ黑名单`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        void Api_Ban(string 响应的QQ, string QQ);
+        void Api_AddBkList(string 响应的QQ, string QQ);
         /// <summary>
         /// 禁言群成员`
         /// </summary>
@@ -94,7 +69,7 @@
         /// <param name="QQ">禁言对象.留空为全群禁言</param>
         /// <param name="时长">单位:秒 最大为1个月. 为零解除对象或全群禁言</param>
         /// <returns></returns>
-        bool Api_Shutup(string 响应的QQ, string 群号, string QQ, int 时长);
+        void Api_ShutUP(string 响应的QQ, string 群号, string QQ, int 时长);
         /// <summary>
         /// 发群公告`
         /// </summary>
@@ -103,14 +78,7 @@
         /// <param name="标题"></param>
         /// <param name="内容"></param>
         /// <returns></returns>
-        void Api_SetNotice(string 响应的QQ, string 群号, string 标题, string 内容);
-        /// <summary>
-        /// 取群公告`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="群号"></param>
-        /// <returns></returns>
-        string Api_GetNotice(string 响应的QQ, string 群号);
+        void Api_PBGroupNotic(string 响应的QQ, string 群号, string 标题, string 内容);
         /// <summary>
         /// 取群名片`
         /// </summary>
@@ -118,7 +86,7 @@
         /// <param name="群号"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string Api_GetNameCard(string 响应的QQ, string 群号, string QQ);
+        string Api_GetGroupCard(string 响应的QQ, string 群号, string QQ);
         /// <summary>
         /// 设置群名片`
         /// </summary>
@@ -127,14 +95,14 @@
         /// <param name="QQ"></param>
         /// <param name="名片"></param>
         /// <returns></returns>
-        void Api_SetNameCard(string 响应的QQ, string 群号, string QQ, string 名片);
+        void Api_SetGroupCard(string 响应的QQ, string 群号, string QQ, string 名片);
         /// <summary>
         /// 退出讨论组`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="讨论组ID"></param>
         /// <returns></returns>
-        void Api_QuitDG(string 响应的QQ, string 讨论组ID);
+        void Api_QuitDisGroup(string 响应的QQ, string 讨论组ID);
         /// <summary>
         /// 删除好友`
         /// </summary>
@@ -148,8 +116,9 @@
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <param name="对象"></param>
+        /// <param name="不再接收加群请求">真为不再接收，假为接收</param>
         /// <returns></returns>
-        bool Api_Kick(string 响应的QQ, string 群号, string 对象);
+        void Api_KickGroupMBR(string 响应的QQ, string 群号, string 对象, bool 不再接收加群请求);
         /// <summary>
         /// 主动加群.为了避免广告、群发行为。出现验证码时将会直接失败不处理`
         /// </summary>
@@ -173,45 +142,33 @@
         /// <param name="参_参考对象">上传该图片所属的群号或QQ</param>
         /// <param name="参_图片数据">址, 图片字节集数据或字节集数据指针()</param>
         /// <returns></returns>
-        string Api_UploadPic(string 响应的QQ, int 参_上传类型, string 参_参考对象, byte[] 参_图片数据);
+        string Api_UpLoadPic(string 响应的QQ, int 参_上传类型, string 参_参考对象, byte[] 参_图片数据);
         /// <summary>
         /// 根据图片GUID取得图片下载连接 失败返回空`
         /// </summary>
-        /// <param name="图片GUID">{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpg这样的GUID</param>
+        ///<param name="响应的QQ">机器人QQ</param>
+        ///<param name="图片类型">图片类型</param> 1 群 讨论组  2临时会话和好友
+        ///<param name="参考对象">参考对象</param> 图片所属对应的群号（可随意乱填写，只有群图片需要填写）
+        ///<param name="图片GUID">图片GUID</param>
         /// <returns></returns>
-        string Api_GuidGetPicLink(string 图片GUID);
-        /// <summary>
-        /// 回复信息 请尽量避免使用该API`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="信息类型">1好友 2群 3讨论组 4群临时会话 5讨论组临时会话</param>
-        /// <param name="回复对象">接收这条信息的对象</param>
-        /// <param name="内容">信息内容</param>
-        /// <returns></returns>
-        int Api_Reply(string 响应的QQ, int 信息类型, string 回复对象, string 内容);
+        string Api_GetPicLink(string 响应的QQ, int 图片类型, string 参考对象, string 图片GUID);
         /// <summary>
         /// 向对象、目标发送信息 支持好友 群 讨论组 群临时会话 讨论组临时会话`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="信息类型">1好友 2群 3讨论组 4群临时会话 5讨论组临时会话</param>
-        /// <param name="参考子类型">无特殊说明情况下留空或填零</param>
         /// <param name="收信群_讨论组">发送群信息、讨论组信息、群临时会话信息、讨论组临时会话信息时填写</param>
         /// <param name="收信对象">最终接收这条信息的对象QQ</param>
         /// <param name="内容">信息内容</param>
+        /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        int Api_SendMsg(string 响应的QQ, int 信息类型, int 参考子类型, string 收信群_讨论组, string 收信对象, string 内容);
-        /// <summary>
-        /// 发送封包`
-        /// </summary>
-        /// <param name="封包内容"></param>
-        /// <returns></returns>
-        string Api_Send(string 封包内容);
+        void Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID);
         /// <summary>
         /// 在框架记录页输出一行信息`
         /// </summary>
         /// <param name="内容">输出的内容</param>
         /// <returns></returns>
-        int Api_OutPut(string 内容);
+        void Api_OutPutLog(string 内容);
         /// <summary>
         /// 取得本插件启用状态`
         /// </summary>
@@ -222,13 +179,13 @@
         /// </summary>
         /// <param name="QQ">欲登录的Q</param>
         /// <returns></returns>
-        bool Api_Login(string QQ);
+        void Api_LoginQQ(string QQ);
         /// <summary>
         /// 让指定QQ下线`
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        void Api_Logout(string QQ);
+        void Api_OffLineQQ(string QQ);
         /// <summary>
         /// tean加密算法`
         /// </summary>
@@ -248,105 +205,70 @@
         /// </summary>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        string Api_GetNick(string QQ);
-        /// <summary>
-        /// 取QQ等级+QQ会员等级 返回json格式信息`
-        /// </summary>
-        /// <param name="QQ"></param>
-        /// <returns></returns>
-        string Api_GetQQLevel(string QQ);
+        string Api_GetRInf(string QQ);
         /// <summary>
         /// 群号转群ID`
         /// </summary>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string Api_GNGetGid(string 群号);
+        string Api_GNTransGID(string 群号);
         /// <summary>
         /// 群ID转群号`
         /// </summary>
         /// <param name="群ID"></param>
         /// <returns></returns>
-        string Api_GidGetGN(string 群ID);
-        /// <summary>
-        /// 取框架版本号(发布时间戳`
-        /// </summary>
-        /// <returns></returns>
-        int Api_GetVersion();
+        string Api_GIDTransGN(string 群ID);
         /// <summary>
         /// 取框架版本名`
         /// </summary>
         /// <returns></returns>
-        string Api_GetVersionName();
+        string Api_GetVer();
         /// <summary>
         /// 取当前框架内部时间戳_周期性与服务器时间同步`
         /// </summary>
         /// <returns></returns>
-        int Api_GetTimeStamp();
+        long Api_GetTimeStamp();
         /// <summary>
         /// 取得框架输出列表内所有信息`
         /// </summary>
         /// <returns></returns>
         string Api_GetLog();
         /// <summary>
-        /// 判断是否处于被屏蔽群信息状态。`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <returns></returns>
-        bool Api_IfBlock(string 响应的QQ);
-        /// <summary>
         /// 取包括群主在内的群管列表`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string Api_GetAdminList(string 响应的QQ, string 群号);
+        string Api_GetGroupAdmin(string 响应的QQ, string 群号);
         /// <summary>
         /// 发说说`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="内容"></param>
         /// <returns></returns>
-        string Api_AddTaotao(string 响应的QQ, string 内容);
+        string Api_PBTaoTao(string 响应的QQ, string 内容);
         /// <summary>
-        /// 取个签`
+        /// QQ群签到（成功返回真 失败返回假）
         /// </summary>
         /// <param name="响应的QQ"></param>
-        /// <param name="对象"></param>
+        /// <param name="群号"></param>
+        /// <param name="地名">签到地名（Pro可自定义）</param>
+        /// <param name="想说的话">想发表的内容</param>
         /// <returns></returns>
-        string Api_GetSign(string 响应的QQ, string 对象);
-        /// <summary>
-        /// 设置个签`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="内容"></param>
-        /// <returns></returns>
-        string Api_SetSign(string 响应的QQ, string 内容);
+        bool Api_SignIn(string 响应的QQ, string 群号, string 地名, string 想说的话);
         /// <summary>
         /// 通过qun.qzone.qq.com接口取得取群列表.成功返回转码后的JSON格式文本信息`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string Api_GetGroupListA(string 响应的QQ);
-        /// <summary>
-        /// 通过qun.qq.com接口取得取群列表.成功返回转码后的JSON格式文本信息`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <returns></returns>
-        string Api_GetGroupListB(string 响应的QQ);
+        string Api_GetGroupList(string 响应的QQ);
         /// <summary>
         /// 通过qun.qq.com接口取得群成员列表 成功返回转码后的JSON格式文本`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string Api_GetGroupMemberA(string 响应的QQ, string 群号);
-        /// <summary>
-        /// 通过qun.qzone.qq.com接口取得群成员列表 成功返回转码后的JSON格式文本`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="群号"></param>
-        /// <returns></returns>
-        string Api_GetGroupMemberB(string 响应的QQ, string 群号);
+        string Api_GetGroupMemberList(string 响应的QQ, string 群号);
         /// <summary>
         /// 通过qun.qq.com接口取得好友列表。成功返回转码后的JSON文本`
         /// </summary>
@@ -373,7 +295,7 @@
         /// <param name="响应的QQ"></param>
         /// <param name="QQ">对象QQ</param>
         /// <returns></returns>
-        string Api_GetPersonalProfile(string 响应的QQ, string QQ);
+        string Api_GetPerExp(string 响应的QQ, string QQ);
         /// <summary>
         /// 取邮箱 成功返回邮箱 失败返回空`
         /// </summary>
@@ -389,24 +311,12 @@
         /// <returns></returns>
         int Api_GetGender(string 响应的QQ, string QQ);
         /// <summary>
-        /// 向好友发送‘正在输入’的状态信息.当好友收到信息之后 “正在输入”状态会立刻被打断`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="QQ"></param>
-        /// <returns></returns>
-        int Api_SendTyping(string 响应的QQ, string QQ);
-        /// <summary>
         /// 向好友发送窗口抖动信息`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="QQ"></param>
         /// <returns></returns>
-        int Api_SendShake(string 响应的QQ, string QQ);
-        /// <summary>
-        /// 取得框架内随机一个在线且可以使用的QQ`
-        /// </summary>
-        /// <returns></returns>
-        string Api_GetRadomOnlineQQ();
+        bool Api_ShakeWindow(string 响应的QQ, string QQ);
         /// <summary>
         /// 往帐号列表添加一个Q.当该Q已存在时则覆盖密码`
         /// </summary>
@@ -414,7 +324,7 @@
         /// <param name="密码"></param>
         /// <param name="自动登录">运行框架时是否自动登录该Q.若添加后需要登录该Q则需要通过Api_Login操作</param>
         /// <returns></returns>
-        bool Api_AddQQ(string QQ, string 密码, bool 自动登录);
+        string Api_AddQQ(string QQ, string 密码, bool 自动登录);
         /// <summary>
         /// 设置在线状态+附加信息 `
         /// </summary>
@@ -422,12 +332,7 @@
         /// <param name="在线状态">1~6 分别对应我在线上, Q我吧, 离开, 忙碌, 请勿打扰, 隐身</param>
         /// <param name="状态附加信息">最大255字节</param>
         /// <returns></returns>
-        bool Api_SetOLStatus(string 响应的QQ, int 在线状态, string 状态附加信息);
-        /// <summary>
-        /// 取得机器码`
-        /// </summary>
-        /// <returns></returns>
-        string Api_GetMC();
+        void Api_SetRInf(string 响应的QQ, int 在线状态, string 状态附加信息);
         /// <summary>
         /// 邀请对象加入群 失败返回错误理由`
         /// </summary>
@@ -435,13 +340,14 @@
         /// <param name="好友QQ">多个好友用换行分割</param>
         /// <param name="群号"></param>
         /// <returns></returns>
-        string Api_GroupInvitation(string 响应的QQ, string 好友QQ, string 群号);
+        void Api_NoAdminInviteGroup(string 响应的QQ, string 好友QQ, string 群号);
         /// <summary>
         /// 创建一个讨论组 成功返回讨论组ID 失败返回空 注:每24小时只能创建100个讨论组 悠着点用`
         /// </summary>
         /// <param name="响应的QQ"></param>
+        /// <param name="讨论组名称">讨论组名称</param>
         /// <returns></returns>
-        string Api_CreateDG(string 响应的QQ);
+        string Api_CreateDisGroup(string 响应的QQ, string 讨论组名称);
         /// <summary>
         /// 将对象移除讨论组.成功返回空 失败返回理由`
         /// </summary>
@@ -449,7 +355,7 @@
         /// <param name="讨论组ID"></param>
         /// <param name="成员"></param>
         /// <returns></returns>
-        string Api_KickDG(string 响应的QQ, string 讨论组ID, string 成员);
+        string Api_KickDisGroupMBR(string 响应的QQ, string 讨论组ID, string 成员);
         /// <summary>
         /// 邀请对象加入讨论组 成功返回空 失败返回理由`
         /// </summary>
@@ -457,47 +363,19 @@
         /// <param name="讨论组ID"></param>
         /// <param name="成员组">多个成员用换行符分割</param>
         /// <returns></returns>
-        string Api_DGInvitation(string 响应的QQ, string 讨论组ID, string 成员组);
+        string Api_InviteDisGroup(string 响应的QQ, string 讨论组ID, string 成员组);
         /// <summary>
         /// 成功返回以换行符分割的讨论组号列表.最大为100个讨论组  失败返回空`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <returns></returns>
-        string Api_GetDGList(string 响应的QQ);
-        /// <summary>
-        /// 向对象发送一条音乐信息（所谓的点歌）次数不限`
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="收信对象类型">同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话</param>
-        /// <param name="收信对象所属群_讨论组">发群内、临时会话必填 好友可不填</param>
-        /// <param name="收信对象QQ">临时会话、好友必填 发至群内可不填</param>
-        /// <param name="音乐简介">留空默认‘QQ音乐 的分享’</param>
-        /// <param name="音乐播放页面连接">任意直连或短链接均可 留空为空 无法点开</param>
-        /// <param name="音乐封面连接">任意直连或短链接均可 可空 例:http://url.cn/cDiJT4</param>
-        /// <param name="音乐文件直连连接">任意直连或短链接均可 不可空 例:http://url.cn/djwXjr</param>
-        /// <param name="曲名">可空</param>
-        /// <param name="歌手名">可空</param>
-        /// <param name="音乐来源名">可空 为空默认QQ音乐</param>
-        /// <param name="音乐来源图标连接">可空 为空默认QQ音乐 http://qzonestyle.gtimg.cn/ac/qzone/applogo/64/308/100497308_64.gif</param>
-        /// <returns></returns>
-        bool Api_SendMusic(string 响应的QQ, int 收信对象类型, string 收信对象所属群_讨论组, string 收信对象QQ, string 音乐简介, string 音乐播放页面连接, string 音乐封面连接, string 音乐文件直连连接, string 曲名, string 歌手名, string 音乐来源名, string 音乐来源图标连接);
-        /// <summary>
-        /// `
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="收信对象类型">同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话</param>
-        /// <param name="收信对象所属群_讨论组">发群内、临时会话必填 好友可不填</param>
-        /// <param name="收信对象QQ">临时会话、好友必填 发至群内可不填</param>
-        /// <param name="ObjectMsg"></param>
-        /// <param name="结构子类型">00 基本 02 点歌 其他不明</param>
-        /// <returns></returns>
-        bool Api_SendObjectMsg(string 响应的QQ, int 收信对象类型, string 收信对象所属群_讨论组, string 收信对象QQ, string ObjectMsg, int 结构子类型);
+        string Api_GetDisGroupList(string 响应的QQ);
         /// <summary>
         /// 判断对象是否为好友（双向）`
         /// </summary>
         /// <param name="响应的QQ"></param>
         /// <param name="对象QQ"></param>
         /// <returns></returns>
-        bool Api_IsFriend(string 响应的QQ, string 对象QQ);
+        bool Api_IfFriend(string 响应的QQ, string 对象QQ);
     }
 }
