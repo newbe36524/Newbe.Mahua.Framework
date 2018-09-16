@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Newbe.Mahua.CQP.NativeApi;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP.Native
 {

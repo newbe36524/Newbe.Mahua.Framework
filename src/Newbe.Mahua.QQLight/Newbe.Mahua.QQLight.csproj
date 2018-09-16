@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+
+    <PackageTags>Newbe Mahua QQLight</PackageTags>
+
+    <IsTool>true</IsTool>
+    <DevelopmentDependency>true</DevelopmentDependency>
+
+    <Description>
+      Newbe.Mahua 针对QQLight平台推出的平台支持包。
+      全新的 QQLight （http://www.52chat.cc/）
+      上手即用的QQ机器人，即刻提升您的群活跃度，全自动便捷管理群组，它可以实现群管理、群聊天、便民娱乐等各种功能，让您的群逼格更高，更活跃！
+    </Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
+    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.QQLight.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
+    <DocumentationFile>bin\Release\net452\Newbe.Mahua.QQLight.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Newbe.Mahua.QQLight.Native\bin\$(Configuration)\Newbe.Mahua.QQLight.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.QQLight.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.QQLight.Native\bin\$(Configuration)\Newbe.Mahua.QQLight.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.QQLight.Native.pdb">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="..\Newbe.Mahua.QQLight.Native\bin\$(Configuration)\x86\Newbe.Mahua.QQLight.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.QQLight.Native.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\Native\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.QQLight.dll">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.QQLight.pdb">
+      <Pack>true</Pack>
+      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\$(Configuration)\net452\CLR\" />
+    <Folder Include="bin\$(Configuration)\net452\Native\" />
+  </ItemGroup>
+
+  <Import Project="..\Newbe.Mahua.props" />
+
+
+</Project>

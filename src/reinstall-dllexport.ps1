@@ -1,2 +1,2 @@
 # run in nuget package console
-"Newbe.Mahua.CQP.Native","Newbe.Mahua.Amanda.Native","Newbe.Mahua.MPQ.Native" | ForEach-Object { update-package -reinstall -projectName $_ }
+"Newbe.Mahua.CQP.Native","Newbe.Mahua.Amanda.Native","Newbe.Mahua.MPQ.Native","Newbe.Mahua.CleverQQ.Native","Newbe.Mahua.QQLight.Native" | ForEach-Object { update-package -reinstall -projectName $_ }

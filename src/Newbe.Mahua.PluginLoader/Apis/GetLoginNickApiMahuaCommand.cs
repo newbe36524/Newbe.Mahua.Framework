@@ -12,6 +12,7 @@ namespace Newbe.Mahua.Apis
 
     public class GetLoginNickApiMahuaCommandResult : ApiMahuaCommandResult
     {
+
         public string Nick { get; set; }
     }
 }

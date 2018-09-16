@@ -18,6 +18,17 @@
         /// <summary>
         /// Amanda
         /// </summary>
-        Amanda
+        Amanda,
+
+        /// <summary>
+        /// CleverQQ
+        /// </summary>
+        CleverQQ,
+
+        /// <summary>
+        /// QqLight
+        /// </summary>
+        QqLight,
+
     }
 }

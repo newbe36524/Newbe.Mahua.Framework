@@ -1,5 +1,5 @@
-﻿using Newbe.Mahua.CQP.NativeApi;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP.Native
 {

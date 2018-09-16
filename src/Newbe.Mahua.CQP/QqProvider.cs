@@ -1,5 +1,5 @@
-﻿using Newbe.Mahua.CQP.NativeApi;
-using System;
+﻿using System;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP
 {

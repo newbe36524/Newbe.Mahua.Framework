@@ -1,5 +1,5 @@
-﻿using Newbe.Mahua.MPQ.NativeApi;
-using System;
+﻿using System;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ
 {

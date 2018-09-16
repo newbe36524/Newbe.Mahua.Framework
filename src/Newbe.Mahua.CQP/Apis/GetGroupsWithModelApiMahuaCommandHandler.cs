@@ -1,6 +1,6 @@
 ﻿using Newbe.Mahua.Apis;
-using Newbe.Mahua.CQP.NativeApi;
 using System.Collections.Generic;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP.Apis
 {

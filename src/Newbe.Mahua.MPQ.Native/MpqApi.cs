@@ -1,5 +1,5 @@
-﻿using Newbe.Mahua.MPQ.NativeApi;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Native
 {
