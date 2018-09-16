@@ -16,7 +16,7 @@
 1. 添加 QQLight、CleverQQ 支持，移除 Amanda 支持
 2. 公开各平台私有API
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/09/14/Release-Notes-1-12-0.html>
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/09/16/Release-Notes-1-12-0.html>
 
 ## 1.11
 

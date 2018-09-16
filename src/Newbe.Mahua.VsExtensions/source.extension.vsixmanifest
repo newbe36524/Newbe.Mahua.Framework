@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Newbe.Mahua.VsExtensions.b9996f3d-b1dd-455d-bd99-18c4ded29602" Version="1.11.0" Language="zh-Hans" Publisher="Newbe36524" />
+        <Identity Id="Newbe.Mahua.VsExtensions.b9996f3d-b1dd-455d-bd99-18c4ded29602" Version="1.12.0" Language="zh-Hans" Publisher="Newbe36524" />
         <DisplayName>Newbe.Mahua.VsExtensions</DisplayName>
         <Description xml:space="preserve">Newbe.Mahua.VsExtensions, Tools for Newbe.Mahua.</Description>
         <MoreInfo>http://www.newbe.pro</MoreInfo>
@@ -90,9 +90,10 @@
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\Apis\SetGroupMemberSpecialTitleApiMahuaCommandHandler.zip" />
         <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\Newbe.Mahua\Apis\SetNoticeApiMahuaCommandHandler.zip" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.zip" />
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.Amanda.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.CleverQQ.zip" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.CQP.zip" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.MPQ.zip" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.QQLight.zip" />
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     </Assets>
     <Prerequisites>
