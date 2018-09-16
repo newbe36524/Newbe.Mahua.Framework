@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.Amanda\Newbe.Mahua.Amanda.csproj" />
     <ProjectReference Include="..\Newbe.Mahua.CleverQQ\Newbe.Mahua.CleverQQ.csproj" />
     <ProjectReference Include="..\Newbe.Mahua.CQP.ApiExtensions\Newbe.Mahua.CQP.ApiExtensions.csproj" />
     <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj" />

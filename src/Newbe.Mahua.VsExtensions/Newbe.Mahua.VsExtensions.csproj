@@ -74,8 +74,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="C:\Users\yks\Documents\Visual Studio 2017\My Exported Templates\Newbe.Mahua.Plugins.Template.Amanda.zip">
-      <Link>ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.Amanda.zip</Link>
+    <Content Include="C:\Users\yks\Documents\Visual Studio 2017\My Exported Templates\Newbe.Mahua.Plugins.Template.CleverQQ.zip">
+      <Link>ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.CleverQQ.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -86,6 +86,11 @@
     </Content>
     <Content Include="C:\Users\yks\Documents\Visual Studio 2017\My Exported Templates\Newbe.Mahua.Plugins.Template.MPQ.zip">
       <Link>ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.MPQ.zip</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="C:\Users\yks\Documents\Visual Studio 2017\My Exported Templates\Newbe.Mahua.Plugins.Template.QQLight.zip">
+      <Link>ProjectTemplates\Newbe.Mahua\Newbe.Mahua.Plugins.Template.QQLight.zip</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
