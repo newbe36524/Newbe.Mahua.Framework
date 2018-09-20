@@ -21,7 +21,7 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="QQID">目标QQ</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendPrivateMsg(int AuthCode, long QQID, string msg)
+        long ICoolQApi.CQ_sendPrivateMsg(int AuthCode, long QQID, string msg)
             => NativeMethods.CQ_sendPrivateMsg(AuthCode, QQID, msg);
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="群号">目标群</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendGroupMsg(int AuthCode, long 群号, string msg)
+        long ICoolQApi.CQ_sendGroupMsg(int AuthCode, long 群号, string msg)
             => NativeMethods.CQ_sendGroupMsg(AuthCode, 群号, msg);
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="讨论组号">目标讨论组</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg)
+        long ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg)
             => NativeMethods.CQ_sendDiscussMsg(AuthCode, 讨论组号, msg);
 
         /// <summary>

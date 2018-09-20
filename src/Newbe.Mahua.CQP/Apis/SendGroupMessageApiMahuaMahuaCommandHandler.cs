@@ -4,7 +4,7 @@ using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    internal class SendGroupMessageApiMahuaMahuaCommandHandler : CqpApiMahuaCommandHandlerBase<SendGroupMessageApiMahuaCommand>
+    internal class SendGroupMessageApiMahuaMahuaCommandHandler : CqpApiMahuaCommandHandlerBase<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>
     {
         public SendGroupMessageApiMahuaMahuaCommandHandler(
             ICoolQApi coolQApi,
@@ -13,9 +13,14 @@ namespace Newbe.Mahua.CQP.Apis
         {
         }
 
-        public override void Handle(SendGroupMessageApiMahuaCommand message)
+        public override SendGroupMessageApiMahuaCommandResult Handle(SendGroupMessageApiMahuaCommand message)
         {
-            CoolQApi.CQ_sendGroupMsg(AuthCode, Convert.ToInt64(message.ToGroup), message.Message);
+            var source = CoolQApi.CQ_sendGroupMsg(AuthCode, Convert.ToInt64(message.ToGroup), message.Message);
+            var re = new SendGroupMessageApiMahuaCommandResult
+            {
+                MessageId = source
+            };
+            return re;
         }
     }
 }

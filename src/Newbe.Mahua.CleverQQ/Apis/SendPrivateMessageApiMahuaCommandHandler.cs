@@ -4,7 +4,7 @@ using Newbe.Mahua.NativeApi;
 namespace Newbe.Mahua.CleverQQ.Apis
 {
     public class SendPrivateMessageApiMahuaCommandHandler
-        : CleverQQApiMahuaCommandHandlerBase<SendPrivateMessageApiMahuaCommand>
+        : CleverQQApiMahuaCommandHandlerBase<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>
     {
         public SendPrivateMessageApiMahuaCommandHandler(
             ICleverQqApi cleverqqApi,
@@ -14,9 +14,14 @@ namespace Newbe.Mahua.CleverQQ.Apis
         {
         }
 
-        public override void Handle(SendPrivateMessageApiMahuaCommand message)
+        public override SendPrivateMessageApiMahuaCommandResult Handle(SendPrivateMessageApiMahuaCommand message)
         {
             CleverQQApi.Api_SendMsg(CurrentQq, 1, null, message.ToQq, message.Message, -2);
+            var re = new SendPrivateMessageApiMahuaCommandResult
+            {
+                MessageId = -1
+            };
+            return re;
         }
     }
 }

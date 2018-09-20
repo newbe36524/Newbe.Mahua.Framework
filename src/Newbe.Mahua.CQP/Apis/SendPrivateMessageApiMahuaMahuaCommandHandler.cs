@@ -4,7 +4,7 @@ using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CQP.Apis
 {
-    internal class SendPrivateMessageApiMahuaMahuaCommandHandler : CqpApiMahuaCommandHandlerBase<SendPrivateMessageApiMahuaCommand>
+    internal class SendPrivateMessageApiMahuaMahuaCommandHandler : CqpApiMahuaCommandHandlerBase<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>
     {
         public SendPrivateMessageApiMahuaMahuaCommandHandler(
             ICoolQApi coolQApi,
@@ -13,9 +13,14 @@ namespace Newbe.Mahua.CQP.Apis
         {
         }
 
-        public override void Handle(SendPrivateMessageApiMahuaCommand message)
+        public override SendPrivateMessageApiMahuaCommandResult Handle(SendPrivateMessageApiMahuaCommand message)
         {
-            CoolQApi.CQ_sendPrivateMsg(AuthCode, Convert.ToInt64(message.ToQq), message.Message);
+            var source = CoolQApi.CQ_sendPrivateMsg(AuthCode, Convert.ToInt64(message.ToQq), message.Message);
+            var re = new SendPrivateMessageApiMahuaCommandResult
+            {
+                MessageId = source
+            };
+            return re;
         }
     }
 }

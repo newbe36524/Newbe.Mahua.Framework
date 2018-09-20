@@ -18,7 +18,7 @@ namespace Newbe.Mahua
         /// <param name="toQq">目标QQ号</param>
         /// <param name="message">消息内容</param>
         [Description("发送私聊消息")]
-        void SendPrivateMessage(string toQq, string message);
+        long SendPrivateMessage(string toQq, string message);
 
         /// <summary>
         /// 发送群消息
@@ -26,7 +26,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup">目标群</param>
         /// <param name="message">消息内容</param>
         [Description("发送群消息")]
-        void SendGroupMessage(string toGroup, string message);
+        long SendGroupMessage(string toGroup, string message);
 
         /// <summary>
         /// 发送讨论组消息
@@ -34,7 +34,7 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss">目标讨论组</param>
         /// <param name="message">消息内容</param>
         [Description("发送讨论组消息")]
-        void SendDiscussMessage(string toDiscuss, string message);
+        long SendDiscussMessage(string toDiscuss, string message);
 
         /// <summary>
         /// 发送名片赞

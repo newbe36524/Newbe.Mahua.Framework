@@ -120,14 +120,14 @@ namespace Newbe.Mahua.CQP
                 builder
                     .RegisterMahuaApi<RemoveBanGroupMemberApiMahuaMahuaCommandHandler,
                         RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(
+                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(
                     MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(
+                builder.RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(
                     MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SendLikeApiMahuaMahuaCommandHandler, SendLikeApiMahuaCommand>(MahuaGlobal
                     .DefaultApiHandlerAuthorName);
                 builder
-                    .RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(
+                    .RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(
                         MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder
                     .RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaMahuaCommandHandler,

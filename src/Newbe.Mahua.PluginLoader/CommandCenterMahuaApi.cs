@@ -22,31 +22,43 @@ namespace Newbe.Mahua
             _commandCenter = commandCenter;
         }
 
-        public void SendPrivateMessage(string toQq, string message)
+        public long SendPrivateMessage(string toQq, string message)
         {
-            _commandCenter.Handle(new SendPrivateMessageApiMahuaCommand
-            {
-                Message = message,
-                ToQq = toQq
-            });
+            var re = _commandCenter
+                .HandleWithResult<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(
+                    new SendPrivateMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToQq = toQq,
+                    });
+            var messageid = re.MessageId;
+            return messageid;
         }
 
-        public void SendGroupMessage(string toGroup, string message)
+        public long SendGroupMessage(string toGroup, string message)
         {
-            _commandCenter.Handle(new SendGroupMessageApiMahuaCommand
-            {
-                Message = message,
-                ToGroup = toGroup,
-            });
+            var re = _commandCenter
+                .HandleWithResult<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(
+                    new SendGroupMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToGroup = toGroup,
+                    });
+            var messageid = re.MessageId;
+            return messageid;
         }
 
-        public void SendDiscussMessage(string toDiscuss, string message)
+        public long SendDiscussMessage(string toDiscuss, string message)
         {
-            _commandCenter.Handle(new SendDiscussMessageApiMahuaCommand
-            {
-                Message = message,
-                ToDiscuss = toDiscuss
-            });
+            var re = _commandCenter
+                .HandleWithResult<SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(
+                    new SendDiscussMessageApiMahuaCommand
+                    {
+                    Message = message,
+                        ToDiscuss = toDiscuss,
+                    });
+            var messageid = re.MessageId;
+            return messageid;
         }
 
         public void SendLike(string toQq)
