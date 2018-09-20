@@ -324,7 +324,7 @@ namespace Newbe.Mahua.CQP.Native
             /// <summary>
             /// 撤回消息
             /// </summary>
-            /// <param name="AuthCode">目标QQ</param>
+            /// <param name="AuthCode"></param>
             /// <param name="msgid">消息ID</param>
             /// <returns></returns>
             [DllImport("CQP.dll")]
