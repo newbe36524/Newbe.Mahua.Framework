@@ -3,6 +3,14 @@
     public interface ICoolQApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="AuthCode"></param>
+        /// <param name="msgid">消息ID</param>
+        /// <returns></returns>
+        long CQ_deleteMsg(int AuthCode, long msgid);
+
+        /// <summary>
         /// 发送好友消息
         /// </summary>
         /// <param name="AuthCode"></param>

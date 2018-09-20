@@ -6,6 +6,15 @@ namespace Newbe.Mahua.CQP.Native
     public class CoolQApi : ICoolQApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="AuthCode"></param>
+        /// <param name="msgid">消息ID</param>
+        /// <returns></returns>
+        long ICoolQApi.CQ_deleteMsg(int AuthCode, long msgid)
+            => NativeMethods.CQ_deleteMsg(AuthCode, msgid);
+
+        /// <summary>
         /// 发送好友消息
         /// </summary>
         /// <param name="AuthCode"></param>
@@ -312,6 +321,15 @@ namespace Newbe.Mahua.CQP.Native
 
         private static class NativeMethods
         {
+            /// <summary>
+            /// 撤回消息
+            /// </summary>
+            /// <param name="AuthCode">目标QQ</param>
+            /// <param name="msgid">消息ID</param>
+            /// <returns></returns>
+            [DllImport("CQP.dll")]
+            public static extern long CQ_deleteMsg(int AuthCode, long msgid);
+
             /// <summary>
             /// 发送好友消息
             /// </summary>
