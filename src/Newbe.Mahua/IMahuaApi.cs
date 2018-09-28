@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,30 @@ namespace Newbe.Mahua
     public interface IMahuaApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="messageId">消息ID</param>
+        /// <param name="targetId">目标ID(私聊对象QQ号,群号,讨论组名称)</param>
+        /// <param name="type">信息类型</param>
+        [Description("撤回消息")]
+        bool DeleteMessage(long messageId, string targetId, int type);
+
+        /// <summary>
         /// 发送私聊消息
         /// </summary>
         /// <param name="toQq">目标QQ号</param>
         /// <param name="message">消息内容</param>
         [Description("发送私聊消息")]
-        long SendPrivateMessage(string toQq, string message);
+        void SendPrivateMessage(string toQq, string message);
+
+        /// <summary>
+        /// 发送私聊消息
+        /// </summary>
+        /// <param name="toQq">目标QQ号</param>
+        /// <param name="message">消息内容</param>
+        /// <param name="token">撤回令牌</param>
+        [Description("发送私聊消息")]
+        void SendPrivateMessage(string toQq, string message, IMessageCancelToken token);
 
         /// <summary>
         /// 发送群消息
@@ -26,7 +45,16 @@ namespace Newbe.Mahua
         /// <param name="toGroup">目标群</param>
         /// <param name="message">消息内容</param>
         [Description("发送群消息")]
-        long SendGroupMessage(string toGroup, string message);
+        void SendGroupMessage(string toGroup, string message);
+
+        /// <summary>
+        /// 发送群消息
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="message">消息内容</param>
+        /// <param name="token">撤回令牌</param>
+        [Description("发送群消息")]
+        void SendGroupMessage(string toGroup, string message, IMessageCancelToken token);
 
         /// <summary>
         /// 发送讨论组消息
@@ -34,7 +62,16 @@ namespace Newbe.Mahua
         /// <param name="toDiscuss">目标讨论组</param>
         /// <param name="message">消息内容</param>
         [Description("发送讨论组消息")]
-        long SendDiscussMessage(string toDiscuss, string message);
+        void SendDiscussMessage(string toDiscuss, string message);
+
+        /// <summary>
+        /// 发送讨论组消息
+        /// </summary>
+        /// <param name="toDiscuss">目标讨论组</param>
+        /// <param name="message">消息内容</param>
+        /// <param name="token">撤回令牌</param>
+        [Description("发送讨论组消息")]
+        void SendDiscussMessage(string toDiscuss, string message, IMessageCancelToken token);
 
         /// <summary>
         /// 发送名片赞

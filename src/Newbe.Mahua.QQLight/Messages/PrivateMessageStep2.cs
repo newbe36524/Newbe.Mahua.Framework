@@ -6,6 +6,7 @@ namespace Newbe.Mahua.QQLight.Messages
 {
     public class PrivateMessageStep2 : IPrivateMessageStep2
     {
+        private readonly IWithCancelable _cancelToken;
         private readonly IPrivateMessageDone _privateMessageDone;
         private readonly IText _text;
         private readonly IImage _image;
@@ -15,6 +16,7 @@ namespace Newbe.Mahua.QQLight.Messages
         private readonly IEmoji _emoji;
 
         public PrivateMessageStep2(
+            IWithCancelable cancelToken,
             IPrivateMessageDone privateMessageDone,
             IText text,
             IImage image,
@@ -23,6 +25,7 @@ namespace Newbe.Mahua.QQLight.Messages
             ISFace sFace,
             IEmoji emoji)
         {
+            _cancelToken = cancelToken;
             _privateMessageDone = privateMessageDone;
             _text = text;
             _image = image;
@@ -77,6 +80,11 @@ namespace Newbe.Mahua.QQLight.Messages
         public void Done()
         {
             _privateMessageDone.Done();
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            _cancelToken.WithCancelToken(token);
         }
     }
 }

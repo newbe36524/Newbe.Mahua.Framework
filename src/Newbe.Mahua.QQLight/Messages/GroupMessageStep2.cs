@@ -6,6 +6,7 @@ namespace Newbe.Mahua.QQLight.Messages
 {
     public class GroupMessageStep2 : IGroupMessageStep2
     {
+        private readonly IWithCancelable _cancelToken;
         private readonly IGroupMessageDone _groupMessageDone;
         private readonly IAtAll _atAll;
         private readonly IAt _at;
@@ -17,6 +18,7 @@ namespace Newbe.Mahua.QQLight.Messages
         private readonly IEmoji _emoji;
 
         public GroupMessageStep2(
+            IWithCancelable cancelToken,
             IGroupMessageDone groupMessageDone,
             IAtAll atAll,
             IAt at,
@@ -27,6 +29,7 @@ namespace Newbe.Mahua.QQLight.Messages
             ISFace sFace,
             IEmoji emoji)
         {
+            _cancelToken = cancelToken;
             _groupMessageDone = groupMessageDone;
             _atAll = atAll;
             _at = at;
@@ -95,6 +98,11 @@ namespace Newbe.Mahua.QQLight.Messages
         public void Done()
         {
             _groupMessageDone.Done();
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            _cancelToken.WithCancelToken(token);
         }
     }
 }

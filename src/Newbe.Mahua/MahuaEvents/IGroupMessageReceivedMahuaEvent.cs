@@ -45,5 +45,10 @@ namespace Newbe.Mahua.MahuaEvents
         /// 群消息
         /// </summary>
         public string Message { get; set; }
+
+        /// <summary>
+        /// 消息ID
+        /// </summary>
+        public long MessageId { get; set; }
     }
 }

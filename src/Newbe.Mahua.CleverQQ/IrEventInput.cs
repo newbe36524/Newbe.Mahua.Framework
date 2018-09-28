@@ -31,5 +31,15 @@
         /// 经过解密后的封包字节数据或json结构信息
         /// </summary>
         public string RawMessage { get; set; }
+
+        /// <summary>
+        /// 信息ID
+        /// </summary>
+        public long MessageId { get; set; }
+
+        /// <summary>
+        /// 信息编号
+        /// </summary>
+        public long MessageNum { get; set; }
     }
 }

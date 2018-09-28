@@ -110,6 +110,7 @@ namespace Newbe.Mahua.CQP.Native
                 FormNum = fromQQ,
                 Message = msg,
                 SendTime = DateTime.Now,
+                MessageId = msgId,
             });
             return 0;
         }
@@ -142,6 +143,7 @@ namespace Newbe.Mahua.CQP.Native
                 GroupNum = fromGroup,
                 FromAnonymous = fromAnonymous,
                 FromQq = fromQQ,
+                MessageId = msgId,
             });
             return 0;
         }
@@ -171,6 +173,7 @@ namespace Newbe.Mahua.CQP.Native
                 Message = msg,
                 DiscussGroupNum = fromDiscuss,
                 FromQq = fromQQ,
+                MessageId = msgId,
             });
             return 0;
         }

@@ -16,10 +16,10 @@ namespace Newbe.Mahua.CleverQQ.Apis
 
         public override SendDiscussMessageApiMahuaCommandResult Handle(SendDiscussMessageApiMahuaCommand message)
         {
-            CleverQQApi.Api_SendMsg(CurrentQq, 3, message.ToDiscuss, null, message.Message, -2);
+            var messageId = CleverQQApi.Api_SendMsg(CurrentQq, 3, message.ToDiscuss, null, message.Message, -2);
             var re = new SendDiscussMessageApiMahuaCommandResult
             {
-                MessageId = -1
+                MessageId = messageId
             };
             return re;
         }

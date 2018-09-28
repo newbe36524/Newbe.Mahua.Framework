@@ -2,10 +2,11 @@
 using System.IO;
 using System.Linq;
 using Newbe.Mahua.NativeApi;
+using Newbe.Mahua.Messages;
 
 namespace Newbe.Mahua.MPQ.Messages
 {
-    public class DiscussMessageDone : IDiscussMessageDone
+    public class DiscussMessageDone : IDiscussMessageDone, IWithCancelable
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IMpqMessage _message;
@@ -38,6 +39,22 @@ namespace Newbe.Mahua.MPQ.Messages
                 msg = _message.Images.Formate(msg);
             }
             _mahuaApi.SendPrivateMessage(_message.Target, msg);
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            var msg = _message.GetMessage();
+            if (_message.Images.Any())
+            {
+                _message.Images.Upload(file =>
+                    _mpqApi.Api_UploadPic(
+                        _robotSessionContext.CurrentQq,
+                        2,
+                        _message.Target,
+                        File.ReadAllBytes(file)));
+                msg = _message.Images.Formate(msg);
+            }
+            _mahuaApi.SendPrivateMessage(_message.Target, msg, token);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Newbe.Mahua.Apis
     public class SendGroupMessageApiMahuaCommandResult : ApiMahuaCommandResult
     {
         /// <summary>
-        /// 适用於酷Q撒回信息
+        /// 消息ID
         /// </summary>
         public long MessageId { get; set; }
     }

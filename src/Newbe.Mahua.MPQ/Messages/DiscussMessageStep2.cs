@@ -6,6 +6,7 @@ namespace Newbe.Mahua.MPQ.Messages
 {
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
+        private readonly IWithCancelable _cancelToken;
         private readonly IDiscussMessageDone _discussMessageDone;
         private readonly IAtAll _atAll;
         private readonly IAt _at;
@@ -17,6 +18,7 @@ namespace Newbe.Mahua.MPQ.Messages
         private readonly IEmoji _emoji;
 
         public DiscussMessageStep2(
+            IWithCancelable cancelToken,
             IDiscussMessageDone discussMessageDone,
             IAtAll atAll,
             IAt at,
@@ -27,6 +29,7 @@ namespace Newbe.Mahua.MPQ.Messages
             ISFace sFace,
             IEmoji emoji)
         {
+            _cancelToken = cancelToken;
             _discussMessageDone = discussMessageDone;
             _atAll = atAll;
             _at = at;
@@ -95,6 +98,11 @@ namespace Newbe.Mahua.MPQ.Messages
         public void Done()
         {
             _discussMessageDone.Done();
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            _cancelToken.WithCancelToken(token);
         }
     }
 }

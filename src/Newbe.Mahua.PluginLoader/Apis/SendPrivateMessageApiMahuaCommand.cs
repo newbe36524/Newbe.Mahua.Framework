@@ -16,9 +16,8 @@ namespace Newbe.Mahua.Apis
     public class SendPrivateMessageApiMahuaCommandResult : ApiMahuaCommandResult
     {
         /// <summary>
-        /// 适用於酷Q撒回信息
+        /// 消息ID
         /// </summary>
         public long MessageId { get; set; }
     }
-
 }
