@@ -1,8 +1,9 @@
-﻿using Newbe.Mahua.Messages.Steps;
+﻿using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.QQLight.Messages
 {
-    public class DiscussMessageDone : IDiscussMessageDone
+    public class DiscussMessageDone : IDiscussMessageDone, IWithCancelable
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IQqLightMessage _message;
@@ -18,6 +19,11 @@ namespace Newbe.Mahua.QQLight.Messages
         public void Done()
         {
             _mahuaApi.SendDiscussMessage(_message.Target, _message.GetMessage());
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            _mahuaApi.SendDiscussMessage(_message.Target, _message.GetMessage(), token);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Newbe.Mahua.Apis;
 using Newbe.Mahua.Commands;
+using Newbe.Mahua.Messages;
 using System;
 using System.Collections.Generic;
 
@@ -22,31 +23,85 @@ namespace Newbe.Mahua
             _commandCenter = commandCenter;
         }
 
-        public void SendPrivateMessage(string toQq, string message)
+        public bool DeleteMessage(long messageId, string toGroup, int type)
         {
-            _commandCenter.Handle(new SendPrivateMessageApiMahuaCommand
+            var re = _commandCenter
+            .HandleWithResult<DeleteMessageApiMahuaCommand, DeleteMessageApiMahuaCommandResult>(
+            new DeleteMessageApiMahuaCommand
+            {
+                 MessageId = messageId,
+                 TargetId = toGroup,
+                 Type = type
+            });
+            return re.IsDeleted;
+        }
+
+        public void SendPrivateMessage(string toQq, string message, IMessageCancelToken token)
+        {
+            var re = _commandCenter
+            .HandleWithResult<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(
+            new SendPrivateMessageApiMahuaCommand
             {
                 Message = message,
-                ToQq = toQq
+                ToQq = toQq,
             });
+            token.TargetId = toQq;
+            token.MessageId = re.MessageId;
+        }
+
+        public void SendGroupMessage(string toGroup, string message, IMessageCancelToken token)
+        {
+            var re = _commandCenter.HandleWithResult<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(
+                    new SendGroupMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToGroup = toGroup,
+                    });
+            token.TargetId = toGroup;
+            token.MessageId = re.MessageId;
+        }
+
+        public void SendDiscussMessage(string toDiscuss, string message, IMessageCancelToken token)
+        {
+            var re = _commandCenter
+                .HandleWithResult<SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(
+                    new SendDiscussMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToDiscuss = toDiscuss,
+                    });
+            token.TargetId = toDiscuss;
+            token.MessageId = re.MessageId;
+        }
+
+        public void SendPrivateMessage(string toQq, string message)
+        {
+            _commandCenter.HandleWithResult<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(
+                    new SendPrivateMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToQq = toQq,
+                    });
         }
 
         public void SendGroupMessage(string toGroup, string message)
         {
-            _commandCenter.Handle(new SendGroupMessageApiMahuaCommand
-            {
-                Message = message,
-                ToGroup = toGroup,
-            });
+            _commandCenter.HandleWithResult<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(
+                    new SendGroupMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToGroup = toGroup,
+                    });
         }
 
         public void SendDiscussMessage(string toDiscuss, string message)
         {
-            _commandCenter.Handle(new SendDiscussMessageApiMahuaCommand
-            {
-                Message = message,
-                ToDiscuss = toDiscuss
-            });
+            _commandCenter.HandleWithResult<SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(
+                    new SendDiscussMessageApiMahuaCommand
+                    {
+                        Message = message,
+                        ToDiscuss = toDiscuss,
+                    });
         }
 
         public void SendLike(string toQq)

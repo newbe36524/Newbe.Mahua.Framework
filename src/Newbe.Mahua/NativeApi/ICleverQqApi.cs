@@ -3,6 +3,16 @@
     public interface ICleverQqApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="响应的QQ"></param>
+        /// <param name="消息来源"></param>
+        /// <param name="信息类型"></param>
+        /// <param name="消息ID"></param>
+        /// <returns></returns>
+        bool Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID);
+
+        /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>
@@ -162,7 +172,7 @@
         /// <param name="内容">信息内容</param>
         /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        void Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID);
+        long Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID);
         /// <summary>
         /// 在框架记录页输出一行信息`
         /// </summary>

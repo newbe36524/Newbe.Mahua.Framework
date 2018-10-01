@@ -2,6 +2,14 @@
 {
     public interface IQqLightApi
     {
+
+        /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="群号"></param>
+        /// <param name="消息ID"></param>
+        void Api_DeleteMsg(string 群号, string 消息ID);
+
         /// <summary>
         ///
         /// </summary>

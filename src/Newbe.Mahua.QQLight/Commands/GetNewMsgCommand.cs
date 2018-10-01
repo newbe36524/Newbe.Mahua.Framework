@@ -31,6 +31,9 @@ namespace Newbe.Mahua.QQLight.Commands
 
         [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
+        public long MessageId { get; set; }
     }
 
     internal class GetNewMsgCommandHandler : ICommandHandler<GetNewMsgCommand>
@@ -87,7 +90,8 @@ namespace Newbe.Mahua.QQLight.Commands
                     Message = message.Message,
                     FromQq = commandFromqq,
                     FromGroup = message.Fromgroup,
-                    SendTime = sendTime
+                    SendTime = sendTime,
+                    MessageId = message.MessageId,
                 }));
                 return;
             }
@@ -99,7 +103,8 @@ namespace Newbe.Mahua.QQLight.Commands
                         Message = message.Message,
                         FromQq = commandFromqq,
                         FromDiscuss = message.Fromgroup,
-                        SendTime = sendTime
+                        SendTime = sendTime,
+                        MessageId = message.MessageId,
                     }));
                 return;
             }
@@ -112,6 +117,7 @@ namespace Newbe.Mahua.QQLight.Commands
                     FromQq = commandFromqq,
                     Message = message.Message,
                     PrivateMessageFromType = type,
+                    MessageId = message.MessageId,
                 });
             });
             switch (type)
@@ -124,7 +130,8 @@ namespace Newbe.Mahua.QQLight.Commands
                         {
                             SendTime = sendTime,
                             FromQq = commandFromqq,
-                            Message = message.Message
+                            Message = message.Message,
+                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.Online:
@@ -134,6 +141,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             SendTime = sendTime,
                             FromQq = commandFromqq,
                             Message = message.Message,
+                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.Group:
@@ -143,7 +151,8 @@ namespace Newbe.Mahua.QQLight.Commands
                             SendTime = sendTime,
                             Message = message.Message,
                             FromGroup = message.Fromgroup,
-                            FromQq = commandFromqq
+                            FromQq = commandFromqq,
+                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -153,7 +162,8 @@ namespace Newbe.Mahua.QQLight.Commands
                             SendTime = sendTime,
                             Message = message.Message,
                             FromDiscuss = message.Fromgroup,
-                            FromQq = commandFromqq
+                            FromQq = commandFromqq,
+                            MessageId = message.MessageId,
                         }));
                     break;
                 default:

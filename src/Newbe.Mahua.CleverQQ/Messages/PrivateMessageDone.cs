@@ -2,10 +2,11 @@
 using System.IO;
 using System.Linq;
 using Newbe.Mahua.NativeApi;
+using Newbe.Mahua.Messages;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
-    public class PrivateMessageDone : IPrivateMessageDone
+    public class PrivateMessageDone : IPrivateMessageDone, IWithCancelable
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly ICleverQQMessage _message;
@@ -44,6 +45,29 @@ namespace Newbe.Mahua.CleverQQ.Messages
                     msg = _message.Images.Formate(msg);
                 }
                 _mahuaApi.SendPrivateMessage(_message.Target, msg);
+            }
+        }
+
+        public void WithCancelToken(IMessageCancelToken token)
+        {
+            if (_message.Shake)
+            {
+                _cleverqqApi.Api_ShakeWindow(_robotSessionContext.CurrentQq, _message.Target);
+            }
+            else
+            {
+                var msg = _message.GetMessage();
+                if (_message.Images.Any())
+                {
+                    _message.Images.Upload(file =>
+                        _cleverqqApi.Api_UpLoadPic(
+                            _robotSessionContext.CurrentQq,
+                            1,
+                            _message.Target,
+                            File.ReadAllBytes(file)));
+                    msg = _message.Images.Formate(msg);
+                }
+                _mahuaApi.SendPrivateMessage(_message.Target, msg, token);
             }
         }
     }

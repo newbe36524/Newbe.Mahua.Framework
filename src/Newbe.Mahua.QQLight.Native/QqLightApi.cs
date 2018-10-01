@@ -14,6 +14,14 @@ namespace Newbe.Mahua.QQLight.Native
         }
 
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="群号"></param>
+        /// <param name="消息ID"></param>
+        void IQqLightApi.Api_DeleteMsg(string 群号, string 消息ID)
+            => NativeMethods.Api_DeleteMsg(群号, 消息ID, _qqLightAuthCodeContainer.AuthCode);
+
+        /// <summary>
         ///
         /// </summary>
         /// <param name="QQ号"></param>

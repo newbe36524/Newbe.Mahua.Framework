@@ -6,6 +6,17 @@ namespace Newbe.Mahua.CleverQQ.Native
     public class CleverQQApi : ICleverQqApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="响应的QQ"></param>
+        /// <param name="消息来源"></param>
+        /// <param name="信息类型"></param>
+        /// <param name="消息ID"></param>
+        /// <returns></returns>
+        bool ICleverQqApi.Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID)
+            => NativeMethods.Api_WithdrawMsg(响应的QQ, 消息来源, 信息类型, 消息ID);
+
+        /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>
@@ -207,7 +218,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="内容">信息内容</param>
         /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        void ICleverQqApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
+        long ICleverQqApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
             => NativeMethods.Api_SendMsg(响应的QQ, 信息类型, 收信群_讨论组, 收信对象, 内容, 气泡ID);
 
         /// <summary>
@@ -491,6 +502,17 @@ namespace Newbe.Mahua.CleverQQ.Native
         private static class NativeMethods
         {
             /// <summary>
+            /// 撤回消息
+            /// </summary>
+            /// <param name="响应的QQ"></param>
+            /// <param name="消息来源"></param>
+            /// <param name="信息类型"></param>
+            /// <param name="消息ID"></param>
+            /// <returns></returns>
+            [DllImport("IRapi.dll")]
+            public static extern bool Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID);
+
+            /// <summary>
             /// 取得机器人网页操作用参数Bkn或G_tk
             /// </summary>
             /// <param name="响应的QQ"></param>
@@ -706,7 +728,7 @@ namespace Newbe.Mahua.CleverQQ.Native
             /// <param name="气泡ID">气泡ID</param>
             /// <returns></returns>
             [DllImport("IRapi.dll")]
-            public static extern void Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组,
+            public static extern long Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组,
                string 收信对象, string 内容, int 气泡ID);
 
             /// <summary>

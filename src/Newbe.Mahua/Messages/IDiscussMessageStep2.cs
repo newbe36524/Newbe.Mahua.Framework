@@ -6,6 +6,7 @@ namespace Newbe.Mahua.Messages
     public interface IDiscussMessageStep2 :
         IAtStep<IDiscussMessageStep2>,
         INormalMessageStep<IDiscussMessageStep2>,
+        IWithCancelable,
         IDiscussMessageDone
     {
     }

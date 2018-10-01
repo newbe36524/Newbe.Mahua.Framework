@@ -23,6 +23,9 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
+        public long MessageId { get; set; }
     }
 
     internal class GroupMessageCommandHandler : ICommandHandler<GroupMessageCommand>
@@ -43,6 +46,7 @@ namespace Newbe.Mahua.CQP.Commands
                 FromGroup = message.GroupNum.ToString(),
                 FromQq = message.FromQq.ToString(),
                 Message = message.Message,
+                MessageId = message.MessageId,
             }));
         }
     }
