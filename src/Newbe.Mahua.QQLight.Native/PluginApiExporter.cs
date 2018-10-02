@@ -95,6 +95,7 @@ namespace Newbe.Mahua.QQLight.Native
                 Type = t,
                 Fromgroup = fromgroup,
                 Fromqq = fromqq,
+                MessageId = messageId,
             });
             return Continue;
         }

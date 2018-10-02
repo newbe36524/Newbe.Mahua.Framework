@@ -2,11 +2,13 @@
 using Newbe.Mahua.Apis;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 using Newbe.Mahua.QQLight.Apis;
 using Newbe.Mahua.QQLight.Commands;
 using Newbe.Mahua.QQLight.Messages;
 using Newbe.Mahua.QQLight.Messages.Builders;
+using Newbe.Mahua.QQLight.Messages.CancelMessage;
 
 namespace Newbe.Mahua.QQLight
 {
@@ -85,10 +87,10 @@ namespace Newbe.Mahua.QQLight
                 builder.RegisterMahuaApi<RejectGroupJoiningRequestApiMahuaCommandHandler, RejectGroupJoiningRequestApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<RemoveBanGroupMemberApiMahuaCommandHandler, RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<RemoveFriendApiMahuaCommandHandler, RemoveFriendApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendGroupMessageApiMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendGroupMessageApiMahuaCommandHandler, SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SendLikeApiMahuaCommandHandler, SendLikeApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaCommandHandler, SetBanAllGroupMembersOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetGroupAnonymousOptionApiMahuaCommandHandler, SetGroupAnonymousOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetGroupMemberCardApiMahuaCommandHandler, SetGroupMemberCardApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
@@ -121,6 +123,7 @@ namespace Newbe.Mahua.QQLight
                     .InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
+                builder.RegisterType<QqLightMessageCancelToken>().AsSelf().InstancePerDependency();
             }
         }
 

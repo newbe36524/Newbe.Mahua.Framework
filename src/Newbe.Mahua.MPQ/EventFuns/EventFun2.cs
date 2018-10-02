@@ -1,11 +1,12 @@
-﻿using Newbe.Mahua.Commands;
+﻿using System.Collections.Generic;
+using Newbe.Mahua.Commands;
 using Newbe.Mahua.MahuaEvents;
-using System.Collections.Generic;
+using Newbe.Mahua.MPQ.Messages.CancelMessage;
 
 namespace Newbe.Mahua.MPQ.EventFuns
 {
     /// <summary>
-    /// 群信息
+    ///     群信息
     /// </summary>
     public class EventFun2 : IEventFun
     {
@@ -30,7 +31,8 @@ namespace Newbe.Mahua.MPQ.EventFuns
                     FromQq = eventFunInput.EventOperator,
 
                     // todo there is no FromAnonymous
-                    // FromAnonymous = e
+                    // FromAnonymous = e,
+                    MessageCancelToken = MpqCancelMessageToken.EmptyActionToken
                 }));
         }
     }

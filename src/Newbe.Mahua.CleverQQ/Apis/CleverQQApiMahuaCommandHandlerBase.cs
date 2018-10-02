@@ -50,13 +50,13 @@ namespace Newbe.Mahua.CleverQQ.Apis
         public string CurrentQq => _robotSessionContext.CurrentQq;
 
         protected CleverQQApiMahuaCommandHandlerBase(
-            ICleverQqApi cleverqqApi,
+            ICleverQqApi cleverQqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
         {
             _robotSessionContext = robotSessionContext;
             _eventFunOutput = eventFunOutput;
-            CleverQQApi = cleverqqApi;
+            CleverQQApi = cleverQqApi;
         }
 
         public abstract TResult Handle(TCmd message);

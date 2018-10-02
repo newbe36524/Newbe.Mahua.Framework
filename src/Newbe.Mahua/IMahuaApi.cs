@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Newbe.Mahua.MahuaEvents;
+using Newbe.Mahua.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Newbe.Mahua.Messages.CancelMessage;
 using IContainer = Autofac.IContainer;
 
 namespace Newbe.Mahua
@@ -21,6 +23,17 @@ namespace Newbe.Mahua
         void SendPrivateMessage(string toQq, string message);
 
         /// <summary>
+        /// 发送私聊消息（可撤回）
+        /// </summary>
+        /// <param name="toQq">目标QQ号</param>
+        /// <param name="message">消息内容</param>
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送私聊消息（可撤回）")]
+        IMessageCancelToken SendPrivateMessageWithCancelToken(string toQq, string message);
+
+        /// <summary>
         /// 发送群消息
         /// </summary>
         /// <param name="toGroup">目标群</param>
@@ -29,12 +42,34 @@ namespace Newbe.Mahua
         void SendGroupMessage(string toGroup, string message);
 
         /// <summary>
+        /// 发送群消息（可撤回）
+        /// </summary>
+        /// <param name="toGroup">目标群</param>
+        /// <param name="message">消息内容</param>
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送群消息（可撤回）")]
+        IMessageCancelToken SendGroupMessageWithCancelToken(string toGroup, string message);
+
+        /// <summary>
         /// 发送讨论组消息
         /// </summary>
         /// <param name="toDiscuss">目标讨论组</param>
         /// <param name="message">消息内容</param>
         [Description("发送讨论组消息")]
         void SendDiscussMessage(string toDiscuss, string message);
+
+        /// <summary>
+        /// 发送讨论组消息（可撤回）
+        /// </summary>
+        /// <param name="toDiscuss">目标讨论组</param>
+        /// <param name="message">消息内容</param>
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送讨论组消息（可撤回）")]
+        IMessageCancelToken SendDiscussMessageWithCancelToken(string toDiscuss, string message);
 
         /// <summary>
         /// 发送名片赞
@@ -306,7 +341,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup"></param>
         /// <returns></returns>
         [Description("获取群成员列表（返回字符串）")]
-        string GetGroupMemebers(string toGroup);
+        string GetGroupMemebers(string toGroup); // TODO 拼写错误
 
         /// <summary>
         /// 获取群列表（返回字符串）

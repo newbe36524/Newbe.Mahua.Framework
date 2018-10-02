@@ -1,5 +1,6 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
@@ -36,12 +37,6 @@ namespace Newbe.Mahua.CQP.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
-        }
-
-        public IDiscussMessageStep2 AtlAll()
-        {
-            _atAll.AtlAll();
-            return this;
         }
 
         public IDiscussMessageStep2 At(string qq)
@@ -95,6 +90,11 @@ namespace Newbe.Mahua.CQP.Messages
         public void Done()
         {
             _discussMessageDone.Done();
+        }
+
+        public IMessageCancelToken DoneWithToken()
+        {
+            return _discussMessageDone.DoneWithToken();
         }
     }
 }

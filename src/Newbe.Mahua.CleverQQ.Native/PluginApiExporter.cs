@@ -78,6 +78,8 @@ namespace Newbe.Mahua.CleverQQ.Native
                     Message = message,
                     RawMessage = rawMessage,
                     Triggee = triggee,
+                    MessageId = System.Convert.ToInt64(messageID),
+                    MessageNum = System.Convert.ToInt64(messageNum),
                 });
             return endCommandResult.Result;
         }

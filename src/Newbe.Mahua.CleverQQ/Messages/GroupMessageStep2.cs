@@ -1,20 +1,21 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
     public class GroupMessageStep2 : IGroupMessageStep2
     {
-        private readonly IGroupMessageDone _groupMessageDone;
-        private readonly IAtAll _atAll;
         private readonly IAt _at;
-        private readonly IText _text;
-        private readonly IImage _image;
-        private readonly IFace _face;
+        private readonly IAtAll _atAll;
         private readonly IBFace _bFace;
-        private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IFace _face;
+        private readonly IGroupMessageDone _groupMessageDone;
+        private readonly IImage _image;
+        private readonly ISFace _sFace;
+        private readonly IText _text;
 
         public GroupMessageStep2(
             IGroupMessageDone groupMessageDone,
@@ -95,6 +96,11 @@ namespace Newbe.Mahua.CleverQQ.Messages
         public void Done()
         {
             _groupMessageDone.Done();
+        }
+
+        public IMessageCancelToken DoneWithToken()
+        {
+            return _groupMessageDone.DoneWithToken();
         }
     }
 }

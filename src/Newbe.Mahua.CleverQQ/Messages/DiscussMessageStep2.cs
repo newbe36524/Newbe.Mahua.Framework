@@ -1,20 +1,21 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
-        private readonly IDiscussMessageDone _discussMessageDone;
-        private readonly IAtAll _atAll;
         private readonly IAt _at;
-        private readonly IText _text;
-        private readonly IImage _image;
-        private readonly IFace _face;
+        private readonly IAtAll _atAll;
         private readonly IBFace _bFace;
-        private readonly ISFace _sFace;
+        private readonly IDiscussMessageDone _discussMessageDone;
         private readonly IEmoji _emoji;
+        private readonly IFace _face;
+        private readonly IImage _image;
+        private readonly ISFace _sFace;
+        private readonly IText _text;
 
         public DiscussMessageStep2(
             IDiscussMessageDone discussMessageDone,
@@ -36,12 +37,6 @@ namespace Newbe.Mahua.CleverQQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
-        }
-
-        public IDiscussMessageStep2 AtlAll()
-        {
-            _atAll.AtlAll();
-            return this;
         }
 
         public IDiscussMessageStep2 At(string qq)
@@ -95,6 +90,11 @@ namespace Newbe.Mahua.CleverQQ.Messages
         public void Done()
         {
             _discussMessageDone.Done();
+        }
+
+        public IMessageCancelToken DoneWithToken()
+        {
+            return _discussMessageDone.DoneWithToken();
         }
     }
 }

@@ -3,13 +3,21 @@
     public interface ICoolQApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="AuthCode"></param>
+        /// <param name="msgid">消息ID</param>
+        /// <returns></returns>
+        long CQ_deleteMsg(int AuthCode, long msgid);
+
+        /// <summary>
         /// 发送好友消息
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <param name="QQID">目标QQ</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int CQ_sendPrivateMsg(int AuthCode, long QQID, string msg);
+        long CQ_sendPrivateMsg(int AuthCode, long QQID, string msg);
 
         /// <summary>
         /// 发送群消息
@@ -18,7 +26,7 @@
         /// <param name="群号">目标群</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int CQ_sendGroupMsg(int AuthCode, long 群号, string msg);
+        long CQ_sendGroupMsg(int AuthCode, long 群号, string msg);
 
         /// <summary>
         /// 发送讨论组消息
@@ -27,7 +35,7 @@
         /// <param name="讨论组号">目标讨论组</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg);
+        long CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg);
 
         /// <summary>
         /// 发送赞

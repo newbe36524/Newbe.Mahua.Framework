@@ -36,6 +36,8 @@ namespace Newbe.Mahua.CleverQQ.Commands
                     FromNum = message.FromNum,
                     EventAdditionType = message.EventAdditionType,
                     Message = message.Message,
+                    MessageId = message.MessageId,
+                    MessageNum = message.MessageNum,
                 });
             }
             else
@@ -80,6 +82,12 @@ namespace Newbe.Mahua.CleverQQ.Commands
 
         [DataMember]
         public string RawMessage { get; set; }
+
+        [DataMember]
+        public long MessageId { get; set; }
+
+        [DataMember]
+        public long MessageNum { get; set; }
     }
 
     [DataContract]

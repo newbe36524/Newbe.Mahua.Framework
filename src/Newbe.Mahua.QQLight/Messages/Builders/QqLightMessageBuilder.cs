@@ -15,22 +15,22 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
         IShake,
         IText
     {
-        private readonly IQqLightMessage _QqLightMessage;
+        private readonly IQqLightMessage _qqLightMessage;
 
         public QqLightMessageBuilder(
-            IQqLightMessage QqLightMessage)
+            IQqLightMessage qqLightMessage)
         {
-            _QqLightMessage = QqLightMessage;
+            _qqLightMessage = qqLightMessage;
         }
 
         public void At(string qq)
         {
-            _QqLightMessage.Append($"[QQ:at={qq}]");
+            _qqLightMessage.Append($"[QQ:at={qq}]");
         }
 
         public void AtlAll()
         {
-            _QqLightMessage.Append("[QQ:at=all]");
+            _qqLightMessage.Append("[QQ:at=all]");
         }
 
         /// <summary>
@@ -44,12 +44,12 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
 
         public void Emoji(string id)
         {
-            _QqLightMessage.Append($"[QQ:emoji={id}]");
+            _qqLightMessage.Append($"[QQ:emoji={id}]");
         }
 
         public void Face(string id)
         {
-            _QqLightMessage.Append($"[QQ:face={id}]");
+            _qqLightMessage.Append($"[QQ:face={id}]");
         }
 
         /// <summary>
@@ -58,12 +58,12 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
         /// <param name="file"></param>
         public void Image(string file)
         {
-            _QqLightMessage.Append($"[QQ:pic={file}]");
+            _qqLightMessage.Append($"[QQ:pic={file}]");
         }
 
         public void Record(string file)
         {
-            _QqLightMessage.Append($"[QQ:voice={file}]");
+            _qqLightMessage.Append($"[QQ:voice={file}]");
         }
 
         public void SFace(string id)
@@ -73,17 +73,17 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
 
         public void Shake()
         {
-            _QqLightMessage.Shake = true;
+            _qqLightMessage.Shake = true;
         }
 
         public void Text(string text)
         {
-            _QqLightMessage.Append(text);
+            _qqLightMessage.Append(text);
         }
 
         public void Newline()
         {
-            _QqLightMessage.Append(Environment.NewLine);
+            _qqLightMessage.Append(Environment.NewLine);
         }
     }
 }

@@ -2,12 +2,14 @@
 using Newbe.Mahua.Apis;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 using Newbe.Mahua.MPQ.Apis;
 using Newbe.Mahua.MPQ.Commands;
 using Newbe.Mahua.MPQ.EventFuns;
 using Newbe.Mahua.MPQ.Messages;
 using Newbe.Mahua.MPQ.Messages.Builders;
+using Newbe.Mahua.MPQ.Messages.CancelMessage;
 
 namespace Newbe.Mahua.MPQ
 {
@@ -94,10 +96,10 @@ namespace Newbe.Mahua.MPQ
                 builder.RegisterMahuaApi<RemoveBanGroupMemberApiMahuaCommandHandler, RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<RemoveFriendApiMahuaCommandHandler, RemoveFriendApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SendDiscussJoiningInvitationApiMahuaCommandHandler, SendDiscussJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SendGroupJoiningInvitationApiMahuaCommandHandler, SendGroupJoiningInvitationApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendGroupMessageApiMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendGroupMessageApiMahuaCommandHandler, SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaCommandHandler, SetBanAllGroupMembersOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetGroupMemberCardApiMahuaCommandHandler, SetGroupMemberCardApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetNoticeApiMahuaCommandHandler, SetNoticeApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
@@ -178,6 +180,7 @@ namespace Newbe.Mahua.MPQ
                     .InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
+                builder.RegisterType<MpqCancelMessageToken>().AsSelf().InstancePerDependency();
             }
         }
 

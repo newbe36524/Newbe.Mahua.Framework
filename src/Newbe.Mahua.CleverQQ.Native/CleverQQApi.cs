@@ -207,7 +207,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="内容">信息内容</param>
         /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        void ICleverQqApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
+        long ICleverQqApi.Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID)
             => NativeMethods.Api_SendMsg(响应的QQ, 信息类型, 收信群_讨论组, 收信对象, 内容, 气泡ID);
 
         /// <summary>
@@ -706,7 +706,7 @@ namespace Newbe.Mahua.CleverQQ.Native
             /// <param name="气泡ID">气泡ID</param>
             /// <returns></returns>
             [DllImport("IRapi.dll")]
-            public static extern void Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组,
+            public static extern long Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组,
                string 收信对象, string 内容, int 气泡ID);
 
             /// <summary>

@@ -6,13 +6,22 @@ namespace Newbe.Mahua.CQP.Native
     public class CoolQApi : ICoolQApi
     {
         /// <summary>
+        /// 撤回消息
+        /// </summary>
+        /// <param name="AuthCode"></param>
+        /// <param name="msgid">消息ID</param>
+        /// <returns></returns>
+        long ICoolQApi.CQ_deleteMsg(int AuthCode, long msgid)
+            => NativeMethods.CQ_deleteMsg(AuthCode, msgid);
+
+        /// <summary>
         /// 发送好友消息
         /// </summary>
         /// <param name="AuthCode"></param>
         /// <param name="QQID">目标QQ</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendPrivateMsg(int AuthCode, long QQID, string msg)
+        long ICoolQApi.CQ_sendPrivateMsg(int AuthCode, long QQID, string msg)
             => NativeMethods.CQ_sendPrivateMsg(AuthCode, QQID, msg);
 
         /// <summary>
@@ -22,7 +31,7 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="群号">目标群</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendGroupMsg(int AuthCode, long 群号, string msg)
+        long ICoolQApi.CQ_sendGroupMsg(int AuthCode, long 群号, string msg)
             => NativeMethods.CQ_sendGroupMsg(AuthCode, 群号, msg);
 
         /// <summary>
@@ -32,7 +41,7 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="讨论组号">目标讨论组</param>
         /// <param name="msg">消息内容</param>
         /// <returns></returns>
-        int ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg)
+        long ICoolQApi.CQ_sendDiscussMsg(int AuthCode, long 讨论组号, string msg)
             => NativeMethods.CQ_sendDiscussMsg(AuthCode, 讨论组号, msg);
 
         /// <summary>
@@ -312,6 +321,15 @@ namespace Newbe.Mahua.CQP.Native
 
         private static class NativeMethods
         {
+            /// <summary>
+            /// 撤回消息
+            /// </summary>
+            /// <param name="AuthCode"></param>
+            /// <param name="msgid">消息ID</param>
+            /// <returns></returns>
+            [DllImport("CQP.dll")]
+            public static extern long CQ_deleteMsg(int AuthCode, long msgid);
+
             /// <summary>
             /// 发送好友消息
             /// </summary>

@@ -5,7 +5,7 @@ namespace Newbe.Mahua.Messages
 {
     public interface IPrivateMessageStep2 :
         INormalMessageStep<IPrivateMessageStep2>,
-        IPrivateMessageDone
+        IPrivateMessageDone, IMessageBuildStep
     {
     }
 }

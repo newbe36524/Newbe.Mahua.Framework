@@ -162,7 +162,7 @@
         /// <param name="内容">信息内容</param>
         /// <param name="气泡ID">气泡ID</param>
         /// <returns></returns>
-        void Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID);
+        long Api_SendMsg(string 响应的QQ, int 信息类型, string 收信群_讨论组, string 收信对象, string 内容, int 气泡ID);
         /// <summary>
         /// 在框架记录页输出一行信息`
         /// </summary>

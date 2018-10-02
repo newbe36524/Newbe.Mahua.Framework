@@ -4,6 +4,7 @@ using Newbe.Mahua.MahuaEvents.Enums;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Newbe.Mahua.QQLight.Messages.CancelMessage;
 
 namespace Newbe.Mahua.QQLight.Commands
 {
@@ -31,10 +32,14 @@ namespace Newbe.Mahua.QQLight.Commands
 
         [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
+        public string MessageId { get; set; }
     }
 
     internal class GetNewMsgCommandHandler : ICommandHandler<GetNewMsgCommand>
     {
+        private readonly QqLightMessageCancelToken.Factory _factory;
         private readonly IEnumerable<IPrivateMessageReceivedMahuaEvent> _privateMessageReceivedMahuaEvents;
 
         private readonly IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent>
@@ -54,6 +59,7 @@ namespace Newbe.Mahua.QQLight.Commands
         private readonly IEnumerable<IDiscussMessageReceivedMahuaEvent> _discussMessageReceivedMahuaEvents;
 
         public GetNewMsgCommandHandler(
+            QqLightMessageCancelToken.Factory factory,
             IEnumerable<IPrivateMessageReceivedMahuaEvent> privateMessageReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromFriendReceivedMahuaEvent> privateMessageFromFriendReceivedMahuaEvents,
             IEnumerable<IPrivateMessageFromOnlineReceivedMahuaEvent> privateMessageFromOnlineReceivedMahuaEvents,
@@ -62,6 +68,7 @@ namespace Newbe.Mahua.QQLight.Commands
             IEnumerable<IGroupMessageReceivedMahuaEvent> groupMessageReceivedMahuaEvents,
             IEnumerable<IDiscussMessageReceivedMahuaEvent> discussMessageReceivedMahuaEvents)
         {
+            _factory = factory;
             _privateMessageReceivedMahuaEvents = privateMessageReceivedMahuaEvents;
             _privateMessageFromFriendReceivedMahuaEvents = privateMessageFromFriendReceivedMahuaEvents;
             _privateMessageFromOnlineReceivedMahuaEvents = privateMessageFromOnlineReceivedMahuaEvents;
@@ -82,12 +89,14 @@ namespace Newbe.Mahua.QQLight.Commands
             }
             if (message.Type == FromMessageType.群消息)
             {
+                var token = _factory(message.Fromgroup,message.MessageId);
                 _groupMessageReceivedMahuaEvents.Handle(x => x.ProcessGroupMessage(new GroupMessageReceivedContext
                 {
                     Message = message.Message,
                     FromQq = commandFromqq,
                     FromGroup = message.Fromgroup,
-                    SendTime = sendTime
+                    SendTime = sendTime,
+                    MessageCancelToken = token,
                 }));
                 return;
             }
@@ -99,7 +108,7 @@ namespace Newbe.Mahua.QQLight.Commands
                         Message = message.Message,
                         FromQq = commandFromqq,
                         FromDiscuss = message.Fromgroup,
-                        SendTime = sendTime
+                        SendTime = sendTime,
                     }));
                 return;
             }
@@ -124,7 +133,7 @@ namespace Newbe.Mahua.QQLight.Commands
                         {
                             SendTime = sendTime,
                             FromQq = commandFromqq,
-                            Message = message.Message
+                            Message = message.Message,
                         }));
                     break;
                 case PrivateMessageFromType.Online:
@@ -143,7 +152,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             SendTime = sendTime,
                             Message = message.Message,
                             FromGroup = message.Fromgroup,
-                            FromQq = commandFromqq
+                            FromQq = commandFromqq,
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -153,7 +162,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             SendTime = sendTime,
                             Message = message.Message,
                             FromDiscuss = message.Fromgroup,
-                            FromQq = commandFromqq
+                            FromQq = commandFromqq,
                         }));
                     break;
                 default:

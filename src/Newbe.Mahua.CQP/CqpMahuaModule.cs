@@ -4,8 +4,10 @@ using Newbe.Mahua.CQP.Apis;
 using Newbe.Mahua.CQP.Commands;
 using Newbe.Mahua.CQP.Messages;
 using Newbe.Mahua.CQP.Messages.Builders;
+using Newbe.Mahua.CQP.Messages.CancelMessage;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP
@@ -120,14 +122,19 @@ namespace Newbe.Mahua.CQP
                 builder
                     .RegisterMahuaApi<RemoveBanGroupMemberApiMahuaMahuaCommandHandler,
                         RemoveBanGroupMemberApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand>(
-                    MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand>(
-                    MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SendDiscussMessageApiMahuaCommandHandler, SendDiscussMessageApiMahuaCommand,
+                        SendDiscussMessageApiMahuaCommandResult>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
+                builder
+                    .RegisterMahuaApi<SendGroupMessageApiMahuaMahuaCommandHandler, SendGroupMessageApiMahuaCommand,
+                        SendGroupMessageApiMahuaCommandResult>(
+                        MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SendLikeApiMahuaMahuaCommandHandler, SendLikeApiMahuaCommand>(MahuaGlobal
                     .DefaultApiHandlerAuthorName);
                 builder
-                    .RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(
+                    .RegisterMahuaApi<SendPrivateMessageApiMahuaMahuaCommandHandler, SendPrivateMessageApiMahuaCommand,
+                        SendPrivateMessageApiMahuaCommandResult>(
                         MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder
                     .RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaMahuaCommandHandler,
@@ -176,6 +183,7 @@ namespace Newbe.Mahua.CQP
                     .InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
+                builder.RegisterType<CqpMessageCancelToken>().AsSelf().InstancePerDependency();
             }
         }
 

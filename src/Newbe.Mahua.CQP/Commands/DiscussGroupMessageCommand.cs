@@ -20,6 +20,9 @@ namespace Newbe.Mahua.CQP.Commands
 
         [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
+        public long MessageId { get; set; }
     }
 
     internal class DiscussGroupMessageCommandHandler : ICommandHandler<DiscussGroupMessageCommand>
@@ -40,7 +43,7 @@ namespace Newbe.Mahua.CQP.Commands
                     SendTime = message.SendTime,
                     FromQq = message.FromQq.ToString(),
                     Message = message.Message,
-                    FromDiscuss = message.DiscussGroupNum.ToString()
+                    FromDiscuss = message.DiscussGroupNum.ToString(),
                 }));
         }
     }

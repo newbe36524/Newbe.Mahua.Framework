@@ -7,10 +7,10 @@ namespace Newbe.Mahua.CleverQQ.Apis
         : CleverQQApiMahuaCommandHandlerBase<GetBknApiMahuaCommand, GetBknApiMahuaCommandResult>
     {
         public GetBknApiMahuaCommandHandler(
-            ICleverQqApi cleverqqApi,
+            ICleverQqApi cleverQqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
-            : base(cleverqqApi, robotSessionContext, eventFunOutput)
+            : base(cleverQqApi, robotSessionContext, eventFunOutput)
         {
         }
 

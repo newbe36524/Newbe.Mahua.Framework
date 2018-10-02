@@ -1,18 +1,19 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
     public class PrivateMessageStep2 : IPrivateMessageStep2
     {
-        private readonly IPrivateMessageDone _privateMessageDone;
-        private readonly IText _text;
-        private readonly IImage _image;
-        private readonly IFace _face;
         private readonly IBFace _bFace;
-        private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IFace _face;
+        private readonly IImage _image;
+        private readonly IPrivateMessageDone _privateMessageDone;
+        private readonly ISFace _sFace;
+        private readonly IText _text;
 
         public PrivateMessageStep2(
             IPrivateMessageDone privateMessageDone,
@@ -77,6 +78,11 @@ namespace Newbe.Mahua.CleverQQ.Messages
         public void Done()
         {
             _privateMessageDone.Done();
+        }
+
+        public IMessageCancelToken DoneWithToken()
+        {
+            return _privateMessageDone.DoneWithToken();
         }
     }
 }

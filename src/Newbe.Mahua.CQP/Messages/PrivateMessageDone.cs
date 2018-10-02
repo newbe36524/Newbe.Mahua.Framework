@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
@@ -19,6 +20,12 @@ namespace Newbe.Mahua.CQP.Messages
         public void Done()
         {
             _mahuaApi.SendPrivateMessage(_message.Target, _message.GetMessage());
+        }
+
+        public IMessageCancelToken DoneWithToken()
+        {
+            var token = _mahuaApi.SendPrivateMessageWithCancelToken(_message.Target, _message.GetMessage());
+            return token;
         }
     }
 }
