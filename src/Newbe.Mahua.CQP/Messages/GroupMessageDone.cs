@@ -1,9 +1,10 @@
 ﻿using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
-    public class GroupMessageDone : IGroupMessageDone, IWithCancelable
+    public class GroupMessageDone : IGroupMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IMessage _message;
@@ -21,9 +22,10 @@ namespace Newbe.Mahua.CQP.Messages
             _mahuaApi.SendGroupMessage(_message.Target, _message.GetMessage());
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
-            _mahuaApi.SendGroupMessage(_message.Target, _message.GetMessage(), token);
+            var token = _mahuaApi.SendGroupMessageWithCancelToken(_message.Target, _message.GetMessage());
+            return token;
         }
     }
 }

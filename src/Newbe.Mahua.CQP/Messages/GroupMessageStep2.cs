@@ -1,12 +1,12 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
     public class GroupMessageStep2 : IGroupMessageStep2
     {
-        private readonly IWithCancelable _cancelToken;
         private readonly IGroupMessageDone _groupMessageDone;
         private readonly IAtAll _atAll;
         private readonly IAt _at;
@@ -18,7 +18,6 @@ namespace Newbe.Mahua.CQP.Messages
         private readonly IEmoji _emoji;
 
         public GroupMessageStep2(
-            IWithCancelable cancelToken,
             IGroupMessageDone groupMessageDone,
             IAtAll atAll,
             IAt at,
@@ -29,7 +28,6 @@ namespace Newbe.Mahua.CQP.Messages
             ISFace sFace,
             IEmoji emoji)
         {
-            _cancelToken = cancelToken;
             _groupMessageDone = groupMessageDone;
             _atAll = atAll;
             _at = at;
@@ -100,9 +98,9 @@ namespace Newbe.Mahua.CQP.Messages
             _groupMessageDone.Done();
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
-            _cancelToken.WithCancelToken(token);
+            return _groupMessageDone.DoneWithToken();
         }
     }
 }
