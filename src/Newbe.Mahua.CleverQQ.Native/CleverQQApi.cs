@@ -6,17 +6,6 @@ namespace Newbe.Mahua.CleverQQ.Native
     public class CleverQQApi : ICleverQqApi
     {
         /// <summary>
-        /// 撤回消息
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="消息来源"></param>
-        /// <param name="信息类型"></param>
-        /// <param name="消息ID"></param>
-        /// <returns></returns>
-        bool ICleverQqApi.Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID)
-            => NativeMethods.Api_WithdrawMsg(响应的QQ, 消息来源, 信息类型, 消息ID);
-
-        /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>
@@ -501,17 +490,6 @@ namespace Newbe.Mahua.CleverQQ.Native
 
         private static class NativeMethods
         {
-            /// <summary>
-            /// 撤回消息
-            /// </summary>
-            /// <param name="响应的QQ"></param>
-            /// <param name="消息来源"></param>
-            /// <param name="信息类型"></param>
-            /// <param name="消息ID"></param>
-            /// <returns></returns>
-            [DllImport("IRapi.dll")]
-            public static extern bool Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID);
-
             /// <summary>
             /// 取得机器人网页操作用参数Bkn或G_tk
             /// </summary>

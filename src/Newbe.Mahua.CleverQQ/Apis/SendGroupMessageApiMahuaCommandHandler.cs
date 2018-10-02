@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Apis;
+using Newbe.Mahua.CleverQQ.Messages.CancelMessage;
 using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Apis
@@ -7,19 +8,20 @@ namespace Newbe.Mahua.CleverQQ.Apis
         : CleverQQApiMahuaCommandHandlerBase<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>
     {
         public SendGroupMessageApiMahuaCommandHandler(
-            ICleverQqApi cleverqqApi,
+            ICleverQqApi cleverQqApi,
             IRobotSessionContext robotSessionContext,
             IIrEventOutput eventFunOutput)
-            : base(cleverqqApi, robotSessionContext, eventFunOutput)
+            : base(cleverQqApi, robotSessionContext, eventFunOutput)
         {
         }
 
         public override SendGroupMessageApiMahuaCommandResult Handle(SendGroupMessageApiMahuaCommand message)
         {
-            var messageId = CleverQQApi.Api_SendMsg(CurrentQq, 2, message.ToGroup, null, message.Message, -2);
+            CleverQQApi.Api_SendMsg(CurrentQq, 2, message.ToGroup, null, message.Message, -2);
             var re = new SendGroupMessageApiMahuaCommandResult
             {
-                MessageId = messageId
+                MessageCancelToken = CleverQqMessageCancelToken.EmptyActionToken,
+
             };
             return re;
         }

@@ -1,16 +1,17 @@
-﻿using Newbe.Mahua.Messages.Steps;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using Newbe.Mahua.NativeApi;
 using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.CancelMessage;
+using Newbe.Mahua.Messages.Steps;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
-    public class DiscussMessageDone : IDiscussMessageDone, IWithCancelable
+    public class DiscussMessageDone : IDiscussMessageDone, IMessageBuildStep
     {
+        private readonly ICleverQqApi _cleverqqApi;
         private readonly IMahuaApi _mahuaApi;
         private readonly ICleverQQMessage _message;
-        private readonly ICleverQqApi _cleverqqApi;
         private readonly IRobotSessionContext _robotSessionContext;
 
         public DiscussMessageDone(
@@ -27,21 +28,17 @@ namespace Newbe.Mahua.CleverQQ.Messages
 
         public void Done()
         {
-            var msg = _message.GetMessage();
-            if (_message.Images.Any())
-            {
-                _message.Images.Upload(file =>
-                    _cleverqqApi.Api_UpLoadPic(
-                        _robotSessionContext.CurrentQq,
-                        2,
-                        _message.Target,
-                        File.ReadAllBytes(file)));
-                msg = _message.Images.Formate(msg);
-            }
+            var msg = CreateMessage();
             _mahuaApi.SendPrivateMessage(_message.Target, msg);
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
+        {
+            var msg = CreateMessage();
+            return _mahuaApi.SendPrivateMessageWithCancelToken(_message.Target, msg);
+        }
+
+        private string CreateMessage()
         {
             var msg = _message.GetMessage();
             if (_message.Images.Any())
@@ -54,7 +51,8 @@ namespace Newbe.Mahua.CleverQQ.Messages
                         File.ReadAllBytes(file)));
                 msg = _message.Images.Formate(msg);
             }
-            _mahuaApi.SendPrivateMessage(_message.Target, msg, token);
+
+            return msg;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Newbe.Mahua.Apis;
+using Newbe.Mahua.MPQ.Messages.CancelMessage;
 using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Apis
@@ -19,7 +20,7 @@ namespace Newbe.Mahua.MPQ.Apis
             MpqApi.Api_SendMsg(CurrentQq, 3, 0, message.ToDiscuss, null, message.Message);
             var re = new SendDiscussMessageApiMahuaCommandResult
             {
-                MessageId = -1
+                MessageCancelToken = MpqCancelMessageToken.EmptyActionToken
             };
             return re;
         }

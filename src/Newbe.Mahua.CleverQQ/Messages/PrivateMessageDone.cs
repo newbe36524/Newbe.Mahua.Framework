@@ -1,27 +1,29 @@
-﻿using Newbe.Mahua.Messages.Steps;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using Newbe.Mahua.NativeApi;
+using Newbe.Mahua.CleverQQ.Messages.CancelMessage;
 using Newbe.Mahua.Messages;
+using Newbe.Mahua.Messages.CancelMessage;
+using Newbe.Mahua.Messages.Steps;
+using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
-    public class PrivateMessageDone : IPrivateMessageDone, IWithCancelable
+    public class PrivateMessageDone : IPrivateMessageDone, IMessageBuildStep
     {
+        private readonly ICleverQqApi _cleverQqApi;
         private readonly IMahuaApi _mahuaApi;
         private readonly ICleverQQMessage _message;
-        private readonly ICleverQqApi _cleverqqApi;
         private readonly IRobotSessionContext _robotSessionContext;
 
         public PrivateMessageDone(
             IMahuaApi mahuaApi,
             ICleverQQMessage message,
-            ICleverQqApi cleverqqApi,
+            ICleverQqApi cleverQqApi,
             IRobotSessionContext robotSessionContext)
         {
             _mahuaApi = mahuaApi;
             _message = message;
-            _cleverqqApi = cleverqqApi;
+            _cleverQqApi = cleverQqApi;
             _robotSessionContext = robotSessionContext;
         }
 
@@ -29,7 +31,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
         {
             if (_message.Shake)
             {
-                _cleverqqApi.Api_ShakeWindow(_robotSessionContext.CurrentQq, _message.Target);
+                _cleverQqApi.Api_ShakeWindow(_robotSessionContext.CurrentQq, _message.Target);
             }
             else
             {
@@ -37,22 +39,23 @@ namespace Newbe.Mahua.CleverQQ.Messages
                 if (_message.Images.Any())
                 {
                     _message.Images.Upload(file =>
-                        _cleverqqApi.Api_UpLoadPic(
+                        _cleverQqApi.Api_UpLoadPic(
                             _robotSessionContext.CurrentQq,
                             1,
                             _message.Target,
                             File.ReadAllBytes(file)));
                     msg = _message.Images.Formate(msg);
                 }
+
                 _mahuaApi.SendPrivateMessage(_message.Target, msg);
             }
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
             if (_message.Shake)
             {
-                _cleverqqApi.Api_ShakeWindow(_robotSessionContext.CurrentQq, _message.Target);
+                _cleverQqApi.Api_ShakeWindow(_robotSessionContext.CurrentQq, _message.Target);
             }
             else
             {
@@ -60,15 +63,18 @@ namespace Newbe.Mahua.CleverQQ.Messages
                 if (_message.Images.Any())
                 {
                     _message.Images.Upload(file =>
-                        _cleverqqApi.Api_UpLoadPic(
+                        _cleverQqApi.Api_UpLoadPic(
                             _robotSessionContext.CurrentQq,
                             1,
                             _message.Target,
                             File.ReadAllBytes(file)));
                     msg = _message.Images.Formate(msg);
                 }
-                _mahuaApi.SendPrivateMessage(_message.Target, msg, token);
+
+                return _mahuaApi.SendPrivateMessageWithCancelToken(_message.Target, msg);
             }
+
+            return CleverQqMessageCancelToken.EmptyActionToken;
         }
     }
 }
