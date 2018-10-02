@@ -62,11 +62,13 @@
     <Reference Include="Microsoft.Owin.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Hosting.4.0.0\lib\net451\Microsoft.Owin.Hosting.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.12.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.13.0\lib\net452\Newbe.Mahua.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.12.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -140,8 +142,6 @@
     <None Include="App_Data\setting.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="build.bat" />
-    <None Include="build.ps1" />
     <None Include="buildTools\packages.config" />
     <None Include="MahuaApis\readme.md" />
     <None Include="MahuaEvents\readme.md" />
@@ -149,6 +149,8 @@
     <None Include="READEME.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="build.bat" />
+    <Content Include="build.ps1" />
     <Content Include="buildTools\7z.exe" />
     <Content Include="buildTools\nuget.exe" />
   </ItemGroup>
