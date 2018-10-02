@@ -49,25 +49,6 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 | Newbe.Mahua.Amanda            | [![Newbe.Mahua.Amanda.Version](https://img.shields.io/nuget/v/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                                  | [![Newbe.Mahua.Amanda.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | [![Newbe.Mahua.Amanda.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.Amanda.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.Amanda/)                         | Amanda实现（已经停止维护） |
 | Newbe.Mahua.CQP.ApiExtensions | [![Newbe.Mahua.CQP.ApiExtensions.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/) | [![Newbe.Mahua.CQP.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/)      | [![Newbe.Mahua.CQP.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.ApiExtensions.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.ApiExtensions/)      | 对CQP进行API扩展           |
 
-## 名词表
-
-| 中文         | 英文                   | 说明                             |
-| ------------ | ---------------------- | -------------------------------- |
-| QQ           | QQ                     |
-| 群           | Group                  |
-| 群成员       | GroupMember            |
-| 讨论组       | Discuss                |
-| 好友         | Friend                 |
-| 好友申请     | FriendAddingRequest    |
-| 入群申请     | GroupJoiningRequest    |
-| 加群邀请     | GroupJoiningInvitation |
-| 私聊消息     | PrivateMessage         |
-| 群消息       | GroupMessage           |
-| 讨论组消息   | DiscussMessage         |
-| 禁言         | Ban                    |
-| QQ机器人平台 | Platform               | 酷Q、Amanda、MyPCQQ、QQLight等等 |
-| 插件         | Plugin                 |
-
 ## MahuaEvent支持列表
 
 | 事件                                         | 说明                             | CQP | MPQ | CleverQQ | QQLight |
@@ -149,6 +130,15 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 | SetGroupMemberCard           | 设置群成员名片               | √      | √   | √        | √       |
 | SetGroupMemberSpecialTitle   | 设置群成员专属头衔           | √      |     |          |
 | SetNotice                    | 发布群公告                   | √(ext) | √   | √        |
+
+### 消息撤回特别说明
+
+标记为`√`表示该平台下支持撤回。
+
+| 功能               | Cqp | Mpq | CleverQQ | QqLight |
+| ------------------ | --- | --- | -------- | ------- |
+| 撤回自己发送的消息 | √   |     |          |         |
+| 撤回群成员消息     | √   |     |          | √       |
 
 ## 相关技术
 

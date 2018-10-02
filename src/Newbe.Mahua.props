@@ -2,7 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.12</VersionPrefix>
+    <VersionPrefix>1.13</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -17,10 +17,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
     <PackageReleaseNotes>
-      1. 添加 QQLight
-      2. 添加 CleverQQ 支持 [@allenxie888](https://github.com/newbe36524/Newbe.Mahua.Framework/pull/46)
-      3. 移除 Amanda 支持
-      4. 公开各平台私有API
+      1. 添加撤回消息接口
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
