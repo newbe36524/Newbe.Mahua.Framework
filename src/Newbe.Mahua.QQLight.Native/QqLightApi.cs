@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Text;
 using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.QQLight.Native
@@ -386,7 +387,7 @@ namespace Newbe.Mahua.QQLight.Native
             public static extern string Api_GetPath(string AuthCode);
 
             [DllImport(DllPath)]
-            public static extern int Api_SendMsg(int 类型, string 群组, string QQ号, string 内容, string AuthCode);
+            public static extern void Api_SendMsg(int 类型, string 群组, string QQ号, string 内容, string AuthCode);
 
             [DllImport(DllPath)]
             public static extern int Api_SetGroupAdd(string 群号, string QQ号, string Seq, int 操作方式, string 拒绝理由, string AuthCode);
@@ -453,7 +454,7 @@ namespace Newbe.Mahua.QQLight.Native
             public static extern string Api_UpdatePlugin(string AuthCode);
 
             [DllImport(DllPath)]
-            public static extern string Api_DeleteMsg(string 群号, string 消息ID, string AuthCode);
+            public static extern int Api_DeleteMsg(string 群号, string 消息ID, string AuthCode);
 
             [DllImport(DllPath)]
             public static extern string Api_SetQQState(int 类型, string AuthCode);

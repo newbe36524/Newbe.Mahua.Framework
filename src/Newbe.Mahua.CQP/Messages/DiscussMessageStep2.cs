@@ -1,12 +1,12 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
-        private readonly IWithCancelable _cancelToken;
         private readonly IDiscussMessageDone _discussMessageDone;
         private readonly IAtAll _atAll;
         private readonly IAt _at;
@@ -18,7 +18,6 @@ namespace Newbe.Mahua.CQP.Messages
         private readonly IEmoji _emoji;
 
         public DiscussMessageStep2(
-            IWithCancelable cancelToken,
             IDiscussMessageDone discussMessageDone,
             IAtAll atAll,
             IAt at,
@@ -29,7 +28,6 @@ namespace Newbe.Mahua.CQP.Messages
             ISFace sFace,
             IEmoji emoji)
         {
-            _cancelToken = cancelToken;
             _discussMessageDone = discussMessageDone;
             _atAll = atAll;
             _at = at;
@@ -39,12 +37,6 @@ namespace Newbe.Mahua.CQP.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
-        }
-
-        public IDiscussMessageStep2 AtlAll()
-        {
-            _atAll.AtlAll();
-            return this;
         }
 
         public IDiscussMessageStep2 At(string qq)
@@ -100,9 +92,9 @@ namespace Newbe.Mahua.CQP.Messages
             _discussMessageDone.Done();
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
-            _cancelToken.WithCancelToken(token);
+            return _discussMessageDone.DoneWithToken();
         }
     }
 }

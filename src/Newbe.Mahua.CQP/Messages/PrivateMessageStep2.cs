@@ -1,12 +1,12 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
     public class PrivateMessageStep2 : IPrivateMessageStep2
     {
-        private readonly IWithCancelable _cancelToken;
         private readonly IPrivateMessageDone _privateMessageDone;
         private readonly IText _text;
         private readonly IImage _image;
@@ -16,7 +16,6 @@ namespace Newbe.Mahua.CQP.Messages
         private readonly IEmoji _emoji;
 
         public PrivateMessageStep2(
-            IWithCancelable cancelToken,
             IPrivateMessageDone privateMessageDone,
             IText text,
             IImage image,
@@ -25,7 +24,6 @@ namespace Newbe.Mahua.CQP.Messages
             ISFace sFace,
             IEmoji emoji)
         {
-            _cancelToken = cancelToken;
             _privateMessageDone = privateMessageDone;
             _text = text;
             _image = image;
@@ -82,9 +80,9 @@ namespace Newbe.Mahua.CQP.Messages
             _privateMessageDone.Done();
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
-            _cancelToken.WithCancelToken(token);
+            return _privateMessageDone.DoneWithToken();
         }
     }
 }

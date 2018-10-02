@@ -7,8 +7,7 @@ namespace Newbe.Mahua.Messages
         IAtAllStep<IGroupMessageStep2>,
         IAtStep<IGroupMessageStep2>,
         INormalMessageStep<IGroupMessageStep2>,
-        IWithCancelable,
-        IGroupMessageDone
+        IGroupMessageDone, IMessageBuildStep
     {
     }
 }

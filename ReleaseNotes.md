@@ -11,6 +11,12 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.13
+
+增加消息撤回支持
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/10/02/Release-Notes-1-13-0.html>
+
 ## 1.12
 
 1. 添加 QQLight、CleverQQ 支持，移除 Amanda 支持

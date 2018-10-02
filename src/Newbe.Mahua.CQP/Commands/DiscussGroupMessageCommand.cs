@@ -44,7 +44,6 @@ namespace Newbe.Mahua.CQP.Commands
                     FromQq = message.FromQq.ToString(),
                     Message = message.Message,
                     FromDiscuss = message.DiscussGroupNum.ToString(),
-                    MessageId = message.MessageId,
                 }));
         }
     }

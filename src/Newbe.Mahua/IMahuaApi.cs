@@ -4,6 +4,7 @@ using Newbe.Mahua.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Newbe.Mahua.Messages.CancelMessage;
 using IContainer = Autofac.IContainer;
 
 namespace Newbe.Mahua
@@ -14,15 +15,6 @@ namespace Newbe.Mahua
     public interface IMahuaApi
     {
         /// <summary>
-        /// 撤回消息
-        /// </summary>
-        /// <param name="messageId">消息ID</param>
-        /// <param name="targetId">目标ID(私聊对象QQ号,群号,讨论组名称)</param>
-        /// <param name="type">信息类型</param>
-        [Description("撤回消息")]
-        bool DeleteMessage(long messageId, string targetId, int type);
-
-        /// <summary>
         /// 发送私聊消息
         /// </summary>
         /// <param name="toQq">目标QQ号</param>
@@ -31,13 +23,15 @@ namespace Newbe.Mahua
         void SendPrivateMessage(string toQq, string message);
 
         /// <summary>
-        /// 发送私聊消息
+        /// 发送私聊消息（可撤回）
         /// </summary>
         /// <param name="toQq">目标QQ号</param>
         /// <param name="message">消息内容</param>
-        /// <param name="token">撤回令牌</param>
-        [Description("发送私聊消息")]
-        void SendPrivateMessage(string toQq, string message, IMessageCancelToken token);
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送私聊消息（可撤回）")]
+        IMessageCancelToken SendPrivateMessageWithCancelToken(string toQq, string message);
 
         /// <summary>
         /// 发送群消息
@@ -48,13 +42,15 @@ namespace Newbe.Mahua
         void SendGroupMessage(string toGroup, string message);
 
         /// <summary>
-        /// 发送群消息
+        /// 发送群消息（可撤回）
         /// </summary>
         /// <param name="toGroup">目标群</param>
         /// <param name="message">消息内容</param>
-        /// <param name="token">撤回令牌</param>
-        [Description("发送群消息")]
-        void SendGroupMessage(string toGroup, string message, IMessageCancelToken token);
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送群消息（可撤回）")]
+        IMessageCancelToken SendGroupMessageWithCancelToken(string toGroup, string message);
 
         /// <summary>
         /// 发送讨论组消息
@@ -65,13 +61,15 @@ namespace Newbe.Mahua
         void SendDiscussMessage(string toDiscuss, string message);
 
         /// <summary>
-        /// 发送讨论组消息
+        /// 发送讨论组消息（可撤回）
         /// </summary>
         /// <param name="toDiscuss">目标讨论组</param>
         /// <param name="message">消息内容</param>
-        /// <param name="token">撤回令牌</param>
-        [Description("发送讨论组消息")]
-        void SendDiscussMessage(string toDiscuss, string message, IMessageCancelToken token);
+        /// <returns>
+        /// 用于撤回信息的Token
+        /// </returns>
+        [Description("发送讨论组消息（可撤回）")]
+        IMessageCancelToken SendDiscussMessageWithCancelToken(string toDiscuss, string message);
 
         /// <summary>
         /// 发送名片赞
@@ -343,7 +341,7 @@ namespace Newbe.Mahua
         /// <param name="toGroup"></param>
         /// <returns></returns>
         [Description("获取群成员列表（返回字符串）")]
-        string GetGroupMemebers(string toGroup);
+        string GetGroupMemebers(string toGroup); // TODO 拼写错误
 
         /// <summary>
         /// 获取群列表（返回字符串）

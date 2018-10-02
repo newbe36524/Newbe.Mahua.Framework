@@ -1,5 +1,6 @@
 ﻿using Newbe.Mahua.Apis;
 using Newbe.Mahua.NativeApi;
+using Newbe.Mahua.QQLight.Messages.CancelMessage;
 
 namespace Newbe.Mahua.QQLight.Apis
 {
@@ -7,8 +8,8 @@ namespace Newbe.Mahua.QQLight.Apis
         : QqLightApiMahuaCommandHandlerBase<SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>
     {
         public SendDiscussMessageApiMahuaCommandHandler(
-            IQqLightApi QqLightApi)
-            : base(QqLightApi)
+            IQqLightApi qqLightApi)
+            : base(qqLightApi)
         {
         }
 
@@ -17,7 +18,7 @@ namespace Newbe.Mahua.QQLight.Apis
             QqLightApi.Api_SendMsg(QqLightConstants.MsgType讨论组消息, message.ToDiscuss, null, message.Message);
             var re = new SendDiscussMessageApiMahuaCommandResult
             {
-                MessageId = -1
+                MessageCancelToken = QqLightMessageCancelToken.EmptyActionToken
             };
             return re;
         }

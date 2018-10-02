@@ -2,12 +2,14 @@
 using Newbe.Mahua.Apis;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 using Newbe.Mahua.MPQ.Apis;
 using Newbe.Mahua.MPQ.Commands;
 using Newbe.Mahua.MPQ.EventFuns;
 using Newbe.Mahua.MPQ.Messages;
 using Newbe.Mahua.MPQ.Messages.Builders;
+using Newbe.Mahua.MPQ.Messages.CancelMessage;
 
 namespace Newbe.Mahua.MPQ
 {
@@ -101,7 +103,6 @@ namespace Newbe.Mahua.MPQ
                 builder.RegisterMahuaApi<SetBanAllGroupMembersOptionApiMahuaCommandHandler, SetBanAllGroupMembersOptionApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetGroupMemberCardApiMahuaCommandHandler, SetGroupMemberCardApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
                 builder.RegisterMahuaApi<SetNoticeApiMahuaCommandHandler, SetNoticeApiMahuaCommand>(MahuaGlobal.DefaultApiHandlerAuthorName);
-                builder.RegisterMahuaApi<DeleteMessageApiMahuaCommandHandler, DeleteMessageApiMahuaCommand, DeleteMessageApiMahuaCommandResult>(MahuaGlobal.DefaultApiHandlerAuthorName);
             }
         }
 
@@ -163,26 +164,23 @@ namespace Newbe.Mahua.MPQ
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<DiscussMessageDone>().As<IDiscussMessageDone, IWithCancelable>().InstancePerLifetimeScope();
+                builder.RegisterType<DiscussMessageDone>().As<IDiscussMessageDone>().InstancePerLifetimeScope();
                 builder.RegisterType<DiscussMessageFlowFactory>().As<IDiscussMessageFlowFactory>()
                     .InstancePerLifetimeScope();
                 builder.RegisterType<DiscussMessageStep>().As<IDiscussMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<DiscussMessageStep2>().As<IDiscussMessageStep2>().InstancePerLifetimeScope();
-                builder.RegisterType<GroupMessageDone>().As<IGroupMessageDone, IWithCancelable>().InstancePerLifetimeScope();
+                builder.RegisterType<GroupMessageDone>().As<IGroupMessageDone>().InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageFlowFactory>().As<IGroupMessageFlowFactory>()
                     .InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageStep>().As<IGroupMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<GroupMessageStep2>().As<IGroupMessageStep2>().InstancePerLifetimeScope();
                 builder.RegisterType<MpqMessage>().As<IMpqMessage>().InstancePerLifetimeScope();
-                builder.RegisterType<PrivateMessageDone>().As<IPrivateMessageDone, IWithCancelable>().InstancePerLifetimeScope();
+                builder.RegisterType<PrivateMessageDone>().As<IPrivateMessageDone>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageFlowFactory>().As<IPrivateMessageFlowFactory>()
                     .InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep>().As<IPrivateMessageStep>().InstancePerLifetimeScope();
                 builder.RegisterType<PrivateMessageStep2>().As<IPrivateMessageStep2>().InstancePerLifetimeScope();
-                builder.RegisterType<PrivateMessageCancelTokenFactory>().As<IMessageCancelTokenFactory>().InstancePerLifetimeScope();
-                builder.RegisterType<GroupMessageCancelTokenFactory>().As<IMessageCancelTokenFactory>().InstancePerLifetimeScope();
-                builder.RegisterType<DiscussMessageCancelTokenFactory>().As<IMessageCancelTokenFactory>().InstancePerLifetimeScope();
-                builder.RegisterType<MessageCancelToken>().As<IMessageCancelToken>().InstancePerLifetimeScope();
+                builder.RegisterType<MpqCancelMessageToken>().AsSelf().InstancePerDependency();
             }
         }
 

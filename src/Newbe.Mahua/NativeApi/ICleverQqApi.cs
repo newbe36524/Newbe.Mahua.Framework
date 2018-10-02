@@ -3,16 +3,6 @@
     public interface ICleverQqApi
     {
         /// <summary>
-        /// 撤回消息
-        /// </summary>
-        /// <param name="响应的QQ"></param>
-        /// <param name="消息来源"></param>
-        /// <param name="信息类型"></param>
-        /// <param name="消息ID"></param>
-        /// <returns></returns>
-        bool Api_WithdrawMsg(string 响应的QQ, string 消息来源, int 信息类型, long 消息ID);
-
-        /// <summary>
         /// 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
         /// </summary>
         /// <param name="响应的QQ"></param>

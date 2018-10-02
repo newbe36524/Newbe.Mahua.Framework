@@ -76,7 +76,6 @@ namespace Newbe.Mahua.CQP.Commands
                             SendTime = message.SendTime,
                             FromQq = message.FormNum.ToString(),
                             Message = message.Message,
-                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.Online:
@@ -86,7 +85,6 @@ namespace Newbe.Mahua.CQP.Commands
                             SendTime = message.SendTime,
                             FromQq = message.FormNum.ToString(),
                             Message = message.Message,
-                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.Group:
@@ -99,7 +97,6 @@ namespace Newbe.Mahua.CQP.Commands
                             // todo CQP 无法获取发送者的群
                             FromGroup = string.Empty,
                             FromQq = message.FormNum.ToString(),
-                            MessageId = message.MessageId,
                         }));
                     break;
                 case PrivateMessageFromType.DiscussGroup:
@@ -112,7 +109,6 @@ namespace Newbe.Mahua.CQP.Commands
                             // todo CQP 无法获取发送者的讨论组信息
                             FromDiscuss = string.Empty,
                             FromQq = message.FormNum.ToString(),
-                            MessageId = message.MessageId,
                         }));
                     break;
                 default:

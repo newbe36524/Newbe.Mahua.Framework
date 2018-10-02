@@ -1,24 +1,23 @@
 ﻿using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.Builders;
+using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.QQLight.Messages
 {
     public class GroupMessageStep2 : IGroupMessageStep2
     {
-        private readonly IWithCancelable _cancelToken;
-        private readonly IGroupMessageDone _groupMessageDone;
-        private readonly IAtAll _atAll;
         private readonly IAt _at;
-        private readonly IText _text;
-        private readonly IImage _image;
-        private readonly IFace _face;
+        private readonly IAtAll _atAll;
         private readonly IBFace _bFace;
-        private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IFace _face;
+        private readonly IGroupMessageDone _groupMessageDone;
+        private readonly IImage _image;
+        private readonly ISFace _sFace;
+        private readonly IText _text;
 
         public GroupMessageStep2(
-            IWithCancelable cancelToken,
             IGroupMessageDone groupMessageDone,
             IAtAll atAll,
             IAt at,
@@ -29,7 +28,6 @@ namespace Newbe.Mahua.QQLight.Messages
             ISFace sFace,
             IEmoji emoji)
         {
-            _cancelToken = cancelToken;
             _groupMessageDone = groupMessageDone;
             _atAll = atAll;
             _at = at;
@@ -100,9 +98,9 @@ namespace Newbe.Mahua.QQLight.Messages
             _groupMessageDone.Done();
         }
 
-        public void WithCancelToken(IMessageCancelToken token)
+        public IMessageCancelToken DoneWithToken()
         {
-            _cancelToken.WithCancelToken(token);
+            return _groupMessageDone.DoneWithToken();
         }
     }
 }
