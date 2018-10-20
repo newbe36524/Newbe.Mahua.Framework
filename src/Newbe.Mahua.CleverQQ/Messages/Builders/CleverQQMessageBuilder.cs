@@ -84,13 +84,14 @@ namespace Newbe.Mahua.CleverQQ.Messages.Builders
         }
 
         /// <summary>
-        /// {1}为图片文件名称，图片存放在酷Q目录的data\image\下
+        /// {1}为图片文件名称，可以是腾讯直接返回的GUID或本地文件
         /// </summary>
         /// <param name="file"></param>
         public void Image(string file)
         {
             var id = _cleverqqMessage.Images.Add(file);
-            _cleverqqMessage.Append(id);
+            var imgStr = $"[IR:pic={id}]";
+            _cleverqqMessage.Append(imgStr);
         }
 
         public void Record(string file)
