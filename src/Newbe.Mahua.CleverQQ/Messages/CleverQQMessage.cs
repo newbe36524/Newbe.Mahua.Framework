@@ -18,6 +18,5 @@ namespace Newbe.Mahua.CleverQQ.Messages
         }
 
         public bool Shake { get; set; }
-        public ImageCollection Images { get; } = new ImageCollection();
     }
 }
