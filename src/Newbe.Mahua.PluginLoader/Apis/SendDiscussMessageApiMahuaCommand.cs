@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Newbe.Mahua.Messages.CancelMessage;
 
 namespace Newbe.Mahua.Apis
 {
@@ -22,9 +23,9 @@ namespace Newbe.Mahua.Apis
     public class SendDiscussMessageApiMahuaCommandResult : ApiMahuaCommandResult
     {
         /// <summary>
-        /// 消息ID
+        /// 用于撤销消息的令牌
         /// </summary>
-        public long MessageId { get; set; }
+        public IMessageCancelToken MessageCancelToken { get; set; }
     }
 
 }
