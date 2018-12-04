@@ -4,6 +4,7 @@ using Newbe.Mahua.Commands;
 using Newbe.Mahua.Messages;
 using System;
 using System.Collections.Generic;
+using Newbe.Mahua.Messages.CancelMessage;
 
 namespace Newbe.Mahua
 {
@@ -23,20 +24,7 @@ namespace Newbe.Mahua
             _commandCenter = commandCenter;
         }
 
-        public bool DeleteMessage(long messageId, string toGroup, int type)
-        {
-            var re = _commandCenter
-            .HandleWithResult<DeleteMessageApiMahuaCommand, DeleteMessageApiMahuaCommandResult>(
-            new DeleteMessageApiMahuaCommand
-            {
-                 MessageId = messageId,
-                 TargetId = toGroup,
-                 Type = type
-            });
-            return re.IsDeleted;
-        }
-
-        public void SendPrivateMessage(string toQq, string message, IMessageCancelToken token)
+        public IMessageCancelToken SendPrivateMessageWithCancelToken(string toQq, string message)
         {
             var re = _commandCenter
             .HandleWithResult<SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(
@@ -45,11 +33,10 @@ namespace Newbe.Mahua
                 Message = message,
                 ToQq = toQq,
             });
-            token.TargetId = toQq;
-            token.MessageId = re.MessageId;
+            return re.MessageCancelToken;
         }
 
-        public void SendGroupMessage(string toGroup, string message, IMessageCancelToken token)
+        public IMessageCancelToken SendGroupMessageWithCancelToken(string toGroup, string message)
         {
             var re = _commandCenter.HandleWithResult<SendGroupMessageApiMahuaCommand, SendGroupMessageApiMahuaCommandResult>(
                     new SendGroupMessageApiMahuaCommand
@@ -57,11 +44,10 @@ namespace Newbe.Mahua
                         Message = message,
                         ToGroup = toGroup,
                     });
-            token.TargetId = toGroup;
-            token.MessageId = re.MessageId;
+            return re.MessageCancelToken;
         }
 
-        public void SendDiscussMessage(string toDiscuss, string message, IMessageCancelToken token)
+        public IMessageCancelToken SendDiscussMessageWithCancelToken(string toDiscuss, string message)
         {
             var re = _commandCenter
                 .HandleWithResult<SendDiscussMessageApiMahuaCommand, SendDiscussMessageApiMahuaCommandResult>(
@@ -70,8 +56,7 @@ namespace Newbe.Mahua
                         Message = message,
                         ToDiscuss = toDiscuss,
                     });
-            token.TargetId = toDiscuss;
-            token.MessageId = re.MessageId;
+            return re.MessageCancelToken;
         }
 
         public void SendPrivateMessage(string toQq, string message)
