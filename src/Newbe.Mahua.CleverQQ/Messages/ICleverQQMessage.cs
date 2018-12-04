@@ -11,5 +11,4 @@ namespace Newbe.Mahua.CleverQQ.Messages
         bool Shake { get; set; }
 
     }
-    }
 }
