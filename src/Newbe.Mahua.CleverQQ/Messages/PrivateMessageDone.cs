@@ -35,19 +35,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
             }
             else
             {
-                var msg = _message.GetMessage();
-                if (_message.Images.Any())
-                {
-                    _message.Images.Upload(file =>
-                        _cleverQqApi.Api_UpLoadPic(
-                            _robotSessionContext.CurrentQq,
-                            1,
-                            _message.Target,
-                            File.ReadAllBytes(file)));
-                    msg = _message.Images.Formate(msg);
-                }
-
-                _mahuaApi.SendPrivateMessage(_message.Target, msg);
+                _mahuaApi.SendPrivateMessage(_message.Target, _message.GetMessage());
             }
         }
 
@@ -59,19 +47,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
             }
             else
             {
-                var msg = _message.GetMessage();
-                if (_message.Images.Any())
-                {
-                    _message.Images.Upload(file =>
-                        _cleverQqApi.Api_UpLoadPic(
-                            _robotSessionContext.CurrentQq,
-                            1,
-                            _message.Target,
-                            File.ReadAllBytes(file)));
-                    msg = _message.Images.Formate(msg);
-                }
-
-                return _mahuaApi.SendPrivateMessageWithCancelToken(_message.Target, msg);
+                return _mahuaApi.SendPrivateMessageWithCancelToken(_message.Target,  _message.GetMessage());
             }
 
             return CleverQqMessageCancelToken.EmptyActionToken;
