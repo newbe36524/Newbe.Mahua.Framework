@@ -27,7 +27,13 @@ namespace Newbe.Mahua
                     .Named<ICommandCenter>("commandcenter");
                 builder
                     .RegisterDecorator<ICommandCenter>((c, inner) => new ExceptionHandleCommandCenter(inner),
-                        "commandcenter");
+                        "commandcenter")
+                    .Named<ICommandCenter>("ExceptionHandleCommandCenter");
+                builder
+                    .RegisterDecorator<ICommandCenter>((c, inner) => new TargetInvocationExceptionHandleCommandCenter(inner),
+                        "ExceptionHandleCommandCenter");
+
+                
             }
         }
 
