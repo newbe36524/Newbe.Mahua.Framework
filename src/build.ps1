@@ -13,7 +13,7 @@ Task Clean -Description "清理上一次编译结果" {
 }
 
 Task Init -depends Clean -Description "初始化参数" {
-
+    New-Item build -ItemType Directory -ErrorAction SilentlyContinue
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
@@ -22,7 +22,8 @@ Task Nuget -depends Init -Description "nuget restore" {
 
 Task Build -depends Nuget -Description "编译所有解决方案" {
     Exec {
-        msbuild /m /t:"Clean;Rebuild" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.sln
+        msbuild /m /t:"Build" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.Native.sln
+        msbuild /m /t:"Build" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.sln
     }
 }
 Task Pack -depends Build -Description "打包" {
