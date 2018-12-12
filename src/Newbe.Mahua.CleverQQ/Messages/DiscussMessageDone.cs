@@ -40,19 +40,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
 
         private string CreateMessage()
         {
-            var msg = _message.GetMessage();
-            if (_message.Images.Any())
-            {
-                _message.Images.Upload(file =>
-                    _cleverqqApi.Api_UpLoadPic(
-                        _robotSessionContext.CurrentQq,
-                        2,
-                        _message.Target,
-                        File.ReadAllBytes(file)));
-                msg = _message.Images.Formate(msg);
-            }
-
-            return msg;
+            return _message.GetMessage();
         }
     }
 }

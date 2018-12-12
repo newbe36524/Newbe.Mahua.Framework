@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua.Commands.ExceptionHandles
 {
@@ -7,6 +9,8 @@ namespace Newbe.Mahua.Commands.ExceptionHandles
     /// </summary>
     internal class ExceptionHandleCommandCenter : ICommandCenter
     {
+        private static readonly ILog Logger = LogProvider.GetLogger(typeof(ExceptionHandleCommandCenter));
+
         private readonly ICommandCenter _commandCenter;
 
         public ExceptionHandleCommandCenter(
@@ -21,9 +25,13 @@ namespace Newbe.Mahua.Commands.ExceptionHandles
             {
                 _commandCenter.Handle(command);
             }
+            catch (TargetInvocationException ex)
+            {
+                Logger.ErrorException("出现异常，捕获并忽略该异常，参考信息：https://github.com/newbe36524/Newbe.Mahua.Framework/issues/52", ex);
+            }
             catch (Exception e)
             {
-                HandlerExceptionByMahuaCommad(e, command);
+                HandlerExceptionByMahuaCommand(e, command);
             }
         }
 
@@ -33,6 +41,10 @@ namespace Newbe.Mahua.Commands.ExceptionHandles
             {
                 return _commandCenter.HandleWithResult<TCommand, TResult>(command);
             }
+            catch (TargetInvocationException ex)
+            {
+                Logger.ErrorException("出现异常，捕获并忽略该异常，参考信息：https://github.com/newbe36524/Newbe.Mahua.Framework/issues/52", ex);
+            }
             catch (Exception e)
             {
                 // 本身就是运行出现异常事件 则不再进一步处理，直接抛出，避免出现死循环。
@@ -40,13 +52,14 @@ namespace Newbe.Mahua.Commands.ExceptionHandles
                 {
                     throw;
                 }
-                HandlerExceptionByMahuaCommad(e, command);
+
+                HandlerExceptionByMahuaCommand(e, command);
             }
 
             return new TResult();
         }
 
-        private void HandlerExceptionByMahuaCommad(Exception e, object sourceCommand)
+        private void HandlerExceptionByMahuaCommand(Exception e, object sourceCommand)
         {
             var r = _commandCenter.HandleWithResult<HandlerExceptionMahuaCommand, HandlerExceptionMahuaCommandResult>(
                 new HandlerExceptionMahuaCommand
