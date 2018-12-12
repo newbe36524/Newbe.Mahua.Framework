@@ -24,14 +24,10 @@ namespace Newbe.Mahua
                 base.Load(builder);
                 builder
                     .RegisterType<CommandCenter>()
-                    .Named<ICommandCenter>("commandcenter");
+                    .Named<ICommandCenter>("commandCenter");
                 builder
                     .RegisterDecorator<ICommandCenter>((c, inner) => new ExceptionHandleCommandCenter(inner),
-                        "commandcenter")
-                    .Named<ICommandCenter>("ExceptionHandleCommandCenter");
-                builder
-                    .RegisterDecorator<ICommandCenter>((c, inner) => new TargetInvocationExceptionHandleCommandCenter(inner),
-                        "ExceptionHandleCommandCenter");
+                        "commandCenter");
 
                 
             }

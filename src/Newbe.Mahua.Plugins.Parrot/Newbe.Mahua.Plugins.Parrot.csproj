@@ -43,12 +43,12 @@
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.1.13.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.13.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.13.1\lib\net452\Newbe.Mahua.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.1\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />

@@ -2,7 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.13</VersionPrefix>
+    <VersionPrefix>1.13.1</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -17,7 +17,8 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
     <PackageReleaseNotes>
-      1. 添加撤回消息接口
+      1. 修复CleverQQ图片发送问题
+      2. 修复调用 GetGroupMemberInfo 随机闪退/报错/停止运行的问题
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -28,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.5.0.6605" PrivateAssets="all" /> -->
+     <!--<PackageReference Include="SonarAnalyzer.CSharp" Version="7.9.1.7622" PrivateAssets="all" /> -->
     <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 
