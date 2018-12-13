@@ -89,6 +89,10 @@
       <Project>{7e31ff27-eab2-47af-95b1-474b6a6deed9}</Project>
       <Name>Newbe.Mahua.CQP</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj">
+      <Project>{12392cce-bdbb-4f57-ad37-8024dfa8077c}</Project>
+      <Name>Newbe.Mahua.PluginLoader</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

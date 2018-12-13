@@ -3,6 +3,7 @@ properties {
     $rootNow = Resolve-Path .
     $deployMode = "Debug"
     $releaseDir = "$rootNow\build\"
+    $nugetexe = "$rootNow/buildTools/nuget.exe"
 }
 
 Task Default -depends NugetPushLocal
@@ -16,7 +17,12 @@ Task Init -depends Clean -Description "初始化参数" {
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
-    dotnet restore Newbe.Mahua.sln --packages packages
+    Exec{
+        dotnet restore Newbe.Mahua.sln
+    }
+    Exec{
+        . $nugetexe restore Newbe.Mahua.sln
+    }
 }
 
 Task Build -depends Nuget -Description "编译所有解决方案" {
@@ -29,7 +35,7 @@ Task Build -depends Nuget -Description "编译所有解决方案" {
 }
 Task Pack -depends Build -Description "打包" {
     Exec {
-        dotnet pack Newbe.Mahua.Pack.sln -c $deployMode --no-build
+        dotnet pack Newbe.Mahua.Pack.sln -c $deployMode --no-build --disable-parallel
     }
 }
 Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {

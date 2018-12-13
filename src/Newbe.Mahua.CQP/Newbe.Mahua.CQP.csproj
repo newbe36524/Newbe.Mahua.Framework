@@ -60,11 +60,4 @@
 
   <Import Project="..\Newbe.Mahua.props" />
 
-  <ItemGroup>
-    <PackageReference Update="SonarAnalyzer.CSharp" Version="7.5.0.6605">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
 </Project>
