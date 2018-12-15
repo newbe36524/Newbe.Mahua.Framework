@@ -17,10 +17,10 @@ Task Init -depends Clean -Description "初始化参数" {
 }
 
 Task Nuget -depends Init -Description "nuget restore" {
-    Exec{
+    Exec {
         dotnet restore Newbe.Mahua.sln
     }
-    Exec{
+    Exec {
         . $nugetexe restore Newbe.Mahua.sln
     }
 }
@@ -49,4 +49,47 @@ Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
         }
     }
     Write-Output "构建完毕，当前时间为 $(Get-Date)"
+}
+
+Task PackTemplate -depends Init -Description "打包项目模板" {
+    Exec {
+        . $nugetexe pack "Newbe.Mahua.Template\Newbe.Mahua.Template.nuspec" -OutputDirectory $releaseDir
+    }
+}
+
+Task TestTemplate -depends PackTemplate -Description "测试项目模板可用性" {
+    # 安装模板
+    Get-ChildItem $releaseDir Newbe.Mahua.Template.*.nupkg | ForEach-Object {
+        Exec {
+            dotnet new -i $releaseDir$_
+        }
+    }
+
+    $tempDir = "$($env:TEMP)\Newbe\Newbe.Mahua\tplTest"
+
+    Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
+    New-Item $tempDir -ItemType Directory
+
+    $tpls = @(
+        "newbe.mahua.all",
+        "newbe.mahua.cleverqq",
+        "newbe.mahua.cqp",
+        "newbe.mahua.mpq",
+        "newbe.mahua.qqlight"
+    )
+
+    $tpls | ForEach-Object{
+        Exec{
+            New-Item  "$tempDir\$_" -ItemType Directory
+            dotnet new $_ -o "$tempDir\$_" -n "$_.plugins"
+        }
+    }
+}
+
+Task PushTemplate -depends PackTemplate -Description "推送项目模板" {
+    Get-ChildItem $releaseDir *.nupkg | ForEach-Object {
+        Exec {
+            dotnet nuget push "$releaseDir$_" -s https://www.nuget.org/
+        }
+    }
 }

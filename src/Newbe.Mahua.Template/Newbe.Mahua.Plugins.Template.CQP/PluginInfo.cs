@@ -1,4 +1,6 @@
-﻿namespace Newbe.Mahua.Plugins.Template.CQP
+﻿using Newbe.Mahua;
+
+namespace Newbe.Mahua.Plugins.Template.CQP
 {
     /// <summary>
     /// 本插件的基本信息

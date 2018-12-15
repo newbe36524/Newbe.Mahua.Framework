@@ -1,4 +1,6 @@
-﻿namespace Newbe.Mahua.Plugins.Template.QQLight
+﻿using Newbe.Mahua;
+
+namespace Newbe.Mahua.Plugins.Template.QQLight
 {
     /// <summary>
     /// 本插件的基本信息

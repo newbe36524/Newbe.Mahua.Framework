@@ -1,4 +1,6 @@
-﻿namespace Newbe.Mahua.Plugins.Template.CleverQQ
+﻿using Newbe.Mahua;
+
+namespace Newbe.Mahua.Plugins.Template.CleverQQ
 {
     /// <summary>
     /// 本插件的基本信息

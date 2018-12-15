@@ -10,7 +10,7 @@
     <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板</description>
-    <releaseNotes>初版</releaseNotes>
+    <releaseNotes>包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板，详细的使用方法请参看相关教程 http://www.newbe.pro </releaseNotes>
     <copyright>Copyright (c) Everyone, except Author</copyright>
     <tags>Newbe Newbe.Mahua Template</tags>
     <packageTypes>

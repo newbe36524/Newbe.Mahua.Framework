@@ -1,4 +1,6 @@
-﻿namespace Newbe.Mahua.Plugins.Template.MPQ
+﻿using Newbe.Mahua;
+
+namespace Newbe.Mahua.Plugins.Template.MPQ
 {
     /// <summary>
     /// 本插件的基本信息

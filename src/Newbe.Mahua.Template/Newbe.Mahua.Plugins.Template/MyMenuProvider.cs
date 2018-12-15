@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newbe.Mahua;
+using System.Collections.Generic;
 
 namespace Newbe.Mahua.Plugins.Template
 {
