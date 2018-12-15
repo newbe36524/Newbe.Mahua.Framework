@@ -43,13 +43,11 @@
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.13.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.1.13.1\lib\net452\Newbe.Mahua.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newbe.Mahua, Version=1.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.1.14.0\lib\net452\Newbe.Mahua.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.1\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.14.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.14.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -92,14 +90,14 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="build.bat" />
+    <None Include="build.ps1" />
     <None Include="buildTools\packages.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="build.bat" />
-    <Content Include="build.ps1" />
     <Content Include="buildTools\7z.exe" />
     <Content Include="buildTools\nuget.exe" />
   </ItemGroup>
