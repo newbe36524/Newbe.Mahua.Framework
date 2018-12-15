@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Newbe.Mahua.Template</id>
+    <version>1.14.0</version>
+    <authors>Newbe</authors>
+    <owners>Newbe</owners>
+    <licenseUrl>https://raw.githubusercontent.com/newbe36524/Newbe.Mahua.Framework/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/newbe36524/Newbe.Mahua.Framework</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>包含了使用 Newbe.Mahua 进行QQ机器人开发所需要的项目模板</description>
+    <releaseNotes>初版</releaseNotes>
+    <copyright>Copyright (c) Everyone, except Author</copyright>
+    <tags>Newbe Newbe.Mahua Template</tags>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="Newbe.Mahua.Plugins.Template\**" target="content/Newbe.Mahua.Plugins.Template" exclude="Newbe.Mahua.Plugins.Template\bin\**;Newbe.Mahua.Plugins.Template\obj\**"></file>
+    <file src="Newbe.Mahua.Plugins.Template.CleverQQ\**" target="content/Newbe.Mahua.Plugins.Template.CleverQQ" exclude="Newbe.Mahua.Plugins.Template.CleverQQ\bin\**;Newbe.Mahua.Plugins.Template.CleverQQ\obj\**"></file>
+    <file src="Newbe.Mahua.Plugins.Template.CQP\**" target="content/Newbe.Mahua.Plugins.Template.CQP" exclude="Newbe.Mahua.Plugins.Template.CQP\bin\**;Newbe.Mahua.Plugins.Template.CQP\obj\**"></file>
+    <file src="Newbe.Mahua.Plugins.Template.MPQ\**" target="content/Newbe.Mahua.Plugins.Template.MPQ" exclude="Newbe.Mahua.Plugins.Template.MPQ\bin\**;Newbe.Mahua.Plugins.Template.MPQ\obj\**"></file>
+    <file src="Newbe.Mahua.Plugins.Template.QQLight\**" target="content/Newbe.Mahua.Plugins.Template.QQLight" exclude="Newbe.Mahua.Plugins.Template.QQLight\bin\**;Newbe.Mahua.Plugins.Template.QQLight\obj\**"></file>
+  </files>
+</package>
