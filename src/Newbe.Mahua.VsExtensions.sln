@@ -13,18 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.ItemTemplateGen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template", "Newbe.Mahua.Plugins.Template\Newbe.Mahua.Plugins.Template.csproj", "{DD0BBAFB-9C43-4E71-8357-FE878F347995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.CQP", "Newbe.Mahua.Plugins.Template.CQP\Newbe.Mahua.Plugins.Template.CQP.csproj", "{BB8CC368-4620-4BF6-B8BC-74B2489428D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.MPQ", "Newbe.Mahua.Plugins.Template.MPQ\Newbe.Mahua.Plugins.Template.MPQ.csproj", "{DC9773D7-3439-421C-9D60-7E782775F941}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FDA6E22-1A95-465F-94EA-E72F62165ABC}"
 	ProjectSection(SolutionItems) = preProject
 		Newbe.Mahua.Template.txt = Newbe.Mahua.Template.txt
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.QQLight", "Newbe.Mahua.Plugins.Template.QQLight\Newbe.Mahua.Plugins.Template.QQLight.csproj", "{F67072F8-DF3B-4055-B9A3-9C88C6354889}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.Plugins.Template.CleverQQ", "Newbe.Mahua.Plugins.Template.CleverQQ\Newbe.Mahua.Plugins.Template.CleverQQ.csproj", "{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,22 +36,6 @@ Global
 		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0BBAFB-9C43-4E71-8357-FE878F347995}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB8CC368-4620-4BF6-B8BC-74B2489428D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC9773D7-3439-421C-9D60-7E782775F941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC9773D7-3439-421C-9D60-7E782775F941}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC9773D7-3439-421C-9D60-7E782775F941}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC9773D7-3439-421C-9D60-7E782775F941}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F67072F8-DF3B-4055-B9A3-9C88C6354889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F67072F8-DF3B-4055-B9A3-9C88C6354889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F67072F8-DF3B-4055-B9A3-9C88C6354889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F67072F8-DF3B-4055-B9A3-9C88C6354889}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,10 +43,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{396259A5-09E9-4F12-9514-2E9FFA20B31C} = {85252022-1EED-475A-BCCD-19D731EFFE2E}
 		{DD0BBAFB-9C43-4E71-8357-FE878F347995} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
-		{BB8CC368-4620-4BF6-B8BC-74B2489428D3} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
-		{DC9773D7-3439-421C-9D60-7E782775F941} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
-		{F67072F8-DF3B-4055-B9A3-9C88C6354889} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
-		{E0E6A115-B02F-4F7F-9A18-3533CBCBDB6D} = {CABFA4B0-CF23-42C9-A21C-CDEA40620F3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}
