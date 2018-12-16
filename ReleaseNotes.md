@@ -11,6 +11,13 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.14
+
+1. VS插件升级，支持VS2019
+2. 支持通过 `dotnet new` 使用项目模板 
+
+详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/12/16/Release-Notes-1-14-0.html>
+
 ## 1.13
 
 增加消息撤回支持
