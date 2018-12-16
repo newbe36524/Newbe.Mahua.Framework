@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ parameter name="Des" type="Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor" #>
+<#@ parameter name="Des" type="Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo" #>
 using Newbe.Mahua.MahuaEvents;
 using System;
 

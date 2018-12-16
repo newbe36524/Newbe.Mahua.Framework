@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 
-namespace Newbe.Mahua.ItemTemplateGenerator.Impl
+namespace Newbe.Mahua.ItemTemplateGenerator.Impl.VsExtensions
 {
     internal class MahuaApiCommandHandlerItemTemplateGenerator : IMahuaApiCommandHandlerItemTemplateGenerator
     {

@@ -82,8 +82,20 @@
     <Compile Include="IMahuaEventFinder.cs" />
     <Compile Include="IMahuaEventItemTemplateGenerator.cs" />
     <Compile Include="IMahuaItemTemplateGenerator.cs" />
+    <Compile Include="Impl\DotnetNew\MahuaApiCommandHandlerCS.cs">
+      <DependentUpon>MahuaApiCommandHandlerCS.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Impl\DotnetNew\MahuaApiCommandHandlerItemTemplateGenerator.cs" />
+    <Compile Include="Impl\DotnetNew\MahuaEventCS1.cs">
+      <DependentUpon>MahuaEventCS.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Impl\DotnetNew\MahuaEventItemTemplateGenerator.cs" />
     <Compile Include="Impl\MahuaApiCommandFinder.cs" />
-    <Compile Include="Impl\MahuaApiCommandHandlerCS.cs">
+    <Compile Include="Impl\VsExtensions\MahuaApiCommandHandlerCS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaApiCommandHandlerCS.tt</DependentUpon>
@@ -93,24 +105,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaApiCommandHandlerMyTemplateXml.tt</DependentUpon>
     </Compile>
-    <Compile Include="Impl\MahuaEventCS1.cs">
+    <Compile Include="Impl\VsExtensions\MahuaEventCS1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaEventCS.tt</DependentUpon>
     </Compile>
     <Compile Include="Impl\MahuaEventInfoResolver.cs" />
     <Compile Include="Impl\MahuaEventFinder.cs" />
-    <Compile Include="Impl\MahuaEventItemTemplateGenerator.cs" />
     <Compile Include="Impl\MahuaItemTemplateGenerator.cs" />
     <Compile Include="Impl\MahuaEventMyTemplateXml.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaEventMyTemplateXml.tt</DependentUpon>
     </Compile>
+    <Compile Include="Impl\VsExtensions\MahuaApiCommandHandlerItemTemplateGenerator.cs" />
+    <Compile Include="Impl\VsExtensions\MahuaEventItemTemplateGenerator.cs" />
     <Compile Include="MahuaApiCommandInfo.cs" />
     <Compile Include="IMahuaApiCommandInfoResolver.cs" />
     <Compile Include="Impl\MahuaApiCommandInfoResolver.cs" />
-    <Compile Include="Impl\MahuaApiCommandHandlerItemTemplateGenerator.cs" />
     <Compile Include="MahuaEventInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,7 +138,15 @@
     <Content Include="7z.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Impl\MahuaApiCommandHandlerCS.tt">
+    <Content Include="Impl\DotnetNew\MahuaApiCommandHandlerCS.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaApiCommandHandlerCS.cs</LastGenOutput>
+    </Content>
+    <Content Include="Impl\DotnetNew\MahuaEventCS.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MahuaEventCS1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Impl\VsExtensions\MahuaApiCommandHandlerCS.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MahuaApiCommandHandlerCS.cs</LastGenOutput>
     </Content>
@@ -134,7 +154,7 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MahuaApiCommandHandlerMyTemplateXml.cs</LastGenOutput>
     </Content>
-    <Content Include="Impl\MahuaEventCS.tt">
+    <Content Include="Impl\VsExtensions\MahuaEventCS.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MahuaEventCS1.cs</LastGenOutput>
       <Parameters>&lt;%3fxml version="1.0" encoding="utf-16"%3f&gt;

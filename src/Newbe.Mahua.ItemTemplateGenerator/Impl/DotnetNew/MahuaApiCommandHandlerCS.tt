@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ parameter name="Des" type="Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandDesciptor" #>
+<#@ parameter name="Des" type="Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo" #>
 using Newbe.Mahua.Apis;
 
 namespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis
@@ -11,7 +11,7 @@ namespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis
     /// <summary>
     /// <#= Des.Summary #>
     /// </summary>
-    public class $safeitemname$
+    public class <#= Des.CommandHandlerName #>
 		: IApiCommandHandler<<#= Des.CommandName #><#if(Des.HasResult){#>,<#= Des.CommandResultName #><#}#>>
     {
         public <#if(Des.HasResult){#><#= Des.CommandResultName #><#}else{#>void<#}#> Handle(<#= Des.CommandName #> message)

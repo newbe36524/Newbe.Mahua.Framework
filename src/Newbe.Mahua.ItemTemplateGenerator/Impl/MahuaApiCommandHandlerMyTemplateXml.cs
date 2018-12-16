@@ -18,7 +18,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+    #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class MahuaApiCommandHandlerMyTemplateXml : MahuaApiCommandHandlerMyTemplateXmlBase
     {
@@ -31,21 +31,21 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             this.Write("<VSTemplate Version=\"3.0.0\" xmlns=\"http://schemas.microsoft.com/developer/vstempl" +
                     "ate/2005\" Type=\"Item\">\r\n  <TemplateData>\r\n    <DefaultName>");
             
-            #line 9 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+            #line 9 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandHandlerName));
             
             #line default
             #line hidden
             this.Write(".cs</DefaultName>\r\n    <Name>");
             
-            #line 10 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+            #line 10 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
             #line hidden
             this.Write("</Name>\r\n    <Description>\r\n实现“");
             
-            #line 12 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+            #line 12 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
@@ -64,7 +64,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     <References />
     <ProjectItem SubType="""" TargetFileName=""$fileinputname$.cs"" ReplaceParameters=""true"">");
             
-            #line 24 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+            #line 24 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandHandlerName));
             
             #line default
@@ -73,7 +73,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
+        #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaApiCommandHandlerMyTemplateXml.tt"
 
 private global::Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo _DesField;
 

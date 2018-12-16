@@ -7,7 +7,7 @@
 //     重新生成代码，这些更改将会丢失。
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Newbe.Mahua.ItemTemplateGenerator.Impl
+namespace Newbe.Mahua.ItemTemplateGenerator.Impl.VsExtensions
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+    #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class MahuaEventCS : MahuaEventCSBase
+    public partial class MahuaApiCommandHandlerCS : MahuaApiCommandHandlerCSBase
     {
 #line hidden
         /// <summary>
@@ -28,50 +28,86 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Newbe.Mahua.MahuaEvents;\nusing System;\n\nnamespace $rootnamespace$\n{\n    ///" +
-                    " <summary>\n    /// ");
+            this.Write("using Newbe.Mahua.Apis;\r\n\r\nnamespace Newbe.Mahua.Samples.ApiExtensions.MahuaApis\r" +
+                    "\n{\r\n    /// <summary>\r\n    /// ");
             
-            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+            #line 12 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
             #line hidden
-            this.Write("\n    /// </summary>\n    public class $safeitemname$\n        : ");
+            this.Write("\r\n    /// </summary>\r\n    public class $safeitemname$\r\n\t\t: IApiCommandHandler<");
             
-            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name));
-            
-            #line default
-            #line hidden
-            this.Write("\n    {\n        private readonly IMahuaApi _mahuaApi;\n\n        public $safeitemnam" +
-                    "e$(\n            IMahuaApi mahuaApi)\n        {\n            _mahuaApi = mahuaApi;\n" +
-                    "        }\n\n        public void ");
-            
-            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodName));
+            #line 15 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandName));
             
             #line default
             #line hidden
-            this.Write("(");
             
-            #line 7 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodContextName));
+            #line 15 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+if(Des.HasResult){
             
             #line default
             #line hidden
-            this.Write(" context)\n        {\n            // todo 填充处理逻辑\n            throw new NotImplement" +
-                    "edException();\n\n            // 不要忘记在MahuaModule中注册\n        }\n    }\n}\n");
+            this.Write(",");
+            
+            #line 15 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandResultName));
+            
+            #line default
+            #line hidden
+            
+            #line 15 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write(">\r\n    {\r\n        public ");
+            
+            #line 17 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+if(Des.HasResult){
+            
+            #line default
+            #line hidden
+            
+            #line 17 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandResultName));
+            
+            #line default
+            #line hidden
+            
+            #line 17 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+}else{
+            
+            #line default
+            #line hidden
+            this.Write("void");
+            
+            #line 17 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write(" Handle(");
+            
+            #line 17 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.CommandName));
+            
+            #line default
+            #line hidden
+            this.Write(" message)\r\n        {\r\n\t\t\t// todo 填充处理逻辑\r\n            throw new NotImplementedExce" +
+                    "ption();\r\n\r\n            // 不要忘记在MahuaModule中注册\r\n        }\r\n    }\r\n}\r\n\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventCS.tt"
+        #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaApiCommandHandlerCS.tt"
 
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo _DesField;
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo _DesField;
 
 /// <summary>
 /// Access the Des parameter of the template.
 /// </summary>
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo Des
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo Des
 {
     get
     {
@@ -90,7 +126,7 @@ public virtual void Initialize()
 bool DesValueAcquired = false;
 if (this.Session.ContainsKey("Des"))
 {
-    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(this.Session["Des"]));
+    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo)(this.Session["Des"]));
     DesValueAcquired = true;
 }
 if ((DesValueAcquired == false))
@@ -98,7 +134,7 @@ if ((DesValueAcquired == false))
     object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Des");
     if ((data != null))
     {
-        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(data));
+        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaApiCommandInfo)(data));
     }
 }
 
@@ -119,7 +155,7 @@ if ((DesValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class MahuaEventCSBase
+    public class MahuaApiCommandHandlerCSBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
