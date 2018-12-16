@@ -7,7 +7,7 @@
 //     重新生成代码，这些更改将会丢失。
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace Newbe.Mahua.ItemTemplateGenerator.Impl
+namespace Newbe.Mahua.ItemTemplateGenerator.Impl.VsExtensions
 {
     using System.Linq;
     using System.Text;
@@ -18,9 +18,9 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+    #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class MahuaEventMyTemplateXml : MahuaEventMyTemplateXmlBase
+    public partial class MahuaEventCS : MahuaEventCSBase
     {
 #line hidden
         /// <summary>
@@ -28,52 +28,43 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("<VSTemplate Version=\"3.0.0\" xmlns=\"http://schemas.microsoft.com/developer/vstempl" +
-                    "ate/2005\" Type=\"Item\">\r\n  <TemplateData>\r\n    <DefaultName>");
+            this.Write("using Newbe.Mahua.MahuaEvents;\r\nusing System;\r\n\r\nnamespace $rootnamespace$\r\n{\r\n  " +
+                    "  /// <summary>\r\n    /// ");
             
-            #line 9 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name.Substring(1)));
-            
-            #line default
-            #line hidden
-            this.Write(".cs</DefaultName>\r\n    <Name>");
-            
-            #line 10 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 13 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
             #line hidden
-            this.Write("</Name>\r\n    <Description>\r\n实现“");
+            this.Write("\r\n    /// </summary>\r\n    public class $safeitemname$\r\n        : ");
             
-            #line 12 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
-            
-            #line default
-            #line hidden
-            this.Write(@"”。
-该模板使用T4模板生成，适用于1.x版本的Newbe.Mahua
-详细使用帮助可以参照教程说明 http://www.newbe.pro 。
-也可以加入QQ群（610394020），一同分享使用经验。
-	</Description>
-    <ProjectType>CSharp</ProjectType>
-    <SortOrder>10</SortOrder>
-    <Icon>__TemplateIcon.png</Icon>
-    <PreviewImage>__PreviewImage.png</PreviewImage>
-  </TemplateData>
-  <TemplateContent>
-    <References />
-    <ProjectItem SubType="""" TargetFileName=""$fileinputname$.cs"" ReplaceParameters=""true"">");
-            
-            #line 24 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name.Substring(1)));
+            #line 16 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name));
             
             #line default
             #line hidden
-            this.Write(".cs</ProjectItem>\r\n  </TemplateContent>\r\n</VSTemplate>");
+            this.Write("\r\n    {\r\n        private readonly IMahuaApi _mahuaApi;\r\n\r\n        public $safeite" +
+                    "mname$(\r\n            IMahuaApi mahuaApi)\r\n        {\r\n            _mahuaApi = mah" +
+                    "uaApi;\r\n        }\r\n\r\n        public void ");
+            
+            #line 26 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodName));
+            
+            #line default
+            #line hidden
+            this.Write("(");
+            
+            #line 26 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Des.MethodContextName));
+            
+            #line default
+            #line hidden
+            this.Write(" context)\r\n        {\r\n            // todo 填充处理逻辑\r\n            throw new NotImplem" +
+                    "entedException();\r\n\r\n            // 不要忘记在MahuaModule中注册\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+        #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\VsExtensions\MahuaEventCS.tt"
 
 private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo _DesField;
 
@@ -128,7 +119,7 @@ if ((DesValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public class MahuaEventMyTemplateXmlBase
+    public class MahuaEventCSBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
