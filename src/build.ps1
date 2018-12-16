@@ -52,8 +52,24 @@ Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
 }
 
 Task PackTemplate -depends Init -Description "打包项目模板" {
+    $tpls = @(
+        "Newbe.Mahua.Plugins.Template",
+        "Newbe.Mahua.Plugins.Template.CleverQQ",
+        "Newbe.Mahua.Plugins.Template.CQP",
+        "Newbe.Mahua.Plugins.Template.MPQ",
+        "Newbe.Mahua.Plugins.Template.QQLight"
+    )
+
+    $tpls | ForEach-Object {
+        Remove-Item .\Newbe.Mahua.Template\$_\ItemTemplate -Recurse -Force -ErrorAction SilentlyContinue
+        New-Item .\Newbe.Mahua.Template\$_\ItemTemplate -ItemType Directory
+        Copy-Item .\Newbe.Mahua.Template\ItemTemplate\* .\Newbe.Mahua.Template\$_\ItemTemplate  -Recurse -Force
+    }
     Exec {
         . $nugetexe pack "Newbe.Mahua.Template\Newbe.Mahua.Template.nuspec" -OutputDirectory $releaseDir
+    }
+    $tpls | ForEach-Object {
+        Remove-Item .\Newbe.Mahua.Template\$_\ItemTemplate -Recurse -Force -ErrorAction SilentlyContinue
     }
 }
 
@@ -78,8 +94,8 @@ Task TestTemplate -depends PackTemplate -Description "测试项目模板可用�
         "newbe.mahua.qqlight"
     )
 
-    $tpls | ForEach-Object{
-        Exec{
+    $tpls | ForEach-Object {
+        Exec {
             New-Item  "$tempDir\$_" -ItemType Directory
             dotnet new $_ -o "$tempDir\$_" -n "$_.plugins"
         }
