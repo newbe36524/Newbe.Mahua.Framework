@@ -5,13 +5,13 @@ using System.Reflection;
 
 namespace Newbe.Mahua.ItemTemplateGenerator.Impl
 {
-    internal class MahuaEventDesciptorResolver : IMahuaEventDesciptorResolver
+    internal class MahuaEventInfoResolver : IMahuaEventInfoResolver
     {
-        public MahuaEventDesciptor Resolve(Type mahuaEventType)
+        public MahuaEventInfo Resolve(Type mahuaEventType)
         {
             var method = mahuaEventType.GetMethods().Single();
             var contextType = method.GetParameters().Single().ParameterType;
-            var re = new MahuaEventDesciptor
+            var re = new MahuaEventInfo
             {
                 Name = mahuaEventType.Name,
                 Summary = ((DescriptionAttribute)mahuaEventType.GetCustomAttributes(typeof(DescriptionAttribute))

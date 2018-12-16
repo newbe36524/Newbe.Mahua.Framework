@@ -8,9 +8,9 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
 {
     internal class MahuaEventItemTemplateGenerator : IMahuaEventItemTemplateGenerator
     {
-        public string Generate(MahuaEventDesciptor mahuaEventDesciptor)
+        public string Generate(MahuaEventInfo mahuaEventInfo)
         {
-            var className = mahuaEventDesciptor.Name.Substring(1);
+            var className = mahuaEventInfo.Name.Substring(1);
             var dirPath = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 className);
@@ -26,7 +26,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             {
                 Session = new Dictionary<string, object>
                 {
-                    ["Des"] = mahuaEventDesciptor
+                    ["Des"] = mahuaEventInfo
                 }
             };
             mahuaEventCs.Initialize();
@@ -38,7 +38,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             {
                 Session = new Dictionary<string, object>
                 {
-                    ["Des"] = mahuaEventDesciptor
+                    ["Des"] = mahuaEventInfo
                 }
             };
             mahuaEventMyTemplateXml.Initialize();

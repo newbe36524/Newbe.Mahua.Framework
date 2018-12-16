@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace Newbe.Mahua.ItemTemplateGenerator.Impl
 {
-    internal class MahuaApiCommandDesciptorResolver : IMahuaApiCommandDesciptorResolver
+    internal class MahuaApiCommandInfoResolver : IMahuaApiCommandInfoResolver
     {
-        public MahuaApiCommandDesciptor Resolve(Type cmdType)
+        public MahuaApiCommandInfo Resolve(Type cmdType)
         {
             var description = ((DescriptionAttribute)cmdType.GetCustomAttribute(typeof(DescriptionAttribute))).Description;
-            var re = new MahuaApiCommandDesciptor
+            var re = new MahuaApiCommandInfo
             {
                 Summary = description,
                 CommandName = cmdType.Name,

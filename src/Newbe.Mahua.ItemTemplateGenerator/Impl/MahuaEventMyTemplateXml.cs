@@ -75,12 +75,12 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
         
         #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
 
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor _DesField;
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo _DesField;
 
 /// <summary>
 /// Access the Des parameter of the template.
 /// </summary>
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor Des
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo Des
 {
     get
     {
@@ -99,7 +99,7 @@ public virtual void Initialize()
 bool DesValueAcquired = false;
 if (this.Session.ContainsKey("Des"))
 {
-    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor)(this.Session["Des"]));
+    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(this.Session["Des"]));
     DesValueAcquired = true;
 }
 if ((DesValueAcquired == false))
@@ -107,7 +107,7 @@ if ((DesValueAcquired == false))
     object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Des");
     if ((data != null))
     {
-        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor)(data));
+        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(data));
     }
 }
 

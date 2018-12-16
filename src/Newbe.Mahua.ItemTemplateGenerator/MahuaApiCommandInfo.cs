@@ -1,6 +1,6 @@
 ﻿namespace Newbe.Mahua.ItemTemplateGenerator
 {
-    public class MahuaApiCommandDesciptor
+    public class MahuaApiCommandInfo
     {
         public string Summary { get; set; }
 

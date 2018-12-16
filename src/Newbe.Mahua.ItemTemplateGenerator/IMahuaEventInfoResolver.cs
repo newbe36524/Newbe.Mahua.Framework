@@ -3,8 +3,8 @@ using System;
 
 namespace Newbe.Mahua.ItemTemplateGenerator
 {
-    public interface IMahuaEventDesciptorResolver
+    public interface IMahuaEventInfoResolver
     {
-        MahuaEventDesciptor Resolve(Type mahuaEventType);
+        MahuaEventInfo Resolve(Type mahuaEventType);
     }
 }

@@ -6,11 +6,11 @@ using System.Threading;
 
 namespace Newbe.Mahua.ItemTemplateGenerator.Impl
 {
-    internal class MahuaApiCommandHandlerItemTemplateGernerator : IMahuaApiCommandHandlerItemTemplateGernerator
+    internal class MahuaApiCommandHandlerItemTemplateGenerator : IMahuaApiCommandHandlerItemTemplateGenerator
     {
-        public string Generate(MahuaApiCommandDesciptor mahuaApiCommandDesciptor)
+        public string Generate(MahuaApiCommandInfo mahuaApiCommandInfo)
         {
-            var className = mahuaApiCommandDesciptor.CommandHandlerName;
+            var className = mahuaApiCommandInfo.CommandHandlerName;
             var dirPath = Path.Combine(
                 AppDomain.CurrentDomain.BaseDirectory,
                 className);
@@ -26,7 +26,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             {
                 Session = new Dictionary<string, object>
                 {
-                    ["Des"] = mahuaApiCommandDesciptor
+                    ["Des"] = mahuaApiCommandInfo
                 }
             };
             mahuaEventCs.Initialize();
@@ -38,7 +38,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             {
                 Session = new Dictionary<string, object>
                 {
-                    ["Des"] = mahuaApiCommandDesciptor
+                    ["Des"] = mahuaApiCommandInfo
                 }
             };
             mahuaEventMyTemplateXml.Initialize();

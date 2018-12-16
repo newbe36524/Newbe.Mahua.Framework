@@ -2,7 +2,7 @@
 
 namespace Newbe.Mahua.ItemTemplateGenerator
 {
-    public class MahuaEventDesciptor
+    public class MahuaEventInfo
     {
         /// <summary>
         /// 描述

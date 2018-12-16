@@ -48,11 +48,13 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.1.12.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.14.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.14.0\lib\net452\Newbe.Mahua.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.12.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.12.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.14.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.14.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,8 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMahuaApiCommandFinder.cs" />
-    <Compile Include="IMahuaApiCommandHandlerItemTemplateGernerator.cs" />
-    <Compile Include="IMahuaEventDesciptorResolver.cs" />
+    <Compile Include="IMahuaApiCommandHandlerItemTemplateGenerator.cs" />
+    <Compile Include="IMahuaEventInfoResolver.cs" />
     <Compile Include="IMahuaEventFinder.cs" />
     <Compile Include="IMahuaEventItemTemplateGenerator.cs" />
     <Compile Include="IMahuaItemTemplateGenerator.cs" />
@@ -96,7 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaEventCS.tt</DependentUpon>
     </Compile>
-    <Compile Include="Impl\MahuaEventDesciptorResolver.cs" />
+    <Compile Include="Impl\MahuaEventInfoResolver.cs" />
     <Compile Include="Impl\MahuaEventFinder.cs" />
     <Compile Include="Impl\MahuaEventItemTemplateGenerator.cs" />
     <Compile Include="Impl\MahuaItemTemplateGenerator.cs" />
@@ -105,11 +107,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MahuaEventMyTemplateXml.tt</DependentUpon>
     </Compile>
-    <Compile Include="MahuaApiCommandDesciptor.cs" />
-    <Compile Include="IMahuaApiCommandDesciptorResolver.cs" />
-    <Compile Include="Impl\MahuaApiCommandDesciptorResolver.cs" />
-    <Compile Include="Impl\MahuaApiCommandHandlerItemTemplateGernerator.cs" />
-    <Compile Include="MahuaEventDesciptor.cs" />
+    <Compile Include="MahuaApiCommandInfo.cs" />
+    <Compile Include="IMahuaApiCommandInfoResolver.cs" />
+    <Compile Include="Impl\MahuaApiCommandInfoResolver.cs" />
+    <Compile Include="Impl\MahuaApiCommandHandlerItemTemplateGenerator.cs" />
+    <Compile Include="MahuaEventInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
