@@ -7,49 +7,49 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     {
         private readonly IMahuaEventFinder _mahuaEventFinder;
         private readonly IMahuaApiCommandFinder _mahuaApiCommandFinder;
-        private readonly IMahuaEventDesciptorResolver _mahuaEventDesciptorResolver;
-        private readonly IMahuaApiCommandDesciptorResolver _mahuaApiCommandDesciptorResolver;
+        private readonly IMahuaEventInfoResolver _mahuaEventInfoResolver;
+        private readonly IMahuaApiCommandInfoResolver _mahuaApiCommandInfoResolver;
         private readonly IMahuaEventItemTemplateGenerator _mahuaEventItemTemplateGenerator;
-        private readonly IMahuaApiCommandHandlerItemTemplateGernerator _apiCommandHandlerItemTemplateGernerator;
+        private readonly IMahuaApiCommandHandlerItemTemplateGenerator _apiCommandHandlerItemTemplateGenerator;
 
         public MahuaItemTemplateGenerator(
             IMahuaEventFinder mahuaEventFinder,
             IMahuaApiCommandFinder mahuaApiCommandFinder,
-            IMahuaEventDesciptorResolver mahuaEventDesciptorResolver,
-            IMahuaApiCommandDesciptorResolver mahuaApiCommandDesciptorResolver,
+            IMahuaEventInfoResolver mahuaEventInfoResolver,
+            IMahuaApiCommandInfoResolver mahuaApiCommandInfoResolver,
             IMahuaEventItemTemplateGenerator mahuaEventItemTemplateGenerator,
-            IMahuaApiCommandHandlerItemTemplateGernerator apiCommandHandlerItemTemplateGernerator)
+            IMahuaApiCommandHandlerItemTemplateGenerator apiCommandHandlerItemTemplateGenerator)
         {
             _mahuaEventFinder = mahuaEventFinder;
             _mahuaApiCommandFinder = mahuaApiCommandFinder;
-            _mahuaEventDesciptorResolver = mahuaEventDesciptorResolver;
-            _mahuaApiCommandDesciptorResolver = mahuaApiCommandDesciptorResolver;
+            _mahuaEventInfoResolver = mahuaEventInfoResolver;
+            _mahuaApiCommandInfoResolver = mahuaApiCommandInfoResolver;
             _mahuaEventItemTemplateGenerator = mahuaEventItemTemplateGenerator;
-            _apiCommandHandlerItemTemplateGernerator = apiCommandHandlerItemTemplateGernerator;
+            _apiCommandHandlerItemTemplateGenerator = apiCommandHandlerItemTemplateGenerator;
         }
 
         public void Generate()
         {
             var allApi = _mahuaApiCommandFinder.FindAll();
-            var apiCommandDesciptors = allApi
-                .Select(x => _mahuaApiCommandDesciptorResolver.Resolve(x))
+            var mahuaApiCommandInfos = allApi
+                .Select(x => _mahuaApiCommandInfoResolver.Resolve(x))
                 .ToArray();
-            Console.WriteLine($"共找到{apiCommandDesciptors.Length}个ApiCommand");
-            foreach (var apiCommandDesciptor in apiCommandDesciptors)
+            Console.WriteLine($"共找到{mahuaApiCommandInfos.Length}个ApiCommand");
+            foreach (var mahuaApiCommandInfo in mahuaApiCommandInfos)
             {
-                var fileName = _apiCommandHandlerItemTemplateGernerator.Generate(apiCommandDesciptor);
-                Console.WriteLine($"成功生成项模板{apiCommandDesciptor.Summary}:{fileName}");
+                var fileName = _apiCommandHandlerItemTemplateGenerator.Generate(mahuaApiCommandInfo);
+                Console.WriteLine($"成功生成项模板{mahuaApiCommandInfo.Summary}:{fileName}");
             }
 
             var allMahuaEvents = _mahuaEventFinder.FindAll();
-            var mahuaEventDesciptors = allMahuaEvents
-                .Select(x => _mahuaEventDesciptorResolver.Resolve(x))
+            var mahuaEventInfos = allMahuaEvents
+                .Select(x => _mahuaEventInfoResolver.Resolve(x))
                 .ToArray();
-            Console.WriteLine($"共找到{mahuaEventDesciptors.Length}个IMahuaEvent");
-            foreach (var mahuaEventDesciptor in mahuaEventDesciptors)
+            Console.WriteLine($"共找到{mahuaEventInfos.Length}个IMahuaEvent");
+            foreach (var mahuaEventInfo in mahuaEventInfos)
             {
-                var fileName = _mahuaEventItemTemplateGenerator.Generate(mahuaEventDesciptor);
-                Console.WriteLine($"成功生成项模板{mahuaEventDesciptor.Summary}:{fileName}");
+                var fileName = _mahuaEventItemTemplateGenerator.Generate(mahuaEventInfo);
+                Console.WriteLine($"成功生成项模板{mahuaEventInfo.Summary}:{fileName}");
             }
         }
     }

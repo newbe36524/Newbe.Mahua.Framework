@@ -1,7 +1,6 @@
 ﻿using Autofac.Extras.Moq;
 using FluentAssertions;
 using Newbe.Mahua.MahuaEvents;
-using Newbe.Mahua.Plugins.Parrot.MahuaEvents;
 using System;
 using Xunit;
 using Xunit.Abstractions;

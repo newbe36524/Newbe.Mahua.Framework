@@ -5,8 +5,8 @@
         /// <summary>
         /// 生成项模板，并返回生成的项模板zip文件物理路径
         /// </summary>
-        /// <param name="mahuaEventDesciptor"></param>
+        /// <param name="mahuaEventInfo"></param>
         /// <returns></returns>
-        string Generate(MahuaEventDesciptor mahuaEventDesciptor);
+        string Generate(MahuaEventInfo mahuaEventInfo);
     }
 }

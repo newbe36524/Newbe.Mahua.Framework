@@ -20,7 +20,7 @@
     <Content Include="build.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newbe.Build.Psake" Version="1.2.0" />
+    <PackageReference Include="Newbe.Build.Psake" Version="1.2.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />

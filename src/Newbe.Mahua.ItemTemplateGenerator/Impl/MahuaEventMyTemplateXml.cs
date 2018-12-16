@@ -18,7 +18,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+    #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class MahuaEventMyTemplateXml : MahuaEventMyTemplateXmlBase
     {
@@ -31,21 +31,21 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             this.Write("<VSTemplate Version=\"3.0.0\" xmlns=\"http://schemas.microsoft.com/developer/vstempl" +
                     "ate/2005\" Type=\"Item\">\r\n  <TemplateData>\r\n    <DefaultName>");
             
-            #line 9 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 9 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name.Substring(1)));
             
             #line default
             #line hidden
             this.Write(".cs</DefaultName>\r\n    <Name>");
             
-            #line 10 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 10 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
             #line hidden
             this.Write("</Name>\r\n    <Description>\r\n实现“");
             
-            #line 12 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 12 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Summary));
             
             #line default
@@ -64,7 +64,7 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
     <References />
     <ProjectItem SubType="""" TargetFileName=""$fileinputname$.cs"" ReplaceParameters=""true"">");
             
-            #line 24 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+            #line 24 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Des.Name.Substring(1)));
             
             #line default
@@ -73,14 +73,14 @@ namespace Newbe.Mahua.ItemTemplateGenerator.Impl
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repos\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
+        #line 1 "D:\Repo\Newbe.Mahua.Framework\src\Newbe.Mahua.ItemTemplateGenerator\Impl\MahuaEventMyTemplateXml.tt"
 
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor _DesField;
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo _DesField;
 
 /// <summary>
 /// Access the Des parameter of the template.
 /// </summary>
-private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor Des
+private global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo Des
 {
     get
     {
@@ -99,7 +99,7 @@ public virtual void Initialize()
 bool DesValueAcquired = false;
 if (this.Session.ContainsKey("Des"))
 {
-    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor)(this.Session["Des"]));
+    this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(this.Session["Des"]));
     DesValueAcquired = true;
 }
 if ((DesValueAcquired == false))
@@ -107,7 +107,7 @@ if ((DesValueAcquired == false))
     object data = global::System.Runtime.Remoting.Messaging.CallContext.LogicalGetData("Des");
     if ((data != null))
     {
-        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventDesciptor)(data));
+        this._DesField = ((global::Newbe.Mahua.ItemTemplateGenerator.MahuaEventInfo)(data));
     }
 }
 

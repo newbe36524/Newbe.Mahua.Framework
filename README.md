@@ -2,7 +2,7 @@
 
 先点击一下右上角的Star，开启隐藏功能。
 
-[![license](https://img.shields.io/github/license/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]() [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
+[![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 
 ## 开篇一张图，功能全靠编
 
