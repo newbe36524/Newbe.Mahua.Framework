@@ -38,10 +38,10 @@ namespace Newbe.Mahua.CQP.Commands
 
         public void Handle(GroupJoiningInvitationCommand message)
         {
-            _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
-                new GroupJoiningRequestReceivedContext
+            _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessGroupJoiningInvitation(
+                new GroupJoiningInvitationReceivedContext
                 {
-                    GroupJoiningRequestId = message.GroupJoiningInvitationId,
+                    GroupJoiningInvitationId = message.GroupJoiningInvitationId,
                     SendTime = message.SendTime,
                     FromQq = message.FromQq.ToString(),
                     ToGroup = message.ToGroup.ToString(),

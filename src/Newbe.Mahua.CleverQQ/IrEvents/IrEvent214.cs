@@ -22,7 +22,7 @@ namespace Newbe.Mahua.CleverQQ.IrEvents
         public void Handle(IrEventInput eventFunInput)
         {
             _groupJoiningInvitationReceivedMahuaEvents
-                .Handle(x => x.ProcessJoinGroupRequest(new GroupJoiningRequestReceivedContext
+                .Handle(x => x.ProcessGroupJoiningInvitation(new GroupJoiningInvitationReceivedContext
                 {
                     SendTime = Clock.Now,
                     Message = eventFunInput.Message,
@@ -30,7 +30,7 @@ namespace Newbe.Mahua.CleverQQ.IrEvents
                     ToGroup = eventFunInput.FromNum,
 
                     // todo GroupJoiningRequestId
-                    // GroupJoiningRequestId =
+                    //GroupJoiningInvitationId =
                 }));
         }
     }

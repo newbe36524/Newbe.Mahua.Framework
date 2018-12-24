@@ -22,7 +22,7 @@ namespace Newbe.Mahua.MPQ.EventFuns
         public void Handle(EventFunInput eventFunInput)
         {
             _groupJoiningInvitationReceivedMahuaEvents
-                .Handle(x => x.ProcessJoinGroupRequest(new GroupJoiningRequestReceivedContext
+                .Handle(x => x.ProcessGroupJoiningInvitation(new GroupJoiningInvitationReceivedContext
                 {
                     SendTime = Clock.Now,
                     Message = eventFunInput.Message,

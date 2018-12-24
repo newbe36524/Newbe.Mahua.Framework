@@ -13,7 +13,7 @@ namespace Newbe.Mahua.MahuaEvents
         /// 处理事件
         /// </summary>
         /// <param name="receivedContext"></param>
-        void ProcessJoinGroupRequest(GroupJoiningRequestReceivedContext receivedContext);
+        void ProcessGroupJoiningInvitation(GroupJoiningInvitationReceivedContext receivedContext);
     }
 
     /// <summary>

@@ -66,8 +66,8 @@ namespace Newbe.Mahua.QQLight.Commands
                 case AddGroup被邀请进群:
                     break;
                 case AddGroup机器人被邀请入群:
-                    _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessJoinGroupRequest(
-                        new GroupJoiningRequestReceivedContext
+                    _groupJoiningInvitationReceivedMahuaEvents.Handle(x => x.ProcessGroupJoiningInvitation(
+                        new GroupJoiningInvitationReceivedContext
                         {
                             Message = message.MoreMsg,
 
@@ -75,7 +75,7 @@ namespace Newbe.Mahua.QQLight.Commands
                             FromQq = message.InvatorQq,
                             ToGroup = message.Fromgroup,
                             SendTime = DateTime.Now,
-                            GroupJoiningRequestId = message.Seq
+                            GroupJoiningInvitationId = message.Seq
                         }));
                     break;
                 default: throw new ArgumentOutOfRangeException(nameof(message));
