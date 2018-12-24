@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua", "Newbe.Mahua\Newbe.Mahua.csproj", "{335C80CE-CAB8-4A09-B3F4-5502C7C82498}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.CQP", "Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj", "{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newbe.Mahua.PluginLoader", "Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj", "{12392CCE-BDBB-4F57-AD37-8024DFA8077C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1)MahuaPlatforms", "1)MahuaPlatforms", "{E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newbe.Mahua.CQP.Native", "Newbe.Mahua.CQP.Native\Newbe.Mahua.CQP.Native.csproj", "{79E0600A-8F6B-40A3-A1DC-3857855C7047}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1)CQP", "1.1)CQP", "{3A0CA621-D6A1-4CB8-A97D-4ACF16612617}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{335C80CE-CAB8-4A09-B3F4-5502C7C82498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{335C80CE-CAB8-4A09-B3F4-5502C7C82498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{335C80CE-CAB8-4A09-B3F4-5502C7C82498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{335C80CE-CAB8-4A09-B3F4-5502C7C82498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12392CCE-BDBB-4F57-AD37-8024DFA8077C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12392CCE-BDBB-4F57-AD37-8024DFA8077C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12392CCE-BDBB-4F57-AD37-8024DFA8077C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12392CCE-BDBB-4F57-AD37-8024DFA8077C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E0600A-8F6B-40A3-A1DC-3857855C7047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E0600A-8F6B-40A3-A1DC-3857855C7047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E0600A-8F6B-40A3-A1DC-3857855C7047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E0600A-8F6B-40A3-A1DC-3857855C7047}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7E31FF27-EAB2-47AF-95B1-474B6A6DEED9} = {3A0CA621-D6A1-4CB8-A97D-4ACF16612617}
+		{79E0600A-8F6B-40A3-A1DC-3857855C7047} = {3A0CA621-D6A1-4CB8-A97D-4ACF16612617}
+		{3A0CA621-D6A1-4CB8-A97D-4ACF16612617} = {E8D7F78E-E7B5-41DB-B141-4CB5AE0FEACD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C07AAB2-A770-4A43-94EE-E892BC8EA0BB}
+	EndGlobalSection
+EndGlobal

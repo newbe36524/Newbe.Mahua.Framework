@@ -2,7 +2,7 @@
 
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.13</VersionPrefix>
+    <VersionPrefix>1.14.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -16,8 +16,9 @@
     <WarningsAsErrors></WarningsAsErrors>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
-    <PackageReleaseNotes>
-      1. 添加撤回消息接口
+    <PackageReleaseNotes>1. 更新VS插件，以支持 VS2019
+        2. 更新构建脚本，支持使用脚本更新框架包。
+        3. 推出以 NetCore 2.0 SDK 作为工具的 Newbe.Mahua.Template 。这是一款新的项目模板，适用于无法安装VS插件的其他IDE用户。
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -28,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="SonarAnalyzer.CSharp" Version="7.5.0.6605" PrivateAssets="all" /> -->
+    <!--<PackageReference Include="SonarAnalyzer.CSharp" Version="7.9.1.7622" PrivateAssets="all" /> -->
     <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 

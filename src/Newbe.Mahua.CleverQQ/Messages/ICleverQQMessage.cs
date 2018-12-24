@@ -9,7 +9,5 @@ namespace Newbe.Mahua.CleverQQ.Messages
     public interface ICleverQQMessage : IMessage
     {
         bool Shake { get; set; }
-
-    }
     }
 }
