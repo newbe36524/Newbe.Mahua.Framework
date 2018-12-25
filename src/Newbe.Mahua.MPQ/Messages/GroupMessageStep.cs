@@ -14,6 +14,7 @@ namespace Newbe.Mahua.MPQ.Messages
         private readonly IBFace _bFace;
         private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IRecord _record;
 
         public GroupMessageStep(
             IGroupMessageStep2 groupMessageStep2,
@@ -24,7 +25,8 @@ namespace Newbe.Mahua.MPQ.Messages
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _groupMessageStep2 = groupMessageStep2;
             _atAll = atAll;
@@ -35,6 +37,7 @@ namespace Newbe.Mahua.MPQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IGroupMessageStep2 AtlAll()
@@ -88,6 +91,18 @@ namespace Newbe.Mahua.MPQ.Messages
         public IGroupMessageStep2 Emoji(string id)
         {
             _emoji.Emoji(id);
+            return _groupMessageStep2;
+        }
+
+        public IGroupMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return _groupMessageStep2;
+        }
+
+        public IGroupMessageStep2 Record(string file)
+        {
+            _record.Record(file);
             return _groupMessageStep2;
         }
     }

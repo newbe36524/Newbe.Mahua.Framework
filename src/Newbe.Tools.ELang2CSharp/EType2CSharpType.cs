@@ -5,6 +5,7 @@
 // Assembly location: D:\Codes\新建文件夹\Newbe.Tools.ELang2CSharp.exe
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Newbe.Tools.ELang2CSharp
@@ -13,6 +14,7 @@ namespace Newbe.Tools.ELang2CSharp
     {
         private static readonly IDictionary<string, string> TypeMapper;
 
+        [SuppressMessage("ReSharper", "S3963")]
         static EType2CSharpType()
         {
             var dictionary = new Dictionary<string, string>();

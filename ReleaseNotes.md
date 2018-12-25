@@ -11,31 +11,39 @@
 
 对于修订号的变更此列表将不会记录，直接升级没有影响。
 
+## 1.15
+
+1. 更新项目模板，支持 Rider 创建项目。
+2. 添加 发送语音 的支持 。<https://github.com/newbe36524/Newbe.Mahua.Framework/pull/57>
+3. 移除了对 Newbe.Build.Psake 的依赖。避免了在更新时，出现文件错误覆盖的问题。
+
+详细内容：<http://www.newbe.pro/2018/12/25/Newbe.Mahua/Release-Notes-1-15-0/>
+
 ## 1.14
 
 1. VS插件升级，支持VS2019
 2. 支持通过 `dotnet new` 使用项目模板 
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/12/16/Release-Notes-1-14-0.html>
+详细内容：<http://www.newbe.pro/2018/12/16/Newbe.Mahua/Release-Notes-1-14-0/>
 
 ## 1.13
 
 增加消息撤回支持
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/10/02/Release-Notes-1-13-0.html>
+详细内容：<http://www.newbe.pro/2018/10/02/Newbe.Mahua/Release-Notes-1-13-0/>
 
 ## 1.12
 
 1. 添加 QQLight、CleverQQ 支持，移除 Amanda 支持
 2. 公开各平台私有API
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/09/16/Release-Notes-1-12-0.html>
+详细内容：<http://www.newbe.pro/2018/09/16/Newbe.Mahua/Release-Notes-1-12-0/>
 
 ## 1.11
 
 重新调整nuget包结构。支持插件热更新。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/08/02/Release-Notes-1-11-0.html>
+详细内容：<http://www.newbe.pro/2018/08/02/Newbe.Mahua/Release-Notes-1-11-0/>
 
 ## 1.10
 
@@ -43,19 +51,19 @@
 
 增加 Log4View 日志输出方式，日志可见容易查看。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/06/24/Release-Notes-1-10-0.html>
+详细内容：<http://www.newbe.pro/2018/06/24/Newbe.Mahua/Release-Notes-1-10-0/>
 
 ## 1.9
 
 增加 MahuaRobotManager 和 RobotSession 机制，支持在 MahuaEvent 之外调用机器人API。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/06/10/Release-Notes-1-9-0.html>
+详细内容：<http://www.newbe.pro/2018/06/10/Newbe.Mahua/Release-Notes-1-9-0/>
 
 ## 1.8
 
 增加了"消息发送Fluent API"，发送消息接口更加方便。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/04/21/Release-Notes-1-8-0.html>
+详细内容：<http://www.newbe.pro/2018/04/21/Newbe.Mahua/Release-Notes-1-8-0/>
 
 ## 1.7
 
@@ -63,13 +71,13 @@
 
 支持在构建时对CQP的JSON文件进行修改。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2018/01/07/Release-Notes-1-7-0.html>
+详细内容：<http://www.newbe.pro/2018/01/07/Newbe.Mahua/Release-Notes-1-7-0/>
 
 ## 1.6
 
 此次版本发布主要围绕"开发便利性提升"特性。可调试行、可追踪性都有进一步提升。
 
-详细内容：<http://www.newbe.pro/docs/mahua/releasenodes/2017/12/30/Release-Notes-1-6-0.html>
+详细内容：<http://www.newbe.pro/2017/12/30/Newbe.Mahua/Release-Notes-1-6-0/>
 
 ## 1.5
 

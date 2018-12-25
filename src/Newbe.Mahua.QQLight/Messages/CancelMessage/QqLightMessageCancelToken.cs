@@ -7,7 +7,7 @@ namespace Newbe.Mahua.QQLight.Messages.CancelMessage
     {
         public delegate QqLightMessageCancelToken Factory(string qqGroup, string messageId);
 
-        public static IMessageCancelToken EmptyActionToken = new EmptyCancelToken();
+        public static readonly IMessageCancelToken EmptyActionToken = new EmptyCancelToken();
 
         private readonly IQqLightApi _qqLightApi;
 

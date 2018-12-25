@@ -8,7 +8,7 @@ using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
-    public class PrivateMessageDone : IPrivateMessageDone, IMessageBuildStep
+    public class PrivateMessageDone : IPrivateMessageDone
     {
         private readonly ICleverQqApi _cleverQqApi;
         private readonly IMahuaApi _mahuaApi;

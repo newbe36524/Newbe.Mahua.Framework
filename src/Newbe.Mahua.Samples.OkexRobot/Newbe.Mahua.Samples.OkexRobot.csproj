@@ -62,12 +62,12 @@
     <Reference Include="Microsoft.Owin.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Hosting.4.0.0\lib\net451\Microsoft.Owin.Hosting.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.1.13.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.15.0\lib\net452\Newbe.Mahua.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.15.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -142,7 +142,7 @@
     <None Include="App_Data\setting.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="buildTools\packages.config" />
+    <None Include="buildTools\nuget.exe" />
     <None Include="MahuaApis\readme.md" />
     <None Include="MahuaEvents\readme.md" />
     <None Include="packages.config" />
@@ -151,10 +151,7 @@
   <ItemGroup>
     <Content Include="build.bat" />
     <Content Include="build.ps1" />
-    <Content Include="buildTools\7z.exe" />
-    <Content Include="buildTools\nuget.exe" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Refit.3.1.0\build\netstandard1.1\refit.targets" Condition="Exists('..\packages\Refit.3.1.0\build\netstandard1.1\refit.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

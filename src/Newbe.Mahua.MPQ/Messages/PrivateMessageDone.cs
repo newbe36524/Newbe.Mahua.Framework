@@ -8,7 +8,7 @@ using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Messages
 {
-    public class PrivateMessageDone : IPrivateMessageDone, IMessageBuildStep
+    public class PrivateMessageDone : IPrivateMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IMpqMessage _message;

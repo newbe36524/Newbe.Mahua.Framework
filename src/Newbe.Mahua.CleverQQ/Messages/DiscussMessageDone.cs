@@ -3,27 +3,20 @@ using System.Linq;
 using Newbe.Mahua.Messages;
 using Newbe.Mahua.Messages.CancelMessage;
 using Newbe.Mahua.Messages.Steps;
-using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.CleverQQ.Messages
 {
-    public class DiscussMessageDone : IDiscussMessageDone, IMessageBuildStep
+    public class DiscussMessageDone : IDiscussMessageDone
     {
-        private readonly ICleverQqApi _cleverqqApi;
         private readonly IMahuaApi _mahuaApi;
         private readonly ICleverQQMessage _message;
-        private readonly IRobotSessionContext _robotSessionContext;
 
         public DiscussMessageDone(
             IMahuaApi mahuaApi,
-            ICleverQQMessage message,
-            ICleverQqApi cleverqqApi,
-            IRobotSessionContext robotSessionContext)
+            ICleverQQMessage message)
         {
             _mahuaApi = mahuaApi;
             _message = message;
-            _cleverqqApi = cleverqqApi;
-            _robotSessionContext = robotSessionContext;
         }
 
         public void Done()

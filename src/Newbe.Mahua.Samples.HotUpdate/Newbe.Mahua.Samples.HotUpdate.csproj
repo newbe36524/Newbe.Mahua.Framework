@@ -41,12 +41,12 @@
     <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.1.13.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.15.0\lib\net452\Newbe.Mahua.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.13.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.13.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.15.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -82,7 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="buildTools\packages.config" />
+    <None Include="buildTools\nuget.exe" />
     <None Include="MahuaApis\readme.md" />
     <None Include="MahuaEvents\readme.md" />
     <None Include="packages.config" />
@@ -90,9 +90,6 @@
   <ItemGroup>
     <Content Include="build.bat" />
     <Content Include="build.ps1" />
-    <Content Include="buildTools\7z.exe" />
-    <Content Include="buildTools\nuget.exe" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

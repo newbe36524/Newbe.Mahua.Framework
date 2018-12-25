@@ -8,7 +8,6 @@ namespace Newbe.Mahua.CQP.Messages
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
         private readonly IDiscussMessageDone _discussMessageDone;
-        private readonly IAtAll _atAll;
         private readonly IAt _at;
         private readonly IText _text;
         private readonly IImage _image;
@@ -16,20 +15,20 @@ namespace Newbe.Mahua.CQP.Messages
         private readonly IBFace _bFace;
         private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IRecord _record;
 
         public DiscussMessageStep2(
             IDiscussMessageDone discussMessageDone,
-            IAtAll atAll,
             IAt at,
             IText text,
             IImage image,
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _discussMessageDone = discussMessageDone;
-            _atAll = atAll;
             _at = at;
             _text = text;
             _image = image;
@@ -37,6 +36,7 @@ namespace Newbe.Mahua.CQP.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IDiscussMessageStep2 At(string qq)
@@ -87,6 +87,18 @@ namespace Newbe.Mahua.CQP.Messages
             return this;
         }
 
+        public IDiscussMessageStep2 Record(string file)
+        {
+            _record.Record(file);
+            return this;
+        }
+
+        public IDiscussMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return this;
+        }
+
         public void Done()
         {
             _discussMessageDone.Done();
@@ -96,5 +108,6 @@ namespace Newbe.Mahua.CQP.Messages
         {
             return _discussMessageDone.DoneWithToken();
         }
+
     }
 }

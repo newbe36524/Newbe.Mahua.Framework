@@ -8,6 +8,7 @@
     <Description>
       Newbe.Mahua开发工具包，是使用Newbe.Mahua进行开发不可或缺的官方工具集合。轻巧灵便，便于扩展。
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,13 +19,11 @@
   <ItemGroup>
     <Content Include="build.bat" />
     <Content Include="build.ps1" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newbe.Build.Psake" Version="1.2.2" />
+    <Content Include="buildTools\nuget.exe" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 </Project>

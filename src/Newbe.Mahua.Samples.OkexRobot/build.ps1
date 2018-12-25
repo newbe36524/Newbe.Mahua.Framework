@@ -6,23 +6,23 @@ properties {
     $releaseBase = "$rootNow\bin"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $mahuaDownloadTempDir = "$($env:TEMP)\Newbe\Newbe.Mahua"
-	$assetDirName = "YUELUO"
+    $assetDirName = "YUELUO"
 }
 
 $pkgNames = @{
     "platform"  = @(
-        "Newbe.Mahua.CQP",
-        "Newbe.Mahua.MPQ",
-        "Newbe.Mahua.QQLight",
-        "Newbe.Mahua.CleverQQ"
+    "Newbe.Mahua.CQP",
+    "Newbe.Mahua.MPQ",
+    "Newbe.Mahua.QQLight",
+    "Newbe.Mahua.CleverQQ"
     )
     "framework" = @(
-        "Newbe.Mahua",
-        "Newbe.Mahua.PluginLoader"
+    "Newbe.Mahua",
+    "Newbe.Mahua.PluginLoader"
     )
     "ext"       = @(
-        "Newbe.Mahua.Administration",
-        "Newbe.Mahua.CQP.ApiExtensions"
+    "Newbe.Mahua.Administration",
+    "Newbe.Mahua.CQP.ApiExtensions"
     )
 }
 
@@ -31,7 +31,7 @@ $pkg = [xml](Get-Content .\packages.config)
 $InstalledPlatforms = $pkg.packages.package | Where-Object { $pkgNames.platform.Contains($_.id) }
 $installedExts = $pkg.packages.package | Where-Object { $pkgNames.ext.Contains($_.id) }
 $installedFramework = $pkg.packages.package | Where-Object { $pkgNames.framework.Contains($_.id) }
-$installedAll = $pkg.packages.package | Where-Object { $_.id.StartsWith("Newbe.Mahua") }
+$installedAll = $pkg.packages.package | Where-Object { $pkgNames.platform.Contains($_.id) -or $pkgNames.ext.Contains($_.id) -or $pkgNames.framework.Contains($_.id) }
 
 function Get-MahuaPackage {
     param (
@@ -246,3 +246,15 @@ Task Pack -depends PackCQP, PackMPQ, PackCleverQQ, PackQQLight -Description "打
     Write-Output "构建完毕，当前时间为 $(Get-Date)"
 }
 
+Task UpdatePackage -depends Nuget -Description "安装最新的Mahua包" {
+    $installedAll | ForEach-Object {
+        Write-Output "updating package $($_.id)"
+        Exec {
+            . $nugetexe update packages.config -id $_.id -repositoryPath ../packages
+        }
+    }
+}
+
+Task UpdateMahuaPackages -depends UpdatePackage, Build -Description "更新Mahua相关的软件包" {
+
+}

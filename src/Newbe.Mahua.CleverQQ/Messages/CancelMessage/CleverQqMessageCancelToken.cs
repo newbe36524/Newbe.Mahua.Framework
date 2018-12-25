@@ -4,9 +4,9 @@ namespace Newbe.Mahua.CleverQQ.Messages.CancelMessage
 {
     public class CleverQqMessageCancelToken : IMessageCancelToken
     {
-        public static IMessageCancelToken EmptyActionToken = new CleverQqMessageCancelToken();
+        public static readonly IMessageCancelToken EmptyActionToken = new CleverQqMessageCancelToken();
 
-        protected CleverQqMessageCancelToken()
+        private CleverQqMessageCancelToken()
         {
         }
 

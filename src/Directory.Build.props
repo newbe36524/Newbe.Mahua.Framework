@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>1.15.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Authors>Newbe</Authors>
+    <Company>Newbe</Company>
+    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://www.newbe.pro</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
+    <PackageReleaseNotes>1. 更新项目模板，支持 Rider 创建项目。
+        2. 添加 发送语音 的支持 。https://github.com/newbe36524/Newbe.Mahua.Framework/pull/57
+        3. 移除了对 Newbe.Build.Psake 的依赖。避免了在更新时，出现文件错误覆盖的问题。
+    </PackageReleaseNotes>
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(NewbePack)' == 'true'">
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(TargetFramework)') OR Exists('$(TargetFrameworks)')">
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="7.9.1.7622" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

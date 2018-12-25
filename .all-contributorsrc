@@ -1,0 +1,80 @@
+{
+  "projectName": "Newbe.Mahua.Framework",
+  "projectOwner": "newbe36524",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "newbe36524",
+      "name": "Newbe36524",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7685462?v=4",
+      "profile": "http://www.newbe.pro",
+      "contributions": [
+        "doc",
+        "code",
+        "tool",
+        "blog",
+        "example"
+      ]
+    },
+    {
+      "login": "traceless0929",
+      "name": "Traceless",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12078678?v=4",
+      "profile": "https://traceless.site/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "kotoneme",
+      "name": "kotoneme",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/43395785?v=4",
+      "profile": "https://github.com/kotoneme",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "allenxie888",
+      "name": "AllenXie",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7455309?v=4",
+      "profile": "https://github.com/allenxie888",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bgli100",
+      "name": "bgli100",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7760499?v=4",
+      "profile": "https://github.com/bgli100",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "newce36524",
+      "name": "Q-Q",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/20368567?v=4",
+      "profile": "https://github.com/newce36524",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "LollipopGeneral",
+      "name": "LollipopGeneral",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/45588935?v=4",
+      "profile": "https://github.com/LollipopGeneral",
+      "contributions": [
+        "code"
+      ]
+    }
+  ]
+}

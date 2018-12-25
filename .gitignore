@@ -249,35 +249,12 @@ paket-files/
 # FAKE - F# Make
 .fake/
 
-# JetBrains Rider
-.idea/
-*.sln.iml
-
 # CodeRush
 .cr/
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/src/Newbe.Mahua.Plugins.Parrot/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Parrot.Tests/NewbeLibs/
-/src/Newbe.Mahua.Samples.ApiExtensions/NewbeLibs/
-/src/Newbe.Mahua.Samples.LiveGirl/NewbeLibs/
-/src/Newbe.Mahua.Samples.Sqlite/NewbeLibs/
-/src/Newbe.Mahua.Samples.Sqlite/buildTools/
-/src/Newbe.Mahua.Samples.LiveGirl/buildTools/
-/src/Newbe.Mahua.Samples.ApiExtensions/buildTools/
-/src/Newbe.Mahua.Samples.Sqlite.Tests/NewbeLibs/Framework/
-/src/Newbe.Mahua.ItemTemplateGenerator/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Template.Amanda/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Template.CQP/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Template.MPQ/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Template/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Template/buildTools/
-/src/Newbe.Mahua.Plugins.Template.MPQ/buildTools/
-/src/Newbe.Mahua.Plugins.Template.CQP/buildTools/
-/src/Newbe.Mahua.Plugins.Template.Amanda/buildTools/
-/src/Newbe.Mahua.Samples.OkexRobot/buildTools/
-/src/Newbe.Mahua.Samples.OkexRobot/NewbeLibs/
-/src/Newbe.Mahua.Plugins.Parrot/buildTools
+
+# This Project
 *.orig

@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Newbe.Tools.ELang2CSharp
 {
-    internal class Program
+    internal static class Program
     {
         public static void Main(string[] args)
         {

@@ -8,7 +8,6 @@ namespace Newbe.Mahua.CleverQQ.Messages
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
         private readonly IAt _at;
-        private readonly IAtAll _atAll;
         private readonly IBFace _bFace;
         private readonly IDiscussMessageDone _discussMessageDone;
         private readonly IEmoji _emoji;
@@ -16,20 +15,20 @@ namespace Newbe.Mahua.CleverQQ.Messages
         private readonly IImage _image;
         private readonly ISFace _sFace;
         private readonly IText _text;
+        private readonly IRecord _record;
 
         public DiscussMessageStep2(
             IDiscussMessageDone discussMessageDone,
-            IAtAll atAll,
             IAt at,
             IText text,
             IImage image,
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _discussMessageDone = discussMessageDone;
-            _atAll = atAll;
             _at = at;
             _text = text;
             _image = image;
@@ -37,6 +36,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IDiscussMessageStep2 At(string qq)
@@ -95,6 +95,18 @@ namespace Newbe.Mahua.CleverQQ.Messages
         public IMessageCancelToken DoneWithToken()
         {
             return _discussMessageDone.DoneWithToken();
+        }
+
+        public IDiscussMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return this;
+        }
+
+        public IDiscussMessageStep2 Record(string file)
+        {
+            _record.Record(file);
+            return this;
         }
     }
 }

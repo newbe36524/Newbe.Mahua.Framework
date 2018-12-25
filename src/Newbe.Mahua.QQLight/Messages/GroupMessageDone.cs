@@ -4,7 +4,7 @@ using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.QQLight.Messages
 {
-    public class GroupMessageDone : IGroupMessageDone, IMessageBuildStep
+    public class GroupMessageDone : IGroupMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IQqLightMessage _message;
