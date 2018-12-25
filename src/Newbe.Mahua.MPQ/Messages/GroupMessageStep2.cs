@@ -16,6 +16,7 @@ namespace Newbe.Mahua.MPQ.Messages
         private readonly IImage _image;
         private readonly ISFace _sFace;
         private readonly IText _text;
+        private readonly IRecord _record;
 
         public GroupMessageStep2(
             IGroupMessageDone groupMessageDone,
@@ -26,7 +27,8 @@ namespace Newbe.Mahua.MPQ.Messages
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _groupMessageDone = groupMessageDone;
             _atAll = atAll;
@@ -37,6 +39,7 @@ namespace Newbe.Mahua.MPQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IGroupMessageStep2 AtlAll()
@@ -101,6 +104,18 @@ namespace Newbe.Mahua.MPQ.Messages
         public IMessageCancelToken DoneWithToken()
         {
             return _groupMessageDone.DoneWithToken();
+        }
+
+        public IGroupMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return this;
+        }
+
+        public IGroupMessageStep2 Record(string file)
+        {
+            _record.Record(file);
+            return this;
         }
     }
 }

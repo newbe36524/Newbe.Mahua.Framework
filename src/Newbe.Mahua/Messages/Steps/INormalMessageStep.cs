@@ -6,7 +6,8 @@
         IFaceStep<T>,
         IBFaceStep<T>,
         ISFaceStep<T>,
-        IEmojiStep<T>
+        IEmojiStep<T>,
+        IRecordStep<T>
         where T : IMessageBuildStep
     {
     }

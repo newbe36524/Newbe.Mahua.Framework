@@ -14,6 +14,7 @@ namespace Newbe.Mahua.CQP.Messages
         private readonly IBFace _bFace;
         private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IRecord _record;
 
         public PrivateMessageStep2(
             IPrivateMessageDone privateMessageDone,
@@ -22,7 +23,8 @@ namespace Newbe.Mahua.CQP.Messages
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _privateMessageDone = privateMessageDone;
             _text = text;
@@ -31,6 +33,7 @@ namespace Newbe.Mahua.CQP.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IPrivateMessageStep2 Text(string text)
@@ -75,6 +78,18 @@ namespace Newbe.Mahua.CQP.Messages
             return this;
         }
 
+        public IPrivateMessageStep2 Record(string file)
+        {
+            _record.Record(file);
+            return this;
+        }
+
+        public IPrivateMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return this;
+        }
+
         public void Done()
         {
             _privateMessageDone.Done();
@@ -84,5 +99,6 @@ namespace Newbe.Mahua.CQP.Messages
         {
             return _privateMessageDone.DoneWithToken();
         }
+
     }
 }

@@ -98,6 +98,11 @@ namespace Newbe.Mahua.CleverQQ.Messages.Builders
             MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<IRecord>();
         }
 
+        public void Record(string file, bool magic)
+        {
+            MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<IRecord>();
+        }
+
         public void SFace(string id)
         {
             MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<ISFace>();

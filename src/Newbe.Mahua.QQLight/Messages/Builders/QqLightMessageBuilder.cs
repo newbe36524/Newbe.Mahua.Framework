@@ -66,6 +66,11 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
             _qqLightMessage.Append($"[QQ:voice={file}]");
         }
 
+        public void Record(string file, bool magic)
+        {
+            _qqLightMessage.Append($"[QQ:voice={file}]");
+        }
+
         public void SFace(string id)
         {
             MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<ISFace>();
@@ -85,5 +90,6 @@ namespace Newbe.Mahua.QQLight.Messages.Builders
         {
             _qqLightMessage.Append(Environment.NewLine);
         }
+
     }
 }
