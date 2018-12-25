@@ -1,4 +1,5 @@
-﻿using Newbe.Mahua.MahuaEvents;
+﻿using System.Diagnostics.CodeAnalysis;
+using Newbe.Mahua.MahuaEvents;
 using System.Threading.Tasks;
 
 namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
@@ -17,6 +18,7 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
             _mahuaApi = mahuaApi;
         }
 
+        [SuppressMessage("ReSharper", "S1075")]
         public void ProcessFriendMessage(PrivateMessageFromFriendReceivedContext context)
         {
             // 戳一戳

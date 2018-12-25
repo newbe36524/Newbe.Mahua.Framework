@@ -1,0 +1,28 @@
+{
+  "name": "newbe.mahua.framework",
+  "version": "1.0.0",
+  "description": "[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)\r [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "all-contributors-cli": "^5.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "add": "all-contributors add",
+    "generate": "all-contributors generate",
+    "check": "all-contributors check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Newbe36524/Newbe.Mahua.Framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Newbe36524/Newbe.Mahua.Framework/issues"
+  },
+  "homepage": "https://github.com/Newbe36524/Newbe.Mahua.Framework#readme"
+}
