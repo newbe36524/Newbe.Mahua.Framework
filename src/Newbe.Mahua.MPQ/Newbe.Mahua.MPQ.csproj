@@ -17,6 +17,7 @@
       7 商业使用许可
       https://f.mypcqq.cc/thread-4900-1-1.html
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -74,7 +75,7 @@
       </SonarQubeSetting>
     </ItemGroup>
   </Target>
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 
 </Project>

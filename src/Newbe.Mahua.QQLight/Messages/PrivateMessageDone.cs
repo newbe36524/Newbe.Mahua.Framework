@@ -6,7 +6,7 @@ using Newbe.Mahua.QQLight.Messages.CancelMessage;
 
 namespace Newbe.Mahua.QQLight.Messages
 {
-    public class PrivateMessageDone : IPrivateMessageDone, IMessageBuildStep
+    public class PrivateMessageDone : IPrivateMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IQqLightMessage _message;

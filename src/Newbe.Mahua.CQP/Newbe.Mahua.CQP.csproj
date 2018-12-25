@@ -11,6 +11,7 @@
       酷Q Pro （https://cqp.im/t/14901） 是一款收费软件，因此我们会更专注于其稳定性与专业性。
       这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -58,6 +59,6 @@
     <Folder Include="bin\$(Configuration)\net452\CLR\" />
   </ItemGroup>
 
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 </Project>

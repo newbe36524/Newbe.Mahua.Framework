@@ -6,6 +6,7 @@
     <Description>
       对原生的CQP平台API进行扩展，增加或改进部分API
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
@@ -40,7 +41,7 @@
     <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
   </ItemGroup>
 
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 
 </Project>

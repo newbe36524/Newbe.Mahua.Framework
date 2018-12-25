@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace Newbe.Mahua.ApiMahuaCommandFinder
 {
-    class Program
+    internal static class Program
     {
         static void Main(string[] args)
         {

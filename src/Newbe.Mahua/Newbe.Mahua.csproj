@@ -6,6 +6,7 @@
     <Description>
       QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
     </Description>
+    <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -53,6 +54,6 @@
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
     </Compile>
   </ItemGroup>
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 </Project>

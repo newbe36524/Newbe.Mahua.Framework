@@ -8,7 +8,7 @@ namespace Newbe.Mahua.MPQ.Messages.CancelMessage
         {
         }
 
-        public static IMessageCancelToken EmptyActionToken = new MpqCancelMessageToken();
+        public static readonly IMessageCancelToken EmptyActionToken = new MpqCancelMessageToken();
 
         public void Cancel()
         {

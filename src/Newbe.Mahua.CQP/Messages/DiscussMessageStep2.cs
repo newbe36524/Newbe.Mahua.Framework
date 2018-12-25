@@ -8,7 +8,6 @@ namespace Newbe.Mahua.CQP.Messages
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
         private readonly IDiscussMessageDone _discussMessageDone;
-        private readonly IAtAll _atAll;
         private readonly IAt _at;
         private readonly IText _text;
         private readonly IImage _image;
@@ -20,7 +19,6 @@ namespace Newbe.Mahua.CQP.Messages
 
         public DiscussMessageStep2(
             IDiscussMessageDone discussMessageDone,
-            IAtAll atAll,
             IAt at,
             IText text,
             IImage image,
@@ -31,7 +29,6 @@ namespace Newbe.Mahua.CQP.Messages
             IRecord record)
         {
             _discussMessageDone = discussMessageDone;
-            _atAll = atAll;
             _at = at;
             _text = text;
             _image = image;

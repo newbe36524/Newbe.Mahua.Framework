@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>1.15.0</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <Authors>Newbe</Authors>
+    <Company>Newbe</Company>
+    <PackageIconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>http://www.newbe.pro</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Newbe36524/Newbe.Mahua.Framework</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageOutputPath>../build/</PackageOutputPath>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <WarningsAsErrors>true</WarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
+    <PackageReleaseNotes>1. 更新VS插件，以支持 VS2019
+        2. 更新构建脚本，支持使用脚本更新框架包。
+        3. 推出以 NetCore 2.0 SDK 作为工具的 Newbe.Mahua.Template 。这是一款新的项目模板，适用于无法安装VS插件的其他IDE用户。
+    </PackageReleaseNotes>
+    <LangVersion>Latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(NewbePack)' == 'true'">
+    <None Include="..\GlobalBin\init.ps1" Link="Tools\init.ps1">
+      <Pack>true</Pack>
+      <PackagePath>tools\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="7.9.1.7622" PrivateAssets="all" />
+    <PackageReference Include="SourceLink.Embed.PaketFiles" Version="2.8.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

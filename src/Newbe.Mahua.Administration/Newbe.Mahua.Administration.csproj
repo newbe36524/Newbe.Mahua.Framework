@@ -8,6 +8,7 @@
     <Description>
       Newbe.Mahua.Administration.WPF 为基于Newbe.Mahua开发的插件，提供可扩展的设置中心界面。
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +32,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
 
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 
 </Project>

@@ -21,7 +21,6 @@ namespace Newbe.Tools.ELang2CSharp
                 }, StringSplitOptions.RemoveEmptyEntries)
                 .Where(x => x.Contains(","))
                 .Select(x => x.Replace(dll命令, string.Empty))
-                .ToArray()
                 .Select(x =>
                 {
                     var array1 = x.Split(new string[1]

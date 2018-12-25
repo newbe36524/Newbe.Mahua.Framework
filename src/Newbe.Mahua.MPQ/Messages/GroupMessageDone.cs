@@ -7,7 +7,7 @@ using Newbe.Mahua.NativeApi;
 
 namespace Newbe.Mahua.MPQ.Messages
 {
-    public class GroupMessageDone : IGroupMessageDone, IMessageBuildStep
+    public class GroupMessageDone : IGroupMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IMpqMessage _message;

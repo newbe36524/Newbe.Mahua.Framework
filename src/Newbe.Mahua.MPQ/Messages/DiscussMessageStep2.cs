@@ -8,7 +8,6 @@ namespace Newbe.Mahua.MPQ.Messages
     public class DiscussMessageStep2 : IDiscussMessageStep2
     {
         private readonly IAt _at;
-        private readonly IAtAll _atAll;
         private readonly IBFace _bFace;
         private readonly IDiscussMessageDone _discussMessageDone;
         private readonly IEmoji _emoji;
@@ -20,7 +19,6 @@ namespace Newbe.Mahua.MPQ.Messages
 
         public DiscussMessageStep2(
             IDiscussMessageDone discussMessageDone,
-            IAtAll atAll,
             IAt at,
             IText text,
             IImage image,
@@ -31,7 +29,6 @@ namespace Newbe.Mahua.MPQ.Messages
             IRecord record)
         {
             _discussMessageDone = discussMessageDone;
-            _atAll = atAll;
             _at = at;
             _text = text;
             _image = image;

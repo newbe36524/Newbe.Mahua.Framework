@@ -4,7 +4,7 @@ using Newbe.Mahua.Messages.Steps;
 
 namespace Newbe.Mahua.CQP.Messages
 {
-    public class DiscussMessageDone : IDiscussMessageDone, IMessageBuildStep
+    public class DiscussMessageDone : IDiscussMessageDone
     {
         private readonly IMahuaApi _mahuaApi;
         private readonly IMessage _message;

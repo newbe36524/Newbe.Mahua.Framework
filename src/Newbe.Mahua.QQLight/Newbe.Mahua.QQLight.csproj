@@ -13,6 +13,7 @@
       全新的 QQLight （http://www.52chat.cc/）
       上手即用的QQ机器人，即刻提升您的群活跃度，全自动便捷管理群组，它可以实现群管理、群聊天、便民娱乐等各种功能，让您的群逼格更高，更活跃！
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -56,7 +57,7 @@
     <Folder Include="bin\$(Configuration)\net452\Native\" />
   </ItemGroup>
 
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 
 </Project>

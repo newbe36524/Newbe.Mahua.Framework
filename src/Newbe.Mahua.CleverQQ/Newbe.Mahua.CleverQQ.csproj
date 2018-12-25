@@ -11,6 +11,7 @@
       同时，为建造一个良好的使用环境，我们同样加入了不断完善的检测机制（人工、机器），对于黄、赌等各种非法用途一律采取不接受、不姑息的政策，也希望各位用户能够互相监督、自检自律。
       https://d.cleverqq.cn/forum.php
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -68,6 +69,6 @@
       </SonarQubeSetting>
     </ItemGroup>
   </Target>
-  <Import Project="..\Newbe.Mahua.props" />
+  
 
 </Project>

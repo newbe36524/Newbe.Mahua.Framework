@@ -7,6 +7,7 @@
     <Description>
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
+      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
@@ -55,7 +56,7 @@
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
 
-  <Import Project="..\Newbe.Mahua.props" />
+  
   <ItemGroup>
     <Compile Update="App_Packages\LibLog.4.2\LibLog.cs">
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
