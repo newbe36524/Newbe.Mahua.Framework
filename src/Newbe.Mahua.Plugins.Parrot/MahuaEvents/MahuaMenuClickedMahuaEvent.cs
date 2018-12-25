@@ -1,6 +1,7 @@
 ﻿
 using Newbe.Mahua.MahuaEvents;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
 {
@@ -10,12 +11,8 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
     public class MahuaMenuClickedMahuaEvent
         : IMahuaMenuClickedMahuaEvent
     {
-        private readonly IMahuaApi _mahuaApi;
-
-        public MahuaMenuClickedMahuaEvent(
-            IMahuaApi mahuaApi)
+        public MahuaMenuClickedMahuaEvent()
         {
-            _mahuaApi = mahuaApi;
         }
 
         public void ProcessManhuaMenuClicked(MahuaMenuClickedContext context)
@@ -24,6 +21,7 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
             ShowNewbe();
         }
 
+        [SuppressMessage("ReSharper", "S1075")]
         private static void ShowNewbe()
         {
             Process.Start("http://www.newbe.pro");
