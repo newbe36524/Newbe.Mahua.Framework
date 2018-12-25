@@ -15,6 +15,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
         private readonly IBFace _bFace;
         private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IRecord _record;
 
         public PrivateMessageStep(
             IPrivateMessageStep2 privateMessageStep2,
@@ -25,7 +26,8 @@ namespace Newbe.Mahua.CleverQQ.Messages
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _privateMessageStep2 = privateMessageStep2;
             _privateMessageDone = privateMessageDone;
@@ -36,6 +38,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IPrivateMessageStep2 Text(string text)
@@ -84,6 +87,18 @@ namespace Newbe.Mahua.CleverQQ.Messages
         {
             _shake.Shake();
             return _privateMessageDone;
+        }
+
+        public IPrivateMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return _privateMessageStep2;
+        }
+
+        public IPrivateMessageStep2 Record(string file)
+        {
+            _record.Record(file);
+            return _privateMessageStep2;
         }
     }
 }

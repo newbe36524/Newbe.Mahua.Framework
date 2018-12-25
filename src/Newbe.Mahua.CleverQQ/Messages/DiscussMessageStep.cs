@@ -14,6 +14,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
         private readonly IBFace _bFace;
         private readonly ISFace _sFace;
         private readonly IEmoji _emoji;
+        private readonly IRecord _record;
 
         public DiscussMessageStep(
             IDiscussMessageStep2 discussMessageStep2,
@@ -24,7 +25,8 @@ namespace Newbe.Mahua.CleverQQ.Messages
             IFace face,
             IBFace bFace,
             ISFace sFace,
-            IEmoji emoji)
+            IEmoji emoji,
+            IRecord record)
         {
             _discussMessageStep2 = discussMessageStep2;
             _atAll = atAll;
@@ -35,6 +37,7 @@ namespace Newbe.Mahua.CleverQQ.Messages
             _bFace = bFace;
             _sFace = sFace;
             _emoji = emoji;
+            _record = record;
         }
 
         public IDiscussMessageStep2 AtlAll()
@@ -88,6 +91,18 @@ namespace Newbe.Mahua.CleverQQ.Messages
         public IDiscussMessageStep2 Emoji(string id)
         {
             _emoji.Emoji(id);
+            return _discussMessageStep2;
+        }
+
+        public IDiscussMessageStep2 Record(string file, bool magic)
+        {
+            _record.Record(file, magic);
+            return _discussMessageStep2;
+        }
+
+        public IDiscussMessageStep2 Record(string file)
+        {
+            _record.Record(file);
             return _discussMessageStep2;
         }
     }

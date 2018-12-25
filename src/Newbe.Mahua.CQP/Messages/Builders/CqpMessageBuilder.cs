@@ -69,7 +69,7 @@ namespace Newbe.Mahua.CQP.Messages.Builders
             _message.Append($"[CQ:image,file={newName}]");
         }
         /// <summary>
-        /// {1}为语音文件名称，图片存放在酷Q目录的data\record\下
+        /// {1}为语音文件名称，语音存放在酷Q目录的data\record\下
         /// </summary>
         /// <param name="file"></param>
         public void Record(string file)
@@ -81,6 +81,23 @@ namespace Newbe.Mahua.CQP.Messages.Builders
                 File.Copy(file, destFileName, true);
             }
             _message.Append($"[CQ:record,file={newName},magic=false]");
+        }
+
+        /// <summary>
+        /// {1}为语音文件名称，语音存放在酷Q目录的data\record\下
+        /// {2}为是否为变音
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="magic"></param>
+        public void Record(string file, bool magic)
+        {
+            var newName = Guid.NewGuid() + "." + Path.GetExtension(file);
+            if (!file.StartsWith(CqpDirectories.Record))
+            {
+                var destFileName = Path.Combine(CqpDirectories.Record, newName);
+                File.Copy(file, destFileName, true);
+            }
+            _message.Append($"[CQ:record,file={newName},magic={magic}]");
         }
 
         public void SFace(string id)
@@ -102,5 +119,6 @@ namespace Newbe.Mahua.CQP.Messages.Builders
         {
             _message.Append(Environment.NewLine);
         }
+        
     }
 }

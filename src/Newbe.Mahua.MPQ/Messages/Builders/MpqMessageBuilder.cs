@@ -92,6 +92,11 @@ namespace Newbe.Mahua.MPQ.Messages.Builders
             MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<IRecord>();
         }
 
+        public void Record(string file, bool magic)
+        {
+            MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<IRecord>();
+        }
+
         public void SFace(string id)
         {
             MahuaGlobal.NotSupportedMessageBuilderConvertion.Handle<ISFace>();
@@ -111,5 +116,6 @@ namespace Newbe.Mahua.MPQ.Messages.Builders
         {
             _mpqMessage.Append(Environment.NewLine);
         }
+        
     }
 }
