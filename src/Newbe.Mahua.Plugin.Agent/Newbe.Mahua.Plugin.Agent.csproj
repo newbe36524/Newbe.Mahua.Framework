@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="build.bat" />
+        <Content Include="build.ps1" />
+        <None Include="Configs\mahua.json" />
+        <None Remove="mahua.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Newbe.Mahua.InputReceivers.HttpApi\Newbe.Mahua.InputReceivers.HttpApi.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua.OutputSenders.HttpApi\Newbe.Mahua.OutputSenders.HttpApi.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+    </ItemGroup>
+
+</Project>

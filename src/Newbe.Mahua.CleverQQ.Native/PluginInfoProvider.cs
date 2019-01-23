@@ -7,7 +7,7 @@ namespace Newbe.Mahua.CleverQQ.Native
     {
         public static PluginFileInfo GetPluginInfo()
         {
-            var pluginApiExpDll = typeof(CleverQQNativeModule).Assembly.CodeBase;
+            var pluginApiExpDll = typeof(MahuaModule).Assembly.CodeBase;
             var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll).Replace(".IR", string.Empty);
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var dllDir = Path.GetFullPath(Path.Combine(baseDir, pluginName));

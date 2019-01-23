@@ -1,83 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net452</TargetFrameworks>
+    <TargetFramework>net461</TargetFramework>
     <PackageTags>Newbe Mahua</PackageTags>
     <RootNamespace>Newbe.Mahua</RootNamespace>
     <Description>
       Newbe.Mahua运行时核心，是SDK能够支持多平台的核心所在。
     </Description>
-      <NewbePack>true</NewbePack>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DefineConstants>TRACE;DEBUG;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.PluginLoader.xml</DocumentationFile>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DefineConstants>TRACE;LIBLOG_PUBLIC</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="bin\$(Configuration)\net452\MediatR.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.PluginLoader.pdb">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\System.Threading.Tasks.Extensions.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\System.ValueTuple.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\MessagePack.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MediatR" Version="3.0.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3.4" />
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="LibLog" Version="5.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="NLog" Version="4.5.11" />
+    <PackageReference Include="Microsoft.Tpl.Dataflow" Version="4.5.24" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
   </ItemGroup>
-
-  
-  <ItemGroup>
-    <Compile Update="App_Packages\LibLog.4.2\LibLog.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Update="Domains\AssemblyLoader.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Update="Domains\DomainLoader.cs">
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-  </ItemGroup>
-
-  <Target Name="BeforeBuild">
-    <ItemGroup>
-      <SonarQubeSetting Include="sonar.exclusions">
-        <Value>**/App_Packages/**/*</Value>
-      </SonarQubeSetting>
-    </ItemGroup>
-  </Target>
 
 </Project>

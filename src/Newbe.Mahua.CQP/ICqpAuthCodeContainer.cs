@@ -2,10 +2,6 @@
 {
     public interface ICqpAuthCodeContainer
     {
-        int AuthCode { get; set; }
-
-        void Save();
-
-        void Load();
+        int AuthCode { get; }
     }
 }

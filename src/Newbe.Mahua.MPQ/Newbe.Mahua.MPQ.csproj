@@ -1,81 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net452</TargetFrameworks>
-    <PackageTags>Newbe Mahua MPQ MyPcQQ</PackageTags>
-    <IsTool>true</IsTool>
-    <DevelopmentDependency>true</DevelopmentDependency>
-    <Description>
-      Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
-      0 长久有效的技术支持及更新维护+独占功能
-      1 轻壳 极速运行
-      2 企业Q登录
-      3 不接入云黑机制
-      4 插件初始情况默认启用
-      5 允许接入UU 若快两个打码
-      6 移除推广信息
-      7 商业使用许可
-      https://f.mypcqq.cc/thread-4900-1-1.html
-    </Description>
-      <NewbePack>true</NewbePack>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <PackageTags>Newbe Mahua MPQ MyPcQQ</PackageTags>
+        <IsTool>true</IsTool>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <Description>
+            Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。
+            0 长久有效的技术支持及更新维护+独占功能
+            1 轻壳 极速运行
+            2 企业Q登录
+            3 不接入云黑机制
+            4 插件初始情况默认启用
+            5 允许接入UU 若快两个打码
+            6 移除推广信息
+            7 商业使用许可
+            https://f.mypcqq.cc/thread-4900-1-1.html
+        </Description>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
-    <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
-  </PropertyGroup>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.MPQ.xml</DocumentationFile>
-    <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
+        <DocumentationFile>bin\Debug\net461\Newbe.Mahua.MPQ.xml</DocumentationFile>
+        <DefineConstants>TRACE;DEBUG;LIBLOG_PORTABLE</DefineConstants>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\Newbe.Mahua.MPQ.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.MPQ.Native.pdb">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="..\Newbe.Mahua.MPQ.Native\bin\$(Configuration)\x86\Newbe.Mahua.MPQ.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.MPQ.Native.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\Native\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.MPQ.pdb">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-  </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+        <DocumentationFile>bin\Release\net461\Newbe.Mahua.MPQ.xml</DocumentationFile>
+        <DefineConstants>TRACE;LIBLOG_PORTABLE</DefineConstants>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
-    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\$(Configuration)\net452\Native\" />
-    <Folder Include="bin\$(Configuration)\net452\CLR\" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Reference Include="System.Web.Extensions" />
-  </ItemGroup>
-
-  <Target Name="BeforeBuild">
     <ItemGroup>
-      <SonarQubeSetting Include="sonar.exclusions">
-        <Value>**/App_Packages/**/*</Value>
-      </SonarQubeSetting>
+        <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
     </ItemGroup>
-  </Target>
-  
-
 
 </Project>

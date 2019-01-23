@@ -2,10 +2,18 @@
 {
     internal static class PluginInstanceManager
     {
-        public static IPluginLoader GetInstance()
+        private static bool _initialized;
+
+        public static IMahuaCenter GetInstance()
         {
-            var pluginInfo = PluginInfoProvider.GetPluginInfo();
-            return Mahua.PluginInstanceManager.GetInstance(pluginInfo);
+            if (!_initialized)
+            {
+                var pluginInfo = PluginInfoProvider.GetPluginInfo();
+                Mahua.PluginInstanceManager.EnsureAppDomainInitialized(pluginInfo);
+                _initialized = true;
+            }
+
+            return Mahua.PluginInstanceManager.GetInstance();
         }
     }
 }

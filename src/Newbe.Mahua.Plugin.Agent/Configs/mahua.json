@@ -1,0 +1,30 @@
+{
+  "input": [
+    {
+      "name": "local test",
+      "type": "http",
+      "version": 1,
+      "args": {
+        "host": "0.0.0.0",
+        "port": 36524
+      }
+    }
+  ],
+  "output": [
+    {
+      "name": "logging",
+      "type": "logging",
+      "version": 1,
+      "args": {
+      }
+    },
+    {
+      "name": "local test",
+      "type": "http",
+      "version": 1,
+      "args": {
+        "url": "http://localhost:65321/api/ReceiveMahuaOutput"
+      }
+    }
+  ]
+}

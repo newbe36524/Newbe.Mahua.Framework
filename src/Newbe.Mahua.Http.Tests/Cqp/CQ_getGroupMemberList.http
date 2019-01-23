@@ -1,0 +1,8 @@
+POST http://{{host}}/api/v1/Cqp/CQ_getGroupMemberList
+Content-Type: application/json
+
+{
+  "群号": 610394020
+}
+
+###

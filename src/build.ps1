@@ -6,7 +6,7 @@ properties {
     $nugetexe = "$rootNow/buildTools/nuget.exe"
 }
 
-Task Default -depends NugetPushLocal
+Task Default -depends Build
 
 Task Clean -Description "清理上一次编译结果" {
     Remove-Item $releaseDir -Force -Recurse -ErrorAction SilentlyContinue
@@ -29,6 +29,7 @@ Task Build -depends Nuget -Description "编译所有解决方案" {
     Exec {
         msbuild /m /t:"Build" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.Native.sln
     }
+    echo "restore native api finished"
     Exec {
         msbuild /m /t:"Build" /p:Configuration=$deployMode /v:minimal /nologo  Newbe.Mahua.sln
     }
@@ -39,7 +40,7 @@ Task Pack -depends Build -Description "打包" {
     }
 }
 Task NugetPushLocal -depends Pack -Description "推送nuget包到本地" {
-    Write-Output "构建完毕，当前时间为 $(Get-Date)"
+    Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
 
 Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
@@ -48,16 +49,16 @@ Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
             dotnet nuget push "$releaseDir$_" -s https://www.nuget.org/
         }
     }
-    Write-Output "构建完毕，当前时间为 $(Get-Date)"
+    Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
 
 Task PackTemplate -depends Init -Description "打包项目模板" {
     $tpls = @(
-        "Newbe.Mahua.Plugins.Template",
-        "Newbe.Mahua.Plugins.Template.CleverQQ",
-        "Newbe.Mahua.Plugins.Template.CQP",
-        "Newbe.Mahua.Plugins.Template.MPQ",
-        "Newbe.Mahua.Plugins.Template.QQLight"
+    "Newbe.Mahua.Plugins.Template",
+    "Newbe.Mahua.Plugins.Template.CleverQQ",
+    "Newbe.Mahua.Plugins.Template.CQP",
+    "Newbe.Mahua.Plugins.Template.MPQ",
+    "Newbe.Mahua.Plugins.Template.QQLight"
     )
 
     $tpls | ForEach-Object {
@@ -81,17 +82,17 @@ Task TestTemplate -depends PackTemplate -Description "测试项目模板可用�
         }
     }
 
-    $tempDir = "$($env:TEMP)\Newbe\Newbe.Mahua\tplTest"
+    $tempDir = "$( $env:TEMP )\Newbe\Newbe.Mahua\tplTest"
 
     Remove-Item $tempDir -Recurse -Force -ErrorAction SilentlyContinue
     New-Item $tempDir -ItemType Directory
 
     $tpls = @(
-        "newbe.mahua.all",
-        "newbe.mahua.cleverqq",
-        "newbe.mahua.cqp",
-        "newbe.mahua.mpq",
-        "newbe.mahua.qqlight"
+    "newbe.mahua.all",
+    "newbe.mahua.cleverqq",
+    "newbe.mahua.cqp",
+    "newbe.mahua.mpq",
+    "newbe.mahua.qqlight"
     )
 
     $tpls | ForEach-Object {

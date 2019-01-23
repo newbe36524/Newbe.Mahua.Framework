@@ -1,0 +1,9 @@
+POST http://{{host}}/api/v1/Cqp/CQ_sendPrivateMsg
+Content-Type: application/json
+
+{
+  "qqid": 472158246,
+  "msg": "嘤嘤嘤"
+}
+
+###

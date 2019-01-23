@@ -1,12 +1,11 @@
-﻿using Newbe.Mahua.CleverQQ.Commands;
+﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.CleverQQ.MahuaEventOutputs;
 
 namespace Newbe.Mahua.CleverQQ.Native
 {
     public class PluginApiExporter : IPluginApiExporter
     {
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.CleverQQ;
-
         /// <summary>
         /// 程序入口
         /// </summary>
@@ -14,9 +13,10 @@ namespace Newbe.Mahua.CleverQQ.Native
         [DllExport(ExportName = nameof(IR_Create), CallingConvention = CallingConvention.StdCall)]
         public static string IR_Create()
         {
-            var getInfoCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<IrCreateCommand, IrCreateCommandResult>(new IrCreateCommand());
-            return getInfoCommandResult.Info;
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Create());
+            return
+                $"插件名称{{{AgentInfo.Instance.Id}}}\n插件版本{{{AgentInfo.Instance.Version}}}\n插件作者{{{AgentInfo.Instance.Author}}}\n插件说明{{{AgentInfo.Instance.Description}}}\n"
+                + "插件skey{8956RTEWDFG3216598WERDF3}\n插件sdk{S3}";
         }
 
         /// <summary>
@@ -30,8 +30,18 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="ClientKey">登录网页服务用的秘钥</param>
         /// <returns>返回-1 已收到并拒绝处理，返回0 未收到并不处理，返回1 处理完且继续执行，返回2 处理完毕并不再让其他插件处理 （Pro版可用)</returns>
         [DllExport(ExportName = nameof(IR_Message), CallingConvention = CallingConvention.StdCall)]
-        public static int IR_Message(string RobotQQ, int MsgType, string Msg, string Cookies, string SessionKey, string ClientKey)
+        public static int IR_Message(string RobotQQ, int MsgType, string Msg, string Cookies, string SessionKey,
+            string ClientKey)
         {
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Message
+            {
+                RobotQQ = RobotQQ,
+                MsgType = MsgType,
+                Msg = Msg,
+                Cookies = Cookies,
+                SessionKey = SessionKey,
+                ClientKey = ClientKey
+            });
             return 1;
         }
 
@@ -67,21 +77,23 @@ namespace Newbe.Mahua.CleverQQ.Native
             string json,
             string pText)
         {
-            var endCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<EventFunCommand, EventFunCommandResult>(new EventFunCommand
-                {
-                    ReceiverQq = receiverQq,
-                    EventAdditionType = eventAdditionType,
-                    EventOperator = eventOperator,
-                    EventType = eventType,
-                    FromNum = fromNum,
-                    Message = message,
-                    RawMessage = rawMessage,
-                    Triggee = triggee,
-                    MessageId = System.Convert.ToInt64(messageID),
-                    MessageNum = System.Convert.ToInt64(messageNum),
-                });
-            return endCommandResult.Result;
+            // TODO pText 需要确定如何处理
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Event
+            {
+                ReceiverQq = receiverQq,
+                EventAdditionType = eventAdditionType,
+                EventOperator = eventOperator,
+                EventType = eventType,
+                FromNum = fromNum,
+                Message = message,
+                RawMessage = rawMessage,
+                Triggee = triggee,
+                MessageId = messageID,
+                MessageNum = messageNum,
+                Json = json,
+            });
+            // TODO 对于特定的请求，需要处理返回值。例如入群邀请。
+            return 0;
         }
 
         /// <summary>
@@ -90,7 +102,8 @@ namespace Newbe.Mahua.CleverQQ.Native
         [DllExport(ExportName = nameof(IR_SetUp), CallingConvention = CallingConvention.StdCall)]
         public static void IR_SetUp()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
+            // TODO 点击设置中心，暂时没有任何作用
+            Console.WriteLine("nothing");
         }
 
         /// <summary>
@@ -100,9 +113,9 @@ namespace Newbe.Mahua.CleverQQ.Native
         [DllExport(ExportName = nameof(IR_DestroyPlugin), CallingConvention = CallingConvention.StdCall)]
         public static int IR_DestroyPlugin()
         {
-            var endCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<IrDestroyPluginCommand, IrDestroyPluginCommandResult>(new IrDestroyPluginCommand());
-            return endCommandResult.Result;
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new DestroyPlugin());
+            // TODO 对于特定的请求，需要处理返回值。
+            return 0;
         }
     }
 }

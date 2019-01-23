@@ -4,6 +4,7 @@
 // MVID: 62AA77D5-9712-46DA-939A-E91A7F96C1CF
 // Assembly location: D:\Codes\新建文件夹\Newbe.Tools.ELang2CSharp.exe
 
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace Newbe.Tools.ELang2CSharp
 
         public virtual string TransformText()
         {
+            Write($"// generate at {DateTimeOffset.UtcNow}");
             Write("\r\npublic interface IApi{\r\n");
             foreach (var elangFunc in elangFuncs)
             {
                 Write(ToStringHelper.ToStringWithCulture(GetFuncSummary(elangFunc)));
+                Write(ToStringHelper.ToStringWithCulture(GetFuncDescription(elangFunc)));
                 Write(ToStringHelper.ToStringWithCulture(elangFunc.ReturnType));
                 Write(" ");
                 Write(ToStringHelper.ToStringWithCulture(elangFunc.Name));
@@ -81,6 +84,11 @@ namespace Newbe.Tools.ELang2CSharp
             return stringBuilder.ToString();
         }
 
+        public string GetFuncDescription(ELangFunc func)
+        {
+            return $"[Description(\"{func.Summary}\")]";
+        }
+
         public string GetParameters(ELangParameter[] ps)
         {
             var stringBuilder = new StringBuilder();
@@ -101,7 +109,7 @@ namespace Newbe.Tools.ELang2CSharp
             stringBuilder.Append("(");
             foreach (var p in ps)
             {
-                stringBuilder.AppendFormat("{0} {1}", p.Type, p.Name);
+                stringBuilder.AppendFormat("[Description(\"{2}\")] {0} {1}", p.Type, p.Name,p.Summary);
                 if (ps.Last().Name != p.Name)
                     stringBuilder.Append(",");
             }
