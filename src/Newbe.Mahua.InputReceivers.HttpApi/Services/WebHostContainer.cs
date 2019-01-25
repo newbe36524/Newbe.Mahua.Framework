@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,17 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services
                     .UseKestrel(options => { options.Listen(IPAddress.Parse(config.Ip), config.Port); })
                     .UseStartup<Startup>()
                     .Build();
+                if (config.ShowApiDocOnStart)
+                {
+                    var configIp = config.Ip;
+                    if (config.Ip == IPAddress.Any.ToString() || config.Ip == IPAddress.Loopback.ToString())
+                    {
+                        configIp = IPAddress.Loopback.ToString();
+                    }
+
+                    Process.Start($"http://{configIp}:{config.Port}/apiDoc");
+                }
+
                 _initialized = true;
             }
 

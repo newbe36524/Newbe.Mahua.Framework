@@ -4,5 +4,6 @@ namespace Newbe.Mahua.InputReceivers.HttpApi
     {
         public string Ip { get; set; }
         public int Port { get; set; }
+        public bool ShowApiDocOnStart { get; set; }
     }
 }

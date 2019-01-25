@@ -19,7 +19,10 @@ namespace Newbe.Mahua.InputReceivers.HttpApi
             var httpApiConfig = new HttpApiConfig
             {
                 Ip = config.Args["host"].ToString(),
-                Port = Convert.ToInt32(config.Args["port"])
+                Port = Convert.ToInt32(config.Args["port"]),
+                ShowApiDocOnStart = config.Args.TryGetValue("showApiDocOnStart", out var value)
+                    ? Convert.ToBoolean(value)
+                    : true
             };
 
             var re = new HttpApiInputReceiver(httpApiConfig, _webHostContainer);

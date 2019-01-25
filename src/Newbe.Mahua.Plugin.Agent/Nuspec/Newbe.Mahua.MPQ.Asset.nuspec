@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>Newbe.Mahua.MPQ.Asset</id>
+        <version>$version$</version>
+        <authors>Newbe</authors>
+        <owners>Newbe</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <licenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</licenseUrl>
+        <projectUrl>http://www.newbe.pro/</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
+        <description>Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。【此包不能直接引用到项目中，若要使用该包，请参考: http://www.newbe.pro】
+            0 长久有效的技术支持及更新维护+独占功能
+            1 轻壳 极速运行
+            2 企业Q登录
+            3 不接入云黑机制
+            4 插件初始情况默认启用
+            5 允许接入UU 若快两个打码
+            6 移除推广信息
+            7 商业使用许可
+            https://f.mypcqq.cc/thread-4900-1-1.html
+        </description>
+        <releaseNotes>2.0</releaseNotes>
+        <tags>Newbe Mahua MPQ MyPcQQ</tags>
+        <repository type="GIT" url="https://github.com/Newbe36524/Newbe.Mahua.Framework"/>
+    </metadata>
+</package>

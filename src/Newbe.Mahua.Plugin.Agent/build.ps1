@@ -6,8 +6,8 @@ properties {
     $fwVersion = "net461"
     $currentBuild = "$releaseBase\$configuration\$fwVersion"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
-    $mahuaDownloadTempDir = "$( $env:TEMP )\Newbe\Newbe.Mahua"
-    $assetDirName = "YUELUO"
+    $nugetexe = "$rootNow\buildTools\nuget.exe"
+    $version = "2.0.0"
 }
 
 $platforms = @(
@@ -17,7 +17,7 @@ $platforms = @(
 "Newbe.Mahua.CleverQQ"
 )
 
-Task Default -depends TestCQP
+Task Default -depends Pack
 
 Task Clean -Description "清理" {
     $platforms | ForEach-Object {
@@ -114,6 +114,13 @@ Task Pack -depends PackCQP, PackMPQ, PackCleverQQ, PackQQLight -Description "打
     Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
 
-Task TestCQP -depends PackCQP {
-    Copy-Item $releaseBase\CQP\* D:\Codes\机器人\kq -Recurse -Force
+Task PackNuget -depends Pack -description "创建nuget包" {
+    $platforms | ForEach-Object {
+        Exec {
+            $platformName = $_.Split('.')[2]
+            Get-ChildItem "$releaseBase\$platformName" -Recurse -File | Select-Object -Property FullName | ForEach-Object { return $_.FullName.Replace("$releaseBase\$platformName\","") } | ConvertTo-Json | Out-File "$releaseBase\$platformName\mahua.files.json" 
+            Copy-Item "Nuspec/Newbe.Mahua.$platformName.Asset.nuspec" "$releaseBase\$platformName"
+            . $nugetexe pack $releaseBase\$platformName\Newbe.Mahua.$platformName.Asset.nuspec -OutputDirectory ../build -Version $version -Verbosity quiet
+        }
+    }
 }
