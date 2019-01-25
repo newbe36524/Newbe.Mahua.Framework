@@ -1,59 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net452</TargetFrameworks>
-    <PackageTags>Newbe Mahua</PackageTags>
-    <Description>
-      QQ自动化管理助手跨平台SDK，使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
-    </Description>
-    <NewbePack>true</NewbePack>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <PackageTags>Newbe Mahua</PackageTags>
+        <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Newbe.Mahua.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\GlobalBin\NLog.config" Link="bin\$(Configuration)\net452\NLog.config">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="..\GlobalBin\NLog.dll" Link="bin\$(Configuration)\net452\NLog.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\*">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Framework\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.8.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="NativeApi\ICleverQqApi.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-    <Compile Update="NativeApi\ICoolQApi.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-    <Compile Update="NativeApi\IMpqApi.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-    <Compile Update="NativeApi\IQqLightApi.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-      <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
-    </Compile>
-  </ItemGroup>
-  
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="4.8.1" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    </ItemGroup>
 
 </Project>

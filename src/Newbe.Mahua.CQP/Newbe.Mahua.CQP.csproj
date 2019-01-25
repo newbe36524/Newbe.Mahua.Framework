@@ -1,64 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net452</TargetFrameworks>
-    <PackageTags>Newbe Mahua CQP</PackageTags>
-    <IsTool>true</IsTool>
-    <DevelopmentDependency>true</DevelopmentDependency>
-    <Description>
-      Newbe.Mahua 针对酷Q平台推出的平台支持包。
-      酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的 V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
-      酷Q Pro （https://cqp.im/t/14901） 是一款收费软件，因此我们会更专注于其稳定性与专业性。
-      这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
-    </Description>
-      <NewbePack>true</NewbePack>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <PackageTags>Newbe Mahua CQP</PackageTags>
+        <IsTool>true</IsTool>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <Description>
+            Newbe.Mahua 针对酷Q平台推出的平台支持包。
+            酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的 V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
+            酷Q Pro （https://cqp.im/t/14901） 是一款收费软件，因此我们会更专注于其稳定性与专业性。
+            这也促使我们将其打造得更精致、更可靠、更开放，而不是商业、封闭、臃肿与昂贵。
+        </Description>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
-    <DocumentationFile>bin\Debug\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
-  </PropertyGroup>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net452|AnyCPU'">
-    <DocumentationFile>bin\Release\net452\Newbe.Mahua.CQP.xml</DocumentationFile>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
+        <DocumentationFile>bin\Debug\net461\Newbe.Mahua.CQP.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="Content\Newbe.Mahua.CQP.json">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\Content\</PackagePath>
-    </Content>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\Newbe.Mahua.CQP.Native.pdb" Link="bin\$(Configuration)\net452\CLR\Newbe.Mahua.CQP.Native.pdb">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="..\Newbe.Mahua.CQP.Native\bin\$(Configuration)\x86\Newbe.Mahua.CQP.Native.dll" Link="bin\$(Configuration)\net452\Native\Newbe.Mahua.CQP.Native.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\Native\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.dll">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-    <None Include="bin\$(Configuration)\net452\Newbe.Mahua.CQP.pdb">
-      <Pack>true</Pack>
-      <PackagePath>tools\NewbeLibs\Platform\CLR\</PackagePath>
-    </None>
-  </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+        <DocumentationFile>bin\Release\net461\Newbe.Mahua.CQP.xml</DocumentationFile>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
-    <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="bin\$(Configuration)\net452\Native\" />
-    <Folder Include="bin\$(Configuration)\net452\CLR\" />
-  </ItemGroup>
-
-  
+    <ItemGroup>
+        <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />
+    </ItemGroup>
 
 </Project>

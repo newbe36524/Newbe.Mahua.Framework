@@ -1,7 +1,6 @@
-﻿using Newbe.Mahua.CQP.Commands;
-using Newbe.Mahua.MahuaEvents.Enums;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.CQP.MahuaEventOutputs;
 
 namespace Newbe.Mahua.CQP.Native
 {
@@ -12,8 +11,6 @@ namespace Newbe.Mahua.CQP.Native
     {
         private const string CoolApiVersion = "9";
 
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Cqp;
-
         /// <summary>
         /// 此函数会在插件被开启时发生。
         /// </summary>
@@ -21,7 +18,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventEnable", CallingConvention.StdCall)]
         public static int Enabled()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new EnabledCommand());
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Enabled());
             return 0;
         }
 
@@ -32,7 +29,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventDisable", CallingConvention.StdCall)]
         public static int Disabled()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new DisabledCommand());
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Disabled());
             return 0;
         }
 
@@ -43,8 +40,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("AppInfo", CallingConvention.StdCall)]
         public static string AppInfo()
         {
-            var re = PluginInstanceManager.GetInstance().SendCommand<AppInfoCommand, AppInfoCommandResult>(new AppInfoCommand());
-            return $"{CoolApiVersion},{re.AppId}".ToLowerInvariant();
+            return $"{CoolApiVersion},{AgentInfo.Instance.Id}".ToLowerInvariant();
         }
 
         /// <summary>
@@ -55,7 +51,8 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("Initialize", CallingConvention.StdCall)]
         public static int Initialize(int authcode)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new InitializeCommand
+            CqpAuthCodeContainer.StaticAuthCode = authcode;
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new Initialize
             {
                 AuthCode = authcode
             });
@@ -69,7 +66,7 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventExit", CallingConvention.StdCall)]
         public static int CoolQExited()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new CoolQExitedCommand());
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new CoolQExited());
             return 0;
         }
 
@@ -85,32 +82,13 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventPrivateMsg", CallingConvention.StdCall)]
         public static int ProcessPrivateMessage(int subType, int msgId, long fromQQ, string msg, int font)
         {
-            PrivateMessageFromType privateMessageFromType;
-            switch (subType)
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessPrivateMessage
             {
-                case 11:
-                    privateMessageFromType = PrivateMessageFromType.Friend;
-                    break;
-                case 1:
-                    privateMessageFromType = PrivateMessageFromType.Online;
-                    break;
-                case 2:
-                    privateMessageFromType = PrivateMessageFromType.Group;
-                    break;
-                case 3:
-                    privateMessageFromType = PrivateMessageFromType.DiscussGroup;
-                    break;
-                default:
-                    privateMessageFromType = PrivateMessageFromType.Unknown;
-                    break;
-            }
-            PluginInstanceManager.GetInstance().SendCommand(new PrivateMessageCommand
-            {
-                PrivateMessageFromType = privateMessageFromType,
-                FormNum = fromQQ,
-                Message = msg,
-                SendTime = DateTime.Now,
-                MessageId = msgId,
+                SubType = subType,
+                FromQQ = fromQQ,
+                Msg = msg,
+                MsgId = msgId,
+                Font = font,
             });
             return 0;
         }
@@ -136,14 +114,15 @@ namespace Newbe.Mahua.CQP.Native
             string msg,
             int font)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GroupMessageCommand
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessGroupMessage
             {
-                SendTime = DateTime.Now,
+                SubType = subType,
                 Message = msg,
-                GroupNum = fromGroup,
+                FromGroup = fromGroup,
                 FromAnonymous = fromAnonymous,
-                FromQq = fromQQ,
-                MessageId = msgId,
+                FromQQ = fromQQ,
+                MsgId = msgId,
+                Font = font,
             });
             return 0;
         }
@@ -167,13 +146,14 @@ namespace Newbe.Mahua.CQP.Native
             string msg,
             int font)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new DiscussGroupMessageCommand()
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessDiscussGroupMessage
             {
-                SendTime = DateTime.Now,
-                Message = msg,
-                DiscussGroupNum = fromDiscuss,
-                FromQq = fromQQ,
-                MessageId = msgId,
+                SubType = subType,
+                Msg = msg,
+                FromDiscuss = fromDiscuss,
+                FromQQ = fromQQ,
+                MsgId = msgId,
+                Font = font,
             });
             return 0;
         }
@@ -190,11 +170,12 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventGroupUpload", CallingConvention.StdCall)]
         public static int ProcessGroupUpload(int subType, int sendTime, long fromGroup, long fromQQ, string file)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GroupUploadedCommand
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessGroupUpload
             {
-                SendTime = ConvertToDatetime(sendTime),
-                GroupNum = fromGroup,
-                FromQq = fromQQ,
+                SubType = subType,
+                SendTime = sendTime,
+                FromGroup = fromGroup,
+                FromQQ = fromQQ,
                 File = file
             });
             return 0;
@@ -211,11 +192,11 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventSystem_GroupAdmin", CallingConvention.StdCall)]
         public static int ProcessGroupAdminChange(int subType, int sendTime, long fromGroup, long target)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new GroupAdminChangeCommand
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessGroupAdminChange
             {
-                SendTime = ConvertToDatetime(sendTime),
-                GroupAdminChangeType = subType == 1 ? GroupAdminChangeType.Disabled : GroupAdminChangeType.Enabled,
-                ToQq = target,
+                SubType = subType,
+                SendTime = sendTime,
+                Target = target,
                 FromGroup = fromGroup
             });
             return 0;
@@ -238,29 +219,13 @@ namespace Newbe.Mahua.CQP.Native
             long fromQQ,
             long target)
         {
-            GroupMemberDecreasedReason reason;
-            switch (subType)
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessGroupMemberDecrease
             {
-                case 1:
-                    reason = GroupMemberDecreasedReason.Leavebyself;
-                    break;
-                case 2:
-                    reason = GroupMemberDecreasedReason.Kicked;
-                    break;
-                case 3:
-                    reason = GroupMemberDecreasedReason.Kicked;
-                    break;
-                default:
-                    reason = GroupMemberDecreasedReason.Unknow;
-                    break;
-            }
-            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberDecreasedCommand
-            {
-                SendTime = ConvertToDatetime(sendTime),
-                ToQq = target,
+                SubType = subType,
+                SendTime = sendTime,
+                Target = target,
                 FromGroup = fromGroup,
-                FromQq = fromQQ,
-                GroupMemberDecreasedReason = reason,
+                FromQQ = fromQQ,
             });
             return 0;
         }
@@ -282,26 +247,13 @@ namespace Newbe.Mahua.CQP.Native
             long fromQQ,
             long target)
         {
-            GroupMemberIncreasedReason reason;
-            switch (subType)
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessGroupMemberIncrease
             {
-                case 1:
-                    reason = GroupMemberIncreasedReason.AdminAllowed;
-                    break;
-                case 2:
-                    reason = GroupMemberIncreasedReason.GroupMemberInvitated;
-                    break;
-                default:
-                    reason = GroupMemberIncreasedReason.Unknow;
-                    break;
-            }
-            PluginInstanceManager.GetInstance().SendCommand(new GroupMemberIncreasedCommand
-            {
-                SendTime = ConvertToDatetime(sendTime),
-                ToQq = target,
+                SubType = subType,
+                SendTime = sendTime,
+                Target = target,
                 FromGroup = fromGroup,
-                FromQq = fromQQ,
-                GroupMemberIncreasedReason = reason,
+                FromQQ = fromQQ,
             });
             return 0;
         }
@@ -316,10 +268,11 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventFriend_Add", CallingConvention.StdCall)]
         public static int ProcessFriendsAdded(int subType, int sendTime, long fromQQ)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new FriendsAddedCommand
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessFriendsAdded
             {
-                SendTime = ConvertToDatetime(sendTime),
-                FromQq = fromQQ
+                SubType = subType,
+                SendTime = sendTime,
+                FromQQ = fromQQ
             });
             return 0;
         }
@@ -336,11 +289,13 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_eventRequest_AddFriend", CallingConvention.StdCall)]
         public static int ProcessAddFriendRequest(int subType, int sendTime, long fromQQ, string msg, int font)
         {
-            PluginInstanceManager.GetInstance().SendCommand(new AddFriendRequestCommand
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessAddFriendEventOutput
             {
-                SendTime = ConvertToDatetime(sendTime),
-                FromQq = fromQQ,
-                Message = msg
+                SubType = subType,
+                SendTime = sendTime,
+                FromQQ = fromQQ,
+                Msg = msg,
+                Font = font,
             });
             return 0;
         }
@@ -364,32 +319,15 @@ namespace Newbe.Mahua.CQP.Native
             string msg,
             string responseMark)
         {
-            switch (subType)
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessJoinGroupEventOutput
             {
-                case 1: // 管理员收到入群申请
-                    PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningRequestCommand
-                    {
-                        SendTime = ConvertToDatetime(sendTime),
-                        FromQq = fromQQ,
-                        ToGroup = fromGroup,
-                        Message = msg,
-                        GroupJoiningRequestId = responseMark,
-                    });
-                    break;
-
-                case 2: // 收到加群邀请
-                    PluginInstanceManager.GetInstance().SendCommand(new GroupJoiningInvitationCommand
-                    {
-                        SendTime = ConvertToDatetime(sendTime),
-                        FromQq = fromQQ,
-                        ToGroup = fromGroup,
-                        Message = msg,
-                        GroupJoiningInvitationId = responseMark,
-                    });
-                    break;
-                default:
-                    break;
-            }
+                SubType = subType,
+                SendTime = sendTime,
+                FromQQ = fromQQ,
+                FromGroup = fromGroup,
+                Msg = msg,
+                ResponseMark = responseMark,
+            });
             return 0;
         }
 
@@ -400,13 +338,9 @@ namespace Newbe.Mahua.CQP.Native
         [DllExport("_menuA", CallingConvention.StdCall)]
         public static int ProcessMenuClickA()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
+            // TODO 点击设置中心，暂时没有任何作用
+            Console.WriteLine("nothing");
             return 0;
-        }
-
-        private static DateTime ConvertToDatetime(int time)
-        {
-            return new DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime().AddSeconds(time);
         }
     }
 }

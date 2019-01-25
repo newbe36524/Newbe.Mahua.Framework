@@ -2,6 +2,12 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$USER_HOME$/.nuget/packages/sqlitepclraw.lib.e_sqlite3.v110_xp/1.1.2/runtimes/win7-x64/native/e_sqlite3.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/sqlitepclraw.lib.e_sqlite3.v110_xp/1.1.2/runtimes/win7-x86/native/e_sqlite3.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/_common/xunit.abstractions.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/_common/xunit.runner.reporters.net452.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/_common/xunit.runner.utility.net452.dll" />
+    <content url="file://$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/_common/xunit.runner.visualstudio.testadapter.dll" />
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

@@ -28,7 +28,7 @@
         /// <summary>
         /// QqLight
         /// </summary>
-        QqLight,
+        QQLight,
 
     }
 }

@@ -1,13 +1,7 @@
 ﻿namespace Newbe.Mahua
 {
-    public interface IPluginLoader
+    public interface IPluginLoader : IMahuaCenter
     {
-        string Message { get; }
-
-        bool LoadPlugin(string pluginEntryPointDllFullFilename);
-
-        byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName);
-
-        void Handle(byte[] cmd, string cmdTypeFullName);
+        void LoadPlugin(string pluginEntryPointDllFullFilename);
     }
 }

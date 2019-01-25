@@ -80,7 +80,7 @@ namespace Newbe.Mahua.Internals
 
         private class QqLightPlatformResolver : IPlatformResolver
         {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.QqLight;
+            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.QQLight;
 
             public bool IsThis()
             {

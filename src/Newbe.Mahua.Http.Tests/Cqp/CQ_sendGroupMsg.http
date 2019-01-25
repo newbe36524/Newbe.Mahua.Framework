@@ -1,0 +1,9 @@
+POST http://{{host}}/api/v1/Cqp/CQ_sendGroupMsg
+Content-Type: application/json
+
+{
+  "群号": 610394020,
+  "msg": "v2test"
+}
+
+###

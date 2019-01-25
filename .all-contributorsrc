@@ -8,8 +8,7 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "contributors": [
-    {
+  "contributors": [{
       "login": "newbe36524",
       "name": "Newbe36524",
       "avatar_url": "https://avatars1.githubusercontent.com/u/7685462?v=4",
@@ -28,6 +27,7 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/12078678?v=4",
       "profile": "https://traceless.site/",
       "contributions": [
+        "code",
         "bug"
       ]
     },
@@ -55,6 +55,7 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/7760499?v=4",
       "profile": "https://github.com/bgli100",
       "contributions": [
+        "code",
         "bug"
       ]
     },
@@ -64,6 +65,7 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/20368567?v=4",
       "profile": "https://github.com/newce36524",
       "contributions": [
+        "code",
         "bug"
       ]
     },

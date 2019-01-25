@@ -1,0 +1,15 @@
+POST http://{{host}}/api/v1/MahuaApi/Send
+Content-Type: application/json
+
+{
+  "TypeCode": "CQ_getGroupMemberList",
+  "MahuaPlatform": "Cqp",
+  "Data": {
+    "AuthCode": 1684,
+    "QQID": 472158246,
+    "msg": "嘤嘤嘤",
+    "群号": 610394020,
+  }
+}
+
+###

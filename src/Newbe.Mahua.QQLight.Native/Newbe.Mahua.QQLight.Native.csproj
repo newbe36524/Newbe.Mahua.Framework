@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Newbe.Mahua.QQLight.Native</RootNamespace>
     <AssemblyName>Newbe.Mahua.QQLight.Native</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -45,9 +45,6 @@
     <DllExportPeCheck>2</DllExportPeCheck>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
-    </Reference>
     <Reference Include="DllExport, PublicKeyToken=8337224c9ad9e356">
       <HintPath>$(SolutionDir)packages\DllExport.1.6.1\gcache\metalib\$(DllExportNamespace)\$(DllExportMetaLibName)</HintPath>
       <Private>False</Private>
@@ -63,9 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QqLightApi.cs" />
+    <Compile Include="QQLightApi.cs" />
     <Compile Include="QqLightAuthCodeContainer.cs" />
-    <Compile Include="QqLightMahuaModule.cs" />
+    <Compile Include="MahuaModule.cs" />
     <Compile Include="PluginApiExporter.cs" />
     <Compile Include="PluginInfoProvider.cs" />
     <Compile Include="PluginInstanceManager.cs" />
@@ -84,14 +81,6 @@
       <Project>{335c80ce-cab8-4a09-b3f4-5502c7c82498}</Project>
       <Name>Newbe.Mahua</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.9.1.7622\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.9.1.7622\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.9.1.7622\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ImportGroup Label=".NET DllExport">

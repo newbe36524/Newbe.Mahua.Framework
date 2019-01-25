@@ -10,12 +10,12 @@ namespace Newbe.Mahua.CQP.Native
             return new Module[] { new CqpModule(), };
         }
 
-        internal class CqpModule : Module
+        private class CqpModule : Module
         {
             protected override void Load(ContainerBuilder builder)
             {
                 base.Load(builder);
-                builder.RegisterType<CoolQApi>().As<ICoolQApi>();
+                builder.RegisterType<CqpApi>().As<ICqpApi>();
                 builder.RegisterType<CqpAuthCodeContainer>().As<ICqpAuthCodeContainer>().SingleInstance();
             }
         }

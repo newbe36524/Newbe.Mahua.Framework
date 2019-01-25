@@ -1,18 +1,15 @@
-﻿using Newbe.Mahua.MPQ.Commands;
+﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.MPQ.MahuaEventOutputs;
 
 namespace Newbe.Mahua.MPQ.Native
 {
     public class PluginApiExporter : IPluginApiExporter
     {
-        public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Mpq;
-
         [DllExport("info")]
         public static string GetInfo()
         {
-            var getInfoCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<GetInfoCommand, GetInfoCommandResult>(new GetInfoCommand());
-            return getInfoCommandResult.Info;
+            return $"{AgentInfo.Instance.Description}【{AgentInfo.Instance.Author}({AgentInfo.Instance.Version})】";
         }
 
         /// <summary>
@@ -38,19 +35,19 @@ namespace Newbe.Mahua.MPQ.Native
             string message,
             string rawMessage)
         {
-            var endCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<EventFunCommand, EventFunCommandResult>(new EventFunCommand
-                {
-                    ReceiverQq = receiverQq,
-                    EventAdditionType = eventAdditionType,
-                    EventOperator = eventOperator,
-                    EventType = eventType,
-                    FromNum = fromNum,
-                    Message = message,
-                    RawMessage = rawMessage,
-                    Triggee = triggee,
-                });
-            return endCommandResult.Result;
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new EventFun
+            {
+                ReceiverQq = receiverQq,
+                EventAdditionType = eventAdditionType,
+                EventOperator = eventOperator,
+                EventType = eventType,
+                FromNum = fromNum,
+                Message = message,
+                RawMessage = rawMessage,
+                Triggee = triggee,
+            });
+            // TODO 对于特定的请求，需要处理返回值。例如入群邀请。
+            return 0;
         }
 
         /// <summary>
@@ -59,7 +56,8 @@ namespace Newbe.Mahua.MPQ.Native
         [DllExport("set")]
         public static void Set()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
+            // TODO 点击设置中心，暂时没有任何作用
+            Console.WriteLine("nothing");
         }
 
         /// <summary>
@@ -68,7 +66,7 @@ namespace Newbe.Mahua.MPQ.Native
         [DllExport("about")]
         public static void About()
         {
-            PluginInstanceManager.GetInstance().SendCommand(new AboutCommand());
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new About());
         }
 
         /// <summary>
@@ -78,9 +76,9 @@ namespace Newbe.Mahua.MPQ.Native
         [DllExport("end")]
         public static int End()
         {
-            var endCommandResult = PluginInstanceManager.GetInstance()
-                .SendCommand<EndCommand, EndCommandResult>(new EndCommand());
-            return endCommandResult.Result;
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new End());
+            // TODO 对于特定的请求，需要处理返回值。
+            return 0;
         }
     }
 }

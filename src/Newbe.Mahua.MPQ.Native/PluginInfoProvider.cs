@@ -7,7 +7,7 @@ namespace Newbe.Mahua.MPQ.Native
     {
         public static PluginFileInfo GetPluginInfo()
         {
-            var pluginApiExpDll = typeof(MpqNativeModule).Assembly.CodeBase;
+            var pluginApiExpDll = typeof(MahuaModule).Assembly.CodeBase;
             var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll).Replace(".xx", string.Empty);
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var dllDir = Path.GetFullPath(Path.Combine(baseDir, pluginName));

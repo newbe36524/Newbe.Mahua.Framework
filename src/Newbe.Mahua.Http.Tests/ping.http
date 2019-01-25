@@ -1,0 +1,3 @@
+GET http://{{host}}/api/v1/ping/ping
+
+###
