@@ -31,6 +31,10 @@ Task Default -depends DisplayCurrentPlatform
 
 Task DisplayCurrentPlatform -description "display current platform name"{
     $plartform = Get-PlartformName
+    if ($plartform -eq "Unknow")
+    {
+         throw "无法检测出当前所使用的机器人平台。请仔细按照说明将安装文件放置正确的文件夹。"
+    }
     Write-Host "current platform is $plartform"
 }
 
