@@ -18,7 +18,7 @@ function Get-PlartformName
     }
     if ((Test-Path "$rootNow/CleverQQ Pro.exe") -or (Test-Path "$rootNow/CleverQQ Air.exe"))
     {
-        return "CQP"
+        return "CleverQQ"
     }
     if (Test-Path "$rootNow/QQLight.exe")
     {
