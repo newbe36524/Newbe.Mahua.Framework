@@ -8,7 +8,8 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "contributors": [{
+  "contributors": [
+    {
       "login": "newbe36524",
       "name": "Newbe36524",
       "avatar_url": "https://avatars1.githubusercontent.com/u/7685462?v=4",
@@ -77,6 +78,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "iomect",
+      "name": "nbyang",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1086084?v=4",
+      "profile": "http://www.nbyang.com",
+      "contributions": [
+        "bug"
+      ]
     }
-  ]
+  ],
+  "contributorsPerLine": 7
 }
