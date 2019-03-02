@@ -26,6 +26,9 @@ namespace Newbe.Mahua.NativeApiClassfy
             builder.RegisterType<NativeApiInfoProvider>()
                 .AsImplementedInterfaces()
                 .SingleInstance();
+            builder.RegisterType<SystemClock>()
+                .As<IClock>()
+                .SingleInstance();
 
             foreach (var jobType in typeof(Program).Assembly.GetTypes()
                 .Where(x => x.GetInterface(nameof(IJob)) != null))
