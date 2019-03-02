@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Newbe.Mahua.IpcShared.WebsocketApi\Newbe.Mahua.IpcShared.WebsocketApi.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
+    </ItemGroup>
+
+</Project>
