@@ -1,4 +1,6 @@
+using System;
 using FluentAssertions;
+using Microsoft.CodeAnalysis.CSharp;
 using Newbe.Mahua.NativeApiClassfy.Services;
 using Newbe.Mahua.NativeApiClassfy.Services.Impl;
 using Xunit;
@@ -19,7 +21,7 @@ namespace Newbe.Mahua.NativeApiClassfy.Tests
         [Fact]
         public void CqpApiHandlerGeneratorTest()
         {
-            var generator = new ApiHandlerGenerator();
+            var generator = new ApiHandlerGenerator(MockHelper.CreateClock(DateTime.Parse("2019/01/30")));
             var re = generator.Generate(new ApiHandlerGeneratorInput
             {
                 NativeApiInfo = new NativeApiInfo
@@ -35,27 +37,60 @@ namespace Newbe.Mahua.NativeApiClassfy.Tests
                 ApiHandlerClassName = "CqpMahuaApiHandler",
                 ApiOutBaseName = "CqpMahuaApiOut"
             });
-            var code = CodeFormatter.FormatCode(re);
-//            code.Should().Be(@"using System;
-//
-//namespace Newbe.Mahua
-//{
-//    ///<summary>ReturnTypeString2Arguments</summary>
-//    public class ReturnTypeString2Arguments
-//    {
-//        ///<summary>Value1 ----</summary>
-//        public string Value1 { get; set; }
-//
-//        ///<summary>Value2 ------</summary>
-//        public long Value2 { get; set; }
-//    }
-//
-//    ///<summary>ReturnTypeVoid0Arguments</summary>
-//    public class ReturnTypeVoid0Arguments
-//    {
-//    }
-//}");
-            _testOutputHelper.WriteLine(code);
+            var expected = CSharpSyntaxTree.ParseText(@"using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Newbe.Mahua.NativeApi;
+
+
+// this file is generate from tools, do not change this file
+// generate time 2019/01/30 
+
+namespace Newbe.Mahua.CQP
+{
+    public class CqpMahuaApiHandler : IPlatformMahuaApiHandler
+    {
+
+        private readonly IMahuaCenter _mahuaCenter;
+        private readonly ICoolQApi _coolQApi;
+
+        public CqpMahuaApiHandler(
+            IMahuaCenter mahuaCenter,
+            ICoolQApi coolQApi)
+        {
+            _mahuaCenter = mahuaCenter;
+            _coolQApi = coolQApi;
+        }
+        public Task Run(string typeCode, IReadOnlyDictionary<string, object> data)
+        {
+            switch (typeCode)
+            {
+                case ""ReturnTypeString2Arguments"":
+                    var ReturnTypeString2ArgumentsResult =
+                    _coolQApi.ReturnTypeString2Arguments(Value1: data[""Value1""].ToString(), Value2: Convert.ToInt64(data[""Value2""]));
+                    return _mahuaCenter.HandleMahuaOutput(new ReturnTypeString2ArgumentsApiOut
+                    { Result = ReturnTypeString2ArgumentsResult });
+                case ""ReturnTypeVoid0Arguments"":
+                    _coolQApi.ReturnTypeVoid0Arguments();
+                    return Task.CompletedTask;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(typeCode));
+            }
+        }
+    }
+    /// <summary>
+    /// api out of method ReturnTypeString2Arguments
+    /// </summary>
+    public class ReturnTypeString2ArgumentsApiOut : CqpMahuaApiOut
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(ReturnTypeString2ArgumentsApiOut);
+    }
+}
+");
+            re.IsEquivalentTo(expected).Should().BeTrue();
+            _testOutputHelper.WriteLine(CodeFormatter.FormatCode(re));
         }
     }
 }

@@ -9,6 +9,15 @@
         "port": 36524,
         "showApiDocOnStart": true
       }
+    },
+    {
+      "name": "local test websocket",
+      "type": "websocket",
+      "version": 1,
+      "args": {
+        "host": "0.0.0.0",
+        "port": 36528
+      }
     }
   ],
   "output": [
@@ -25,6 +34,13 @@
       "version": 1,
       "args": {
         "url": "http://localhost:65321/api/ReceiveMahuaOutput"
+      }
+    },
+    {
+      "name": "local test websocket",
+      "type": "websocket",
+      "version": 1,
+      "args": {
       }
     }
   ]

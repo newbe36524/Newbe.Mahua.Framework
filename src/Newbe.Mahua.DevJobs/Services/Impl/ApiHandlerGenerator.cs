@@ -8,6 +8,14 @@ namespace Newbe.Mahua.NativeApiClassfy.Services.Impl
 {
     public class ApiHandlerGenerator : IApiHandlerGenerator
     {
+        private readonly IClock _clock;
+
+        public ApiHandlerGenerator(
+            IClock clock)
+        {
+            _clock = clock;
+        }
+
         public SyntaxTree Generate(ApiHandlerGeneratorInput input)
         {
             var apiInterfaceName = input.NativeApiInfo.Name;
@@ -21,7 +29,7 @@ using System.Threading.Tasks;
 using Newbe.Mahua.NativeApi;
 
 ");
-            sb.GenerateFileHead();
+            sb.GenerateFileHead(_clock);
             sb.AppendLine($"namespace {input.Namespace}");
             sb.UsingCurlyBraces(() =>
             {
