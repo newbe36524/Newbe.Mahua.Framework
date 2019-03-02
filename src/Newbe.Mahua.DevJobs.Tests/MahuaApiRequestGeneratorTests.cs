@@ -1,4 +1,6 @@
+using System;
 using FluentAssertions;
+using Microsoft.CodeAnalysis.CSharp;
 using Newbe.Mahua.NativeApiClassfy.Services;
 using Newbe.Mahua.NativeApiClassfy.Services.Impl;
 using Xunit;
@@ -19,7 +21,7 @@ namespace Newbe.Mahua.NativeApiClassfy.Tests
         [Fact]
         public void PlatformApiRequestModelGenerateTest()
         {
-            var generator = new HttpApiInputModelsGenerator();
+            var generator = new HttpApiInputModelsGenerator(MockHelper.CreateClock(DateTime.Parse("2019/01/31")));
             var re = generator.Generate(new HttpApiInputModelsGeneratorInput
             {
                 MahuaPlatform = MahuaPlatform.Cqp,
@@ -33,7 +35,7 @@ namespace Newbe.Mahua.NativeApiClassfy.Tests
                 },
             });
             var code = CodeFormatter.FormatCode(re);
-            code.Should().Be(@"using System.Collections.Generic;
+            var expected = CSharpSyntaxTree.ParseText(@"using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -116,7 +118,8 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
     }
 }
 ");
-            _testOutputHelper.WriteLine(code);
+            re.IsEquivalentTo(expected).Should().BeTrue();
+            _testOutputHelper.WriteLine(CodeFormatter.FormatCode(re));
         }
     }
 }

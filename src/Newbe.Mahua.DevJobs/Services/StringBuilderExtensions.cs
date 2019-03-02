@@ -19,11 +19,11 @@ namespace Newbe.Mahua.NativeApiClassfy.Services
             sb.AppendLine("}");
         }
 
-        public static void GenerateFileHead(this StringBuilder sb)
+        public static void GenerateFileHead(this StringBuilder sb, IClock clock)
         {
             sb.AppendLine($@"
 // this file is generate from tools, do not change this file
-// generate time {DateTime.Today:yyyy/MM/dd} 
+// generate time {clock.Now.Date:yyyy/MM/dd} 
 ");
         }
     }

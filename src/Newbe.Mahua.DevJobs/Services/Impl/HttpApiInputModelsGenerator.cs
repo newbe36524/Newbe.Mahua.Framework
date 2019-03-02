@@ -7,6 +7,14 @@ namespace Newbe.Mahua.NativeApiClassfy.Services.Impl
 {
     public class HttpApiInputModelsGenerator : IHttpApiInputModelsGenerator
     {
+        private readonly IClock _clock;
+
+        public HttpApiInputModelsGenerator(
+            IClock clock)
+        {
+            _clock = clock;
+        }
+
         public SyntaxTree Generate(HttpApiInputModelsGeneratorInput input)
         {
             var sb = new StringBuilder();
@@ -16,7 +24,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 ");
-            sb.GenerateFileHead();
+            sb.GenerateFileHead(_clock);
             sb.AppendLine(
                 $"namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.{input.MahuaPlatform:G}");
 
