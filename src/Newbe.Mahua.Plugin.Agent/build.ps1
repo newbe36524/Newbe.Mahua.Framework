@@ -7,7 +7,7 @@ properties {
     $currentBuild = "$releaseBase\$configuration\$fwVersion"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $nugetexe = "$rootNow\buildTools\nuget.exe"
-    $version = "2.0.0"
+    $version = "2.1.0"
 }
 
 $platforms = @(

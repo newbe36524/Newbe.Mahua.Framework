@@ -13,7 +13,9 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Newbe.Mahua.InputReceivers.HttpApi\Newbe.Mahua.InputReceivers.HttpApi.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua.InputReceivers.WebsocketApi\Newbe.Mahua.InputReceivers.WebsocketApi.csproj" />
         <ProjectReference Include="..\Newbe.Mahua.OutputSenders.HttpApi\Newbe.Mahua.OutputSenders.HttpApi.csproj" />
+        <ProjectReference Include="..\Newbe.Mahua.OutputSenders.WebsocketApi\Newbe.Mahua.OutputSenders.WebsocketApi.csproj" />
         <ProjectReference Include="..\Newbe.Mahua.PluginLoader\Newbe.Mahua.PluginLoader.csproj" />
     </ItemGroup>
 
