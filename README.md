@@ -95,3 +95,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 **最后，但是最重要的，一定要Star一下！**
 
 [借一步说话](http://www.newbe.pro/donate.html)
+
+特别感谢 Jetbrain 公司提供的 License 以支持该项目
+
+[![jetbrains](i/jetbrains-variant-3.png)](https://www.jetbrains.com/?from=Newbe.Mahua.Framework)
