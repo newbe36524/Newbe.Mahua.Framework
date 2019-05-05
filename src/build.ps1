@@ -109,3 +109,9 @@ Task PushTemplate -depends PackTemplate -Description "推送项目模板" {
         }
     }
 }
+
+Task ReconfigDllExport -description "初始化DllExport" {
+    Exec {
+        .\DllExport.bat  -action Restore -sln-file Newbe.Mahua.sln
+    }
+}
