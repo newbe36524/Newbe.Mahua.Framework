@@ -156,6 +156,8 @@ function WriteCqpJsonFile ($targetFilePath) {
 Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
     $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.CQP"} | ForEach-Object {
         Exec {
+            # CQP 要求 dll 名称和 appid 要相同，并且为小写
+            $cqpPluginDllName = $pluginName.ToLowerInvariant()
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\CQP"
             New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
@@ -164,8 +166,8 @@ Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
             Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\CQP" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\CQP\$pluginName"
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
-            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$pluginName.json"
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$cqpPluginDllName.dll"
+            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$cqpPluginDllName.json"
 
             Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\CQP\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"

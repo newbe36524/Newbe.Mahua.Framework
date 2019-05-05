@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <VersionPrefix>1.15.0</VersionPrefix>
+    <VersionPrefix>1.15.1</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
