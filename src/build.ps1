@@ -50,3 +50,9 @@ Task NugetPushNuget -depends Pack -Description "推送nuget包到nuget.org" {
     }
     Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
+
+Task ReconfigDllExport -description "初始化DllExport" {
+    Exec {
+        .\DllExport.bat  -action Restore -sln-file Newbe.Mahua.sln
+    }
+}
