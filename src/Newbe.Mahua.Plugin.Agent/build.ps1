@@ -7,7 +7,7 @@ properties {
     $currentBuild = "$releaseBase\$configuration\$fwVersion"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $nugetexe = "$rootNow\buildTools\nuget.exe"
-    $version = "2.1.0"
+    $version = "2.1.1"
 }
 
 $platforms = @(
@@ -46,19 +46,21 @@ Task Build -depends Nuget -Description "编译" {
 
 Task PackCQP -depends Clean -Description "CQP打包" {
     Exec {
+        # CQP 要求 dll 名称和 appid 要相同，并且为小写
+        $cqpPluginDllName = $pluginName.ToLowerInvariant()
         New-Item -ItemType Directory "$releaseBase\CQP"
-        New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
+        New-Item -ItemType Directory "$releaseBase\CQP\$cqpPluginDllName"
         New-Item -ItemType Directory "$releaseBase\CQP\app"
         # 复制平台对应实现
         Copy-Item "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" "$releaseBase/CQP" -Recurse
         # 插件运行时
-        Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\CQP\$pluginName" -Recurse
+        Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\CQP\$cqpPluginDllName" -Recurse
         # 机器人平台入口文件
-        Copy-Item -Path "../Newbe.Mahua.CQP.Native/bin/$configuration/x86/Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$pluginName.dll"
+        Copy-Item -Path "../Newbe.Mahua.CQP.Native/bin/$configuration/x86/Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$cqpPluginDllName.dll"
         # 复制配置文件
         Copy-Item -Path "Configs/*" "$releaseBase/CQP" -Recurse
         # CQP.json
-        Copy-Item Newbe.Mahua.Plugin.Agent.json "$releaseBase\CQP\app\$pluginName.json"
+        Copy-Item Newbe.Mahua.Plugin.Agent.json "$releaseBase\CQP\app\$cqpPluginDllName.json"
     }
 }
 
