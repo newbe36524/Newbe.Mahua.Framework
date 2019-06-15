@@ -7,6 +7,6 @@ namespace Newbe.Mahua.CQP.MahuaEventOutputs
         public int SendTime { get; set; }
         public long FromQQ { get; set; }
         public string Msg { get; set; }
-        public int Font { get; set; }
+        public string ResponseMark { get; set; }
     }
 }
