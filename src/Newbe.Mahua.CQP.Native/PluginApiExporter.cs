@@ -284,10 +284,14 @@ namespace Newbe.Mahua.CQP.Native
         /// <param name="sendTime">事件发生时间的时间戳。</param>
         /// <param name="fromQQ">事件来源QQ。</param>
         /// <param name="msg">附言内容。</param>
-        /// <param name="font">消息所使用字体。</param>
+        /// <param name="responseMark">用于处理请求的标识.</param>
         /// <returns>是否拦截消息的值，0为忽略消息，1为拦截消息。</returns>
         [DllExport("_eventRequest_AddFriend", CallingConvention.StdCall)]
-        public static int ProcessAddFriendRequest(int subType, int sendTime, long fromQQ, string msg, int font)
+        public static int ProcessAddFriendRequest(int subType,
+            int sendTime,
+            long fromQQ,
+            string msg,
+            string responseMark)
         {
             PluginInstanceManager.GetInstance().HandleMahuaOutput(new ProcessAddFriendEventOutput
             {
@@ -295,7 +299,7 @@ namespace Newbe.Mahua.CQP.Native
                 SendTime = sendTime,
                 FromQQ = fromQQ,
                 Msg = msg,
-                Font = font,
+                ResponseMark = responseMark,
             });
             return 0;
         }
