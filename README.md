@@ -8,6 +8,7 @@
 ## 开篇一张图，功能全靠编
 
 ![Newbe.Mahua.Version](i/体系结构.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework?ref=badge_shield)
 
 ## 你打麻花，谁疼？麻花疼。
 
@@ -99,3 +100,6 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 特别感谢 Jetbrain 公司提供的 License 以支持该项目
 
 [![jetbrains](i/jetbrains-variant-3.png)](https://www.jetbrains.com/?from=Newbe.Mahua.Framework)
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework?ref=badge_large)
