@@ -48,6 +48,12 @@ SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选�
 
 [点击查看帮助文档](http://www.newbe.pro) 开始编写第一个QQ机器人。
 
+### 最佳实战
+
+#### [i春秋社区机器人](https://github.com/0nise/ichunqiu_qqbot)
+
+i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日文章推送、文章查询、魔法币查询、作者信息查询、作家团奖金余额查询、奖金排行榜、i春秋课程查询等一列功能。据不完全统计，使用人数已经超过3.5万，使用次数达到20万，最大覆盖700+个群。
+
 ## 版本
 
 - [版本变更情况](https://github.com/Newbe36524/Newbe.Mahua.Framework/blob/master/ReleaseNotes.md)
