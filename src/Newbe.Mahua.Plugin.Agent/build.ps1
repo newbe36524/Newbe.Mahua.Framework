@@ -1,4 +1,4 @@
-﻿Framework "4.6"
+﻿Framework "4.6x86"
 properties {
     $rootNow = Resolve-Path .
     $configuration = "Debug"
@@ -7,7 +7,7 @@ properties {
     $currentBuild = "$releaseBase\$configuration\$fwVersion"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $nugetexe = "$rootNow\buildTools\nuget.exe"
-    $version = "2.1.1"
+    $version = "2.2"
 }
 
 $platforms = @(
@@ -47,20 +47,20 @@ Task Build -depends Nuget -Description "编译" {
 Task PackCQP -depends Clean -Description "CQP打包" {
     Exec {
         # CQP 要求 dll 名称和 appid 要相同，并且为小写
-        $cqpPluginDllName = $pluginName.ToLowerInvariant()
+        $cqpDevPluginDirName = $pluginName.ToLowerInvariant()
         New-Item -ItemType Directory "$releaseBase\CQP"
-        New-Item -ItemType Directory "$releaseBase\CQP\$cqpPluginDllName"
-        New-Item -ItemType Directory "$releaseBase\CQP\app"
+        New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
+        New-Item -ItemType Directory "$releaseBase\CQP\dev\$cqpDevPluginDirName"
         # 复制平台对应实现
         Copy-Item "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" "$releaseBase/CQP" -Recurse
         # 插件运行时
-        Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\CQP\$cqpPluginDllName" -Recurse
+        Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.CQP/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\CQP\$pluginName" -Recurse
         # 机器人平台入口文件
-        Copy-Item -Path "../Newbe.Mahua.CQP.Native/bin/$configuration/x86/Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$cqpPluginDllName.dll"
+        Copy-Item -Path "../Newbe.Mahua.CQP.Native/bin/$configuration/x86/Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\dev\$cqpDevPluginDirName\app.dll"
         # 复制配置文件
         Copy-Item -Path "Configs/*" "$releaseBase/CQP" -Recurse
         # CQP.json
-        Copy-Item Newbe.Mahua.Plugin.Agent.json "$releaseBase\CQP\app\$cqpPluginDllName.json"
+        Copy-Item Newbe.Mahua.Plugin.Agent.json "$releaseBase\CQP\dev\$cqpDevPluginDirName\app.json"
     }
 }
 
