@@ -149,25 +149,24 @@ function WriteCqpJsonFile ($targetFilePath) {
     $json.version_id = [int] $versionNos
 
     # 写入文件
-    $encoding = [System.Text.Encoding]::GetEncoding("gb2312")
-    [System.IO.File]::WriteAllText("$targetFilePath", ($json | ConvertTo-Json), $encoding)
+    $json | ConvertTo-Json | Out-File $targetFilePath -Encoding utf8
 }
 
 Task PackCQP -depends DonwloadPackages, Build -Description "CQP打包" {
     $InstalledPlatforms | Where-Object {$_.id -eq "Newbe.Mahua.CQP"} | ForEach-Object {
         Exec {
             # CQP 要求 dll 名称和 appid 要相同，并且为小写
-            $cqpPluginDllName = $pluginName.ToLowerInvariant()
+            $cqpDevPluginDirName = $pluginName.ToLowerInvariant()
             $toolBase = Get-Download-Package-ToolsDir -package $_
             New-Item -ItemType Directory "$releaseBase\CQP"
             New-Item -ItemType Directory "$releaseBase\CQP\$pluginName"
-            New-Item -ItemType Directory "$releaseBase\CQP\app"
+            New-Item -ItemType Directory "$releaseBase\CQP\dev\$cqpDevPluginDirName"
             Copy-FrameworkItems -dest "$releaseBase\CQP\"
             Copy-Item -Path  "$toolBase\NewbeLibs\Platform\CLR\*" -Destination "$releaseBase\CQP" -Recurse
             Copy-FrameworkExtensionItems -dest "$releaseBase\CQP\$pluginName"
             Copy-Item -Path "$releaseBase\$configuration\*", "$toolBase\NewbeLibs\Platform\CLR\*"   -Destination "$releaseBase\CQP\$pluginName" -Recurse
-            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\app\$cqpPluginDllName.dll"
-            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\app\$cqpPluginDllName.json"
+            Copy-Item -Path "$toolBase\NewbeLibs\Platform\Native\Newbe.Mahua.CQP.Native.dll" -Destination  "$releaseBase\CQP\dev\$cqpDevPluginDirName\app.dll"
+            WriteCqpJsonFile -targetFilePath "$releaseBase\CQP\dev\$cqpDevPluginDirName\app.json"
 
             Copy-Item "$releaseBase\CQP\$pluginName" "$releaseBase\CQP\$assetDirName\$pluginName" -Recurse
             Get-ChildItem "$releaseBase\CQP\$assetDirName\$pluginName" | Get-FileHash | Out-File "$releaseBase\hash.txt"
