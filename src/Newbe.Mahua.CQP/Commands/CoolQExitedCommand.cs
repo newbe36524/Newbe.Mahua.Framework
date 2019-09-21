@@ -13,15 +13,20 @@ namespace Newbe.Mahua.CQP.Commands
     internal class CoolQExitedCommandHandler : ICommandHandler<CoolQExitedCommand>
     {
         private readonly IEnumerable<IPlatfromExitedMahuaEvent> _platfromExitedMahuaEvents;
+        private readonly IEnumerable<IPlatformExitedMahuaEvent> _platformExitedMahuaEvents;
 
-        public CoolQExitedCommandHandler(IEnumerable<IPlatfromExitedMahuaEvent> platfromExitedMahuaEvents)
+        public CoolQExitedCommandHandler(
+            IEnumerable<IPlatfromExitedMahuaEvent> platfromExitedMahuaEvents,
+            IEnumerable<IPlatformExitedMahuaEvent> platformExitedMahuaEvents)
         {
             _platfromExitedMahuaEvents = platfromExitedMahuaEvents;
+            _platformExitedMahuaEvents = platformExitedMahuaEvents;
         }
 
         public void Handle(CoolQExitedCommand message)
         {
             _platfromExitedMahuaEvents.Handle(x => x.Exited(new PlatfromExitedContext()));
+            _platformExitedMahuaEvents.Handle(x => x.Exited(new PlatformExitedContext()));
         }
     }
 }
