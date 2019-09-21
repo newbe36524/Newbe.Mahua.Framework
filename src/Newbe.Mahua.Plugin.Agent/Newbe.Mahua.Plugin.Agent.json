@@ -10,105 +10,105 @@
     {
       "id": 1,
       "type": 21,
-      "name": "Ë½ÁÄÏûÏ¢´¦Àí",
+      "name": "ç§èŠæ¶ˆæ¯å¤„ç†",
       "function": "_eventPrivateMsg",
       "priority": 30000
     },
     {
       "id": 2,
       "type": 2,
-      "name": "ÈºÏûÏ¢´¦Àí",
+      "name": "ç¾¤æ¶ˆæ¯å¤„ç†",
       "function": "_eventGroupMsg",
       "priority": 30000
     },
     {
       "id": 3,
       "type": 4,
-      "name": "ÌÖÂÛ×éÏûÏ¢´¦Àí",
+      "name": "è®¨è®ºç»„æ¶ˆæ¯å¤„ç†",
       "function": "_eventDiscussMsg",
       "priority": 30000
     },
     {
       "id": 4,
       "type": 11,
-      "name": "ÈºÎÄ¼şÉÏ´«ÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æ–‡ä»¶ä¸Šä¼ äº‹ä»¶å¤„ç†",
       "function": "_eventGroupUpload",
       "priority": 30000
     },
     {
       "id": 5,
       "type": 101,
-      "name": "Èº¹ÜÀí±ä¶¯ÊÂ¼ş´¦Àí",
+      "name": "ç¾¤ç®¡ç†å˜åŠ¨äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupAdmin",
       "priority": 30000
     },
     {
       "id": 6,
       "type": 102,
-      "name": "Èº³ÉÔ±¼õÉÙÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æˆå‘˜å‡å°‘äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupMemberDecrease",
       "priority": 30000
     },
     {
       "id": 7,
       "type": 103,
-      "name": "Èº³ÉÔ±Ôö¼ÓÊÂ¼ş´¦Àí",
+      "name": "ç¾¤æˆå‘˜å¢åŠ äº‹ä»¶å¤„ç†",
       "function": "_eventSystem_GroupMemberIncrease",
       "priority": 30000
     },
     {
       "id": 10,
       "type": 201,
-      "name": "ºÃÓÑÒÑÌí¼ÓÊÂ¼ş´¦Àí",
+      "name": "å¥½å‹å·²æ·»åŠ äº‹ä»¶å¤„ç†",
       "function": "_eventFriend_Add",
       "priority": 30000
     },
     {
       "id": 8,
       "type": 301,
-      "name": "ºÃÓÑÌí¼ÓÇëÇó´¦Àí",
+      "name": "å¥½å‹æ·»åŠ è¯·æ±‚å¤„ç†",
       "function": "_eventRequest_AddFriend",
       "priority": 30000
     },
     {
       "id": 9,
       "type": 302,
-      "name": "ÈºÌí¼ÓÇëÇó´¦Àí",
+      "name": "ç¾¤æ·»åŠ è¯·æ±‚å¤„ç†",
       "function": "_eventRequest_AddGroup",
       "priority": 30000
     },
     {
       "id": 1001,
       "type": 1001,
-      "name": "¿áQÆô¶¯ÊÂ¼ş",
+      "name": "é…·Qå¯åŠ¨äº‹ä»¶",
       "priority": 30000,
       "function": "_eventStartup"
     },
     {
       "id": 1002,
       "type": 1002,
-      "name": "¿áQ¹Ø±ÕÊÂ¼ş",
+      "name": "é…·Qå…³é—­äº‹ä»¶",
       "priority": 30000,
       "function": "_eventExit"
     },
     {
       "id": 1003,
       "type": 1003,
-      "name": "Ó¦ÓÃÒÑ±»ÆôÓÃ",
+      "name": "åº”ç”¨å·²è¢«å¯ç”¨",
       "priority": 30000,
       "function": "_eventEnable"
     },
     {
       "id": 1004,
       "type": 1004,
-      "name": "Ó¦ÓÃ½«±»Í£ÓÃ",
+      "name": "åº”ç”¨å°†è¢«åœç”¨",
       "priority": 30000,
       "function": "_eventDisable"
     }
   ],
   "menu": [
     {
-      "name": "ÉèÖÃÖĞĞÄ",
+      "name": "è®¾ç½®ä¸­å¿ƒ",
       "function": "_menuA"
     }
   ],
