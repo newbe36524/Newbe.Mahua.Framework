@@ -115,3 +115,9 @@ Task ReconfigDllExport -description "初始化DllExport" {
         .\DllExport.bat  -action Restore -sln-file Newbe.Mahua.sln
     }
 }
+
+Task SetNugetApiKey -description "设置 nuget ApiKey" {
+    Exec {
+        . $nugetexe setapikey '***' -source https://www.nuget.org/
+    }
+}

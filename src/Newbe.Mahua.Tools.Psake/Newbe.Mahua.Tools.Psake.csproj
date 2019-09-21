@@ -20,7 +20,7 @@
     <Content Include="build.bat" />
     <Content Include="build.ps1" />
     <Content Include="buildTools\nuget.exe" />
-    <Content Include="buildScripts\*" />
+    <Content Include="buildScripts\**" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Newbe.Mahua\Newbe.Mahua.csproj" />

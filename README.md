@@ -70,7 +70,7 @@ VS插件商城下载链接：<https://marketplace.visualstudio.com/items?itemNam
 | IGroupMessageReceivedMahuaEvent              | 群消息接收事件                   | √   | √   | √        | √       |
 | IGroupUploadedMahuaEvent                     | 群文件上传事件                   | √   |     |          |         |
 | IInitializationMahuaEvent                    | 插件初始化事件                   | √   | √   | √        | √       |
-| IPlatfromExitedMahuaEvent                    | 机器人平台退出事件               | √   |     |          |         |
+| IPlatformExitedMahuaEvent                    | 机器人平台退出事件               | √   |     |          |         |
 | IPluginDisabledMahuaEvent                    | 插件被禁用事件                   | √   | √   | √        | √       |
 | IPluginEnabledMahuaEvent                     | 插件被启用事件                   | √   | √   | √        | √       |
 | IPluginHotUpgradedMahuaEvent                 | 插件热更新成功事件               | √   | √   | √        | √       |
