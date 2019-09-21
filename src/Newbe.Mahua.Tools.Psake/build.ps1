@@ -1,4 +1,4 @@
-﻿Framework "4.6"
+﻿Framework "4.6x86"
 properties {
     $rootNow = Resolve-Path .
     $nugetexe = "$rootNow\buildTools\NuGet.exe"

@@ -1,10 +1,13 @@
 ﻿using Newbe.Mahua.CleverQQ.Commands;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.Logging;
 
 namespace Newbe.Mahua.CleverQQ.Native
 {
     public class PluginApiExporter : IPluginApiExporter
     {
+        private static readonly ILog Logger = LogProvider.For<PluginApiExporter>();
+
         public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.CleverQQ;
 
         /// <summary>
@@ -14,6 +17,7 @@ namespace Newbe.Mahua.CleverQQ.Native
         [DllExport(ExportName = nameof(IR_Create), CallingConvention = CallingConvention.StdCall)]
         public static string IR_Create()
         {
+            TraceInvoke(nameof(IR_Create));
             var getInfoCommandResult = PluginInstanceManager.GetInstance()
                 .SendCommand<IrCreateCommand, IrCreateCommandResult>(new IrCreateCommand());
             return getInfoCommandResult.Info;
@@ -30,8 +34,20 @@ namespace Newbe.Mahua.CleverQQ.Native
         /// <param name="ClientKey">登录网页服务用的秘钥</param>
         /// <returns>返回-1 已收到并拒绝处理，返回0 未收到并不处理，返回1 处理完且继续执行，返回2 处理完毕并不再让其他插件处理 （Pro版可用)</returns>
         [DllExport(ExportName = nameof(IR_Message), CallingConvention = CallingConvention.StdCall)]
-        public static int IR_Message(string RobotQQ, int MsgType, string Msg, string Cookies, string SessionKey, string ClientKey)
+        public static int IR_Message(string RobotQQ,
+            int MsgType,
+            string Msg,
+            string Cookies,
+            string SessionKey,
+            string ClientKey)
         {
+            TraceInvoke(nameof(IR_Message),
+                $"{nameof(RobotQQ)}:", RobotQQ,
+                $"{nameof(MsgType)}:", MsgType,
+                $"{nameof(Msg)}:", Msg,
+                $"{nameof(Cookies)}:", Cookies,
+                $"{nameof(SessionKey)}:", SessionKey,
+                $"{nameof(ClientKey)}:", ClientKey);
             return 1;
         }
 
@@ -67,6 +83,19 @@ namespace Newbe.Mahua.CleverQQ.Native
             string json,
             string pText)
         {
+            TraceInvoke(nameof(IR_Event),
+                $"{nameof(receiverQq)}:", receiverQq,
+                $"{nameof(eventType)}:", eventType,
+                $"{nameof(eventAdditionType)}:", eventAdditionType,
+                $"{nameof(fromNum)}:", fromNum,
+                $"{nameof(eventOperator)}:", eventOperator,
+                $"{nameof(triggee)}:", triggee,
+                $"{nameof(message)}:", message,
+                $"{nameof(messageNum)}:", messageNum,
+                $"{nameof(messageID)}:", messageID,
+                $"{nameof(rawMessage)}:", rawMessage,
+                $"{nameof(json)}:", json,
+                $"{nameof(pText)}:", pText);
             var endCommandResult = PluginInstanceManager.GetInstance()
                 .SendCommand<EventFunCommand, EventFunCommandResult>(new EventFunCommand
                 {
@@ -78,18 +107,19 @@ namespace Newbe.Mahua.CleverQQ.Native
                     Message = message,
                     RawMessage = rawMessage,
                     Triggee = triggee,
-                    MessageId = System.Convert.ToInt64(messageID),
-                    MessageNum = System.Convert.ToInt64(messageNum),
+                    MessageId = long.TryParse(messageID, out var id) ? id : 0,
+                    MessageNum = long.TryParse(messageNum, out var num) ? num : 0,
                 });
             return endCommandResult.Result;
         }
 
-        /// <summary>
+        /// <summary> 
         /// 点击设置按钮
         /// </summary>
         [DllExport(ExportName = nameof(IR_SetUp), CallingConvention = CallingConvention.StdCall)]
         public static void IR_SetUp()
         {
+            TraceInvoke(nameof(IR_Create));
             PluginInstanceManager.GetInstance().SendCommand(new ConfigurationManagerCommand());
         }
 
@@ -100,9 +130,15 @@ namespace Newbe.Mahua.CleverQQ.Native
         [DllExport(ExportName = nameof(IR_DestroyPlugin), CallingConvention = CallingConvention.StdCall)]
         public static int IR_DestroyPlugin()
         {
+            TraceInvoke(nameof(IR_DestroyPlugin));
             var endCommandResult = PluginInstanceManager.GetInstance()
                 .SendCommand<IrDestroyPluginCommand, IrDestroyPluginCommandResult>(new IrDestroyPluginCommand());
             return endCommandResult.Result;
+        }
+
+        private static void TraceInvoke(string method, params object[] arguments)
+        {
+            Logger.Trace("called {method} {arguments}", method, arguments);
         }
     }
 }
