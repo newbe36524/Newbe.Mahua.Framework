@@ -21,12 +21,13 @@ namespace Newbe.Mahua
 
         public override object InitializeLifetimeService()
         {
-            var lease = (ILease)base.InitializeLifetimeService();
+            var lease = (ILease) base.InitializeLifetimeService();
             System.Diagnostics.Debug.Assert(lease != null, "lease != null");
             if (lease.CurrentState == LeaseState.Initial)
             {
                 lease.InitialLeaseTime = TimeSpan.FromSeconds(0);
             }
+
             return lease;
         }
 
@@ -34,6 +35,16 @@ namespace Newbe.Mahua
         {
             Debug($"当前AppDomain:{AppDomain.CurrentDomain.FriendlyName}，开始加载插件程序集：{pluginEntryPointDllFullFilename}");
             try
+            {
+                return LoadCore();
+            }
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+                return false;
+            }
+
+            bool LoadCore()
             {
                 Assembly.Load(new AssemblyName
                 {
@@ -43,6 +54,7 @@ namespace Newbe.Mahua
                 {
                     Debug($"当前已加载程序集:{assembly.FullName}");
                 }
+
                 Debug("程序集加载完毕,开始构建Container");
                 var superBuilder = new ContainerBuilder();
                 superBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies()).AsImplementedInterfaces()
@@ -62,6 +74,7 @@ namespace Newbe.Mahua
                         Debug($"注册了 {module.GetType().FullName}");
                     }
                 }
+
                 Debug("IMahuaModule扫描注册完毕。");
 
                 // enables contravariant Resolve() for interfaces with single contravariant ("in") arg
@@ -92,6 +105,7 @@ namespace Newbe.Mahua
                                     return c.TryResolveKeyed(apiHandlerName, t, out var oo) ? oo : null;
                                 }
                             }
+
                             return c.TryResolve(t, out var o) ? o : null;
                         };
                     })
@@ -102,7 +116,7 @@ namespace Newbe.Mahua
                     .Register<MultiInstanceFactory>(ctx =>
                     {
                         var c = ctx.Resolve<IComponentContext>();
-                        return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
+                        return t => (IEnumerable<object>) c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
                     })
                     .InstancePerLifetimeScope();
                 Debug("命令处理中心注册完毕。");
@@ -113,44 +127,65 @@ namespace Newbe.Mahua
                 MahuaRobotManager.Instance = mahuaRobot;
                 return true;
             }
-            catch (Exception ex)
-            {
-                Message = ex.Message;
-                return false;
-            }
         }
 
         public byte[] Handle(byte[] cmd, string cmdTypeFullName, string resultTypeFullName)
         {
-            WriteDiagnostics(() => cmd);
-            using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+            try
             {
-                var lifetimeScope = robotSession.LifetimeScope;
-                var center = lifetimeScope.Resolve<ICommandCenter>();
-                var cmdType = GetMahuaType(cmdTypeFullName);
-                var resultType = GetMahuaType(resultTypeFullName);
-                Func<object, object[], object> invoke =
-                    _commandCenterHandleWithResultMethod.MakeGenericMethod(cmdType, resultType).Invoke;
-                var handler = WithResultHandlers
-                    .GetOrAdd(cmdType, invoke);
-                var re = handler(center, new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
-                var rejson = GlobalCache.CrossDoaminSerializer.Serialize(re, resultType);
-                WriteDiagnostics(() => rejson);
-                return rejson;
+                return HandleCore();
+            }
+            catch (Exception e)
+            {
+                Logger.ErrorException("处理命令时出现异常。 cmdType : {cmdType} resultType : {resultType} data : {cmd}", e);
+                throw;
+            }
+
+            byte[] HandleCore()
+            {
+                WriteDiagnostics(() => cmd);
+                using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+                {
+                    var lifetimeScope = robotSession.LifetimeScope;
+                    var center = lifetimeScope.Resolve<ICommandCenter>();
+                    var cmdType = GetMahuaType(cmdTypeFullName);
+                    var resultType = GetMahuaType(resultTypeFullName);
+                    Func<object, object[], object> invoke =
+                        _commandCenterHandleWithResultMethod.MakeGenericMethod(cmdType, resultType).Invoke;
+                    var handler = WithResultHandlers
+                        .GetOrAdd(cmdType, invoke);
+                    var re = handler(center, new[] {GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType)});
+                    var rejson = GlobalCache.CrossDoaminSerializer.Serialize(re, resultType);
+                    WriteDiagnostics(() => rejson);
+                    return rejson;
+                }
             }
         }
 
         public void Handle(byte[] cmd, string cmdTypeFullName)
         {
-            WriteDiagnostics(() => cmd);
-            using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+            try
             {
-                var lifetimeScope = robotSession.LifetimeScope;
-                var center = lifetimeScope.Resolve<ICommandCenter>();
-                var cmdType = GetMahuaType(cmdTypeFullName);
-                var handler = VoidResultHandlers
-                    .GetOrAdd(cmdType, _commandCenterHandleMethod.MakeGenericMethod(cmdType).Invoke);
-                handler(center, new[] { GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType) });
+                HandleCore();
+            }
+            catch (Exception e)
+            {
+                Logger.ErrorException("处理命令时出现异常。 cmdType : {cmdType} resultType : {resultType} data : {cmd}", e);
+                throw;
+            }
+
+            void HandleCore()
+            {
+                WriteDiagnostics(() => cmd);
+                using (var robotSession = MahuaRobotManager.Instance.CreateSession())
+                {
+                    var lifetimeScope = robotSession.LifetimeScope;
+                    var center = lifetimeScope.Resolve<ICommandCenter>();
+                    var cmdType = GetMahuaType(cmdTypeFullName);
+                    var handler = VoidResultHandlers
+                        .GetOrAdd(cmdType, _commandCenterHandleMethod.MakeGenericMethod(cmdType).Invoke);
+                    handler(center, new[] {GlobalCache.CrossDoaminSerializer.Deserialize(cmd, cmdType)});
+                }
             }
         }
 
