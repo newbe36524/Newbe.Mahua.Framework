@@ -43,12 +43,12 @@
       <HintPath>..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.1.15.0\lib\net452\Newbe.Mahua.dll</HintPath>
+    <Reference Include="Newbe.Mahua, Version=1.16.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.1.16.1\lib\net452\Newbe.Mahua.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.15.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.15.0\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
+    <Reference Include="Newbe.Mahua.PluginLoader, Version=1.16.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Newbe.Mahua.PluginLoader.1.16.1\lib\net452\Newbe.Mahua.PluginLoader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -92,6 +92,20 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="buildScripts\psake\4.8.0\en-US\psake.psm1-help.xml.old" />
+    <None Include="buildScripts\psake\4.8.0\psake" />
+    <None Include="buildScripts\psake\4.8.0\psake.cmd" />
+    <None Include="buildScripts\psake\4.8.0\psake.psd1" />
+    <None Include="buildScripts\psake\4.8.0\psake.psm1" />
+    <None Include="buildScripts\psake\4.8.0\PSGetModuleInfo.xml" />
+    <None Include="buildScripts\VSSetup\2.2.5\.signature.p7s" />
+    <None Include="buildScripts\VSSetup\2.2.5\Microsoft.VisualStudio.Setup.Configuration.Interop.dll" />
+    <None Include="buildScripts\VSSetup\2.2.5\Microsoft.VisualStudio.Setup.PowerShell.dll" />
+    <None Include="buildScripts\VSSetup\2.2.5\Microsoft.VisualStudio.Setup.PowerShell.dll-Help.xml" />
+    <None Include="buildScripts\VSSetup\2.2.5\PSGetModuleInfo.xml" />
+    <None Include="buildScripts\VSSetup\2.2.5\VSSetup.psd1" />
+    <None Include="buildScripts\VSSetup\2.2.5\VSSetup.psm1" />
+    <None Include="buildScripts\VSSetup\2.2.5\VSSetup.types.ps1xml" />
     <None Include="buildTools\nuget.exe" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -100,6 +114,56 @@
   <ItemGroup>
     <Content Include="build.bat" />
     <Content Include="build.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\checkvariables.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\continueonerror.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\default.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\formattaskname_scriptblock.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\formattaskname_string.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\msbuild40.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\nested.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\nested\nested1.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\nested\nested2.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\paralleltasks.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\parameters.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\passingParametersString\build.Release.Version.bat" />
+    <Content Include="buildScripts\psake\4.8.0\examples\passingParametersString\parameters.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\preandpostaction.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\preandpostcondition.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\properties.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\requiredvariables.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\examples\tasksetupandteardown.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\CleanupEnvironment.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\ConfigureBuildEnvironment.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\CreateConfigurationForNewContext.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\ExecuteInBuildFileScope.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\FormatErrorMessage.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\Get-DefaultBuildFile.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\GetCurrentConfigurationOrDefault.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\GetTasksFromContext.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\LoadConfiguration.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\LoadModules.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\ResolveError.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\SelectObjectWithDefault.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\Test-ModuleVersion.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\WriteColoredOutput.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\WriteDocumentation.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\private\WriteTaskTimeSummary.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\psake-config.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\psake.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Assert.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Exec.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\FormatTaskName.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Framework.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Get-PSakeScriptTasks.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Include.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Invoke-psake.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Invoke-Task.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Properties.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\Task.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\TaskSetup.ps1" />
+    <Content Include="buildScripts\psake\4.8.0\public\TaskTearDown.ps1" />
+    <Content Include="buildScripts\VSSetup\2.2.5\about_VSSetup.help.txt" />
+    <Content Include="buildScripts\VSSetup\2.2.5\tools\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

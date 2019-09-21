@@ -75,7 +75,8 @@ namespace Newbe.Mahua.Samples.ApiExtensions
                     builder.RegisterMahuaApi<GetFriendsApiMahuaCommandHandler, GetFriendsApiMahuaCommand, GetFriendsApiMahuaCommandResult>(authorName);
 
                     // CQP原生也提供了此API的实现，这里注册时候将会覆盖原来的实现
-                    builder.RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand>(authorName);
+                    builder
+                        .RegisterMahuaApi<SendPrivateMessageApiMahuaCommandHandler, SendPrivateMessageApiMahuaCommand, SendPrivateMessageApiMahuaCommandResult>(authorName);
                 }
 
             }

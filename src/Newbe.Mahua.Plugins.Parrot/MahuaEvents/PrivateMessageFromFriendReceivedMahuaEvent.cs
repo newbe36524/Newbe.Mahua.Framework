@@ -35,9 +35,12 @@ namespace Newbe.Mahua.Plugins.Parrot.MahuaEvents
             // 将好友信息会发给好友
             _mahuaApi.SendPrivateMessage(context.FromQq, context.Message);
 
-            _mahuaApi.SendPrivateMessage(context.FromQq)
-                .Image(@"D:\logo.png")
-                .Done();
+            if (MahuaGlobal.CurrentPlatform != MahuaPlatform.Cqp)
+            {
+                _mahuaApi.SendPrivateMessage(context.FromQq)
+                    .Image(@"D:\logo.png")
+                    .Done();
+            }
 
             // 异步发送消息，不能使用 _mahuaApi 实例，需要另外开启Session
             Task.Factory.StartNew(() =>
