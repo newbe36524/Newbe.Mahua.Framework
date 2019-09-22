@@ -17,9 +17,9 @@
 | SDK名称                                                                     | （1） | （2） | （3） | （4） |
 | --------------------------------------------------------------------------- | ----- | ----- | ----- | ----- |
 | 论坛中的其他SDK                                                             | ✔     | ✔     | ✔     | ✔     |
-| [Jie2GG.Native.Csharp.Frame](https://github.com/Jie2GG/Native.Csharp.Frame) | ✔     |       | ✔     | ✔     |
-| [Newbe.Mahua V2](https://github.com/newbe36524/Newbe.Mahua.Framework/)      | ✔     | ✔     |       |       |
-| [Newbe.Mahua V1](https://github.com/newbe36524/Newbe.Mahua.Framework.V1)    | ✔     |       |       |       |
+| [Jie2GG.Native.Csharp.Frame](https://github.com/Jie2GG/Native.Csharp.Frame) | ✔     | ✘     | ✔     | ✔     |
+| [Newbe.Mahua V2](https://github.com/newbe36524/Newbe.Mahua.Framework/)      | ✔     | ✔     | ✘     | ✘     |
+| [Newbe.Mahua V1](https://github.com/newbe36524/Newbe.Mahua.Framework.V1)    | ✔     | ✘     | ✘     | ✘     |
 
 ### 论坛其他SDK的链接
 
