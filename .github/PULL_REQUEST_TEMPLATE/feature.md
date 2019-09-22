@@ -7,7 +7,7 @@ about: 新功能特性
 
 **基本信息**
 
-Mahua 版本 ： [TODO] (1.X 还是 2.X ？)
+Mahua 版本 ： [TODO] 
 
 **业务特性**
 
