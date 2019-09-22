@@ -5,9 +5,35 @@
 [![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
 
+## 入坑提示
+
+建议开发者先根据自身需求结合表格，选择属于自己的专属开发框架，避免浪费时间。
+
+1. 编写一套代码就能在多个平台运行
+2. 支持使用除了C#之外的开发语言来开发
+3. 我希望他足够简单，不用学习太多就能掌握，通常只需要半个小时就能掌握所有内容
+4. 我希望社区的反馈足够快，有问题都可以帮我解决
+
+| SDK名称                                                                     | （1） | （2） | （3） | （4） |
+| --------------------------------------------------------------------------- | ----- | ----- | ----- | ----- |
+| 论坛中的其他SDK                                                             | ✔     | ✔     | ✔     | ✔     |
+| [Jie2GG.Native.Csharp.Frame](https://github.com/Jie2GG/Native.Csharp.Frame) | ✔     |       | ✔     | ✔     |
+| [Newbe.Mahua V2](https://github.com/newbe36524/Newbe.Mahua.Framework/)      | ✔     | ✔     |       |       |
+| [Newbe.Mahua V1](https://github.com/newbe36524/Newbe.Mahua.Framework.V1)    | ✔     |       |       |       |
+
+### 论坛其他SDK的链接
+
+| 平台     | 链接                                                      |
+| -------- | --------------------------------------------------------- |
+| CQP      | <https://cqp.cc/t/15124>                                  |
+| MPQ      | <https://f.mypcqq.cc>                                     |
+| CleverQQ | <https://d.cleverqq.cn/forum-45-1.html>                   |
+| QQLight  | <https://www.52chat.cc/forum.php?mod=forumdisplay&fid=45> |
+
 ## 开篇一张图，功能全靠编
 
 ![Newbe.Mahua.Version](i/体系结构.png)
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework?ref=badge_shield)
 
 ## 你打麻花，谁疼？麻花疼。
@@ -48,11 +74,13 @@ SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选�
 
 [点击查看帮助文档](http://www.newbe.pro) 开始编写第一个QQ机器人。
 
-### 最佳实战
+### 快乐实践
 
-#### [i春秋社区机器人](https://github.com/0nise/ichunqiu_qqbot)
+[我想将我的项目加在此处](https://github.com/newbe36524/Newbe.Mahua.Framework/issues/new/choose)
 
-i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日文章推送、文章查询、魔法币查询、作者信息查询、作家团奖金余额查询、奖金排行榜、i春秋课程查询等一列功能。据不完全统计，使用人数已经超过3.5万，使用次数达到20万，最大覆盖700+个群。
+#### [Python QQBot](https://github.com/892768447/QQBot)
+
+使用 Python 对接 Newbe.Mahua.Plugin.Agent插件实现各大机器人平台的Http接口功能，对接QQBot Web Server服务端实现统一各大机器人平台收发数据
 
 ## 版本
 
@@ -64,17 +92,6 @@ i春秋社区机器人自2018年02月04日开始服务于i春秋社区，每日�
 | Newbe.Mahua.QQLight.Asset  | [![Newbe.Mahua.QQLight.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | QQLight实现       |
 | Newbe.Mahua.CleverQQ.Asset | [![Newbe.Mahua.CleverQQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | CleverQQ实现      |
 | Newbe.Mahua.MPQ.Asset      | [![Newbe.Mahua.MPQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | MPQ（MyPcQQ）实现 |
-
-## 相关技术
-
-- <https://github.com/3F/DllExport>
-- <https://github.com/autofac/Autofac>
-- <https://gitee.com/yks/Newbe.Common>
-- <https://www.sonarlint.org/visualstudio/>
-- <https://github.com/xunit/xunit>
-- <http://www.fluentassertions.com/>
-- <https://github.com/ctaggart/SourceLink>
-- <https://github.com/aspnet/AspNetCore>
 
 ## Contributors
 
