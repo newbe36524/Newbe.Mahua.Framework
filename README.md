@@ -2,7 +2,7 @@
 
 先点击一下右上角的Star，开启隐藏功能。
 
-[![](https://img.shields.io/appveyor/tests/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![](https://img.shields.io/appveyor/ci/Newbe36524/newbe-mahua-framework.svg?style=flat-square)](https://ci.appveyor.com/project/Newbe36524/newbe-mahua-framework) [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
+[![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
 
 ## 入坑提示
@@ -23,12 +23,9 @@
 
 ### 论坛其他SDK的链接
 
-| 平台     | 链接                                                      |
-| -------- | --------------------------------------------------------- |
-| CQP      | <https://cqp.cc/t/15124>                                  |
-| MPQ      | <https://f.mypcqq.cc>                                     |
-| CleverQQ | <https://d.cleverqq.cn/forum-45-1.html>                   |
-| QQLight  | <https://www.52chat.cc/forum.php?mod=forumdisplay&fid=45> |
+- [CQP](https://d.oo14.com/b7oy?target=cqp)         
+- [MPQ](https://d.oo14.com/b7oy?target=mpq)         
+- [QQLight](https://d.oo14.com/b7oy?target=qqlight) 
 
 ## 开篇一张图，功能全靠编
 
@@ -63,12 +60,9 @@ SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选�
 
 ## 支持的平台
 
-| 名称     | 地址                                       |
-| -------- | ------------------------------------------ |
-| CQP      | <https://cqp.cc/>                          |
-| MPQ      | <https://f.mypcqq.cc/thread-2327-1-1.html> |
-| CleverQQ | <https://d.cleverqq.cn/forum.php>          |
-| QQLight  | <http://www.52chat.cc/>                    |
+- [CQP](https://d.oo14.com/b7oy?target=cqp)         
+- [MPQ](https://d.oo14.com/b7oy?target=mpq)         
+- [QQLight](https://d.oo14.com/b7oy?target=qqlight) 
 
 ## 立马开始
 
@@ -131,7 +125,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 **最后，但是最重要的，一定要Star一下！**
 
-[借一步说话](http://www.newbe.pro/donate.html)
+[借一步说话](http://www.newbe.pro/donate/)
 
 特别感谢 Jetbrain 公司提供的 License 以支持该项目
 

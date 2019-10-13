@@ -16,9 +16,7 @@ namespace Newbe.Mahua.Internals
                     {
                         new CqpPlatformResolver(),
                         new MpqPlatformResolver(),
-                        new AmandaPlatformResolver(),
                         new QqLightPlatformResolver(),
-                        new CleverQqPlatformResolver()
                     }
                     .FirstOrDefault(x => x.IsThis())?.MahuaPlatform;
                 if (mahuaPlatform == null)
@@ -52,29 +50,6 @@ namespace Newbe.Mahua.Internals
             {
                 var currentDir = GetCurrentDir();
                 return File.Exists(Path.Combine(currentDir, "Core.exe"));
-            }
-        }
-
-        private class AmandaPlatformResolver : IPlatformResolver
-        {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.Amanda;
-
-            public bool IsThis()
-            {
-                var currentDir = GetCurrentDir();
-                return File.Exists(Path.Combine(currentDir, "Amanda.exe"));
-            }
-        }
-
-        private class CleverQqPlatformResolver : IPlatformResolver
-        {
-            public MahuaPlatform MahuaPlatform { get; } = MahuaPlatform.CleverQQ;
-
-            public bool IsThis()
-            {
-                var currentDir = GetCurrentDir();
-                return File.Exists(Path.Combine(currentDir, "CleverQQ Pro.exe")) ||
-                       File.Exists(Path.Combine(currentDir, "CleverQQ Air.exe"));
             }
         }
 
