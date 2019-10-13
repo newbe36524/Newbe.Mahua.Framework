@@ -7,14 +7,13 @@ properties {
     $currentBuild = "$releaseBase\$configuration\$fwVersion"
     $pluginName = (Get-ChildItem *.csproj).Name.Replace(".csproj", "")
     $nugetexe = "$rootNow\buildTools\nuget.exe"
-    $version = "2.2"
+    $version = "2.3"
 }
 
 $platforms = @(
 "Newbe.Mahua.CQP",
 "Newbe.Mahua.MPQ",
-"Newbe.Mahua.QQLight",
-"Newbe.Mahua.CleverQQ"
+"Newbe.Mahua.QQLight"
 )
 
 Task Default -depends Pack
@@ -96,23 +95,7 @@ Task PackMPQ -depends  Clean -Description "MPQ打包" {
     }
 }
 
-Task PackCleverQQ -depends  Clean -Description "CleverQQ打包" {
-    Exec {
-        New-Item -ItemType Directory "$releaseBase\CleverQQ"
-        New-Item -ItemType Directory "$releaseBase\CleverQQ\$pluginName"
-        New-Item -ItemType Directory "$releaseBase\CleverQQ\Plugin"
-        # 复制平台对应实现
-        Copy-Item "../Newbe.Mahua.CleverQQ/bin/$configuration/$fwVersion/*" "$releaseBase/CleverQQ" -Recurse
-        # 插件运行时
-        Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.CleverQQ/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\CleverQQ\$pluginName" -Recurse
-        # 机器人平台入口文件
-        Copy-Item -Path "../Newbe.Mahua.CleverQQ.Native/bin/$configuration/x86/Newbe.Mahua.CleverQQ.Native.dll" -Destination  "$releaseBase\CleverQQ\Plugin\$pluginName.IR.dll"
-        # 复制配置文件
-        Copy-Item -Path "Configs/*" "$releaseBase/CleverQQ" -Recurse
-    }
-}
-
-Task Pack -depends PackCQP, PackMPQ, PackCleverQQ, PackQQLight -Description "打包" {
+Task Pack -depends PackCQP, PackMPQ, PackQQLight -Description "打包" {
     Write-Output "构建完毕，当前时间为 $( Get-Date )"
 }
 

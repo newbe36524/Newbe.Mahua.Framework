@@ -14,8 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Newbe.Mahua.CleverQQ.Native\Newbe.Mahua.CleverQQ.Native.csproj" />
-      <ProjectReference Include="..\Newbe.Mahua.CleverQQ\Newbe.Mahua.CleverQQ.csproj" />
       <ProjectReference Include="..\Newbe.Mahua.CQP.Native\Newbe.Mahua.CQP.Native.csproj" />
       <ProjectReference Include="..\Newbe.Mahua.CQP\Newbe.Mahua.CQP.csproj" />
       <ProjectReference Include="..\Newbe.Mahua.MPQ.Native\Newbe.Mahua.MPQ.Native.csproj" />

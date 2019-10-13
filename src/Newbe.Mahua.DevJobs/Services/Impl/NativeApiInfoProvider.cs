@@ -34,13 +34,9 @@ namespace Newbe.Mahua.NativeApiClassfy.Services.Impl
                 case MahuaPlatform.Mpq:
                     filename = "../Newbe.Mahua/NativeApi/IMpqApi.cs";
                     break;
-                case MahuaPlatform.CleverQQ:
-                    filename = "../Newbe.Mahua/NativeApi/ICleverQQApi.cs";
-                    break;
                 case MahuaPlatform.QQLight:
                     filename = "../Newbe.Mahua/NativeApi/IQQLightApi.cs";
                     break;
-                case MahuaPlatform.Amanda:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mahuaPlatform), mahuaPlatform, null);
             }
