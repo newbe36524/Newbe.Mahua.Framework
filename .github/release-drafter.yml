@@ -1,14 +1,30 @@
-name-template: v$NEXT_PATCH_VERSION 🌈
-tag-template: v$NEXT_PATCH_VERSION
-categories:
-  - title: 🚀 Features
-    label: feature
-  - title: 🐛 Bug Fixes
-    label: fix
-  - title: 🧰 Maintenance
-    label: chore
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-template: |
-  ## What’s Changed
+# Configuration for Release Drafter - https://github.com/toolmantim/release-drafter
 
+name-template: 'v$NEXT_MINOR_VERSION'
+tag-template: 'v$NEXT_MINOR_VERSION'
+categories:
+  - title: '💥 Breaking Changes'
+    label: '💥 Breaking Change'
+
+  - title: '🌟 New Features'
+    label: '🌟 New Feature'
+
+  - title: '⭐ Features'
+    label: '⭐ Feature'
+
+  - title: '🐞 Bug Fixes'
+    label: '🐞 Bug Fix'
+
+  - title: '🛠 Improvements'
+    label: '🛠 Improvement'
+
+  - title: '📖 Documentation'
+    label: '📖 Docs'
+
+change-template: '- $TITLE (#$NUMBER)'
+no-changes-template: '- No changes'
+template: |
   $CHANGES
+  ***
+exclude-labels:
+  - 'Skip Release'
