@@ -133,3 +133,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework?ref=badge_large)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/newbe36524/Newbe.Mahua.Framework.svg)](https://starchart.cc/newbe36524/Newbe.Mahua.Framework)
