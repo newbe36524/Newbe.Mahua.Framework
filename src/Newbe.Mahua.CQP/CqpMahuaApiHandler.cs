@@ -5,13 +5,12 @@ using Newbe.Mahua.NativeApi;
 
 
 // this file is generate from tools, do not change this file
-// generate time 2019/01/23 
+// generate time 2019/12/15 
 
 namespace Newbe.Mahua.CQP
 {
     public class CqpMahuaApiHandler : IPlatformMahuaApiHandler
     {
-
         private readonly IMahuaCenter _mahuaCenter;
         private readonly ICqpApi _cqpApi;
         private readonly ICqpAuthCodeContainer _cqpAuthCodeContainer;
@@ -25,161 +24,227 @@ namespace Newbe.Mahua.CQP
             _cqpApi = cqpApi;
             _cqpAuthCodeContainer = cqpAuthCodeContainer;
         }
+
         public Task Run(string typeCode, IReadOnlyDictionary<string, object> data)
         {
             switch (typeCode)
             {
                 case "CQ_sendPrivateMsg":
                     var CQ_sendPrivateMsgResult =
-                    _cqpApi.CQ_sendPrivateMsg(AuthCode: _cqpAuthCodeContainer.AuthCode, QQID: Convert.ToInt64(data["QQID"]), msg: data["msg"].ToString());
+                        _cqpApi.CQ_sendPrivateMsg(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            Account: Convert.ToInt64(data["Account"]), msg: data["msg"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_sendPrivateMsgApiOut
-                    { Result = CQ_sendPrivateMsgResult });
+                        {Result = CQ_sendPrivateMsgResult});
                 case "CQ_sendGroupMsg":
                     var CQ_sendGroupMsgResult =
-                    _cqpApi.CQ_sendGroupMsg(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), msg: data["msg"].ToString());
+                        _cqpApi.CQ_sendGroupMsg(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), msg: data["msg"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_sendGroupMsgApiOut
-                    { Result = CQ_sendGroupMsgResult });
+                        {Result = CQ_sendGroupMsgResult});
                 case "CQ_sendDiscussMsg":
                     var CQ_sendDiscussMsgResult =
-                    _cqpApi.CQ_sendDiscussMsg(AuthCode: _cqpAuthCodeContainer.AuthCode, 讨论组号: Convert.ToInt64(data["讨论组号"]), msg: data["msg"].ToString());
+                        _cqpApi.CQ_sendDiscussMsg(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            讨论组号: Convert.ToInt64(data["讨论组号"]), msg: data["msg"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_sendDiscussMsgApiOut
-                    { Result = CQ_sendDiscussMsgResult });
+                        {Result = CQ_sendDiscussMsgResult});
                 case "CQ_deleteMsg":
                     var CQ_deleteMsgResult =
-                    _cqpApi.CQ_deleteMsg(AuthCode: _cqpAuthCodeContainer.AuthCode, MsgId: Convert.ToInt64(data["MsgId"]));
+                        _cqpApi.CQ_deleteMsg(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            MsgId: Convert.ToInt64(data["MsgId"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_deleteMsgApiOut
-                    { Result = CQ_deleteMsgResult });
+                        {Result = CQ_deleteMsgResult});
                 case "CQ_sendLikeV2":
                     var CQ_sendLikeV2Result =
-                    _cqpApi.CQ_sendLikeV2(AuthCode: _cqpAuthCodeContainer.AuthCode, QQID: Convert.ToInt64(data["QQID"]), times: Convert.ToInt32(data["times"]));
+                        _cqpApi.CQ_sendLikeV2(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            Account: Convert.ToInt64(data["Account"]), times: Convert.ToInt32(data["times"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_sendLikeV2ApiOut
-                    { Result = CQ_sendLikeV2Result });
-                case "CQ_getCookies":
-                    var CQ_getCookiesResult =
-                    _cqpApi.CQ_getCookies(AuthCode: _cqpAuthCodeContainer.AuthCode);
-                    return _mahuaCenter.HandleMahuaOutput(new CQ_getCookiesApiOut
-                    { Result = CQ_getCookiesResult });
+                        {Result = CQ_sendLikeV2Result});
+                case "CQ_getCookiesV2":
+                    var CQ_getCookiesV2Result =
+                        _cqpApi.CQ_getCookiesV2(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            domain: data["domain"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_getCookiesV2ApiOut
+                        {Result = CQ_getCookiesV2Result});
                 case "CQ_getRecord":
                     var CQ_getRecordResult =
-                    _cqpApi.CQ_getRecord(AuthCode: _cqpAuthCodeContainer.AuthCode, file: data["file"].ToString(), outformat: data["outformat"].ToString());
+                        _cqpApi.CQ_getRecord(AuthCode: _cqpAuthCodeContainer.AuthCode, file: data["file"].ToString(),
+                            outformat: data["outformat"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getRecordApiOut
-                    { Result = CQ_getRecordResult });
+                        {Result = CQ_getRecordResult});
+                case "CQ_getRecordV2":
+                    var CQ_getRecordV2Result =
+                        _cqpApi.CQ_getRecordV2(AuthCode: _cqpAuthCodeContainer.AuthCode, file: data["file"].ToString(),
+                            outformat: data["outformat"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_getRecordV2ApiOut
+                        {Result = CQ_getRecordV2Result});
+                case "CQ_getImage":
+                    var CQ_getImageResult =
+                        _cqpApi.CQ_getImage(AuthCode: _cqpAuthCodeContainer.AuthCode, file: data["file"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_getImageApiOut
+                        {Result = CQ_getImageResult});
+                case "CQ_canSendImage":
+                    var CQ_canSendImageResult =
+                        _cqpApi.CQ_canSendImage(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_canSendImageApiOut
+                        {Result = CQ_canSendImageResult});
+                case "CQ_canSendRecord":
+                    var CQ_canSendRecordResult =
+                        _cqpApi.CQ_canSendRecord(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_canSendRecordApiOut
+                        {Result = CQ_canSendRecordResult});
                 case "CQ_getCsrfToken":
                     var CQ_getCsrfTokenResult =
-                    _cqpApi.CQ_getCsrfToken(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                        _cqpApi.CQ_getCsrfToken(AuthCode: _cqpAuthCodeContainer.AuthCode);
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getCsrfTokenApiOut
-                    { Result = CQ_getCsrfTokenResult });
+                        {Result = CQ_getCsrfTokenResult});
                 case "CQ_getAppDirectory":
                     var CQ_getAppDirectoryResult =
-                    _cqpApi.CQ_getAppDirectory(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                        _cqpApi.CQ_getAppDirectory(AuthCode: _cqpAuthCodeContainer.AuthCode);
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getAppDirectoryApiOut
-                    { Result = CQ_getAppDirectoryResult });
+                        {Result = CQ_getAppDirectoryResult});
                 case "CQ_getLoginQQ":
                     var CQ_getLoginQQResult =
-                    _cqpApi.CQ_getLoginQQ(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                        _cqpApi.CQ_getLoginQQ(AuthCode: _cqpAuthCodeContainer.AuthCode);
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getLoginQQApiOut
-                    { Result = CQ_getLoginQQResult });
+                        {Result = CQ_getLoginQQResult});
                 case "CQ_getLoginNick":
                     var CQ_getLoginNickResult =
-                    _cqpApi.CQ_getLoginNick(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                        _cqpApi.CQ_getLoginNick(AuthCode: _cqpAuthCodeContainer.AuthCode);
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getLoginNickApiOut
-                    { Result = CQ_getLoginNickResult });
+                        {Result = CQ_getLoginNickResult});
                 case "CQ_setGroupKick":
                     var CQ_setGroupKickResult =
-                    _cqpApi.CQ_setGroupKick(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 拒绝再加群: Convert.ToBoolean(data["拒绝再加群"]));
+                        _cqpApi.CQ_setGroupKick(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            拒绝再加群: Convert.ToBoolean(data["拒绝再加群"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupKickApiOut
-                    { Result = CQ_setGroupKickResult });
+                        {Result = CQ_setGroupKickResult});
                 case "CQ_setGroupBan":
                     var CQ_setGroupBanResult =
-                    _cqpApi.CQ_setGroupBan(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 禁言时间: Convert.ToInt64(data["禁言时间"]));
+                        _cqpApi.CQ_setGroupBan(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            禁言时间: Convert.ToInt64(data["禁言时间"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupBanApiOut
-                    { Result = CQ_setGroupBanResult });
+                        {Result = CQ_setGroupBanResult});
                 case "CQ_setGroupAdmin":
                     var CQ_setGroupAdminResult =
-                    _cqpApi.CQ_setGroupAdmin(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 成为管理员: Convert.ToBoolean(data["成为管理员"]));
+                        _cqpApi.CQ_setGroupAdmin(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            成为管理员: Convert.ToBoolean(data["成为管理员"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupAdminApiOut
-                    { Result = CQ_setGroupAdminResult });
+                        {Result = CQ_setGroupAdminResult});
                 case "CQ_setGroupSpecialTitle":
                     var CQ_setGroupSpecialTitleResult =
-                    _cqpApi.CQ_setGroupSpecialTitle(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 头衔: data["头衔"].ToString(), 过期时间: Convert.ToInt64(data["过期时间"]));
+                        _cqpApi.CQ_setGroupSpecialTitle(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            头衔: data["头衔"].ToString(), 过期时间: Convert.ToInt64(data["过期时间"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupSpecialTitleApiOut
-                    { Result = CQ_setGroupSpecialTitleResult });
+                        {Result = CQ_setGroupSpecialTitleResult});
                 case "CQ_setGroupWholeBan":
                     var CQ_setGroupWholeBanResult =
-                    _cqpApi.CQ_setGroupWholeBan(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), 开启禁言: Convert.ToBoolean(data["开启禁言"]));
+                        _cqpApi.CQ_setGroupWholeBan(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), 开启禁言: Convert.ToBoolean(data["开启禁言"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupWholeBanApiOut
-                    { Result = CQ_setGroupWholeBanResult });
+                        {Result = CQ_setGroupWholeBanResult});
                 case "CQ_setGroupAnonymousBan":
                     var CQ_setGroupAnonymousBanResult =
-                    _cqpApi.CQ_setGroupAnonymousBan(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), 匿名: data["匿名"].ToString(), 禁言时间: Convert.ToInt64(data["禁言时间"]));
+                        _cqpApi.CQ_setGroupAnonymousBan(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), 匿名: data["匿名"].ToString(),
+                            禁言时间: Convert.ToInt64(data["禁言时间"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupAnonymousBanApiOut
-                    { Result = CQ_setGroupAnonymousBanResult });
+                        {Result = CQ_setGroupAnonymousBanResult});
                 case "CQ_setGroupAnonymous":
                     var CQ_setGroupAnonymousResult =
-                    _cqpApi.CQ_setGroupAnonymous(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), 开启匿名: Convert.ToBoolean(data["开启匿名"]));
+                        _cqpApi.CQ_setGroupAnonymous(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), 开启匿名: Convert.ToBoolean(data["开启匿名"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupAnonymousApiOut
-                    { Result = CQ_setGroupAnonymousResult });
+                        {Result = CQ_setGroupAnonymousResult});
                 case "CQ_setGroupCard":
                     var CQ_setGroupCardResult =
-                    _cqpApi.CQ_setGroupCard(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 新名片_昵称: data["新名片_昵称"].ToString());
+                        _cqpApi.CQ_setGroupCard(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            新名片_昵称: data["新名片_昵称"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupCardApiOut
-                    { Result = CQ_setGroupCardResult });
+                        {Result = CQ_setGroupCardResult});
                 case "CQ_setGroupLeave":
                     var CQ_setGroupLeaveResult =
-                    _cqpApi.CQ_setGroupLeave(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), 是否解散: Convert.ToBoolean(data["是否解散"]));
+                        _cqpApi.CQ_setGroupLeave(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), 是否解散: Convert.ToBoolean(data["是否解散"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupLeaveApiOut
-                    { Result = CQ_setGroupLeaveResult });
+                        {Result = CQ_setGroupLeaveResult});
                 case "CQ_setDiscussLeave":
                     var CQ_setDiscussLeaveResult =
-                    _cqpApi.CQ_setDiscussLeave(AuthCode: _cqpAuthCodeContainer.AuthCode, 讨论组号: Convert.ToInt64(data["讨论组号"]));
+                        _cqpApi.CQ_setDiscussLeave(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            讨论组号: Convert.ToInt64(data["讨论组号"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setDiscussLeaveApiOut
-                    { Result = CQ_setDiscussLeaveResult });
+                        {Result = CQ_setDiscussLeaveResult});
                 case "CQ_setFriendAddRequest":
                     var CQ_setFriendAddRequestResult =
-                    _cqpApi.CQ_setFriendAddRequest(AuthCode: _cqpAuthCodeContainer.AuthCode, 请求反馈标识: data["请求反馈标识"].ToString(), 反馈类型: Convert.ToInt32(data["反馈类型"]), 备注: data["备注"].ToString());
+                        _cqpApi.CQ_setFriendAddRequest(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            请求反馈标识: data["请求反馈标识"].ToString(), 反馈类型: Convert.ToInt32(data["反馈类型"]),
+                            备注: data["备注"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setFriendAddRequestApiOut
-                    { Result = CQ_setFriendAddRequestResult });
+                        {Result = CQ_setFriendAddRequestResult});
                 case "CQ_setGroupAddRequestV2":
                     var CQ_setGroupAddRequestV2Result =
-                    _cqpApi.CQ_setGroupAddRequestV2(AuthCode: _cqpAuthCodeContainer.AuthCode, 请求反馈标识: data["请求反馈标识"].ToString(), 请求类型: Convert.ToInt32(data["请求类型"]), 反馈类型: Convert.ToInt32(data["反馈类型"]), 理由: data["理由"].ToString());
+                        _cqpApi.CQ_setGroupAddRequestV2(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            请求反馈标识: data["请求反馈标识"].ToString(), 请求类型: Convert.ToInt32(data["请求类型"]),
+                            反馈类型: Convert.ToInt32(data["反馈类型"]), 理由: data["理由"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setGroupAddRequestV2ApiOut
-                    { Result = CQ_setGroupAddRequestV2Result });
+                        {Result = CQ_setGroupAddRequestV2Result});
                 case "CQ_addLog":
                     var CQ_addLogResult =
-                    _cqpApi.CQ_addLog(AuthCode: _cqpAuthCodeContainer.AuthCode, 优先级: Convert.ToInt32(data["优先级"]), 类型: data["类型"].ToString(), 内容: data["内容"].ToString());
+                        _cqpApi.CQ_addLog(AuthCode: _cqpAuthCodeContainer.AuthCode, 优先级: Convert.ToInt32(data["优先级"]),
+                            类型: data["类型"].ToString(), 内容: data["内容"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_addLogApiOut
-                    { Result = CQ_addLogResult });
+                        {Result = CQ_addLogResult});
                 case "CQ_setFatal":
                     var CQ_setFatalResult =
-                    _cqpApi.CQ_setFatal(AuthCode: _cqpAuthCodeContainer.AuthCode, 错误信息: data["错误信息"].ToString());
+                        _cqpApi.CQ_setFatal(AuthCode: _cqpAuthCodeContainer.AuthCode, 错误信息: data["错误信息"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new CQ_setFatalApiOut
-                    { Result = CQ_setFatalResult });
+                        {Result = CQ_setFatalResult});
                 case "CQ_getGroupMemberInfoV2":
                     var CQ_getGroupMemberInfoV2Result =
-                    _cqpApi.CQ_getGroupMemberInfoV2(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]), QQID: Convert.ToInt64(data["QQID"]), 不使用缓存: Convert.ToBoolean(data["不使用缓存"]));
+                        _cqpApi.CQ_getGroupMemberInfoV2(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), Account: Convert.ToInt64(data["Account"]),
+                            不使用缓存: Convert.ToBoolean(data["不使用缓存"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getGroupMemberInfoV2ApiOut
-                    { Result = CQ_getGroupMemberInfoV2Result });
+                        {Result = CQ_getGroupMemberInfoV2Result});
                 case "CQ_getGroupMemberList":
                     var CQ_getGroupMemberListResult =
-                    _cqpApi.CQ_getGroupMemberList(AuthCode: _cqpAuthCodeContainer.AuthCode, 群号: Convert.ToInt64(data["群号"]));
+                        _cqpApi.CQ_getGroupMemberList(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getGroupMemberListApiOut
-                    { Result = CQ_getGroupMemberListResult });
+                        {Result = CQ_getGroupMemberListResult});
                 case "CQ_getGroupList":
                     var CQ_getGroupListResult =
-                    _cqpApi.CQ_getGroupList(AuthCode: _cqpAuthCodeContainer.AuthCode);
+                        _cqpApi.CQ_getGroupList(AuthCode: _cqpAuthCodeContainer.AuthCode);
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getGroupListApiOut
-                    { Result = CQ_getGroupListResult });
+                        {Result = CQ_getGroupListResult});
+                case "CQ_getFriendList":
+                    var CQ_getFriendListResult =
+                        _cqpApi.CQ_getFriendList(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            reserved: Convert.ToBoolean(data["reserved"]));
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_getFriendListApiOut
+                        {Result = CQ_getFriendListResult});
                 case "CQ_getStrangerInfo":
                     var CQ_getStrangerInfoResult =
-                    _cqpApi.CQ_getStrangerInfo(AuthCode: _cqpAuthCodeContainer.AuthCode, QQID: Convert.ToInt64(data["QQID"]), 不使用缓存: Convert.ToBoolean(data["不使用缓存"]));
+                        _cqpApi.CQ_getStrangerInfo(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            Account: Convert.ToInt64(data["Account"]), 不使用缓存: Convert.ToBoolean(data["不使用缓存"]));
                     return _mahuaCenter.HandleMahuaOutput(new CQ_getStrangerInfoApiOut
-                    { Result = CQ_getStrangerInfoResult });
-
+                        {Result = CQ_getStrangerInfoResult});
+                case "CQ_getGroupInfo":
+                    var CQ_getGroupInfoResult =
+                        _cqpApi.CQ_getGroupInfo(AuthCode: _cqpAuthCodeContainer.AuthCode,
+                            群号: Convert.ToInt64(data["群号"]), 不使用缓存: Convert.ToBoolean(data["不使用缓存"]));
+                    return _mahuaCenter.HandleMahuaOutput(new CQ_getGroupInfoApiOut
+                        {Result = CQ_getGroupInfoResult});
                 default:
                     throw new ArgumentOutOfRangeException(nameof(typeCode));
             }
         }
     }
+
     /// <summary>
     /// api out of method CQ_sendPrivateMsg
     /// </summary>
@@ -188,6 +253,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_sendPrivateMsgApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_sendGroupMsg
     /// </summary>
@@ -196,6 +262,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_sendGroupMsgApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_sendDiscussMsg
     /// </summary>
@@ -204,6 +271,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_sendDiscussMsgApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_deleteMsg
     /// </summary>
@@ -212,6 +280,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_deleteMsgApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_sendLikeV2
     /// </summary>
@@ -220,14 +289,16 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_sendLikeV2ApiOut);
     }
+
     /// <summary>
-    /// api out of method CQ_getCookies
+    /// api out of method CQ_getCookiesV2
     /// </summary>
-    public class CQ_getCookiesApiOut : CqpApiOutput
+    public class CQ_getCookiesV2ApiOut : CqpApiOutput
     {
         public string Result { get; set; }
-        public override string TypeCode => nameof(CQ_getCookiesApiOut);
+        public override string TypeCode => nameof(CQ_getCookiesV2ApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getRecord
     /// </summary>
@@ -236,6 +307,43 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getRecordApiOut);
     }
+
+    /// <summary>
+    /// api out of method CQ_getRecordV2
+    /// </summary>
+    public class CQ_getRecordV2ApiOut : CqpApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(CQ_getRecordV2ApiOut);
+    }
+
+    /// <summary>
+    /// api out of method CQ_getImage
+    /// </summary>
+    public class CQ_getImageApiOut : CqpApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(CQ_getImageApiOut);
+    }
+
+    /// <summary>
+    /// api out of method CQ_canSendImage
+    /// </summary>
+    public class CQ_canSendImageApiOut : CqpApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(CQ_canSendImageApiOut);
+    }
+
+    /// <summary>
+    /// api out of method CQ_canSendRecord
+    /// </summary>
+    public class CQ_canSendRecordApiOut : CqpApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(CQ_canSendRecordApiOut);
+    }
+
     /// <summary>
     /// api out of method CQ_getCsrfToken
     /// </summary>
@@ -244,6 +352,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_getCsrfTokenApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getAppDirectory
     /// </summary>
@@ -252,6 +361,7 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getAppDirectoryApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getLoginQQ
     /// </summary>
@@ -260,6 +370,7 @@ namespace Newbe.Mahua.CQP
         public long Result { get; set; }
         public override string TypeCode => nameof(CQ_getLoginQQApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getLoginNick
     /// </summary>
@@ -268,6 +379,7 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getLoginNickApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupKick
     /// </summary>
@@ -276,6 +388,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupKickApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupBan
     /// </summary>
@@ -284,6 +397,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupBanApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupAdmin
     /// </summary>
@@ -292,6 +406,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupAdminApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupSpecialTitle
     /// </summary>
@@ -300,6 +415,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupSpecialTitleApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupWholeBan
     /// </summary>
@@ -308,6 +424,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupWholeBanApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupAnonymousBan
     /// </summary>
@@ -316,6 +433,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupAnonymousBanApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupAnonymous
     /// </summary>
@@ -324,6 +442,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupAnonymousApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupCard
     /// </summary>
@@ -332,6 +451,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupCardApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupLeave
     /// </summary>
@@ -340,6 +460,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupLeaveApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setDiscussLeave
     /// </summary>
@@ -348,6 +469,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setDiscussLeaveApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setFriendAddRequest
     /// </summary>
@@ -356,6 +478,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setFriendAddRequestApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setGroupAddRequestV2
     /// </summary>
@@ -364,6 +487,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setGroupAddRequestV2ApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_addLog
     /// </summary>
@@ -372,6 +496,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_addLogApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_setFatal
     /// </summary>
@@ -380,6 +505,7 @@ namespace Newbe.Mahua.CQP
         public int Result { get; set; }
         public override string TypeCode => nameof(CQ_setFatalApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getGroupMemberInfoV2
     /// </summary>
@@ -388,6 +514,7 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getGroupMemberInfoV2ApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getGroupMemberList
     /// </summary>
@@ -396,6 +523,7 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getGroupMemberListApiOut);
     }
+
     /// <summary>
     /// api out of method CQ_getGroupList
     /// </summary>
@@ -404,6 +532,16 @@ namespace Newbe.Mahua.CQP
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getGroupListApiOut);
     }
+
+    /// <summary>
+    /// api out of method CQ_getFriendList
+    /// </summary>
+    public class CQ_getFriendListApiOut : CqpApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(CQ_getFriendListApiOut);
+    }
+
     /// <summary>
     /// api out of method CQ_getStrangerInfo
     /// </summary>
@@ -411,5 +549,14 @@ namespace Newbe.Mahua.CQP
     {
         public string Result { get; set; }
         public override string TypeCode => nameof(CQ_getStrangerInfoApiOut);
+    }
+
+    /// <summary>
+    /// api out of method CQ_getGroupInfo
+    /// </summary>
+    public class CQ_getGroupInfoApiOut : CqpApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(CQ_getGroupInfoApiOut);
     }
 }

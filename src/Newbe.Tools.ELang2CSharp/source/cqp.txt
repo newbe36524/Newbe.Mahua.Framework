@@ -1,0 +1,167 @@
+.版本 2
+
+.DLL命令 CQ_sendPrivateMsg, 整数型, "CQP.dll", "CQ_sendPrivateMsg", , 发送好友消息
+    .参数 AuthCode, 整数型
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 msg, 文本型, , 消息内容
+
+.DLL命令 CQ_sendGroupMsg, 整数型, "CQP.dll", "CQ_sendGroupMsg", , 发送群消息
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 msg, 文本型, , 消息内容
+
+.DLL命令 CQ_sendDiscussMsg, 整数型, "CQP.dll", "CQ_sendDiscussMsg", , 发送讨论组消息
+    .参数 AuthCode, 整数型
+    .参数 讨论组号, 长整数型, , 目标讨论组
+    .参数 msg, 文本型, , 消息内容
+
+.DLL命令 CQ_deleteMsg, 整数型, "CQP.dll", "CQ_deleteMsg", , 撤回消息
+    .参数 AuthCode, 整数型
+    .参数 MsgId, 长整数型, , 消息ID
+
+.DLL命令 CQ_sendLikeV2, 整数型, "CQP.dll", "CQ_sendLikeV2", , 发送赞
+    .参数 AuthCode, 整数型
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 times, 整数型, , 赞的次数，最多10次
+
+.DLL命令 CQ_getCookiesV2, 文本型, "CQP.dll", "CQ_getCookiesV2", , 取Cookies(慎用,此接口需要严格授权)
+    .参数 AuthCode, 整数型
+    .参数 domain, 文本型, , 目标域名，如 api.example.com
+
+.DLL命令 CQ_getRecord, 文本型, "CQP.dll", "CQ_getRecord", , 【已弃用】接收语音，并返回语音文件相对路径
+    .参数 AuthCode, 整数型
+    .参数 file, 文本型, , 收到消息中的语音文件名(file)
+    .参数 outformat, 文本型, , 应用所需的格式
+
+.DLL命令 CQ_getRecordV2, 文本型, "CQP.dll", "CQ_getRecordV2", , 接收语音，并返回语音文件绝对路径
+    .参数 AuthCode, 整数型
+    .参数 file, 文本型, , 收到消息中的语音文件名(file)
+    .参数 outformat, 文本型, , 应用所需的格式
+
+.DLL命令 CQ_getImage, 文本型, "CQP.dll", "CQ_getImage", , 接收图片，并返回图片文件绝对路径
+    .参数 AuthCode, 整数型
+    .参数 file, 文本型, , 收到消息中的图片文件名(file)
+
+.DLL命令 CQ_canSendImage, 整数型, "CQP.dll", "CQ_canSendImage", , 是否支持发送图片，返回大于 0 为支持，等于 0 为不支持
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_canSendRecord, 整数型, "CQP.dll", "CQ_canSendRecord", , 是否支持发送语音，返回大于 0 为支持，等于 0 为不支持
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_getCsrfToken, 整数型, "CQP.dll", "CQ_getCsrfToken", , 取CsrfToken(慎用,此接口需要严格授权)
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_getAppDirectory, 文本型, "CQP.dll", "CQ_getAppDirectory", , 取应用目录
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_getLoginQQ, 长整数型, "CQP.dll", "CQ_getLoginQQ", , 取登录帐号
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_getLoginNick, 文本型, "CQP.dll", "CQ_getLoginNick", , 取登录昵称
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_setGroupKick, 整数型, "CQP.dll", "CQ_setGroupKick", , 置群员移除
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 拒绝再加群, 逻辑型, , 如果为真，则“不再接收此人加群申请”，请慎用
+
+.DLL命令 CQ_setGroupBan, 整数型, "CQP.dll", "CQ_setGroupBan", , 置群员禁言
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 禁言时间, 长整数型, , 禁言的时间，单位为秒。如果要解禁，这里填写0
+
+.DLL命令 CQ_setGroupAdmin, 整数型, "CQP.dll", "CQ_setGroupAdmin", , 置群管理员
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 Account, 长整数型, , 被设置的帐号
+    .参数 成为管理员, 逻辑型, , 真/设置管理员 假/取消管理员
+
+.DLL命令 CQ_setGroupSpecialTitle, 整数型, "CQP.dll", "CQ_setGroupSpecialTitle", , 置群成员专属头衔
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 头衔, 文本型, , 如果要删除，这里填空
+    .参数 过期时间, 长整数型, , 专属头衔有效期，单位为秒。如果永久有效，这里填写-1
+
+.DLL命令 CQ_setGroupWholeBan, 整数型, "CQP.dll", "CQ_setGroupWholeBan", , 置全群禁言
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 开启禁言, 逻辑型, , 真/开启 假/关闭
+
+.DLL命令 CQ_setGroupAnonymousBan, 整数型, "CQP.dll", "CQ_setGroupAnonymousBan", , 置匿名群员禁言
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 匿名, 文本型, , 群消息事件收到的“匿名”参数
+    .参数 禁言时间, 长整数型, , 禁言的时间，单位为秒。不支持解禁
+
+.DLL命令 CQ_setGroupAnonymous, 整数型, "CQP.dll", "CQ_setGroupAnonymous", , 置群匿名设置
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型
+    .参数 开启匿名, 逻辑型
+
+.DLL命令 CQ_setGroupCard, 整数型, "CQP.dll", "CQ_setGroupCard", , 置群成员名片
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 Account, 长整数型, , 被设置的帐号
+    .参数 新名片_昵称, 文本型
+
+.DLL命令 CQ_setGroupLeave, 整数型, "CQP.dll", "CQ_setGroupLeave", , 置群退出
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 是否解散, 逻辑型, , 真/解散本群(群主) 假/退出本群(管理、群成员)
+
+.DLL命令 CQ_setDiscussLeave, 整数型, "CQP.dll", "CQ_setDiscussLeave", , 置讨论组退出
+    .参数 AuthCode, 整数型
+    .参数 讨论组号, 长整数型, , 目标讨论组
+
+.DLL命令 CQ_setFriendAddRequest, 整数型, "CQP.dll", "CQ_setFriendAddRequest", , 置好友添加请求
+    .参数 AuthCode, 整数型
+    .参数 请求反馈标识, 文本型, , 请求事件收到的“反馈标识”参数
+    .参数 反馈类型, 整数型, , #请求_通过 或 #请求_拒绝
+    .参数 备注, 文本型, , 添加后的好友备注
+
+.DLL命令 CQ_setGroupAddRequestV2, 整数型, "CQP.dll", "CQ_setGroupAddRequestV2", , 置群添加请求
+    .参数 AuthCode, 整数型
+    .参数 请求反馈标识, 文本型, , 请求事件收到的“反馈标识”参数
+    .参数 请求类型, 整数型, , 根据请求事件的子类型区分 #请求_群添加 或 #请求_群邀请
+    .参数 反馈类型, 整数型, , #请求_通过 或 #请求_拒绝
+    .参数 理由, 文本型, , 操作理由，仅 #请求_群添加 且 #请求_拒绝 时可用
+
+.DLL命令 CQ_addLog, 整数型, "CQP.dll", "CQ_addLog", , 增加运行日志
+    .参数 AuthCode, 整数型
+    .参数 优先级, 整数型, , #Log_ 开头常量
+    .参数 类型, 文本型
+    .参数 内容, 文本型
+
+.DLL命令 CQ_setFatal, 整数型, "CQP.dll", "CQ_setFatal", , 置致命错误提示
+    .参数 AuthCode, 整数型
+    .参数 错误信息, 文本型
+
+.DLL命令 CQ_getGroupMemberInfoV2, 文本型, "CQP.dll", "CQ_getGroupMemberInfoV2", , 取群成员信息(支持缓存)
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标帐号所在群
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 不使用缓存, 逻辑型
+
+.DLL命令 CQ_getGroupMemberList, 文本型, "CQP.dll", "CQ_getGroupMemberList", , 取群成员列表
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标帐号所在群
+
+.DLL命令 CQ_getGroupList, 文本型, "CQP.dll", "CQ_getGroupList", , 取群列表
+    .参数 AuthCode, 整数型
+
+.DLL命令 CQ_getFriendList, 文本型, "CQP.dll", "CQ_getFriendList", , 取好友列表
+    .参数 AuthCode, 整数型
+    .参数 reserved, 逻辑型, , 保留参数，请传入“假”
+
+.DLL命令 CQ_getStrangerInfo, 文本型, "CQP.dll", "CQ_getStrangerInfo", , 取陌生人信息(支持缓存)
+    .参数 AuthCode, 整数型
+    .参数 Account, 长整数型, , 目标帐号
+    .参数 不使用缓存, 逻辑型
+
+.DLL命令 CQ_getGroupInfo, 文本型, "CQP.dll", "CQ_getGroupInfo", , 取群信息(支持缓存)
+    .参数 AuthCode, 整数型
+    .参数 群号, 长整数型, , 目标群
+    .参数 不使用缓存, 逻辑型
