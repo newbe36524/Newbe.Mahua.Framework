@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Newbe.Mahua.Mpq;
 
 namespace Newbe.Mahua.MPQ
 {

@@ -7,13 +7,16 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.PlatformApIHandlers
 {
     public class QQLightJob : IJob
     {
+        private readonly ISourceFileProvider _sourceFileProvider;
         private readonly IApiHandlerGenerator _apiHandlerGenerator;
         private readonly INativeApiInfoProvider _nativeApiInfoProvider;
 
         public QQLightJob(
+            ISourceFileProvider sourceFileProvider,
             IApiHandlerGenerator apiHandlerGenerator,
             INativeApiInfoProvider nativeApiInfoProvider)
         {
+            _sourceFileProvider = sourceFileProvider;
             _apiHandlerGenerator = apiHandlerGenerator;
             _nativeApiInfoProvider = nativeApiInfoProvider;
         }
@@ -30,7 +33,9 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.PlatformApIHandlers
                 AuthCodeContainerInterfaceName = "IQqLightAuthCodeContainer",
             });
 
-            File.WriteAllText("../Newbe.Mahua.QQLight/QQLightMahuaApiHandler.cs",
+            var filename = Path.Combine(_sourceFileProvider.GetBasePath(),
+                "Newbe.Mahua.QQLight/QQLightMahuaApiHandler.cs");
+            File.WriteAllText(filename,
                 CodeFormatter.FormatCode(apiHandler),
                 Encoding.UTF8);
             return Task.CompletedTask;

@@ -1,0 +1,397 @@
+.版本 2
+
+.DLL命令 Api_GetGtk_Bkn, 文本型, "Message.DLL", "Api_GetGtk_Bkn", 公开, 根据提交的QQ号计算得到页面操作用参数Bkn或G_tk`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetBkn32, 文本型, "Message.DLL", "Api_GetBkn32", 公开, 根据提交的QQ号计算得到页面操作用参数长Bkn或长G_tk`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetLdw, 文本型, "Message.DLL", "Api_GetLdw", 公开, 根据提交的QQ号计算得到页面操作用参数长Ldw`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetRunPath, 文本型, "Message.DLL", "Api_GetRunPath", 公开, 取得框架所在目录.可能鸡肋了。`
+
+.DLL命令 Api_GetOnlineQQlist, 文本型, "Message.DLL", "Api_GetOnlineQQlist", 公开, 取得当前框架内在线可用的QQ列表`
+
+.DLL命令 Api_GetQQlist, 文本型, "Message.DLL", "Api_GetQQlist", 公开, 取得框架内所有QQ列表。包括未登录以及登录失败的QQ`
+
+.DLL命令 Api_GetSessionkey, 文本型, "Message.DLL", "Api_GetSessionkey", 公开, 根据QQ取得对应的会话秘钥`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetClientkey, 文本型, "Message.DLL", "Api_GetClientkey", 公开, 取得页面登录用的Clientkey`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetLongClientkey, 文本型, "Message.DLL", "Api_GetLongClientkey", 公开, 取得页面登录用的长Clientkey`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetCookies, 文本型, "Message.DLL", "Api_GetCookies", 公开, 取得页面操作用的Cookies`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetPrefix, 文本型, "Message.DLL", "Api_GetPrefix", 公开, 取得框架内设置的信息发送前缀`
+
+.DLL命令 Api_Cache_NameCard, , "Message.DLL", "Api_Cache_NameCard", 公开, 将群名片加入高速缓存当作.`
+    .参数 群号, 文本型
+    .参数 QQ, 文本型
+    .参数 名片, 文本型
+
+.DLL命令 Api_DBan, , "Message.DLL", "Api_DBan", 公开, 将指定QQ移出QQ黑名单`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_Ban, , "Message.DLL", "Api_Ban", 公开, 将指定QQ列入QQ黑名单`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_Shutup, 逻辑型, "Message.DLL", "Api_Shutup", 公开, 禁言群成员`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型, , 禁言对象所在群.
+    .参数 QQ, 文本型, , 禁言对象.留空为全群禁言
+    .参数 时长, 整数型, , 单位:秒 最大为1个月. 为零解除对象或全群禁言
+
+.DLL命令 Api_IsShutup, 逻辑型, "Message.DLL", "Api_IsShutup", 公开, 根据群号+QQ判断指定群员是否被禁言  获取失败的情况下亦会返回假
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型, , 欲判断对象所在群.
+    .参数 QQ, 文本型, , 欲判断对象
+
+.DLL命令 Api_SetNotice, , "Message.DLL", "Api_SetNotice", 公开, 发群公告`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+    .参数 标题, 文本型
+    .参数 内容, 文本型
+
+.DLL命令 Api_GetNotice, 文本型, "Message.DLL", "Api_GetNotice", 公开, 取群公告`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_GetNameCard, 文本型, "Message.DLL", "Api_GetNameCard", 公开, 取群名片`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_SetNameCard, , "Message.DLL", "Api_SetNameCard", 公开, 设置群名片`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+    .参数 QQ, 文本型
+    .参数 名片, 文本型
+
+.DLL命令 Api_QuitDG, , "Message.DLL", "Api_QuitDG", 公开, 退出讨论组`
+    .参数 响应的QQ, 文本型
+    .参数 讨论组ID, 文本型
+
+.DLL命令 Api_DelFriend, 逻辑型, "Message.DLL", "Api_DelFriend", 公开, 删除好友`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_Kick, 逻辑型, "Message.DLL", "Api_Kick", 公开, 将对象移除群`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+    .参数 对象, 文本型
+
+.DLL命令 Api_JoinGroup, , "Message.DLL", "Api_JoinGroup", 公开, 主动加群.为了避免广告、群发行为。出现验证码时将会直接失败不处理`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+    .参数 附加理由, 文本型
+
+.DLL命令 Api_QuitGroup, , "Message.DLL", "Api_QuitGroup", 公开, 退出群`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_UploadPic, 文本型, "Message.DLL", "Api_UploadPic", 公开, 返回值:成功返回图片GUID用于发送该图片.失败返回空.  图片尺寸应小于4MB`
+    .参数 响应的QQ, 文本型, , 机器人QQ
+    .参数 参_上传类型, 整数型, , 1好友2群 注:好友图和群图的GUID并不相同并不通用 需要非别上传。群、讨论组用类型2 临时会话、好友信息需要类型1
+    .参数 参_参考对象, 文本型, , 上传该图片所属的群号或QQ
+    .参数 参_图片数据, 字节集, 传址, 图片字节集数据或字节集数据指针()
+
+.DLL命令 Api_GuidGetPicLink, 文本型, "Message.DLL", "Api_GuidGetPicLink", 公开, 根据图片GUID取得图片下载连接 失败返回空`
+    .参数 图片GUID, 文本型, , {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpg这样的GUID
+
+.DLL命令 Api_Reply, 整数型, "Message.DLL", "Api_Reply", 公开, 回复信息 请尽量避免使用该API`
+    .参数 响应的QQ, 文本型
+    .参数 信息类型, 整数型, , 1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 回复对象, 文本型, , 接收这条信息的对象
+    .参数 内容, 文本型, , 信息内容
+
+.DLL命令 Api_SendMsg, 整数型, "Message.DLL", "Api_SendMsg", 公开, 向对象、目标发送信息 支持好友 群 讨论组 群临时会话 讨论组临时会话`
+    .参数 响应的QQ, 文本型
+    .参数 信息类型, 整数型, , 1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 参考子类型, 整数型, , 无特殊说明情况下留空或填零
+    .参数 收信群_讨论组, 文本型, , 发送群信息、讨论组信息、群临时会话信息、讨论组临时会话信息时填写
+    .参数 收信对象, 文本型, , 最终接收这条信息的对象QQ
+    .参数 内容, 文本型, , 信息内容
+
+.DLL命令 Api_Send, 文本型, "Message.DLL", "Api_Send", 公开, 发送封包`
+    .参数 封包内容, 文本型
+
+.DLL命令 Api_OutPut, 整数型, "Message.DLL", "Api_OutPut", 公开, 在框架记录页输出一行信息`
+    .参数 内容, 文本型, , 输出的内容
+
+.DLL命令 Api_IsEnable, 逻辑型, "Message.DLL", "Api_IsEnable", 公开, 取得本插件启用状态`
+
+.DLL命令 Api_Login, 逻辑型, "Message.DLL", "Api_Login", 公开, 登录一个现存的QQ`
+    .参数 QQ, 文本型, , 欲登录的Q
+
+.DLL命令 Api_Logout, , "Message.DLL", "Api_Logout", 公开, 让指定QQ下线`
+    .参数 QQ, 文本型
+
+.DLL命令 Api_Tea加密, 文本型, "Message.DLL", "Api_Tea加密", 公开, tean加密算法`
+    .参数 加密内容, 文本型
+    .参数 Key, 文本型
+
+.DLL命令 Api_Tea解密, 文本型, "Message.DLL", "Api_Tea解密", 公开, tean解密算法`
+    .参数 解密内容, 文本型
+    .参数 Key, 文本型
+
+.DLL命令 Api_GetNick, 文本型, "Message.DLL", "Api_GetNick", 公开, 取用户名`
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetQQLevel, 文本型, "Message.DLL", "Api_GetQQLevel", 公开, 取QQ等级+QQ会员等级 返回json格式信息`
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GNGetGid, 文本型, "Message.DLL", "Api_GNGetGid", 公开, 群号转群ID`
+    .参数 群号, 文本型
+
+.DLL命令 Api_GidGetGN, 文本型, "Message.DLL", "Api_GidGetGN", 公开, 群ID转群号`
+    .参数 群ID, 文本型
+
+.DLL命令 Api_GetVersion, 整数型, "Message.DLL", "Api_GetVersion", 公开, 取框架版本号(发布时间戳`
+
+.DLL命令 Api_GetVersionName, 文本型, "Message.DLL", "Api_GetVersionName", 公开, 取框架版本名`
+
+.DLL命令 Api_GetTimeStamp, 整数型, "Message.DLL", "Api_GetTimeStamp", 公开, 取当前框架内部时间戳_周期性与服务器时间同步`
+
+.DLL命令 Api_GetLog, 文本型, "Message.DLL", "Api_GetLog", 公开, 取得框架输出列表内所有信息`
+
+.DLL命令 Api_IfBlock, 逻辑型, "Message.DLL", "Api_IfBlock", 公开, 判断是否处于被屏蔽群信息状态。`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetAdminList, 文本型, "Message.DLL", "Api_GetAdminList", 公开, 取包括群主在内的群管列表`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_AddTaotao, 文本型, "Message.DLL", "Api_AddTaotao", 公开, 发说说`
+    .参数 响应的QQ, 文本型
+    .参数 内容, 文本型
+
+.DLL命令 Api_GetSign, 文本型, "Message.DLL", "Api_GetSign", 公开, 取个签`
+    .参数 响应的QQ, 文本型
+    .参数 对象, 文本型
+
+.DLL命令 Api_SetSign, 文本型, "Message.DLL", "Api_SetSign", 公开, 设置个签`
+    .参数 响应的QQ, 文本型
+    .参数 内容, 文本型
+
+.DLL命令 Api_GetGroupListA, 文本型, "Message.DLL", "Api_GetGroupListA", 公开, 通过qun.qzone.qq.com接口取得取群列表.成功返回转码后的JSON格式文本信息`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetGroupListB, 文本型, "Message.DLL", "Api_GetGroupListB", 公开, 通过qun.qq.com接口取得取群列表.成功返回转码后的JSON格式文本信息`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetGroupMemberA, 文本型, "Message.DLL", "Api_GetGroupMemberA", 公开, 通过qun.qq.com接口取得群成员列表 成功返回转码后的JSON格式文本`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_GetGroupMemberB, 文本型, "Message.DLL", "Api_GetGroupMemberB", 公开, 通过qun.qzone.qq.com接口取得群成员列表 成功返回转码后的JSON格式文本`
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_GetFriendList, 文本型, "Message.DLL", "Api_GetFriendList", 公开, 通过qun.qq.com接口取得好友列表。成功返回转码后的JSON文本`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetQQAge, 整数型, "Message.DLL", "Api_GetQQAge", 公开, 取Q龄 成功返回Q龄 失败返回-1`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetAge, 整数型, "Message.DLL", "Api_GetAge", 公开, 取年龄 成功返回年龄 失败返回-1`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetPersonalProfile, 文本型, "Message.DLL", "Api_GetPersonalProfile", 公开, 取个人说明`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型, , 对象QQ
+
+.DLL命令 Api_GetEmail, 文本型, "Message.DLL", "Api_GetEmail", 公开, 取邮箱 成功返回邮箱 失败返回空`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetGender, 整数型, "Message.DLL", "Api_GetGender", 公开, 取对象性别 1男 2女  未或失败返回-1`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_SendTyping, 整数型, "Message.DLL", "Api_SendTyping", 公开, 向好友发送‘正在输入’的状态信息.当好友收到信息之后 “正在输入”状态会立刻被打断`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_SendShake, 整数型, "Message.DLL", "Api_SendShake", 公开, 向好友发送窗口抖动信息`
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetRadomOnlineQQ, 文本型, "Message.DLL", "Api_GetRadomOnlineQQ", 公开, 取得框架内随机一个在线且可以使用的QQ`
+
+.DLL命令 Api_AddQQ, 逻辑型, "Message.DLL", "Api_AddQQ", 公开, 往帐号列表添加一个Q.当该Q已存在时则覆盖密码`
+    .参数 QQ, 文本型
+    .参数 密码, 文本型
+    .参数 自动登录, 逻辑型, , 运行框架时是否自动登录该Q.若添加后需要登录该Q则需要通过Api_Login操作
+
+.DLL命令 Api_SetOLStatus, 逻辑型, "Message.DLL", "Api_SetOLStatus", 公开, 设置在线状态+附加信息 `
+    .参数 响应的QQ, 文本型
+    .参数 在线状态, 整数型, , 1~6 分别对应我在线上, Q我吧, 离开, 忙碌, 请勿打扰, 隐身
+    .参数 状态附加信息, 文本型, , 最大255字节
+
+.DLL命令 Api_GetMC, 文本型, "Message.DLL", "Api_GetMC", 公开, 取得机器码`
+
+.DLL命令 Api_GroupInvitation, 文本型, "Message.DLL", "Api_GroupInvitation", 公开, 邀请对象加入群 失败返回错误理由`
+    .参数 响应的QQ, 文本型
+    .参数 好友QQ, 文本型, , 多个好友用换行分割
+    .参数 群号, 文本型
+
+.DLL命令 Api_CreateDG, 文本型, "Message.DLL", "Api_CreateDG", 公开, 创建一个讨论组 成功返回讨论组ID 失败返回空 注:每24小时只能创建100个讨论组 悠着点用`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_KickDG, 文本型, "Message.DLL", "Api_KickDG", 公开, 将对象移除讨论组.成功返回空 失败返回理由`
+    .参数 响应的QQ, 文本型
+    .参数 讨论组ID, 文本型
+    .参数 成员, 文本型
+
+.DLL命令 Api_DGInvitation, 文本型, "Message.DLL", "Api_DGInvitation", 公开, 邀请对象加入讨论组 成功返回空 失败返回理由`
+    .参数 响应的QQ, 文本型
+    .参数 讨论组ID, 文本型
+    .参数 成员组, 文本型, , 多个成员用换行符分割
+
+.DLL命令 Api_GetDGList, 文本型, "Message.DLL", "Api_GetDGList", 公开, 成功返回以换行符分割的讨论组号列表.最大为100个讨论组  失败返回空`
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_SendMusic, 逻辑型, "Message.DLL", "Api_SendMusic", 公开, 向对象发送一条音乐信息（所谓的点歌）次数不限`
+    .参数 响应的QQ, 文本型
+    .参数 收信对象类型, 整数型, , 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 收信对象所属群_讨论组, 文本型, , 发群内、临时会话必填 好友可不填
+    .参数 收信对象QQ, 文本型, , 临时会话、好友必填 发至群内可不填
+    .参数 音乐简介, 文本型, , 留空默认‘QQ音乐 的分享’
+    .参数 音乐播放页面连接, 文本型, , 任意直连或短链接均可 留空为空 无法点开
+    .参数 音乐封面连接, 文本型, , 任意直连或短链接均可 可空 例:http://url.cn/cDiJT4
+    .参数 音乐文件直连连接, 文本型, , 任意直连或短链接均可 不可空 例:http://url.cn/djwXjr
+    .参数 曲名, 文本型, , 可空
+    .参数 歌手名, 文本型, , 可空
+    .参数 音乐来源名, 文本型, , 可空 为空默认QQ音乐
+    .参数 音乐来源图标连接, 文本型, , 可空 为空默认QQ音乐 http://qzonestyle.gtimg.cn/ac/qzone/applogo/64/308/100497308_64.gif
+
+.DLL命令 Api_SendXml, 逻辑型, "Message.DLL", "Api_SendXml", 公开, `
+    .参数 响应的QQ, 文本型
+    .参数 收信对象类型, 整数型, , 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 收信对象所属群_讨论组, 文本型, , 发群内、临时会话必填 好友可不填
+    .参数 收信对象QQ, 文本型, , 临时会话、好友必填 发至群内可不填
+    .参数 ObjectMsg, 文本型
+    .参数 结构子类型, 整数型, , 00 基本 02 点歌 其他不明
+
+.DLL命令 Api_SendObjectMsg, 逻辑型, "Message.DLL", "Api_SendObjectMsg", 公开, `
+    .参数 响应的QQ, 文本型
+    .参数 收信对象类型, 整数型, , 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 收信对象所属群_讨论组, 文本型, , 发群内、临时会话必填 好友可不填
+    .参数 收信对象QQ, 文本型, , 临时会话、好友必填 发至群内可不填
+    .参数 ObjectMsg, 文本型
+    .参数 结构子类型, 整数型, , 00 基本 02 点歌 其他不明
+
+.DLL命令 Api_IsFriend, 逻辑型, "Message.DLL", "Api_IsFriend", 公开, 判断对象是否为好友（双向）`
+    .参数 响应的QQ, 文本型
+    .参数 对象QQ, 文本型
+
+.DLL命令 Api_AddFriend, 逻辑型, "Message.DLL", "Api_AddFriend", 公开, 主动加好友 成功返回真 失败返回假 当对象设置需要正确回答问题或不允许任何人添加时无条件失败
+    .参数 响应的QQ, 文本型, , 机器人QQ
+    .参数 对象QQ, 文本型, , 加谁
+    .参数 附加理由, 文本型, , 加好友提交的理由
+
+.DLL命令 Api_SelfDisable, , "Message.DLL", "Api_SelfDisable", 公开, 无参 用于插件自身请求禁用插件自身
+
+.DLL命令 Api_GetClientType, 整数型, "Message.DLL", "Api_GetClientType", 公开, 取协议客户端类型常量 失败返回0
+
+.DLL命令 Api_GetClientVer, 整数型, "Message.DLL", "Api_GetClientVer", 公开, 取协议客户端版本号常量  失败返回0
+
+.DLL命令 Api_GetPubNo, 整数型, "Message.DLL", "Api_GetPubNo", 公开, 取协议客户端公开版本号常量  失败返回0
+
+.DLL命令 Api_GetMainVer, 整数型, "Message.DLL", "Api_GetMainVer", 公开, 取协议客户端主版本号常量  失败返回0
+
+.DLL命令 Api_GetTXSSOVer, 整数型, "Message.DLL", "Api_GetTXSSOVer", 公开, 取协议客户端通信模块(TXSSO)版本号常量  失败返回0
+
+.DLL命令 Api_GuidGetVoiceLink, 文本型, "Message.DLL", "Api_GuidGetVoiceLink", 公开, 通过音频、语音guid取得下载连接
+    .参数 响应的QQ, 文本型
+    .参数 GUID, 文本型, , 格式:{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx}.amr
+
+.DLL命令 Api_UploadVoice, 文本型, "Message.DLL", "Api_UploadVoice", 公开, 上传音频文件 成功返回guid用于发送
+    .参数 响应的QQ, 文本型
+    .参数 amr音频数据, 字节集, , 音频字节集数据
+
+.DLL命令 Api_RemoveLogHandler, , "Message.DLL", "Api_RemoveLogHandler", 公开, 移除由Api_AddLogHandler添加、设置的日志处理函数
+
+.DLL命令 Api_GetGroupName, 文本型, "Message.DLL", "Api_GetGroupName", 公开, 取群名
+    .参数 响应的QQ, 文本型
+    .参数 群号, 文本型
+
+.DLL命令 Api_RemoveMsgFilter, , "Message.DLL", "Api_RemoveMsgFilter", 公开, 移除\取消由Api_SetMsgFilter所添加\设置的处理函数
+
+.DLL命令 Api_Like, 文本型, "Message.DLL", "Api_Like", 公开, QQ名片赞 10赞每Q每日 至多50人\日系列 成功返回空 失败返回理由(腾讯爸爸给出的) 一次一赞 速度请自行管控以免冻结
+    .参数 参_响应的QQ, 文本型
+    .参数 参_被赞QQ, 文本型
+
+.DLL命令 Api_UploadGroupFile, 逻辑型, "Message.DLL", "Api_UploadGroupFile", 公开, 上传群文件
+    .参数 参_响应的QQ, 文本型
+    .参数 参_群号, 文本型
+    .参数 参_上传文件名, 文本型, , 实际显示在群文件列表中的文件名
+    .参数 参_路径, 文本型, , 本地文件路径 选填
+    .参数 参_图片数据, 字节集, , 图片字节集数据 选填
+
+.DLL命令 Api_GuidGetPicLinkEx, 文本型, "Message.DLL", "Api_GuidGetPicLinkEx", 公开, 根据图片GUID取得图片下载连接 失败返回空
+    .参数 参_图片GUID, 文本型, , {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpg这样的GUID
+    .参数 参_图片类型, 整数型, , 1好友\临时会话图片 2 群图
+    .参数 参_图片参考对象, 文本型, , 好友QQ或群号 根据参数2填写
+
+.DLL命令 Api_CancelGroupMsgA, 逻辑型, "Message.DLL", "Api_CancelGroupMsgA", 公开, 撤回群信息 需为群管
+    .参数 响应的QQ, 文本型, , 机器人QQ
+    .参数 原始信息, 文本型, , Event函数中的'参_原始信息' 经过解密后的封包字节数据
+
+.DLL命令 Api_GetCookiesByDomain, 文本型, "Message.DLL", "Api_GetCookiesByDomain", 公开, 取得用于登陆腾讯子业务的Cookies 如xxx.qq.com, 框架内维护的是qun.qq.com的通用CK
+    .参数 响应的QQ, 文本型
+    .参数 域名, 文本型, , 如qun.qq.com
+
+.DLL命令 Api_ChangeProtocol, , "Message.DLL", "Api_ChangeProtocol", 公开
+    .参数 i, 整数型
+
+.DLL命令 Api_DeleteQQ, , "Message.DLL", "Api_DeleteQQ", 公开, 从框架中删除QQ
+    .参数 被操作QQ, 文本型
+
+.DLL命令 Api_SendAppMsg, 逻辑型, "Message.DLL", "Api_SendAppMsg", 公开
+    .参数 响应的QQ, 文本型
+    .参数 收信对象类型, 整数型, , 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+    .参数 信对象所属群_讨论组, 文本型, , 文本型, , 发群内、临时会话必填 好友可不填
+    .参数 收信对象QQ, 文本型, , 临时会话、好友必填 发至群内可不填
+    .参数 AppMsg, 文本型
+
+.DLL命令 Api_GetBirthday, 文本型, "Message.DLL", "Api_GetBirthday", 公开, 取生日 失败返回空 未公开生日信息返回 "0年0月0日"
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetUserInfo, 文本型, "Message.DLL", "Api_GetUserInfo", 公开, 取用户个人信息页面字节数据 包含各种资料 返回内容为原始明文数据,需要自己解析
+    .参数 响应的QQ, 文本型
+    .参数 QQ, 文本型
+
+.DLL命令 Api_GetFriendListA, 文本型, "Message.DLL", "Api_GetFriendListA", 公开
+    .参数 响应的QQ, 文本型
+
+.DLL命令 Api_GetLoginQRCode, 文本型, "Message.DLL", "Api_GetLoginQRCode", 公开, 仅商用版可用 ,返回base64编码后的登陆二维码图片数据,手Q扫码后将会添加到框架内登陆,获取失败返回空,API本身不会重试,可以通过监听事件11010获知被扫码 参_消息内容=二维码MD5,监听事件11011获知扫码完成 参_消息内容=二维码MD5 触发对象=登陆的QQ
+
+.DLL命令 Api_UploadCface_Byte, 整数型, "Message.DLL", "Api_UploadCface_Byte", 公开, 仅商用版可用  上传头像 接受字节集参数 返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+    .参数 参_响应的QQ, 文本型, , 机器人QQ
+    .参数 参_图片数据, 整数型, , 图片字节集数据,由于易语言DLL限制你可能在这里读到的是"整数型" 请自己改成字节集,图片不限PNG JPG 大小1MB以内
+
+.DLL命令 Api_UploadCface_Path, 整数型, "Message.DLL", "Api_UploadCface_Path", 公开, 仅商用版可用 上传头像  接受路径参数 URL 或 本地路径  返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+    .参数 参_响应的QQ, 文本型, , 机器人QQ
+    .参数 参_图片路径, 文本型, , 路径 可选URL 或 本地路径  http://www.baidu,com/图片.jpg   C:\1.jpg,
+
+.DLL命令 Api_HandleFriendRequestAsync, , "Message.DLL", "Api_HandleFriendRequestAsync", , 异步处理被加好友事件 在事件1001下返回值需>30 如50 以强制忽略且确保无其他插件处理
+    .参数 参_原始信息, 文本型, , 在事件1001下取得 参_原始信息 填入
+    .参数 参_处理方式, 整数型, , 0忽略 10同意 20拒绝 30单向同意(成为单向好友) 
+    .参数 参_附加信息, 文本型, , 拒绝时的附加理由 可以留空
+
+.DLL命令 Api_HandleGroupRequestAsync, , "Message.DLL", "Api_HandleGroupRequestAsync", , 异步处理被加群类事件 在事件200x下返回值需>30 如50 以强制忽略且确保无其他插件处理
+    .参数 参_响应的QQ, 文本型, , 机器人QQ
+    .参数 参_原始信息, 文本型, , 在事件200x下取得 参_原始信息 填入
+    .参数 参_处理方式, 整数型, , 0忽略 10同意 20拒绝 30拒绝并不再接受
+    .参数 参_附加信息, 文本型, , 拒绝时的附加理由 可以留空

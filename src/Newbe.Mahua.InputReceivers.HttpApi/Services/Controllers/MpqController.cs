@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 
 // this file is generate from tools, do not change this file
-// generate time 2019/01/23 
+// generate time 2019/12/15 
 
 namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Mpq
 {
@@ -469,6 +469,45 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Mpq
             /// 单位:秒 最大为1个月. 为零解除对象或全群禁言
             /// </summary>
             public int 时长 { get; set; }
+        }
+        /// <summary>
+        /// 根据群号+QQ判断指定群员是否被禁言  获取失败的情况下亦会返回假
+        /// </summary>
+        [HttpPost("Api_IsShutup")]
+        public Task Api_IsShutup([FromBody] MpqApi_IsShutupHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_IsShutup),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.群号), input.群号},
+{nameof(input.QQ), input.QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 根据群号+QQ判断指定群员是否被禁言  获取失败的情况下亦会返回假
+        /// </summary>
+        public class MpqApi_IsShutupHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 欲判断对象所在群.
+            /// </summary>
+            public string 群号 { get; set; }
+            /// <summary>
+            /// 欲判断对象
+            /// </summary>
+            public string QQ { get; set; }
         }
         /// <summary>
         /// 发群公告`
@@ -2348,6 +2387,60 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Mpq
         /// <summary>
         /// `
         /// </summary>
+        [HttpPost("Api_SendXml")]
+        public Task Api_SendXml([FromBody] MpqApi_SendXmlHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_SendXml),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.收信对象类型), input.收信对象类型},
+{nameof(input.收信对象所属群_讨论组), input.收信对象所属群_讨论组},
+{nameof(input.收信对象QQ), input.收信对象QQ},
+{nameof(input.ObjectMsg), input.ObjectMsg},
+{nameof(input.结构子类型), input.结构子类型},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// `
+        /// </summary>
+        public class MpqApi_SendXmlHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+            /// </summary>
+            public int 收信对象类型 { get; set; }
+            /// <summary>
+            /// 发群内、临时会话必填 好友可不填
+            /// </summary>
+            public string 收信对象所属群_讨论组 { get; set; }
+            /// <summary>
+            /// 临时会话、好友必填 发至群内可不填
+            /// </summary>
+            public string 收信对象QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string ObjectMsg { get; set; }
+            /// <summary>
+            /// 00 基本 02 点歌 其他不明
+            /// </summary>
+            public int 结构子类型 { get; set; }
+        }
+        /// <summary>
+        /// `
+        /// </summary>
         [HttpPost("Api_SendObjectMsg")]
         public Task Api_SendObjectMsg([FromBody] MpqApi_SendObjectMsgHttpInput input)
         {
@@ -2432,6 +2525,908 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Mpq
             /// 
             /// </summary>
             public string 对象QQ { get; set; }
+        }
+        /// <summary>
+        /// 主动加好友 成功返回真 失败返回假 当对象设置需要正确回答问题或不允许任何人添加时无条件失败
+        /// </summary>
+        [HttpPost("Api_AddFriend")]
+        public Task Api_AddFriend([FromBody] MpqApi_AddFriendHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_AddFriend),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.对象QQ), input.对象QQ},
+{nameof(input.附加理由), input.附加理由},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 主动加好友 成功返回真 失败返回假 当对象设置需要正确回答问题或不允许任何人添加时无条件失败
+        /// </summary>
+        public class MpqApi_AddFriendHttpInput
+        {
+            /// <summary>
+            /// 机器人QQ
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 加谁
+            /// </summary>
+            public string 对象QQ { get; set; }
+            /// <summary>
+            /// 加好友提交的理由
+            /// </summary>
+            public string 附加理由 { get; set; }
+        }
+        /// <summary>
+        /// 无参 用于插件自身请求禁用插件自身
+        /// </summary>
+        [HttpPost("Api_SelfDisable")]
+        public Task Api_SelfDisable([FromBody] MpqApi_SelfDisableHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_SelfDisable),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 无参 用于插件自身请求禁用插件自身
+        /// </summary>
+        public class MpqApi_SelfDisableHttpInput
+        {
+        }
+        /// <summary>
+        /// 取协议客户端类型常量 失败返回0
+        /// </summary>
+        [HttpPost("Api_GetClientType")]
+        public Task Api_GetClientType([FromBody] MpqApi_GetClientTypeHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetClientType),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取协议客户端类型常量 失败返回0
+        /// </summary>
+        public class MpqApi_GetClientTypeHttpInput
+        {
+        }
+        /// <summary>
+        /// 取协议客户端版本号常量  失败返回0
+        /// </summary>
+        [HttpPost("Api_GetClientVer")]
+        public Task Api_GetClientVer([FromBody] MpqApi_GetClientVerHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetClientVer),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取协议客户端版本号常量  失败返回0
+        /// </summary>
+        public class MpqApi_GetClientVerHttpInput
+        {
+        }
+        /// <summary>
+        /// 取协议客户端公开版本号常量  失败返回0
+        /// </summary>
+        [HttpPost("Api_GetPubNo")]
+        public Task Api_GetPubNo([FromBody] MpqApi_GetPubNoHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetPubNo),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取协议客户端公开版本号常量  失败返回0
+        /// </summary>
+        public class MpqApi_GetPubNoHttpInput
+        {
+        }
+        /// <summary>
+        /// 取协议客户端主版本号常量  失败返回0
+        /// </summary>
+        [HttpPost("Api_GetMainVer")]
+        public Task Api_GetMainVer([FromBody] MpqApi_GetMainVerHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetMainVer),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取协议客户端主版本号常量  失败返回0
+        /// </summary>
+        public class MpqApi_GetMainVerHttpInput
+        {
+        }
+        /// <summary>
+        /// 取协议客户端通信模块(TXSSO)版本号常量  失败返回0
+        /// </summary>
+        [HttpPost("Api_GetTXSSOVer")]
+        public Task Api_GetTXSSOVer([FromBody] MpqApi_GetTXSSOVerHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetTXSSOVer),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取协议客户端通信模块(TXSSO)版本号常量  失败返回0
+        /// </summary>
+        public class MpqApi_GetTXSSOVerHttpInput
+        {
+        }
+        /// <summary>
+        /// 通过音频、语音guid取得下载连接
+        /// </summary>
+        [HttpPost("Api_GuidGetVoiceLink")]
+        public Task Api_GuidGetVoiceLink([FromBody] MpqApi_GuidGetVoiceLinkHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GuidGetVoiceLink),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.GUID), input.GUID},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 通过音频、语音guid取得下载连接
+        /// </summary>
+        public class MpqApi_GuidGetVoiceLinkHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 格式:{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx}.amr
+            /// </summary>
+            public string GUID { get; set; }
+        }
+        /// <summary>
+        /// 上传音频文件 成功返回guid用于发送
+        /// </summary>
+        [HttpPost("Api_UploadVoice")]
+        public Task Api_UploadVoice([FromBody] MpqApi_UploadVoiceHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_UploadVoice),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.amr音频数据), input.amr音频数据},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 上传音频文件 成功返回guid用于发送
+        /// </summary>
+        public class MpqApi_UploadVoiceHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 音频字节集数据
+            /// </summary>
+            public string amr音频数据 { get; set; }
+        }
+        /// <summary>
+        /// 移除由Api_AddLogHandler添加、设置的日志处理函数
+        /// </summary>
+        [HttpPost("Api_RemoveLogHandler")]
+        public Task Api_RemoveLogHandler([FromBody] MpqApi_RemoveLogHandlerHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_RemoveLogHandler),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 移除由Api_AddLogHandler添加、设置的日志处理函数
+        /// </summary>
+        public class MpqApi_RemoveLogHandlerHttpInput
+        {
+        }
+        /// <summary>
+        /// 取群名
+        /// </summary>
+        [HttpPost("Api_GetGroupName")]
+        public Task Api_GetGroupName([FromBody] MpqApi_GetGroupNameHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetGroupName),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.群号), input.群号},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取群名
+        /// </summary>
+        public class MpqApi_GetGroupNameHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 群号 { get; set; }
+        }
+        /// <summary>
+        /// 移除/取消由Api_SetMsgFilter所添加/设置的处理函数
+        /// </summary>
+        [HttpPost("Api_RemoveMsgFilter")]
+        public Task Api_RemoveMsgFilter([FromBody] MpqApi_RemoveMsgFilterHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_RemoveMsgFilter),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 移除/取消由Api_SetMsgFilter所添加/设置的处理函数
+        /// </summary>
+        public class MpqApi_RemoveMsgFilterHttpInput
+        {
+        }
+        /// <summary>
+        /// QQ名片赞 10赞每Q每日 至多50人/日系列 成功返回空 失败返回理由(腾讯爸爸给出的) 一次一赞 速度请自行管控以免冻结
+        /// </summary>
+        [HttpPost("Api_Like")]
+        public Task Api_Like([FromBody] MpqApi_LikeHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_Like),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_响应的QQ), input.参_响应的QQ},
+{nameof(input.参_被赞QQ), input.参_被赞QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// QQ名片赞 10赞每Q每日 至多50人/日系列 成功返回空 失败返回理由(腾讯爸爸给出的) 一次一赞 速度请自行管控以免冻结
+        /// </summary>
+        public class MpqApi_LikeHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 参_响应的QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 参_被赞QQ { get; set; }
+        }
+        /// <summary>
+        /// 上传群文件
+        /// </summary>
+        [HttpPost("Api_UploadGroupFile")]
+        public Task Api_UploadGroupFile([FromBody] MpqApi_UploadGroupFileHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_UploadGroupFile),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_响应的QQ), input.参_响应的QQ},
+{nameof(input.参_群号), input.参_群号},
+{nameof(input.参_上传文件名), input.参_上传文件名},
+{nameof(input.参_路径), input.参_路径},
+{nameof(input.参_图片数据), input.参_图片数据},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 上传群文件
+        /// </summary>
+        public class MpqApi_UploadGroupFileHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 参_响应的QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 参_群号 { get; set; }
+            /// <summary>
+            /// 实际显示在群文件列表中的文件名
+            /// </summary>
+            public string 参_上传文件名 { get; set; }
+            /// <summary>
+            /// 本地文件路径 选填
+            /// </summary>
+            public string 参_路径 { get; set; }
+            /// <summary>
+            /// 图片字节集数据 选填
+            /// </summary>
+            public string 参_图片数据 { get; set; }
+        }
+        /// <summary>
+        /// 根据图片GUID取得图片下载连接 失败返回空
+        /// </summary>
+        [HttpPost("Api_GuidGetPicLinkEx")]
+        public Task Api_GuidGetPicLinkEx([FromBody] MpqApi_GuidGetPicLinkExHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GuidGetPicLinkEx),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_图片GUID), input.参_图片GUID},
+{nameof(input.参_图片类型), input.参_图片类型},
+{nameof(input.参_图片参考对象), input.参_图片参考对象},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 根据图片GUID取得图片下载连接 失败返回空
+        /// </summary>
+        public class MpqApi_GuidGetPicLinkExHttpInput
+        {
+            /// <summary>
+            /// {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}.jpg这样的GUID
+            /// </summary>
+            public string 参_图片GUID { get; set; }
+            /// <summary>
+            /// 1好友/临时会话图片 2 群图
+            /// </summary>
+            public int 参_图片类型 { get; set; }
+            /// <summary>
+            /// 好友QQ或群号 根据参数2填写
+            /// </summary>
+            public string 参_图片参考对象 { get; set; }
+        }
+        /// <summary>
+        /// 撤回群信息 需为群管
+        /// </summary>
+        [HttpPost("Api_CancelGroupMsgA")]
+        public Task Api_CancelGroupMsgA([FromBody] MpqApi_CancelGroupMsgAHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_CancelGroupMsgA),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.原始信息), input.原始信息},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 撤回群信息 需为群管
+        /// </summary>
+        public class MpqApi_CancelGroupMsgAHttpInput
+        {
+            /// <summary>
+            /// 机器人QQ
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// Event函数中的'参_原始信息' 经过解密后的封包字节数据
+            /// </summary>
+            public string 原始信息 { get; set; }
+        }
+        /// <summary>
+        /// 取得用于登陆腾讯子业务的Cookies 如xxx.qq.com
+        /// </summary>
+        [HttpPost("Api_GetCookiesByDomain")]
+        public Task Api_GetCookiesByDomain([FromBody] MpqApi_GetCookiesByDomainHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetCookiesByDomain),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.域名), input.域名},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取得用于登陆腾讯子业务的Cookies 如xxx.qq.com
+        /// </summary>
+        public class MpqApi_GetCookiesByDomainHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 如qun.qq.com
+            /// </summary>
+            public string 域名 { get; set; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [HttpPost("Api_ChangeProtocol")]
+        public Task Api_ChangeProtocol([FromBody] MpqApi_ChangeProtocolHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_ChangeProtocol),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.i), input.i},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class MpqApi_ChangeProtocolHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public int i { get; set; }
+        }
+        /// <summary>
+        /// 从框架中删除QQ
+        /// </summary>
+        [HttpPost("Api_DeleteQQ")]
+        public Task Api_DeleteQQ([FromBody] MpqApi_DeleteQQHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_DeleteQQ),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.被操作QQ), input.被操作QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 从框架中删除QQ
+        /// </summary>
+        public class MpqApi_DeleteQQHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 被操作QQ { get; set; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [HttpPost("Api_SendAppMsg")]
+        public Task Api_SendAppMsg([FromBody] MpqApi_SendAppMsgHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_SendAppMsg),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.收信对象类型), input.收信对象类型},
+{nameof(input.信对象所属群_讨论组), input.信对象所属群_讨论组},
+{nameof(input.收信对象QQ), input.收信对象QQ},
+{nameof(input.AppMsg), input.AppMsg},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class MpqApi_SendAppMsgHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 同Api_SendMsg  1好友 2群 3讨论组 4群临时会话 5讨论组临时会话
+            /// </summary>
+            public int 收信对象类型 { get; set; }
+            /// <summary>
+            /// 文本型, , 发群内、临时会话必填 好友可不填
+            /// </summary>
+            public string 信对象所属群_讨论组 { get; set; }
+            /// <summary>
+            /// 临时会话、好友必填 发至群内可不填
+            /// </summary>
+            public string 收信对象QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string AppMsg { get; set; }
+        }
+        /// <summary>
+        /// 取生日 失败返回空 未公开生日信息返回 \"0 年0月0日\
+        /// </summary>
+        [HttpPost("Api_GetBirthday")]
+        public Task Api_GetBirthday([FromBody] MpqApi_GetBirthdayHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetBirthday),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.QQ), input.QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取生日 失败返回空 未公开生日信息返回 \"0 年0月0日\
+        /// </summary>
+        public class MpqApi_GetBirthdayHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string QQ { get; set; }
+        }
+        /// <summary>
+        /// 取用户个人信息页面字节数据 包含各种资料 返回内容为原始明文数据
+        /// </summary>
+        [HttpPost("Api_GetUserInfo")]
+        public Task Api_GetUserInfo([FromBody] MpqApi_GetUserInfoHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetUserInfo),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+{nameof(input.QQ), input.QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取用户个人信息页面字节数据 包含各种资料 返回内容为原始明文数据
+        /// </summary>
+        public class MpqApi_GetUserInfoHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public string QQ { get; set; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [HttpPost("Api_GetFriendListA")]
+        public Task Api_GetFriendListA([FromBody] MpqApi_GetFriendListAHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetFriendListA),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.响应的QQ), input.响应的QQ},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public class MpqApi_GetFriendListAHttpInput
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public string 响应的QQ { get; set; }
+        }
+        /// <summary>
+        /// 仅商用版可用
+        /// </summary>
+        [HttpPost("Api_GetLoginQRCode")]
+        public Task Api_GetLoginQRCode([FromBody] MpqApi_GetLoginQRCodeHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_GetLoginQRCode),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 仅商用版可用
+        /// </summary>
+        public class MpqApi_GetLoginQRCodeHttpInput
+        {
+        }
+        /// <summary>
+        /// 仅商用版可用  上传头像 接受字节集参数 返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+        /// </summary>
+        [HttpPost("Api_UploadCface_Byte")]
+        public Task Api_UploadCface_Byte([FromBody] MpqApi_UploadCface_ByteHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_UploadCface_Byte),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_响应的QQ), input.参_响应的QQ},
+{nameof(input.参_图片数据), input.参_图片数据},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 仅商用版可用  上传头像 接受字节集参数 返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+        /// </summary>
+        public class MpqApi_UploadCface_ByteHttpInput
+        {
+            /// <summary>
+            /// 机器人QQ
+            /// </summary>
+            public string 参_响应的QQ { get; set; }
+            /// <summary>
+            /// 图片字节集数据,由于易语言DLL限制你可能在这里读到的是\"整数型\" 请自己改成字节集,图片不限PNG JPG 大小1MB以内
+            /// </summary>
+            public int 参_图片数据 { get; set; }
+        }
+        /// <summary>
+        /// 仅商用版可用 上传头像  接受路径参数 URL 或 本地路径  返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+        /// </summary>
+        [HttpPost("Api_UploadCface_Path")]
+        public Task Api_UploadCface_Path([FromBody] MpqApi_UploadCface_PathHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_UploadCface_Path),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_响应的QQ), input.参_响应的QQ},
+{nameof(input.参_图片路径), input.参_图片路径},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 仅商用版可用 上传头像  接受路径参数 URL 或 本地路径  返回值:0 上传成功 -1参数有误  -2图片大于1MB -3获取上传令牌失败受限 -4其他理由上传失败
+        /// </summary>
+        public class MpqApi_UploadCface_PathHttpInput
+        {
+            /// <summary>
+            /// 机器人QQ
+            /// </summary>
+            public string 参_响应的QQ { get; set; }
+            /// <summary>
+            /// 路径 可选URL 或 本地路径  http://www.baidu,com/图片.jpg   C:/1.jpg,
+            /// </summary>
+            public string 参_图片路径 { get; set; }
+        }
+        /// <summary>
+        /// 异步处理被加好友事件 在事件1001下返回值需>30 如50 以强制忽略且确保无其他插件处理
+        /// </summary>
+        [HttpPost("Api_HandleFriendRequestAsync")]
+        public Task Api_HandleFriendRequestAsync([FromBody] MpqApi_HandleFriendRequestAsyncHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_HandleFriendRequestAsync),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_原始信息), input.参_原始信息},
+{nameof(input.参_处理方式), input.参_处理方式},
+{nameof(input.参_附加信息), input.参_附加信息},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 异步处理被加好友事件 在事件1001下返回值需>30 如50 以强制忽略且确保无其他插件处理
+        /// </summary>
+        public class MpqApi_HandleFriendRequestAsyncHttpInput
+        {
+            /// <summary>
+            /// 在事件1001下取得 参_原始信息 填入
+            /// </summary>
+            public string 参_原始信息 { get; set; }
+            /// <summary>
+            /// 0忽略 10同意 20拒绝 30单向同意(成为单向好友)
+            /// </summary>
+            public int 参_处理方式 { get; set; }
+            /// <summary>
+            /// 拒绝时的附加理由 可以留空
+            /// </summary>
+            public string 参_附加信息 { get; set; }
+        }
+        /// <summary>
+        /// 异步处理被加群类事件 在事件200x下返回值需>30 如50 以强制忽略且确保无其他插件处理
+        /// </summary>
+        [HttpPost("Api_HandleGroupRequestAsync")]
+        public Task Api_HandleGroupRequestAsync([FromBody] MpqApi_HandleGroupRequestAsyncHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(Api_HandleGroupRequestAsync),
+                MahuaPlatform = MahuaPlatform.Mpq,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.参_响应的QQ), input.参_响应的QQ},
+{nameof(input.参_原始信息), input.参_原始信息},
+{nameof(input.参_处理方式), input.参_处理方式},
+{nameof(input.参_附加信息), input.参_附加信息},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 异步处理被加群类事件 在事件200x下返回值需>30 如50 以强制忽略且确保无其他插件处理
+        /// </summary>
+        public class MpqApi_HandleGroupRequestAsyncHttpInput
+        {
+            /// <summary>
+            /// 机器人QQ
+            /// </summary>
+            public string 参_响应的QQ { get; set; }
+            /// <summary>
+            /// 在事件200x下取得 参_原始信息 填入
+            /// </summary>
+            public string 参_原始信息 { get; set; }
+            /// <summary>
+            /// 0忽略 10同意 20拒绝 30拒绝并不再接受
+            /// </summary>
+            public int 参_处理方式 { get; set; }
+            /// <summary>
+            /// 拒绝时的附加理由 可以留空
+            /// </summary>
+            public string 参_附加信息 { get; set; }
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 
 // this file is generate from tools, do not change this file
-// generate time 2019/01/23 
+// generate time 2019/12/15 
 
 namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
 {
@@ -32,7 +32,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 MahuaPlatform = MahuaPlatform.Cqp,
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.msg), input.msg},
 }
             )
@@ -46,9 +46,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         public class CqpCQ_sendPrivateMsgHttpInput
         {
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 消息内容
             /// </summary>
@@ -163,7 +163,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 MahuaPlatform = MahuaPlatform.Cqp,
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.times), input.times},
 }
             )
@@ -177,9 +177,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         public class CqpCQ_sendLikeV2HttpInput
         {
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 赞的次数，最多10次
             /// </summary>
@@ -188,16 +188,17 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         /// <summary>
         /// 取Cookies(慎用
         /// </summary>
-        [HttpPost("CQ_getCookies")]
-        public Task CQ_getCookies([FromBody] CqpCQ_getCookiesHttpInput input)
+        [HttpPost("CQ_getCookiesV2")]
+        public Task CQ_getCookiesV2([FromBody] CqpCQ_getCookiesV2HttpInput input)
         {
             var httpInput = new HttpInput
             {
-                TypeCode = nameof(CQ_getCookies),
+                TypeCode = nameof(CQ_getCookiesV2),
                 MahuaPlatform = MahuaPlatform.Cqp,
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
-                {
-                }
+{
+{nameof(input.domain), input.domain},
+}
             )
             }
             ;
@@ -206,11 +207,15 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         /// <summary>
         /// 取Cookies(慎用
         /// </summary>
-        public class CqpCQ_getCookiesHttpInput
+        public class CqpCQ_getCookiesV2HttpInput
         {
+            /// <summary>
+            /// 目标域名，如 api.example.com
+            /// </summary>
+            public string domain { get; set; }
         }
         /// <summary>
-        /// 接收语音
+        /// 【已弃用】接收语音，并返回语音文件相对路径
         /// </summary>
         [HttpPost("CQ_getRecord")]
         public Task CQ_getRecord([FromBody] CqpCQ_getRecordHttpInput input)
@@ -230,7 +235,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             return _mahuaCenter.HandleMahuaInput(httpInput);
         }
         /// <summary>
-        /// 接收语音
+        /// 【已弃用】接收语音，并返回语音文件相对路径
         /// </summary>
         public class CqpCQ_getRecordHttpInput
         {
@@ -242,6 +247,117 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// 应用所需的格式
             /// </summary>
             public string outformat { get; set; }
+        }
+        /// <summary>
+        /// 接收语音，并返回语音文件绝对路径
+        /// </summary>
+        [HttpPost("CQ_getRecordV2")]
+        public Task CQ_getRecordV2([FromBody] CqpCQ_getRecordV2HttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_getRecordV2),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.file), input.file},
+{nameof(input.outformat), input.outformat},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 接收语音，并返回语音文件绝对路径
+        /// </summary>
+        public class CqpCQ_getRecordV2HttpInput
+        {
+            /// <summary>
+            /// 收到消息中的语音文件名(file)
+            /// </summary>
+            public string file { get; set; }
+            /// <summary>
+            /// 应用所需的格式
+            /// </summary>
+            public string outformat { get; set; }
+        }
+        /// <summary>
+        /// 接收图片，并返回图片文件绝对路径
+        /// </summary>
+        [HttpPost("CQ_getImage")]
+        public Task CQ_getImage([FromBody] CqpCQ_getImageHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_getImage),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.file), input.file},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 接收图片，并返回图片文件绝对路径
+        /// </summary>
+        public class CqpCQ_getImageHttpInput
+        {
+            /// <summary>
+            /// 收到消息中的图片文件名(file)
+            /// </summary>
+            public string file { get; set; }
+        }
+        /// <summary>
+        /// 是否支持发送图片，返回大于 0 为支持，等于 0 为不支持
+        /// </summary>
+        [HttpPost("CQ_canSendImage")]
+        public Task CQ_canSendImage([FromBody] CqpCQ_canSendImageHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_canSendImage),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 是否支持发送图片，返回大于 0 为支持，等于 0 为不支持
+        /// </summary>
+        public class CqpCQ_canSendImageHttpInput
+        {
+        }
+        /// <summary>
+        /// 是否支持发送语音，返回大于 0 为支持，等于 0 为不支持
+        /// </summary>
+        [HttpPost("CQ_canSendRecord")]
+        public Task CQ_canSendRecord([FromBody] CqpCQ_canSendRecordHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_canSendRecord),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+                {
+                }
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 是否支持发送语音，返回大于 0 为支持，等于 0 为不支持
+        /// </summary>
+        public class CqpCQ_canSendRecordHttpInput
+        {
         }
         /// <summary>
         /// 取CsrfToken(慎用
@@ -292,7 +408,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         {
         }
         /// <summary>
-        /// 取登录QQ
+        /// 取登录帐号
         /// </summary>
         [HttpPost("CQ_getLoginQQ")]
         public Task CQ_getLoginQQ([FromBody] CqpCQ_getLoginQQHttpInput input)
@@ -310,7 +426,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             return _mahuaCenter.HandleMahuaInput(httpInput);
         }
         /// <summary>
-        /// 取登录QQ
+        /// 取登录帐号
         /// </summary>
         public class CqpCQ_getLoginQQHttpInput
         {
@@ -352,7 +468,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.拒绝再加群), input.拒绝再加群},
 }
             )
@@ -370,9 +486,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 如果为真，则“不再接收此人加群申请”，请慎用
             /// </summary>
@@ -391,7 +507,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.禁言时间), input.禁言时间},
 }
             )
@@ -409,9 +525,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 禁言的时间，单位为秒。如果要解禁，这里填写0
             /// </summary>
@@ -430,7 +546,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.成为管理员), input.成为管理员},
 }
             )
@@ -448,9 +564,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 被设置的QQ
+            /// 被设置的帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 真/设置管理员 假/取消管理员
             /// </summary>
@@ -469,7 +585,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.头衔), input.头衔},
 {nameof(input.过期时间), input.过期时间},
 }
@@ -488,9 +604,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 如果要删除，这里填空
             /// </summary>
@@ -620,7 +736,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.新名片_昵称), input.新名片_昵称},
 }
             )
@@ -638,9 +754,9 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 被设置的QQ
+            /// 被设置的帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 
             /// </summary>
@@ -873,7 +989,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
 {nameof(input.群号), input.群号},
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.不使用缓存), input.不使用缓存},
 }
             )
@@ -887,13 +1003,13 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         public class CqpCQ_getGroupMemberInfoV2HttpInput
         {
             /// <summary>
-            /// 目标QQ所在群
+            /// 目标帐号所在群
             /// </summary>
             public long 群号 { get; set; }
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
             /// <summary>
             /// 
             /// </summary>
@@ -924,7 +1040,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         public class CqpCQ_getGroupMemberListHttpInput
         {
             /// <summary>
-            /// 目标QQ所在群
+            /// 目标帐号所在群
             /// </summary>
             public long 群号 { get; set; }
         }
@@ -953,6 +1069,35 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         {
         }
         /// <summary>
+        /// 取好友列表
+        /// </summary>
+        [HttpPost("CQ_getFriendList")]
+        public Task CQ_getFriendList([FromBody] CqpCQ_getFriendListHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_getFriendList),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.reserved), input.reserved},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取好友列表
+        /// </summary>
+        public class CqpCQ_getFriendListHttpInput
+        {
+            /// <summary>
+            /// 保留参数，请传入“假”
+            /// </summary>
+            public bool reserved { get; set; }
+        }
+        /// <summary>
         /// 取陌生人信息(支持缓存)
         /// </summary>
         [HttpPost("CQ_getStrangerInfo")]
@@ -964,7 +1109,7 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
                 MahuaPlatform = MahuaPlatform.Cqp,
                 Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
 {
-{nameof(input.QQID), input.QQID},
+{nameof(input.Account), input.Account},
 {nameof(input.不使用缓存), input.不使用缓存},
 }
             )
@@ -978,9 +1123,43 @@ namespace Newbe.Mahua.InputReceivers.HttpApi.Services.Controllers.Cqp
         public class CqpCQ_getStrangerInfoHttpInput
         {
             /// <summary>
-            /// 目标QQ
+            /// 目标帐号
             /// </summary>
-            public long QQID { get; set; }
+            public long Account { get; set; }
+            /// <summary>
+            /// 
+            /// </summary>
+            public bool 不使用缓存 { get; set; }
+        }
+        /// <summary>
+        /// 取群信息(支持缓存)
+        /// </summary>
+        [HttpPost("CQ_getGroupInfo")]
+        public Task CQ_getGroupInfo([FromBody] CqpCQ_getGroupInfoHttpInput input)
+        {
+            var httpInput = new HttpInput
+            {
+                TypeCode = nameof(CQ_getGroupInfo),
+                MahuaPlatform = MahuaPlatform.Cqp,
+                Data = new ReadOnlyDictionary<string, object>(new Dictionary<string, object>
+{
+{nameof(input.群号), input.群号},
+{nameof(input.不使用缓存), input.不使用缓存},
+}
+            )
+            }
+            ;
+            return _mahuaCenter.HandleMahuaInput(httpInput);
+        }
+        /// <summary>
+        /// 取群信息(支持缓存)
+        /// </summary>
+        public class CqpCQ_getGroupInfoHttpInput
+        {
+            /// <summary>
+            /// 目标群
+            /// </summary>
+            public long 群号 { get; set; }
             /// <summary>
             /// 
             /// </summary>

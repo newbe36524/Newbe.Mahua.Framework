@@ -2,10 +2,20 @@
 
     <PropertyGroup>
         <TargetFramework>net461</TargetFramework>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="CommandLineParser" Version="2.4.3" />
+      <PackageReference Include="CommandLineParser" Version="2.6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="source\qqlight.cs" />
+      <Content Include="source\qqlight.cs" />
+      <Compile Remove="source\mpq.cs" />
+      <Content Include="source\mpq.cs" />
+      <Compile Remove="source\cqp.cs" />
+      <Content Include="source\cqp.cs" />
     </ItemGroup>
 
 </Project>

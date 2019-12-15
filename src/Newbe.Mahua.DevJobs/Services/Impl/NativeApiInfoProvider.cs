@@ -6,11 +6,14 @@ namespace Newbe.Mahua.NativeApiClassfy.Services.Impl
 {
     public class NativeApiInfoProvider : INativeApiInfoProvider
     {
+        private readonly ISourceFileProvider _sourceFileProvider;
         private readonly INativeApiInfoResolver _nativeApiInfoResolver;
 
         public NativeApiInfoProvider(
+            ISourceFileProvider sourceFileProvider,
             INativeApiInfoResolver nativeApiInfoResolver)
         {
+            _sourceFileProvider = sourceFileProvider;
             _nativeApiInfoResolver = nativeApiInfoResolver;
         }
 
@@ -25,21 +28,18 @@ namespace Newbe.Mahua.NativeApiClassfy.Services.Impl
 
         private NativeApiInfo ResolveNativeApiInfo(MahuaPlatform mahuaPlatform)
         {
-            string filename;
-            switch (mahuaPlatform)
+            var basePath = _sourceFileProvider.GetBasePath();
+            var filePath = mahuaPlatform switch
             {
-                case MahuaPlatform.Cqp:
-                    filename = "../Newbe.Mahua/NativeApi/ICqpApi.cs";
-                    break;
-                case MahuaPlatform.Mpq:
-                    filename = "../Newbe.Mahua/NativeApi/IMpqApi.cs";
-                    break;
-                case MahuaPlatform.QQLight:
-                    filename = "../Newbe.Mahua/NativeApi/IQQLightApi.cs";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(mahuaPlatform), mahuaPlatform, null);
-            }
+                MahuaPlatform.Cqp => "Newbe.Mahua/NativeApi/ICqpApi.cs",
+                MahuaPlatform.Mpq => "Newbe.Mahua/NativeApi/IMpqApi.cs",
+                MahuaPlatform.QQLight => "Newbe.Mahua/NativeApi/IQQLightApi.cs",
+                MahuaPlatform.Amanda => throw new NotSupportedException(),
+                MahuaPlatform.CleverQQ => throw new NotSupportedException(),
+                _ => throw new ArgumentOutOfRangeException(nameof(mahuaPlatform), mahuaPlatform, null)
+            };
+
+            var filename = Path.Combine(basePath, filePath);
 
             var apiSourceFile = File.ReadAllText(filename);
             var nativeApiInfo = _nativeApiInfoResolver.GetMahuaApiInfo(apiSourceFile);

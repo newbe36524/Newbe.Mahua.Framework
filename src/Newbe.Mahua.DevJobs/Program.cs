@@ -30,6 +30,11 @@ namespace Newbe.Mahua.NativeApiClassfy
                 .As<IClock>()
                 .SingleInstance();
 
+            var sourceFileProvider = new SourceFileProvider("D:/Repo/newbe/Newbe.Mahua.Framework/src");
+            builder.RegisterInstance(sourceFileProvider)
+                .AsImplementedInterfaces()
+                .SingleInstance();
+
             foreach (var jobType in typeof(Program).Assembly.GetTypes()
                 .Where(x => x.GetInterface(nameof(IJob)) != null))
             {

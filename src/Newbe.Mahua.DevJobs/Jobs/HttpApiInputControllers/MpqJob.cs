@@ -7,15 +7,18 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.HttpApiInputControllers
 {
     public class MpqJob : IJob
     {
+        private readonly ISourceFileProvider _sourceFileProvider;
         private readonly INativeApiInfoProvider _nativeApiInfoProvider;
         private readonly IHttpApiInputModelsGenerator _httpApiInputModelsGenerator;
 
         public MpqJob(
             IHttpApiInputModelsGenerator httpApiInputModelsGenerator,
-            INativeApiInfoProvider nativeApiInfoProvider)
+            INativeApiInfoProvider nativeApiInfoProvider,
+            ISourceFileProvider sourceFileProvider)
         {
             _httpApiInputModelsGenerator = httpApiInputModelsGenerator;
             _nativeApiInfoProvider = nativeApiInfoProvider;
+            _sourceFileProvider = sourceFileProvider;
         }
 
         public Task Run()
@@ -27,7 +30,9 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.HttpApiInputControllers
                 MahuaPlatform = MahuaPlatform.Mpq
             });
             var code = CodeFormatter.FormatCode(nativeApiIn);
-            File.WriteAllText("../Newbe.Mahua.InputReceivers.HttpApi/Services/Controllers/MpqController.cs",
+            var filename = Path.Combine(_sourceFileProvider.GetBasePath(),
+                "Newbe.Mahua.InputReceivers.HttpApi/Services/Controllers/MpqController.cs");
+            File.WriteAllText(filename,
                 code,
                 Encoding.UTF8);
 
