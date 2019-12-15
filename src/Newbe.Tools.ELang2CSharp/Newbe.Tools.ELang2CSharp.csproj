@@ -10,12 +10,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="source" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="source\qqlight.cs" />
       <Content Include="source\qqlight.cs" />
+      <Compile Remove="source\mpq.cs" />
+      <Content Include="source\mpq.cs" />
     </ItemGroup>
 
 </Project>

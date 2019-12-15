@@ -96,6 +96,11 @@ namespace Newbe.Mahua.Mpq
                     _mpqApi.Api_Shutup(响应的QQ: data["响应的QQ"].ToString(), 群号: data["群号"].ToString(), QQ: data["QQ"].ToString(), 时长: Convert.ToInt32(data["时长"]));
                     return _mahuaCenter.HandleMahuaOutput(new Api_ShutupApiOut
                     { Result = Api_ShutupResult });
+                case "Api_IsShutup":
+                    var Api_IsShutupResult =
+                    _mpqApi.Api_IsShutup(响应的QQ: data["响应的QQ"].ToString(), 群号: data["群号"].ToString(), QQ: data["QQ"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_IsShutupApiOut
+                    { Result = Api_IsShutupResult });
                 case "Api_SetNotice":
                     _mpqApi.Api_SetNotice(响应的QQ: data["响应的QQ"].ToString(), 群号: data["群号"].ToString(), 标题: data["标题"].ToString(), 内容: data["内容"].ToString());
                     return Task.CompletedTask;
@@ -359,6 +364,11 @@ namespace Newbe.Mahua.Mpq
                     _mpqApi.Api_SendMusic(响应的QQ: data["响应的QQ"].ToString(), 收信对象类型: Convert.ToInt32(data["收信对象类型"]), 收信对象所属群_讨论组: data["收信对象所属群_讨论组"].ToString(), 收信对象QQ: data["收信对象QQ"].ToString(), 音乐简介: data["音乐简介"].ToString(), 音乐播放页面连接: data["音乐播放页面连接"].ToString(), 音乐封面连接: data["音乐封面连接"].ToString(), 音乐文件直连连接: data["音乐文件直连连接"].ToString(), 曲名: data["曲名"].ToString(), 歌手名: data["歌手名"].ToString(), 音乐来源名: data["音乐来源名"].ToString(), 音乐来源图标连接: data["音乐来源图标连接"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new Api_SendMusicApiOut
                     { Result = Api_SendMusicResult });
+                case "Api_SendXml":
+                    var Api_SendXmlResult =
+                    _mpqApi.Api_SendXml(响应的QQ: data["响应的QQ"].ToString(), 收信对象类型: Convert.ToInt32(data["收信对象类型"]), 收信对象所属群_讨论组: data["收信对象所属群_讨论组"].ToString(), 收信对象QQ: data["收信对象QQ"].ToString(), ObjectMsg: data["ObjectMsg"].ToString(), 结构子类型: Convert.ToInt32(data["结构子类型"]));
+                    return _mahuaCenter.HandleMahuaOutput(new Api_SendXmlApiOut
+                    { Result = Api_SendXmlResult });
                 case "Api_SendObjectMsg":
                     var Api_SendObjectMsgResult =
                     _mpqApi.Api_SendObjectMsg(响应的QQ: data["响应的QQ"].ToString(), 收信对象类型: Convert.ToInt32(data["收信对象类型"]), 收信对象所属群_讨论组: data["收信对象所属群_讨论组"].ToString(), 收信对象QQ: data["收信对象QQ"].ToString(), ObjectMsg: data["ObjectMsg"].ToString(), 结构子类型: Convert.ToInt32(data["结构子类型"]));
@@ -369,6 +379,132 @@ namespace Newbe.Mahua.Mpq
                     _mpqApi.Api_IsFriend(响应的QQ: data["响应的QQ"].ToString(), 对象QQ: data["对象QQ"].ToString());
                     return _mahuaCenter.HandleMahuaOutput(new Api_IsFriendApiOut
                     { Result = Api_IsFriendResult });
+                case "Api_AddFriend":
+                    var Api_AddFriendResult =
+                    _mpqApi.Api_AddFriend(响应的QQ: data["响应的QQ"].ToString(), 对象QQ: data["对象QQ"].ToString(), 附加理由: data["附加理由"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_AddFriendApiOut
+                    { Result = Api_AddFriendResult });
+                case "Api_SelfDisable":
+                    _mpqApi.Api_SelfDisable();
+                    return Task.CompletedTask;
+                case "Api_GetClientType":
+                    var Api_GetClientTypeResult =
+                    _mpqApi.Api_GetClientType();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetClientTypeApiOut
+                    { Result = Api_GetClientTypeResult });
+                case "Api_GetClientVer":
+                    var Api_GetClientVerResult =
+                    _mpqApi.Api_GetClientVer();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetClientVerApiOut
+                    { Result = Api_GetClientVerResult });
+                case "Api_GetPubNo":
+                    var Api_GetPubNoResult =
+                    _mpqApi.Api_GetPubNo();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetPubNoApiOut
+                    { Result = Api_GetPubNoResult });
+                case "Api_GetMainVer":
+                    var Api_GetMainVerResult =
+                    _mpqApi.Api_GetMainVer();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetMainVerApiOut
+                    { Result = Api_GetMainVerResult });
+                case "Api_GetTXSSOVer":
+                    var Api_GetTXSSOVerResult =
+                    _mpqApi.Api_GetTXSSOVer();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetTXSSOVerApiOut
+                    { Result = Api_GetTXSSOVerResult });
+                case "Api_GuidGetVoiceLink":
+                    var Api_GuidGetVoiceLinkResult =
+                    _mpqApi.Api_GuidGetVoiceLink(响应的QQ: data["响应的QQ"].ToString(), GUID: data["GUID"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GuidGetVoiceLinkApiOut
+                    { Result = Api_GuidGetVoiceLinkResult });
+                case "Api_UploadVoice":
+                    var Api_UploadVoiceResult =
+                    _mpqApi.Api_UploadVoice(响应的QQ: data["响应的QQ"].ToString(), amr音频数据: Convert.FromBase64String(data["amr音频数据"].ToString()));
+                    return _mahuaCenter.HandleMahuaOutput(new Api_UploadVoiceApiOut
+                    { Result = Api_UploadVoiceResult });
+                case "Api_RemoveLogHandler":
+                    _mpqApi.Api_RemoveLogHandler();
+                    return Task.CompletedTask;
+                case "Api_GetGroupName":
+                    var Api_GetGroupNameResult =
+                    _mpqApi.Api_GetGroupName(响应的QQ: data["响应的QQ"].ToString(), 群号: data["群号"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetGroupNameApiOut
+                    { Result = Api_GetGroupNameResult });
+                case "Api_RemoveMsgFilter":
+                    _mpqApi.Api_RemoveMsgFilter();
+                    return Task.CompletedTask;
+                case "Api_Like":
+                    var Api_LikeResult =
+                    _mpqApi.Api_Like(参_响应的QQ: data["参_响应的QQ"].ToString(), 参_被赞QQ: data["参_被赞QQ"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_LikeApiOut
+                    { Result = Api_LikeResult });
+                case "Api_UploadGroupFile":
+                    var Api_UploadGroupFileResult =
+                    _mpqApi.Api_UploadGroupFile(参_响应的QQ: data["参_响应的QQ"].ToString(), 参_群号: data["参_群号"].ToString(), 参_上传文件名: data["参_上传文件名"].ToString(), 参_路径: data["参_路径"].ToString(), 参_图片数据: Convert.FromBase64String(data["参_图片数据"].ToString()));
+                    return _mahuaCenter.HandleMahuaOutput(new Api_UploadGroupFileApiOut
+                    { Result = Api_UploadGroupFileResult });
+                case "Api_GuidGetPicLinkEx":
+                    var Api_GuidGetPicLinkExResult =
+                    _mpqApi.Api_GuidGetPicLinkEx(参_图片GUID: data["参_图片GUID"].ToString(), 参_图片类型: Convert.ToInt32(data["参_图片类型"]), 参_图片参考对象: data["参_图片参考对象"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GuidGetPicLinkExApiOut
+                    { Result = Api_GuidGetPicLinkExResult });
+                case "Api_CancelGroupMsgA":
+                    var Api_CancelGroupMsgAResult =
+                    _mpqApi.Api_CancelGroupMsgA(响应的QQ: data["响应的QQ"].ToString(), 原始信息: data["原始信息"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_CancelGroupMsgAApiOut
+                    { Result = Api_CancelGroupMsgAResult });
+                case "Api_GetCookiesByDomain":
+                    var Api_GetCookiesByDomainResult =
+                    _mpqApi.Api_GetCookiesByDomain(响应的QQ: data["响应的QQ"].ToString(), 域名: data["域名"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetCookiesByDomainApiOut
+                    { Result = Api_GetCookiesByDomainResult });
+                case "Api_ChangeProtocol":
+                    _mpqApi.Api_ChangeProtocol(i: Convert.ToInt32(data["i"]));
+                    return Task.CompletedTask;
+                case "Api_DeleteQQ":
+                    _mpqApi.Api_DeleteQQ(被操作QQ: data["被操作QQ"].ToString());
+                    return Task.CompletedTask;
+                case "Api_SendAppMsg":
+                    var Api_SendAppMsgResult =
+                    _mpqApi.Api_SendAppMsg(响应的QQ: data["响应的QQ"].ToString(), 收信对象类型: Convert.ToInt32(data["收信对象类型"]), 信对象所属群_讨论组: data["信对象所属群_讨论组"].ToString(), 收信对象QQ: data["收信对象QQ"].ToString(), AppMsg: data["AppMsg"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_SendAppMsgApiOut
+                    { Result = Api_SendAppMsgResult });
+                case "Api_GetBirthday":
+                    var Api_GetBirthdayResult =
+                    _mpqApi.Api_GetBirthday(响应的QQ: data["响应的QQ"].ToString(), QQ: data["QQ"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetBirthdayApiOut
+                    { Result = Api_GetBirthdayResult });
+                case "Api_GetUserInfo":
+                    var Api_GetUserInfoResult =
+                    _mpqApi.Api_GetUserInfo(响应的QQ: data["响应的QQ"].ToString(), QQ: data["QQ"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetUserInfoApiOut
+                    { Result = Api_GetUserInfoResult });
+                case "Api_GetFriendListA":
+                    var Api_GetFriendListAResult =
+                    _mpqApi.Api_GetFriendListA(响应的QQ: data["响应的QQ"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetFriendListAApiOut
+                    { Result = Api_GetFriendListAResult });
+                case "Api_GetLoginQRCode":
+                    var Api_GetLoginQRCodeResult =
+                    _mpqApi.Api_GetLoginQRCode();
+                    return _mahuaCenter.HandleMahuaOutput(new Api_GetLoginQRCodeApiOut
+                    { Result = Api_GetLoginQRCodeResult });
+                case "Api_UploadCface_Byte":
+                    var Api_UploadCface_ByteResult =
+                    _mpqApi.Api_UploadCface_Byte(参_响应的QQ: data["参_响应的QQ"].ToString(), 参_图片数据: Convert.ToInt32(data["参_图片数据"]));
+                    return _mahuaCenter.HandleMahuaOutput(new Api_UploadCface_ByteApiOut
+                    { Result = Api_UploadCface_ByteResult });
+                case "Api_UploadCface_Path":
+                    var Api_UploadCface_PathResult =
+                    _mpqApi.Api_UploadCface_Path(参_响应的QQ: data["参_响应的QQ"].ToString(), 参_图片路径: data["参_图片路径"].ToString());
+                    return _mahuaCenter.HandleMahuaOutput(new Api_UploadCface_PathApiOut
+                    { Result = Api_UploadCface_PathResult });
+                case "Api_HandleFriendRequestAsync":
+                    _mpqApi.Api_HandleFriendRequestAsync(参_原始信息: data["参_原始信息"].ToString(), 参_处理方式: Convert.ToInt32(data["参_处理方式"]), 参_附加信息: data["参_附加信息"].ToString());
+                    return Task.CompletedTask;
+                case "Api_HandleGroupRequestAsync":
+                    _mpqApi.Api_HandleGroupRequestAsync(参_响应的QQ: data["参_响应的QQ"].ToString(), 参_原始信息: data["参_原始信息"].ToString(), 参_处理方式: Convert.ToInt32(data["参_处理方式"]), 参_附加信息: data["参_附加信息"].ToString());
+                    return Task.CompletedTask;
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(typeCode));
@@ -470,6 +606,14 @@ namespace Newbe.Mahua.Mpq
     {
         public bool Result { get; set; }
         public override string TypeCode => nameof(Api_ShutupApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_IsShutup
+    /// </summary>
+    public class Api_IsShutupApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_IsShutupApiOut);
     }
     /// <summary>
     /// api out of method Api_GetNotice
@@ -864,6 +1008,14 @@ namespace Newbe.Mahua.Mpq
         public override string TypeCode => nameof(Api_SendMusicApiOut);
     }
     /// <summary>
+    /// api out of method Api_SendXml
+    /// </summary>
+    public class Api_SendXmlApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_SendXmlApiOut);
+    }
+    /// <summary>
     /// api out of method Api_SendObjectMsg
     /// </summary>
     public class Api_SendObjectMsgApiOut : MpqApiOutput
@@ -878,5 +1030,173 @@ namespace Newbe.Mahua.Mpq
     {
         public bool Result { get; set; }
         public override string TypeCode => nameof(Api_IsFriendApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_AddFriend
+    /// </summary>
+    public class Api_AddFriendApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_AddFriendApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetClientType
+    /// </summary>
+    public class Api_GetClientTypeApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_GetClientTypeApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetClientVer
+    /// </summary>
+    public class Api_GetClientVerApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_GetClientVerApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetPubNo
+    /// </summary>
+    public class Api_GetPubNoApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_GetPubNoApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetMainVer
+    /// </summary>
+    public class Api_GetMainVerApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_GetMainVerApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetTXSSOVer
+    /// </summary>
+    public class Api_GetTXSSOVerApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_GetTXSSOVerApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GuidGetVoiceLink
+    /// </summary>
+    public class Api_GuidGetVoiceLinkApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GuidGetVoiceLinkApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_UploadVoice
+    /// </summary>
+    public class Api_UploadVoiceApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_UploadVoiceApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetGroupName
+    /// </summary>
+    public class Api_GetGroupNameApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetGroupNameApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_Like
+    /// </summary>
+    public class Api_LikeApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_LikeApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_UploadGroupFile
+    /// </summary>
+    public class Api_UploadGroupFileApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_UploadGroupFileApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GuidGetPicLinkEx
+    /// </summary>
+    public class Api_GuidGetPicLinkExApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GuidGetPicLinkExApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_CancelGroupMsgA
+    /// </summary>
+    public class Api_CancelGroupMsgAApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_CancelGroupMsgAApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetCookiesByDomain
+    /// </summary>
+    public class Api_GetCookiesByDomainApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetCookiesByDomainApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_SendAppMsg
+    /// </summary>
+    public class Api_SendAppMsgApiOut : MpqApiOutput
+    {
+        public bool Result { get; set; }
+        public override string TypeCode => nameof(Api_SendAppMsgApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetBirthday
+    /// </summary>
+    public class Api_GetBirthdayApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetBirthdayApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetUserInfo
+    /// </summary>
+    public class Api_GetUserInfoApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetUserInfoApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetFriendListA
+    /// </summary>
+    public class Api_GetFriendListAApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetFriendListAApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_GetLoginQRCode
+    /// </summary>
+    public class Api_GetLoginQRCodeApiOut : MpqApiOutput
+    {
+        public string Result { get; set; }
+        public override string TypeCode => nameof(Api_GetLoginQRCodeApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_UploadCface_Byte
+    /// </summary>
+    public class Api_UploadCface_ByteApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_UploadCface_ByteApiOut);
+    }
+    /// <summary>
+    /// api out of method Api_UploadCface_Path
+    /// </summary>
+    public class Api_UploadCface_PathApiOut : MpqApiOutput
+    {
+        public int Result { get; set; }
+        public override string TypeCode => nameof(Api_UploadCface_PathApiOut);
     }
 }
