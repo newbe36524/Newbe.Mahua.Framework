@@ -8,7 +8,7 @@ namespace Newbe.Mahua.QQLight.Native
         public static PluginFileInfo GetPluginInfo()
         {
             var pluginApiExpDll = typeof(MahuaModule).Assembly.CodeBase;
-            var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll).Replace(".plugin", string.Empty);
+            var pluginName = Path.GetFileNameWithoutExtension(pluginApiExpDll).Replace(".ql", string.Empty);
             var baseDir = AppDomain.CurrentDomain.BaseDirectory;
             var dllDir = Path.GetFullPath(Path.Combine(baseDir, pluginName));
             var re = new PluginFileInfo

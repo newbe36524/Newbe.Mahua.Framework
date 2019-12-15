@@ -7,15 +7,18 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.PlatformApIHandlers
 {
     public class CqpJob : IJob
     {
+        private readonly ISourceFileProvider _sourceFileProvider;
         private readonly IApiHandlerGenerator _apiHandlerGenerator;
         private readonly INativeApiInfoProvider _nativeApiInfoProvider;
 
         public CqpJob(
             IApiHandlerGenerator apiHandlerGenerator,
-            INativeApiInfoProvider nativeApiInfoProvider)
+            INativeApiInfoProvider nativeApiInfoProvider,
+            ISourceFileProvider sourceFileProvider)
         {
             _apiHandlerGenerator = apiHandlerGenerator;
             _nativeApiInfoProvider = nativeApiInfoProvider;
+            _sourceFileProvider = sourceFileProvider;
         }
 
         public Task Run()
@@ -30,9 +33,12 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.PlatformApIHandlers
                 AuthCodeContainerInterfaceName = "ICqpAuthCodeContainer",
             });
 
-            File.WriteAllText("../Newbe.Mahua.CQP/CqpMahuaApiHandler.cs",
+            var filename = Path.Combine(_sourceFileProvider.GetBasePath(),
+                "Newbe.Mahua.CQP/CqpMahuaApiHandler.cs");
+            File.WriteAllText(filename,
                 CodeFormatter.FormatCode(apiHandler),
                 Encoding.UTF8);
+
             return Task.CompletedTask;
         }
     }

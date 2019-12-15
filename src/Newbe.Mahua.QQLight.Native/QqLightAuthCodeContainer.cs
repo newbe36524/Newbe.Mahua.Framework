@@ -2,11 +2,11 @@
 {
     internal class QqLightAuthCodeContainer : IQqLightAuthCodeContainer
     {
-        public string AuthCode
+        public int AuthCode
         {
             get => StaticAuthCode;
         }
 
-        public static string StaticAuthCode { get; set; }
+        public static int StaticAuthCode { get; set; }
     }
 }

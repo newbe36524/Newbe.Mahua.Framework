@@ -20,19 +20,16 @@ namespace Newbe.Mahua
         /// <summary>
         /// Amanda
         /// </summary>
-        [Obsolete("已经不再支持该平台")]
-        Amanda,
+        [Obsolete("已经不再支持该平台")] Amanda,
 
         /// <summary>
         /// CleverQQ
         /// </summary>
-        [Obsolete("已经不再支持该平台")]
-        CleverQQ,
+        [Obsolete("已经不再支持该平台")] CleverQQ,
 
         /// <summary>
         /// QqLight
         /// </summary>
         QQLight,
-
     }
 }

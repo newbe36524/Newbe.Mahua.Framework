@@ -2,6 +2,6 @@
 {
     public interface IQqLightAuthCodeContainer
     {
-        string AuthCode { get; }
+        int AuthCode { get; }
     }
 }
