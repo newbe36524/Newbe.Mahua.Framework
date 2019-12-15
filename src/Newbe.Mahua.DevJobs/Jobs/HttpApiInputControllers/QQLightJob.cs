@@ -7,15 +7,18 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.HttpApiInputControllers
 {
     public class QQLightJob : IJob
     {
+        private readonly ISourceFileProvider _sourceFileProvider;
         private readonly INativeApiInfoProvider _nativeApiInfoProvider;
         private readonly IHttpApiInputModelsGenerator _httpApiInputModelsGenerator;
 
         public QQLightJob(
             IHttpApiInputModelsGenerator httpApiInputModelsGenerator,
-            INativeApiInfoProvider nativeApiInfoProvider)
+            INativeApiInfoProvider nativeApiInfoProvider,
+            ISourceFileProvider sourceFileProvider)
         {
             _httpApiInputModelsGenerator = httpApiInputModelsGenerator;
             _nativeApiInfoProvider = nativeApiInfoProvider;
+            _sourceFileProvider = sourceFileProvider;
         }
 
         public Task Run()
@@ -28,9 +31,12 @@ namespace Newbe.Mahua.NativeApiClassfy.Jobs.HttpApiInputControllers
                 SkipProperties = new[] {"AuthCode"},
             });
             var code = CodeFormatter.FormatCode(nativeApiIn);
-            File.WriteAllText("../Newbe.Mahua.InputReceivers.HttpApi/Services/Controllers/QQLightController.cs",
+            var filename = Path.Combine(_sourceFileProvider.GetBasePath(),
+                "Newbe.Mahua.InputReceivers.HttpApi/Services/Controllers/QQLightController.cs");
+            File.WriteAllText(filename,
                 code,
                 Encoding.UTF8);
+
             return Task.CompletedTask;
         }
     }

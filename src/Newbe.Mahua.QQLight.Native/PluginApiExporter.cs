@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Newbe.Mahua.Logging;
 using Newbe.Mahua.QQLight.MahuaEventOutputs;
+using Newtonsoft.Json;
 
 namespace Newbe.Mahua.QQLight.Native
 {
     public class PluginApiExporter : IPluginApiExporter
     {
+        private static readonly ILog Logger = LogProvider.For<PluginApiExporter>();
+
         private const string Continue = "0";
 
-        public string Stopped { get; } = "1";
-
-        private const string SdkVersion = "3";
+        private const string SdkVersion = "1";
 
         [DllExport("Information", CallingConvention.StdCall)]
-        public static string Information(string authCode)
+        public static string Information(int authCode)
         {
             QqLightAuthCodeContainer.StaticAuthCode = authCode;
             PluginInstanceManager.GetInstance()
@@ -21,13 +23,10 @@ namespace Newbe.Mahua.QQLight.Native
                 {
                     AuthCode = authCode,
                 });
-            var info = $"pluginID={AgentInfo.Instance.Id};{Environment.NewLine}" +
-                       $"pluginName={AgentInfo.Instance.Name};{Environment.NewLine}" +
-                       $"pluginBrief={AgentInfo.Instance.Description};{Environment.NewLine}" +
-                       $"pluginVersion={AgentInfo.Instance.Version};{Environment.NewLine}" +
-                       $"pluginSDK={SdkVersion};{Environment.NewLine}" +
-                       $"pluginAuthor={AgentInfo.Instance.Author};{Environment.NewLine}" +
-                       $"pluginWindowsTitle={{_TestMenu1=设置中心}};";
+            var info =
+                $"{{\"plugin_id\":\"{AgentInfo.Instance.Id}\",\"plugin_name\":\"{AgentInfo.Instance.Name}\",\"plugin_author\":\"{AgentInfo.Instance.Author}\",\"plugin_version\":\"{AgentInfo.Instance.Version}\",\"plugin_brief\":\"{AgentInfo.Instance.Description}\",\"plugin_sdk\":\"{SdkVersion}\",\"plugin_menu\":\"true\"}}";
+            Logger.Info("Plugin Info :{info}", info);
+
             return info;
         }
 
@@ -60,7 +59,7 @@ namespace Newbe.Mahua.QQLight.Native
         [DllExport("Event_pluginStop", CallingConvention.StdCall)]
         public static int Event_pluginStop()
         {
-            Native.PluginInstanceManager.GetInstance().HandleMahuaOutput(new PluginStop());
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new PluginStop());
             return 0;
         }
 
@@ -74,7 +73,10 @@ namespace Newbe.Mahua.QQLight.Native
         /// <param name="messageId"></param>
         /// <returns></returns>
         [DllExport("Event_GetNewMsg", CallingConvention.StdCall)]
-        public static string Event_GetNewMsg(int type, string fromgroup, string fromqq, string message,
+        public static string Event_GetNewMsg(int type,
+            string fromgroup,
+            string fromqq,
+            string message,
             string messageId)
         {
             PluginInstanceManager.GetInstance().HandleMahuaOutput(new GetNewMsg
@@ -153,7 +155,7 @@ namespace Newbe.Mahua.QQLight.Native
             string fromqq,
             string operatorQq)
         {
-            Native.PluginInstanceManager.GetInstance().HandleMahuaOutput(new GroupMemberIncrease
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new GroupMemberIncrease
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -207,7 +209,7 @@ namespace Newbe.Mahua.QQLight.Native
             string moreMsg,
             string seq)
         {
-            Native.PluginInstanceManager.GetInstance().HandleMahuaOutput(new AddGroup
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new AddGroup
             {
                 Type = type,
                 Fromqq = fromqq,
@@ -229,7 +231,7 @@ namespace Newbe.Mahua.QQLight.Native
         [DllExport("Event_AddFrinend", CallingConvention.StdCall)]
         public static string Event_AddFrinend(string fromqq, string reason)
         {
-            Native.PluginInstanceManager.GetInstance().HandleMahuaOutput(new AddFrinend
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new AddFrinend
             {
                 Fromqq = fromqq,
                 Reason = reason
@@ -238,29 +240,17 @@ namespace Newbe.Mahua.QQLight.Native
         }
 
         /// <summary>
-        /// 成为了好友事件
+        /// 好友变动事件（包含成为单向好友，双向好友，被好友删除）
+        /// type 1.成为好友（单向） 2、成为好友（双向） 3、解除好友关系
         /// </summary>
-        /// <param name="fromqq"></param>
-        /// <returns></returns>
-        [DllExport("Event_BecomeFriends", CallingConvention.StdCall)]
-        public static string Event_BecomeFriends(string fromqq)
+        [DllExport("Event_FriendChange", CallingConvention.StdCall)]
+        public static string Event_FriendChange(int type, string fromqq)
         {
-            PluginInstanceManager.GetInstance().HandleMahuaOutput(new BecomeFriends
+            PluginInstanceManager.GetInstance().HandleMahuaOutput(new FriendChange
             {
-                Fromqq = fromqq
+                Fromqq = fromqq,
+                Type = type
             });
-            return Continue;
-        }
-
-        /// <summary>
-        /// Cookies更新时会触发此事件
-        /// </summary>
-        /// <returns></returns>
-        /// 这个拼写就是这样，没毛病
-        [DllExport("Event_UpdataCookies", CallingConvention.StdCall)]
-        public static string Event_UpdataCookies()
-        {
-            PluginInstanceManager.GetInstance().HandleMahuaOutput(new UpdataCookies());
             return Continue;
         }
 
@@ -268,8 +258,8 @@ namespace Newbe.Mahua.QQLight.Native
         ///
         /// </summary>
         /// <returns></returns>
-        [DllExport("_TestMenu1", CallingConvention.StdCall)]
-        public static int _TestMenu1()
+        [DllExport("Event_Menu", CallingConvention.StdCall)]
+        public static int Event_Menu()
         {
             // TODO 点击设置中心，暂时没有任何作用
             Console.WriteLine("nothing");

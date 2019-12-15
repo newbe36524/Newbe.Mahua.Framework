@@ -1,0 +1,286 @@
+.版本 2
+
+.DLL命令 QL_SendPraise, , "message.dll", "Api_SendPraise", ,  //给QQ点名片赞，PCQQ点赞不稳定，容易失效
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SendShake, , "message.dll", "Api_SendShake", ,  //抖动好友窗口
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_Getbkn, 文本型, "message.dll", "Api_Getbkn", ,  //取得网页操作时需要用到的bkn/Gtk
+    .参数 Cookies, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_Getbkn_Long, 文本型, "message.dll", "Api_Getbkn_Long", ,  //取得网页操作时需要用到的bkn/Gtk
+    .参数 Cookies, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_QuitGroup, , "message.dll", "Api_QuitGroup", ,  //退出群
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_QuitDiscussGroup, , "message.dll", "Api_QuitDiscussGroup", ,  //退出讨论组
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetSignature, , "message.dll", "Api_SetSignature", ,  //修改个性签名
+    .参数 Signature, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetDiscussName, , "message.dll", "Api_SetDiscussName", ,  //修改讨论组名称
+    .参数 DiscussGroupID, 文本型
+    .参数 Name, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetGroupName, , "message.dll", "Api_SetGroupName", ,  //修改群名称
+    .参数 GroupID, 文本型
+    .参数 Name, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_BanGroup, , "message.dll", "Api_BanGroup", ,  //设置全群禁言
+    .参数 GroupID, 文本型
+    .参数 IsBanGroup, 逻辑型, , 真 开启全群禁言 假 关闭全群禁言
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetManager, , "message.dll", "Api_SetManager", ,  //设置管理员权限
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 IsManager, 逻辑型, , 真,设置  假,取消
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_Ban, , "message.dll", "Api_Ban", ,  //禁言群成员
+    .参数 GroupID, 文本型
+    .参数 QQ, 文本型
+    .参数 time, 整数型, , 单位:秒  0为解除禁言
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetAnony, , "message.dll", "Api_SetAnony", ,   //修改匿名权限
+    .参数 GroupID, 文本型
+    .参数 IsSetAnony, 逻辑型, , 真 允许匿名  假 禁止匿名
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_RemoveMember, , "message.dll", "Api_RemoveMember", ,   //踢出群成员
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 IsBan, 逻辑型, , 不再接受此人加群
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_RemoveGroup, , "message.dll", "Api_RemoveGroup", ,   //解散群
+    .参数 GroupID, 文本型, , 群号
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetCookies, 文本型, "message.dll", "Api_GetCookies", ,  //取得操作网页所需要的Cookies
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQzoneToken, 文本型, "message.dll", "Api_GetQzoneToken", ,  //取得QQ空间Token
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQzoneCookies, 文本型, "message.dll", "Api_GetQzoneCookies", ,  //取得QQ空间Cookies
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SendTaotao, 文本型, "message.dll", "Api_SendTaotao", ,  //发表说说
+    .参数 Str, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetLoginQQ, 文本型, "message.dll", "Api_GetLoginQQ", ,  //取得所登录的QQ
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetPath, 文本型, "message.dll", "Api_GetPath", ,  //框架为插件所创建的插件目录
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetErrorCode, 文本型, "message.dll", "Api_Error", ,  //置插件错误管理
+    .参数 Code, 文本型
+    .参数 Str, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SendMsg, 文本型, "message.dll", "Api_SendMsg", ,  //机器人发送消息，返回值为该条消息的ID
+    .参数 Type, 整数型, , 1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型, , 类型为2，4时可留空
+    .参数 Msg, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetGroupAdd, , "message.dll", "Api_SetGroupAdd", ,  //处理加群消息
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 Seq, 文本型
+    .参数 Type, 整数型, , 1.同意 2.拒绝 3.忽略
+    .参数 Reason, 文本型, , 参数可为空，且为 拒绝 时有效
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetFriendAdd, , "message.dll", "Api_SetFriendAdd", ,  //处理加好友消息
+    .参数 QQID, 文本型
+    .参数 Type, 整数型, , 1.同意 2.拒绝 3.忽略
+    .参数 Reason, 文本型, , 参数可为空，且为 拒绝 时有效
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SendLog, , "message.dll", "Api_SendLog", ,  //向框架推送一条日志
+    .参数 Type, 文本型, , 日志类型（自定义）
+    .参数 Msg, 文本型, , 日志内容
+    .参数 FontColor, 整数型, , 日志颜色
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetFriendName, , "message.dll", "Api_SetFriendName", ,  //修改好友备注
+    .参数 QQID, 文本型
+    .参数 Name, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_DeleteFriend, , "message.dll", "Api_DeleteFriend", ,  //删除好友
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_AddGroup, , "message.dll", "Api_AddGroup", ,  //主动添加群
+    .参数 GroupID, 文本型
+    .参数 附加信息, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_AddFriend, , "message.dll", "Api_AddFriend", ,  //主动添加好友
+    .参数 QQID, 文本型
+    .参数 Info, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_JsonMusic, 文本型, "message.dll", "Api_JsonMusic", ,  //返回卡片点歌JSON代码
+    .参数 SongID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupCard, 文本型, "message.dll", "Api_GetGroupCard", ,  //取得群内成员的名片
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetNick, 文本型, "message.dll", "Api_GetNick", ,  //取指定QQ的昵称
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupName, 文本型, "message.dll", "Api_GetGroupName"
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetSoftVersion, 文本型, "message.dll", "Api_GetSoftVersion"
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupIntroduce, 文本型, "message.dll", "Api_GetGroupIntroduce"
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupOwner, 文本型, "message.dll", "Api_GetGroupOwner"
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetGroupCard, , "message.dll", "Api_SetGroupCard", ,  //修改群成员的名片
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 NewCard, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetPraiseNum, 文本型, "message.dll", "Api_GetPraiseNum", ,  //取得某个QQ的名片赞数量
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQQLevel, 整数型, "message.dll", "Api_GetQQLevel", ,  //取得某个QQ的等级
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetNick, , "message.dll", "Api_SetNick"
+    .参数 NewNick, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_Taotaodolike, 文本型, "message.dll", "Api_Taotaodolike"
+    .参数 QQID, 文本型
+    .参数 URL, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_Taotaofeeds, 文本型, "message.dll", "Api_Taotaofeeds"
+    .参数 QQID, 文本型
+    .参数 URL, 文本型
+    .参数 Content, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQQAge, 整数型, "message.dll", "Api_GetQQAge"
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQQSex, 整数型, "message.dll", "Api_GetQQSex"
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetFriendList, 文本型, "message.dll", "Api_GetFriendList", ,  //以JSON形式取得好友列表
+    .参数 Cache, 逻辑型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupList, 文本型, "message.dll", "Api_GetGroupList", ,  //以JSON形式取得群列表
+    .参数 Cache, 逻辑型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupMemberList, 文本型, "message.dll", "Api_GetGroupMemberList", ,  //以JSON形式取得群成员列表
+    .参数 GroupID, 文本型
+    .参数 Cache, 逻辑型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQQInfo_1, 文本型, "message.dll", "Api_GetQQInfo", ,  //以JSON形式取得某QQ个人信息
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetGroupInfo, 文本型, "message.dll", "Api_GetGroupInfo", ,  //以JSON形式取得某群信息
+    .参数 GroupID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_DeleteMsg, , "message.dll", "Api_DeleteMsg", ,  //撤回自身消息 发出消息不可以秒撤回，腾讯限制，1~2s后才可撤回
+    .参数 Type, 整数型, , 1.好友消息 2.群消息 3.群临时消息 4.讨论组消息 5.讨论组临时消息 6.QQ临时消息
+    .参数 GroupID, 文本型, , 撤回群消息、群临时消息、讨论组消息、讨论组临时消息必须填写，其余情况可留空
+    .参数 QQID, 文本型, , 撤回好友消息、群临时消息、讨论组临时消息、QQ临时消息必须填写，其余情况可留空
+    .参数 MsgID, 文本型, , 撤回的消息ID，机器人发送消息会返回自身的消息ID
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetQQState, , "message.dll", "Api_SetQQState", ,  //改变QQ在线状态
+    .参数 Type, 整数型, , 1.我在线上 2.Q我吧 3.离开 4.忙碌 5.请勿打扰 6.隐身
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_InviteFriendToGroup, , "message.dll", "Api_InviteFriend", , //邀请好友入群
+    .参数 GroupID, 文本型
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_GetQQInfo_2, 文本型, "message.dll", "Api_GetQQInfo_v2"
+    .参数 QQID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 CoUninitialize, , "ole32.dll", "CoUninitialize", 公开,  //取消COM库
+
+.DLL命令 CoInitialize, , "ole32.dll", "CoInitialize", 公开,  //初始化COM库
+    .参数 pvReserved, 整数型
+
+.DLL命令 QL_UpLoadPic, 文本型, "message.dll", "Api_UpLoadPic", ,  //上传图片，获得图片GUID，
+    .参数 Type, 整数型, , 1.私聊图片  2.群聊图片
+    .参数 对象, 文本型, , 私聊图片填写QQID，群聊/讨论组图片填写群号讨论组号
+    .参数 Bin, 文本型, , 图片的Hex流
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_SetPluginState, 文本型, "message.dll", "Api_SetPluginState", ,  //设置插件状态，开启或关闭
+    .参数 State, 逻辑型, , 真:启用自身  假:关闭自身 
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_DeleteFile, , "message.dll", "Api_DeleteFile"
+    .参数 群号, 文本型
+    .参数 文件GUID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_RepeatFile, , "message.dll", "Api_RepeatFile"
+    .参数 来源对象, 文本型
+    .参数 转发群号, 文本型
+    .参数 文件GUID, 文本型
+    .参数 AuthCode, 整数型
+
+.DLL命令 QL_ClearOffLineFile, , "message.dll", "Api_ClearOffLineFile"
+    .参数 AuthCode, 整数型
+
+.DLL命令 _Unicode转Utf8, 整数型, "kernel32", "WideCharToMultiByte", , ,
+    .参数 CodePage, 整数型
+    .参数 dwFlags, 整数型
+    .参数 lpWideCharStr, 字节集, 传址
+    .参数 cchWideChar, 整数型
+    .参数 lpMultiByteStr, 文本型, 传址
+    .参数 cchMultiByte, 整数型
+    .参数 lpDefaultChar, 整数型
+    .参数 lpUsedDefaultChar, 整数型

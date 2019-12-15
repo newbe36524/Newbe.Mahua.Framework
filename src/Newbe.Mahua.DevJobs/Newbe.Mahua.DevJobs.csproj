@@ -4,6 +4,7 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net461</TargetFramework>
         <RootNamespace>Newbe.Mahua.NativeApiClassfy</RootNamespace>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>

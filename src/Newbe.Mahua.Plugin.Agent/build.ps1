@@ -73,7 +73,7 @@ Task PackQQLight -depends  Clean -Description "QQLight打包" {
         # 插件运行时
         Copy-Item -Path "$currentBuild\*", "../Newbe.Mahua.QQLight/bin/$configuration/$fwVersion/*" -Destination "$releaseBase\QQLight\$pluginName" -Recurse
         # 机器人平台入口文件
-        Copy-Item -Path "../Newbe.Mahua.QQLight.Native/bin/$configuration/x86/Newbe.Mahua.QQLight.Native.dll" -Destination  "$releaseBase\QQLight\plugin\$pluginName.plugin.dll"
+        Copy-Item -Path "../Newbe.Mahua.QQLight.Native/bin/$configuration/x86/Newbe.Mahua.QQLight.Native.dll" -Destination  "$releaseBase\QQLight\plugin\$pluginName.ql.dll"
         # 复制配置文件
         Copy-Item -Path "Configs/*" "$releaseBase/QQLight" -Recurse
     }
