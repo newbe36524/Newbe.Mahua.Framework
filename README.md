@@ -1,31 +1,9 @@
-# Newbe.Mahua.Framework
+# Newbe.Mahua.Framework 已于 2020 年 8 月 2 日 正式归档，源码将不再更新。
 
-先点击一下右上角的Star，开启隐藏功能。
+先点击一下右上角的 Star，开启隐藏功能。
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/Newbe36524/Newbe.Mahua.Framework.svg?style=flat-square)]()
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors)
-
-## 入坑提示
-
-建议开发者先根据自身需求结合表格，选择属于自己的专属开发框架，避免浪费时间。
-
-1. 编写一套代码就能在多个平台运行
-2. 支持使用除了C#之外的开发语言来开发
-3. 我希望他足够简单，不用学习太多就能掌握，通常只需要半个小时就能掌握所有内容
-4. 我希望社区的反馈足够快，有问题都可以帮我解决
-
-| SDK名称                                                                     | （1） | （2） | （3） | （4） |
-| --------------------------------------------------------------------------- | ----- | ----- | ----- | ----- |
-| 论坛中的其他SDK                                                             | ✔     | ✔     | ✔     | ✔     |
-| [Jie2GG.Native.Csharp.Frame](https://github.com/Jie2GG/Native.Csharp.Frame) | ✔     | ✘     | ✔     | ✔     |
-| [Newbe.Mahua V2](https://github.com/newbe36524/Newbe.Mahua.Framework/)      | ✔     | ✔     | ✘     | ✘     |
-| [Newbe.Mahua V1](https://github.com/newbe36524/Newbe.Mahua.Framework.V1)    | ✔     | ✘     | ✘     | ✘     |
-
-### 论坛其他SDK的链接
-
-- [CQP](https://d.oo14.com/b7oy?target=cqp)         
-- [MPQ](https://d.oo14.com/b7oy?target=mpq)         
-- [QQLight](https://d.oo14.com/b7oy?target=qqlight) 
 
 ## 开篇一张图，功能全靠编
 
@@ -35,22 +13,22 @@
 
 ## 你打麻花，谁疼？麻花疼。
 
-QQ协议实现也有不少，QQ机器人平台有不少，这些平台大多具有不同的接口，对接开发存在巨大困难。
+QQ 协议实现也有不少，QQ 机器人平台有不少，这些平台大多具有不同的接口，对接开发存在巨大困难。
 
-使用该SDK开发可以实现一次开发，运行于多个不同平台的绝佳体验。
+使用该 SDK 开发可以实现一次开发，运行于多个不同平台的绝佳体验。
 
-SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选择自己适用的开发语言进行对接。
+SDK 提供多种可用的跨进程通信方案，开发者可以从中灵活选择自己适用的开发语言进行对接。
 
-你只要基于SDK的接口开发一次，便可以将你的插件发布到所有支持的QQ机器人平台。
+你只要基于 SDK 的接口开发一次，便可以将你的插件发布到所有支持的 QQ 机器人平台。
 
 不用担心某个平台被咔嚓。
 
 ## 支持跨进程通行方案
 
-| 名称      | 调用 | 回调 | 说明                                                |
-| --------- | ---- | ---- | --------------------------------------------------- |
-| HTTP      | ✔    | ✔    | http 的方式进行通信                                 |
-| Websocket | ✔    | ✔    | websocket 双工通信方案，由客户程序连接到Newbe.Mahua |
+| 名称      | 调用 | 回调 | 说明                                                 |
+| --------- | ---- | ---- | ---------------------------------------------------- |
+| HTTP      | ✔    | ✔    | http 的方式进行通信                                  |
+| Websocket | ✔    | ✔    | websocket 双工通信方案，由客户程序连接到 Newbe.Mahua |
 
 调用：是指开发者的进程调用 Newbe.Mahua 的接口。
 
@@ -60,13 +38,13 @@ SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选�
 
 ## 支持的平台
 
-- [CQP](https://d.oo14.com/b7oy?target=cqp)         
-- [MPQ](https://d.oo14.com/b7oy?target=mpq)         
-- [QQLight](https://d.oo14.com/b7oy?target=qqlight) 
+- [CQP](https://cqp.cc/)
+- [MPQ](https://f.mypcqq.cc/)
+- [QQLight](https://www.52chat.cc/)
 
 ## 立马开始
 
-[点击查看帮助文档](https://d.oo14.com/08ZI?v=v2) 开始编写第一个QQ机器人。
+[点击查看帮助文档](https://www.newbe.pro/Newbe.Mahua/Start-With-Mahua-In-V2.0/) 开始编写第一个 QQ 机器人。
 
 ### 快乐实践
 
@@ -74,16 +52,16 @@ SDK提供多种可用的跨进程通信方案，开发者可以从中灵活选�
 
 #### [Python QQBot](https://github.com/892768447/QQBot)
 
-使用 Python 对接 Newbe.Mahua.Plugin.Agent插件实现各大机器人平台的Http接口功能，对接QQBot Web Server服务端实现统一各大机器人平台收发数据
+使用 Python 对接 Newbe.Mahua.Plugin.Agent 插件实现各大机器人平台的 Http 接口功能，对接 QQBot Web Server 服务端实现统一各大机器人平台收发数据
 
 ## 版本
 
-| 包                         | 版本                                                                                                                                                                                 | 下载量                                                                                                                                                                                 | 开发版                                                                                                                                                                                      | 说明                         |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Newbe.Mahua.CQP.Asset      | [![Newbe.Mahua.CQP.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | [![Newbe.Mahua.CQP.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | [![Newbe.Mahua.CQP.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | CQP（酷Q）实现               |
-| Newbe.Mahua.QQLight.Asset  | [![Newbe.Mahua.QQLight.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | QQLight实现                  |
-| Newbe.Mahua.MPQ.Asset      | [![Newbe.Mahua.MPQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | MPQ（MyPcQQ）实现            |
-| Newbe.Mahua.CleverQQ.Asset | [![Newbe.Mahua.CleverQQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | CleverQQ实现（已经停止维护） |
+| 包                         | 版本                                                                                                                                                                                 | 下载量                                                                                                                                                                                 | 开发版                                                                                                                                                                                      | 说明                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| Newbe.Mahua.CQP.Asset      | [![Newbe.Mahua.CQP.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | [![Newbe.Mahua.CQP.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | [![Newbe.Mahua.CQP.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CQP.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CQP.Asset/)                | CQP（酷 Q）实现               |
+| Newbe.Mahua.QQLight.Asset  | [![Newbe.Mahua.QQLight.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | [![Newbe.Mahua.QQLight.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.QQLight.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.QQLight.Asset/)    | QQLight 实现                  |
+| Newbe.Mahua.MPQ.Asset      | [![Newbe.Mahua.MPQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | [![Newbe.Mahua.MPQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.MPQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.MPQ.Asset/)                | MPQ（MyPcQQ）实现             |
+| Newbe.Mahua.CleverQQ.Asset | [![Newbe.Mahua.CleverQQ.Asset.Version](https://img.shields.io/nuget/v/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Download](https://img.shields.io/nuget/dt/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | [![Newbe.Mahua.CleverQQ.Asset.Version.Pre](https://img.shields.io/nuget/vpre/Newbe.Mahua.CleverQQ.Asset.svg?style=flat-square)](https://www.nuget.org/packages/Newbe.Mahua.CleverQQ.Asset/) | CleverQQ 实现（已经停止维护） |
 
 ## Contributors
 
@@ -113,23 +91,22 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 ## 说在最后面
 
-开发本SDK的目的是为了促进.Net技术的交流学习。
+开发本 SDK 的目的是为了促进.Net 技术的交流学习。
 
-由本SDK衍生的任何产品均与本SDK无关！
+由本 SDK 衍生的任何产品均与本 SDK 无关！
 
-由本SDK支持的QQ自动化管理助手平台均与本SDK无关！
+由本 SDK 支持的 QQ 自动化管理助手平台均与本 SDK 无关！
 
 禁止用于国家或地区法律法规所禁止的范围！
 
-**最后，但是最重要的，一定要Star一下！**
-
-[借一步说话](http://www.newbe.pro/donate/)
+**最后，但是最重要的，一定要 Star 一下！**
 
 特别感谢 Jetbrain 公司提供的 License 以支持该项目
 
 [![jetbrains](i/jetbrains-variant-3.png)](https://www.jetbrains.com/?from=Newbe.Mahua.Framework)
 
 ## License
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnewbe36524%2FNewbe.Mahua.Framework?ref=badge_large)
 
 ## Stargazers over time

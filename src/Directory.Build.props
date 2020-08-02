@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <VersionPrefix>2.4.0</VersionPrefix>
+    <VersionPrefix>2.5.0</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Newbe</Authors>
     <Company>Newbe</Company>
@@ -15,6 +15,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\Newbe.Mahua.ruleset</CodeAnalysisRuleSet>
     <PackageReleaseNotes>
+      项目于 2020年8月2日 正式归档，源码将不再更新。
     </PackageReleaseNotes>
     <LangVersion>Latest</LangVersion>
   </PropertyGroup>

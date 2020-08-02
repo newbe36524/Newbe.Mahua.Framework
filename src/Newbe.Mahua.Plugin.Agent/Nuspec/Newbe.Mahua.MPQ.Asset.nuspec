@@ -9,7 +9,9 @@
         <licenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</licenseUrl>
         <projectUrl>http://www.newbe.pro/</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
-        <description>Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。【此包不能直接引用到项目中，若要使用该包，请参考: http://www.newbe.pro】
+        <description>
+            项目于 2020年8月2日 正式归档，源码将不再更新。
+            Newbe.Mahua 针对MyPCQQ平台推出的平台支持包。【此包不能直接引用到项目中，若要使用该包，请参考: http://www.newbe.pro】
             0 长久有效的技术支持及更新维护+独占功能
             1 轻壳 极速运行
             2 企业Q登录

@@ -9,7 +9,9 @@
         <licenseUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/LICENSE</licenseUrl>
         <projectUrl>http://www.newbe.pro/</projectUrl>
         <iconUrl>https://raw.githubusercontent.com/Newbe36524/Newbe.Mahua.Framework/master/logo.png</iconUrl>
-        <description>Newbe.Mahua 针对酷Q平台推出的平台支持包。【此包不能直接引用到项目中，若要使用该包，请参考: http://www.newbe.pro】
+        <description>
+            项目于 2020年8月2日 正式归档，源码将不再更新。
+            Newbe.Mahua 针对酷Q平台推出的平台支持包。【此包不能直接引用到项目中，若要使用该包，请参考: http://www.newbe.pro】
             酷Q Air （https://cqp.im/t/23253） 继承了老版本（酷Q Lite）简单快速、扩展性强的特点。使用了更稳定的协议、更强大的
             V9应用机制，并坚持免费，愿更多的朋友体验到机器人带来的无穷乐趣与精彩。
             酷Q Pro （https://cqp.im/t/14901） 是一款收费软件，因此我们会更专注于其稳定性与专业性。
